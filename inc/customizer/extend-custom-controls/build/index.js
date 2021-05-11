@@ -21075,133 +21075,6 @@ DraggableComponent.propTypes = {
 
 /***/ }),
 
-/***/ "./src/font-presets/control.js":
-/*!*************************************!*\
-  !*** ./src/font-presets/control.js ***!
-  \*************************************/
-/*! exports provided: FontPresetControl */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FontPresetControl", function() { return FontPresetControl; });
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _font_presets_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./font-presets-component */ "./src/font-presets/font-presets-component.js");
-
-
-var FontPresetControl = wp.customize.astraControl.extend({
-  renderContent: function renderContent() {
-    var control = this;
-    ReactDOM.render(Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_font_presets_component__WEBPACK_IMPORTED_MODULE_1__["default"], {
-      control: control
-    }), control.container[0]);
-  },
-  ready: function ready() {
-    'use strict';
-
-    var control = this;
-    jQuery(document).mouseup(function (e) {});
-  }
-});
-
-/***/ }),
-
-/***/ "./src/font-presets/font-presets-component.js":
-/*!****************************************************!*\
-  !*** ./src/font-presets/font-presets-component.js ***!
-  \****************************************************/
-/*! exports provided: getFontName, default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getFontName", function() { return getFontName; });
-/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/slicedToArray */ "./node_modules/@babel/runtime/helpers/slicedToArray.js");
-/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_4__);
-
-
-
-
-
-
-var List = function List(_ref) {
-  var className = _ref.className,
-      options = _ref.options,
-      selected = _ref.selected;
-  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("ul", {
-    className: "ast-font-selector ".concat(className)
-  }, Object.entries(options).map(function (_ref2) {
-    var _ref3 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0___default()(_ref2, 2),
-        key = _ref3[0],
-        item = _ref3[1];
-
-    var bodyFont = item["body-font-family"] || '';
-    var headingFont = item["headings-font-family"] || '';
-    var preview = item["preview"] || '';
-    return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("li", {
-      className: "ast-font-list-item",
-      key: key,
-      active: key == selected ? true : false
-    }, '' !== preview ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("img", {
-      src: preview
-    }) : Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["Fragment"], null, headingFont ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(Typography, {
-      font: headingFont,
-      large: true
-    }, headingFont) : '', bodyFont ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(Typography, {
-      font: bodyFont
-    }, bodyFont) : ''));
-  }));
-};
-
-var getFontName = function getFontName(fontName, inheritFont) {
-  if (!fontName) {
-    return '';
-  }
-
-  var matches = fontName.match(/'([^']+)'/);
-
-  if (matches) {
-    return matches[1];
-  }
-
-  if (inheritFont) {
-    return inheritFont;
-  }
-
-  return fontName;
-};
-
-var FontPresetsComponent = function FontPresetsComponent(props) {
-  var _props$control$params = props.control.params,
-      title = _props$control$params.title,
-      options = _props$control$params.options;
-  var value = props.control.setting.get();
-  Object(react__WEBPACK_IMPORTED_MODULE_4__["useEffect"])(function () {}, []);
-  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("label", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("span", {
-    className: "customize-control-title"
-  }, title)), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(List, {
-    className: "ast-font-presets",
-    options: options,
-    selected: value
-  }));
-};
-
-FontPresetsComponent.propTypes = {
-  control: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.object.isRequired
-};
-/* harmony default export */ __webpack_exports__["default"] = (React.memo(FontPresetsComponent));
-
-/***/ }),
-
 /***/ "./src/header-type-button/control.js":
 /*!*******************************************!*\
   !*** ./src/header-type-button/control.js ***!
@@ -21685,7 +21558,7 @@ var _assets_svg_svgs_json__WEBPACK_IMPORTED_MODULE_0___namespace = /*#__PURE__*/
 /* harmony import */ var _color_group_control__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ./color-group/control */ "./src/color-group/control.js");
 /* harmony import */ var _selector_control__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ./selector/control */ "./src/selector/control.js");
 /* harmony import */ var _box_shadow_control_js__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! ./box-shadow/control.js */ "./src/box-shadow/control.js");
-/* harmony import */ var _font_presets_control_js__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! ./font-presets/control.js */ "./src/font-presets/control.js");
+/* harmony import */ var _typography_presets_control_js__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! ./typography-presets/control.js */ "./src/typography-presets/control.js");
 /* harmony import */ var _customizer__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! ./customizer */ "./src/customizer.js");
 /* harmony import */ var _control_customizer__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! ./control-customizer */ "./src/control-customizer.js");
 
@@ -21757,7 +21630,7 @@ wp.customize.controlConstructor['ast-row-layout'] = _row_layout_control__WEBPACK
 wp.customize.controlConstructor['ast-toggle-control'] = _toggle_control_control__WEBPACK_IMPORTED_MODULE_31__["toggleControl"];
 wp.customize.controlConstructor['ast-color-group'] = _color_group_control__WEBPACK_IMPORTED_MODULE_32__["colorGroupControl"];
 wp.customize.controlConstructor['ast-selector'] = _selector_control__WEBPACK_IMPORTED_MODULE_33__["selectorControl"];
-wp.customize.controlConstructor['ast-font-presets'] = _font_presets_control_js__WEBPACK_IMPORTED_MODULE_35__["FontPresetControl"];
+wp.customize.controlConstructor['ast-typography-presets'] = _typography_presets_control_js__WEBPACK_IMPORTED_MODULE_35__["TypographyPresetControl"];
 wp.customize.controlConstructor['ast-box-shadow'] = _box_shadow_control_js__WEBPACK_IMPORTED_MODULE_34__["BoxShadowControl"];
 
 
@@ -25854,6 +25727,133 @@ AstToggleControl.propTypes = {
   control: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.object.isRequired
 };
 /* harmony default export */ __webpack_exports__["default"] = (React.memo(AstToggleControl));
+
+/***/ }),
+
+/***/ "./src/typography-presets/control.js":
+/*!*******************************************!*\
+  !*** ./src/typography-presets/control.js ***!
+  \*******************************************/
+/*! exports provided: FontPresetControl */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FontPresetControl", function() { return FontPresetControl; });
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _typo_presets_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./typo-presets-component */ "./src/typography-presets/typo-presets-component.js");
+
+
+var FontPresetControl = wp.customize.astraControl.extend({
+  renderContent: function renderContent() {
+    var control = this;
+    ReactDOM.render(Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_typo_presets_component__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      control: control
+    }), control.container[0]);
+  },
+  ready: function ready() {
+    'use strict';
+
+    var control = this;
+    jQuery(document).mouseup(function (e) {});
+  }
+});
+
+/***/ }),
+
+/***/ "./src/typography-presets/typo-presets-component.js":
+/*!**********************************************************!*\
+  !*** ./src/typography-presets/typo-presets-component.js ***!
+  \**********************************************************/
+/*! exports provided: getFontName, default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getFontName", function() { return getFontName; });
+/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/slicedToArray */ "./node_modules/@babel/runtime/helpers/slicedToArray.js");
+/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_4__);
+
+
+
+
+
+
+var List = function List(_ref) {
+  var className = _ref.className,
+      options = _ref.options,
+      selected = _ref.selected;
+  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("ul", {
+    className: "ast-font-selector ".concat(className)
+  }, Object.entries(options).map(function (_ref2) {
+    var _ref3 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0___default()(_ref2, 2),
+        key = _ref3[0],
+        item = _ref3[1];
+
+    var bodyFont = item["body-font-family"] || '';
+    var headingFont = item["headings-font-family"] || '';
+    var preview = item["preview"] || '';
+    return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("li", {
+      className: "ast-font-list-item",
+      key: key,
+      active: key == selected ? true : false
+    }, '' !== preview ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("img", {
+      src: preview
+    }) : Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["Fragment"], null, headingFont ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(Typography, {
+      font: headingFont,
+      large: true
+    }, headingFont) : '', bodyFont ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(Typography, {
+      font: bodyFont
+    }, bodyFont) : ''));
+  }));
+};
+
+var getFontName = function getFontName(fontName, inheritFont) {
+  if (!fontName) {
+    return '';
+  }
+
+  var matches = fontName.match(/'([^']+)'/);
+
+  if (matches) {
+    return matches[1];
+  }
+
+  if (inheritFont) {
+    return inheritFont;
+  }
+
+  return fontName;
+};
+
+var FontPresetsComponent = function FontPresetsComponent(props) {
+  var _props$control$params = props.control.params,
+      title = _props$control$params.title,
+      options = _props$control$params.options;
+  var value = props.control.setting.get();
+  Object(react__WEBPACK_IMPORTED_MODULE_4__["useEffect"])(function () {}, []);
+  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("label", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("span", {
+    className: "customize-control-title"
+  }, title)), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(List, {
+    className: "ast-typo-presets",
+    options: options,
+    selected: value
+  }));
+};
+
+FontPresetsComponent.propTypes = {
+  control: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.object.isRequired
+};
+/* harmony default export */ __webpack_exports__["default"] = (React.memo(FontPresetsComponent));
 
 /***/ }),
 

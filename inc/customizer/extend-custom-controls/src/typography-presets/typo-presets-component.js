@@ -72,8 +72,7 @@ const FontPresetsComponent = props => {
 				{title}</span>
 			</label>
 
-			<List className="ast-font-presets" options={options} selected={value} />
-
+			<List className="ast-typo-presets" options={options} selected={value} />
         </>
     )
 }

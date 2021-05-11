@@ -1,4 +1,4 @@
-import FontPresetsComponent from './font-presets-component';
+import FontPresetsComponent from './typo-presets-component';
 
 export const FontPresetControl = wp.customize.astraControl.extend( {
 	renderContent: function renderContent() {
