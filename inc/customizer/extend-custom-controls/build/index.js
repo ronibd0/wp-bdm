@@ -16523,7 +16523,17 @@ var AddComponent = function AddComponent(props) {
   if (state.isVisible) {
     controlParams.rows.map(function (zone) {
       Object.keys(props.settings[zone]).map(function (area) {
-        droppedCount = droppedCount + props.settings[zone][area].length;
+        if ('astra-settings[header-desktop-items]' === controlParams.group && !astra.customizer.is_pro && 'popup' === zone) {
+          /*
+           * Reducing Dropped & Droppable component count here because it fails in following case:
+           * When "Toggle for Desktop" option introduced in Astra, this component comes from addon but offcanvas panel comes from theme & already 'mobile-menu' component present in this panel.
+           * That's why the count fails here by 1.
+           */
+          droppedCount = droppedCount - props.settings[zone][area].length;
+          droppableCount = droppableCount - props.settings[zone][area].length;
+        } else {
+          droppedCount = droppedCount + props.settings[zone][area].length;
+        }
       });
     });
   }
@@ -22843,10 +22853,10 @@ var ResponsiveSliderComponent = function ResponsiveSliderComponent(props) {
     var min = controlProps.min,
         max = controlProps.max,
         step = controlProps.step;
-    var savedValue = state[device] ? parseFloat(state[device]) : '';
+    var savedValue = state[device] || 0 === state[device] ? parseFloat(state[device]) : '';
 
     if (1 === step) {
-      savedValue = state[device] ? parseInt(state[device]) : '';
+      savedValue = state[device] || 0 === state[device] ? parseInt(state[device]) : '';
     }
 
     return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
@@ -24819,10 +24829,10 @@ var SliderComponent = function SliderComponent(props) {
     })));
   };
 
-  var savedValue = props_value ? parseFloat(props_value) : '';
+  var savedValue = props_value || 0 === props_value ? parseFloat(props_value) : '';
 
   if (1 === step) {
-    savedValue = props_value ? parseInt(props_value) : '';
+    savedValue = props_value || 0 === props_value ? parseInt(props_value) : '';
   }
 
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
@@ -25734,22 +25744,23 @@ AstToggleControl.propTypes = {
 /*!*******************************************!*\
   !*** ./src/typography-presets/control.js ***!
   \*******************************************/
-/*! exports provided: FontPresetControl */
+/*! exports provided: TypographyPresetControl */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FontPresetControl", function() { return FontPresetControl; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TypographyPresetControl", function() { return TypographyPresetControl; });
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _typo_presets_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./typo-presets-component */ "./src/typography-presets/typo-presets-component.js");
 
 
-var FontPresetControl = wp.customize.astraControl.extend({
+var TypographyPresetControl = wp.customize.astraControl.extend({
   renderContent: function renderContent() {
     var control = this;
     ReactDOM.render(Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_typo_presets_component__WEBPACK_IMPORTED_MODULE_1__["default"], {
-      control: control
+      control: control,
+      customizer: wp.customize
     }), control.container[0]);
   },
   ready: function ready() {
@@ -25766,12 +25777,11 @@ var FontPresetControl = wp.customize.astraControl.extend({
 /*!**********************************************************!*\
   !*** ./src/typography-presets/typo-presets-component.js ***!
   \**********************************************************/
-/*! exports provided: getFontName, default */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getFontName", function() { return getFontName; });
 /* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/slicedToArray */ "./node_modules/@babel/runtime/helpers/slicedToArray.js");
 /* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
@@ -25788,72 +25798,77 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var List = function List(_ref) {
-  var className = _ref.className,
-      options = _ref.options,
-      selected = _ref.selected;
-  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("ul", {
-    className: "ast-font-selector ".concat(className)
-  }, Object.entries(options).map(function (_ref2) {
-    var _ref3 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0___default()(_ref2, 2),
-        key = _ref3[0],
-        item = _ref3[1];
-
-    var bodyFont = item["body-font-family"] || '';
-    var headingFont = item["headings-font-family"] || '';
-    var preview = item["preview"] || '';
-    return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("li", {
-      className: "ast-font-list-item",
-      key: key,
-      active: key == selected ? true : false
-    }, '' !== preview ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("img", {
-      src: preview
-    }) : Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["Fragment"], null, headingFont ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(Typography, {
-      font: headingFont,
-      large: true
-    }, headingFont) : '', bodyFont ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(Typography, {
-      font: bodyFont
-    }, bodyFont) : ''));
-  }));
-};
-
-var getFontName = function getFontName(fontName, inheritFont) {
-  if (!fontName) {
-    return '';
-  }
-
-  var matches = fontName.match(/'([^']+)'/);
-
-  if (matches) {
-    return matches[1];
-  }
-
-  if (inheritFont) {
-    return inheritFont;
-  }
-
-  return fontName;
-};
-
-var FontPresetsComponent = function FontPresetsComponent(props) {
+var TypoPresetControl = function TypoPresetControl(props) {
   var _props$control$params = props.control.params,
       title = _props$control$params.title,
       options = _props$control$params.options;
-  var value = props.control.setting.get();
+
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_4__["useState"])(props.control.setting.get()),
+      _useState2 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0___default()(_useState, 2),
+      props_value = _useState2[0],
+      setPropsValue = _useState2[1];
+
   Object(react__WEBPACK_IMPORTED_MODULE_4__["useEffect"])(function () {}, []);
+
+  var onPresetClick = function onPresetClick(value) {
+    var bodyFontFamilyControl = props.customizer.control("astra-settings[body-font-family]");
+    var headingFontFamilyControl = props.customizer.control("astra-settings[headings-font-family]");
+    var bodyFontFamily = options[value]['body-font-family'];
+    var headingsFontFamily = options[value]['headings-font-family'];
+    bodyFontFamilyControl.setting.set({
+      bodyFontFamily: bodyFontFamily
+    });
+    headingFontFamilyControl.setting.set({
+      headingsFontFamily: headingsFontFamily
+    });
+    setPropsValue(value);
+    props.control.setting.set(value);
+  };
+
+  var List = function List(_ref) {
+    var className = _ref.className,
+        options = _ref.options,
+        selected = _ref.selected;
+    return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("ul", {
+      className: "ast-font-selector ".concat(className)
+    }, Object.entries(options).map(function (_ref2) {
+      var _ref3 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0___default()(_ref2, 2),
+          key = _ref3[0],
+          item = _ref3[1];
+
+      var bodyFont = item["body-font-family"] || '';
+      var headingFont = item["headings-font-family"] || '';
+      var preview = item["preview"] || '';
+      return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("li", {
+        className: "ast-typo-preset-item " + (props_value === key ? "active" : ""),
+        key: key,
+        onClick: function onClick() {
+          return onPresetClick(key);
+        }
+      }, '' !== preview ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("img", {
+        src: preview
+      }) : Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["Fragment"], null, headingFont ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(Typography, {
+        font: headingFont,
+        large: true
+      }, headingFont) : '', bodyFont ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(Typography, {
+        font: bodyFont
+      }, bodyFont) : ''));
+    }));
+  };
+
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("label", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("span", {
     className: "customize-control-title"
   }, title)), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(List, {
     className: "ast-typo-presets",
     options: options,
-    selected: value
+    selected: props_value
   }));
 };
 
-FontPresetsComponent.propTypes = {
+TypoPresetControl.propTypes = {
   control: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.object.isRequired
 };
-/* harmony default export */ __webpack_exports__["default"] = (React.memo(FontPresetsComponent));
+/* harmony default export */ __webpack_exports__["default"] = (React.memo(TypoPresetControl));
 
 /***/ }),
 

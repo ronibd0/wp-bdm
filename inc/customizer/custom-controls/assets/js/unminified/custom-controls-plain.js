@@ -110,7 +110,7 @@
 			variants            	= fontSelect.data( 'connected-variant' );
 
 			AstTypography._setFontWeightOptions.apply( this, [ false ] );
-			
+
 			if ( 'undefined' != typeof variants ) {
 				AstTypography._setFontVarianttOptions.apply( this, [ false ] );
 			}
@@ -123,11 +123,14 @@
 		 *
 		 * @since  1.3.0
 		 * @param  {String} fontValue Name of the font.
-		 * 
+		 *
 		 * @return {String}  Font name where commas and inverted commas are removed if the font is a Google Font.
 		 */
 		_cleanGoogleFonts: function(fontValue)
 		{
+
+			console.log( fontValue );
+
 			// Bail if fontVAlue does not contain a comma.
 			if ( ! fontValue.includes(',') ) return fontValue;
 
@@ -150,7 +153,7 @@
 		 *
 		 * @since  1.5.2
 		 * @param  {String} fontValue Name of the font.
-		 * 
+		 *
 		 * @return {String}  Available font weights for the selected fonts.
 		 */
 		_getWeightObject: function(fontValue)
@@ -261,7 +264,7 @@
 				var weightObject = AstTypography._getWeightObject( fontValue );
 
 				weightMap[ 'inherit' ] = currentWeightTitle;
-				
+
 				for ( var i = 0; i < weightObject.length; i++ ) {
 					for ( var e = 0; e < variantArray.length; e++ ) {
 						if ( weightObject[i] === variantArray[e] ) {

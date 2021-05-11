@@ -37,7 +37,7 @@ class Astra_Global_Typo_Configs extends Astra_Customizer_Config_Base {
 				'name'        => 'ast-typography-presets',
 				'type'        => 'control',
 				'control'     => 'ast-typography-presets',
-				'default'     => get_option( 'ast-typography-presets', 'rufine' ),
+				'default'     => get_option( 'ast-typography-presets', '' ),
 				'options'     => array(
 					'rufine' => array(
 						'preview'            => ASTRA_THEME_URI . 'inc/assets/images/font-svg/font-rufina-sourcesanspro.svg',

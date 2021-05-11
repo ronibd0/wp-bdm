@@ -1,9 +1,9 @@
-import FontPresetsComponent from './typo-presets-component';
+import TypoPresetControl from './typo-presets-component';
 
-export const FontPresetControl = wp.customize.astraControl.extend( {
+export const TypographyPresetControl = wp.customize.astraControl.extend( {
 	renderContent: function renderContent() {
 		let control = this;
-		ReactDOM.render( <FontPresetsComponent control={ control } />, control.container[0] );
+		ReactDOM.render( <TypoPresetControl control={ control }  customizer={ wp.customize } />, control.container[0] );
 	},
 	ready : function() {
 		'use strict';
