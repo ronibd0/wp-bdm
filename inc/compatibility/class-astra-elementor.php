@@ -50,6 +50,7 @@ if ( ! class_exists( 'Astra_Elementor' ) ) :
 			add_action( 'wp', array( $this, 'elementor_default_setting' ), 20 );
 			add_action( 'elementor/preview/init', array( $this, 'elementor_default_setting' ) );
 			add_action( 'elementor/preview/enqueue_styles', array( $this, 'elementor_overlay_zindex' ) );
+			add_action( 'elementor/editor/before_enqueue_scripts', array( $this, 'elementor_add_scripts' ) );
 
 			/**
 			 * Compatibility for Elementor Headings after Elementor-v2.9.9.
@@ -350,6 +351,16 @@ if ( ! class_exists( 'Astra_Elementor' ) ) :
 			}
 
 			return $dynamic_css;
+		}
+
+		/**
+		 * Load style inside Elementor editor.
+		 *
+		 * @since x.x.x
+		 * @return void
+		 */
+		public function elementor_add_scripts() {
+			wp_enqueue_style( 'astra-elementor-editor-style', ASTRA_THEME_URI . 'inc/assets/css/ast-elementor-editor.css', array(), ASTRA_THEME_VERSION );
 		}
 	}
 
