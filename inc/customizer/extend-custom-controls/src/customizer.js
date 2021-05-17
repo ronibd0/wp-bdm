@@ -643,6 +643,13 @@
 		Object.entries( globalPalette.palette ).map( ( paletteItem, index ) => {
 			innerDoc.documentElement.style.setProperty( stylePrefix + index, paletteItem[1] );
 			document.documentElement.style.setProperty( stylePrefix + index, paletteItem[1] );
+
+			if( true === astra.customizer.isElementorActive ) {
+				let paletteSlugs = astra.customizer.globalPaletteSlugs;
+				// Set css variables for Elementor style.
+				innerDoc.documentElement.style.setProperty( '--e-global-color-astra' + paletteSlugs[ index ].replace(/-/g, ""), paletteItem[1] );
+			}
+
 		} );
 	}
 
