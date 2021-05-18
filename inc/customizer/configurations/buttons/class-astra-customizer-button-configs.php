@@ -82,6 +82,7 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 									'left'   => 30
 								)
 							),
+							'border-color'      => '#0984e3',
 							'button-color'      => '#FFFFFF',
 							'button-h-color'    => '',
 							'button-bg-color'   => '#4e9af1',

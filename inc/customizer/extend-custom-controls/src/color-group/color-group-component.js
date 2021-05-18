@@ -25,6 +25,19 @@ const ColorGroupComponent = props => {
 	tooltips = [],
 	colorGroupType = [];
 
+	useEffect( () => {
+
+		Object.entries( linkedSubColors ).map( ( [ key,value ] ) => {
+			colorGroup[value.name] = wp.customize.control( value.name ).setting.get();
+			colorGroupDefaults[value.name] = value.default;
+			tooltips[value.name] = value.title;
+			colorGroupType[value.name] = value.control_type;
+		});
+
+		setState( colorGroup );
+
+	}, [props]);
+
 	Object.entries( linkedSubColors ).map( ( [ key,value ] ) => {
 		colorGroup[value.name] = wp.customize.control( value.name ).setting.get();
 		colorGroupDefaults[value.name] = value.default;
@@ -369,4 +382,4 @@ ColorGroupComponent.propTypes = {
 	control: PropTypes.object.isRequired
 };
 
-export default React.memo(  ColorGroupComponent );
+export default ColorGroupComponent;

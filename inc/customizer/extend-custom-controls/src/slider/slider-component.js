@@ -1,10 +1,19 @@
 import PropTypes from 'prop-types';
 import {RangeControl,Dashicon} from '@wordpress/components';
-import {useState} from 'react';
+import {useState,useEffect} from 'react';
 
 const SliderComponent = props => {
 
 	const [props_value, setPropsValue] = useState( props.control.setting.get() );
+
+	useEffect( () => {
+
+		console.log( props.control.setting.get() );
+		// If settings are changed externally.
+
+		setPropsValue( props.control.setting.get() );
+
+	}, [props]);
 
 	const {
 		label,
@@ -86,4 +95,4 @@ SliderComponent.propTypes = {
 	control: PropTypes.object.isRequired
 };
 
-export default React.memo( SliderComponent );
+export default SliderComponent;

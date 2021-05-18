@@ -18,13 +18,20 @@ const ButtonPresetsComponent = (props) => {
 			.control("astra-settings[button-radius]")
 			.setting.set(borderRadius);
 
-		props.customizer
-			.control("astra-settings[button-bg-color]")
-			.setting.set(btnBackgroundColor);
+		props.customizer.control("astra-settings[button-radius]").renderContent();
+
+		let control = props.customizer.control("astra-settings[button-bg-color]");
+
+		control.setting.set( btnBackgroundColor );
+
+		props.customizer.control("astra-settings[theme-button-bg-color-group]").renderContent();
 
 		props.customizer
 			.control("astra-settings[button-color]")
 			.setting.set(btnColor);
+
+		props.customizer.control("astra-settings[theme-button-color-group]").renderContent();
+
 	};
 
 	const renderBtnPresetHtml = () => {
