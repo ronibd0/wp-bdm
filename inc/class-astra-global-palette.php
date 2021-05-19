@@ -113,11 +113,11 @@ class Astra_Global_Palette {
 	 */
 	public static function get_palette_labels() {
 		return array(
-			__( 'Text Color', 'astra' ),
 			__( 'Theme Color', 'astra' ),
-			__( 'Link Color', 'astra' ),
 			__( 'Link Hover Color', 'astra' ),
 			__( 'Heading Color', 'astra' ),
+			__( 'Text Color', 'astra' ),
+			__( 'Background Color', 'astra' ),
 			__( 'Extra Color 1', 'astra' ),
 			__( 'Extra Color 2', 'astra' ),
 			__( 'Extra Color 3', 'astra' ),
