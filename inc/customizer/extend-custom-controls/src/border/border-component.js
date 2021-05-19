@@ -8,7 +8,8 @@ const BorderComponent = props => {
 
 	useEffect( () => {
 
-		console.log( props );
+		let value = props.control.setting.get();
+		setPropsValue( value );
 
 	}, [props]);
 

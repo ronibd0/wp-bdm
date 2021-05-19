@@ -47,19 +47,34 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 					'options'   => array(
 						'simple' => array(
 							'border-size' => array(
-								'top' => 5,
-								'right' => 5,
-								'bottom' => 5,
-								'left' => 5
+								'top' => 10,
+								'right' => 15,
+								'bottom' => 10,
+								'left' => 10
 							),
 							'border-radius' => 2,
 							'button-padding' => array(
-								'desktop' => array(
-									'top'    => 15,
+								'desktop'      => array(
+									'top'    => 20,
 									'right'  => 30,
-									'bottom' => 15,
-									'left'   => 30
-								)
+									'bottom' => 20,
+									'left'   => 30,
+								),
+								'tablet'       => array(
+									'top'    => '',
+									'right'  => '',
+									'bottom' => '',
+									'left'   => '',
+								),
+								'mobile'       => array(
+									'top'    => '',
+									'right'  => '',
+									'bottom' => '',
+									'left'   => '',
+								),
+								'desktop-unit' => 'px',
+								'tablet-unit'  => 'px',
+								'mobile-unit'  => 'px',
 							),
 							'button-color'      => '#FFFFFF',
 							'button-h-color'    => '',
@@ -68,19 +83,34 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 						),
 						'rounded' => array(
 							'border-size' => array(
-								'top' => 5,
-								'right' => 5,
-								'bottom' => 5,
-								'left' => 5
+								'top' => 7,
+								'right' => 7,
+								'bottom' => 7,
+								'left' => 7
 							),
 							'border-radius' => 6,
 							'button-padding' => array(
-								'desktop' => array(
+								'desktop'      => array(
 									'top'    => 15,
-									'right'  => 30,
+									'right'  => 40,
 									'bottom' => 15,
-									'left'   => 30
-								)
+									'left'   => 40,
+								),
+								'tablet'       => array(
+									'top'    => '',
+									'right'  => '',
+									'bottom' => '',
+									'left'   => '',
+								),
+								'mobile'       => array(
+									'top'    => '',
+									'right'  => '',
+									'bottom' => '',
+									'left'   => '',
+								),
+								'desktop-unit' => 'px',
+								'tablet-unit'  => 'px',
+								'mobile-unit'  => 'px',
 							),
 							'border-color'      => '#0984e3',
 							'button-color'      => '#FFFFFF',

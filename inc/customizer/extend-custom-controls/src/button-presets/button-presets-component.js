@@ -13,10 +13,14 @@ const ButtonPresetsComponent = (props) => {
 		let borderRadius = options[presetKey]["border-radius"];
 		let btnBackgroundColor = options[presetKey]["button-bg-color"];
 		let btnColor = options[presetKey]["button-color"];
+		let borderWidth = options[presetKey]["border-size"];
 
 		props.customizer
 			.control("astra-settings[button-radius]")
 			.setting.set(borderRadius);
+
+		props.customizer.control( "astra-settings[theme-button-border-group-border-size]" ).setting.set( borderWidth );
+		props.customizer.control( "astra-settings[theme-button-border-group-border-size]").renderContent();
 
 		props.customizer.control("astra-settings[button-radius]").renderContent();
 

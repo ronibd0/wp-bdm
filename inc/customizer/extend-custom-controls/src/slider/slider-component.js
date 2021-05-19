@@ -7,12 +7,8 @@ const SliderComponent = props => {
 	const [props_value, setPropsValue] = useState( props.control.setting.get() );
 
 	useEffect( () => {
-
-		console.log( props.control.setting.get() );
 		// If settings are changed externally.
-
 		setPropsValue( props.control.setting.get() );
-
 	}, [props]);
 
 	const {
