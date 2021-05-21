@@ -594,10 +594,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				$parse_css .= Astra_Enqueue_Scripts::trim_css( self::load_cart_static_css() );
 			}
 
-			if ( astra_target_rules_for_related_posts() ) {
-				$parse_css .= Astra_Enqueue_Scripts::trim_css( self::related_posts_static_css() );
-			}
-
 			if ( ! Astra_Builder_Helper::$is_header_footer_builder_active ) {
 				$footer_css_output = array(
 					'.ast-small-footer'               => array(
@@ -653,7 +649,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			// Paginaiton CSS.
 			require_once ASTRA_THEME_DIR . 'inc/dynamic-css/pagination.php'; // PHPCS:ignore WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 			// Related Posts Dynamic CSS.
-			require_once ASTRA_THEME_DIR . 'inc/modules/related-posts/dynamic-css/dynamic-css.php'; // PHPCS:ignore WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 
 			/**
 			 *
@@ -3253,11 +3248,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				transition: all 0.2s linear;
 			}
 
-			.ast-site-header-cart .cart-container *,
-			.ast-edd-site-header-cart .ast-edd-cart-container * {
-				transition: all 0s linear;
-			}
-
 			.ast-site-header-cart .ast-woo-header-cart-info-wrap,
 			.ast-edd-site-header-cart .ast-edd-header-cart-info-wrap {
 				padding: 0 2px;
@@ -3430,7 +3420,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					min-width: 18px;
 					border-radius: 99px;
 					text-align: center;
-					z-index: 1;
+					z-index: 4;
 				}
 				li.woocommerce-custom-menu-item .ast-site-header-cart i.astra-icon:after,
 				li.edd-custom-menu-item .ast-edd-site-header-cart span.astra-icon:after {
@@ -3487,7 +3477,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					min-width: 18px;
 					border-radius: 99px;
 					text-align: center;
-					z-index: 1;
+					z-index: 4;
 				}
 				li.woocommerce-custom-menu-item .ast-site-header-cart i.astra-icon:after,
 				li.edd-custom-menu-item .ast-edd-site-header-cart span.astra-icon:after {
@@ -3526,79 +3516,16 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					text-align: right;
 				}';
 			}
-			return $cart_static_css;
-		}
-
-		/**
-		 * Load static Related Posts CSS.
-		 *
-		 * @since 3.4.0
-		 *
-		 * @return string static css for Related Posts section.
-		 */
-		public static function related_posts_static_css() {
-
-			$related_posts_static_css = '
-			.ast-related-posts-title-section {
-				border-top: 1px solid #eeeeee;
-			}
-			.ast-related-posts-title {
-				margin: 20px 0;
-			}
-			.ast-related-post-title {
-				word-break: break-word;
-			}
-			.ast-separate-container .ast-related-posts-title {
-				margin: 0 0 20px 0;
-			}
-			.ast-page-builder-template .ast-related-posts-title-section, .ast-page-builder-template .ast-single-related-posts-container {
-				padding: 0 20px;
-			}
-			.ast-page-builder-template .ast-related-post .entry-header, .ast-related-post-content .entry-header, .ast-related-post-content .entry-meta {
-				margin: auto auto 1em auto;
-				padding: 0;
-			}
-			.ast-related-posts-wrapper {
-				display: grid;
-				grid-column-gap: 25px;
-				grid-row-gap: 25px;
-			}
-			.ast-single-related-posts-container {
-				margin: 2em 0;
-			}
-			.ast-related-posts-wrapper .ast-related-post, .ast-related-post-featured-section {
-				padding: 0;
-				margin: 0;
-				width: 100%;
-				position: relative;
-			}
-			.ast-related-posts-inner-section {
-				height: 100%;
-			}
-			.post-has-thumb + .entry-header, .post-has-thumb + .entry-content {
-				margin-top: 1em;
-			}
-			.ast-related-post-content .entry-meta {
-				margin-top: 0.5em;
-			}
-			.ast-related-posts-inner-section .post-thumb-img-content {
-				margin: 0;
-				position: relative;
-			}
-			.ast-separate-container .ast-single-related-posts-container {
-				padding: 5.34em 6.67em;
-			}
-			.ast-separate-container .ast-related-posts-title-section {
-				border-top: 0;
-				margin-top: 0;
-			}
-			@media (max-width: 1200px) {
-				.ast-separate-container .ast-single-related-posts-container {
-					padding: 3.34em 2.4em;
+			// This CSS requires in case of :before Astra icons. But in case of SVGs this loads twice that's why removed this from static & loading conditionally.
+			if ( false === Astra_Icons::is_svg_icons() ) {
+				$cart_static_css .= '
+				.ast-site-header-cart .cart-container *,
+				.ast-edd-site-header-cart .ast-edd-cart-container * {
+					transition: all 0s linear;
 				}
-			}';
-
-			return $related_posts_static_css;
+				';
+			}
+			return $cart_static_css;
 		}
 	}
 }
