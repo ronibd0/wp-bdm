@@ -360,12 +360,15 @@
 
 .ast-btn-preset-wrap {
 	display: grid;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: repeat(2, 1fr);
+	gap: 14px;
 }
 
 .ast-btn-preset-wrap .ast-btn-style-item .btn{
 	cursor: pointer;
 }
+
+
 
 .color-group-item .components-tooltip .components-popover__content {
   margin-bottom: 12px;
@@ -1372,12 +1375,15 @@
 
 .ast-btn-preset-wrap {
 	display: grid;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: repeat(2, 1fr);
+	gap: 14px;
 }
 
-.ast-btn-preset-wrap .ast-btn-style-item{
+.ast-btn-preset-wrap .ast-btn-style-item .btn{
 	cursor: pointer;
 }
+
+
 
 .color-group-item .components-tooltip .components-popover__content {
   margin-bottom: 12px;

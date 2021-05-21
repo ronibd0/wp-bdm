@@ -1,8 +1,11 @@
 .ast-btn-preset-wrap {
 	display: grid;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: repeat(2, 1fr);
+	gap: 14px;
 }
 
 .ast-btn-preset-wrap .ast-btn-style-item .btn{
 	cursor: pointer;
 }
+
+

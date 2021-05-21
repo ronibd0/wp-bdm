@@ -45,20 +45,20 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 					'title'     => __( 'Button Styles', 'astra' ),
 					'section'   => 'section-buttons',
 					'options'   => array(
-						'simple' => array(
+						'button_01' => array(
 							'border-size' => array(
-								'top' => 10,
-								'right' => 15,
-								'bottom' => 10,
-								'left' => 10
+								'top' => 0,
+								'right' => 0,
+								'bottom' => 0,
+								'left' => 0
 							),
-							'border-radius' => 2,
+							'border-radius' => 0,
 							'button-padding' => array(
 								'desktop'      => array(
-									'top'    => 20,
-									'right'  => 30,
-									'bottom' => 20,
-									'left'   => 30,
+									'top'    => 11,
+									'right'  => 20,
+									'bottom' => 11,
+									'left'   => 20,
 								),
 								'tablet'       => array(
 									'top'    => '',
@@ -78,23 +78,24 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 							),
 							'button-color'      => '#FFFFFF',
 							'button-h-color'    => '',
-							'button-bg-color'   => '#f14e4e',
-							'button-bg-h-color' => ''
+							'button-bg-color'   => '#0274be',
+							'button-bg-h-color' => '',
+							'border-color'      => '#0274be'
 						),
-						'rounded' => array(
+						'button_02' => array(
 							'border-size' => array(
-								'top' => 7,
-								'right' => 7,
-								'bottom' => 7,
-								'left' => 7
+								'top' => 0,
+								'right' => 0,
+								'bottom' => 0,
+								'left' => 0
 							),
-							'border-radius' => 6,
+							'border-radius' => 3,
 							'button-padding' => array(
 								'desktop'      => array(
-									'top'    => 15,
-									'right'  => 40,
-									'bottom' => 15,
-									'left'   => 40,
+									'top'    => 11,
+									'right'  => 20,
+									'bottom' => 11,
+									'left'   => 20,
 								),
 								'tablet'       => array(
 									'top'    => '',
@@ -115,12 +116,166 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 							'border-color'      => '#0984e3',
 							'button-color'      => '#FFFFFF',
 							'button-h-color'    => '',
-							'button-bg-color'   => '#4e9af1',
-							'button-bg-h-color' => ''
+							'button-bg-color'   => '#0274be',
+							'button-bg-h-color' => '',
+							'border-color'      => '#0274be'
+						),
+						'button_03' => array(
+							'border-size' => array(
+								'top' => 0,
+								'right' => 0,
+								'bottom' => 0,
+								'left' => 0
+							),
+							'border-radius' => 30,
+							'button-padding' => array(
+								'desktop'      => array(
+									'top'    => 11,
+									'right'  => 22,
+									'bottom' => 11,
+									'left'   => 22,
+								),
+								'tablet'       => array(
+									'top'    => '',
+									'right'  => '',
+									'bottom' => '',
+									'left'   => '',
+								),
+								'mobile'       => array(
+									'top'    => '',
+									'right'  => '',
+									'bottom' => '',
+									'left'   => '',
+								),
+								'desktop-unit' => 'px',
+								'tablet-unit'  => 'px',
+								'mobile-unit'  => 'px',
+							),
+							'border-color'      => '#0984e3',
+							'button-color'      => '#FFFFFF',
+							'button-h-color'    => '',
+							'button-bg-color'   => '#0274be',
+							'button-bg-h-color' => '',
+							'border-color'      => '#0274be'
+						),
+						'button_04' => array(
+							'border-size' => array(
+								'top' => 2,
+								'right' => 2,
+								'bottom' => 2,
+								'left' => 2
+							),
+							'border-radius' => 0,
+							'button-padding' => array(
+								'desktop'      => array(
+									'top'    => 11,
+									'right'  => 20,
+									'bottom' => 11,
+									'left'   => 20,
+								),
+								'tablet'       => array(
+									'top'    => '',
+									'right'  => '',
+									'bottom' => '',
+									'left'   => '',
+								),
+								'mobile'       => array(
+									'top'    => '',
+									'right'  => '',
+									'bottom' => '',
+									'left'   => '',
+								),
+								'desktop-unit' => 'px',
+								'tablet-unit'  => 'px',
+								'mobile-unit'  => 'px',
+							),
+							'border-color'      => '#0984e3',
+							'button-color'      => '#1e73be',
+							'button-h-color'    => '',
+							'button-bg-color'   => 'rgba(0,0,0,0)',
+							'button-bg-h-color' => '',
+							'border-color'      => '#0274be'
+						),
+						'button_05' => array(
+							'border-size' => array(
+								'top' => 2,
+								'right' => 2,
+								'bottom' => 2,
+								'left' => 2
+							),
+							'border-radius' => 3,
+							'button-padding' => array(
+								'desktop'      => array(
+									'top'    => 11,
+									'right'  => 20,
+									'bottom' => 11,
+									'left'   => 20,
+								),
+								'tablet'       => array(
+									'top'    => '',
+									'right'  => '',
+									'bottom' => '',
+									'left'   => '',
+								),
+								'mobile'       => array(
+									'top'    => '',
+									'right'  => '',
+									'bottom' => '',
+									'left'   => '',
+								),
+								'desktop-unit' => 'px',
+								'tablet-unit'  => 'px',
+								'mobile-unit'  => 'px',
+							),
+							'border-color'      => '#0984e3',
+							'button-color'      => '#1e73be',
+							'button-h-color'    => '',
+							'button-bg-color'   => 'rgba(0,0,0,0)',
+							'button-bg-h-color' => '',
+							'border-color'      => '#0274be'
+						),
+						'button_06' => array(
+							'border-size' => array(
+								'top' => 2,
+								'right' => 2,
+								'bottom' => 2,
+								'left' => 2
+							),
+							'border-radius' => 30,
+							'button-padding' => array(
+								'desktop'      => array(
+									'top'    => 11,
+									'right'  => 22,
+									'bottom' => 11,
+									'left'   => 22,
+								),
+								'tablet'       => array(
+									'top'    => '',
+									'right'  => '',
+									'bottom' => '',
+									'left'   => '',
+								),
+								'mobile'       => array(
+									'top'    => '',
+									'right'  => '',
+									'bottom' => '',
+									'left'   => '',
+								),
+								'desktop-unit' => 'px',
+								'tablet-unit'  => 'px',
+								'mobile-unit'  => 'px',
+							),
+							'border-color'      => '#0984e3',
+							'button-color'      => '#1e73be',
+							'button-h-color'    => '',
+							'button-bg-color'   => 'rgba(0,0,0,0)',
+							'button-bg-h-color' => '',
+							'border-color'      => '#0274be'
 						)
 					),
 					'transport' => 'postMessage',
 					'priority'  => 18,
+					'divider'   => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				/**
