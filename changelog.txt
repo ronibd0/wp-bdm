@@ -8,12 +8,7 @@ v3.5.0 (Unreleased)
 - Improvement: Core Web Vital - Accessibility - Background and foreground colors do not have a sufficient contrast ratio.
 - Fix: PHP error with Uncaught Error: Class 'Astra_Icons' not found in searchform.php when using plugin 'LearnDash Ratings Review Feedbacks'.
 - Fix: Added accessibility for search button of search form.
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
 - Fix: Text alignment issue for footer Widget 3 and Widget 4 when Astra Pro is deactivated.
->>>>>>> 496efe37e1fae927702178647ceba917f4cd7d15
 - Fix: Removed unwanted dividers from customizer setting sections.
 - Fix: Builder - WooCommerce & EDD cart - Duplicate transition CSS avoided in case normal Astra CSS icons.
 - Fix: WooCommerce - "Product Categories" widget's child elements have missing icon when Astra's SVGs enabled.
@@ -38,7 +33,6 @@ v3.4.3
 - Fix: Page Builder's menu elements show double arrow icons when Astra's SVG icons are enabled.
 - Fix: WooCommerce - Shop Grid and Related Product's column layout not working for new users on responsive devices.
 
->>>>>>> 47f0e4b6160ddd8ed6d473c9e99944a5aeecf0e5
 v3.4.2
 - Fix: JS console error when Off-canvas type 'Dropdown' is selected.
 - Fix: Dropdown does not close when you click a one page navigation link inside them.
