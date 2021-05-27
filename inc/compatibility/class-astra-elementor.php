@@ -255,12 +255,12 @@ if ( ! class_exists( 'Astra_Elementor' ) ) :
 		 * Display theme global colors to Elementor Global colors
 		 *
 		 * @since x.x.x
-		 * @param object $response rest request response.
-		 * @param array  $handler Route handler used for the request.
-		 * @param object $request Request used to generate the response.
+		 * @param object          $response rest request response.
+		 * @param array           $handler Route handler used for the request.
+		 * @param WP_REST_Request $request Request used to generate the response.
 		 * @return object
 		 */
-		public function elementor_add_theme_colors( $response, $handler, \WP_REST_Request $request ) {
+		public function elementor_add_theme_colors( $response, $handler, $request ) {
 
 			$route = $request->get_route();
 
@@ -293,13 +293,18 @@ if ( ! class_exists( 'Astra_Elementor' ) ) :
 		 * Display global paltte colors on Elementor front end Page.
 		 *
 		 * @since x.x.x
-		 * @param object $response rest request response.
-		 * @param array  $handler Route handler used for the request.
-		 * @param object $request Request used to generate the response.
+		 * @param object          $response rest request response.
+		 * @param array           $handler Route handler used for the request.
+		 * @param WP_REST_Request $request Request used to generate the response.
 		 * @return object
 		 */
-		public function display_global_colors_front_end( $response, $handler, \WP_REST_Request $request ) {
-			$route         = $request->get_route();
+		public function display_global_colors_front_end( $response, $handler, $request ) {
+			$route = $request->get_route();
+
+			if ( 0 !== strpos( $route, '/elementor/v1/globals' ) ) {
+				return $response;
+			}
+
 			$slug_map      = array();
 			$palette_slugs = Astra_Global_Palette::get_palette_slugs();
 
@@ -316,7 +321,7 @@ if ( ! class_exists( 'Astra_Elementor' ) ) :
 			}
 
 			$colors   = astra_get_option( 'global-color-palette' );
-			$response = new \WP_REST_Response(
+			$response = rest_ensure_response(
 				array(
 					'id'    => esc_attr( $rest_id ),
 					'title' => Astra_Global_Palette::get_css_variable_prefix() . esc_html( $slug_map[ $rest_id ] ),
