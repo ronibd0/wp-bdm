@@ -2278,6 +2278,10 @@ input[type="text"].select2-search__field {
     border: 2px solid #E6E6E6;
 }
 
+.ast-typo-presets .ast-typo-preset-item.active{
+	border: 2px solid #000000;
+}
+
 .ast-field-settings-wrap .customize-control-ast-heading {
   margin: 0px 0 15px 0;
 }
@@ -3977,6 +3981,11 @@ input[type="text"].select2-search__field {
 
 .ast-top-divider.customize-control-ast-select .ast-divider-title {
     margin-bottom: 25px;
+}
+
+.ast-typo-presets{
+	display: grid;
+    grid-template-columns: repeat(2, 1fr);
 }
 
 .ast-typo-presets .ast-typo-preset-item {

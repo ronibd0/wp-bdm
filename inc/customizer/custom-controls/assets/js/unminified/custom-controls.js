@@ -31987,7 +31987,6 @@ var TypoPresetControl = function TypoPresetControl(props) {
     var headingFontFamilyControl = props.customizer.control("astra-settings[headings-font-family]");
     var bodyFontFamily = options[value]['body-font-family'];
     var headingsFontFamily = options[value]['headings-font-family'];
-    console.log(bodyFontFamily);
     bodyFontFamilyControl.setting.set({
       bodyFontFamily: bodyFontFamily
     });
