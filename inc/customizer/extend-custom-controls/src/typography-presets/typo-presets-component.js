@@ -28,16 +28,19 @@ const TypoPresetControl = props => {
 		let bodyFontFamily     = options[value]['body-font-family'];
 		let headingsFontFamily = options[value]['headings-font-family'];
 
-		bodyFontFamilyControl.setting.set({
-			bodyFontFamily
-		});
+		bodyFontFamilyControl.setting.set( bodyFontFamily );
 
-		headingFontFamilyControl.setting.set({
-			headingsFontFamily
-		});
+		console.log( bodyFontFamilyControl );
+
+		headingFontFamilyControl.setting.set( headingsFontFamily );
 
 		setPropsValue( value );
 		props.control.setting.set(value);
+
+		var event = new CustomEvent('AstRemoteUpdateFonts', {
+			'detail': 'typography'
+		});
+		document.dispatchEvent(event);
 	};
 
 	const List = ({ className, options, selected }) => {

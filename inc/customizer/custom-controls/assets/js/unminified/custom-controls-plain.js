@@ -51,6 +51,9 @@
 
 					var font_val = $(this).data('value');
 
+					console.log( optionName );
+					console.log( font_val );
+
 					$(this).val( font_val );
 				}
 			});
@@ -128,8 +131,6 @@
 		 */
 		_cleanGoogleFonts: function(fontValue)
 		{
-
-			console.log( fontValue );
 
 			// Bail if fontVAlue does not contain a comma.
 			if ( ! fontValue.includes(',') ) return fontValue;
