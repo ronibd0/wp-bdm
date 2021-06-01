@@ -319,8 +319,8 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'font-size' => astra_get_font_css_value( (int) $body_font_size_desktop * 6.25, '%' ),
 				),
 				// root css for global palette style.
-				':root'                          => Astra_Global_Palette::generate_global_palette_style(),
-				'a, .page-title'                 => array(
+				':root'                                  => Astra_Global_Palette::generate_global_palette_style(),
+				'a, .page-title'                         => array(
 					'color' => esc_attr( $link_color ),
 				),
 				'a:hover, a:focus'                       => array(

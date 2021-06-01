@@ -25,6 +25,7 @@ class Astra_Global_Palette {
 	 */
 	public function __construct() {
 		add_action( 'after_setup_theme', array( $this, 'support_editor_color_palette' ) );
+		add_filter( 'astra_theme_customizer_js_localize', array( $this, 'localize_variables' ) );
 		add_filter( 'astra_before_foreground_color_generation', array( $this, 'get_color_by_palette_variable' ) );
 		$this->includes();
 	}
@@ -37,6 +38,24 @@ class Astra_Global_Palette {
 	 */
 	public static function get_css_variable_prefix() {
 		return '--ast-global-color-';
+	}
+
+	/**
+	 * Localize variables used in the customizer.
+	 *
+	 * @since x.x.x
+	 * @param object $object localize object.
+	 * @return array $object localize object.
+	 */
+	public function localize_variables( $object ) {
+
+		if ( isset( $object['customizer'] ) ) {
+			$object['customizer']['globalPaletteStylePrefix'] = self::get_css_variable_prefix();
+			$object['customizer']['isElementorActive']        = astra_is_elemetor_active();
+			$object['customizer']['globalPaletteSlugs']       = self::get_palette_slugs();
+			$object['customizer']['globalPaletteLabels']      = self::get_palette_labels();
+		}
+		return $object;
 	}
 
 	/**
@@ -94,11 +113,35 @@ class Astra_Global_Palette {
 	 */
 	public static function get_palette_labels() {
 		return array(
-			__( 'Text Color', 'astra' ),
-			__( 'Theme color', 'astra' ),
-			__( 'Link color', 'astra' ),
+			__( 'Theme Color', 'astra' ),
 			__( 'Link Hover Color', 'astra' ),
 			__( 'Heading Color', 'astra' ),
+			__( 'Text Color', 'astra' ),
+			__( 'Background Color', 'astra' ),
+			__( 'Extra Color 1', 'astra' ),
+			__( 'Extra Color 2', 'astra' ),
+			__( 'Extra Color 3', 'astra' ),
+			__( 'Extra Color 4', 'astra' ),
+		);
+	}
+
+	/**
+	 * Get slugs for palette colors.
+	 *
+	 * @since x.x.x
+	 * @return array Palette slugs.
+	 */
+	public static function get_palette_slugs() {
+		return array(
+			'text-color',
+			'theme-color',
+			'link-hover',
+			'link-hover-color',
+			'heading-color',
+			'extra-color-1',
+			'extra-color-2',
+			'extra-color-3',
+			'extra-color-4',
 		);
 	}
 
@@ -139,9 +182,6 @@ class Astra_Global_Palette {
 	 * @return void
 	 */
 	public function support_editor_color_palette() {
-		// Disable Custom Colors.
-		add_theme_support( 'disable-custom-colors' );
-
 		$global_palette = astra_get_option( 'global-color-palette' );
 		$editor_palette = $this->format_global_palette( $global_palette );
 
