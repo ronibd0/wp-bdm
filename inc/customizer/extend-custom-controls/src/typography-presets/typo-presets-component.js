@@ -30,12 +30,13 @@ const TypoPresetControl = props => {
 
 		bodyFontFamilyControl.setting.set( bodyFontFamily );
 
-		console.log( bodyFontFamilyControl );
-
 		headingFontFamilyControl.setting.set( headingsFontFamily );
 
 		setPropsValue( value );
 		props.control.setting.set(value);
+
+		AstTypography.SetFontFamily( 'astra-settings[body-font-family]', bodyFontFamily );
+		AstTypography.SetFontFamily( 'astra-settings[headings-font-family]', headingsFontFamily );
 
 		var event = new CustomEvent('AstRemoteUpdateFonts', {
 			'detail': 'typography'

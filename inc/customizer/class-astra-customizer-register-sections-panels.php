@@ -303,15 +303,6 @@ if ( ! class_exists( 'Astra_Customizer_Register_Sections_Panels' ) ) {
 				),
 
 				array(
-					'name'     => 'section-global-typo',
-					'type'     => 'section',
-					'title'    => __( 'Typography Presets', 'astra' ),
-					'section'  => 'section-typography',
-					'priority' => 1,
-					'panel'    => 'panel-global',
-				),
-
-				array(
 					'name'     => 'section-body-typo',
 					'type'     => 'section',
 					'title'    => __( 'Base Typography', 'astra' ),

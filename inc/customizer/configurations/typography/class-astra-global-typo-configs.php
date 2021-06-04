@@ -97,7 +97,7 @@ class Astra_Global_Typo_Configs extends Astra_Customizer_Config_Base {
 						"headings-font-variant" => "400",
 					)
 				),
-				'section'     => 'section-global-typo',
+				'section'     => 'section-typography',
 				'transport'   => 'postMessage',
 				'priority'    => 5,
 				'title'       => __( 'Choose Preset', 'astra' ),

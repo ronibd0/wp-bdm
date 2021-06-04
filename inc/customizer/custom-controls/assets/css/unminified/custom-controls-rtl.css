@@ -2269,6 +2269,11 @@ input[type="text"].select2-search__field {
     margin-bottom: 25px;
 }
 
+.ast-typo-presets{
+	display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
 .ast-typo-presets .ast-typo-preset-item {
 	padding: 22px;
     border-radius: 5px;

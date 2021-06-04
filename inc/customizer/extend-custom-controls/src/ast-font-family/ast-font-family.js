@@ -18,21 +18,12 @@ const FontFamilyComponent = props => {
 		value: value,
 	});
 
-	useEffect( () => {
-		console.log( "useEffect called" );
-	}, [props]);
-
 	const linkRemoteUpdate = () => {
 
 		document.addEventListener( 'AstRemoteUpdateFonts', function( e ) {
 			if ( e.detail === 'typography' ) {
 				let value = props.control.setting.get();
-
 				setState({ value : value });
-
-				setTimeout(function() {
-					AstTypography.init();
-				}, 5000 );
 			}
 		} );
 	}
