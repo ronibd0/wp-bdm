@@ -75,7 +75,7 @@ class Astra_Global_Typo_Configs extends Astra_Customizer_Config_Base {
 						"headings-font-family"  => "'Sriracha', handwriting",
 						"headings-font-weight"  => "700",
 						"headings-line-height"  => "",
-						"headings-font-variant" => "700",
+						"headings-font-variant" => "400",
 					),
 					'lato' => array(
 						"preview"           => ASTRA_THEME_URI . 'inc/assets/images/font-svg/font-dmseriftext-lato.svg',

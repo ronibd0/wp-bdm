@@ -282,7 +282,7 @@
 					api( variants ).set( '' );
 				}
 		},
-		SetFontFamily: function( optionName, value ) {
+		SetOption: function( optionName, value ) {
 
 			$( "[data-name='"+ optionName + "']" ).val(value);
     		$( "[data-name='"+ optionName + "']" ).select2().trigger('change');
