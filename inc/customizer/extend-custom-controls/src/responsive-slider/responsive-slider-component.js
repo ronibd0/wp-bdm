@@ -16,6 +16,18 @@ const ResponsiveSliderComponent = props => {
 		}
 	}, [props]);
 
+	const linkRemoteUpdate = () => {
+
+		document.addEventListener( 'AstRemoteUpdateState', function( e ) {
+			if ( e.detail === 'typography' ) {
+				let value = props.control.setting.get();
+				setState( value );
+			}
+		} );
+	}
+
+	linkRemoteUpdate();
+
 	const updateValues = (device, newVal) => {
 		let updateState = {...state};
 		updateState[device] = newVal;

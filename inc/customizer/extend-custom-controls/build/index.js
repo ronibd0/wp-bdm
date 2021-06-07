@@ -15598,7 +15598,7 @@ var FontFamilyComponent = function FontFamilyComponent(props) {
       setState = _useState2[1];
 
   var linkRemoteUpdate = function linkRemoteUpdate() {
-    document.addEventListener('AstRemoteUpdateFonts', function (e) {
+    document.addEventListener('AstRemoteUpdateState', function (e) {
       if (e.detail === 'typography') {
         var _value = props.control.setting.get();
 
@@ -22841,6 +22841,17 @@ var ResponsiveSliderComponent = function ResponsiveSliderComponent(props) {
     }
   }, [props]);
 
+  var linkRemoteUpdate = function linkRemoteUpdate() {
+    document.addEventListener('AstRemoteUpdateState', function (e) {
+      if (e.detail === 'typography') {
+        var value = props.control.setting.get();
+        setState(value);
+      }
+    });
+  };
+
+  linkRemoteUpdate();
+
   var updateValues = function updateValues(device, newVal) {
     var updateState = _objectSpread({}, state);
 
@@ -24836,7 +24847,7 @@ var SliderComponent = function SliderComponent(props) {
   }
 
   var linkRemoteUpdate = function linkRemoteUpdate() {
-    document.addEventListener('AstRemoteUpdateFonts', function (e) {
+    document.addEventListener('AstRemoteUpdateState', function (e) {
       if (e.detail === 'typography') {
         var value = props.control.setting.get();
         updateValues(value);
@@ -25859,7 +25870,8 @@ var TypoPresetControl = function TypoPresetControl(props) {
     var headingLineHeight = options[value]['headings-line-height'];
     var bodyFontWeight = options[value]['body-font-weight'];
     var headingFontWeight = options[value]['headings-font-weight'];
-    var bodyFontSize = options[value]['font-size-body'];
+    var bodyFontSize = options[value]['font-size-body']; // console.log( bodyFontSize );
+
     bodyFontFamilyControl.setting.set(bodyFontFamily);
     headingFontFamilyControl.setting.set(headingsFontFamily);
     setPropsValue(value);
@@ -25870,8 +25882,8 @@ var TypoPresetControl = function TypoPresetControl(props) {
     AstTypography.setOption('astra-settings[headings-font-variant]', headingFontVariant, true);
     props.customizer.control("astra-settings[body-line-height]").setting.set(bodyLineHeight);
     props.customizer.control("astra-settings[headings-line-height]").setting.set(headingLineHeight);
-    props.customizer.control("astra-settings[body-line-height]").setting.set(bodyFontSize);
-    var event = new CustomEvent('AstRemoteUpdateFonts', {
+    props.customizer.control("astra-settings[font-size-body]").setting.set(bodyFontSize);
+    var event = new CustomEvent('AstRemoteUpdateState', {
       'detail': 'typography'
     });
     document.dispatchEvent(event);

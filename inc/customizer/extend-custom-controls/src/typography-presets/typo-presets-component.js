@@ -35,6 +35,8 @@ const TypoPresetControl = props => {
 		let headingFontWeight  = options[value]['headings-font-weight'];
 		let bodyFontSize       = options[value]['font-size-body'];
 
+		// console.log( bodyFontSize );
+
 		bodyFontFamilyControl.setting.set( bodyFontFamily );
 
 		headingFontFamilyControl.setting.set( headingsFontFamily );
@@ -56,10 +58,10 @@ const TypoPresetControl = props => {
 		).setting.set( headingLineHeight );
 
 		props.customizer.control(
-			"astra-settings[body-line-height]"
+			"astra-settings[font-size-body]"
 		).setting.set( bodyFontSize );
 
-		var event = new CustomEvent('AstRemoteUpdateFonts', {
+		var event = new CustomEvent('AstRemoteUpdateState', {
 			'detail': 'typography'
 		});
 		document.dispatchEvent(event);

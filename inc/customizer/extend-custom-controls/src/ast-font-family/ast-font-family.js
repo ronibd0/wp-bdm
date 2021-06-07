@@ -20,7 +20,7 @@ const FontFamilyComponent = props => {
 
 	const linkRemoteUpdate = () => {
 
-		document.addEventListener( 'AstRemoteUpdateFonts', function( e ) {
+		document.addEventListener( 'AstRemoteUpdateState', function( e ) {
 			if ( e.detail === 'typography' ) {
 				let value = props.control.setting.get();
 				setState({ value : value });

@@ -128,9 +128,6 @@
 		 */
 		_cleanGoogleFonts: function(fontValue)
 		{
-
-			console.log( fontValue );
-
 			// Bail if fontVAlue does not contain a comma.
 			if ( ! fontValue.includes(',') ) return fontValue;
 
