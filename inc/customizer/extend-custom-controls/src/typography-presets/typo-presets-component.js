@@ -29,6 +29,10 @@ const TypoPresetControl = props => {
 		let headingsFontFamily = options[value]['headings-font-family'];
 		let bodyFontVariant    = options[value]['body-font-variant'];
 		let headingFontVariant = options[value]['headings-font-variant'];
+		let bodyLineHeight     = options[value]['body-line-height'];
+		let headingLineHeight  = options[value]['headings-line-height'];
+		let bodyFontWeight     = options[value]['body-font-weight'];
+		let headingFontWeight  = options[value]['headings-font-weight'];
 
 		bodyFontFamilyControl.setting.set( bodyFontFamily );
 
@@ -37,16 +41,27 @@ const TypoPresetControl = props => {
 		setPropsValue( value );
 		props.control.setting.set(value);
 
-		AstTypography.SetOption( 'astra-settings[body-font-family]', bodyFontFamily );
-		AstTypography.SetOption( 'astra-settings[headings-font-family]', headingsFontFamily );
-		AstTypography.SetOption( 'astra-settings[body-font-variant]', bodyFontVariant );
-		AstTypography.SetOption( 'astra-settings[headings-font-variant]', headingFontVariant );
+		AstTypography.setOption( 'astra-settings[body-font-family]', bodyFontFamily, true );
+		AstTypography.setOption( 'astra-settings[headings-font-family]', headingsFontFamily, true );
+		AstTypography.setOption( 'astra-settings[body-font-variant]', bodyFontVariant, true );
+		AstTypography.setOption( 'astra-settings[headings-font-variant]', headingFontVariant, true );
 
+		props.customizer.control(
+			"astra-settings[body-line-height]"
+		).setting.set( bodyLineHeight );
+
+		props.customizer.control(
+			"astra-settings[headings-line-height]"
+		).setting.set( headingLineHeight );
 
 		var event = new CustomEvent('AstRemoteUpdateFonts', {
 			'detail': 'typography'
 		});
 		document.dispatchEvent(event);
+
+		AstTypography.setOption( 'astra-settings[body-font-weight]', bodyFontWeight, false );
+		AstTypography.setOption( 'astra-settings[headings-font-weight]', headingFontWeight, false );
+
 	};
 
 	const List = ({ className, options, selected }) => {

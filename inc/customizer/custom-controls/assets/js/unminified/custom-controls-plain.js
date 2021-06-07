@@ -282,10 +282,15 @@
 					api( variants ).set( '' );
 				}
 		},
-		SetOption: function( optionName, value ) {
+		setOption: function( optionName, value, isSelect2 ) {
+
 
 			$( "[data-name='"+ optionName + "']" ).val(value);
-    		$( "[data-name='"+ optionName + "']" ).select2().trigger('change');
+			if( isSelect2 ) {
+    			$( "[data-name='"+ optionName + "']" ).select2().trigger('change');
+			} else {
+				$( "[data-name='"+ optionName + "']" ).trigger('change');
+			}
 		}
 	};
 
