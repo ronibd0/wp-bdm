@@ -46,6 +46,7 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 					'section'   => 'section-buttons',
 					'options'   => array(
 						'button_01' => array(
+							'src'  => ASTRA_THEME_URI . 'assets/svg/button-p1.svg',
 							'border-size' => array(
 								'top' => 0,
 								'right' => 0,
@@ -83,6 +84,7 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 							'border-color'      => '#0274be'
 						),
 						'button_02' => array(
+							'src'  => ASTRA_THEME_URI . 'assets/svg/button-p2.svg',
 							'border-size' => array(
 								'top' => 0,
 								'right' => 0,
@@ -121,6 +123,7 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 							'border-color'      => '#0274be'
 						),
 						'button_03' => array(
+							'src'  => ASTRA_THEME_URI . 'assets/svg/button-p3.svg',
 							'border-size' => array(
 								'top' => 0,
 								'right' => 0,
@@ -159,6 +162,7 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 							'border-color'      => '#0274be'
 						),
 						'button_04' => array(
+							'src'  => ASTRA_THEME_URI . 'assets/svg/button-p4.svg',
 							'border-size' => array(
 								'top' => 2,
 								'right' => 2,
@@ -197,6 +201,7 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 							'border-color'      => '#0274be'
 						),
 						'button_05' => array(
+							'src'  => ASTRA_THEME_URI . 'assets/svg/button-p5.svg',
 							'border-size' => array(
 								'top' => 2,
 								'right' => 2,
@@ -235,6 +240,7 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 							'border-color'      => '#0274be'
 						),
 						'button_06' => array(
+							'src'  => ASTRA_THEME_URI . 'assets/svg/button-p6.svg',
 							'border-size' => array(
 								'top' => 2,
 								'right' => 2,

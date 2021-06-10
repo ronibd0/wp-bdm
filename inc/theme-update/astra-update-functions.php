@@ -2943,9 +2943,9 @@ function astra_update_cart_style() {
 
 /**
  * Update existing 'Grid Column Layout' option in responsive way in Related Posts.
- * Till this update x.x.x we have 'Grid Column Layout' only for singular option, but now we are improving it as responsive.
+ * Till this update 3.5.0 we have 'Grid Column Layout' only for singular option, but now we are improving it as responsive.
  *
- * @since x.x.x
+ * @since 3.5.0
  * @return void.
  */
 function astra_update_related_posts_grid_layout() {
@@ -2990,4 +2990,30 @@ function astra_update_related_posts_grid_layout() {
 
 		update_option( 'astra-settings', $theme_options );
 	}
+}
+
+/**
+ * Migrate Site Title & Site Tagline options to new responsive array.
+ *
+ * @since 3.5.0
+ *
+ * @return void
+ */
+function astra_site_title_tagline_responsive_control_migration() {
+
+	$theme_options = get_option( 'astra-settings', array() );
+
+	if ( false === get_option( 'display-site-title-responsive', false ) && isset( $theme_options['display-site-title'] ) ) {
+		$theme_options['display-site-title-responsive']['desktop'] = $theme_options['display-site-title'];
+		$theme_options['display-site-title-responsive']['tablet']  = $theme_options['display-site-title'];
+		$theme_options['display-site-title-responsive']['mobile']  = $theme_options['display-site-title'];
+	}
+
+	if ( false === get_option( 'display-site-tagline-responsive', false ) && isset( $theme_options['display-site-tagline'] ) ) {
+		$theme_options['display-site-tagline-responsive']['desktop'] = $theme_options['display-site-tagline'];
+		$theme_options['display-site-tagline-responsive']['tablet']  = $theme_options['display-site-tagline'];
+		$theme_options['display-site-tagline-responsive']['mobile']  = $theme_options['display-site-tagline'];
+	}
+
+	update_option( 'astra-settings', $theme_options );
 }

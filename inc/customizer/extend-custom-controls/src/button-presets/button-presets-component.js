@@ -50,31 +50,11 @@ const ButtonPresetsComponent = (props) => {
 
 	const renderBtnPresetHtml = () => {
 		let htmlContent = Object.entries(options).map(([key, value]) => {
-			const btnStyle = {
-				borderRadius: value["border-radius"],
-				backgroundColor: value["button-bg-color"],
-				color: value["button-color"],
-				paddingTop: value["button-padding"]["desktop"]["top"],
-				paddingRight: value["button-padding"]["desktop"]["right"],
-				paddingBottom: value["button-padding"]["desktop"]["bottom"],
-				paddingLeft: value["button-padding"]["desktop"]["left"],
-				borderTopWidth: value['border-size']['top'],
-				borderLeftWidth: value['border-size']['left'],
-				borderRightWidth: value['border-size']['right'],
-				borderBottomWidth: value['border-size']['bottom'],
-				borderColor: value['border-color']
-			};
-
 			return (
 				<div className="ast-btn-style-item">
-					<button
-						className="btn"
-						style={btnStyle}
-						type="button"
-						onClick={() => onChangePreset(key)}
-					>
-						Button
-					</button>
+					<img src={value['src']}
+					onClick={() => onChangePreset(key)}
+					></img>
 				</div>
 			);
 		});
