@@ -13,6 +13,18 @@ const BorderComponent = props => {
 
 	}, [props]);
 
+	const linkRemoteUpdate = () => {
+
+		document.addEventListener( 'AstRemoteUpdateState', function( e ) {
+			if ( e.detail === 'btn-preset' ) {
+				let value = props.control.setting.get();
+				setPropsValue( value );
+			}
+		} );
+	}
+
+	linkRemoteUpdate();
+
 	const onBorderChange = (key) => {
 		const {
 			choices

@@ -25,18 +25,23 @@ const ColorGroupComponent = props => {
 	tooltips = [],
 	colorGroupType = [];
 
-	useEffect( () => {
+	const linkRemoteUpdate = () => {
 
-		Object.entries( linkedSubColors ).map( ( [ key,value ] ) => {
-			colorGroup[value.name] = wp.customize.control( value.name ).setting.get();
-			colorGroupDefaults[value.name] = value.default;
-			tooltips[value.name] = value.title;
-			colorGroupType[value.name] = value.control_type;
-		});
+		document.addEventListener( 'AstRemoteUpdateState', function( e ) {
+			if ( e.detail === 'btn-preset' ) {
+				Object.entries( linkedSubColors ).map( ( [ key,value ] ) => {
+					colorGroup[value.name] = wp.customize.control( value.name ).setting.get();
+					colorGroupDefaults[value.name] = value.default;
+					tooltips[value.name] = value.title;
+					colorGroupType[value.name] = value.control_type;
+				});
 
-		setState( colorGroup );
+				setState( colorGroup );
+			}
+		} );
+	}
 
-	}, [props]);
+	linkRemoteUpdate();
 
 	Object.entries( linkedSubColors ).map( ( [ key,value ] ) => {
 		colorGroup[value.name] = wp.customize.control( value.name ).setting.get();

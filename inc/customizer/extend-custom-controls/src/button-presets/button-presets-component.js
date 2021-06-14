@@ -4,10 +4,14 @@ import { useState, useEffect } from "react";
 
 const ButtonPresetsComponent = (props) => {
 	const { title, options } = props.control.params;
-
+	const defaultValue = props.control.params.default;
 	let value = props.control.setting.get();
 
-	useEffect(() => {}, []);
+	console.log( defaultValue );
+	console.log( value );
+
+
+	const [state, setState] = value ? useState(value) : useState( defaultValue );
 
 	const onChangePreset = (presetKey) => {
 		let borderRadius = options[presetKey]["border-radius"];
@@ -21,41 +25,54 @@ const ButtonPresetsComponent = (props) => {
 			.control("astra-settings[theme-button-padding]")
 			.setting.set(padding);
 
-		props.customizer.control("astra-settings[theme-button-padding]").renderContent();
+		props.customizer
+			.control("astra-settings[theme-button-padding]")
+			.renderContent();
 
 		// Border Radius.
 		props.customizer
 			.control("astra-settings[button-radius]")
 			.setting.set(borderRadius);
-		props.customizer.control("astra-settings[button-radius]").renderContent();
+		props.customizer
+			.control("astra-settings[button-radius]")
+			.renderContent();
 
 		// Border size.
-		props.customizer.control( "astra-settings[theme-button-border-group-border-size]" ).setting.set( borderWidth );
-		props.customizer.control( "astra-settings[theme-button-border-group-border-size]").renderContent();
+		props.customizer
+			.control("astra-settings[theme-button-border-group-border-size]")
+			.setting.set(borderWidth);
 
-		let control = props.customizer.control("astra-settings[button-bg-color]");
-
-		control.setting.set( btnBackgroundColor );
-
-		props.customizer.control("astra-settings[theme-button-bg-color-group]").renderContent();
+		// Button Background color
+		props.customizer
+			.control("astra-settings[button-bg-color]")
+			.setting.set(btnBackgroundColor);
 
 		props.customizer
 			.control("astra-settings[button-color]")
 			.setting.set(btnColor);
 
-		props.customizer.control("astra-settings[theme-button-color-group]").renderContent();
+		console.log( presetKey );
 
+		setState(presetKey);
 
+		var event = new CustomEvent("AstRemoteUpdateState", {
+			detail: "btn-preset",
+		});
+		document.dispatchEvent(event);
 	};
 
 	const renderBtnPresetHtml = () => {
-		let htmlContent = Object.entries(options).map(([key, value]) => {
+		let htmlContent = Object.entries(options).map(([key, presetData]) => {
 			return (
-				<div className="ast-btn-style-item">
-					<img src={value['src']}
+				<div
+					className={
+						"ast-btn-style-item " + (state === key ? "active" : "")
+					}
+					dangerouslySetInnerHTML={{
+						__html: window.svgIcons[presetData.src],
+					}}
 					onClick={() => onChangePreset(key)}
-					></img>
-				</div>
+				></div>
 			);
 		});
 
