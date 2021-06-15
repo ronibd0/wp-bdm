@@ -36,6 +36,8 @@ const ColorGroupComponent = props => {
 					colorGroupType[value.name] = value.control_type;
 				});
 
+				console.log( colorGroup );
+
 				setState( colorGroup );
 			}
 		} );

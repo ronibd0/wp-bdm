@@ -20,6 +20,21 @@ const ColorComponent = props => {
 		}
 	}, [props]);
 
+	const linkRemoteUpdate = () => {
+
+		document.addEventListener( 'AstRemoteUpdateState', function( e ) {
+			if ( e.detail === 'btn-preset' ) {
+				let value = props.control.setting.get();
+
+				console.log( value );
+
+				setState( value );
+			}
+		} );
+	}
+
+	linkRemoteUpdate();
+
 	const updateValues = (value) => {
 		setState(prevState => ({
 			...prevState,

@@ -16,6 +16,9 @@ const ButtonPresetsComponent = (props) => {
 		let btnColor = options[presetKey]["button-color"];
 		let borderWidth = options[presetKey]["border-size"];
 		let padding = options[presetKey]["button-padding"];
+		let borderColor = options[presetKey]["border-color"];
+
+		console.log( borderColor );
 
 		/// Padding
 		props.customizer
@@ -44,6 +47,8 @@ const ButtonPresetsComponent = (props) => {
 		props.customizer
 			.control("astra-settings[button-color]")
 			.setting.set(btnColor);
+
+		props.customizer.control( "astra-settings[theme-button-border-group-border-color]" ).setting.set( borderColor );
 
 		setState( presetKey );
 		props.control.setting.set( presetKey );
