@@ -6,10 +6,7 @@ const ButtonPresetsComponent = (props) => {
 	const { title, options } = props.control.params;
 	const defaultValue = props.control.params.default;
 	let value = props.control.setting.get();
-
-	console.log( defaultValue );
-	console.log( value );
-
+	const option = props.control.params.name;
 
 	const [state, setState] = value ? useState(value) : useState( defaultValue );
 
@@ -33,9 +30,6 @@ const ButtonPresetsComponent = (props) => {
 		props.customizer
 			.control("astra-settings[button-radius]")
 			.setting.set(borderRadius);
-		props.customizer
-			.control("astra-settings[button-radius]")
-			.renderContent();
 
 		// Border size.
 		props.customizer
@@ -51,9 +45,8 @@ const ButtonPresetsComponent = (props) => {
 			.control("astra-settings[button-color]")
 			.setting.set(btnColor);
 
-		console.log( presetKey );
-
-		setState(presetKey);
+		setState( presetKey );
+		props.control.setting.set( presetKey );
 
 		var event = new CustomEvent("AstRemoteUpdateState", {
 			detail: "btn-preset",
@@ -84,7 +77,6 @@ const ButtonPresetsComponent = (props) => {
 			<label>
 				<span className="customize-control-title">{title}</span>
 			</label>
-
 			<div className="ast-btn-preset-wrap">{renderBtnPresetHtml()}</div>
 		</>
 	);
