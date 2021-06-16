@@ -37,6 +37,7 @@ const ColorGroupComponent = props => {
 				});
 
 				setState( colorGroup );
+				setFlag( 1 ); // This is used to Re render component on first custom event.
 			}
 		} );
 	}
@@ -51,11 +52,14 @@ const ColorGroupComponent = props => {
 	});
 
 	const[ colorGroupState , setState ] = useState(colorGroup);
+	const[ flag , setFlag ] = useState(0);
 
 	const handleChangeComplete = ( key, color='', device='', backgroundType='' ) => {
 		let updateState = {
 			...colorGroupState
 		};
+
+		console.log( "in handlechange" );
 
 		let value;
 
@@ -242,6 +246,9 @@ const ColorGroupComponent = props => {
 	}
 
 	const renderInputHtml = ( device ) => {
+
+		console.log( "in renderInputHTML" );
+
 		if( responsive ){
 			innerOptionsHtml = Object.entries( colorGroupState ).map( ( [ key,value ] ) => {
 				let tooltip = tooltips[key] || __('Color', 'astra');
