@@ -13,27 +13,12 @@ const ColorComponent = props => {
 		value: value,
 	});
 
-	useEffect( () => {
-		// If settings are changed externally.
-		if( state.value !== value ) {
-			setState(value);
-		}
-	}, [props]);
-
-	const linkRemoteUpdate = () => {
-
-		document.addEventListener( 'AstRemoteUpdateState', function( e ) {
-			if ( e.detail === 'btn-preset' ) {
-				let value = props.control.setting.get();
-
-				console.log( value );
-
-				setState( value );
-			}
-		} );
-	}
-
-	linkRemoteUpdate();
+	// useEffect( () => {
+	// 	// If settings are changed externally.
+	// 	if( state.value !== value ) {
+	// 		setState(value);
+	// 	}
+	// }, [props]);
 
 	const updateValues = (value) => {
 		setState(prevState => ({
