@@ -4057,12 +4057,17 @@ input[type="text"].select2-search__field {
 }
 
 .ast-typo-presets .ast-typo-preset-item {
-	padding: 22px;
+	padding: 14px 22px;
+	text-align: center;
     border-radius: 5px;
     margin-bottom: 15px;
     cursor: pointer;
     background: #f6f7f7;
     border: 2px solid #E6E6E6;
+}
+
+.ast-typo-presets .ast-typo-preset-item svg{
+    transform: scale(1.4);
 }
 
 .ast-typo-presets .ast-typo-preset-item.active{
