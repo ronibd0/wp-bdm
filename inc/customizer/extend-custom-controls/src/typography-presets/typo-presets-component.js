@@ -90,17 +90,10 @@ const TypoPresetControl = props => {
 								}
 								key={key}
 								onClick={() => onPresetClick(key)}
+								dangerouslySetInnerHTML={{
+									__html: window.svgIcons[item.src],
+								}}
 							>
-								{ '' !== preview
-									?
-									<img src={preview} />
-									:
-									<>
-										{
-											headingFont ? <Typography font={headingFont} large>{headingFont}</Typography> : ''}
-										{bodyFont ? <Typography font={bodyFont}>{bodyFont}</Typography> : ''}
-									</>
-								}
 							</li>
 						)
 					}

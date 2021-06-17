@@ -40,7 +40,7 @@ class Astra_Global_Typo_Configs extends Astra_Customizer_Config_Base {
 				'default'     => get_option( 'ast-typography-presets', '' ),
 				'options'     => array(
 					'rufine' => array(
-						'preview'            => ASTRA_THEME_URI . 'inc/assets/images/font-svg/font-rufina-sourcesanspro.svg',
+						'src'                => 'typo-preset-01',
 						"body-font-family"   => "'Source Sans Pro', sans-serif",
 						"body-font-variant"  => "400",
 						"body-font-weight"   => "400",
@@ -59,7 +59,7 @@ class Astra_Global_Typo_Configs extends Astra_Customizer_Config_Base {
 						"headings-font-variant" => "700",
 					),
 					'sriracha' => array(
-						'preview'            => ASTRA_THEME_URI . 'inc/assets/images/font-svg/font-sriracha-opensans.svg',
+						'src'                => 'typo-preset-02',
 						"body-font-family"   => "'Open Sans', sans-serif",
 						"body-font-variant"  => "400",
 						"body-font-weight"   => "400",
@@ -78,7 +78,7 @@ class Astra_Global_Typo_Configs extends Astra_Customizer_Config_Base {
 						"headings-font-variant" => "400",
 					),
 					'lato' => array(
-						"preview"           => ASTRA_THEME_URI . 'inc/assets/images/font-svg/font-dmseriftext-lato.svg',
+						'src'               => 'typo-preset-03',
 						"body-font-family"  => "'Lato', sans-serif",
 						"body-font-variant" => "400",
 						"body-font-weight"  => "400",
@@ -95,12 +95,70 @@ class Astra_Global_Typo_Configs extends Astra_Customizer_Config_Base {
 						"headings-font-weight"  => "400",
 						"headings-line-height"  => "",
 						"headings-font-variant" => "400",
-					)
+					),
+					"popins" => array(
+						'src'               => 'typo-preset-04',
+						"body-font-family"  => "'Lato', sans-serif",
+						"body-font-variant" => "400",
+						"body-font-weight"  => "400",
+						"font-size-body"=> array(
+							"desktop"      => 16,
+							"tablet"       => "",
+							"mobile"       => "",
+							"desktop-unit" => "px",
+							"tablet-unit"  => "px",
+							"mobile-unit"  => "px"
+						),
+						"body-line-height"      => 1.8,
+						"headings-font-family"  => "'DM Serif Text', serif",
+						"headings-font-weight"  => "400",
+						"headings-line-height"  => "",
+						"headings-font-variant" => "400",
+					),
+					"montserrat" => array(
+						'src'               => 'typo-preset-05',
+						"body-font-family"  => "'Lato', sans-serif",
+						"body-font-variant" => "400",
+						"body-font-weight"  => "400",
+						"font-size-body"=> array(
+							"desktop"      => 16,
+							"tablet"       => "",
+							"mobile"       => "",
+							"desktop-unit" => "px",
+							"tablet-unit"  => "px",
+							"mobile-unit"  => "px"
+						),
+						"body-line-height"      => 1.8,
+						"headings-font-family"  => "'DM Serif Text', serif",
+						"headings-font-weight"  => "400",
+						"headings-line-height"  => "",
+						"headings-font-variant" => "400",
+					),
+					"libre" => array(
+						'src'               => 'typo-preset-06',
+						"body-font-family"  => "'Lato', sans-serif",
+						"body-font-variant" => "400",
+						"body-font-weight"  => "400",
+						"font-size-body"=> array(
+							"desktop"      => 16,
+							"tablet"       => "",
+							"mobile"       => "",
+							"desktop-unit" => "px",
+							"tablet-unit"  => "px",
+							"mobile-unit"  => "px"
+						),
+						"body-line-height"      => 1.8,
+						"headings-font-family"  => "'DM Serif Text', serif",
+						"headings-font-weight"  => "400",
+						"headings-line-height"  => "",
+						"headings-font-variant" => "400",
+					),
 				),
 				'section'     => 'section-typography',
 				'transport'   => 'postMessage',
 				'priority'    => 5,
-				'title'       => __( 'Choose Preset', 'astra' ),
+				'title'       => __( 'Typography Presets', 'astra' ),
+				'divider'     => array( 'ast_class' => 'ast-bottom-divider' ),
 			),
 
 		);
