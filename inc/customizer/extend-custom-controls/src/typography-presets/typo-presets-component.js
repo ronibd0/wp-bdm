@@ -13,13 +13,9 @@ const TypoPresetControl = props => {
 
 	const setCustomizerSetting = ( option, preset ) => {
 
-		props.customizer.control(
-			"astra-settings["+ option +"]"
-		).setting.set( options[preset][option] );
-
-		console.log( option );
-		console.log( options[preset][option] );
-
+		if( 'undefined' != typeof props.customizer.control( "astra-settings["+ option +"]" ) ) {
+			props.customizer.control( "astra-settings["+ option +"]" ).setting.set( options[preset][option] );
+		}
 	}
 
 	const onPresetClick = (presetKey) => {
@@ -47,7 +43,16 @@ const TypoPresetControl = props => {
 			'font-size-h3',
 			'font-size-h4',
 			'font-size-h5',
-			'font-size-h6'
+			'font-size-h6',
+			'line-height-h1',
+			'line-height-h2',
+			'line-height-h3',
+			'line-height-h4',
+			'line-height-h5',
+			'line-height-h6',
+			'font-size-entry-title',
+			'font-size-archive-summary-title',
+			'font-size-page-title'
 		];
 
 		typoOptions.forEach( function( option ) {
@@ -62,8 +67,8 @@ const TypoPresetControl = props => {
 		AstTypography.setOption( 'astra-settings[body-font-weight]', bodyFontWeight, false );
 		AstTypography.setOption( 'astra-settings[headings-font-weight]', headingFontWeight, false );
 
-		setPropsValue( value );
-		props.control.setting.set( value );
+		setPropsValue( presetKey );
+		props.control.setting.set( presetKey );
 
 	};
 

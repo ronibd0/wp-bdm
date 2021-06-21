@@ -136,9 +136,9 @@ class Astra_Global_Typo_Configs extends Astra_Customizer_Config_Base {
 						),
 					),
 					'typo-preset-02' => array(
-						"body-font-family"   => "'Open Sans', sans-serif",
-						"body-font-variant"  => "400",
-						"body-font-weight"   => "400",
+						"body-font-family"   => "'Lora', serif",
+						"body-font-variant"  => "700",
+						"body-font-weight"   => "700",
 						"font-size-body"     => array(
 							"desktop"      => 16,
 							"tablet"       => 16,
@@ -155,8 +155,48 @@ class Astra_Global_Typo_Configs extends Astra_Customizer_Config_Base {
 							"tablet-unit"  => "px",
 							"mobile-unit"  => "px"
 						),
-						"body-line-height"      => 1.6,
-						"body-font-family"      => "'Playfair Display', serif",
+						"font-size-h2"    => array(
+							"desktop"      => 42,
+							"tablet"       => 32,
+							"mobile"       => 28,
+							"desktop-unit" => "px",
+							"tablet-unit"  => "px",
+							"mobile-unit"  => "px"
+						),
+						"font-size-h3"    => array(
+							"desktop"      => 32,
+							"tablet"       => 28,
+							"mobile"       => 22,
+							"desktop-unit" => "px",
+							"tablet-unit"  => "px",
+							"mobile-unit"  => "px"
+						),
+						"font-size-h4"    => array(
+							"desktop"      => 24,
+							"tablet"       => 22,
+							"mobile"       => 20,
+							"desktop-unit" => "px",
+							"tablet-unit"  => "px",
+							"mobile-unit"  => "px"
+						),
+						"font-size-h5"    => array(
+							"desktop"      => 20,
+							"tablet"       => 18,
+							"mobile"       => 17,
+							"desktop-unit" => "px",
+							"tablet-unit"  => "px",
+							"mobile-unit"  => "px"
+						),
+						"font-size-h6"    => array(
+							"desktop"      => 15,
+							"tablet"       => 15,
+							"mobile"       => 15,
+							"desktop-unit" => "px",
+							"tablet-unit"  => "px",
+							"mobile-unit"  => "px"
+						),
+						"body-line-height"      => '',
+						"headings-font-family"  => "'Lato', sans-serif",
 						"headings-font-weight"  => "700",
 						"headings-line-height"  => "",
 						"headings-font-variant" => "700",
@@ -167,9 +207,9 @@ class Astra_Global_Typo_Configs extends Astra_Customizer_Config_Base {
 						"line-height-h5"        => 1.2,
 						"line-height-h6"        => 1.2,
 						"font-size-entry-title" => array(
-							"desktop"      => 38,
-							"tablet"       => 30,
-							"mobile"       => 26,
+							"desktop"      => 30,
+							"tablet"       => 26,
+							"mobile"       => 24,
 							"desktop-unit" => "px",
 							"tablet-unit"  => "px",
 							"mobile-unit"  => "px"
