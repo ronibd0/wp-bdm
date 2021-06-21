@@ -109,6 +109,8 @@
 			var fontSelect          = api.control( this.id ).container.find( 'select' ),
 			variants            	= fontSelect.data( 'connected-variant' );
 
+			console.log( this.id );
+
 			AstTypography._setFontWeightOptions.apply( this, [ false ] );
 
 			if ( 'undefined' != typeof variants ) {
@@ -128,6 +130,7 @@
 		 */
 		_cleanGoogleFonts: function(fontValue)
 		{
+			console.log(  fontValue );
 			// Bail if fontVAlue does not contain a comma.
 			if ( ! fontValue.includes(',') ) return fontValue;
 
@@ -198,6 +201,8 @@
 			if ( fontValue == 'inherit' ) {
 				weightValue     = init ? weightSelect.val() : 'inherit';
 			}
+
+			console.log( fontValue );
 
 			var fontValue = AstTypography._cleanGoogleFonts(fontValue);
 			var weightObject = AstTypography._getWeightObject( fontValue );

@@ -11,55 +11,48 @@ const TypoPresetControl = props => {
 
 	const [props_value, setPropsValue] = useState(props.control.setting.get());
 
-    useEffect(() => {
+	const setCustomizerSetting = ( option, preset ) => {
 
-    }, []);
+		props.customizer.control(
+			"astra-settings["+ option +"]"
+		).setting.set( options[preset][option] );
 
-	const onPresetClick = (value) => {
+		console.log( option );
+		console.log( options[preset][option] );
 
-		let bodyFontFamilyControl = props.customizer.control(
-			"astra-settings[body-font-family]"
-		);
+	}
 
-		let headingFontFamilyControl = props.customizer.control(
-			"astra-settings[headings-font-family]"
-		);
+	const onPresetClick = (presetKey) => {
 
-		let bodyFontFamily     = options[value]['body-font-family'];
-		let headingsFontFamily = options[value]['headings-font-family'];
-		let bodyFontVariant    = options[value]['body-font-variant'];
-		let headingFontVariant = options[value]['headings-font-variant'];
-		let bodyLineHeight     = options[value]['body-line-height'];
-		let headingLineHeight  = options[value]['headings-line-height'];
-		let bodyFontWeight     = options[value]['body-font-weight'];
-		let headingFontWeight  = options[value]['headings-font-weight'];
-		let bodyFontSize       = options[value]['font-size-body'];
-
-		// console.log( bodyFontSize );
-
-		bodyFontFamilyControl.setting.set( bodyFontFamily );
-
-		headingFontFamilyControl.setting.set( headingsFontFamily );
-
-		setPropsValue( value );
-		props.control.setting.set(value);
+		let bodyFontFamily     = options[presetKey]['body-font-family'];
+		let headingsFontFamily = options[presetKey]['headings-font-family'];
+		let bodyFontVariant    = options[presetKey]['body-font-variant'];
+		let headingFontVariant = options[presetKey]['headings-font-variant'];
+		let bodyFontWeight     = options[presetKey]['body-font-weight'];
+		let headingFontWeight  = options[presetKey]['headings-font-weight'];
 
 		AstTypography.setOption( 'astra-settings[body-font-family]', bodyFontFamily, true );
 		AstTypography.setOption( 'astra-settings[headings-font-family]', headingsFontFamily, true );
 		AstTypography.setOption( 'astra-settings[body-font-variant]', bodyFontVariant, true );
 		AstTypography.setOption( 'astra-settings[headings-font-variant]', headingFontVariant, true );
 
-		props.customizer.control(
-			"astra-settings[body-line-height]"
-		).setting.set( bodyLineHeight );
+		let typoOptions = [
+			'body-font-family',
+			'headings-font-family',
+			'body-line-height',
+			'headings-line-height',
+			'font-size-body',
+			'font-size-h1',
+			'font-size-h2',
+			'font-size-h3',
+			'font-size-h4',
+			'font-size-h5',
+			'font-size-h6'
+		];
 
-		props.customizer.control(
-			"astra-settings[headings-line-height]"
-		).setting.set( headingLineHeight );
-
-		props.customizer.control(
-			"astra-settings[font-size-body]"
-		).setting.set( bodyFontSize );
+		typoOptions.forEach( function( option ) {
+			setCustomizerSetting( option, presetKey );
+		});
 
 		var event = new CustomEvent('AstRemoteUpdateState', {
 			'detail': 'typography'
@@ -69,6 +62,9 @@ const TypoPresetControl = props => {
 		AstTypography.setOption( 'astra-settings[body-font-weight]', bodyFontWeight, false );
 		AstTypography.setOption( 'astra-settings[headings-font-weight]', headingFontWeight, false );
 
+		setPropsValue( value );
+		props.control.setting.set( value );
+
 	};
 
 	const List = ({ className, options, selected }) => {
@@ -76,22 +72,19 @@ const TypoPresetControl = props => {
 			<ul className={`ast-font-selector ${className}`}>
 				{
 				   Object.entries(options).map(
-					([key, item]) => {
-						let bodyFont = item["body-font-family"] || '';
-						let headingFont = item["headings-font-family"] || '';
-						let preview = item["preview"] || '';
+					([presetKey, item]) => {
 						return (
 							<li
 								className={
 									"ast-typo-preset-item " +
-									(props_value === key
+									(props_value === presetKey
 										? "active"
 										: "")
 								}
-								key={key}
-								onClick={() => onPresetClick(key)}
+								key={presetKey}
+								onClick={() => onPresetClick(presetKey)}
 								dangerouslySetInnerHTML={{
-									__html: window.svgIcons[item.src],
+									__html: window.svgIcons[presetKey],
 								}}
 							>
 							</li>
