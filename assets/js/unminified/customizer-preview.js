@@ -1294,7 +1294,8 @@ function isJsonString( str ) {
 	 */
 	wp.customize( 'astra-settings[theme-button-border-group-border-size]', function( value ) {
 		value.bind( function( border ) {
-			if( '' != border.top || '' != border.right || '' != border.bottom || '' != border.left ) {
+
+			if( '' !== border.top || '' !== border.right || '' !== border.bottom || '' !== border.left ) {
 				if( astraCustomizer.gb_outline_buttons_patterns_support ) {
 					wp.customize.preview.send( 'refresh' );
 				} else {
