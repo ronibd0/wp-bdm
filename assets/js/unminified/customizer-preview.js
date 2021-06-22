@@ -633,7 +633,7 @@ function isJsonString( str ) {
 	wp.customize( 'astra-settings[ast-header-responsive-logo-width]', function( setting ) {
 		setting.bind( function( logo_width ) {
 			if ( logo_width['desktop'] != '' || logo_width['tablet'] != '' || logo_width['mobile'] != '' ) {
-				var dynamicStyle = '#masthead .site-logo-img .custom-logo-link img { max-width: ' + logo_width['desktop'] + 'px; width: ' + logo_width['desktop'] + 'px;} @media( max-width: 768px ) { #masthead .site-logo-img .custom-logo-link img { max-width: ' + logo_width['tablet'] + 'px;  width: ' + logo_width['tablet'] + 'px;} #masthead .site-logo-img img { max-height: ' + logo_width['tablet'] + 'px; } } @media( max-width: 544px ) { .ast-header-break-point .site-branding img, .ast-header-break-point #masthead .site-logo-img .custom-logo-link img { max-width: ' + logo_width['mobile'] + 'px; width: ' + logo_width['mobile'] + 'px;}' +
+				var dynamicStyle = '#masthead .site-logo-img .custom-logo-link img { max-width: ' + logo_width['desktop'] + 'px; } @media( max-width: 768px ) { #masthead .site-logo-img .custom-logo-link img { max-width: ' + logo_width['tablet'] + 'px; } #masthead .site-logo-img img { max-height: ' + logo_width['tablet'] + 'px; } } @media( max-width: 544px ) { .ast-header-break-point .site-branding img, .ast-header-break-point #masthead .site-logo-img .custom-logo-link img { max-width: ' + logo_width['mobile'] + 'px; }' +
 			    '#masthead .site-logo-img img { max-height: ' + logo_width['mobile'] + 'px; } .astra-logo-svg{width: ' + logo_width['mobile'] + 'px !important; } }';
 				astra_add_dynamic_css( 'ast-header-responsive-logo-width', dynamicStyle );
 				var mobileLogoStyle = '.ast-header-break-point #masthead .site-logo-img .custom-mobile-logo-link img { max-width: ' + logo_width['tablet'] + 'px; } @media( max-width: 768px ) { .ast-header-break-point #masthead .site-logo-img .custom-mobile-logo-link img { max-width: ' + logo_width['tablet'] + 'px; }  @media( max-width: 544px ) { .ast-header-break-point #masthead .site-logo-img .custom-mobile-logo-link img { max-width: ' + logo_width['mobile'] + 'px; }';
@@ -642,6 +642,36 @@ function isJsonString( str ) {
 			else{
 				wp.customize.preview.send( 'refresh' );
 			}
+		} );
+	} );
+
+	/*
+	 * Responsive Logo Visibility
+	 */
+	wp.customize( 'astra-settings[display-site-title-responsive]', function( setting ) {
+		setting.bind( function( logo_visibility ) {
+			var desktopTitleVisibility  = ( logo_visibility['desktop'] ) ? 'block' : 'none';
+			var tabletTitleVisibility  = ( logo_visibility['tablet'] ) ? 'block' : 'none';
+			var mobileTitleVisibility  = ( logo_visibility['mobile'] ) ? 'block' : 'none';
+			var tabletBreakPoint    = astraBuilderPreview.tablet_break_point || 768,
+				mobileBreakPoint    = astraBuilderPreview.mobile_break_point || 544;
+			var dynamicStyle = '.ast-site-title-wrap .site-title { display: ' + desktopTitleVisibility + ';} @media( max-width: ' + tabletBreakPoint + 'px) { .ast-site-title-wrap .site-title { display: ' + tabletTitleVisibility + ';} } @media( max-width: ' + mobileBreakPoint + 'px) { .ast-site-title-wrap .site-title { display: ' + mobileTitleVisibility + ';} }';
+			astra_add_dynamic_css( 'display-site-title-responsive', dynamicStyle );
+		} );
+	} );
+
+	/*
+	 * Responsive Tagline Visibility
+	 */
+	wp.customize( 'astra-settings[display-site-tagline-responsive]', function( setting ) {
+		setting.bind( function( tagline_visibility ) {
+			var desktopTaglineVisibility  = ( tagline_visibility['desktop'] ) ? 'block' : 'none';
+			var tabletTaglineVisibility  = ( tagline_visibility['tablet'] ) ? 'block' : 'none';
+			var mobileTaglineVisibility  = ( tagline_visibility['mobile'] ) ? 'block' : 'none';
+			var tabletBreakPoint    = astraBuilderPreview.tablet_break_point || 768,
+				mobileBreakPoint    = astraBuilderPreview.mobile_break_point || 544;
+			var dynamicStyle = '.ast-site-title-wrap .site-description { display: ' + desktopTaglineVisibility + ';} @media( max-width: ' + tabletBreakPoint + 'px) { .ast-site-title-wrap .site-description { display: ' + tabletTaglineVisibility + ';} } @media( max-width: ' + mobileBreakPoint + 'px) { .ast-site-title-wrap .site-description { display: ' + mobileTaglineVisibility + ';} }';
+			astra_add_dynamic_css( 'display-site-tagline-responsive', dynamicStyle );
 		} );
 	} );
 

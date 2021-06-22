@@ -222,8 +222,16 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 					'header-color-site-title'              => '',
 					'header-color-h-site-title'            => '',
 					'header-color-site-tagline'            => '',
-					'display-site-title'                   => 1,
-					'display-site-tagline'                 => 0,
+					'display-site-title-responsive'        => array(
+						'desktop' => 1,
+						'tablet'  => 1,
+						'mobile'  => 1,
+					),
+					'display-site-tagline-responsive'      => array(
+						'desktop' => 0,
+						'tablet'  => 0,
+						'mobile'  => 0,
+					),
 					'logo-title-inline'                    => 1,
 					// Header - Primary.
 					'disable-primary-nav'                  => false,
@@ -471,6 +479,10 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 
 					// toogle menu target.
 					'mobile-header-toggle-target'          => 'icon',
+
+					// Performance.
+					'load-google-fonts-locally'            => false,
+					'preload-local-fonts'                  => false,
 				)
 			);
 
