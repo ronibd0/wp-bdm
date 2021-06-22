@@ -67,6 +67,7 @@ const ButtonPresetsComponent = (props) => {
 					dangerouslySetInnerHTML={{
 						__html: window.svgIcons[presetData.src],
 					}}
+					key={key}
 					onClick={() => onChangePreset(key)}
 				></div>
 			);
