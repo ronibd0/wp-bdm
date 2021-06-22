@@ -122,7 +122,20 @@ if ( ! class_exists( 'Astra_Site_Container_Layout_Configs' ) ) {
 					'section'   => ( defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'colors-and-background' ) ) ? 'section-colors-body' : 'section-colors-background',
 					'transport' => 'postMessage',
 					'priority'  => 25,
-					'title'     => __( 'Background', 'astra' ),
+					'title'     => __( 'Site Background', 'astra' ),
+				),
+
+				// Option: Content Background Color.
+				array(
+					'name'      => ASTRA_THEME_SETTINGS . '[content-bg-obj-responsive]',
+					'default'   => astra_get_option( 'content-bg-obj-responsive' ),
+					'type'      => 'control',
+					'control'   => 'ast-responsive-background',
+					'section'   => ( defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'colors-and-background' ) ) ? 'section-colors-body' : 'section-colors-background',
+					'title'      => __( 'Content Background', 'astra-addon' ),
+					'transport' => 'postMessage',
+					'priority'  => 25,
+					'divider'   => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 			);
 
