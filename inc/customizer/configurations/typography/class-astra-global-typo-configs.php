@@ -137,8 +137,8 @@ class Astra_Global_Typo_Configs extends Astra_Customizer_Config_Base {
 					),
 					'typo-preset-02' => array(
 						"body-font-family"   => "'Lora', serif",
-						"body-font-variant"  => "700",
-						"body-font-weight"   => "700",
+						"body-font-variant"  => "400",
+						"body-font-weight"   => "400",
 						"font-size-body"     => array(
 							"desktop"      => 16,
 							"tablet"       => 16,
