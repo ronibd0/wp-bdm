@@ -22,6 +22,10 @@ add_filter( 'astra_dynamic_theme_css', 'astra_content_background_css', 11 );
  */
 function astra_content_background_css( $dynamic_css ) {
 
+	if( ! astra_is_content_bg_option_to_load() ) {
+		return $dynamic_css;
+	}
+
 	$content_bg_obj        = astra_get_option( 'content-bg-obj-responsive' );
 	$blog_layout           = astra_get_option( 'blog-layout' );
 	$blog_grid             = astra_get_option( 'blog-grid' );

@@ -123,10 +123,12 @@ if ( ! class_exists( 'Astra_Site_Container_Layout_Configs' ) ) {
 					'transport' => 'postMessage',
 					'priority'  => 25,
 					'title'     => __( 'Site Background', 'astra' ),
-				),
+				)
+			);
 
-				// Option: Content Background Color.
-				array(
+			if( astra_is_content_bg_option_to_load() ) {
+
+				$_configs[] = array(
 					'name'      => ASTRA_THEME_SETTINGS . '[content-bg-obj-responsive]',
 					'default'   => astra_get_option( 'content-bg-obj-responsive' ),
 					'type'      => 'control',
@@ -136,8 +138,8 @@ if ( ! class_exists( 'Astra_Site_Container_Layout_Configs' ) ) {
 					'transport' => 'postMessage',
 					'priority'  => 25,
 					'divider'   => array( 'ast_class' => 'ast-bottom-divider' ),
-				),
-			);
+				);
+			}
 
 			$configurations = array_merge( $configurations, $_configs );
 
