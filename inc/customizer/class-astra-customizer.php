@@ -1365,7 +1365,9 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 				'dynamic_partial_options'              => self::$dynamic_options['partials'],
 				'gb_outline_buttons_patterns_support'  => Astra_Dynamic_CSS::gutenberg_core_patterns_compat(),
 				'font_weights_widget_title_support'    => Astra_Dynamic_CSS::support_font_css_to_widget_and_in_editor(),
-				'is_content_bg_option_to_load' => astra_is_content_bg_option_to_load()
+				'is_content_bg_option_to_load'         => astra_is_content_bg_option_to_load(),
+				'content_layout'                       => astra_get_content_layout(),
+				'site_layout'                          => astra_get_option( 'site-layout' )
 			);
 
 			wp_localize_script( 'astra-customizer-preview-js', 'astraCustomizer', $localize_array );
