@@ -722,7 +722,7 @@ function isJsonString( str ) {
 	astra_apply_responsive_background_css( 'astra-settings[site-layout-outside-bg-obj-responsive]', 'body, .ast-separate-container', 'tablet' );
 	astra_apply_responsive_background_css( 'astra-settings[site-layout-outside-bg-obj-responsive]', 'body, .ast-separate-container', 'mobile' );
 
-	if( astra.customizer.is_content_bg_option_to_load ) {
+	if( astraCustomizer.is_content_bg_option_to_load ) {
 
 		/**
 		 * Content background color
