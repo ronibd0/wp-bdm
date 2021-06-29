@@ -34,6 +34,7 @@ import { colorGroupControl } from './color-group/control';
 import { selectorControl } from './selector/control';
 import { ButtonPresetControl } from './button-presets/control.js';
 import { TypographyPresetControl } from './typography-presets/control.js';
+import { colorPaletteControl } from './color-palette/control.js';
 import { boxShadowControl }  from './box-shadow/control.js';
 import { responsiveToggleControl } from './responsive-toggle-control/control';
 
@@ -72,6 +73,7 @@ wp.customize.controlConstructor['ast-color-group'] = colorGroupControl;
 wp.customize.controlConstructor['ast-selector'] = selectorControl;
 wp.customize.controlConstructor['ast-button-presets'] = ButtonPresetControl;
 wp.customize.controlConstructor['ast-typography-presets'] = TypographyPresetControl;
+wp.customize.controlConstructor['ast-color-palette'] = colorPaletteControl;
 wp.customize.controlConstructor['ast-responsive-toggle-control'] = responsiveToggleControl;
 
 wp.customize.controlConstructor['ast-box-shadow'] = boxShadowControl;
