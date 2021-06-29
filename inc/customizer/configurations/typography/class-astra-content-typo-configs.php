@@ -33,29 +33,24 @@ if ( ! class_exists( 'Astra_Content_Typo_Configs' ) ) {
 			$_configs = array(
 
 				/**
-				 * Option: Heading 1 (H1) Divider
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[divider-section-h1]',
-					'type'     => 'control',
-					'control'  => 'ast-heading',
-					'section'  => 'section-content-typo',
-					'priority' => 4,
-					'title'    => __( 'Heading 1', 'astra' ),
-					'settings' => array(),
-				),
-
-				/**
 				 * Option: Heading 1 (H1) Font Size
 				 */
 				array(
 					'name'        => ASTRA_THEME_SETTINGS . '[font-size-h1]',
 					'type'        => 'control',
 					'control'     => 'ast-responsive',
-					'section'     => 'section-content-typo',
+					'section'     => 'section-typography',
 					'default'     => astra_get_option( 'font-size-h1' ),
 					'transport'   => 'postMessage',
-					'priority'    => 6,
+					'context'  => array(
+						'',
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[heading-typo-selector]',
+							'operator' => '==',
+							'value'    => 'h1',
+						),
+					),
+					'priority'    => 28,
 					'title'       => __( 'Size', 'astra' ),
 					'input_attrs' => array(
 						'min' => 0,
@@ -64,19 +59,6 @@ if ( ! class_exists( 'Astra_Content_Typo_Configs' ) ) {
 						'px' => 'px',
 						'em' => 'em',
 					),
-				),
-
-				/**
-				 * Option: Heading 2 (H2) Divider
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[divider-section-h2]',
-					'type'     => 'control',
-					'control'  => 'ast-heading',
-					'section'  => 'section-content-typo',
-					'priority' => 9,
-					'title'    => __( 'Heading 2', 'astra' ),
-					'settings' => array(),
 				),
 
 				/**
@@ -86,10 +68,18 @@ if ( ! class_exists( 'Astra_Content_Typo_Configs' ) ) {
 					'name'        => ASTRA_THEME_SETTINGS . '[font-size-h2]',
 					'type'        => 'control',
 					'control'     => 'ast-responsive',
-					'section'     => 'section-content-typo',
+					'section'     => 'section-typography',
 					'default'     => astra_get_option( 'font-size-h2' ),
 					'transport'   => 'postMessage',
-					'priority'    => 11,
+					'context'   => array(
+						'',
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[heading-typo-selector]',
+							'operator' => '==',
+							'value'    => 'h2',
+						),
+					),
+					'priority'    => 28,
 					'title'       => __( 'Size', 'astra' ),
 					'input_attrs' => array(
 						'min' => 0,
@@ -98,19 +88,6 @@ if ( ! class_exists( 'Astra_Content_Typo_Configs' ) ) {
 						'px' => 'px',
 						'em' => 'em',
 					),
-				),
-
-				/**
-				 * Option: Heading 3 (H3) Divider
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[divider-section-h3]',
-					'type'     => 'control',
-					'control'  => 'ast-heading',
-					'section'  => 'section-content-typo',
-					'priority' => 15,
-					'title'    => __( 'Heading 3', 'astra' ),
-					'settings' => array(),
 				),
 
 				/**
@@ -120,10 +97,18 @@ if ( ! class_exists( 'Astra_Content_Typo_Configs' ) ) {
 					'name'        => ASTRA_THEME_SETTINGS . '[font-size-h3]',
 					'type'        => 'control',
 					'control'     => 'ast-responsive',
-					'section'     => 'section-content-typo',
-					'priority'    => 16,
+					'section'     => 'section-typography',
+					'priority'    => 28,
 					'default'     => astra_get_option( 'font-size-h3' ),
 					'transport'   => 'postMessage',
+					'context'   => array(
+						'',
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[heading-typo-selector]',
+							'operator' => '==',
+							'value'    => 'h3',
+						),
+					),
 					'title'       => __( 'Size', 'astra' ),
 					'input_attrs' => array(
 						'min' => 0,
@@ -132,19 +117,6 @@ if ( ! class_exists( 'Astra_Content_Typo_Configs' ) ) {
 						'px' => 'px',
 						'em' => 'em',
 					),
-				),
-
-				/**
-				 * Option: Heading 4 (H4) Divider
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[divider-section-h4]',
-					'type'     => 'control',
-					'title'    => __( 'Heading 4', 'astra' ),
-					'section'  => 'section-content-typo',
-					'control'  => 'ast-heading',
-					'priority' => 20,
-					'settings' => array(),
 				),
 
 				/**
@@ -154,10 +126,18 @@ if ( ! class_exists( 'Astra_Content_Typo_Configs' ) ) {
 					'name'        => ASTRA_THEME_SETTINGS . '[font-size-h4]',
 					'type'        => 'control',
 					'control'     => 'ast-responsive',
-					'section'     => 'section-content-typo',
+					'section'     => 'section-typography',
 					'default'     => astra_get_option( 'font-size-h4' ),
 					'transport'   => 'postMessage',
-					'priority'    => 21,
+					'context'     => array(
+						'',
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[heading-typo-selector]',
+							'operator' => '==',
+							'value'    => 'h4',
+						),
+					),
+					'priority'    => 27,
 					'title'       => __( 'Size', 'astra' ),
 					'input_attrs' => array(
 						'min' => 0,
@@ -166,19 +146,6 @@ if ( ! class_exists( 'Astra_Content_Typo_Configs' ) ) {
 						'px' => 'px',
 						'em' => 'em',
 					),
-				),
-
-				/**
-				 * Option: Heading 5 (H5) Divider
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[divider-section-h5]',
-					'type'     => 'control',
-					'control'  => 'ast-heading',
-					'section'  => 'section-content-typo',
-					'priority' => 25,
-					'title'    => __( 'Heading 5', 'astra' ),
-					'settings' => array(),
 				),
 
 				/**
@@ -188,10 +155,18 @@ if ( ! class_exists( 'Astra_Content_Typo_Configs' ) ) {
 					'name'        => ASTRA_THEME_SETTINGS . '[font-size-h5]',
 					'type'        => 'control',
 					'control'     => 'ast-responsive',
-					'section'     => 'section-content-typo',
+					'section'     => 'section-typography',
 					'default'     => astra_get_option( 'font-size-h5' ),
 					'transport'   => 'postMessage',
-					'priority'    => 26,
+					'context'     => array(
+						'',
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[heading-typo-selector]',
+							'operator' => '==',
+							'value'    => 'h5',
+						),
+					),
+					'priority'    => 27,
 					'title'       => __( 'Size', 'astra' ),
 					'input_attrs' => array(
 						'min' => 0,
@@ -203,29 +178,24 @@ if ( ! class_exists( 'Astra_Content_Typo_Configs' ) ) {
 				),
 
 				/**
-				 * Option: Heading 6 (H6) Divider
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[divider-section-h6]',
-					'type'     => 'control',
-					'control'  => 'ast-heading',
-					'title'    => __( 'Heading 6', 'astra' ),
-					'section'  => 'section-content-typo',
-					'priority' => 30,
-					'settings' => array(),
-				),
-
-				/**
 				 * Option: Heading 6 (H6) Font Size
 				 */
 				array(
 					'name'        => ASTRA_THEME_SETTINGS . '[font-size-h6]',
 					'type'        => 'control',
 					'control'     => 'ast-responsive',
-					'section'     => 'section-content-typo',
+					'section'     => 'section-typography',
 					'default'     => astra_get_option( 'font-size-h6' ),
 					'transport'   => 'postMessage',
-					'priority'    => 31,
+					'context'     => array(
+						'',
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[heading-typo-selector]',
+							'operator' => '==',
+							'value'    => 'h6',
+						),
+					),
+					'priority'    => 27,
 					'title'       => __( 'Size', 'astra' ),
 					'input_attrs' => array(
 						'min' => 0,
@@ -250,7 +220,7 @@ if ( ! class_exists( 'Astra_Content_Typo_Configs' ) ) {
 						'name'     => ASTRA_THEME_SETTINGS . '[ast-content-typography-more-feature-description]',
 						'type'     => 'control',
 						'control'  => 'ast-description',
-						'section'  => 'section-content-typo',
+						'section'  => 'section-typography',
 						'priority' => 999,
 						'title'    => '',
 						'help'     => '<p>' . __( 'More Options Available in Astra Pro!', 'astra' ) . '</p><a href="' . astra_get_pro_url( 'https://wpastra.com/pro/', 'customizer', 'learn-more', 'upgrade-to-pro' ) . '" class="button button-secondary"  target="_blank" rel="noopener">' . __( 'Learn More', 'astra' ) . '</a>',
