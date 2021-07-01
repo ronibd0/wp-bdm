@@ -184,7 +184,7 @@ class Astra_Global_Typo_Configs extends Astra_Customizer_Config_Base {
 						"line-height-h6"        => 1.2,
 					),
 					'typo-preset-03' => array(
-						"body-font-family"   => "'Roboto', serif",
+						"body-font-family"   => "'Roboto', sans-serif",
 						"body-font-variant"  => "400",
 						"body-font-weight"   => "400",
 						"font-size-body"     => array(
@@ -256,7 +256,7 @@ class Astra_Global_Typo_Configs extends Astra_Customizer_Config_Base {
 						"line-height-h6"        => 1.2,
 					),
 					'typo-preset-04' => array(
-						"body-font-family"   => "'Source Sans Pro', serif",
+						"body-font-family"   => "'Source Sans Pro', sans-serif",
 						"body-font-variant"  => "400",
 						"body-font-weight"   => "400",
 						"font-size-body"     => array(
@@ -328,7 +328,7 @@ class Astra_Global_Typo_Configs extends Astra_Customizer_Config_Base {
 						"line-height-h6"        => 1.3,
 					),
 					'typo-preset-05' => array(
-						"body-font-family"   => "'Karla', serif",
+						"body-font-family"   => "'Karla', sans-serif",
 						"body-font-variant"  => "400",
 						"body-font-weight"   => "400",
 						"font-size-body"     => array(
@@ -400,7 +400,7 @@ class Astra_Global_Typo_Configs extends Astra_Customizer_Config_Base {
 						"line-height-h6"        => 1.3,
 					),
 					'typo-preset-06' => array(
-						"body-font-family"   => "'Work Sans', serif",
+						"body-font-family"   => "'Work Sans', sans-serif",
 						"body-font-variant"  => "400",
 						"body-font-weight"   => "400",
 						"font-size-body"     => array(
@@ -460,7 +460,7 @@ class Astra_Global_Typo_Configs extends Astra_Customizer_Config_Base {
 							"mobile-unit"  => "px"
 						),
 						"body-line-height"      => '',
-						"headings-font-family"  => "'DM Serif Display', sans-serif",
+						"headings-font-family"  => "'DM Serif Display', serif",
 						"headings-font-weight"  => "400",
 						"headings-line-height"  => "",
 						"headings-font-variant" => "400",
