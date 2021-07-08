@@ -2698,11 +2698,36 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				$parse_css .= $custom_css;
 			}
 
+			if ( self::is_support_default_color_link_site_title() ) {
+				$global_title_color = array(
+					'.site-title a'       => array(
+						'color' => astra_get_option( 'link-color' ),
+					),
+					'.site-title a:hover' => array(
+						'color' => astra_get_option( 'link-h-color' ),
+					),
+				);
+				$parse_css         .= astra_parse_css( $global_title_color );
+			}
+
 			// trim white space for faster page loading.
 			$parse_css = Astra_Enqueue_Scripts::trim_css( $parse_css );
 
 			return apply_filters( 'astra_theme_dynamic_css', $parse_css );
 
+		}
+
+		/**
+		* Whether to apply default link color to site title or not.
+		* As this is frontend reflecting change added this backwards for existing users.
+		*
+		* @since x.x.x
+		* @return boolean false if it is an existing user, true if not.
+		*/
+		public function is_support_default_color_link_site_title() {
+			$astra_settings = get_option( ASTRA_THEME_SETTINGS );
+			$astra_settings['support-default-color-link-site-title'] = isset( $astra_settings['support-default-color-link-site-title'] ) ? false : true;
+			return apply_filters( 'astra_apply_default_color_link_site_title_css', $astra_settings['support-default-color-link-site-title'] );
 		}
 
 		/**

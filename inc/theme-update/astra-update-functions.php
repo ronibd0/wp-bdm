@@ -3084,3 +3084,18 @@ function astra_clear_all_assets_cache() {
 		$astra_addon_cache_base_instance->refresh_assets( 'astra-addon' );
 	}
 }
+
+/**
+ * Site title global link color compatibility.
+ *
+ * @since x.x.x
+ * @return void.
+ */
+function astra_default_color_link_site_title() {
+	$theme_options = get_option( 'astra-settings', array() );
+
+	if ( ! isset( $theme_options['support-default-color-link-site-title'] ) ) {
+		$theme_options['support-default-color-link-site-title'] = false;
+		update_option( 'astra-settings', $theme_options );
+	}
+}
