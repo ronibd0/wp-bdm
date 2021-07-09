@@ -323,6 +323,26 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			// check the selection color incase of empty/no theme color.
 			$selection_text_color = ( 'transparent' === $highlight_theme_color ) ? '' : $highlight_theme_color;
 
+			// Default site title color
+			if ( self::is_support_link_default_color() ) {
+				$default_title_color = array(
+					'.site-title a'       => array(
+						'color' => astra_get_option( 'link-color' ),
+					),
+					'.site-title a:hover, .site-title a:focus, .site-title a:visited' => array(
+						'color' => astra_get_option( 'link-h-color' ),
+					),
+				);
+				$parse_css         = astra_parse_css( $default_title_color );
+			}else{
+				$default_title_color = array(
+					'.site-title a, .site-title a:hover, .site-title a:focus, .site-title a:visited'       => array(
+						'color' => '#222',
+					),
+				);
+				$parse_css         = astra_parse_css( $default_title_color );
+			}
+
 			$css_output = array(
 
 				// HTML.
@@ -609,7 +629,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			}
 
 			/* Parse CSS from array() */
-			$parse_css = astra_parse_css( $css_output );
+			$parse_css .= astra_parse_css( $css_output );
 
 			if ( ! Astra_Builder_Helper::$is_header_footer_builder_active ) {
 
@@ -2698,18 +2718,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				$parse_css .= $custom_css;
 			}
 
-			if ( self::is_support_default_color_link_site_title() ) {
-				$global_title_color = array(
-					'.site-title a'       => array(
-						'color' => astra_get_option( 'link-color' ),
-					),
-					'.site-title a:hover' => array(
-						'color' => astra_get_option( 'link-h-color' ),
-					),
-				);
-				$parse_css         .= astra_parse_css( $global_title_color );
-			}
-
 			// trim white space for faster page loading.
 			$parse_css = Astra_Enqueue_Scripts::trim_css( $parse_css );
 
@@ -2724,10 +2732,10 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		* @since x.x.x
 		* @return boolean false if it is an existing user, true if not.
 		*/
-		public function is_support_default_color_link_site_title() {
+		public function is_support_link_default_color() {
 			$astra_settings = get_option( ASTRA_THEME_SETTINGS );
-			$astra_settings['support-default-color-link-site-title'] = isset( $astra_settings['support-default-color-link-site-title'] ) ? false : true;
-			return apply_filters( 'astra_apply_default_color_link_site_title_css', $astra_settings['support-default-color-link-site-title'] );
+			$astra_settings['support-link-default-color'] = isset( $astra_settings['support-link-default-color'] ) ? false : true;
+			return apply_filters( 'astra_apply_link_default_color_css', $astra_settings['support-link-default-color'] );
 		}
 
 		/**

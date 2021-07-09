@@ -3091,11 +3091,11 @@ function astra_clear_all_assets_cache() {
  * @since x.x.x
  * @return void.
  */
-function astra_default_color_link_site_title() {
+function astra_link_default_color() {
 	$theme_options = get_option( 'astra-settings', array() );
 
-	if ( ! isset( $theme_options['support-default-color-link-site-title'] ) ) {
-		$theme_options['support-default-color-link-site-title'] = false;
+	if ( ! isset( $theme_options['support-link-default-color'] ) ) {
+		$theme_options['support-link-default-color'] = false;
 		update_option( 'astra-settings', $theme_options );
 	}
 }

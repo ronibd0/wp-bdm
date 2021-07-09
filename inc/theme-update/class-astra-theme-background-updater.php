@@ -94,7 +94,7 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 				'astra_clear_all_assets_cache',
 			),
 			'3.6.2' => array(
-				'astra_default_color_link_site_title',
+				'astra_link_default_color',
 			),
 		);
 
