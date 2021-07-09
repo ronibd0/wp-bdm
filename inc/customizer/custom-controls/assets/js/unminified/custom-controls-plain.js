@@ -296,7 +296,7 @@
 		}
 	};
 
-	$( function() { AstTypography.init(); } );
+	// $( function() { AstTypography.init(); } );
 
 })( jQuery );
 

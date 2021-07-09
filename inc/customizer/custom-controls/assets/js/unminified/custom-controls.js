@@ -296,7 +296,7 @@
 		}
 	};
 
-	$( function() { AstTypography.init(); } );
+	// $( function() { AstTypography.init(); } );
 
 })( jQuery );
 
@@ -21881,8 +21881,7 @@ var astFontFamilyControl = wp.customize.astraControl.extend({
       control: control
     }), control.container[0]);
   },
-  ready: function ready() {
-    AstTypography.init();
+  ready: function ready() {//AstTypography.init();
   }
 });
 
@@ -26215,7 +26214,10 @@ __webpack_require__.r(__webpack_exports__);
   var $window = $(window),
       $body = $('body');
   var expandedSection = [];
-  var expandedPanel = '';
+  var expandedPanel = ''; // AstraBuilderCustomizerData.js_configs.controls['section-typography'] = AstraBuilderCustomizerData.js_configs.controls['section-typography'].filter(
+  // 	control => control.control !== 'ast-font'
+  // );
+
   var defaultContextSet = '';
   var is_cloning_index = false;
   /**
@@ -26423,45 +26425,73 @@ __webpack_require__.r(__webpack_exports__);
     },
     registerControlsBySection: function () {
       var _registerControlsBySection = _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2___default()( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.mark(function _callee(section) {
-        var controls, _i2, _Object$entries2, _Object$entries2$_i, section_id, config;
+        var lazy,
+            controls,
+            _i2,
+            _Object$entries2,
+            _Object$entries2$_i,
+            section_id,
+            config,
+            _args = arguments;
 
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
+                lazy = _args.length > 1 && _args[1] !== undefined ? _args[1] : false;
+
                 if (section) {
-                  _context.next = 2;
+                  _context.next = 3;
                   break;
                 }
 
                 return _context.abrupt("return");
 
-              case 2:
+              case 3:
                 if (!('undefined' != typeof AstraBuilderCustomizerData)) {
-                  _context.next = 13;
+                  _context.next = 20;
                   break;
                 }
 
                 controls = Object.assign({}, AstraBuilderCustomizerData.js_configs.controls[section.id]);
                 _i2 = 0, _Object$entries2 = Object.entries(controls);
 
-              case 5:
+              case 6:
                 if (!(_i2 < _Object$entries2.length)) {
-                  _context.next = 13;
+                  _context.next = 20;
                   break;
                 }
 
                 _Object$entries2$_i = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_3___default()(_Object$entries2[_i2], 2), section_id = _Object$entries2$_i[0], config = _Object$entries2$_i[1];
+
+                if (!(true === lazy && config.hasOwnProperty('lazy') && true === config.lazy)) {
+                  _context.next = 12;
+                  break;
+                }
+
+                console.log("is lazy");
                 this.addControl(config.id, config);
-                _context.next = 10;
+                return _context.abrupt("continue", 17);
+
+              case 12:
+                if (!(config.hasOwnProperty('lazy') && true === config.lazy)) {
+                  _context.next = 14;
+                  break;
+                }
+
+                return _context.abrupt("continue", 17);
+
+              case 14:
+                this.addControl(config.id, config);
+                _context.next = 17;
                 return null;
 
-              case 10:
+              case 17:
                 _i2++;
-                _context.next = 5;
+                _context.next = 6;
                 break;
 
-              case 13:
+              case 20:
               case "end":
                 return _context.stop();
             }
@@ -27170,7 +27200,10 @@ __webpack_require__.r(__webpack_exports__);
       Promise.all([AstCustomizerAPI.initializeDynamicSettings(), AstCustomizerAPI.initializeConfigs()]).then(function () {
         api.section.each(function (section) {
           section.expanded.bind(function (isExpanded) {
-            // Lazy Loaded Context.
+            setTimeout(function () {
+              AstCustomizerAPI.registerControlsBySection(api.section(section.id), true);
+            }, 3000); // Lazy Loaded Context.
+
             AstCustomizerAPI.setControlContextBySection(api.section(section.id));
 
             if (!isExpanded) {

@@ -69,6 +69,7 @@ if ( ! class_exists( 'Astra_Content_Typo_Configs' ) ) {
 					'type'        => 'control',
 					'control'     => 'ast-responsive',
 					'section'     => 'section-typography',
+					'lazy'        => true,
 					'default'     => astra_get_option( 'font-size-h2' ),
 					'transport'   => 'postMessage',
 					'context'   => array(
@@ -99,6 +100,7 @@ if ( ! class_exists( 'Astra_Content_Typo_Configs' ) ) {
 					'control'     => 'ast-responsive',
 					'section'     => 'section-typography',
 					'priority'    => 28,
+					'lazy'        => true,
 					'default'     => astra_get_option( 'font-size-h3' ),
 					'transport'   => 'postMessage',
 					'context'   => array(
@@ -129,6 +131,7 @@ if ( ! class_exists( 'Astra_Content_Typo_Configs' ) ) {
 					'section'     => 'section-typography',
 					'default'     => astra_get_option( 'font-size-h4' ),
 					'transport'   => 'postMessage',
+					'lazy'        => true,
 					'context'     => array(
 						'',
 						array(
@@ -156,6 +159,7 @@ if ( ! class_exists( 'Astra_Content_Typo_Configs' ) ) {
 					'type'        => 'control',
 					'control'     => 'ast-responsive',
 					'section'     => 'section-typography',
+					'lazy'        => true,
 					'default'     => astra_get_option( 'font-size-h5' ),
 					'transport'   => 'postMessage',
 					'context'     => array(
@@ -185,6 +189,7 @@ if ( ! class_exists( 'Astra_Content_Typo_Configs' ) ) {
 					'type'        => 'control',
 					'control'     => 'ast-responsive',
 					'section'     => 'section-typography',
+					'lazy'        => true,
 					'default'     => astra_get_option( 'font-size-h6' ),
 					'transport'   => 'postMessage',
 					'context'     => array(
@@ -221,6 +226,7 @@ if ( ! class_exists( 'Astra_Content_Typo_Configs' ) ) {
 						'type'     => 'control',
 						'control'  => 'ast-description',
 						'section'  => 'section-typography',
+						'lazy'     => true,
 						'priority' => 999,
 						'title'    => '',
 						'help'     => '<p>' . __( 'More Options Available in Astra Pro!', 'astra' ) . '</p><a href="' . astra_get_pro_url( 'https://wpastra.com/pro/', 'customizer', 'learn-more', 'upgrade-to-pro' ) . '" class="button button-secondary"  target="_blank" rel="noopener">' . __( 'Learn More', 'astra' ) . '</a>',

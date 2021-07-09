@@ -92,6 +92,7 @@ if ( ! class_exists( 'Astra_Body_Typo_Configs' ) ) {
 					'section'  => 'section-typography',
 					'default'  => astra_get_option( 'body-text-transform' ),
 					'priority' => 20,
+					'lazy'     => true,
 					'title'    => __( 'Text Transform', 'astra' ),
 					'choices'  => array(
 						''           => __( 'Default', 'astra' ),
@@ -112,6 +113,7 @@ if ( ! class_exists( 'Astra_Body_Typo_Configs' ) ) {
 					'section'     => 'section-typography',
 					'default'     => astra_get_option( 'font-size-body' ),
 					'priority'    => 10,
+					'lazy'        => true,
 					'title'       => __( 'Size', 'astra' ),
 					'suffix'      => 'px',
 					'input_attrs' => array(
@@ -130,6 +132,7 @@ if ( ! class_exists( 'Astra_Body_Typo_Configs' ) ) {
 					'type'              => 'control',
 					'control'           => 'ast-slider',
 					'section'           => 'section-typography',
+					'lazy'              => true,
 					'default'           => astra_get_option( 'body-line-height' ),
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
 					'priority'          => 25,
@@ -157,6 +160,7 @@ if ( ! class_exists( 'Astra_Body_Typo_Configs' ) ) {
 					'priority'          => 31,
 					'title'             => __( 'Paragraph Margin Bottom', 'astra' ),
 					'suffix'            => 'em',
+					'lazy'              => true,
 					'input_attrs'       => array(
 						'min'  => 0.5,
 						'step' => 0.01,
@@ -169,6 +173,7 @@ if ( ! class_exists( 'Astra_Body_Typo_Configs' ) ) {
 					'default'    => astra_get_option( 'heading-typo-selector', 'h1' ),
 					'type'       => 'control',
 					'section'    => 'section-typography',
+					'lazy'       => true,
 					'priority'   => 27,
 					'title'      => __( 'Headings Font Family', 'astra' ),
 					'transport'  => 'postMessage',
@@ -242,6 +247,7 @@ if ( ! class_exists( 'Astra_Body_Typo_Configs' ) ) {
 					'control'  => 'ast-select',
 					'section'  => 'section-typography',
 					'title'    => __( 'Text Transform', 'astra' ),
+					'lazy'     => true,
 					'default'  => astra_get_option( 'headings-text-transform' ),
 					'priority' => 26,
 					'choices'  => array(
@@ -262,6 +268,7 @@ if ( ! class_exists( 'Astra_Body_Typo_Configs' ) ) {
 					'default'           => astra_get_option( 'headings-line-height' ),
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
 					'type'              => 'control',
+					'lazy'              => true,
 					'control'           => 'ast-slider',
 					'title'             => __( 'Line Height', 'astra' ),
 					'transport'         => 'postMessage',
