@@ -323,24 +323,24 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			// check the selection color incase of empty/no theme color.
 			$selection_text_color = ( 'transparent' === $highlight_theme_color ) ? '' : $highlight_theme_color;
 
-			// Default site title color
+			// Default site title color.
 			if ( self::is_support_link_default_color() ) {
 				$default_title_color = array(
-					'.site-title a'       => array(
+					'.site-title a, .site-title a:focus, .site-title a:visited' => array(
 						'color' => astra_get_option( 'link-color' ),
 					),
-					'.site-title a:hover, .site-title a:focus, .site-title a:visited' => array(
+					'.site-title a:hover' => array(
 						'color' => astra_get_option( 'link-h-color' ),
 					),
 				);
-				$parse_css         = astra_parse_css( $default_title_color );
-			}else{
+				$parse_css           = astra_parse_css( $default_title_color );
+			} else {
 				$default_title_color = array(
 					'.site-title a, .site-title a:hover, .site-title a:focus, .site-title a:visited'       => array(
 						'color' => '#222',
 					),
 				);
-				$parse_css         = astra_parse_css( $default_title_color );
+				$parse_css           = astra_parse_css( $default_title_color );
 			}
 
 			$css_output = array(
@@ -2726,14 +2726,14 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		}
 
 		/**
-		* Whether to apply default link color to site title or not.
-		* As this is frontend reflecting change added this backwards for existing users.
-		*
-		* @since x.x.x
-		* @return boolean false if it is an existing user, true if not.
-		*/
+		 * Whether to apply link default color or not.
+		 * As this is frontend reflecting change added this backwards for existing users.
+		 *
+		 * @since x.x.x
+		 * @return boolean false if it is an existing user, true if not.
+		 */
 		public function is_support_link_default_color() {
-			$astra_settings = get_option( ASTRA_THEME_SETTINGS );
+			$astra_settings                               = get_option( ASTRA_THEME_SETTINGS );
 			$astra_settings['support-link-default-color'] = isset( $astra_settings['support-link-default-color'] ) ? false : true;
 			return apply_filters( 'astra_apply_link_default_color_css', $astra_settings['support-link-default-color'] );
 		}
