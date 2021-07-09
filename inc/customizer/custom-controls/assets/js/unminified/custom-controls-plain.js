@@ -296,8 +296,6 @@
 		}
 	};
 
-	// $( function() { AstTypography.init(); } );
-
 })( jQuery );
 
 /*!
