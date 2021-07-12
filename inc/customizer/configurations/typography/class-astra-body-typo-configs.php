@@ -173,7 +173,6 @@ if ( ! class_exists( 'Astra_Body_Typo_Configs' ) ) {
 					'default'    => astra_get_option( 'heading-typo-selector', 'h1' ),
 					'type'       => 'control',
 					'section'    => 'section-typography',
-					'lazy'       => true,
 					'priority'   => 27,
 					'title'      => __( 'Headings Font Family', 'astra' ),
 					'transport'  => 'postMessage',
