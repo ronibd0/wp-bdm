@@ -26,6 +26,8 @@ describe( 'Site Title Typography settings and color settings in the customizer',
 			waitUntil: 'networkidle0',
 		} );
 
+		await page.waitForSelector( '.site-title a' );
+
 		await expect( {
 			selector: '.site-title',
 			property: 'font-size',
