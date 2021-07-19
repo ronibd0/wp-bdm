@@ -216,7 +216,7 @@ if ( ! class_exists( 'Astra_Content_Typo_Configs' ) ) {
 					'section'           => 'section-typography',
 					'default'           => astra_get_option( 'font-weight-h2' ),
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_font_weight' ),
-					'priority'          => 29,
+					'priority'          => 28,
 					'connect'           => ASTRA_THEME_SETTINGS . '[font-family-h2]',
 					'transport'         => 'postMessage',
 				),
@@ -241,7 +241,7 @@ if ( ! class_exists( 'Astra_Content_Typo_Configs' ) ) {
 					),
 					'control'   => 'ast-select',
 					'transport' => 'postMessage',
-					'priority'  => 29,
+					'priority'  => 28,
 					'choices'   => array(
 						''           => __( 'Inherit', 'astra' ),
 						'none'       => __( 'None', 'astra' ),
