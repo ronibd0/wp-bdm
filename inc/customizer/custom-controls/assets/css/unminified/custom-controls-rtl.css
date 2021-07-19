@@ -2170,6 +2170,20 @@ input[type="text"].select2-search__field {
   }
 }
 
+.wp-customizer li:not(.customize-control-sidebar_block_editor) h1,
+.wp-customizer li:not(.customize-control-sidebar_block_editor) h2,
+.wp-customizer li:not(.customize-control-sidebar_block_editor) h3,
+.wp-customizer li:not(.customize-control-sidebar_block_editor) h4,
+.wp-customizer li:not(.customize-control-sidebar_block_editor) h5,
+.wp-customizer li:not(.customize-control-sidebar_block_editor) h6 {
+  font-weight: 600;
+}
+
+/* Customizer - widget appender bottom space CSS */
+.block-list-appender {
+  margin-bottom: 20px;
+}
+
 .customize-control-ast-description .ast-description {
   font-style: italic;
 }
@@ -2296,8 +2310,9 @@ input[type="text"].select2-search__field {
     margin-right: -22px;
     margin-top: -13px;
 }
-.ast-typo-presets .ast-typo-preset-item.active{
-	border: 2px solid #3582c4 !important;
+.ast-typo-presets .ast-typo-preset-item.active {
+    border: 1px solid #3582c4!important;
+    background: #fff;
 }
 
 .ast-field-settings-wrap .customize-control-ast-heading {
@@ -3788,7 +3803,7 @@ span.select2-container.select2-container--default.select2-container--open li.sel
   border-radius: 0;
 }
 
-.customize-control-ast-hidden {
+.customize-control.customize-control-ast-hidden {
   margin-top: 0;
 }
 
@@ -3959,6 +3974,20 @@ input[type="text"].select2-search__field {
     margin-right: 0px;
     margin-left: 20px;
   }
+}
+
+.wp-customizer li:not(.customize-control-sidebar_block_editor) h1,
+.wp-customizer li:not(.customize-control-sidebar_block_editor) h2,
+.wp-customizer li:not(.customize-control-sidebar_block_editor) h3,
+.wp-customizer li:not(.customize-control-sidebar_block_editor) h4,
+.wp-customizer li:not(.customize-control-sidebar_block_editor) h5,
+.wp-customizer li:not(.customize-control-sidebar_block_editor) h6 {
+  font-weight: 600;
+}
+
+/* Customizer - widget appender bottom space CSS */
+.block-list-appender {
+  margin-bottom: 20px;
 }
 
 .customize-control-ast-description .ast-description {
@@ -5580,7 +5609,7 @@ span.select2-container.select2-container--default.select2-container--open li.sel
   border-radius: 0;
 }
 
-.customize-control-ast-hidden {
+.customize-control.customize-control-ast-hidden {
   margin-top: 0;
 }
 
