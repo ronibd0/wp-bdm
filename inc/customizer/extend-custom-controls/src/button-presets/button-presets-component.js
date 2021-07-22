@@ -13,10 +13,9 @@ const ButtonPresetsComponent = (props) => {
 	const onChangePreset = (presetKey) => {
 		let borderRadius = options[presetKey]["border-radius"];
 		let btnBackgroundColor = options[presetKey]["button-bg-color"];
-		let btnColor = options[presetKey]["button-color"];
 		let borderWidth = options[presetKey]["border-size"];
 		let padding = options[presetKey]["button-padding"];
-		let borderColor = options[presetKey]["border-color"];
+		let btnTextColor = options[presetKey]["button-color"];
 
 		/// Padding
 		props.customizer
@@ -60,11 +59,15 @@ const ButtonPresetsComponent = (props) => {
 			props.customizer.control("astra-settings[button-bg-color]").setting.set( cachedValue );
 		}
 
-		props.customizer
-			.control("astra-settings[button-color]")
-			.setting.set(btnColor);
+		let btnTextOptionVal = props.customizer.control("astra-settings[button-color]").setting.get();
 
-		props.customizer.control( "astra-settings[theme-button-border-group-border-color]" ).setting.set( borderColor );
+		if( '' == btnTextOptionVal ) {
+			props.customizer.control("astra-settings[button-color]").setting.set( btnTextColor );
+		}
+
+		if( '#0170B9' == btnTextOptionVal && '' == btnTextColor ) {
+			props.customizer.control("astra-settings[button-color]").setting.set( '' );
+		}
 
 		setState( presetKey );
 		props.control.setting.set( presetKey );
