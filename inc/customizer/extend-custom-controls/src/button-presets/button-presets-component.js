@@ -41,19 +41,21 @@ const ButtonPresetsComponent = (props) => {
 			if( 'rgba(0,0,0,0)' == btnBackgroundColor ) {
 
 				let cachedValue = props.customizer.control("astra-settings[button-bg-color]").setting.get();
-				localStorage.setItem( "cachedBgColor", cachedValue );
+				if( 'rgba(0,0,0,0)' !== cachedValue ) {
+					window.cachedBGColor = cachedValue;
+				}
 			}
 
 			// Button Background color
 			props.customizer.control("astra-settings[button-bg-color]").setting.set( btnBackgroundColor );
 		} else {
 
-			let cachedValue  = localStorage.getItem("cachedBgColor");
+			let cachedValue  = window.cachedBGColor;
 			let optionValue = props.customizer.control("astra-settings[button-bg-color]").setting.get();
 
 			if( cachedValue != optionValue && 'rgba(0,0,0,0)' !== optionValue ) {
-				localStorage.setItem( "cachedBgColor", optionValue );
-				cachedValue  = localStorage.getItem("cachedBgColor");
+				window.cachedBGColor = optionValue;
+				cachedValue  = window.cachedBGColor;
 			}
 
 			props.customizer.control("astra-settings[button-bg-color]").setting.set( cachedValue );
@@ -65,7 +67,7 @@ const ButtonPresetsComponent = (props) => {
 			props.customizer.control("astra-settings[button-color]").setting.set( btnTextColor );
 		}
 
-		if( '#0170B9' == btnTextOptionVal && '' == btnTextColor ) {
+		if( options['button_04']['button-color'] == btnTextOptionVal && '' == btnTextColor ) {
 			props.customizer.control("astra-settings[button-color]").setting.set( '' );
 		}
 
