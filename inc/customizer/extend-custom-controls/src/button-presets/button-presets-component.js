@@ -38,24 +38,24 @@ const ButtonPresetsComponent = (props) => {
 
 		if( '' !== btnBackgroundColor ) {
 
-			if( 'rgba(0,0,0,0)' == btnBackgroundColor ) {
+			let cachedValue = props.customizer.control("astra-settings[button-bg-color]").setting.get();
 
-				let cachedValue = props.customizer.control("astra-settings[button-bg-color]").setting.get();
-				if( 'rgba(0,0,0,0)' !== cachedValue ) {
-					window.cachedBGColor = cachedValue;
-				}
+			// Set button background color cached in window variable while switching to transparent button preset.
+			if( 'rgba(0,0,0,0)' == btnBackgroundColor && 'rgba(0,0,0,0)' !== cachedValue ) {
+				window.cachedBtnBGColor = cachedValue;
 			}
 
-			// Button Background color
+			// Set Button Background color
 			props.customizer.control("astra-settings[button-bg-color]").setting.set( btnBackgroundColor );
 		} else {
 
-			let cachedValue  = window.cachedBGColor;
+			let cachedValue = window.cachedBtnBGColor;
 			let optionValue = props.customizer.control("astra-settings[button-bg-color]").setting.get();
 
+			// Set option value in window cached variable if value is not transparent.
 			if( cachedValue != optionValue && 'rgba(0,0,0,0)' !== optionValue ) {
-				window.cachedBGColor = optionValue;
-				cachedValue  = window.cachedBGColor;
+				window.cachedBtnBGColor = optionValue;
+				cachedValue  = window.cachedBtnBGColor;
 			}
 
 			props.customizer.control("astra-settings[button-bg-color]").setting.set( cachedValue );
@@ -67,6 +67,7 @@ const ButtonPresetsComponent = (props) => {
 			props.customizer.control("astra-settings[button-color]").setting.set( btnTextColor );
 		}
 
+		// If button text option value is equal to default button color set text color to blank.
 		if( options['button_04']['button-color'] == btnTextOptionVal && '' == btnTextColor ) {
 			props.customizer.control("astra-settings[button-color]").setting.set( '' );
 		}
