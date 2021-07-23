@@ -53,7 +53,7 @@ if ( ! class_exists( 'Astra_Content_Typo_Configs' ) ) {
 							'value'    => 'h1',
 						),
 					),
-					'title'     => __( 'Family', 'astra' ),
+					'title'     => __( 'Font Family', 'astra' ),
 					'section'   => 'section-typography',
 					'priority'  => 28,
 					'connect'   => ASTRA_THEME_SETTINGS . '[font-weight-h1]',
@@ -188,7 +188,7 @@ if ( ! class_exists( 'Astra_Content_Typo_Configs' ) ) {
 							'value'    => 'h2',
 						),
 					),
-					'title'     => __( 'Family', 'astra' ),
+					'title'     => __( 'Font Family', 'astra' ),
 					'default'   => astra_get_option( 'font-family-h2' ),
 					'section'   => 'section-typography',
 					'priority'  => 28,
@@ -322,7 +322,7 @@ if ( ! class_exists( 'Astra_Content_Typo_Configs' ) ) {
 					'control'   => 'ast-font',
 					'font-type' => 'ast-font-family',
 					'default'   => astra_get_option( 'font-family-h3' ),
-					'title'     => __( 'Family', 'astra' ),
+					'title'     => __( 'Font Family', 'astra' ),
 					'context'   => array(
 						'',
 						array(

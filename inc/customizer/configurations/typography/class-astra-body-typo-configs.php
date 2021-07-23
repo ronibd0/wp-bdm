@@ -166,7 +166,7 @@ if ( ! class_exists( 'Astra_Body_Typo_Configs' ) ) {
 						'step' => 0.01,
 						'max'  => 5,
 					),
-					'divider'    => array( 'ast_class' => 'ast-top-divider' ),
+					'divider'    => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 				array(
 					'name'       => ASTRA_THEME_SETTINGS . '[heading-typo-selector]',
@@ -174,7 +174,7 @@ if ( ! class_exists( 'Astra_Body_Typo_Configs' ) ) {
 					'type'       => 'control',
 					'section'    => 'section-typography',
 					'priority'   => 27,
-					'title'      => __( 'Headings Font Family', 'astra' ),
+					'title'      => __( '', 'astra' ),
 					'transport'  => 'postMessage',
 					'control'    => 'ast-selector',
 					'choices'    => array(
@@ -292,6 +292,7 @@ if ( ! class_exists( 'Astra_Body_Typo_Configs' ) ) {
 						'step' => 0.01,
 						'max'  => 5,
 					),
+					'divider'           => array( 'ast_class' => 'ast-bottom-divider' )
 				),
 			);
 
