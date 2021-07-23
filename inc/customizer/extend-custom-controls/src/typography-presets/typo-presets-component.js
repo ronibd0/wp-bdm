@@ -1,6 +1,8 @@
 import PropTypes from 'prop-types';
 import { __ } from '@wordpress/i18n';
 import {useState, useEffect} from 'react';
+import {Tooltip} from '@wordpress/components';
+
 
 const TypoPresetControl = props => {
 
@@ -72,6 +74,24 @@ const TypoPresetControl = props => {
 
 	};
 
+	const SingleList = (props) => {
+		return (
+		<li
+			className={
+				"ast-typo-preset-item " +
+				(props_value === props.preset
+					? "active"
+					: "")
+			}
+			key={props.preset}
+			onClick={() => onPresetClick(props.preset)}
+			dangerouslySetInnerHTML={{
+				__html: window.svgIcons[props.preset],
+			}}
+		></li>
+		)
+	};
+
 	const List = ({ className, options, selected }) => {
 		return (
 			<ul className={`ast-font-selector ${className}`}>
@@ -79,20 +99,9 @@ const TypoPresetControl = props => {
 				   Object.entries(options).map(
 					([presetKey, item]) => {
 						return (
-							<li
-								className={
-									"ast-typo-preset-item " +
-									(props_value === presetKey
-										? "active"
-										: "")
-								}
-								key={presetKey}
-								onClick={() => onPresetClick(presetKey)}
-								dangerouslySetInnerHTML={{
-									__html: window.svgIcons[presetKey],
-								}}
-							>
-							</li>
+							<Tooltip key={ presetKey + '_tooltip' } text="Tooltip Text" position="top center">
+								<SingleList preset={presetKey}/>
+							</Tooltip>
 						)
 					}
 				)}
