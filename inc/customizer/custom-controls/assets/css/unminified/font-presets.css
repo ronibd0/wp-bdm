@@ -31,3 +31,15 @@
     border: 1px solid #3582c4!important;
     background: #fff;
 }
+
+.ast-typography-reset-btn {
+	margin-top: 15px;
+    padding: 0 20px;
+	cursor: pointer;
+	background: #2271b1;
+    border-color: #2271b1;
+    color: #fff;
+	font-size: 13px;
+    line-height: 2.15384615;
+    min-height: 30px;
+}

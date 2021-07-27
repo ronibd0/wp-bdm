@@ -2323,6 +2323,17 @@ input[type="text"].select2-search__field {
     background: #fff;
 }
 
+.ast-typography-reset-btn {
+	margin-top: 15px;
+    padding: 0 20px;
+	background: #2271b1;
+    border-color: #2271b1;
+    color: #fff;
+	font-size: 13px;
+    line-height: 2.15384615;
+    min-height: 30px;
+}
+
 .ast-field-settings-wrap .customize-control-ast-heading {
   margin: 0px 0 15px 0;
 }
@@ -4135,6 +4146,18 @@ input[type="text"].select2-search__field {
 .ast-typo-presets .ast-typo-preset-item.active {
     border: 1px solid #3582c4!important;
     background: #fff;
+}
+
+.ast-typography-reset-btn {
+	margin-top: 15px;
+    padding: 0 20px;
+	cursor: pointer;
+	background: #2271b1;
+    border-color: #2271b1;
+    color: #fff;
+	font-size: 13px;
+    line-height: 2.15384615;
+    min-height: 30px;
 }
 
 .ast-field-settings-wrap .customize-control-ast-heading {
