@@ -324,7 +324,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$selection_text_color = ( 'transparent' === $highlight_theme_color ) ? '' : $highlight_theme_color;
 
 			// Default site title color.
-			if ( self::is_support_link_default_color() ) {
+			if ( self::has_support_link_default_color() ) {
 				$default_title_color = array(
 					'.site-title a, .site-title a:focus, .site-title a:visited' => array(
 						'color' => astra_get_option( 'link-color' ),
@@ -2732,7 +2732,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		 * @since x.x.x
 		 * @return boolean false if it is an existing user, true if not.
 		 */
-		public function is_support_link_default_color() {
+		public static function has_support_link_default_color() {
 			$astra_settings                               = get_option( ASTRA_THEME_SETTINGS );
 			$astra_settings['support-link-default-color'] = isset( $astra_settings['support-link-default-color'] ) ? false : true;
 			return apply_filters( 'astra_apply_link_default_color_css', $astra_settings['support-link-default-color'] );
