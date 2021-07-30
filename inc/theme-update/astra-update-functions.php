@@ -3163,7 +3163,7 @@ function astra_remove_elementor_toc_margin() {
 }
 
 /**
- * Site title global link color compatibility.
+ * Link default color compatibility.
  *
  * @since x.x.x
  * @return void.
