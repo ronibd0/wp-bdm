@@ -3161,3 +3161,17 @@ function astra_remove_elementor_toc_margin() {
 		update_option( 'astra-settings', $theme_options );
 	}
 }
+
+/**
+ * Link default color compatibility.
+ *
+ * @since x.x.x
+ * @return void.
+ */
+function astra_link_default_color() {
+	$theme_options = get_option( 'astra-settings', array() );
+
+	if ( ! isset( $theme_options['support-link-default-color'] ) ) {
+		$theme_options['support-link-default-color'] = false;
+	}
+}
