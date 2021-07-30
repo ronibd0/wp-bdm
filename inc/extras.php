@@ -702,3 +702,15 @@ function astra_can_remove_elementor_toc_margin_space() {
 	$astra_settings['remove-elementor-toc-margin-css'] = isset( $astra_settings['remove-elementor-toc-margin-css'] ) ? false : true;
 	return apply_filters( 'astra_remove_elementor_toc_margin', $astra_settings['remove-elementor-toc-margin-css'] );
 }
+
+/**
+ * Check whether we can apply heading color to page title. Return true for users using Astra version >= 3.7.0.
+ *
+ * @since x.x.x
+ * @return boolean
+ */
+function astra_maybe_apply_heading_color_for_title() {
+	$astra_settings                               = get_option( ASTRA_THEME_SETTINGS );
+	$astra_settings['support-link-default-color'] = isset( $astra_settings['support-link-default-color'] ) ? false : true;
+	return apply_filters( 'astra_apply_link_default_color_css', $astra_settings['support-link-default-color'] );
+}

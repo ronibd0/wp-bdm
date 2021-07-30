@@ -84,6 +84,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$theme_color      = astra_get_option( 'theme-color' );
 			$link_color       = astra_get_option( 'link-color', $theme_color );
 			$link_hover_color = astra_get_option( 'link-h-color' );
+			$heading_base_color = astra_get_option( 'heading-base-color' );
 
 			// Typography.
 			$body_font_size          = astra_get_option( 'font-size-body' );
@@ -547,6 +548,12 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				),
 
 			);
+
+			if( astra_maybe_apply_heading_color_for_title() ) {
+				$css_output['.page-title, .entry-title a'] = array(
+					'color' => esc_attr( $heading_base_color ),
+				);
+			}
 
 			// Remove this condition after 2-3 updates of add-on.
 			if ( defined( 'ASTRA_EXT_VER' ) && version_compare( ASTRA_EXT_VER, '3.0.1', '>=' ) ) {
