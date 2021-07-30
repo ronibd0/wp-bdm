@@ -13,7 +13,7 @@
 	/**
 	 * Content <h1> to <h6> headings
 	 */
-	astra_css( 'astra-settings[heading-base-color]', 'color', 'h1, .entry-content h1, h2, .entry-content h2, h3, .entry-content h3, h4, .entry-content h4, h5, .entry-content h5, h6, .entry-content h6' );
+	astra_css( 'astra-settings[heading-base-color]', 'color', 'h1, .entry-content h1, h2, .entry-content h2, h3, .entry-content h3, h4, .entry-content h4, h5, .entry-content h5, h6, .entry-content h6, .entry-title a' );
 
 	var h1_widget_title, h2_widget_title, h3_widget_title = '';
 	if( astraCustomizer.font_weights_widget_title_support ) {
