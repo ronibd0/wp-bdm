@@ -248,8 +248,7 @@ if ( ! class_exists( 'Astra_Content_Typo_Configs' ) ) {
 						'capitalize' => __( 'Capitalize', 'astra' ),
 						'uppercase'  => __( 'Uppercase', 'astra' ),
 						'lowercase'  => __( 'Lowercase', 'astra' ),
-					),
-					'transport' => 'postMessage',
+					)
 				),
 
 				/**
@@ -389,8 +388,7 @@ if ( ! class_exists( 'Astra_Content_Typo_Configs' ) ) {
 						'capitalize' => __( 'Capitalize', 'astra' ),
 						'uppercase'  => __( 'Uppercase', 'astra' ),
 						'lowercase'  => __( 'Lowercase', 'astra' ),
-					),
-					'transport' => 'postMessage',
+					)
 				),
 				/**
 				 * Option: Heading 3 (H3) Font Size

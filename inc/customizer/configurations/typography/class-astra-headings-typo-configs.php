@@ -101,7 +101,6 @@ class Astra_Headings_Typo_Configs extends Astra_Customizer_Config_Base {
 					'uppercase'  => __( 'Uppercase', 'astra' ),
 					'lowercase'  => __( 'Lowercase', 'astra' ),
 				),
-				'transport' => 'postMessage',
 				'context'   => array(
 					'',
 					array(
@@ -241,7 +240,6 @@ class Astra_Headings_Typo_Configs extends Astra_Customizer_Config_Base {
 					'uppercase'  => __( 'Uppercase', 'astra' ),
 					'lowercase'  => __( 'Lowercase', 'astra' ),
 				),
-				'transport' => 'postMessage',
 				'context'   => array(
 					'',
 					array(
@@ -412,7 +410,6 @@ class Astra_Headings_Typo_Configs extends Astra_Customizer_Config_Base {
 					'uppercase'  => __( 'Uppercase', 'astra' ),
 					'lowercase'  => __( 'Lowercase', 'astra' ),
 				),
-				'transport' => 'postMessage',
 				'context'   => array(
 					'',
 					array(
