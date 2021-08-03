@@ -1622,7 +1622,7 @@ namespace {
         }
         /**
          * Different logo for mobile static CSS.
-         * 
+         *
          * @param string $dynamic_css Appended dynamic CSS.
          * @since 3.5.0
          * @return string
@@ -2824,10 +2824,10 @@ namespace {
         /**
          * For existing users, do not reflect direct change.
          *
-         * @since 3.6.6
+         * @since 3.6.5
          * @return boolean true if WordPress-5.8 compatibility enabled, False if not.
          */
-        public static function is_wordpress_5_8_support_enabled()
+        public static function is_block_editor_support_enabled()
         {
         }
         /**
@@ -6071,6 +6071,14 @@ namespace {
         {
         }
         /**
+         * Get register & enqueue astra-admin scripts.
+         *
+         * @since 3.6.6
+         */
+        public static function load_astra_admin_script()
+        {
+        }
+        /**
          * Get and return page URL
          *
          * @param string $menu_slug Menu name.
@@ -8871,6 +8879,23 @@ namespace {
     /**
      * Customizer Sanitizes Initial setup
      */
+    class Astra_Global_Typo_Configs extends \Astra_Customizer_Config_Base
+    {
+        /**
+         * Register Body Typography Customizer Configurations.
+         *
+         * @param Array                $configurations Astra Customizer Configurations.
+         * @param WP_Customize_Manager $wp_customize instance of WP_Customize_Manager.
+         * @since 1.4.3
+         * @return Array Astra Customizer Configurations with updated configurations.
+         */
+        public function register_configuration($configurations, $wp_customize)
+        {
+        }
+    }
+    /**
+     * Customizer Sanitizes Initial setup
+     */
     class Astra_Header_Typo_Configs extends \Astra_Customizer_Config_Base
     {
         /**
@@ -8879,6 +8904,23 @@ namespace {
          * @param Array                $configurations Astra Customizer Configurations.
          * @param WP_Customize_Manager $wp_customize instance of WP_Customize_Manager.
          * @since 1.4.3
+         * @return Array Astra Customizer Configurations with updated configurations.
+         */
+        public function register_configuration($configurations, $wp_customize)
+        {
+        }
+    }
+    /**
+     * Customizer Sanitizes Initial setup
+     */
+    class Astra_Headings_Typo_Configs extends \Astra_Customizer_Config_Base
+    {
+        /**
+         * Register headings Typography Customizer Configurations.
+         *
+         * @param Array                $configurations Astra Customizer Configurations.
+         * @param WP_Customize_Manager $wp_customize instance of WP_Customize_Manager.
+         * @since x.x.x
          * @return Array Astra Customizer Configurations with updated configurations.
          */
         public function register_configuration($configurations, $wp_customize)
@@ -11160,7 +11202,7 @@ namespace {
          *
          * @var array
          */
-        private static $db_updates = array('2.1.3' => array('astra_submenu_below_header'), '2.2.0' => array('astra_page_builder_button_color_compatibility', 'astra_vertical_horizontal_padding_migration'), '2.3.0' => array('astra_header_button_new_options'), '2.3.3' => array('astra_elementor_default_color_typo_comp'), '2.3.4' => array('astra_breadcrumb_separator_fix'), '2.4.0' => array('astra_responsive_base_background_option', 'astra_update_theme_tablet_breakpoint'), '2.4.4' => array('astra_gtn_full_wide_image_group_css'), '2.5.0' => array('astra_global_button_woo_css', 'astra_gtn_full_wide_group_cover_css'), '2.5.2' => array('astra_footer_widget_bg'), '2.6.0' => array('astra_bg_control_migration', 'astra_bg_responsive_control_migration', 'astra_gutenberg_core_blocks_design_compatibility'), '2.6.1' => array('astra_gutenberg_media_text_block_css_compatibility'), '3.0.0' => array('astra_header_builder_compatibility'), '3.0.1' => array('astra_clear_assets_cache'), '3.3.0' => array('astra_gutenberg_pattern_compatibility', 'astra_icons_svg_compatibility', 'astra_check_flex_based_css'), '3.4.0' => array('astra_update_cart_style'), '3.5.0' => array('astra_update_related_posts_grid_layout', 'astra_site_title_tagline_responsive_control_migration'), '3.6.0' => array('astra_headings_font_support', 'astra_remove_logo_max_width', 'astra_transparent_header_default_value'), '3.6.1' => array('astra_clear_all_assets_cache'), '3.6.3' => array('astra_button_default_values_updated', 'astra_clear_all_assets_cache'), '3.6.4' => array('astra_update_underline_link_setting'), '3.7.0' => array('astra_fix_footer_widget_right_margin_case', 'astra_support_wp_5_8'));
+        private static $db_updates = array('2.1.3' => array('astra_submenu_below_header'), '2.2.0' => array('astra_page_builder_button_color_compatibility', 'astra_vertical_horizontal_padding_migration'), '2.3.0' => array('astra_header_button_new_options'), '2.3.3' => array('astra_elementor_default_color_typo_comp'), '2.3.4' => array('astra_breadcrumb_separator_fix'), '2.4.0' => array('astra_responsive_base_background_option', 'astra_update_theme_tablet_breakpoint'), '2.4.4' => array('astra_gtn_full_wide_image_group_css'), '2.5.0' => array('astra_global_button_woo_css', 'astra_gtn_full_wide_group_cover_css'), '2.5.2' => array('astra_footer_widget_bg'), '2.6.0' => array('astra_bg_control_migration', 'astra_bg_responsive_control_migration', 'astra_gutenberg_core_blocks_design_compatibility'), '2.6.1' => array('astra_gutenberg_media_text_block_css_compatibility'), '3.0.0' => array('astra_header_builder_compatibility'), '3.0.1' => array('astra_clear_assets_cache'), '3.3.0' => array('astra_gutenberg_pattern_compatibility', 'astra_icons_svg_compatibility', 'astra_check_flex_based_css'), '3.4.0' => array('astra_update_cart_style'), '3.5.0' => array('astra_update_related_posts_grid_layout', 'astra_site_title_tagline_responsive_control_migration'), '3.6.0' => array('astra_headings_font_support', 'astra_remove_logo_max_width', 'astra_transparent_header_default_value'), '3.6.1' => array('astra_clear_all_assets_cache'), '3.6.3' => array('astra_button_default_values_updated', 'astra_clear_all_assets_cache'), '3.6.4' => array('astra_update_underline_link_setting'), '3.6.5' => array('astra_support_block_editor'), '3.6.7' => array('astra_fix_footer_widget_right_margin_case', 'astra_remove_elementor_toc_margin', 'astra_clear_all_assets_cache'));
         /**
          *  Constructor
          */
@@ -12034,7 +12076,7 @@ namespace {
      *
      * As this affects the frontend, added this backward compatibility for existing users.
      *
-     * @since 3.6.6
+     * @since 3.6.7
      * @return boolean false if it is an existing user, true if not.
      */
     function is_support_footer_widget_right_margin()
@@ -13521,6 +13563,15 @@ namespace {
     {
     }
     /**
+     * Astra WordPress compatibility - Dynamic CSS.
+     *
+     * @param string $dynamic_css Dynamic CSS.
+     * @since 3.6.5
+     */
+    function astra_block_editor_compatibility_css($dynamic_css)
+    {
+    }
+    /**
      * Comments - Dynamic CSS
      *
      * @param  string $dynamic_css          Astra Dynamic CSS.
@@ -13567,15 +13618,6 @@ namespace {
      * @since 3.3.0
      */
     function astra_pagination_css($dynamic_css)
-    {
-    }
-    /**
-     * Astra WordPress compatibility - Dynamic CSS.
-     *
-     * @param string $dynamic_css Dynamic CSS.
-     * @since 3.6.6
-     */
-    function astra_wordpress_compat_css($dynamic_css)
     {
     }
     /**
@@ -13845,10 +13887,27 @@ namespace {
     /**
      * Check is WordPress version is greater than or equal to beta 5.8 version.
      *
-     * @since 3.6.6
+     * @since 3.6.5
      * @return boolean
      */
     function astra_has_widgets_block_editor()
+    {
+    }
+    /**
+     * H4 to H6 typography options should be loaded in Astra addon version is less than 3.6.0
+     *
+     * @since x.x.x
+     */
+    function astra_is_h4_to_h6_typo_option_to_load()
+    {
+    }
+    /**
+     * Check whether user is exising or new to override the default margin space added to Elementor-TOC widget.
+     *
+     * @since 3.6.7
+     * @return boolean
+     */
+    function astra_can_remove_elementor_toc_margin_space()
     {
     }
     /**
@@ -14238,6 +14297,12 @@ namespace {
      * @return string Addon Name.
      */
     function astra_get_addon_name()
+    {
+    }
+    /**
+     * Added this filter to modify the post navigation template to remove the h2 tag from screen reader text.
+     */
+    function astra_post_navigation_template()
     {
     }
     /**
@@ -14777,7 +14842,7 @@ namespace {
      * Set flag for updated default values for buttons & add GB Buttons padding support.
      *
      * @since 3.6.3
-     * @return void.
+     * @return void
      */
     function astra_button_default_values_updated()
     {
@@ -14792,22 +14857,31 @@ namespace {
     {
     }
     /**
+     * Add compatibility support for WP-5.8. as some of settings & blocks already their in WP-5.7 versions, that's why added backward here.
+     *
+     * @since 3.6.5
+     * @return void
+     */
+    function astra_support_block_editor()
+    {
+    }
+    /**
      * Set flag to maintain backward compatibility for existing users.
      * Fixing the case where footer widget's right margin space not working.
      *
-     * @since 3.6.6
+     * @since 3.6.7
      * @return void
      */
     function astra_fix_footer_widget_right_margin_case()
     {
     }
     /**
-     * Add compatibility support for WP-5.8. as some of settings & blocks already their in WP-5.7 versions, that's why added backward here.
+     * Set flag to avoid direct reflections on live site & to maintain backward compatibility for existing users.
      *
-     * @since 3.6.6
+     * @since 3.6.7
      * @return void
      */
-    function astra_support_wp_5_8()
+    function astra_remove_elementor_toc_margin()
     {
     }
     /**
@@ -14836,6 +14910,54 @@ namespace {
     function astra_widgets_init()
     {
     }
+    /**
+     * Search Form for Astra theme.
+     *
+     * @package     Astra
+     * @author      Brainstorm Force
+     * @copyright   Copyright (c) 2020, Brainstorm Force
+     * @link        https://www.brainstormforce.com
+     * @since       Astra 3.3.0
+     */
+    /**
+     * Adding argument checks to avoid rendering search-form markup from other places & to easily use get_search_form() function.
+     *
+     * @see https://themes.trac.wordpress.org/ticket/101061
+     * @since 3.6.1
+     */
+    $astra_search_input_placeholder = isset($args['input_placeholder']) ? $args['input_placeholder'] : \astra_default_strings('string-search-input-placeholder', \false);
+    /**
+     * Template for Small Footer Layout 2
+     *
+     * @package     Astra
+     * @author      Astra
+     * @copyright   Copyright (c) 2020, Astra
+     * @link        https://wpastra.com/
+     * @since       Astra 1.0.0
+     */
+    $section_1 = \astra_get_small_footer('footer-sml-section-1');
+    /**
+     * Template for Small Footer Layout 1
+     *
+     * @package     Astra
+     * @author      Astra
+     * @copyright   Copyright (c) 2020, Astra
+     * @link        https://wpastra.com/
+     * @since       Astra 1.0.0
+     */
+    $section_1 = \astra_get_small_footer('footer-sml-section-1');
+    /**
+     * Template part for displaying header row.
+     *
+     * @package Astra Builder
+     */
+    $mobile_header_type = \astra_get_option('mobile-header-type');
+    /**
+     * Template part for displaying the Mobile Header
+     *
+     * @package Astra Builder
+     */
+    $mobile_header_type = \astra_get_option('mobile-header-type');
     /**
      * Search Form for Astra theme.
      *
