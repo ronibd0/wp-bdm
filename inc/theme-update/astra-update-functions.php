@@ -3173,5 +3173,6 @@ function astra_link_default_color() {
 
 	if ( ! isset( $theme_options['support-link-default-color'] ) ) {
 		$theme_options['support-link-default-color'] = false;
+		update_option( 'astra-settings', $theme_options );
 	}
 }
