@@ -1,3 +1,5 @@
+- Fix: Elementor Pro's Header-Footer theme builder layouts does not override theme's Header-Footer builder layouts.
+
 v3.6.8 (Unreleased)
 - Improvement: Added WPML translation support for all customizer's strings through wpml-config.xml file.
 - Fix: Bulk action selection not working on any WordPress list table when theme's "Get Started" notice is active.

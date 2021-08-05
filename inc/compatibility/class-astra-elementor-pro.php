@@ -279,7 +279,11 @@ if ( ! class_exists( 'Astra_Elementor_Pro' ) ) :
 		public function do_header() {
 			$did_location = Module::instance()->get_locations_manager()->do_location( 'header' );
 			if ( $did_location ) {
-				remove_action( 'astra_header', 'astra_header_markup' );
+				if ( true === astra_is_header_footer_builder_active() ) {
+					remove_action( 'astra_header', array( \Astra_Builder_Header::get_instance(), 'prepare_header_builder_markup' ) );
+				} else {
+					remove_action( 'astra_header', 'astra_header_markup' );
+				}
 			}
 		}
 
@@ -292,7 +296,11 @@ if ( ! class_exists( 'Astra_Elementor_Pro' ) ) :
 		public function do_footer() {
 			$did_location = Module::instance()->get_locations_manager()->do_location( 'footer' );
 			if ( $did_location ) {
-				remove_action( 'astra_footer', 'astra_footer_markup' );
+				if ( true === astra_is_header_footer_builder_active() ) {
+					remove_action( 'astra_footer', array( \Astra_Builder_Footer::get_instance(), 'footer_markup' ) );
+				} else {
+					remove_action( 'astra_footer', 'astra_footer_markup' );
+				}
 			}
 		}
 
