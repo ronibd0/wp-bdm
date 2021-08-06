@@ -1152,13 +1152,3 @@ final class Astra_Builder_Helper {
  *  Kicking this off by calling 'get_instance()' method
  */
 Astra_Builder_Helper::get_instance();
-
-/**
- * Creating global function to Check if Astra's Header-Footer builder is active.
- *
- * @since x.x.x
- * @return boolean True|False
- */
-function astra_is_header_footer_builder_active() {
-	return Astra_Builder_Helper::$is_header_footer_builder_active;
-}
