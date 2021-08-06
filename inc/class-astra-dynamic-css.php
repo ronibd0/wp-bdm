@@ -565,7 +565,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			);
 
 			if( astra_maybe_apply_heading_color_for_title() ) {
-				$css_output['.page-title, .entry-title a'] = array(
+				$css_output['.ast-archive-title'] = array(
 					'color' => esc_attr( $heading_base_color ),
 				);
 			}

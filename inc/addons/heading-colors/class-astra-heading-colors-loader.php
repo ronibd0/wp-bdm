@@ -114,7 +114,7 @@ class Astra_Heading_Colors_Loader {
 			'mobile-unit'  => 'px',
 		);
 		$defaults['text-transform-button'] = '';
-		
+
 		/**
 		 * Check backward compatibility for button line height.
 		 */
@@ -152,6 +152,14 @@ class Astra_Heading_Colors_Loader {
 		$dir_name    = ( SCRIPT_DEBUG ) ? 'unminified' : 'minified';
 		$file_prefix = ( SCRIPT_DEBUG ) ? '' : '.min';
 		wp_enqueue_script( 'astra-heading-colors-customizer-preview-js', ASTRA_THEME_HEADING_COLORS_URI . 'assets/js/' . $dir_name . '/customizer-preview' . $file_prefix . '.js', array( 'customize-preview', 'astra-customizer-preview-js' ), ASTRA_THEME_VERSION, true );
+
+		wp_localize_script( 'astra-heading-colors-customizer-preview-js',
+			'astraHeadingColorOptions',
+			array(
+				'maybeApplyHeadingColorForTitle' => astra_maybe_apply_heading_color_for_title()
+			)
+		);
+
 	}
 }
 
