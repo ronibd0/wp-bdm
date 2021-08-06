@@ -709,13 +709,13 @@ function astra_can_remove_elementor_toc_margin_space() {
 }
 
 /**
- * Check whether we can apply heading color to page title. Return true for users using Astra version >= 3.7.0.
+ * This will check if user is new and apply global color format. This is to manage backward compatibility for colors.
  *
  * @since x.x.x
- * @return boolean
+ * @return boolean false if it is an existing user, true for new user.
  */
-function astra_maybe_apply_heading_color_for_title() {
+function astra_has_global_color_format_support() {
 	$astra_settings                               = get_option( ASTRA_THEME_SETTINGS );
-	$astra_settings['support-link-default-color'] = isset( $astra_settings['support-link-default-color'] ) ? false : true;
-	return apply_filters( 'astra_apply_link_default_color_css', $astra_settings['support-link-default-color'] );
+	$astra_settings['support-global-color-format'] = isset( $astra_settings['support-global-color-format'] ) ? false : true;
+	return apply_filters( 'astra_apply_global_color_format_support', $astra_settings['support-global-color-format'] );
 }

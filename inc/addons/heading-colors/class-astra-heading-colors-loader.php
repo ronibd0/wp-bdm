@@ -156,7 +156,7 @@ class Astra_Heading_Colors_Loader {
 		wp_localize_script( 'astra-heading-colors-customizer-preview-js',
 			'astraHeadingColorOptions',
 			array(
-				'maybeApplyHeadingColorForTitle' => astra_maybe_apply_heading_color_for_title()
+				'maybeApplyHeadingColorForTitle' => astra_has_global_color_format_support()
 			)
 		);
 

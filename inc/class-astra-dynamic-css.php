@@ -327,26 +327,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			// check the selection color incase of empty/no theme color.
 			$selection_text_color = ( 'transparent' === $highlight_theme_color ) ? '' : $highlight_theme_color;
 
-			// Default site title color.
-			if ( self::has_support_link_default_color() ) {
-				$default_title_color = array(
-					'.site-title a, .site-title a:focus, .site-title a:visited' => array(
-						'color' => astra_get_option( 'link-color' ),
-					),
-					'.site-title a:hover' => array(
-						'color' => astra_get_option( 'link-h-color' ),
-					),
-				);
-				$parse_css           = astra_parse_css( $default_title_color );
-			} else {
-				$default_title_color = array(
-					'.site-title a, .site-title a:hover, .site-title a:focus, .site-title a:visited'       => array(
-						'color' => '#222',
-					),
-				);
-				$parse_css           = astra_parse_css( $default_title_color );
-			}
-
 			$css_output = array(
 
 				// HTML.
@@ -564,14 +544,14 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 			);
 
-			if( astra_maybe_apply_heading_color_for_title() ) {
+			if( astra_has_global_color_format_support() ) {
 				$css_output['.ast-archive-title'] = array(
 					'color' => esc_attr( $heading_base_color ),
 				);
 			}
 
 			// Default widget title color.
-			if ( self::has_default_widget_title_color() ) {
+			if ( astra_has_global_color_format_support() ) {
 				// Widget Title.
 				$css_output['.widget-title'] = array(
 					'font-size' => astra_get_font_css_value( (int) $body_font_size_desktop * 1.428571429 ),
@@ -661,7 +641,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			}
 
 			/* Parse CSS from array() */
-			$parse_css .= astra_parse_css( $css_output );
+			$parse_css = astra_parse_css( $css_output );
 
 			if ( ! Astra_Builder_Helper::$is_header_footer_builder_active ) {
 
@@ -2813,32 +2793,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 			return apply_filters( 'astra_theme_dynamic_css', $parse_css );
 
-		}
-
-		/**
-		 * Whether to apply link default color or not.
-		 * As this is frontend reflecting change added this backwards for existing users.
-		 *
-		 * @since x.x.x
-		 * @return boolean false if it is an existing user, true if not.
-		 */
-		public static function has_default_widget_title_color() {
-			$astra_settings                               = get_option( ASTRA_THEME_SETTINGS );
-			$astra_settings['support-link-default-color'] = isset( $astra_settings['support-link-default-color'] ) ? false : true;
-			return apply_filters( 'astra_apply_link_default_color_css', $astra_settings['support-link-default-color'] );
-		}
-
-		/**
-		 * Whether to apply link default color or not.
-		 * As this is frontend reflecting change added this backwards for existing users.
-		 *
-		 * @since x.x.x
-		 * @return boolean false if it is an existing user, true if not.
-		 */
-		public static function has_support_link_default_color() {
-			$astra_settings                               = get_option( ASTRA_THEME_SETTINGS );
-			$astra_settings['support-link-default-color'] = isset( $astra_settings['support-link-default-color'] ) ? false : true;
-			return apply_filters( 'astra_apply_link_default_color_css', $astra_settings['support-link-default-color'] );
 		}
 
 		/**
