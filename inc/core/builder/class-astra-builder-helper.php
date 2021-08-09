@@ -915,7 +915,10 @@ final class Astra_Builder_Helper {
 	 * Adds support to render Mobile Popup Markup.
 	 */
 	public static function render_mobile_popup_markup() {
-
+		if ( ! self::is_component_loaded( 'mobile-trigger', 'header' ) && ! is_customize_preview() ) {
+			return;
+		}
+		
 		$off_canvas_slide   = astra_get_option( 'off-canvas-slide' );
 		$mobile_header_type = astra_get_option( 'mobile-header-type' );
 		$content_alignment  = astra_get_option( 'header-offcanvas-content-alignment' );
