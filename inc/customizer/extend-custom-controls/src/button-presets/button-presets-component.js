@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 import { __ } from "@wordpress/i18n";
 import { useState, useEffect } from "react";
+import {Dashicon} from '@wordpress/components';
 
 const ButtonPresetsComponent = (props) => {
 	const { title, options } = props.control.params;
@@ -81,6 +82,29 @@ const ButtonPresetsComponent = (props) => {
 		document.dispatchEvent(event);
 	};
 
+	const onResetClick =  () => {
+
+		let options = [
+			"button-radius",
+			"theme-button-border-group-border-size",
+			"theme-button-padding"
+		];
+
+		options.forEach( function( option ) {
+			let defaultVal = props.customizer.control( "astra-settings[" + option + "]" ).params.default;
+			props.customizer.control( "astra-settings[" + option + "]" ).setting.set( defaultVal );
+		});
+
+		// Reset Preset Option.
+		setState( '' );
+		props.control.setting.set( '' );
+
+		var event = new CustomEvent("AstRemoteUpdateState", {
+			detail: "btn-preset",
+		});
+		document.dispatchEvent(event);
+	}
+
 	const renderBtnPresetHtml = () => {
 		let htmlContent = Object.entries(options).map(([key, presetData]) => {
 			return (
@@ -100,12 +124,28 @@ const ButtonPresetsComponent = (props) => {
 		return htmlContent;
 	};
 
+	const renderResetBtn = () => {
+
+		let resetFlag = '' != props.control.setting.get() ? false : true;
+
+		return <button className="ast-reset-btn components-button components-circular-option-picker__clear is-secondary is-small" disabled={ resetFlag } onClick={ e => {
+			e.preventDefault();
+			onResetClick();
+		}}>
+		<Dashicon icon='image-rotate'/>
+		</button>;
+	}
+
 	return (
 		<>
 			<label>
 				<span className="customize-control-title">{title}</span>
 			</label>
 			<div className="ast-btn-preset-wrap">{renderBtnPresetHtml()}</div>
+
+			<div className="ast-reset-btn-preset-wrap">
+				{renderResetBtn()}
+			</div>
 		</>
 	);
 };

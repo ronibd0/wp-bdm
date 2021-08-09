@@ -375,6 +375,10 @@
 	fill: #1e8cbe;
 }
 
+.ast-reset-btn-preset-wrap{
+	margin-top: 15px;
+}
+
 
 
 .color-group-item .components-tooltip .components-popover__content {
@@ -1397,6 +1401,10 @@
 }
 .ast-btn-preset-wrap .ast-btn-style-item.active svg{
 	fill: #1e8cbe;
+}
+
+.ast-reset-btn-preset-wrap{
+	margin-top: 15px;
 }
 
 
