@@ -394,6 +394,8 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 			delete_transient( 'astra-addon-db-migrated' );
 
 			do_action( 'astra_theme_update_after' );
+			// This will clear theme and add-on cache on every new update.
+			astra_clear_all_assets_cache();
 		}
 	}
 }
