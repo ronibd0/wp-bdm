@@ -1,3 +1,6 @@
+v3.6.9
+- Fix: Auto scroll isssue on clicking Footer Builder in customiser preview.
+
 v3.6.8
 - Improvement: Added WPML translation support for all customizer's strings through wpml-config.xml file.
 - Fix: Elementor Pro's Header-Footer theme builder layouts does not override theme's Header-Footer builder layouts.
@@ -28,7 +31,6 @@ v3.6.7
 - Fix: Menu dropdown icons showing at incorrect position in RTL languages.
 - Fix: “Search” string in Search Form is not translatable.
 - Fix: Transparent header showing border even if it is not set from customizer in FireFox browser.
-- Fix: Auto scroll isssue on clicking Footer Builder in customiser preview.
 
 v3.6.6
 - Fix: Installing Starter Templates plugin notice's "Get Started" button not working.
