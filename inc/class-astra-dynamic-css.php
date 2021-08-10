@@ -2766,6 +2766,17 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				$parse_css .= astra_parse_css( $transparent_header_builder_mobile_css, '', astra_get_mobile_breakpoint() );
 			}
 
+			if ( self::unset_builder_elements_underline() ) {
+				$uag_anchor_selectors = '.ast-single-post .entry-content .uagb-tab a, .ast-single-post .entry-content .uagb-ifb-cta a, .ast-single-post .entry-content .wp-block-uagb-buttons a';
+				$removing_text_decoration_css = array(
+					$uag_anchor_selectors => array(
+						'text-decoration' => 'none',
+					),
+				);
+
+				$parse_css    .= astra_parse_css( $removing_text_decoration_css );
+			}
+
 			$parse_css .= $dynamic_css;
 			$custom_css = astra_get_option( 'custom-css' );
 
@@ -3337,6 +3348,21 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$astra_settings                                  = get_option( ASTRA_THEME_SETTINGS );
 			$astra_settings['can-remove-logo-max-width-css'] = isset( $astra_settings['can-remove-logo-max-width-css'] ) ? false : true;
 			return apply_filters( 'astra_remove_logo_max_width_css', $astra_settings['can-remove-logo-max-width-css'] );
+		}
+
+		/**
+		 * Remove text-decoration: underline; CSS for builder specific elements to maintain their UI/UX better.
+		 *
+		 * 1. UAG : Marketing Button, Info Box CTA, MultiButtons, Tabs.
+		 * 2. UABB : Button, Slide Box CTA, Flip box CTA.
+		 *
+		 * @since x.x.x
+		 * @return boolean false if it is an existing user, true if not.
+		 */
+		public static function unset_builder_elements_underline() {
+			$astra_settings                                        = get_option( ASTRA_THEME_SETTINGS );
+			$astra_settings['unset-builder-elements-underline'] = isset( $astra_settings['unset-builder-elements-underline'] ) ? false : true;
+			return apply_filters( 'astra_unset_builder_elements_underline', $astra_settings['unset-builder-elements-underline'] );
 		}
 
 		/**
