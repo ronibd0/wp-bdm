@@ -563,7 +563,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$content_links_underline = astra_get_option( 'underline-content-links' );
 
 			if ( $content_links_underline ) {
-				$css_output['.ast-single-post .entry-content a, .ast-comment-content a:not(.ast-comment-edit-reply-wrap a)']                          = array(
+				$css_output['.ast-single-post .entry-content a, .ast-comment-content a:not(.ast-comment-edit-reply-wrap a)'] = array(
 					'text-decoration' => 'underline',
 				);
 
@@ -571,7 +571,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 				$excluding_anchor_selectors = apply_filters( 'astra_remove_underline_anchor_links', $excluding_anchor_selectors );
 
-				$css_output[$excluding_anchor_selectors] = array(
+				$css_output[ $excluding_anchor_selectors ] = array(
 					'text-decoration' => 'none',
 				);
 			}
@@ -3354,7 +3354,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		 * @return boolean false if it is an existing user, true if not.
 		 */
 		public static function unset_builder_elements_underline() {
-			$astra_settings                                        = get_option( ASTRA_THEME_SETTINGS );
+			$astra_settings                                     = get_option( ASTRA_THEME_SETTINGS );
 			$astra_settings['unset-builder-elements-underline'] = isset( $astra_settings['unset-builder-elements-underline'] ) ? false : true;
 			return apply_filters( 'astra_unset_builder_elements_underline', $astra_settings['unset-builder-elements-underline'] );
 		}
