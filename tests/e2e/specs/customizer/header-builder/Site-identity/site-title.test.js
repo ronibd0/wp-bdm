@@ -1,5 +1,5 @@
 import { createURL } from '@wordpress/e2e-test-utils';
-import { setCustomize } from '../../../utils/set-customize';
+import { setCustomize } from '../../../../utils/set-customize';
 
 describe( 'Site Title Typography settings and color settings in the customizer', () => {
 	it( 'site title typography and color should apply corectly', async () => {
@@ -26,7 +26,7 @@ describe( 'Site Title Typography settings and color settings in the customizer',
 			waitUntil: 'networkidle0',
 		} );
 
-		await page.waitForSelector( '.site-title a' );
+		await page.waitForSelector( '#ast-desktop-header .site-title a' );
 
 		await expect( {
 			selector: '.site-title',
@@ -36,7 +36,7 @@ describe( 'Site Title Typography settings and color settings in the customizer',
 		);
 
 		await expect( {
-			selector: '.ast-site-identity .site-title a',
+			selector: '#ast-desktop-header .site-title a',
 			property: 'color',
 		} ).cssValueToBe(
 			`${ sitetitleTypography[ 'header-color-site-title' ] }`,
