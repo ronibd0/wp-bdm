@@ -172,7 +172,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				$h3_line_height = $headings_line_height;
 			}
 
-			if( astra_is_h4_to_h6_typo_option_to_load() ) {
+			if( astra_maybe_load_h4_to_h6_typo_options() ) {
 
 				$h4_font_family    = astra_get_option( 'font-family-h4' );
 				$h4_font_weight    = astra_get_option( 'font-weight-h4' );
@@ -392,7 +392,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				'line-height'    => esc_attr( $h6_line_height )
 			);
 
-			if( astra_is_h4_to_h6_typo_option_to_load() ) {
+			if( astra_maybe_load_h4_to_h6_typo_options() ) {
 				$h4_font_properties = array(
 					'font-weight'    => astra_get_css_value( $h4_font_weight, 'font' ),
 					'font-family'    => astra_get_css_value( $h4_font_family, 'font' ),
