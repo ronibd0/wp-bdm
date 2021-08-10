@@ -727,7 +727,7 @@ function astra_remove_widget_design_options() {
  * Clear Astra + Astra Pro assets cache.
  *
  * @since x.x.x
- * @return void.
+ * @return void
  */
 function astra_clear_theme_addon_asset_cache() {
 	astra_clear_all_assets_cache();
