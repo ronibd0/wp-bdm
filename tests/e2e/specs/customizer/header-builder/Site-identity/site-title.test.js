@@ -41,10 +41,5 @@ describe( 'Site Title Typography settings and color settings in the customizer',
 		} ).cssValueToBe(
 			`${ sitetitleTypography[ 'header-color-site-title' ] }`,
 		);
-
-		await expect( {
-			selector: '#ast-desktop-header .site-title a',
-			property: 'font-family',
-		} ).cssValueToBe( `${ sitetitleTypography[ 'body-font-family' ] }` );
 	} );
 } );
