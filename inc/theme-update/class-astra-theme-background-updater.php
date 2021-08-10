@@ -394,27 +394,7 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 			do_action( 'astra_theme_update_after' );
 			
 			// This will clear Astra and Astra Pro asset cache on every new update.
-			self::astra_clear_all_assets_cache();
-		}
-
-		/**
-		 * Clear Astra + Astra Pro assets cache.
-		 *
-		 * @since x.x.x
-		 * @return void.
-		 */
-		public static function astra_clear_all_assets_cache() {
-			if ( ! class_exists( 'Astra_Cache_Base' ) ) {
-				return;
-			}
-			// Clear Astra theme cache.
-			$astra_cache_base_instance = new Astra_Cache_Base( 'astra' );
-			$astra_cache_base_instance->refresh_assets( 'astra' );
-
-			// Clear Astra Addon's cache.
-			astra_clear_assets_cache();
-			$astra_addon_cache_base_instance = new Astra_Cache_Base( 'astra-addon' );
-			$astra_addon_cache_base_instance->refresh_assets( 'astra-addon' );
+			astra_clear_all_assets_cache();
 		}
 	}
 }
