@@ -566,7 +566,12 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				$css_output['.ast-single-post .entry-content a, .ast-comment-content a:not(.ast-comment-edit-reply-wrap a)']                          = array(
 					'text-decoration' => 'underline',
 				);
-				$css_output['.ast-single-post .wp-block-button .wp-block-button__link, .ast-single-post .elementor-button-wrapper .elementor-button'] = array(
+
+				$excluding_anchor_selectors = self::unset_builder_elements_underline() ? '.ast-single-post .wp-block-button .wp-block-button__link, .ast-single-post .elementor-button-wrapper .elementor-button, .ast-single-post .entry-content .uagb-tab a, .ast-single-post .entry-content .uagb-ifb-cta a, .ast-single-post .entry-content .wp-block-uagb-buttons a, .ast-single-post .entry-content .uabb-module-content a' : '.ast-single-post .wp-block-button .wp-block-button__link, .ast-single-post .elementor-button-wrapper .elementor-button';
+
+				$excluding_anchor_selectors = apply_filters( 'astra_remove_underline_anchor_links', $excluding_anchor_selectors );
+
+				$css_output[$excluding_anchor_selectors] = array(
 					'text-decoration' => 'none',
 				);
 			}
@@ -2766,17 +2771,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				$parse_css .= astra_parse_css( $transparent_header_builder_mobile_css, '', astra_get_mobile_breakpoint() );
 			}
 
-			if ( self::unset_builder_elements_underline() ) {
-				$uag_anchor_selectors = '.ast-single-post .entry-content .uagb-tab a, .ast-single-post .entry-content .uagb-ifb-cta a, .ast-single-post .entry-content .wp-block-uagb-buttons a';
-				$removing_text_decoration_css = array(
-					$uag_anchor_selectors => array(
-						'text-decoration' => 'none',
-					),
-				);
-
-				$parse_css    .= astra_parse_css( $removing_text_decoration_css );
-			}
-
 			$parse_css .= $dynamic_css;
 			$custom_css = astra_get_option( 'custom-css' );
 
@@ -3354,7 +3348,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		 * Remove text-decoration: underline; CSS for builder specific elements to maintain their UI/UX better.
 		 *
 		 * 1. UAG : Marketing Button, Info Box CTA, MultiButtons, Tabs.
-		 * 2. UABB : Button, Slide Box CTA, Flip box CTA.
+		 * 2. UABB : Button, Slide Box CTA, Flip box CTA, Info Banner, Posts, Info Circle, Call to Action, Subscribe Form.
 		 *
 		 * @since x.x.x
 		 * @return boolean false if it is an existing user, true if not.
