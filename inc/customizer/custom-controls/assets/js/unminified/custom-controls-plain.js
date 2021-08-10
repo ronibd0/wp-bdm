@@ -284,7 +284,7 @@
 
 			$( "[data-name='"+ optionName + "']" ).val(value);
 			if( isSelect2 ) {
-    			$( "[data-name='"+ optionName + "']" ).select2().trigger('change');
+    			       $( "[data-name='"+ optionName + "']" ).select2().trigger('change');
 			} else {
 				$( "[data-name='"+ optionName + "']" ).trigger('change');
 			}

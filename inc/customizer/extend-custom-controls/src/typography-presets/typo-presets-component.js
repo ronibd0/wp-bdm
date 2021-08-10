@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { __ } from '@wordpress/i18n';
-import {useState, useEffect} from 'react';
+import {useState} from 'react';
 import {Tooltip} from '@wordpress/components';
 
 
@@ -22,19 +22,19 @@ const TypoPresetControl = props => {
 
 	const onPresetClick = (presetKey) => {
 
-		let bodyFontFamily     = options[presetKey]['body-font-family'];
-		let headingsFontFamily = options[presetKey]['headings-font-family'];
-		let bodyFontVariant    = options[presetKey]['body-font-variant'];
-		let headingFontVariant = options[presetKey]['headings-font-variant'];
-		let bodyFontWeight     = options[presetKey]['body-font-weight'];
-		let headingFontWeight  = options[presetKey]['headings-font-weight'];
+		const bodyFontFamily     = options[presetKey]['body-font-family'];
+		const headingsFontFamily = options[presetKey]['headings-font-family'];
+		const bodyFontVariant    = options[presetKey]['body-font-variant'];
+		const headingFontVariant = options[presetKey]['headings-font-variant'];
+		const bodyFontWeight     = options[presetKey]['body-font-weight'];
+		const headingFontWeight  = options[presetKey]['headings-font-weight'];
 
 		AstTypography.setOption( 'astra-settings[body-font-family]', bodyFontFamily, true );
 		AstTypography.setOption( 'astra-settings[headings-font-family]', headingsFontFamily, true );
 		AstTypography.setOption( 'astra-settings[body-font-variant]', bodyFontVariant, true );
 		AstTypography.setOption( 'astra-settings[headings-font-variant]', headingFontVariant, true );
 
-		let typoOptions = [
+		const typoOptions = [
 			'body-font-family',
 			'headings-font-family',
 			'body-line-height',
@@ -61,7 +61,7 @@ const TypoPresetControl = props => {
 			setCustomizerSetting( option, presetKey );
 		});
 
-		var event = new CustomEvent('AstRemoteUpdateState', {
+		const updateTypoEvent = new CustomEvent('AstRemoteUpdateState', {
 			'detail': 'typography'
 		});
 		document.dispatchEvent(event);
@@ -111,13 +111,13 @@ const TypoPresetControl = props => {
 
 	const onResetClick =  () => {
 
-		let defaulHeadingFontFamily = props.customizer.control( "astra-settings[headings-font-family]" ).params.default;
+		const defaulHeadingFontFamily = props.customizer.control( "astra-settings[headings-font-family]" ).params.default;
 		AstTypography.setOption( 'astra-settings[headings-font-family]', defaulHeadingFontFamily, true );
 
-		let defaulBodyFontFamily = props.customizer.control( "astra-settings[body-font-family]" ).params.default;
+		const defaulBodyFontFamily = props.customizer.control( "astra-settings[body-font-family]" ).params.default;
 		AstTypography.setOption( 'astra-settings[body-font-family]', defaulBodyFontFamily, true );
 
-		let options = [
+		const options = [
 			'body-font-family',
 			'headings-font-family',
 			'body-line-height',
@@ -141,7 +141,7 @@ const TypoPresetControl = props => {
 		];
 
 		options.forEach( function( option ) {
-			let defaultVal = props.customizer.control( "astra-settings[" + option + "]" ).params.default;
+			const defaultVal = props.customizer.control( "astra-settings[" + option + "]" ).params.default;
 			props.customizer.control( "astra-settings[" + option + "]" ).setting.set( defaultVal );
 		});
 
