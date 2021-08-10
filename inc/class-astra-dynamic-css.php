@@ -3452,10 +3452,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			.ast-header-break-point.ast-header-custom-item-outside .ast-woo-header-cart-info-wrap {
 				display: none;
 			}
-			.ast-site-header-cart.ast-menu-cart-outline .ast-cart-menu-wrap, .ast-site-header-cart.ast-menu-cart-fill .ast-cart-menu-wrap,
-			ast-edd-site-header-cart.ast-edd-menu-cart-outline .ast-edd-cart-menu-wrap, .ast-edd-site-header-cart.ast-edd-menu-cart-fill .ast-edd-cart-menu-wrap {
-				line-height: 1.8;
-			}
 
 			.ast-site-header-cart.ast-menu-cart-fill i.astra-icon,
 			.ast-edd-site-header-cart.ast-edd-menu-cart-fill span.astra-icon {
@@ -3709,6 +3705,12 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					text-align: right;
 				}';
 			}
+
+			$cart_static_css .= '
+				.ast-site-header-cart.ast-menu-cart-outline .ast-cart-menu-wrap, .ast-site-header-cart.ast-menu-cart-fill .ast-cart-menu-wrap,
+				.ast-edd-site-header-cart.ast-edd-menu-cart-outline .ast-edd-cart-menu-wrap, .ast-edd-site-header-cart.ast-edd-menu-cart-fill .ast-edd-cart-menu-wrap {
+					line-height: 1.8;
+				}';
 			// This CSS requires in case of :before Astra icons. But in case of SVGs this loads twice that's why removed this from static & loading conditionally.
 			if ( false === Astra_Icons::is_svg_icons() ) {
 				$cart_static_css .= '
