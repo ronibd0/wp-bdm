@@ -56,9 +56,9 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 							'border-radius'     => 0,
 							'button-padding'    => array(
 								'desktop'      => array(
-									'top'    => 11,
+									'top'    => 10,
 									'right'  => 20,
-									'bottom' => 11,
+									'bottom' => 10,
 									'left'   => 20,
 								),
 								'tablet'       => array(
@@ -92,9 +92,9 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 							'border-radius'     => 3,
 							'button-padding'    => array(
 								'desktop'      => array(
-									'top'    => 11,
+									'top'    => 10,
 									'right'  => 20,
-									'bottom' => 11,
+									'bottom' => 10,
 									'left'   => 20,
 								),
 								'tablet'       => array(
@@ -128,10 +128,10 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 							'border-radius'     => 30,
 							'button-padding'    => array(
 								'desktop'      => array(
-									'top'    => 11,
-									'right'  => 22,
-									'bottom' => 11,
-									'left'   => 22,
+									'top'    => 10,
+									'right'  => 20,
+									'bottom' => 10,
+									'left'   => 20,
 								),
 								'tablet'       => array(
 									'top'    => '',
@@ -164,9 +164,9 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 							'border-radius'     => 0,
 							'button-padding'    => array(
 								'desktop'      => array(
-									'top'    => 11,
+									'top'    => 10,
 									'right'  => 20,
-									'bottom' => 11,
+									'bottom' => 10,
 									'left'   => 20,
 								),
 								'tablet'       => array(
@@ -200,9 +200,9 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 							'border-radius'     => 3,
 							'button-padding'    => array(
 								'desktop'      => array(
-									'top'    => 11,
+									'top'    => 10,
 									'right'  => 20,
-									'bottom' => 11,
+									'bottom' => 10,
 									'left'   => 20,
 								),
 								'tablet'       => array(
@@ -236,10 +236,10 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 							'border-radius'     => 30,
 							'button-padding'    => array(
 								'desktop'      => array(
-									'top'    => 11,
-									'right'  => 22,
-									'bottom' => 11,
-									'left'   => 22,
+									'top'    => 10,
+									'right'  => 20,
+									'bottom' => 10,
+									'left'   => 20,
 								),
 								'tablet'       => array(
 									'top'    => '',
