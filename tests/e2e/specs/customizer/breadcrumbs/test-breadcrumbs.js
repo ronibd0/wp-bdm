@@ -3,7 +3,7 @@ import { setCustomize } from '../../../utils/set-customize';
 describe( 'breadcrumb Typography settings in the customizer', () => {
 	it( 'breadcrumb typography should apply corectly', async () => {
 		const breadcrumbTypography = {
-			'breadcrumb-position' : 'astra_header_primary_container_after',
+			'breadcrumb-position': 'astra_header_primary_container_after',
 			'breadcrumb-font-family': 'Pacifico, handwriting',
 			'breadcrumb-font-weight': '800',
 			'breadcrumb-text-transform': 'lowercase',
@@ -50,7 +50,6 @@ describe( 'breadcrumb Typography settings in the customizer', () => {
 		} ).cssValueToBe(
 			`${ breadcrumbTypography[ 'breadcrumb-line-height' ] }`,
 		);
-
 
 		await expect( {
 			selector: '.ast-breadcrumbs-wrapper',
