@@ -3168,11 +3168,11 @@ function astra_remove_elementor_toc_margin() {
  * @since x.x.x
  * @return void.
  */
-function astra_link_default_color() {
+function astra_global_color_compatibility() {
 	$theme_options = get_option( 'astra-settings', array() );
 
-	if ( ! isset( $theme_options['support-link-default-color'] ) ) {
-		$theme_options['support-link-default-color'] = false;
+	if ( ! isset( $theme_options['support-global-color-format'] ) ) {
+		$theme_options['support-global-color-format'] = false;
 		update_option( 'astra-settings', $theme_options );
 	}
 }

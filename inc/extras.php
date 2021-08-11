@@ -709,6 +709,18 @@ function astra_can_remove_elementor_toc_margin_space() {
 }
 
 /**
+ * This will check if user is new and apply global color format. This is to manage backward compatibility for colors.
+ *
+ * @since x.x.x
+ * @return boolean false if it is an existing user, true for new user.
+ */
+function astra_has_global_color_format_support() {
+	$astra_settings                               = get_option( ASTRA_THEME_SETTINGS );
+	$astra_settings['support-global-color-format'] = isset( $astra_settings['support-global-color-format'] ) ? false : true;
+	return apply_filters( 'astra_apply_global_color_format_support', $astra_settings['support-global-color-format'] );
+}
+
+/**
  * Check whether widget specific config, dynamic CSS, preview JS needs to remove or not. Following cases considered while implementing this.
  *
  * 1. Is user is from old Astra setup.

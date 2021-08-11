@@ -113,7 +113,7 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 				'astra_clear_all_assets_cache',
 			),
 			'3.7.0' => array(
-				'astra_link_default_color',
+				'astra_global_color_compatibility',
 			),
 		);
 
