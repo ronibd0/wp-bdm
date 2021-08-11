@@ -3177,3 +3177,20 @@ function astra_set_removal_widget_design_options_flag() {
 		update_option( 'astra-settings', $theme_options );
 	}
 }
+
+/**
+ * Apply zero font size for new users.
+ *
+ * @since x.x.x
+ *
+ * @return void
+ */
+function astra_zero_font_size_case() {
+	$theme_options = get_option( 'astra-settings', array() );
+
+	// Set flag to not load button specific CSS.
+	if ( ! isset( $theme_options['astra-zero-font-size-case-css'] ) ) {
+		$theme_options['astra-zero-font-size-case-css'] = false;
+		update_option( 'astra-settings', $theme_options );
+	}
+}
