@@ -1070,8 +1070,8 @@ final class Astra_Builder_Helper {
 	 * Check if component placed on the builder.
 	 *
 	 * @param string $component_id component id.
-	 * @param string  $builder_type builder type.
-	 * @param string  $device Device type (mobile, desktop and both).
+	 * @param string $builder_type builder type.
+	 * @param string $device Device type (mobile, desktop and both).
 	 * @return bool
 	 */
 	public static function is_component_loaded( $component_id, $builder_type = 'header', $device = 'both' ) {
