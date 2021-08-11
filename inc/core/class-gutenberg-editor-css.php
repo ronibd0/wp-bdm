@@ -369,7 +369,8 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 					'text-decoration' => 'underline',
 				);
 
-				$reset_underline_from_anchors = astra_get_option( 'unset-builder-elements-underline', true );
+				$reset_underline_from_anchors = Astra_Dynamic_CSS::unset_builder_elements_underline();
+
 				$excluding_anchor_selectors   = $reset_underline_from_anchors ? '.edit-post-visual-editor a.uagb-tabs-list, .edit-post-visual-editor .uagb-ifb-cta a, .edit-post-visual-editor a.uagb-marketing-btn__link, .edit-post-visual-editor .uagb-post-grid a, .edit-post-visual-editor .uagb-toc__wrap a, .edit-post-visual-editor .uagb-taxomony-box a, .edit-post-visual-editor .uagb_review_block a' : '';
 
 				$desktop_css[ $excluding_anchor_selectors ] = array(
