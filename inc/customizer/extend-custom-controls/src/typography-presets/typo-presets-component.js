@@ -2,6 +2,7 @@ import PropTypes from "prop-types";
 import { __ } from "@wordpress/i18n";
 import { useState } from 'react';
 import { Tooltip, Dashicon } from "@wordpress/components";
+import parse from 'html-react-parser';
 
 const TypoPresetControl = ( props ) => {
 	const { title, options } = props.control.params;
@@ -97,6 +98,10 @@ const TypoPresetControl = ( props ) => {
 
 	const SingleList = ( props ) => {
 		return (
+			<Tooltip
+				key={props.uniqueKey}
+				text={ __( 'Add Tooltip Text Here' )  }
+			>
 			<li
 				className={
 					"ast-typo-preset-item " +
@@ -104,25 +109,16 @@ const TypoPresetControl = ( props ) => {
 				}
 				key={props.preset}
 				onClick={() => onPresetClick(props.preset)}
-				dangerouslySetInnerHTML={{
-					__html: window.svgIcons[props.preset],
-				}}
-			></li>
+			>{parse(window.svgIcons[props.preset])}</li></Tooltip>
 		);
 	};
 
 	const List = ({ className, options, selected }) => {
 		return (
 			<ul className={`ast-font-selector ${className}`}>
-				{Object.entries(options).map(([presetKey, item]) => {
+				{Object.entries(options).map(([presetKey, item], uniqueKey) => {
 					return (
-						<Tooltip
-							key={presetKey + "_tooltip"}
-							text="Tooltip Text"
-							position="top center"
-						>
-							<SingleList preset={presetKey} />
-						</Tooltip>
+						<SingleList preset={presetKey} uniqueKey={uniqueKey} />
 					);
 				})}
 			</ul>
