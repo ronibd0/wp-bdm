@@ -2,6 +2,7 @@ import PropTypes from "prop-types";
 import { __ } from "@wordpress/i18n";
 import { useState } from 'react';
 import { Tooltip, Dashicon } from "@wordpress/components";
+import parse from 'html-react-parser';
 
 const TypoPresetControl = ( props ) => {
 	const { title, options } = props.control.params;
@@ -95,8 +96,27 @@ const TypoPresetControl = ( props ) => {
 		props.control.setting.set(presetKey);
 	};
 
+	const generateToolTipText = ( preset ) => {
+		let tooltipText = options[ preset ][ 'headings-font-family' ] + ' / ' + options[ preset ][ 'body-font-family' ];
+
+		// Remove sans-serif string.
+		tooltipText = tooltipText.replace( /, sans-serif/g, '' );
+
+		// Remove serif string.
+		tooltipText = tooltipText.replace( /, serif/g, '' );
+
+		// Remove all single quotes.
+		tooltipText = tooltipText.replace( /['"]+/g, '' );
+
+		return tooltipText;
+	};
+
 	const SingleList = ( props ) => {
 		return (
+			<Tooltip
+				key={props.uniqueKey}
+				text={ generateToolTipText(props.preset ) }
+			>
 			<li
 				className={
 					"ast-typo-preset-item " +
@@ -104,25 +124,16 @@ const TypoPresetControl = ( props ) => {
 				}
 				key={props.preset}
 				onClick={() => onPresetClick(props.preset)}
-				dangerouslySetInnerHTML={{
-					__html: window.svgIcons[props.preset],
-				}}
-			></li>
+			>{parse(window.svgIcons[props.preset])}</li></Tooltip>
 		);
 	};
 
 	const List = ({ className, options, selected }) => {
 		return (
 			<ul className={`ast-font-selector ${className}`}>
-				{Object.entries(options).map(([presetKey, item]) => {
+				{Object.entries(options).map(([presetKey, item], uniqueKey) => {
 					return (
-						<Tooltip
-							key={presetKey + "_tooltip"}
-							text="Tooltip Text"
-							position="top center"
-						>
-							<SingleList preset={presetKey} />
-						</Tooltip>
+						<SingleList preset={presetKey} key={uniqueKey} />
 					);
 				})}
 			</ul>
