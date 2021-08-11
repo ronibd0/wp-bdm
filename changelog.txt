@@ -1,4 +1,5 @@
 v3.6.9
+- Improvement: Clear asset cache of theme and addon on every new update of theme.
 - Fix: Auto scroll isssue on clicking Footer Builder in customiser preview.
 - Fix: WooCommerce - Cart icon broken on Tab & Mobile devices.
 
