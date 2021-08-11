@@ -1,7 +1,7 @@
 import { createURL } from '@wordpress/e2e-test-utils';
 import { setCustomize } from '../../../utils/set-customize';
 describe( 'breadcrumb Typography settings in the customizer', () => {
-	it( 'breadcrumb typography should apply corectly', async () => {
+	it( 'breadcrumb typography should apply correctly', async () => {
 		const breadcrumbTypography = {
 			'breadcrumb-position': 'astra_header_primary_container_after',
 			'breadcrumb-font-family': 'Pacifico, handwriting',
