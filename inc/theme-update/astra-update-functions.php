@@ -3190,7 +3190,6 @@ function astra_set_removal_widget_design_options_flag() {
 function astra_zero_font_size_comp() {
 	$theme_options = get_option( 'astra-settings', array() );
 
-	// Set flag to not load button specific CSS.
 	if ( ! isset( $theme_options['astra-zero-font-size-case-css'] ) ) {
 		$theme_options['astra-zero-font-size-case-css'] = false;
 		update_option( 'astra-settings', $theme_options );
