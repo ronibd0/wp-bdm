@@ -11,33 +11,33 @@ const ButtonPresetsComponent = (props) => {
 
 	const [state, setState] = value ? useState(value) : useState( defaultValue );
 
-	const onChangePreset = (presetKey) => {
-		let borderRadius = options[presetKey]["border-radius"];
-		let btnBackgroundColor = options[presetKey]["button-bg-color"];
-		let borderWidth = options[presetKey]["border-size"];
-		let padding = options[presetKey]["button-padding"];
-		let btnTextColor = options[presetKey]["button-color"];
+	const onChangePreset = ( presetKey ) => {
+		const borderRadius = options[ presetKey ][ 'border-radius' ];
+		const btnBackgroundColor = options[ presetKey ][ 'button-bg-color' ];
+		const borderWidth = options[ presetKey ][ 'border-size' ];
+		const padding = options[ presetKey ][ 'button-padding' ];
+		const btnTextColor = options[ presetKey ][ 'button-color' ];
 
 		/// Padding
 		props.customizer
-			.control("astra-settings[theme-button-padding]")
-			.setting.set(padding);
+			.control( 'astra-settings[theme-button-padding]' )
+			.setting.set( padding );
 
 		props.customizer
-			.control("astra-settings[theme-button-padding]")
+			.control( 'astra-settings[theme-button-padding]' )
 			.renderContent();
 
 		// Border Radius.
 		props.customizer
-			.control("astra-settings[button-radius]")
-			.setting.set(borderRadius);
+			.control( 'astra-settings[button-radius]' )
+			.setting.set( borderRadius );
 
 		// Border size.
 		props.customizer
-			.control("astra-settings[theme-button-border-group-border-size]")
-			.setting.set(borderWidth);
+			.control( 'astra-settings[theme-button-border-group-border-size]' )
+			.setting.set( borderWidth );
 
-		if( '' !== btnBackgroundColor ) {
+		if ( '' !== btnBackgroundColor ) {
 			const cachedValue = props.customizer.control("astra-settings[button-bg-color]").setting.get();
 
 			// Set button background color cached in window variable while switching to transparent button preset.
@@ -72,10 +72,18 @@ const ButtonPresetsComponent = (props) => {
 			props.customizer.control( 'astra-settings[button-color]' ).setting.set( '' );
 		}
 
+		// Set border color to #0170b9 for outline presets only when color value is empty.
+		if ( 'button_04' === presetKey || 'button_05' === presetKey || 'button_06' === presetKey ) {
+			const borderColor = props.customizer.control( 'astra-settings[theme-button-border-group-border-color]' ).setting.get();
+			if ( '' === borderColor ) {
+				props.customizer.control( 'astra-settings[theme-button-border-group-border-color]' ).setting.set( '#0170b9' );
+			}
+		}
+
 		setState( presetKey );
 		props.control.setting.set( presetKey );
 
-		const event = new CustomEvent( 'AstRemoteUpdateState' , {
+		const event = new CustomEvent( 'AstRemoteUpdateState', {
 			detail: 'btn-preset',
 		} );
 		document.dispatchEvent( event );
