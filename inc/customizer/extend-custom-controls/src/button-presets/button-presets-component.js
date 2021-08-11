@@ -38,73 +38,71 @@ const ButtonPresetsComponent = (props) => {
 			.setting.set(borderWidth);
 
 		if( '' !== btnBackgroundColor ) {
-
-			let cachedValue = props.customizer.control("astra-settings[button-bg-color]").setting.get();
+			const cachedValue = props.customizer.control("astra-settings[button-bg-color]").setting.get();
 
 			// Set button background color cached in window variable while switching to transparent button preset.
-			if( 'rgba(0,0,0,0)' == btnBackgroundColor && 'rgba(0,0,0,0)' !== cachedValue ) {
+			if ( 'rgba(0,0,0,0)' === btnBackgroundColor && 'rgba(0,0,0,0)' !== cachedValue ) {
 				window.cachedBtnBGColor = cachedValue;
 			}
 
 			// Set Button Background color
-			props.customizer.control("astra-settings[button-bg-color]").setting.set( btnBackgroundColor );
+			props.customizer.control( 'astra-settings[button-bg-color]' ).setting.set( btnBackgroundColor );
 		} else {
-
 			let cachedValue = window.cachedBtnBGColor;
-			let optionValue = props.customizer.control("astra-settings[button-bg-color]").setting.get();
+			const optionValue = props.customizer.control( 'astra-settings[button-bg-color]' ).setting.get();
 
 			// Set option value in window cached variable if value is not transparent.
-			if( cachedValue != optionValue && 'rgba(0,0,0,0)' !== optionValue ) {
+			if ( cachedValue !== optionValue && 'rgba(0,0,0,0)' !== optionValue ) {
 				window.cachedBtnBGColor = optionValue;
-				cachedValue  = window.cachedBtnBGColor;
+				cachedValue = window.cachedBtnBGColor;
 			}
 
-			props.customizer.control("astra-settings[button-bg-color]").setting.set( cachedValue );
+			props.customizer.control( 'astra-settings[button-bg-color]' ).setting.set( cachedValue );
 		}
 
-		let btnTextOptionVal = props.customizer.control("astra-settings[button-color]").setting.get();
+		const btnTextOptionVal = props.customizer.control( 'astra-settings[button-color]' ).setting.get();
 
-		if( '' == btnTextOptionVal ) {
-			props.customizer.control("astra-settings[button-color]").setting.set( btnTextColor );
+		if ( '' === btnTextOptionVal ) {
+			props.customizer.control( 'astra-settings[button-color]' ).setting.set( btnTextColor );
 		}
 
 		// If button text option value is equal to default button color set text color to blank.
-		if( options['button_04']['button-color'] == btnTextOptionVal && '' == btnTextColor ) {
-			props.customizer.control("astra-settings[button-color]").setting.set( '' );
+		// eslint-disable-next-line dot-notation
+		if ( options[ 'button_04' ][ 'button-color' ] === btnTextOptionVal && '' === btnTextColor ) {
+			props.customizer.control( 'astra-settings[button-color]' ).setting.set( '' );
 		}
 
 		setState( presetKey );
 		props.control.setting.set( presetKey );
 
-		var event = new CustomEvent("AstRemoteUpdateState", {
-			detail: "btn-preset",
-		});
-		document.dispatchEvent(event);
+		const event = new CustomEvent( 'AstRemoteUpdateState' , {
+			detail: 'btn-preset',
+		} );
+		document.dispatchEvent( event );
 	};
 
-	const onResetClick =  () => {
-
-		let options = [
-			"button-radius",
-			"theme-button-border-group-border-size",
-			"theme-button-padding",
-			"button-bg-color",
-			"theme-button-border-group-border-size"
+	const onResetClick = () => {
+		const btnOptions = [
+			'button-radius',
+			'theme-button-border-group-border-size',
+			'theme-button-padding',
+			'button-bg-color',
+			'theme-button-border-group-border-size',
 		];
 
-		options.forEach( function( option ) {
-			let defaultVal = props.customizer.control( "astra-settings[" + option + "]" ).params.default;
-			props.customizer.control( "astra-settings[" + option + "]" ).setting.set( defaultVal );
-		});
+		btnOptions.forEach( function( btnOption ) {
+			const defaultVal = props.customizer.control( 'astra-settings[' + btnOption + ']' ).params.default;
+			props.customizer.control( 'astra-settings[' + btnOption + ']' ).setting.set( defaultVal );
+		} );
 
 		// Reset Preset Option.
 		setState( '' );
 		props.control.setting.set( '' );
 
-		var event = new CustomEvent("AstRemoteUpdateState", {
-			detail: "btn-preset",
+		const event = new CustomEvent( 'AstRemoteUpdateState', {
+			detail: 'btn-preset',
 		});
-		document.dispatchEvent(event);
+		document.dispatchEvent( event );
 	}
 
 	const renderBtnPresetHtml = () => {
