@@ -918,7 +918,7 @@ final class Astra_Builder_Helper {
 		if ( ! self::is_component_loaded( 'mobile-trigger', 'header' ) && ! is_customize_preview() ) {
 			return;
 		}
-		
+
 		$off_canvas_slide   = astra_get_option( 'off-canvas-slide' );
 		$mobile_header_type = astra_get_option( 'mobile-header-type' );
 		$content_alignment  = astra_get_option( 'header-offcanvas-content-alignment' );
@@ -1069,7 +1069,7 @@ final class Astra_Builder_Helper {
 	/**
 	 * Check if component placed on the builder.
 	 *
-	 * @param integer $component_id component id.
+	 * @param string $component_id component id.
 	 * @param string  $builder_type builder type.
 	 * @param string  $device Device type (mobile, desktop and both).
 	 * @return bool
