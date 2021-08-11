@@ -449,6 +449,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 		}
 
 		updateHeaderBreakPoint();
+
 		if ( 'dropdown' === mobileHeaderType ) {
 			AstraToggleSetup();
 		}
