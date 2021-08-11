@@ -113,7 +113,7 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 				'astra_clear_all_assets_cache',
 			),
 			'3.6.9' => array(
-				'astra_zero_font_size_case'
+				'astra_zero_font_size_comp'
 			),
 		);
 

@@ -3185,7 +3185,7 @@ function astra_set_removal_widget_design_options_flag() {
  *
  * @return void
  */
-function astra_zero_font_size_case() {
+function astra_zero_font_size_comp() {
 	$theme_options = get_option( 'astra-settings', array() );
 
 	// Set flag to not load button specific CSS.
