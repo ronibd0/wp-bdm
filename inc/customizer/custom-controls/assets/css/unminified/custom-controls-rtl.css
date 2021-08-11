@@ -1404,7 +1404,11 @@
 }
 
 .ast-reset-btn-preset-wrap{
-	margin-top: 15px;
+	position: absolute;
+    display: inline-block;
+    line-height: 1;
+    left: 0;
+	top: 0;
 }
 
 

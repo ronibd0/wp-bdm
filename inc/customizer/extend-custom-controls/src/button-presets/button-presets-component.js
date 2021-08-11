@@ -87,7 +87,9 @@ const ButtonPresetsComponent = (props) => {
 		let options = [
 			"button-radius",
 			"theme-button-border-group-border-size",
-			"theme-button-padding"
+			"theme-button-padding",
+			"button-bg-color",
+			"theme-button-border-group-border-size"
 		];
 
 		options.forEach( function( option ) {
