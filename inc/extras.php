@@ -693,7 +693,7 @@ function astra_can_remove_elementor_toc_margin_space() {
  * 2. Check if user is new but on lesser WordPress 5.8 versions.
  * 3. User is new with block widget editor.
  *
- * @since x.x.x
+ * @since 3.6.8
  * @return boolean
  */
 function astra_remove_widget_design_options() {
@@ -705,7 +705,7 @@ function astra_remove_widget_design_options() {
 
 	if ( ! $remove_widget_design_options ) {
 		// For old users we will show widget design options by anyways.
-		return apply_filters( 'astra_remove_widget_design_options', $is_widget_design_sections_hidden );
+		return apply_filters( 'astra_remove_widget_design_options', false );
 	}
 
 	// Considering the user is new now.
@@ -722,3 +722,15 @@ function astra_remove_widget_design_options() {
 
 	return apply_filters( 'astra_remove_widget_design_options', $is_widget_design_sections_hidden );
 }
+
+/**
+ * Clear Astra + Astra Pro assets cache.
+ *
+ * @since x.x.x
+ * @return void
+ */
+function astra_clear_theme_addon_asset_cache() {
+	astra_clear_all_assets_cache();
+}
+
+add_action( 'astra_theme_update_after', 'astra_clear_theme_addon_asset_cache', 10 );
