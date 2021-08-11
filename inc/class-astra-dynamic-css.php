@@ -3354,9 +3354,8 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		 * @return boolean false if it is an existing user, true if not.
 		 */
 		public static function unset_builder_elements_underline() {
-			$astra_settings                                     = get_option( ASTRA_THEME_SETTINGS );
-			$astra_settings['unset-builder-elements-underline'] = isset( $astra_settings['unset-builder-elements-underline'] ) ? false : true;
-			return apply_filters( 'astra_unset_builder_elements_underline', $astra_settings['unset-builder-elements-underline'] );
+			$reset_underline_from_anchors = astra_get_option( 'unset-builder-elements-underline', true );
+			return apply_filters( 'astra_unset_builder_elements_underline', $reset_underline_from_anchors );
 		}
 
 		/**
