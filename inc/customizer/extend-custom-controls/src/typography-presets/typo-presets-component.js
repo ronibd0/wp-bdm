@@ -96,11 +96,26 @@ const TypoPresetControl = ( props ) => {
 		props.control.setting.set(presetKey);
 	};
 
+	const generateToolTipText = ( preset ) => {
+		let tooltipText = options[ preset ][ 'headings-font-family' ] + ' / ' + options[ preset ][ 'body-font-family' ];
+
+		// Remove sans-serif string.
+		tooltipText = tooltipText.replace( /, sans-serif/g, '' );
+
+		// Remove serif string.
+		tooltipText = tooltipText.replace( /, serif/g, '' );
+
+		// Remove all single quotes.
+		tooltipText = tooltipText.replace( /['"]+/g, '' );
+
+		return tooltipText;
+	};
+
 	const SingleList = ( props ) => {
 		return (
 			<Tooltip
 				key={props.uniqueKey}
-				text={ __( 'Add Tooltip Text Here' )  }
+				text={ generateToolTipText(props.preset ) }
 			>
 			<li
 				className={
@@ -118,7 +133,7 @@ const TypoPresetControl = ( props ) => {
 			<ul className={`ast-font-selector ${className}`}>
 				{Object.entries(options).map(([presetKey, item], uniqueKey) => {
 					return (
-						<SingleList preset={presetKey} uniqueKey={uniqueKey} />
+						<SingleList preset={presetKey} key={uniqueKey} />
 					);
 				})}
 			</ul>
