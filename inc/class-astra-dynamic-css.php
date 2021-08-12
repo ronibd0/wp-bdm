@@ -181,7 +181,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			// Fallback for H6 - headings typography.
 			$h6_line_height = $headings_line_height;
 
-			if( astra_maybe_load_h4_to_h6_typo_options() ) {
+			if ( astra_maybe_load_h4_to_h6_typo_options() ) {
 
 				$h4_font_family    = astra_get_option( 'font-family-h4' );
 				$h4_font_weight    = astra_get_option( 'font-weight-h4' );
@@ -377,36 +377,36 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			// check the selection color incase of empty/no theme color.
 			$selection_text_color = ( 'transparent' === $highlight_theme_color ) ? '' : $highlight_theme_color;
 
-			$h4_properties =  array(
-				'font-size'      => astra_responsive_font( $heading_h4_font_size, 'desktop' ),
-				'line-height'    => esc_attr( $headings_line_height )
+			$h4_properties = array(
+				'font-size'   => astra_responsive_font( $heading_h4_font_size, 'desktop' ),
+				'line-height' => esc_attr( $headings_line_height ),
 			);
 
 			$h5_properties = array(
-				'font-size'      => astra_responsive_font( $heading_h5_font_size, 'desktop' ),
-				'line-height'    => esc_attr( $headings_line_height )
+				'font-size'   => astra_responsive_font( $heading_h5_font_size, 'desktop' ),
+				'line-height' => esc_attr( $headings_line_height ),
 			);
 
 			$h6_properties = array(
-				'font-size'      => astra_responsive_font( $heading_h6_font_size, 'desktop' ),
-				'line-height'    => esc_attr( $headings_line_height )
+				'font-size'   => astra_responsive_font( $heading_h6_font_size, 'desktop' ),
+				'line-height' => esc_attr( $headings_line_height ),
 			);
 
-			if( astra_maybe_load_h4_to_h6_typo_options() ) {
+			if ( astra_maybe_load_h4_to_h6_typo_options() ) {
 				$h4_font_properties = array(
 					'font-weight'    => astra_get_css_value( $h4_font_weight, 'font' ),
 					'font-family'    => astra_get_css_value( $h4_font_family, 'font' ),
 					'text-transform' => esc_attr( $h4_text_transform ),
-					'line-height'    => esc_attr( $h4_line_height )
+					'line-height'    => esc_attr( $h4_line_height ),
 				);
 
 				$h4_properties = array_merge( $h4_properties, $h4_font_properties );
 
-				$h5_font_properties= array(
+				$h5_font_properties = array(
 					'font-weight'    => astra_get_css_value( $h5_font_weight, 'font' ),
 					'font-family'    => astra_get_css_value( $h5_font_family, 'font' ),
 					'text-transform' => esc_attr( $h5_text_transform ),
-					'line-height'    => esc_attr( $h5_line_height )
+					'line-height'    => esc_attr( $h5_line_height ),
 				);
 
 				$h5_properties = array_merge( $h5_properties, $h5_font_properties );
@@ -415,7 +415,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'font-weight'    => astra_get_css_value( $h6_font_weight, 'font' ),
 					'font-family'    => astra_get_css_value( $h6_font_family, 'font' ),
 					'text-transform' => esc_attr( $h6_text_transform ),
-					'line-height'    => esc_attr( $h6_line_height )
+					'line-height'    => esc_attr( $h6_line_height ),
 				);
 
 				$h6_properties = array_merge( $h6_properties, $h6_font_properties );
