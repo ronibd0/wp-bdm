@@ -127,6 +127,21 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$h3_line_height    = astra_get_option( 'line-height-h3' );
 			$h3_text_transform = astra_get_option( 'text-transform-h3' );
 
+			$h4_font_family    = "";
+			$h4_font_weight    = "";
+			$h4_line_height    = "";
+			$h4_text_transform = "";
+
+			$h5_font_family    = "";
+			$h5_font_weight    = "";
+			$h5_line_height    = "";
+			$h5_text_transform = "";
+
+			$h6_font_family    = "";
+			$h6_font_weight    = "";
+			$h6_line_height    = "";
+			$h6_text_transform = "";
+
 			$is_widget_title_support_font_weight = self::support_font_css_to_widget_and_in_editor();
 			$font_weight_prop                    = ( $is_widget_title_support_font_weight ) ? 'inherit' : 'normal';
 
