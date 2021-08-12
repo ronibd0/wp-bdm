@@ -53,7 +53,7 @@ final class Astra_Builder_Admin {
 			add_filter( 'astra_quick_settings', array( $this, 'update_customizer_header_footer_link' ) );
 			return;
 		}
-
+		/** @psalm-suppress InvalidArgument **/
 		$status            = astra_get_option( 'is-header-footer-builder', false );
 		$astra_theme_title = Astra_Admin_Settings::$page_title;
 

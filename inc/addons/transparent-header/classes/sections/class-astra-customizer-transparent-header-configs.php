@@ -199,6 +199,7 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[different-transparent-logo]',
+					/** @psalm-suppress InvalidArgument **/
 					'default'  => astra_get_option( 'different-transparent-logo', false ),
 					'type'     => 'control',
 					'section'  => $_section,

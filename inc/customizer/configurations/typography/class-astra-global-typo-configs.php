@@ -8,7 +8,7 @@
  * @link        https://wpastra.com/
  * @since       Astra 3.7.0
  */
-
+/** @psalm-suppress ParadoxicalCondition **/
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
