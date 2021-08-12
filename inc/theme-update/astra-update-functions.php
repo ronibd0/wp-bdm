@@ -3184,7 +3184,6 @@ function astra_set_removal_widget_design_options_flag() {
  * Apply zero font size for new users.
  *
  * @since x.x.x
- *
  * @return void
  */
 function astra_zero_font_size_comp() {
@@ -3196,7 +3195,7 @@ function astra_zero_font_size_comp() {
 	}
 }
 
-/* Set flag to avoid direct reflections on live site & to maintain backward compatibility for existing users.
+/** Set flag to avoid direct reflections on live site & to maintain backward compatibility for existing users.
  *
  * @since x.x.x
  * @return void
