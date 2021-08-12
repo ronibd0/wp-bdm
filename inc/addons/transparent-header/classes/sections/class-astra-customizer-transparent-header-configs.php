@@ -196,7 +196,7 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 					'divider'    => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
-
+				/** @psalm-suppress InvalidArgument **/
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[different-transparent-logo]',
 					/** @psalm-suppress InvalidArgument **/
