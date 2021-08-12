@@ -394,17 +394,8 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 			if ( astra_maybe_load_h4_to_h6_typo_options() ) {
 				$h4_font_properties = array(
-					/**
-					 * @psalm-suppress PossiblyUndefinedVariable
-					 */
 					'font-weight'    => astra_get_css_value( $h4_font_weight, 'font' ),
-					/**
-					 * @psalm-suppress PossiblyUndefinedVariable
-					 */
 					'font-family'    => astra_get_css_value( $h4_font_family, 'font' ),
-					/**
-					 * @psalm-suppress PossiblyUndefinedVariable
-					 */
 					'text-transform' => esc_attr( $h4_text_transform ),
 					'line-height'    => esc_attr( $h4_line_height ),
 				);
@@ -412,17 +403,8 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				$h4_properties = array_merge( $h4_properties, $h4_font_properties );
 
 				$h5_font_properties = array(
-					/**
-					 * @psalm-suppress PossiblyUndefinedVariable
-					 */
 					'font-weight'    => astra_get_css_value( $h5_font_weight, 'font' ),
-					/**
-					 * @psalm-suppress PossiblyUndefinedVariable
-					 */
 					'font-family'    => astra_get_css_value( $h5_font_family, 'font' ),
-					/**
-					 * @psalm-suppress PossiblyUndefinedVariable
-					 */
 					'text-transform' => esc_attr( $h5_text_transform ),
 					'line-height'    => esc_attr( $h5_line_height ),
 				);
@@ -430,17 +412,8 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				$h5_properties = array_merge( $h5_properties, $h5_font_properties );
 
 				$h6_font_properties = array(
-					/**
-					 * @psalm-suppress PossiblyUndefinedVariable
-					 */
 					'font-weight'    => astra_get_css_value( $h6_font_weight, 'font' ),
-					/**
-					 * @psalm-suppress PossiblyUndefinedVariable
-					 */
 					'font-family'    => astra_get_css_value( $h6_font_family, 'font' ),
-					/**
-					 * @psalm-suppress PossiblyUndefinedVariable
-					 */
 					'text-transform' => esc_attr( $h6_text_transform ),
 					'line-height'    => esc_attr( $h6_line_height ),
 				);
