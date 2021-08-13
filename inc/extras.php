@@ -599,6 +599,7 @@ function is_astra_addon_3_5_0_version() {
 function ast_get_webfont_url( $url, $format = 'woff2' ) {
 
 	// Check if already Google font URL present or not. Basically avoiding 'Astra_WebFont_Loader' class rendering.
+	/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 	$astra_font_url = astra_get_option( 'astra_font_url', false );
 	if ( $astra_font_url ) {
 		return json_decode( $astra_font_url );
@@ -672,6 +673,18 @@ function astra_has_widgets_block_editor() {
 		return true;
 	}
 	return false;
+}
+
+/**
+ * H4 to H6 typography options should be loaded in Astra addon version is less than 3.6.0
+ *
+ * @since x.x.x
+ */
+function astra_maybe_load_h4_to_h6_typo_options() {
+	if ( defined( 'ASTRA_EXT_VER' ) && version_compare( ASTRA_EXT_VER, '3.6.0', '<' ) ) {
+		return false;
+	}
+	return true;
 }
 
 /**
