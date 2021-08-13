@@ -43,7 +43,7 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 
 			$_section = 'section-transparent-header';
 
-			/** @psalm-suppress InvalidArgument */
+			/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			$diff_trans_logo = astra_get_option( 'different-transparent-logo', false );
 
 			$_configs = array(

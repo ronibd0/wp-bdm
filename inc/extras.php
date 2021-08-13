@@ -599,7 +599,7 @@ function is_astra_addon_3_5_0_version() {
 function ast_get_webfont_url( $url, $format = 'woff2' ) {
 
 	// Check if already Google font URL present or not. Basically avoiding 'Astra_WebFont_Loader' class rendering.
-	/** @psalm-suppress InvalidArgument */
+	/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 	$astra_font_url = astra_get_option( 'astra_font_url', false );
 	if ( $astra_font_url ) {
 		return json_decode( $astra_font_url );
