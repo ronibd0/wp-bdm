@@ -368,8 +368,8 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$blog_max_width                         = astra_get_option( 'blog-max-width' );
 			$mobile_header_toggle_btn_style_color   = astra_get_option( 'mobile-header-toggle-btn-style-color', $btn_bg_color );
 			$mobile_header_toggle_btn_border_radius = astra_get_option( 'mobile-header-toggle-btn-border-radius' );
-			/** @psalm-suppress InvalidArgument */
-			$btn_style_color = astra_get_option( 'mobile-header-toggle-btn-style-color', false ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+			$btn_style_color = astra_get_option( 'mobile-header-toggle-btn-style-color', false );
 
 			if ( ! $btn_style_color ) {
 				// button text color.

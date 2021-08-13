@@ -8,7 +8,8 @@
  * @link        https://wpastra.com/
  * @since       Astra 3.7.0
  */
-/** @psalm-suppress ParadoxicalCondition **/
+
+/** @psalm-suppress ParadoxicalCondition **/ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
