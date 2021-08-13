@@ -2279,7 +2279,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				'.astra-logo-svg:not(.sticky-custom-logo .astra-logo-svg, .transparent-custom-logo .astra-logo-svg, .advanced-header-logo .astra-logo-svg)' => array(
 					'height' => astra_get_css_value( ( ! empty( $header_logo_width['mobile-svg-height'] ) && ! is_customize_preview() ) ? $header_logo_width['mobile-svg-height'] : '', 'px' ),
 				),
-				'.ast-header-break-point .site-logo-img .custom-mobile-logo-link img' => array(
+				'header .custom-logo-link img, .ast-header-break-point .site-logo-img .custom-mobile-logo-link img' => array(
 					'max-width' => astra_get_css_value( $header_logo_width['mobile'], 'px' ),
 				),
 				'body, .ast-separate-container'  => astra_get_responsive_background_obj( $box_bg_obj, 'mobile' ),
