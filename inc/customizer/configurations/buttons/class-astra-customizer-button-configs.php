@@ -423,6 +423,7 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 					'name'        => ASTRA_THEME_SETTINGS . '[button-radius]',
 					'default'     => astra_get_option( 'button-radius' ),
 					'type'        => 'control',
+					'transport'   => 'postMessage',
 					'section'     => 'section-buttons',
 					'control'     => 'ast-slider',
 					'priority'    => 19,
