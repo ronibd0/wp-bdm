@@ -38,13 +38,13 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 
 			$_configs = array(
 				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[button-preset-style]',
-					'default'   => astra_get_option( 'button-preset-style' ),
-					'type'      => 'control',
-					'control'   => 'ast-button-presets',
-					'title'     => __( 'Button Styles', 'astra' ),
-					'section'   => 'section-buttons',
-					'options'   => array(
+					'name'     => ASTRA_THEME_SETTINGS . '[button-preset-style]',
+					'default'  => astra_get_option( 'button-preset-style' ),
+					'type'     => 'control',
+					'control'  => 'ast-button-presets',
+					'title'    => __( 'Button Styles', 'astra' ),
+					'section'  => 'section-buttons',
+					'options'  => array(
 						'button_01' => array(
 							'src'               => 'btn-preset-01',
 							'border-size'       => array(
@@ -151,7 +151,7 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 							),
 							'button-bg-color'   => '',
 							'button-bg-h-color' => '',
-							'button-color'      => ''
+							'button-color'      => '',
 						),
 						'button_04' => array(
 							'src'               => 'btn-preset-04',
@@ -262,8 +262,8 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 							'button-color'      => '#0170B9',
 						),
 					),
-					'priority'  => 18,
-					'divider'   => array( 'ast_class' => 'ast-bottom-divider' ),
+					'priority' => 18,
+					'divider'  => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				/**
