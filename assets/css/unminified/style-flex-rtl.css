@@ -2945,7 +2945,7 @@ body .entry-content .wp-block-latest-posts li {
   list-style-type: none;
 }
 
-.widget p {
+.site-header .widget p, .site-footer .widget p {
   margin-bottom: 0;
 }
 
