@@ -3177,7 +3177,7 @@ function astra_global_color_compatibility() {
 	}
 }
 
-/*
+/**
  * Set flag to avoid direct reflections on live site & to maintain backward compatibility for existing users.
  * Use: Setting flag for removing widget specific design options when WordPress 5.8 & above activated on site.
  *

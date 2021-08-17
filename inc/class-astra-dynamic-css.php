@@ -645,7 +645,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 			);
 
-			if( astra_has_global_color_format_support() ) {
+			if ( astra_has_global_color_format_support() ) {
 				$css_output['.ast-archive-title'] = array(
 					'color' => esc_attr( $heading_base_color ),
 				);
