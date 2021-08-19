@@ -3302,7 +3302,7 @@ input[type="text"].select2-search__field {
 
 .ast-adv-toggle-icon {
   left: 2px;
-  top: -6px;
+  top: 0;
   position: absolute;
   width: 18px;
   height: 18px;
