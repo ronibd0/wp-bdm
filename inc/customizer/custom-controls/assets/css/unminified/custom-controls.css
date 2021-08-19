@@ -369,16 +369,16 @@
 }
 
 .ast-btn-preset-wrap .ast-btn-style-item svg{
-	fill: #848484;
+	fill: #646970;
 }
 
 .ast-btn-preset-wrap .ast-btn-style-item svg:hover{
-	fill: #616161;
+	fill: #565b62;
 }
 
 .ast-btn-preset-wrap .ast-btn-style-item.active svg,
 .ast-btn-preset-wrap .ast-btn-style-item.active svg:hover{
-	fill: #1e8cbe;
+	fill: #2271b1;
 }
 
 .ast-reset-btn-preset-wrap{
