@@ -661,6 +661,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			} else {
 				// Widget Title.
 				$css_output['.widget-title'] = array(
+					/** @psalm-suppress InvalidScalarArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 					'font-size' => astra_get_font_css_value( (int) $body_font_size_desktop * 1.428571429 ),
 					'color'     => esc_attr( $text_color ),
 				);

@@ -115,7 +115,6 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 								'tablet-unit'  => 'px',
 								'mobile-unit'  => 'px',
 							),
-							'border-color'      => '#0984e3',
 							'button-color'      => '#FFFFFF',
 							'button-h-color'    => '',
 							'button-bg-color'   => 'rgba(2,116,190,1)',
