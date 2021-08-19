@@ -28,5 +28,9 @@
     left: 0;
 	top: 0;
 }
-
+.ast-reset-btn-preset-wrap .components-button.is-secondary,
+.ast-reset-btn-preset-wrap .components-button.is-secondary:hover{
+	box-shadow: none;
+	background: transparent;
+}
 
