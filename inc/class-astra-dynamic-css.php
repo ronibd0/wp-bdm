@@ -652,20 +652,10 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			}
 
 			// Default widget title color.
-			if ( astra_has_global_color_format_support() ) {
-				// Widget Title.
-				$css_output['.widget-title'] = array(
-					'font-size' => astra_get_font_css_value( (int) $body_font_size_desktop * 1.428571429 ),
-					'color'     => esc_attr( $heading_base_color ),
-				);
-			} else {
-				// Widget Title.
-				$css_output['.widget-title'] = array(
-					/** @psalm-suppress InvalidScalarArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-					'font-size' => astra_get_font_css_value( (int) $body_font_size_desktop * 1.428571429 ),
-					'color'     => esc_attr( $text_color ),
-				);
-			}
+			$css_output['.widget-title'] = array(
+				'font-size' => astra_get_font_css_value( (int) $body_font_size_desktop * 1.428571429 ),
+				'color'     => astra_has_global_color_format_support() ? esc_attr( $heading_base_color ) : esc_attr( $text_color ),
+			);
 
 			// Remove this condition after 2-3 updates of add-on.
 			if ( defined( 'ASTRA_EXT_VER' ) && version_compare( ASTRA_EXT_VER, '3.0.1', '>=' ) ) {
