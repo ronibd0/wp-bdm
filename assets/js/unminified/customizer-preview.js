@@ -1480,8 +1480,10 @@ function hasWordPressWidgetBlockEditor() {
 			btn_border_h_color_ele = ',.elementor-button-wrapper .elementor-button:hover, .elementor-button-wrapper .elementor-button:focus';
 		}
 
+		var btnSelector = '.menu-toggle, button, .ast-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"], .wp-block-button .wp-block-button__link, .ast-custom-button' + btn_bg_color_ele + search_button_selector;
+
 		// Theme Button - Text Color
-		astra_css( 'astra-settings[button-color]', 'color', '.menu-toggle, button, .ast-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"], .wp-block-button .wp-block-button__link, .ast-custom-button' + btn_color_ele + search_button_selector );
+		astra_css( 'astra-settings[button-color]', 'color', btnSelector );
 
 
 		wp.customize( 'astra-settings[button-bg-color]', function( setting ) {
@@ -1489,6 +1491,7 @@ function hasWordPressWidgetBlockEditor() {
 
 				var buttonPreset = wp.customize( 'astra-settings[button-preset-style]' ).get();
 
+				// If button has outline preset.
 				if( 'button_04' === buttonPreset || 'button_05' === buttonPreset || 'button_06' === buttonPreset ) {
 
 					var buttonTextColor = wp.customize( 'astra-settings[button-color]' ).get();
@@ -1496,18 +1499,16 @@ function hasWordPressWidgetBlockEditor() {
 
 					if( '' === buttonBorderColor ) {
 						// Theme Button - Background Color
-						astra_css( 'astra-settings[button-bg-color]', 'border-color', '.menu-toggle, button, .ast-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"], .wp-block-button .wp-block-button__link, .ast-custom-button' + btn_bg_color_ele + search_button_selector );
+						astra_css( 'astra-settings[button-bg-color]', 'border-color', btnSelector );
 					}
 
 					if( '' === buttonTextColor ) {
-
-						astra_css( 'astra-settings[button-bg-color]', 'color', '.menu-toggle, button, .ast-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"], .wp-block-button .wp-block-button__link, .ast-custom-button' + btn_bg_color_ele + search_button_selector );
+						astra_css( 'astra-settings[button-bg-color]', 'color', btnSelector );
 					}
 
 				} else {
-
 					// Theme Button - Background Color
-					astra_css( 'astra-settings[button-bg-color]', 'background-color', '.menu-toggle, button, .ast-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"], .wp-block-button .wp-block-button__link, .ast-custom-button' + btn_bg_color_ele + search_button_selector );
+					astra_css( 'astra-settings[button-bg-color]', 'background-color', btnSelector );
 				}
 			} );
 		} );
@@ -1524,8 +1525,11 @@ function hasWordPressWidgetBlockEditor() {
 		astra_css( 'astra-settings[theme-button-border-group-border-h-color]', 'border-color', 'button:focus, .menu-toggle:hover, button:hover, .ast-button:hover, .ast-custom-button:hover, .button:hover, input[type=reset]:hover, input[type=reset]:focus, input#submit:hover, input#submit:focus, input[type="button"]:hover, input[type="button"]:focus, input[type="submit"]:hover, input[type="submit"]:focus, .wp-block-button .wp-block-button__link:hover, .wp-block-button .wp-block-button__link:focus' + btn_border_h_color_ele + search_button_hover_selector );
 
 	} else {
+
+		var btnSelector = '.menu-toggle, button, .ast-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"], .ast-custom-button' + search_button_selector;
+
 		// Theme Button - Text Color
-		astra_css( 'astra-settings[button-color]', 'color', '.menu-toggle, button, .ast-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"], .ast-custom-button' + search_button_selector );
+		astra_css( 'astra-settings[button-color]', 'color', btnSelector );
 
 		wp.customize( 'astra-settings[button-bg-color]', function( setting ) {
 			setting.bind( function( value ) {
@@ -1539,18 +1543,16 @@ function hasWordPressWidgetBlockEditor() {
 
 					if( '' === buttonBorderColor ) {
 						// Theme Button - Background Color
-						astra_css( 'astra-settings[button-bg-color]', 'border-color', '.menu-toggle, button, .ast-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"], .ast-custom-button' + search_button_selector );
+						astra_css( 'astra-settings[button-bg-color]', 'border-color', btnSelector );
 					}
 
 					if( '' === buttonTextColor ) {
-
-						astra_css( 'astra-settings[button-bg-color]', 'color', '.menu-toggle, button, .ast-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"], .ast-custom-button' + search_button_selector );
+						astra_css( 'astra-settings[button-bg-color]', 'color', btnSelector );
 					}
 
 				} else {
-
 					// Theme Button - Background Color
-					astra_css( 'astra-settings[button-bg-color]', 'background-color', '.menu-toggle, button, .ast-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"], .ast-custom-button' + search_button_selector );
+					astra_css( 'astra-settings[button-bg-color]', 'background-color', btnSelector );
 				}
 			} );
 		} );
