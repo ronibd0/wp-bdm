@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 add_filter( 'astra_dynamic_theme_css', 'astra_generate_palette_editor_style', 11 );
 
 /**
- * Generate editor style on front end compatible for global palette.
+ * Generate palette CSS variable styles on the front end.
  *
  * @since x.x.x
  * @param string $dynamic_css dynamic css.
