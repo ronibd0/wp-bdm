@@ -51,7 +51,6 @@ function astra_heading_colors_section_dynamic_css( $dynamic_css, $dynamic_css_fi
 		);
 	}
 
-	error_log( print_r( astra_has_global_color_format_support(), true  ) );
 
 	/* Parse CSS from array() */
 	$css_output = astra_parse_css( $css_output );
