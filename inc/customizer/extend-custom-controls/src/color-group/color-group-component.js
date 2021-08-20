@@ -59,7 +59,6 @@ const ColorGroupComponent = props => {
 			...colorGroupState
 		};
 
-		console.log( "in handlechange" );
 
 		let value;
 
