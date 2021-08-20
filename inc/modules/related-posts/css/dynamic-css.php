@@ -75,7 +75,7 @@ function astra_related_posts_css( $dynamic_css ) {
 
 		// Related Posts -> Color dyanamic stylings.
 		$related_posts_title_color           = astra_get_option( 'related-posts-title-color' );
-		$related_posts_bg_color              = astra_get_option( 'related-posts-background-color', $container_bg_color, $container_bg_color );
+		$related_posts_bg_color              = astra_get_option( 'related-posts-background-color', $container_bg_color );
 		$related_post_text_color             = astra_get_option( 'related-posts-text-color' );
 		$related_posts_meta_color            = astra_get_option( 'related-posts-meta-color' );
 		$related_posts_link_color            = astra_get_option( 'related-posts-link-color' );
