@@ -356,7 +356,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					$btn_border_color = $btn_bg_color;
 				}
 
-				if( '' === astra_get_option( 'button-bg-color' ) && '' === astra_get_option( 'button-color' ) ) {
+				if ( '' === astra_get_option( 'button-bg-color' ) && '' === astra_get_option( 'button-color' ) ) {
 					$btn_text_color = $theme_color;
 				} else {
 					if ( '' === astra_get_option( 'button-color' ) ) {

@@ -428,7 +428,7 @@ class Astra_Headings_Typo_Configs extends Astra_Customizer_Config_Base {
 				'name'              => ASTRA_THEME_SETTINGS . '[line-height-h3]',
 				'type'              => 'control',
 				'control'           => 'ast-slider',
-			'section'           => $section,
+				'section'           => $section,
 				'lazy'              => true,
 				'title'             => __( 'Line Height', 'astra' ),
 				'context'           => array(
