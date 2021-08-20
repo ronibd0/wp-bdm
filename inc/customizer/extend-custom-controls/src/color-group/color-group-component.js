@@ -391,4 +391,4 @@ ColorGroupComponent.propTypes = {
 	control: PropTypes.object.isRequired
 };
 
-export default ColorGroupComponent;
+export default React.memo(  ColorGroupComponent );
