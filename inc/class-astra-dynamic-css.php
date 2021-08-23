@@ -358,7 +358,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 				if ( '' === astra_get_option( 'button-bg-color' ) && '' === astra_get_option( 'button-color' ) ) {
 					$btn_text_color = $theme_color;
-				} else if ( '' === astra_get_option( 'button-color' ) ) {
+				} elseif ( '' === astra_get_option( 'button-color' ) ) {
 						$btn_text_color = $btn_bg_color;
 				}
 
@@ -460,8 +460,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				'html'                                   => array(
 					'font-size' => astra_get_font_css_value( (int) $body_font_size_desktop * 6.25, '%' ),
 				),
-				// root css for global palette style.
-				':root'                                  => Astra_Global_Palette::generate_global_palette_style(),
 				'a, .page-title'                         => array(
 					'color' => esc_attr( $link_color ),
 				),
