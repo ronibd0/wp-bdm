@@ -17,7 +17,7 @@ const ButtonPresetsComponent = (props) => {
 		const borderWidth = options[ presetKey ][ 'border-size' ];
 		const padding = options[ presetKey ][ 'button-padding' ];
 
-		/// Padding
+		// Padding
 		props.customizer
 			.control( 'astra-settings[theme-button-padding]' )
 			.setting.set( padding );
