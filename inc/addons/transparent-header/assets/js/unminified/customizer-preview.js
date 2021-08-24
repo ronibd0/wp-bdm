@@ -302,14 +302,14 @@
 	astra_css(
 		'astra-settings[transparent-account-menu-h-color]',
 		'color',
-		'.ast-theme-transparent-header .ast-header-account-wrap .menu-item:hover > .menu-link'
+		'.ast-theme-transparent-header .ast-header-account-wrap .main-header-menu .menu-item:hover > .menu-link'
 	);
 
 	// Menu - Active Color
 	astra_css(
 		'astra-settings[transparent-account-menu-a-color]',
 		'color',
-		'.ast-theme-transparent-header .ast-header-account-wrap .menu-item.current-menu-item > .menu-link'
+		'.ast-theme-transparent-header .ast-header-account-wrap .main-header-menu .menu-item.current-menu-item > .menu-link'
 	);
 
 	// Menu - Hover Background
@@ -323,14 +323,14 @@
 	astra_css(
 		'astra-settings[transparent-account-menu-h-bg-color]',
 		'background',
-		'.ast-theme-transparent-header .ast-header-account-wrap .menu-item:hover > .menu-link'
+		'.ast-theme-transparent-header .ast-header-account-wrap .account-main-navigation .menu-item:hover > .menu-link'
 	);
 
 	// Menu - Active Background
 	astra_css(
 		'astra-settings[transparent-account-menu-a-bg-color]',
 		'background',
-		'.ast-theme-transparent-header .ast-header-account-wrap .menu-item.current-menu-item > .menu-link'
+		'.ast-theme-transparent-header .ast-header-account-wrap .account-main-navigation .menu-item.current-menu-item > .menu-link'
 	);
 
 } )( jQuery );
