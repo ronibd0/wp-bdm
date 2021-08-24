@@ -2,11 +2,13 @@ v3.6.9
 - Improvement : Font size '0' will applicable for the fonts.
 - Improvement: Introduced filter to exclude anchor links from text-decoration style. ( Needs Doc )
 - Improvement: Clear asset cache of theme and addon on every new update of theme.
+- Improvement: Moved add-on related frontend-pro.js file from theme to add-on.
 - Fix: Auto scroll isssue on clicking Footer Builder in customiser preview.
 - Fix: WooCommerce - Cart icon broken on Tab & Mobile devices.
 - Fix: WooCommerce - Cart count is overlapping on submenu section.
 - Fix: Customizer color group control's reset position misaligned.
-- Fix: Builder - Account Element - Deprecated transparent header's responsive options for menu colors.
+- Fix: Desktop logo width is applying on the mobile devices for a moment.
+- Deprecated: Builder - Account Element - Deprecated transparent header's responsive options for menu colors.
 
 v3.6.8
 - Improvement: Added WPML translation support for all customizer's strings through wpml-config.xml file.
