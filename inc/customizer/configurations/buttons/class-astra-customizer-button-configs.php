@@ -42,7 +42,7 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 					'default'   => astra_get_option( 'button-preset-style' ),
 					'type'      => 'control',
 					'control'   => 'ast-button-presets',
-					'title'     => __( 'Button Styles', 'astra' ),
+					'title'     => __( 'Button Presets', 'astra' ),
 					'section'   => 'section-buttons',
 					'options'   => array(
 						'button_01' => array(
