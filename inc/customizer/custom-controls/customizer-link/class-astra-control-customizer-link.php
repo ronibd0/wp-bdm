@@ -48,6 +48,11 @@ class Astra_Control_Customizer_Link extends WP_Customize_Control {
 	 */
 	public $link_type = '';
 
+	/**
+	 * true if the link is button.
+	 *
+	 * @var boolean
+	 */
 	public $is_button_link = '';
 
 	/**

@@ -142,6 +142,14 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			add_action( 'wp_ajax_astra_regenerate_fonts_folder', array( $this, 'regenerate_astra_fonts_folder' ) );
 		}
 
+		/**
+		 * Add site icon control in the site identity panel.
+		 *
+		 * @access public
+		 * @return void
+		 *
+		 * @since 3.6.0
+		 */
 		public function customize_register_site_icon( $wp_customize ) {
 			$panel_arr = array(
 				'priority'       => 10,
