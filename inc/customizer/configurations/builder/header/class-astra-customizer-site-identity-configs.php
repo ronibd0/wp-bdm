@@ -51,6 +51,22 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 				),
 
 				/**
+				* Link to the astra logo and site title settings.
+				*/
+				array(
+					'name'           => ASTRA_THEME_SETTINGS . '[logo-title-settings-link]',
+					'type'           => 'control',
+					'control'        => 'ast-customizer-link',
+					'section'        => 'astra-site-identity',
+					'priority'       => 5,
+					'link_type'      => 'section',
+					'is_button_link' => true,
+					'linked'         => 'title_tagline',
+					'link_text'      => __( 'Site Title & Logo Settings', 'astra' ),
+					'divider'        => array( 'ast_class' => 'ast-bottom-divider' ),
+				),
+
+				/**
 				 * Option: Header Builder Tabs
 				 */
 				array(
@@ -138,7 +154,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 
 			$_configs = array_merge( $_configs, Astra_Builder_Base_Configuration::prepare_visibility_tab( $_section ) );
 
-			$wp_customize->remove_control( 'astra-settings[divider-section-site-identity-logo]' );
+			// $wp_customize->remove_control( 'astra-settings[divider-section-site-identity-logo]' );
 
 			return array_merge( $configurations, $_configs );
 		}

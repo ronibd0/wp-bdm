@@ -164,7 +164,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			// Register Section.
 			$wp_customize->add_section( 'astra-site-identity', $section_arr );
 
-			$wp_customize->get_control( 'site_icon' )->section           = 'astra-site-identity';
+			$wp_customize->get_control( 'site_icon' )->section = 'astra-site-identity';
 		}
 
 		/**
