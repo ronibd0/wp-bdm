@@ -368,6 +368,14 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 				$desktop_css['.edit-post-visual-editor a'] = array(
 					'text-decoration' => 'underline',
 				);
+
+				$reset_underline_from_anchors = Astra_Dynamic_CSS::unset_builder_elements_underline();
+
+				$excluding_anchor_selectors = $reset_underline_from_anchors ? '.edit-post-visual-editor a.uagb-tabs-list, .edit-post-visual-editor .uagb-ifb-cta a, .edit-post-visual-editor a.uagb-marketing-btn__link, .edit-post-visual-editor .uagb-post-grid a, .edit-post-visual-editor .uagb-toc__wrap a, .edit-post-visual-editor .uagb-taxomony-box a, .edit-post-visual-editor .uagb_review_block a' : '';
+
+				$desktop_css[ $excluding_anchor_selectors ] = array(
+					'text-decoration' => 'none',
+				);
 			}
 
 			$css .= astra_parse_css( $desktop_css );
@@ -742,8 +750,8 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 					);
 				}
 
-				$gb_editor_block_pattern_css['.edit-post-visual-editor .block-editor-block-list__block'] = array(
-					'padding-left'  => '0',
+				$gb_editor_block_pattern_css['.block-editor-block-list__layout * .block-editor-block-list__block'] = array(
+					'padding-left'  => '20px',
 					'padding-right' => '20px',
 				);
 

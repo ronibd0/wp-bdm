@@ -455,7 +455,7 @@
   left: 132px;
 }
 
-.customize-control-ast-color-group .ast-responsive-btns.ast-multiple-colors-group {
+.customize-control-ast-color-group .ast-responsive-btns.ast-multiple-colors-group, .customize-control-ast-color-group .ast-color-multiple-group-reset.ast-color-group-reset.ast-single-color-group-set {
   left: 112px;
 }
 
@@ -772,10 +772,6 @@
 .ast-field-settings-modal .astra-color-picker-wrap {
     position: relative;
 	top: 10px;
-}
-.components-circular-option-picker__option-wrapper .components-circular-option-picker__option:focus::after {
-	width: 27px;
-    height: 27px;
 }
 .ast-color-palette .components-circular-option-picker__option-wrapper {
     margin-left: 6px;
@@ -1460,7 +1456,7 @@
   left: 132px;
 }
 
-.customize-control-ast-color-group .ast-responsive-btns.ast-multiple-colors-group {
+.customize-control-ast-color-group .ast-responsive-btns.ast-multiple-colors-group, .customize-control-ast-color-group .ast-color-multiple-group-reset.ast-color-group-reset.ast-single-color-group-set {
   left: 112px;
 }
 
@@ -1777,10 +1773,6 @@
 .ast-field-settings-modal .astra-color-picker-wrap {
     position: relative;
 	top: 10px;
-}
-.components-circular-option-picker__option-wrapper .components-circular-option-picker__option:focus::after {
-	width: 27px;
-    height: 27px;
 }
 .ast-color-palette .components-circular-option-picker__option-wrapper {
     margin-left: 6px;
@@ -2177,6 +2169,15 @@ input[type="text"].select2-search__field {
 .wp-customizer li:not(.customize-control-sidebar_block_editor) h5,
 .wp-customizer li:not(.customize-control-sidebar_block_editor) h6 {
   font-weight: 600;
+}
+
+/* Customizer - widget appender bottom space CSS */
+.block-list-appender {
+  margin-bottom: 20px;
+}
+
+.block-editor-block-inspector .block-editor-block-card {
+  margin-top: 12px;
 }
 
 .customize-control-ast-description .ast-description {
@@ -3402,7 +3403,7 @@ input[type="text"].select2-search__field {
 
 .ast-field-settings-wrap .ast-field-settings-modal {
   border-radius: 3px;
-  margin-top: 10px;
+  margin-top: 15px;
   margin-bottom: 20px;
 }
 
@@ -3950,6 +3951,15 @@ input[type="text"].select2-search__field {
   font-weight: 600;
 }
 
+/* Customizer - widget appender bottom space CSS */
+.block-list-appender {
+  margin-bottom: 20px;
+}
+
+.block-editor-block-inspector .block-editor-block-card {
+  margin-top: 12px;
+}
+
 .customize-control-ast-description .ast-description {
   font-style: italic;
 }
@@ -5173,7 +5183,7 @@ input[type="text"].select2-search__field {
 
 .ast-field-settings-wrap .ast-field-settings-modal {
   border-radius: 3px;
-  margin-top: 10px;
+  margin-top: 15px;
   margin-bottom: 20px;
 }
 
