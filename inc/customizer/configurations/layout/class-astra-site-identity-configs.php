@@ -295,7 +295,6 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 					'is_button_link' => true,
 					'linked'         => 'site_icon',
 					'link_text'      => __( 'Site Icon', 'astra' ),
-					'divider'        => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				/**

@@ -36,7 +36,7 @@ const CustomizerLinkComponent = props => {
 	} = props.control.params;
 	let linkHtml = null;
 
-	if (linked && link_text && '' == is_button_link) {
+	if (linked && link_text && '' === is_button_link) {
 		linkHtml = <a href="#" onClick={() => {
 			onLinkClick();
 		}} className="customizer-link" data-customizer-linked={linked} data-ast-customizer-link-type={link_type}

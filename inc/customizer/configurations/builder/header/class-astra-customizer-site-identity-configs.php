@@ -63,7 +63,6 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'is_button_link' => true,
 					'linked'         => 'title_tagline',
 					'link_text'      => __( 'Site Title & Logo Settings', 'astra' ),
-					'divider'        => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				/**
