@@ -154,7 +154,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 
 			$_configs = array_merge( $_configs, Astra_Builder_Base_Configuration::prepare_visibility_tab( $_section ) );
 
-			// $wp_customize->remove_control( 'astra-settings[divider-section-site-identity-logo]' );
+			$wp_customize->remove_control( 'astra-settings[divider-section-site-identity-logo]' );
 
 			return array_merge( $configurations, $_configs );
 		}
