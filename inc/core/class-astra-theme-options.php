@@ -560,6 +560,7 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 		/**
 		 * Get options which are saved outside astra-settings option array.
 		 *
+		 * @since 3.7.0
 		 * @return array Return array of options from database.
 		 */
 		public static function get_outside_astra_setting_options() {
