@@ -151,6 +151,11 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		 * @since x.x.x
 		 */
 		public function customize_register_site_icon( $wp_customize ) {
+
+			if ( true !== Astra_Builder_Helper::$is_header_footer_builder_active ) {
+				return;
+			}
+			
 			$panel_arr = array(
 				'priority'       => 10,
 				'capability'     => 'edit_theme_options',

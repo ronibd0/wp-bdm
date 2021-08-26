@@ -283,21 +283,6 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 				),
 
 				/**
-				* Link to the site icon.
-				*/
-				array(
-					'name'           => ASTRA_THEME_SETTINGS . '[site-icon-link]',
-					'type'           => 'control',
-					'control'        => 'ast-customizer-link',
-					'section'        => 'title_tagline',
-					'priority'       => 15,
-					'link_type'      => 'control',
-					'is_button_link' => true,
-					'linked'         => 'site_icon',
-					'link_text'      => __( 'Site Icon', 'astra' ),
-				),
-
-				/**
 				 * Option: Logo inline title.
 				 */
 				array(
@@ -423,6 +408,21 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 							'linked'          => 'section-transparent-header',
 							'link_text'       => '<u>' . __( 'Customize Transparent Header.', 'astra' ) . '</u>',
 							'active_callback' => array( $this, 'is_transparent_header_enabled' ),
+						),
+						
+						/**
+						* Link to the site icon.
+						*/
+						array(
+							'name'           => ASTRA_THEME_SETTINGS . '[site-icon-link]',
+							'type'           => 'control',
+							'control'        => 'ast-customizer-link',
+							'section'        => 'title_tagline',
+							'priority'       => 15,
+							'link_type'      => 'control',
+							'is_button_link' => true,
+							'linked'         => 'site_icon',
+							'link_text'      => __( 'Site Icon', 'astra' ),
 						),
 					)
 				);
