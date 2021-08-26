@@ -178,6 +178,8 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			$wp_customize->add_section( 'astra-site-identity', $section_arr );
 
 			$wp_customize->get_control( 'site_icon' )->section = 'astra-site-identity';
+			
+			$wp_customize->get_control( 'site_icon' )->description = 'Site Icons are what you see in browser tabs, bookmark bars, and within the WordPress mobile apps. Upload one here! Site Icons should be square and at least 512 × 512 pixels.';
 		}
 
 		/**

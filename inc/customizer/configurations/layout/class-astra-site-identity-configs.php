@@ -418,7 +418,7 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 							'type'           => 'control',
 							'control'        => 'ast-customizer-link',
 							'section'        => 'title_tagline',
-							'priority'       => 15,
+							'priority'       => 340,
 							'link_type'      => 'control',
 							'is_button_link' => true,
 							'linked'         => 'site_icon',
