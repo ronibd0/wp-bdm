@@ -49,8 +49,10 @@ const CustomizerLinkComponent = props => {
 		<>
 		<div className="ast-builder-elements-section">
 			<div className="ahfb-builder-item-start">
-				<button onClick={() => {
-						onLinkClick();}} className="components-button ahfb-builder-item" data-customizer-linked={linked} data-ast-customizer-link-type={link_type}> 
+				<button onClick={(e) => { 
+					e.preventDefault();
+					onLinkClick();
+					}} className="components-button ahfb-builder-item" data-customizer-linked={linked} data-ast-customizer-link-type={link_type}> 
 					 {link_text}	
 					<span className="ahfb-builder-item-icon">
 						<Dashicon icon="arrow-right-alt2"/>

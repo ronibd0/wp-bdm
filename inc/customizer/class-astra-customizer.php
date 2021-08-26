@@ -148,7 +148,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		 * @access public
 		 * @return void
 		 *
-		 * @since 3.6.0
+		 * @since x.x.x
 		 */
 		public function customize_register_site_icon( $wp_customize ) {
 			$panel_arr = array(
