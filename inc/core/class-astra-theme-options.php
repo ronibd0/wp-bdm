@@ -556,6 +556,21 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 			self::$db_options_no_defaults = get_option( ASTRA_THEME_SETTINGS );
 			return self::$db_options_no_defaults;
 		}
+
+		/**
+		 * Get options which are saved outside astra-settings option array.
+		 *
+		 * @return array Return array of options from database.
+		 */
+		public static function get_outside_astra_setting_options() {
+			return apply_filters(
+				'astra_outside_settings_options',
+				array(
+					'astra-color-palettes'   => get_option( 'astra-color-palettes', Astra_Global_Palette::get_default_color_palette() ),
+					'ast-typography-presets' => get_option( 'ast-typography-presets', '' ),
+				)
+			);
+		}
 	}
 }
 /**
