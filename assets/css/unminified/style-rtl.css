@@ -3751,7 +3751,7 @@ body .entry-content .wp-block-latest-posts li {
   list-style-type: none;
 }
 
-.no-widget-text p {
+.no-widget-text {
   margin-bottom: 0;
 }
 
