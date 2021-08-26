@@ -155,9 +155,9 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			if ( true !== Astra_Builder_Helper::$is_header_footer_builder_active ) {
 				return;
 			}
-			
+
 			$panel_arr = array(
-				'priority'       => 10,
+				'priority'       => 80,
 				'capability'     => 'edit_theme_options',
 				'theme_supports' => '',
 				'title'          => 'Site Identity',
@@ -167,7 +167,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			$wp_customize->add_panel( 'astra-site-identity', $panel_arr );
 
 			$section_arr = array(
-				'priority'       => 10,
+				'priority'       => 80,
 				'capability'     => 'edit_theme_options',
 				'theme_supports' => '',
 				'title'          => 'Site Identity',
