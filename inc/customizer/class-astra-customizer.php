@@ -153,7 +153,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		 */
 		public function customize_register_site_icon( $wp_customize ) {
 
-			if ( true !== Astra_Builder_Helper::$is_header_footer_builder_active ) {
+			if ( true !== Astra_Builder_Helper::$is_header_footer_builder_active ) { // phpcs:ignore PHPCompatibility.RedundantConditionGivenDocblockType
 				return;
 			}
 
@@ -178,9 +178,9 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			// Register Section.
 			$wp_customize->add_section( 'astra-site-identity', $section_arr );
 
-			$wp_customize->get_control( 'site_icon' )->section = 'astra-site-identity';
+			$wp_customize->get_control( 'site_icon' )->section = 'astra-site-identity'; // phpcs:ignore PHPCompatibility.PossiblyNullPropertyAssignment
 
-			$wp_customize->get_control( 'site_icon' )->description = __( 'Site Icons are what you see in browser tabs, bookmark bars, and within the WordPress mobile apps. Upload one here! Site Icons should be square and at least 512 × 512 pixels.', 'astra' );
+			$wp_customize->get_control( 'site_icon' )->description = __( 'Site Icons are what you see in browser tabs, bookmark bars, and within the WordPress mobile apps. Upload one here! Site Icons should be square and at least 512 × 512 pixels.', 'astra' ); // phpcs:ignore PHPCompatibility.PossiblyNullPropertyAssignment
 		}
 
 		/**
