@@ -146,6 +146,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		 * Add site icon control in the site identity panel.
 		 *
 		 * @access public
+		 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
 		 * @return void
 		 *
 		 * @since x.x.x
@@ -178,8 +179,8 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			$wp_customize->add_section( 'astra-site-identity', $section_arr );
 
 			$wp_customize->get_control( 'site_icon' )->section = 'astra-site-identity';
-			
-			$wp_customize->get_control( 'site_icon' )->description = 'Site Icons are what you see in browser tabs, bookmark bars, and within the WordPress mobile apps. Upload one here! Site Icons should be square and at least 512 × 512 pixels.';
+
+			$wp_customize->get_control( 'site_icon' )->description = __( 'Site Icons are what you see in browser tabs, bookmark bars, and within the WordPress mobile apps. Upload one here! Site Icons should be square and at least 512 × 512 pixels.', 'astra' );
 		}
 
 		/**
