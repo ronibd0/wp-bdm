@@ -353,6 +353,15 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 				$desktop_css['.ast-page-builder-template .editor-styles-wrapper .block-editor-writing-flow, .ast-plain-container .editor-styles-wrapper .block-editor-writing-flow, #editor .edit-post-visual-editor'] = $background_style_data;
 			}
 
+			if ( astra_wp_version_compare( '5.8', '>=' ) ) {
+				$desktop_css['.ast-page-builder-template .editor-styles-wrapper, .ast-plain-container .editor-styles-wrapper'] = array(
+					'background' => 'transparent',
+				);
+				$desktop_css['.edit-post-visual-editor__content-area > div'] = array(
+					'background' => 'transparent ! important',
+				);
+			}
+
 			if ( ( ( ! in_array( 'single-title-meta', $single_post_title ) ) && ( 'post' === get_post_type() ) ) || ( 'disabled' === $title_enabled_from_meta ) ) {
 				$destop_title_css = array(
 					'.editor-post-title__block' => array(
