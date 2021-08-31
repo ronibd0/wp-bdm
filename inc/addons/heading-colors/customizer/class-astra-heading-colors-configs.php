@@ -30,6 +30,8 @@ if ( ! class_exists( 'Astra_Heading_Colors_Configs' ) ) {
 		 */
 		public function register_configuration( $configurations, $wp_customize ) {
 
+			$_section = ( defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'colors-and-background' ) && ! astra_is_content_bg_option_to_load() ) ? 'section-colors-body' : 'section-colors-background';
+
 			$_configs = array(
 
 				// Option: Base Heading Color.
@@ -42,7 +44,7 @@ if ( ! class_exists( 'Astra_Heading_Colors_Configs' ) ) {
 					'priority'          => 5,
 					'name'              => ASTRA_THEME_SETTINGS . '[heading-base-color]',
 					'title'             => __( 'Heading Color ( H1 - H6 )', 'astra' ),
-					'section'           => ( defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'colors-and-background' ) ) ? 'section-colors-body' : 'section-colors-background',
+					'section'           => $_section,
 				),
 
 				/**
