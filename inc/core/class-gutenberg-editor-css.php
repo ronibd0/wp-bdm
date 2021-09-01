@@ -312,13 +312,11 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 				),
 			);
 
-			$base_background_color = astra_get_responsive_background_obj( $box_bg_obj, 'desktop' );
-			if ( empty( $base_background_color ) ) {
+			$background_style_data = astra_get_responsive_background_obj( $box_bg_obj, 'desktop' );
+			if ( empty( $background_style_data ) ) {
 				$background_style_data = array(
 					'background-color' => '#ffffff',
 				);
-			} else {
-				$background_style_data = $base_background_color;
 			}
 			if ( astra_wp_version_compare( '5.7', '>=' ) ) {
 
