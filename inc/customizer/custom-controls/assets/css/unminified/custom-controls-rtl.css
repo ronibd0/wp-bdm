@@ -4259,6 +4259,7 @@ span.select2-container.select2-container--default.select2-container--open li.sel
 .customize-control-ast-customizer-link .customizer-link {
   font-style: italic;
   text-decoration: none;
+  color: #2271b1;
 }
 
 .customize-control-ast-customizer-link:empty {
