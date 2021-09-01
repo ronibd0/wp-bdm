@@ -129,7 +129,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			}
 
 			add_action( 'customize_controls_enqueue_scripts', array( $this, 'controls_scripts' ) );
-			add_filter( 'customize_controls_enqueue_scripts', array( $this, 'enqueue_customizer_scripts' ), 999 );
+			add_action( 'customize_controls_enqueue_scripts', array( $this, 'enqueue_customizer_scripts' ), 999 );
 
 			add_action( 'customize_controls_print_footer_scripts', array( $this, 'print_footer_scripts' ) );
 
@@ -700,8 +700,9 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 
 			$config['label'] = astra_get_prop( $config, 'title' );
 			$config['type']  = astra_get_prop( $config, 'control' );
-
+			/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			if ( false !== astra_get_prop( $config, 'font-type', false ) ) {
+				/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 				$config['type'] = astra_get_prop( $config, 'font-type', false );
 			}
 
@@ -722,7 +723,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 				'transport'         => astra_get_prop( $config, 'transport', 'refresh' ),
 				'sanitize_callback' => $sanitize_callback,
 			);
-
+			/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			if ( astra_get_prop( $config, 'partial', false ) ) {
 				self::$dynamic_options['partials'][ astra_get_prop( $config, 'name' ) ] = array(
 					'selector'           => astra_get_prop( $config['partial'], 'selector' ),
@@ -1082,7 +1083,14 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			require ASTRA_THEME_DIR . 'inc/customizer/configurations/colors-background/class-astra-body-colors-configs.php';
 			require ASTRA_THEME_DIR . 'inc/customizer/configurations/typography/class-astra-archive-typo-configs.php';
 			require ASTRA_THEME_DIR . 'inc/customizer/configurations/typography/class-astra-body-typo-configs.php';
-			require ASTRA_THEME_DIR . 'inc/customizer/configurations/typography/class-astra-content-typo-configs.php';
+
+
+			if( astra_maybe_load_h4_to_h6_typo_options() ) {
+				require ASTRA_THEME_DIR . 'inc/customizer/configurations/typography/class-astra-headings-typo-configs.php';
+			} else {
+				require ASTRA_THEME_DIR . 'inc/customizer/configurations/typography/class-astra-content-typo-configs.php';
+			}
+
 			require ASTRA_THEME_DIR . 'inc/customizer/configurations/typography/class-astra-header-typo-configs.php';
 			require ASTRA_THEME_DIR . 'inc/customizer/configurations/typography/class-astra-single-typo-configs.php';
 			require ASTRA_THEME_DIR . 'inc/customizer/configurations/typography/class-astra-global-typo-configs.php';
@@ -1281,7 +1289,8 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 							),
 							'group_modal_tmpl' => $template,
 							'is_pro'           => defined( 'ASTRA_EXT_VER' ),
-							'upgrade_link'     => htmlspecialchars_decode( astra_get_pro_url( 'https://wpastra.com/pricing/', 'customizer', 'upgrade-link', 'upgrade-to-pro' ) )
+							'upgrade_link'     => htmlspecialchars_decode( astra_get_pro_url( 'https://wpastra.com/pricing/', 'customizer', 'upgrade-link', 'upgrade-to-pro' ) ),
+							'is_block_widget'  => astra_has_widgets_block_editor(),
 						),
 						'theme'      => array(
 							'option' => ASTRA_THEME_SETTINGS,
@@ -1368,7 +1377,9 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 				'font_weights_widget_title_support'    => Astra_Dynamic_CSS::support_font_css_to_widget_and_in_editor(),
 				'is_content_bg_option_to_load'         => astra_is_content_bg_option_to_load(),
 				'content_layout'                       => astra_get_content_layout(),
-				'site_layout'                          => astra_get_option( 'site-layout' )
+				'site_layout'                          => astra_get_option( 'site-layout' ),
+				'has_block_editor_support'             => Astra_Dynamic_CSS::is_block_editor_support_enabled(),
+				'updated_gb_outline_button_patterns'   => astra_button_default_padding_updated(),
 			);
 
 			wp_localize_script( 'astra-customizer-preview-js', 'astraCustomizer', $localize_array );
@@ -1443,7 +1454,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 
 				if ( $image ) {
 					$fullsizepath = get_attached_file( $image->ID );
-
+					/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 					if ( false !== $fullsizepath || file_exists( $fullsizepath ) ) {
 
 						if ( ! function_exists( 'wp_generate_attachment_metadata' ) ) {

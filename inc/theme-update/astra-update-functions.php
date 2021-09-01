@@ -55,7 +55,7 @@ function astra_vertical_horizontal_padding_migration() {
 
 	$btn_vertical_padding   = isset( $theme_options['button-v-padding'] ) ? $theme_options['button-v-padding'] : 10;
 	$btn_horizontal_padding = isset( $theme_options['button-h-padding'] ) ? $theme_options['button-h-padding'] : 40;
-
+	/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 	if ( false === astra_get_db_option( 'theme-button-padding', false ) ) {
 
 		// Migrate button vertical padding to the new padding param for button.
@@ -3082,5 +3082,113 @@ function astra_clear_all_assets_cache() {
 		// Clear Astra Addon's cache.
 		$astra_addon_cache_base_instance = new Astra_Cache_Base( 'astra-addon' );
 		$astra_addon_cache_base_instance->refresh_assets( 'astra-addon' );
+	}
+}
+
+/**
+ * Set flag for updated default values for buttons & add GB Buttons padding support.
+ *
+ * @since 3.6.3
+ * @return void
+ */
+function astra_button_default_values_updated() {
+	$theme_options = get_option( 'astra-settings', array() );
+
+	if ( ! isset( $theme_options['btn-default-padding-updated'] ) ) {
+		$theme_options['btn-default-padding-updated'] = false;
+		update_option( 'astra-settings', $theme_options );
+	}
+}
+
+/**
+ * Set flag for old users, to not directly apply underline to content links.
+ *
+ * @since 3.6.4
+ * @return void
+ */
+function astra_update_underline_link_setting() {
+	$theme_options = get_option( 'astra-settings', array() );
+
+	if ( ! isset( $theme_options['underline-content-links'] ) ) {
+		$theme_options['underline-content-links'] = false;
+		update_option( 'astra-settings', $theme_options );
+	}
+}
+
+/**
+ * Add compatibility support for WP-5.8. as some of settings & blocks already their in WP-5.7 versions, that's why added backward here.
+ *
+ * @since 3.6.5
+ * @return void
+ */
+function astra_support_block_editor() {
+	$theme_options = get_option( 'astra-settings' );
+
+	// Set flag on existing user's site to not reflect changes directly.
+	if ( ! isset( $theme_options['support-block-editor'] ) ) {
+		$theme_options['support-block-editor'] = false;
+		update_option( 'astra-settings', $theme_options );
+	}
+}
+
+/**
+ * Set flag to maintain backward compatibility for existing users.
+ * Fixing the case where footer widget's right margin space not working.
+ *
+ * @since 3.6.7
+ * @return void
+ */
+function astra_fix_footer_widget_right_margin_case() {
+	$theme_options = get_option( 'astra-settings', array() );
+
+	if ( ! isset( $theme_options['support-footer-widget-right-margin'] ) ) {
+		$theme_options['support-footer-widget-right-margin'] = false;
+		update_option( 'astra-settings', $theme_options );
+	}
+}
+
+/**
+ * Set flag to avoid direct reflections on live site & to maintain backward compatibility for existing users.
+ *
+ * @since 3.6.7
+ * @return void
+ */
+function astra_remove_elementor_toc_margin() {
+	$theme_options = get_option( 'astra-settings', array() );
+
+	if ( ! isset( $theme_options['remove-elementor-toc-margin-css'] ) ) {
+		$theme_options['remove-elementor-toc-margin-css'] = false;
+		update_option( 'astra-settings', $theme_options );
+	}
+}
+
+/**
+ * Link default color compatibility.
+ *
+ * @since x.x.x
+ * @return void.
+ */
+function astra_global_color_compatibility() {
+	$theme_options = get_option( 'astra-settings', array() );
+
+	if ( ! isset( $theme_options['support-global-color-format'] ) ) {
+		$theme_options['support-global-color-format'] = false;
+		update_option( 'astra-settings', $theme_options );
+	}
+}
+
+/**
+ * Set flag to avoid direct reflections on live site & to maintain backward compatibility for existing users.
+ * Use: Setting flag for removing widget specific design options when WordPress 5.8 & above activated on site.
+ *
+ * @since 3.6.8
+ * @return void
+ */
+function astra_set_removal_widget_design_options_flag() {
+	$theme_options = get_option( 'astra-settings', array() );
+
+	if ( ! isset( $theme_options['remove-widget-design-options'] ) ) {
+		$theme_options['remove-widget-design-options'] = false;
+		update_option( 'astra-settings', $theme_options );
 	}
 }

@@ -2,6 +2,7 @@
   "core": null,
   "themes": ["."],
   "plugins": [
+    "./tests/e2e/e2e-plugin",
     "https://gutenbergtimes.com/wp-content/uploads/2020/11/gutenberg.zip"
   ],
   "config": {

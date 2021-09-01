@@ -59,7 +59,6 @@ const ColorGroupComponent = props => {
 			...colorGroupState
 		};
 
-		console.log( "in handlechange" );
 
 		let value;
 
@@ -392,4 +391,4 @@ ColorGroupComponent.propTypes = {
 	control: PropTypes.object.isRequired
 };
 
-export default ColorGroupComponent;
+export default React.memo(  ColorGroupComponent );
