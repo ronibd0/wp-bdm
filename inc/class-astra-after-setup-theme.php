@@ -175,6 +175,9 @@ if ( ! class_exists( 'Astra_After_Setup_Theme' ) ) {
 				);
 			}
 
+			// Remove Template Editor support as it is still in evolving as of WP 5.8.
+			remove_theme_support( 'block-templates' );
+
 		}
 
 		/**
