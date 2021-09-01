@@ -156,7 +156,7 @@ function astra_related_posts_css( $dynamic_css ) {
 		);
 
 		if ( astra_has_global_color_format_support() ) {
-
+			/** @psalm-suppress PossiblyInvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			$related_posts_bg_color = astra_get_option( 'related-posts-background-color', $content_bg_obj );
 
 			if ( is_array( $related_posts_bg_color ) ) {

@@ -17,7 +17,7 @@ add_filter( 'astra_dynamic_theme_css', 'astra_generate_global_palette_style' );
  *
  * @since x.x.x
  * @param string $dynamic_css dynamic css.
- * @return array
+ * @return string
  */
 function astra_generate_global_palette_style( $dynamic_css ) {
 
@@ -52,6 +52,7 @@ function astra_generate_global_palette_style( $dynamic_css ) {
 
 	$palette_style[':root'] = $palette_css_vars;
 
+	/** @psalm-suppress RedundantCondition */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 	if ( ! empty( $palette_style ) ) {
 		$dynamic_css .= astra_parse_css( $palette_style );
 	}
