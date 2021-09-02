@@ -1,3 +1,6 @@
+v3.7.1 (Unrelease)
+- Fix: W3C HTML validation - Duplicate ID: Layer_1.
+
 v3.6.9
 - Improvement: In font size option user are not able to set value '0'.
 - Improvement: Introduced filter to exclude anchor links from text-decoration style. ( Needs Doc )
