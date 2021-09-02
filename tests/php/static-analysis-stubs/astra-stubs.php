@@ -2941,6 +2941,25 @@ namespace {
         {
         }
         /**
+         * Modify color palette from Gutenberg.
+         *
+         * @since x.x.x
+         * @return void
+         */
+        public function support_editor_color_palette()
+        {
+        }
+        /**
+         * Format color palette data required to pass for Gutenberg palette.
+         *
+         * @since x.x.x
+         * @param array $global_palette global palette data.
+         * @return array
+         */
+        public function format_global_palette($global_palette)
+        {
+        }
+        /**
          * Get CSS variable prefix used for styling.
          *
          * @since x.x.x
