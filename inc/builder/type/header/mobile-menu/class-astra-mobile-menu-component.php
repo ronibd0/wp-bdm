@@ -59,7 +59,7 @@ class Astra_Mobile_Menu_Component {
 
 		// Resolving duplicate ID for 'ast-hf-mobile-menu' in W3C Validator.
 		$menu_id = 'ast-hf-mobile-menu';
-		if( 'desktop' === $device ) {
+		if ( 'desktop' === $device ) {
 			$menu_id = 'ast-desktop-toggle-menu';
 		}
 
