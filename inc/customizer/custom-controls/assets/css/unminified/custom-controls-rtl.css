@@ -1211,7 +1211,9 @@
 .ast-top-divider.customize-control-ast-responsive-color .ast-divider-title + .ast-control-wrap .ast-responsive-btns {
     top: 70px;
 }
-
+.ast-color-palette.components-circular-option-picker .components-circular-option-picker__swatches{
+    width: 100%;
+}
 .customize-control-ast-selector .ast-alignment-wrapper {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -2425,7 +2427,9 @@
 .ast-top-divider.customize-control-ast-responsive-color .ast-divider-title + .ast-control-wrap .ast-responsive-btns {
     top: 70px;
 }
-
+.ast-color-palette .components-circular-option-picker .components-circular-option-picker__swatches{
+    width: 100%;
+}
 .customize-control-ast-customizer-link .customizer-link {
   font-style: italic;
   text-decoration: none;
