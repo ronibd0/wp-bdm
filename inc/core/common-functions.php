@@ -467,7 +467,7 @@ if ( ! function_exists( 'astra_get_option' ) ) {
 	 * Return Theme options.
 	 *
 	 * @param  string $option       Option key.
-	 * @param  mixed $default      Option default value.
+	 * @param  mixed  $default      Option default value.
 	 * @param  string $deprecated   Option default value.
 	 * @return mixed               Return option value.
 	 */
