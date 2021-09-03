@@ -962,9 +962,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 
 				$boxed_container_mobile['.ast-separate-container .block-editor-writing-flow, .ast-max-width-layout.ast-plain-container .edit-post-visual-editor .block-editor-writing-flow'] = astra_get_responsive_background_obj( $content_bg_obj, 'mobile' );
 
-				/**
-				 * @psalm-suppress InvalidArgument
-				 */
+				/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 				$css .= astra_parse_css( $boxed_container_tablet, '', astra_get_tablet_breakpoint() );
 				$css .= astra_parse_css( $boxed_container_mobile, '', astra_get_mobile_breakpoint() );
 			}
@@ -1045,6 +1043,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 				),
 			);
 
+			/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			$css .= astra_parse_css( $ast_gtn_mobile_css, '', astra_get_mobile_breakpoint() );
 
 			if ( astra_wp_version_compare( '5.4.99', '>=' ) ) {
