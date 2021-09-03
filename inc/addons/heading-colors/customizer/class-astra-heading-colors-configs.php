@@ -30,7 +30,11 @@ if ( ! class_exists( 'Astra_Heading_Colors_Configs' ) ) {
 		 */
 		public function register_configuration( $configurations, $wp_customize ) {
 
-			$_section = ( class_exists( 'Astra_Ext_Extension' ) && Astra_Ext_Extension::is_active( 'colors-and-background' ) && ! astra_is_content_bg_option_to_load() ) ? 'section-colors-body' : 'section-colors-background';
+			$_section = 'section-colors-background';
+			
+			if ( class_exists( 'Astra_Ext_Extension' ) && Astra_Ext_Extension::is_active( 'colors-and-background' ) && ! astra_is_content_bg_option_to_load() ) {
+				$_section = 'section-colors-body';
+			}
 
 			$_configs = array(
 
