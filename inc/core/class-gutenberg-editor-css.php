@@ -952,7 +952,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 
 			if ( astra_is_content_bg_option_to_load() ) {
 
-				$content_bg_obj         = astra_get_option( 'content-bg-obj-responsive' );
+				$content_bg_obj = astra_get_option( 'content-bg-obj-responsive' );
 				$boxed_container_mobile = array();
 				$boxed_container_tablet = array();
 
@@ -962,9 +962,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 
 				$boxed_container_mobile['.ast-separate-container .block-editor-writing-flow, .ast-max-width-layout.ast-plain-container .edit-post-visual-editor .block-editor-writing-flow'] = astra_get_responsive_background_obj( $content_bg_obj, 'mobile' );
 
-				/**
-				 * @psalm-suppress InvalidArgument
-				 */
+				/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 				$css .= astra_parse_css( $boxed_container_tablet, '', astra_get_tablet_breakpoint() );
 				$css .= astra_parse_css( $boxed_container_mobile, '', astra_get_mobile_breakpoint() );
 			}

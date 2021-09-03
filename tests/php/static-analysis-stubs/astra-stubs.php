@@ -12073,7 +12073,7 @@ namespace {
      *
      * @since x.x.x
      * @param string $dynamic_css dynamic css.
-     * @return array
+     * @return string
      */
     function astra_generate_global_palette_style($dynamic_css)
     {
@@ -13061,9 +13061,9 @@ namespace {
      * Return Theme options.
      *
      * @param  string $option       Option key.
-     * @param  string $default      Option default value.
+     * @param  mixed  $default      Option default value.
      * @param  string $deprecated   Option default value.
-     * @return Mixed               Return option value.
+     * @return mixed               Return option value.
      */
     function astra_get_option($option, $default = '', $deprecated = '')
     {
@@ -14196,7 +14196,7 @@ namespace {
      * Link default color compatibility.
      *
      * @since x.x.x
-     * @return void.
+     * @return void
      */
     function astra_global_color_compatibility()
     {
