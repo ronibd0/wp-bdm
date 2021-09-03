@@ -771,6 +771,26 @@ function astra_remove_widget_design_options() {
 }
 
 /**
+ * Get Global Color Palettes
+ *
+ * @return array color palettes array. 
+ * @since 3.7.0
+ */
+function astra_get_palette_colors() {
+	return get_option( 'astra-color-palettes', Astra_Global_Palette::get_default_color_palette() );
+}
+
+/**
+ * Get typography presets data.
+ *
+ * @return array Typography Presets data array. 
+ * @since 3.7.0
+ */
+function astra_get_typography_presets() {
+	return get_option( 'astra-typography-presets', '' );
+}
+
+/**
  * Clear Astra + Astra Pro assets cache.
  *
  * @since 3.6.9

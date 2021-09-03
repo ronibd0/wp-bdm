@@ -75,10 +75,14 @@ function astra_content_background_css( $dynamic_css ) {
 	}
 
 	$dynamic_css .= astra_parse_css( $blog_layouts );
+	/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 	$dynamic_css .= astra_parse_css( $blog_layouts_tablet, '', astra_get_tablet_breakpoint() );
+	/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 	$dynamic_css .= astra_parse_css( $blog_layouts_mobile, '', astra_get_mobile_breakpoint() );
 	$dynamic_css .= astra_parse_css( $separate_container_css );
+	/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 	$dynamic_css .= astra_parse_css( $separate_container_css_tablet, '', astra_get_tablet_breakpoint() );
+	/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 	$dynamic_css .= astra_parse_css( $separate_container_css_mobile, '', astra_get_mobile_breakpoint() );
 
 	return $dynamic_css;

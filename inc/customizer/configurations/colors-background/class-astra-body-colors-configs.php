@@ -51,7 +51,7 @@ if ( ! class_exists( 'Astra_Body_Colors_Configs' ) ) {
 					'section'   => $_section,
 					'priority'  => 5,
 					'title'     => __( 'Global Palette', 'astra' ),
-					'default'   => get_option( 'astra-color-palettes', Astra_Global_Palette::get_default_color_palette() ),
+					'default'   => astra_get_palette_colors(),
 					'transport' => 'postMessage',
 					'divider'   => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
