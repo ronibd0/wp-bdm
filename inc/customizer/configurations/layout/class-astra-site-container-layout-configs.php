@@ -30,6 +30,12 @@ if ( ! class_exists( 'Astra_Site_Container_Layout_Configs' ) ) {
 		 */
 		public function register_configuration( $configurations, $wp_customize ) {
 
+			$_section = 'section-colors-background';
+			
+			if ( class_exists( 'Astra_Ext_Extension' ) && Astra_Ext_Extension::is_active( 'colors-and-background' ) && ! astra_is_content_bg_option_to_load() ) {
+				$_section = 'section-colors-body';
+			}
+
 			$_configs = array(
 
 				/**
@@ -119,7 +125,7 @@ if ( ! class_exists( 'Astra_Site_Container_Layout_Configs' ) ) {
 					'type'      => 'control',
 					'control'   => 'ast-responsive-background',
 					'default'   => astra_get_option( 'site-layout-outside-bg-obj-responsive' ),
-					'section'   => ( defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'colors-and-background' ) ) ? 'section-colors-body' : 'section-colors-background',
+					'section'   => $_section,
 					'transport' => 'postMessage',
 					'priority'  => 25,
 					'title'     => __( 'Site Background', 'astra' ),
@@ -133,11 +139,11 @@ if ( ! class_exists( 'Astra_Site_Container_Layout_Configs' ) ) {
 					'default'   => astra_get_option( 'content-bg-obj-responsive' ),
 					'type'      => 'control',
 					'control'   => 'ast-responsive-background',
-					'section'   => ( defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'colors-and-background' ) ) ? 'section-colors-body' : 'section-colors-background',
+					'section'   => $_section,
 					'title'     => __( 'Content Background', 'astra' ),
 					'transport' => 'postMessage',
 					'priority'  => 25,
-					'divider'   => array( 'ast_class' => 'ast-bottom-divider' ),
+					'divider'   => defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'colors-and-background' ) ? array( 'ast_class' => 'ast-bottom-divider' ) : array(),
 				);
 			}
 
