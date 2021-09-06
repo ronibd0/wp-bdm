@@ -3175,8 +3175,14 @@ function astra_global_color_compatibility() {
 
 	if ( ! isset( $theme_options['support-global-color-format'] ) ) {
 		$theme_options['support-global-color-format'] = false;
-		update_option( 'astra-settings', $theme_options );
 	}
+
+	// Set Footer copyright text color for existing users to #3a3a3a.
+	if( ! isset( $theme_options['footer-copyright-color'] ) ) {
+		$theme_options['footer-copyright-color'] = '#3a3a3a';
+ 	}
+
+	update_option( 'astra-settings', $theme_options );
 }
 
 /**

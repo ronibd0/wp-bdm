@@ -570,7 +570,7 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	 * Footer Copyright.
 	 */
 	$defaults['footer-copyright-editor']                 = 'Copyright [copyright] [current_year] [site_title] | Powered by [theme_author]';
-	$defaults['footer-copyright-color']                  = 'var(' . $palette_css_var_prefix . '3)';
+	$defaults['footer-copyright-color']                  = '';
 	$defaults['line-height-section-footer-copyright']    = 2;
 	$defaults['footer-copyright-alignment']              = array(
 		'desktop' => 'center',
