@@ -25,7 +25,7 @@ import './expect-extensions';
  */
 const { PUPPETEER_TIMEOUT } = process.env;
 
-/*s*
+/**
  * Set of console logging types observed to protect against unexpected yet
  * handled (i.e. not catastrophic) errors or warnings. Each key corresponds
  * to the Puppeteer ConsoleMessage type, its value the corresponding function

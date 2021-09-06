@@ -62,12 +62,11 @@
 .ast-alignment-wrapper .ast-alignment-inner-wrap:not(:first-child) .components-button {
     margin-left: -1px;
 }
-.ast-alignment-wrapper .ast-alignment-inner-wrap:nth-child(2):not(:last-child) .components-button {
+
+.ast-alignment-wrapper .ast-alignment-inner-wrap:not(:first-child):not(:last-child) .components-button{
     border-right: none;
 }
-.ast-alignment-wrapper .ast-alignment-inner-wrap:nth-child(3):not(:last-child) .components-button {
-    border-right: none;
-}
+
 .customize-control-ast-selector .ast-alignment-inner-wrap .components-button {
     border-radius: unset;
     font-size: 12px;
@@ -492,7 +491,7 @@
   right: 132px;
 }
 
-.customize-control-ast-color-group .ast-responsive-btns.ast-multiple-colors-group {
+.customize-control-ast-color-group .ast-responsive-btns.ast-multiple-colors-group, .customize-control-ast-color-group .ast-color-multiple-group-reset.ast-color-group-reset.ast-single-color-group-set {
   right: 112px;
 }
 
@@ -1211,10 +1210,13 @@
 .ast-top-divider.customize-control-ast-responsive-color .ast-divider-title + .ast-control-wrap .ast-responsive-btns {
     top: 70px;
 }
-
+.ast-color-palette.components-circular-option-picker .components-circular-option-picker__swatches{
+    width: 100%;
+}
 .customize-control-ast-customizer-link .customizer-link {
   font-style: italic;
   text-decoration: none;
+  color: #2271b1;
 }
 
 .customize-control-ast-customizer-link:empty {
@@ -1284,6 +1286,7 @@
 .customize-control-title {
   display: inline-block;
   margin-bottom: 20px;
+  vertical-align: middle;
 }
 
 .customize-control-ast-color .customize-control-title, .customize-control-ast-responsive-background .customize-control-title,
@@ -2665,7 +2668,7 @@ input[type="text"].select2-search__field {
 
 .ast-field-settings-wrap .ast-field-settings-modal {
   border-radius: 3px;
-  margin-top: 10px;
+  margin-top: 15px;
   margin-bottom: 20px;
 }
 

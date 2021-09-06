@@ -35,10 +35,10 @@ class Astra_Global_Typo_Configs extends Astra_Customizer_Config_Base {
 			 * Option: Font Family
 			 */
 			array(
-				'name'      => 'ast-typography-presets',
+				'name'      => 'astra-typography-presets',
 				'type'      => 'control',
 				'control'   => 'ast-typography-presets',
-				'default'   => get_option( 'ast-typography-presets', '' ),
+				'default'   => astra_get_typography_presets(),
 				'options'   => array(
 					'typo-preset-01' => array(
 						'body-font-family'      => "'Open Sans', sans-serif",

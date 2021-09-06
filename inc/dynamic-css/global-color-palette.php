@@ -51,11 +51,7 @@ function astra_generate_global_palette_style( $dynamic_css ) {
 	}
 
 	$palette_style[':root'] = $palette_css_vars;
-
-	/** @psalm-suppress RedundantCondition */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-	if ( ! empty( $palette_style ) ) {
-		$dynamic_css .= astra_parse_css( $palette_style );
-	}
+	$dynamic_css           .= astra_parse_css( $palette_style );
 
 	return $dynamic_css;
 }

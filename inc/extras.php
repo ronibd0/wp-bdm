@@ -769,3 +769,35 @@ function astra_remove_widget_design_options() {
 
 	return apply_filters( 'astra_remove_widget_design_options', $is_widget_design_sections_hidden );
 }
+
+/**
+ * Get Global Color Palettes
+ *
+ * @return array color palettes array. 
+ * @since 3.7.0
+ */
+function astra_get_palette_colors() {
+	return get_option( 'astra-color-palettes', Astra_Global_Palette::get_default_color_palette() );
+}
+
+/**
+ * Get typography presets data.
+ *
+ * @return array Typography Presets data array. 
+ * @since 3.7.0
+ */
+function astra_get_typography_presets() {
+	return get_option( 'astra-typography-presets', '' );
+}
+
+/**
+ * Clear Astra + Astra Pro assets cache.
+ *
+ * @since 3.6.9
+ * @return void
+ */
+function astra_clear_theme_addon_asset_cache() {
+	astra_clear_all_assets_cache();
+}
+
+add_action( 'astra_theme_update_after', 'astra_clear_theme_addon_asset_cache', 10 );
