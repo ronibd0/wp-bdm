@@ -982,6 +982,7 @@
 }
 .ast-color-palette .components-circular-option-picker__option-wrapper {
     margin-left: 6px;
+    position: relative;
 }
 /* Clear Button CSS */
 .ast-color-btn-clear-wrap {
@@ -1212,6 +1213,10 @@
 }
 .ast-color-palette.components-circular-option-picker .components-circular-option-picker__swatches{
     width: 100%;
+}
+.components-circular-option-picker__option-wrapper:hover,
+.components-circular-option-picker__option-wrapper{
+    transform: none;
 }
 .customize-control-ast-selector .ast-alignment-wrapper {
     display: -webkit-box;
@@ -2197,6 +2202,7 @@
 }
 .ast-color-palette .components-circular-option-picker__option-wrapper {
     margin-left: 6px;
+    position: relative;
 }
 /* Clear Button CSS */
 .ast-color-btn-clear-wrap {
@@ -2427,6 +2433,10 @@
 }
 .ast-color-palette.components-circular-option-picker .components-circular-option-picker__swatches{
     width: 100%;
+}
+.components-circular-option-picker__option-wrapper:hover
+.components-circular-option-picker__option-wrapper{
+    transform: none;
 }
 .customize-control-ast-customizer-link .customizer-link {
   font-style: italic;
