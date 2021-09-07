@@ -278,7 +278,7 @@ if ( ! class_exists( 'Astra_Elementor' ) ) :
 		/**
 		 * Display theme global colors to Elementor Global colors
 		 *
-		 * @since x.x.x
+		 * @since 3.7.0
 		 * @param object          $response rest request response.
 		 * @param array           $handler Route handler used for the request.
 		 * @param WP_REST_Request $request Request used to generate the response.
@@ -317,7 +317,7 @@ if ( ! class_exists( 'Astra_Elementor' ) ) :
 		/**
 		 * Display global paltte colors on Elementor front end Page.
 		 *
-		 * @since x.x.x
+		 * @since 3.7.0
 		 * @param object          $response rest request response.
 		 * @param array           $handler Route handler used for the request.
 		 * @param WP_REST_Request $request Request used to generate the response.
@@ -359,7 +359,7 @@ if ( ! class_exists( 'Astra_Elementor' ) ) :
 		/**
 		 * Generate CSS variable style for Elementor.
 		 *
-		 * @since x.x.x
+		 * @since 3.7.0
 		 * @param string $dynamic_css Dynamic CSS.
 		 * @return object
 		 */
@@ -386,7 +386,7 @@ if ( ! class_exists( 'Astra_Elementor' ) ) :
 		/**
 		 * Load style inside Elementor editor.
 		 *
-		 * @since x.x.x
+		 * @since 3.7.0
 		 * @return void
 		 */
 		public function elementor_add_scripts() {

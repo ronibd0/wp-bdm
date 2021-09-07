@@ -2434,7 +2434,7 @@
 .ast-color-palette.components-circular-option-picker .components-circular-option-picker__swatches{
     width: 100%;
 }
-.components-circular-option-picker__option-wrapper:hover
+.components-circular-option-picker__option-wrapper:hover,
 .components-circular-option-picker__option-wrapper{
     transform: none;
 }

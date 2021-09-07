@@ -9365,14 +9365,6 @@
         }
     },
     {
-        "STIX Two Math": {
-            "variants": [
-                "regular"
-            ],
-            "category": "serif"
-        }
-    },
-    {
         "STIX Two Text": {
             "variants": [
                 "regular",

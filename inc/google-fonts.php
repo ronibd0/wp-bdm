@@ -5356,12 +5356,6 @@ return array(
 		),
 	),
 	array(
-		'STIX Two Math' => array(
-			'variants' => array( 'regular' ), 
-			'category' => 'serif', 
-		),
-	),
-	array(
 		'STIX Two Text' => array(
 			'variants' => array( 'regular', '500', '600', '700', 'italic', '500italic', '600italic', '700italic' ), 
 			'category' => 'serif', 

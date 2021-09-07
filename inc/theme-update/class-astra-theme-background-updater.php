@@ -111,7 +111,7 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 				'astra_unset_builder_elements_underline',
 				'astra_remove_responsive_account_menu_colors_support',
 			),
-			'3.7.0-beta.1' => array(
+			'3.7.0' => array(
 				'astra_global_color_compatibility',
 			),
 		);

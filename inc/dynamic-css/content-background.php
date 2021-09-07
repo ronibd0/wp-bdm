@@ -3,7 +3,7 @@
  * Content Background - Dynamic CSS
  *
  * @package astra
- * @since x.x.x
+ * @since 3.7.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
