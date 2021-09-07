@@ -63,29 +63,21 @@ class Astra_Global_Palette {
 	 * @return array
 	 */
 	public function format_global_palette( $global_palette ) {
-		$editor_palette    = array();
-		$extra_color_index = 1;
-		$color_index       = 0;
+		$editor_palette = array();
+		$labels         = self::get_palette_labels();
 
 		if ( isset( $global_palette['palette'] ) ) {
 			foreach ( $global_palette['palette'] as $key => $color ) {
 
-				if ( isset( $global_palette['labels'][ $color_index ] ) ) {
-					$label = $global_palette['labels'][ $color_index ];
-				} else {
-					$label = __( 'Extra Color', 'astra' ) . $extra_color_index;
-					$extra_color_index++;
-				}
+				$label = 'Theme ' . $labels[ $key ];
 
 				$editor_palette[] = array(
 					'name'  => $label,
 					'slug'  => str_replace( '--', '', self::get_css_variable_prefix() ) . $key,
 					'color' => 'var(' . self::get_css_variable_prefix() . $key . ')',
 				);
-				$color_index++;
 			}
 		}
-
 		return $editor_palette;
 	}
 
