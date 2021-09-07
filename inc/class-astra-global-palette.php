@@ -113,15 +113,15 @@ class Astra_Global_Palette {
 	 */
 	public static function get_palette_labels() {
 		return array(
-			__( 'Theme Color', 'astra' ),
-			__( 'Link Hover Color', 'astra' ),
-			__( 'Heading Color', 'astra' ),
-			__( 'Text Color', 'astra' ),
-			__( 'Site Background Color', 'astra' ),
-			__( 'Content Background', 'astra' ),
-			__( 'Extra Color 1', 'astra' ),
-			__( 'Extra Color 2', 'astra' ),
-			__( 'Extra Color 3', 'astra' ),
+			__( 'Color  1', 'astra' ),
+			__( 'Color  2', 'astra' ),
+			__( 'Color  3', 'astra' ),
+			__( 'Color  4', 'astra' ),
+			__( 'Color  5', 'astra' ),
+			__( 'Color  6', 'astra' ),
+			__( 'Color  7', 'astra' ),
+			__( 'Color  8', 'astra' ),
+			__( 'Color  9', 'astra' ),
 		);
 	}
 
@@ -197,19 +197,14 @@ class Astra_Global_Palette {
 	 * @return array
 	 */
 	public function format_global_palette( $global_palette ) {
-		$editor_palette    = array();
-		$extra_color_index = 1;
-		$color_index       = 0;
+		$editor_palette = array();
+		$color_index    = 0;
+		$labels         = self::get_palette_labels();
 
 		if ( isset( $global_palette['palette'] ) ) {
 			foreach ( $global_palette['palette'] as $key => $color ) {
 
-				if ( isset( $global_palette['labels'][ $color_index ] ) ) {
-					$label = $global_palette['labels'][ $color_index ];
-				} else {
-					$label = __( 'Extra Color', 'astra' ) . $extra_color_index;
-					$extra_color_index++;
-				}
+				$label = 'Theme ' . $labels[ $key ];
 
 				$editor_palette[] = array(
 					'name'  => $label,

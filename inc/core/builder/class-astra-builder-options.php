@@ -819,7 +819,6 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	 * Global Color Palette.
 	 */
 	$defaults['global-color-palette'] = array(
-		'labels'  => Astra_Global_Palette::get_palette_labels(),
 		'palette' => array(
 			'#0274be',
 			'#3a3a3a',
