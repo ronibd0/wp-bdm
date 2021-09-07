@@ -1,4 +1,4 @@
-v3.7.0-beta.1
+v3.7.0
 - New: Introduced Global Color Palette Feature. (https://wpastra.com/docs/astra-global-color-palette-settings/)
 - New: Introduced Typography Presets Feature. (https://wpastra.com/docs/astra-typography-presets/)
 - New: Introduced Button Presets Feature. (https://wpastra.com/docs/astra-button-styles-presets/)
