@@ -129,7 +129,7 @@ class AstraColorPickerControl extends Component {
 						}
 					</Button>
 				</div>
-				<div className="astra-color-picker-wrap">
+				<div className={ isVisible ? 'astra-color-picker-wrap open' : 'astra-color-picker-wrap' }>
 					<>
 						{ isVisible && (
 							<div className="astra-popover-color" onClose={ toggleClose }>

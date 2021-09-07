@@ -1,3 +1,6 @@
+v3.7.1 (Unreleased)
+- Fix: Color picker tooltip appear on hover of selection area & it's palette.
+
 v3.6.9
 - Improvement: In the font size option, users cannot set the value '0'.
 - Improvement: Introduced filter to exclude anchor links from text-decoration style. ( https://wpastra.com/docs/remove-underlined-content-links/ )
