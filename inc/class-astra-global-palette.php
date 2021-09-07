@@ -35,7 +35,7 @@ class Astra_Global_Palette {
 		 */
 		$get_stylesheet = get_stylesheet_directory();
 		$is_theme_json  = $get_stylesheet . '/theme.json';
-		if ( ( get_template_directory() !== $get_stylesheet && false === file_exists( $is_theme_json ) ) ||  astra_wp_version_compare( '5.8', '<' ) ) {
+		if ( ( get_template_directory() !== $get_stylesheet && false === file_exists( $is_theme_json ) ) || astra_wp_version_compare( '5.8', '<' ) ) {
 			add_action( 'after_setup_theme', array( $this, 'support_editor_color_palette' ) );
 		}
 		add_filter( 'astra_theme_customizer_js_localize', array( $this, 'localize_variables' ) );
