@@ -1547,6 +1547,6 @@ function astra_zero_font_size_case() {
  * @param string $compare   Comparison value i.e > or < etc.
  * @return bool|null            True/False based on the  $version and $compare value.
  */
-function astra_wp_version_compare( $version, $compare ) {
+function astra_wp_version_compare( $version, $compare = '' ) {
 	return version_compare( get_bloginfo( 'version' ), $version, $compare );
 }
