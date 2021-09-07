@@ -1545,7 +1545,7 @@ function astra_zero_font_size_case() {
  * @since  2.5.4
  * @param string $version   WordPress version to compare with the current version.
  * @param string $compare   Comparison value i.e > or < etc.
- * @return bool            True/False based on the  $version and $compare value.
+ * @return bool|null            True/False based on the  $version and $compare value.
  */
 function astra_wp_version_compare( $version, $compare ) {
 	return version_compare( get_bloginfo( 'version' ), $version, $compare );
