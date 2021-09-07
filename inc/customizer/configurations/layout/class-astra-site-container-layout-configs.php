@@ -31,7 +31,7 @@ if ( ! class_exists( 'Astra_Site_Container_Layout_Configs' ) ) {
 		public function register_configuration( $configurations, $wp_customize ) {
 
 			$_section = 'section-colors-background';
-			
+
 			if ( class_exists( 'Astra_Ext_Extension' ) && Astra_Ext_Extension::is_active( 'colors-and-background' ) && ! astra_is_content_bg_option_to_load() ) {
 				$_section = 'section-colors-body';
 			}
@@ -131,6 +131,8 @@ if ( ! class_exists( 'Astra_Site_Container_Layout_Configs' ) ) {
 					'title'     => __( 'Site Background', 'astra' ),
 				),
 			);
+
+			$section_content_bg_obj = ( class_exists( 'Astra_Ext_Extension' ) && Astra_Ext_Extension::is_active( 'colors-and-background' ) ) ? 'section-colors-body' : 'section-colors-background';
 
 			if ( astra_is_content_bg_option_to_load() ) {
 

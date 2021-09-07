@@ -24,10 +24,61 @@ class Astra_Global_Palette {
 	 * @since x.x.x
 	 */
 	public function __construct() {
-		add_action( 'after_setup_theme', array( $this, 'support_editor_color_palette' ) );
+		/**
+		 * Support for overriding theme.json from the child theme
+		 *
+		 * If theme.json is not present in the child theme load Global Color Palette in the editor using add_theme_support( 'editor-color-palette', $editor_palette );.
+		 * This is a known issue in Gutenberg - If theme.json is not present in the child theme, it does fallback to the parent theme's theme.json file.
+		 * This will be fixed in the future updates of WordPress/Gutenberg.
+		 *
+		 * @see https://github.com/WordPress/gutenberg/pull/34354
+		 */
+		$get_stylesheet = get_stylesheet_directory();
+		$is_theme_json  = $get_stylesheet . '/theme.json';
+		if ( ( get_template_directory() !== $get_stylesheet && false === file_exists( $is_theme_json ) ) || astra_wp_version_compare( '5.8', '<' ) ) {
+			add_action( 'after_setup_theme', array( $this, 'support_editor_color_palette' ) );
+		}
 		add_filter( 'astra_theme_customizer_js_localize', array( $this, 'localize_variables' ) );
 		add_filter( 'astra_before_foreground_color_generation', array( $this, 'get_color_by_palette_variable' ) );
 		$this->includes();
+	}
+
+	/**
+	 * Modify color palette from Gutenberg.
+	 *
+	 * @since x.x.x
+	 * @return void
+	 */
+	public function support_editor_color_palette() {
+		$global_palette = astra_get_option( 'global-color-palette' );
+		$editor_palette = $this->format_global_palette( $global_palette );
+		add_theme_support( 'editor-color-palette', $editor_palette );
+	}
+
+	/**
+	 * Format color palette data required to pass for Gutenberg palette.
+	 *
+	 * @since x.x.x
+	 * @param array $global_palette global palette data.
+	 * @return array
+	 */
+	public function format_global_palette( $global_palette ) {
+		$editor_palette = array();
+		$labels         = self::get_palette_labels();
+
+		if ( isset( $global_palette['palette'] ) ) {
+			foreach ( $global_palette['palette'] as $key => $color ) {
+
+				$label = 'Theme ' . $labels[ $key ];
+
+				$editor_palette[] = array(
+					'name'  => $label,
+					'slug'  => str_replace( '--', '', self::get_css_variable_prefix() ) . $key,
+					'color' => 'var(' . self::get_css_variable_prefix() . $key . ')',
+				);
+			}
+		}
+		return $editor_palette;
 	}
 
 	/**
@@ -173,49 +224,6 @@ class Astra_Global_Palette {
 		}
 
 		return $palette_style;
-	}
-
-	/**
-	 * Modify color palette from Gutenberg.
-	 *
-	 * @since x.x.x
-	 * @return void
-	 */
-	public function support_editor_color_palette() {
-		$global_palette = astra_get_option( 'global-color-palette' );
-		$editor_palette = $this->format_global_palette( $global_palette );
-
-		// Editor Color Palette.
-		add_theme_support( 'editor-color-palette', $editor_palette );
-	}
-
-	/**
-	 * Format color palette data required to pass for Gutenberg palette.
-	 *
-	 * @since x.x.x
-	 * @param array $global_palette global palette data.
-	 * @return array
-	 */
-	public function format_global_palette( $global_palette ) {
-		$editor_palette = array();
-		$color_index    = 0;
-		$labels         = self::get_palette_labels();
-
-		if ( isset( $global_palette['palette'] ) ) {
-			foreach ( $global_palette['palette'] as $key => $color ) {
-
-				$label = 'Theme ' . $labels[ $key ];
-
-				$editor_palette[] = array(
-					'name'  => $label,
-					'slug'  => str_replace( '--', '', self::get_css_variable_prefix() ) . $key,
-					'color' => 'var(' . self::get_css_variable_prefix() . $key . ')',
-				);
-				$color_index++;
-			}
-		}
-
-		return $editor_palette;
 	}
 
 	/**

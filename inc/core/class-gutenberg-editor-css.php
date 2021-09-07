@@ -950,6 +950,9 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 				),
 			);
 
+			$boxed_container_tablet = array();
+			$boxed_container_mobile = array();
+
 			if ( astra_is_content_bg_option_to_load() ) {
 
 				$content_bg_obj         = astra_get_option( 'content-bg-obj-responsive' );
@@ -964,6 +967,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 
 				/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 				$css .= astra_parse_css( $boxed_container_tablet, '', astra_get_tablet_breakpoint() );
+				/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 				$css .= astra_parse_css( $boxed_container_mobile, '', astra_get_mobile_breakpoint() );
 			}
 

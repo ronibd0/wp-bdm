@@ -316,19 +316,6 @@ function astra_attr( $context, $attributes = array(), $args = array() ) {
 }
 
 /**
- * Check the WordPress version.
- *
- * @since  2.5.4
- * @param string $version   WordPress version to compare with the current version.
- * @param string $compare   Comparison value i.e > or < etc.
- * @return bool            True/False based on the  $version and $compare value.
- */
-function astra_wp_version_compare( $version, $compare ) {
-
-	return version_compare( get_bloginfo( 'version' ), $version, $compare );
-}
-
-/**
  * Get the theme author details
  *
  * @since  3.1.0
@@ -773,7 +760,7 @@ function astra_remove_widget_design_options() {
 /**
  * Get Global Color Palettes
  *
- * @return array color palettes array. 
+ * @return array color palettes array.
  * @since 3.7.0
  */
 function astra_get_palette_colors() {
@@ -783,7 +770,7 @@ function astra_get_palette_colors() {
 /**
  * Get typography presets data.
  *
- * @return array Typography Presets data array. 
+ * @return array Typography Presets data array.
  * @since 3.7.0
  */
 function astra_get_typography_presets() {
