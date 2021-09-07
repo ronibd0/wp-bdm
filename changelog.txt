@@ -1,7 +1,7 @@
 v3.7.0-beta.1
-- New: Introduced Global Color Palette Feature. ( https://wpastra.com/docs/astra-global-color-palette-settings/ )
-- New: Introduced Typography Presets Feature. ( https://wpastra.com/docs/astra-typography-presets/ )
-- New: Introduced Button Presets Feature. ( https://wpastra.com/docs/astra-button-styles-presets/ )
+- New: Introduced Global Color Palette Feature. (https://wpastra.com/docs/astra-global-color-palette-settings/)
+- New: Introduced Typography Presets Feature. (https://wpastra.com/docs/astra-typography-presets/)
+- New: Introduced Button Presets Feature. (https://wpastra.com/docs/astra-button-styles-presets/)
 - New: Added Heading Typography options for H4-H6 also.
 - New: Content background color option.
 - Fix: Heading color option not working for Sidebar, Footer widget title.
