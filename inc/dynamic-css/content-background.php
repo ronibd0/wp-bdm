@@ -22,7 +22,7 @@ add_filter( 'astra_dynamic_theme_css', 'astra_content_background_css', 11 );
  */
 function astra_content_background_css( $dynamic_css ) {
 
-	if ( ! astra_is_content_bg_option_to_load() ) {
+	if ( ! astra_has_gcp_typo_preset_compatibility() ) {
 		return $dynamic_css;
 	}
 

@@ -1133,7 +1133,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			require ASTRA_THEME_DIR . 'inc/customizer/configurations/typography/class-astra-body-typo-configs.php';
 
 
-			if( astra_maybe_load_h4_to_h6_typo_options() ) {
+			if( astra_has_gcp_typo_preset_compatibility() ) {
 				require ASTRA_THEME_DIR . 'inc/customizer/configurations/typography/class-astra-headings-typo-configs.php';
 			} else {
 				require ASTRA_THEME_DIR . 'inc/customizer/configurations/typography/class-astra-content-typo-configs.php';
@@ -1423,7 +1423,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 				'dynamic_partial_options'              => self::$dynamic_options['partials'],
 				'gb_outline_buttons_patterns_support'  => Astra_Dynamic_CSS::gutenberg_core_patterns_compat(),
 				'font_weights_widget_title_support'    => Astra_Dynamic_CSS::support_font_css_to_widget_and_in_editor(),
-				'is_content_bg_option_to_load'         => astra_is_content_bg_option_to_load(),
+				'is_content_bg_option_to_load'         => astra_has_gcp_typo_preset_compatibility(),
 				'content_layout'                       => astra_get_content_layout(),
 				'site_layout'                          => astra_get_option( 'site-layout' ),
 				'has_block_editor_support'             => Astra_Dynamic_CSS::is_block_editor_support_enabled(),

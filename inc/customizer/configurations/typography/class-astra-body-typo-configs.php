@@ -30,7 +30,7 @@ if ( ! class_exists( 'Astra_Body_Typo_Configs' ) ) {
 		 */
 		public function register_configuration( $configurations, $wp_customize ) {
 
-			$typo_section = astra_maybe_load_h4_to_h6_typo_options() ? 'section-typography' : 'section-body-typo';
+			$typo_section = astra_has_gcp_typo_preset_compatibility() ? 'section-typography' : 'section-body-typo';
 
 			$_configs = array(
 
@@ -278,7 +278,7 @@ if ( ! class_exists( 'Astra_Body_Typo_Configs' ) ) {
 			);
 
 
-			if ( astra_maybe_load_h4_to_h6_typo_options() ) {
+			if ( astra_has_gcp_typo_preset_compatibility() ) {
 
 				$_configs[] = array(
 					'name'       => ASTRA_THEME_SETTINGS . '[heading-typo-selector]',

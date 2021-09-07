@@ -53,7 +53,7 @@ class Astra_Heading_Colors_Loader {
 		$font_weight_h3 = astra_get_option( 'font-weight-h3' );
 		Astra_Fonts::add_font( $font_family_h3, $font_weight_h3 );
 
-		if ( astra_maybe_load_h4_to_h6_typo_options() ) {
+		if ( astra_has_gcp_typo_preset_compatibility() ) {
 
 			$font_family_h4 = astra_get_option( 'font-family-h4' );
 			$font_weight_h4 = astra_get_option( 'font-weight-h4' );

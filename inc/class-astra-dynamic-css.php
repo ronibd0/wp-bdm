@@ -197,7 +197,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			// Fallback for H6 - headings typography.
 			$h6_line_height = $headings_line_height;
 
-			if ( astra_maybe_load_h4_to_h6_typo_options() ) {
+			if ( astra_has_gcp_typo_preset_compatibility() ) {
 
 				$h4_font_family    = astra_get_option( 'font-family-h4' );
 				$h4_font_weight    = astra_get_option( 'font-weight-h4' );
@@ -425,7 +425,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				'line-height' => esc_attr( $headings_line_height ),
 			);
 
-			if ( astra_maybe_load_h4_to_h6_typo_options() ) {
+			if ( astra_has_gcp_typo_preset_compatibility() ) {
 				$h4_font_properties = array(
 					'font-weight'    => astra_get_css_value( $h4_font_weight, 'font' ),
 					'font-family'    => astra_get_css_value( $h4_font_family, 'font' ),

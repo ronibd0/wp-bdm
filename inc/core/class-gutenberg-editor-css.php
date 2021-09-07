@@ -953,7 +953,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 			$boxed_container_tablet = array();
 			$boxed_container_mobile = array();
 
-			if ( astra_is_content_bg_option_to_load() ) {
+			if ( astra_has_gcp_typo_preset_compatibility() ) {
 
 				$content_bg_obj         = astra_get_option( 'content-bg-obj-responsive' );
 				$boxed_container_mobile = array();

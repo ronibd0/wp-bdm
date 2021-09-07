@@ -32,7 +32,7 @@ if ( ! class_exists( 'Astra_Heading_Colors_Configs' ) ) {
 
 			$_section = 'section-colors-background';
 			
-			if ( class_exists( 'Astra_Ext_Extension' ) && Astra_Ext_Extension::is_active( 'colors-and-background' ) && ! astra_is_content_bg_option_to_load() ) {
+			if ( class_exists( 'Astra_Ext_Extension' ) && Astra_Ext_Extension::is_active( 'colors-and-background' ) && ! astra_has_gcp_typo_preset_compatibility() ) {
 				$_section = 'section-colors-body';
 			}
 
