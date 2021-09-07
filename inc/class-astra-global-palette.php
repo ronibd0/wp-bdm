@@ -172,15 +172,15 @@ class Astra_Global_Palette {
 	 */
 	public static function get_palette_labels() {
 		return array(
-			__( 'Theme Color', 'astra' ),
-			__( 'Link Hover Color', 'astra' ),
-			__( 'Heading Color', 'astra' ),
-			__( 'Text Color', 'astra' ),
-			__( 'Site Background Color', 'astra' ),
-			__( 'Content Background', 'astra' ),
-			__( 'Extra Color 1', 'astra' ),
-			__( 'Extra Color 2', 'astra' ),
-			__( 'Extra Color 3', 'astra' ),
+			__( 'Color  1', 'astra' ),
+			__( 'Color  2', 'astra' ),
+			__( 'Color  3', 'astra' ),
+			__( 'Color  4', 'astra' ),
+			__( 'Color  5', 'astra' ),
+			__( 'Color  6', 'astra' ),
+			__( 'Color  7', 'astra' ),
+			__( 'Color  8', 'astra' ),
+			__( 'Color  9', 'astra' ),
 		);
 	}
 

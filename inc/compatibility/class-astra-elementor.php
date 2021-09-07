@@ -295,6 +295,7 @@ if ( ! class_exists( 'Astra_Elementor' ) ) :
 			$global_palette = astra_get_option( 'global-color-palette' );
 			$data           = $response->get_data();
 			$slugs          = Astra_Global_Palette::get_palette_slugs();
+			$labels         = Astra_Global_Palette::get_palette_labels();
 
 			foreach ( $global_palette['palette'] as $key => $color ) {
 
@@ -304,7 +305,7 @@ if ( ! class_exists( 'Astra_Elementor' ) ) :
 
 				$data['colors'][ $no_hyphens ] = array(
 					'id'    => esc_attr( $no_hyphens ),
-					'title' => $global_palette['labels'][ $key ],
+					'title' => 'Theme ' . $labels[ $key ],
 					'value' => $color,
 				);
 			}
