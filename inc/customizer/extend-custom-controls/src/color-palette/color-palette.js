@@ -161,7 +161,7 @@ const ColorPaletteComponent = (props) => {
 			document.dispatchEvent(
 				new CustomEvent("AstUpdatePaletteVariables", {})
 			);
-		}, 500);
+		}, 200);
 	};
 
 	document.addEventListener(
