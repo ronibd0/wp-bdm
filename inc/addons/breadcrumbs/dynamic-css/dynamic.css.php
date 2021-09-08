@@ -320,13 +320,13 @@ function astra_breadcrumb_section_dynamic_css( $dynamic_css, $dynamic_css_filter
 
 		/* SEOPress CSS - Desktop */
 		$breadcrumbs_desktop = array(
-			'.ast-breadcrumbs-inner .breadcrumb-item a'          => array(
+			'.ast-breadcrumbs-inner .breadcrumb-item a' => array(
 				'color' => esc_attr( $breadcrumb_text_color['desktop'] ),
 			),
-			'.ast-breadcrumbs-inner, .ast-breadcrumbs-inner .breadcrumb-item.active'      => array(
+			'.ast-breadcrumbs-inner, .ast-breadcrumbs-inner .breadcrumb-item.active' => array(
 				'color' => esc_attr( $breadcrumb_active_color['desktop'] ),
 			),
-			'.ast-breadcrumbs-inner .breadcrumb-item a:hover'    => array(
+			'.ast-breadcrumbs-inner .breadcrumb-item a:hover' => array(
 				'color' => esc_attr( $breadcrumb_hover_color['desktop'] ),
 			),
 			'.ast-breadcrumbs-inner .breadcrumb-item:after' => array(
@@ -343,13 +343,13 @@ function astra_breadcrumb_section_dynamic_css( $dynamic_css, $dynamic_css_filter
 
 		/* SEOPress CSS - Tablet */
 		$breadcrumbs_tablet = array(
-			'.ast-breadcrumbs-inner .breadcrumb-item a'          => array(
+			'.ast-breadcrumbs-inner .breadcrumb-item a' => array(
 				'color' => esc_attr( $breadcrumb_text_color['tablet'] ),
 			),
-			'.ast-breadcrumbs-inner, .ast-breadcrumbs-inner .breadcrumb-item.active'      => array(
+			'.ast-breadcrumbs-inner, .ast-breadcrumbs-inner .breadcrumb-item.active' => array(
 				'color' => esc_attr( $breadcrumb_active_color['tablet'] ),
 			),
-			'.ast-breadcrumbs-inner .breadcrumb-item a:hover'    => array(
+			'.ast-breadcrumbs-inner .breadcrumb-item a:hover' => array(
 				'color' => esc_attr( $breadcrumb_hover_color['tablet'] ),
 			),
 			'.ast-breadcrumbs-inner .breadcrumb-item:after' => array(
@@ -362,13 +362,13 @@ function astra_breadcrumb_section_dynamic_css( $dynamic_css, $dynamic_css_filter
 
 		/* SEOPress CSS - Mobile */
 		$breadcrumbs_mobile = array(
-			'.ast-breadcrumbs-inner .breadcrumb-item a'          => array(
+			'.ast-breadcrumbs-inner .breadcrumb-item a' => array(
 				'color' => esc_attr( $breadcrumb_text_color['mobile'] ),
 			),
-			'.ast-breadcrumbs-inner, .ast-breadcrumbs-inner .breadcrumb-item.active'      => array(
+			'.ast-breadcrumbs-inner, .ast-breadcrumbs-inner .breadcrumb-item.active' => array(
 				'color' => esc_attr( $breadcrumb_active_color['mobile'] ),
 			),
-			'.ast-breadcrumbs-inner .breadcrumb-item a:hover'    => array(
+			'.ast-breadcrumbs-inner .breadcrumb-item a:hover' => array(
 				'color' => esc_attr( $breadcrumb_hover_color['mobile'] ),
 			),
 			'.ast-breadcrumbs-inner .breadcrumb-item:after' => array(
