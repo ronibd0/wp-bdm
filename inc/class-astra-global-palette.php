@@ -184,15 +184,15 @@ class Astra_Global_Palette {
 	 */
 	public static function get_palette_slugs() {
 		return array(
-			'text-color',
-			'theme-color',
-			'link-hover',
-			'link-hover-color',
-			'heading-color',
-			'extra-color-1',
-			'extra-color-2',
-			'extra-color-3',
-			'extra-color-4',
+			'ast-global-color-0',
+			'ast-global-color-1',
+			'ast-global-color-2',
+			'ast-global-color-3',
+			'ast-global-color-4',
+			'ast-global-color-5',
+			'ast-global-color-6',
+			'ast-global-color-7',
+			'ast-global-color-8',
 		);
 	}
 
