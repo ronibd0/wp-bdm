@@ -4198,14 +4198,27 @@ namespace {
          * to avoid the group block width from changing to full width.
          *
          * @since 3.7.1
-         * @access private
+         * @access public
          *
          * @param string $block_content Rendered block content.
          * @param array  $block         Block object.
          *
          * @return string Filtered block content.
          */
-        function restore_group_inner_container($block_content, $block)
+        public function restore_group_inner_container($block_content, $block)
+        {
+        }
+        /**
+         * Update the block content with inner div.
+         *
+         * @since 3.7.1
+         * @access public
+         *
+         * @param mixed $matches block content.
+         *
+         * @return string New block content.
+         */
+        public function group_block_replace_regex($matches)
         {
         }
     }

@@ -25,14 +25,14 @@ class Astra_Gutenberg {
 	 * to avoid the group block width from changing to full width.
 	 *
 	 * @since 3.7.1
-	 * @access private
+	 * @access public
 	 *
 	 * @param string $block_content Rendered block content.
 	 * @param array  $block         Block object.
 	 *
 	 * @return string Filtered block content.
 	 */
-	function restore_group_inner_container( $block_content, $block ) {
+	public function restore_group_inner_container( $block_content, $block ) {
 		$group_with_inner_container_regex = '/(^\s*<div\b[^>]*wp-block-group(\s|")[^>]*>)(\s*<div\b[^>]*wp-block-group__inner-container(\s|")[^>]*>)((.|\S|\s)*)/';
 
 		if (
@@ -45,19 +45,24 @@ class Astra_Gutenberg {
 		$replace_regex   = '/(^\s*<div\b[^>]*wp-block-group[^>]*>)(.*)(<\/div>\s*$)/ms';
 		$updated_content = preg_replace_callback(
 			$replace_regex,
-			/**
-			 * Update the block content with inner div.
-			 *
-			 * @param mixed $matches block content.
-			 *
-			 * @return string New block content.
-			 */
-			function( $matches ) {
-				return $matches[1] . '<div class="wp-block-group__inner-container">' . $matches[2] . '</div>' . $matches[3];
-			},
+			array( $this, 'group_block_replace_regex' ),
 			$block_content
 		);
 		return $updated_content;
+	}
+
+	/**
+	 * Update the block content with inner div.
+	 *
+	 * @since 3.7.1
+	 * @access public
+	 *
+	 * @param mixed $matches block content.
+	 *
+	 * @return string New block content.
+	 */
+	public function group_block_replace_regex( $matches ) {
+		return $matches[1] . '<div class="wp-block-group__inner-container">' . $matches[2] . '</div>' . $matches[3];
 	}
 
 }
