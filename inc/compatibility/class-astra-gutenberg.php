@@ -48,7 +48,7 @@ class Astra_Gutenberg {
 			/**
 			 * Update the block content with inner div.
 			 *
-			 * @param string $matches block content.
+			 * @param mixed $matches block content.
 			 *
 			 * @return string New block content.
 			 */
