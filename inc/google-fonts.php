@@ -292,12 +292,6 @@ return array(
 		),
 	),
 	array(
-		'Andada' => array(
-			'variants' => array( 'regular' ), 
-			'category' => 'serif', 
-		),
-	),
-	array(
 		'Andada Pro' => array(
 			'variants' => array( 'regular', '500', '600', '700', '800', 'italic', '500italic', '600italic', '700italic', '800italic' ), 
 			'category' => 'serif', 
@@ -4326,6 +4320,12 @@ return array(
 	array(
 		'Noto Sans TC' => array(
 			'variants' => array( '100', '300', 'regular', '500', '700', '900' ), 
+			'category' => 'sans-serif', 
+		),
+	),
+	array(
+		'Noto Sans Vai' => array(
+			'variants' => array( 'regular' ), 
 			'category' => 'sans-serif', 
 		),
 	),

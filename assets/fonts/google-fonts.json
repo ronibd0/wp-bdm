@@ -465,14 +465,6 @@
         }
     },
     {
-        "Andada": {
-            "variants": [
-                "regular"
-            ],
-            "category": "serif"
-        }
-    },
-    {
         "Andada Pro": {
             "variants": [
                 "regular",
@@ -7585,6 +7577,14 @@
                 "500",
                 "700",
                 "900"
+            ],
+            "category": "sans-serif"
+        }
+    },
+    {
+        "Noto Sans Vai": {
+            "variants": [
+                "regular"
             ],
             "category": "sans-serif"
         }
