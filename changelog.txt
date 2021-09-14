@@ -1,12 +1,15 @@
+v3.7.1
+- Fix: Gutenberg - Group Block appearing full width on frontend.
+
 v3.7.0
 - New: Global Color Palette compatibility for Block editor using theme.json. (https://wpastra.com/astra-3-7/)
 - Improvement: Updated labels for Global Palette colors.
-- Improvement: Global Color Palette preview time optimized. 
-- Improvement: Footer - Copyright text color compatibility with Global Color Palette.  
-- Improvement: Added tooltip for palette inside colorpicker control. 
-- Fix: Color Palette options appearing outside control container.  
+- Improvement: Global Color Palette preview time optimized.
+- Improvement: Footer - Copyright text color compatibility with Global Color Palette.
+- Improvement: Added tooltip for palette inside colorpicker control.
+- Fix: Color Palette options appearing outside control container.
 
-v3.7.0-beta.1 
+v3.7.0-beta.1
 - New: Introduced Global Color Palette Feature. (https://wpastra.com/docs/astra-global-color-palette-settings/)
 - New: Introduced Typography Presets Feature. (https://wpastra.com/docs/astra-typography-presets/)
 - New: Introduced Button Presets Feature. (https://wpastra.com/docs/astra-button-styles-presets/)
