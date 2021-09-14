@@ -299,7 +299,7 @@ if ( ! class_exists( 'Astra_Elementor' ) ) :
 
 			foreach ( $global_palette['palette'] as $key => $color ) {
 
-				$slug = 'astra' . $slugs[ $key ];
+				$slug = $slugs[ $key ];
 				// Remove hyphens from slug.
 				$no_hyphens = str_replace( '-', '', $slug );
 
@@ -335,7 +335,7 @@ if ( ! class_exists( 'Astra_Elementor' ) ) :
 
 			foreach ( $palette_slugs as $key => $slug ) {
 				// Remove hyphens as hyphens do not work with Elementor global styles.
-				$no_hyphens              = 'astra' . str_replace( '-', '', $slug );
+				$no_hyphens              = str_replace( '-', '', $slug );
 				$slug_map[ $no_hyphens ] = $key;
 			}
 
@@ -372,7 +372,7 @@ if ( ! class_exists( 'Astra_Elementor' ) ) :
 
 			if ( isset( $global_palette['palette'] ) ) {
 				foreach ( $global_palette['palette'] as $color_index => $color ) {
-					$variable_key           = '--e-global-color-astra' . str_replace( '-', '', $slugs[ $color_index ] );
+					$variable_key           = '--e-global-color-' . str_replace( '-', '', $slugs[ $color_index ] );
 					$style[ $variable_key ] = $color;
 				}
 
