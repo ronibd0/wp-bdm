@@ -1,5 +1,5 @@
 v3.7.0
-- New: Global Color Palette compatibility for Block editor using theme.json.[doc_link]
+- New: Global Color Palette compatibility for Block editor using theme.json. (https://wpastra.com/astra-3-7/)
 - Improvement: Updated labels for Global Palette colors.
 - Improvement: Global Color Palette preview time optimized. 
 - Improvement: Footer - Copyright text color compatibility with Global Color Palette.  
