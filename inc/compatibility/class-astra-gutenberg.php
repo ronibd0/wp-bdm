@@ -2,14 +2,14 @@
 /**
  * Gutenberg Compatibility File.
  *
- * @since x.x.x
+ * @since 3.7.1
  * @package Astra
  */
 
 /**
  * Astra Gutenberg Compatibility
  *
- * @since x.x.x
+ * @since 3.7.1
  */
 class Astra_Gutenberg {
 
@@ -24,7 +24,7 @@ class Astra_Gutenberg {
 	 * Add Group block inner container when theme.json is added
 	 * to avoid the group block width from changing to full width.
 	 *
-	 * @since x.x.x
+	 * @since 3.7.1
 	 * @access private
 	 *
 	 * @param string $block_content Rendered block content.
