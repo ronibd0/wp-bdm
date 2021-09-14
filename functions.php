@@ -133,6 +133,7 @@ require_once ASTRA_THEME_DIR . 'inc/modules/related-posts/class-astra-related-po
 /**
  * Compatibility
  */
+require_once ASTRA_THEME_DIR . 'inc/compatibility/class-astra-gutenberg.php';
 require_once ASTRA_THEME_DIR . 'inc/compatibility/class-astra-jetpack.php';
 require_once ASTRA_THEME_DIR . 'inc/compatibility/woocommerce/class-astra-woocommerce.php';
 require_once ASTRA_THEME_DIR . 'inc/compatibility/edd/class-astra-edd.php';
