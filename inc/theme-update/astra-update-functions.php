@@ -3167,7 +3167,7 @@ function astra_remove_elementor_toc_margin() {
 /**
  * Link default color compatibility.
  *
- * @since x.x.x
+ * @since 3.7.0
  * @return void
  */
 function astra_global_color_compatibility() {

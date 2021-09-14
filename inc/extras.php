@@ -566,7 +566,7 @@ function astra_target_rules_for_related_posts() {
 /**
  * Check if elementor plugin is active on the site.
  *
- * @since x.x.x
+ * @since 3.7.0
  * @return bool
  */
 function astra_is_elemetor_active() {
@@ -649,10 +649,10 @@ function astra_get_transparent_header_default_value() {
 /**
  * Check compatibility for content background and typography options. 
  *
- * @since x.x.x
+ * @since 3.7.0
  */
 function astra_has_gcp_typo_preset_compatibility() {
-	if ( defined( 'ASTRA_EXT_VER' ) && version_compare( ASTRA_EXT_VER, '3.6.0-beta.1', '<' ) ) {
+	if ( defined( 'ASTRA_EXT_VER' ) && version_compare( ASTRA_EXT_VER, '3.6.0', '<' ) ) {
 		return false;
 	}
 	return true;
@@ -699,7 +699,7 @@ function astra_can_remove_elementor_toc_margin_space() {
 /**
  * This will check if user is new and apply global color format. This is to manage backward compatibility for colors.
  *
- * @since x.x.x
+ * @since 3.7.0
  * @return boolean false if it is an existing user, true for new user.
  */
 function astra_has_global_color_format_support() {

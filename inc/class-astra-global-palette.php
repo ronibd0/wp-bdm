@@ -6,7 +6,7 @@
  * @subpackage  Class
  * @author      Astra
  * @link        https://wpastra.com/
- * @since       x.x.x
+ * @since       3.7.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -21,7 +21,7 @@ class Astra_Global_Palette {
 	/**
 	 * Constructor
 	 *
-	 * @since x.x.x
+	 * @since 3.7.0
 	 */
 	public function __construct() {
 		/**
@@ -46,7 +46,7 @@ class Astra_Global_Palette {
 	/**
 	 * Modify color palette from Gutenberg.
 	 *
-	 * @since x.x.x
+	 * @since 3.7.0
 	 * @return void
 	 */
 	public function support_editor_color_palette() {
@@ -58,7 +58,7 @@ class Astra_Global_Palette {
 	/**
 	 * Format color palette data required to pass for Gutenberg palette.
 	 *
-	 * @since x.x.x
+	 * @since 3.7.0
 	 * @param array $global_palette global palette data.
 	 * @return array
 	 */
@@ -84,7 +84,7 @@ class Astra_Global_Palette {
 	/**
 	 * Get CSS variable prefix used for styling.
 	 *
-	 * @since x.x.x
+	 * @since 3.7.0
 	 * @return string variable prefix
 	 */
 	public static function get_css_variable_prefix() {
@@ -94,7 +94,7 @@ class Astra_Global_Palette {
 	/**
 	 * Localize variables used in the customizer.
 	 *
-	 * @since x.x.x
+	 * @since 3.7.0
 	 * @param array $object localize object.
 	 * @return array<array-key, mixed> $object localize object.
 	 */
@@ -112,7 +112,7 @@ class Astra_Global_Palette {
 	/**
 	 * Default global palette options.
 	 *
-	 * @since x.x.x
+	 * @since 3.7.0
 	 * @return array Palette options.
 	 */
 	public static function get_default_color_palette() {
@@ -159,7 +159,7 @@ class Astra_Global_Palette {
 	/**
 	 * Get labels for palette colors.
 	 *
-	 * @since x.x.x
+	 * @since 3.7.0
 	 * @return array Palette labels.
 	 */
 	public static function get_palette_labels() {
@@ -179,27 +179,27 @@ class Astra_Global_Palette {
 	/**
 	 * Get slugs for palette colors.
 	 *
-	 * @since x.x.x
+	 * @since 3.7.0
 	 * @return array Palette slugs.
 	 */
 	public static function get_palette_slugs() {
 		return array(
-			'text-color',
-			'theme-color',
-			'link-hover',
-			'link-hover-color',
-			'heading-color',
-			'extra-color-1',
-			'extra-color-2',
-			'extra-color-3',
-			'extra-color-4',
+			'ast-global-color-0',
+			'ast-global-color-1',
+			'ast-global-color-2',
+			'ast-global-color-3',
+			'ast-global-color-4',
+			'ast-global-color-5',
+			'ast-global-color-6',
+			'ast-global-color-7',
+			'ast-global-color-8',
 		);
 	}
 
 	/**
 	 * Include required files.
 	 *
-	 * @since x.x.x
+	 * @since 3.7.0
 	 */
 	public function includes() {
 		require_once ASTRA_THEME_DIR . 'inc/dynamic-css/global-color-palette.php';// PHPCS:ignore WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
@@ -208,7 +208,7 @@ class Astra_Global_Palette {
 	/**
 	 * Generate palette CSS required to display on front end.
 	 *
-	 * @since x.x.x
+	 * @since 3.7.0
 	 * @return array palette style array.
 	 */
 	public static function generate_global_palette_style() {
@@ -229,7 +229,7 @@ class Astra_Global_Palette {
 	/**
 	 * Pass hex value for global palette to process forground color.
 	 *
-	 * @since x.x.x
+	 * @since 3.7.0
 	 * @param string $color hex color / css variable.
 	 * @return string
 	 */

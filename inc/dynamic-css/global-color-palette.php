@@ -3,7 +3,7 @@
  * Global color palette - Dynamic CSS
  *
  * @package astra-builder
- * @since x.x.x
+ * @since 3.7.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -15,7 +15,7 @@ add_filter( 'astra_dynamic_theme_css', 'astra_generate_global_palette_style' );
 /**
  * Generate palette CSS variable styles on the front end.
  *
- * @since x.x.x
+ * @since 3.7.0
  * @param string $dynamic_css dynamic css.
  * @return string
  */
