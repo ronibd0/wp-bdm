@@ -136,6 +136,6 @@
   top: 73px;
 }
 
-.astra-color-picker-wrap.open + span {
+.astra-color-picker-wrap.picker-open + span {
   display: none;
 }
