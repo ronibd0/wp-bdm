@@ -1,3 +1,6 @@
+v3.7.2
+- Fix: Incorrect Site Background Color on pages with Full Width layout. 
+
 v3.7.1
 - Fix: Gutenberg - Group Block appearing full width on frontend.
 
