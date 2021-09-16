@@ -1,7 +1,17 @@
 <?php
+/**
+ * Customizer Settings.
+ * 
+ * Display the customizer settings in the customizer footer.
+ */
 
 namespace Astra\E2E\Customizer_Settings;
 
+/**
+ * Bootstrap the plugin.
+ *
+ * @return void
+ */
 function bootstrap() {
 	add_action(
 		'init',
@@ -13,6 +23,11 @@ function bootstrap() {
 	);
 }
 
+/**
+ * Dump the customizer settings in JSON format.
+ *
+ * @return void
+ */
 function dump_customizer_settings() {
 	$customizer_settings = get_option( 'astra-settings', array() );
 
