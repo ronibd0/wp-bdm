@@ -1,8 +1,9 @@
 <?php
 /**
  * Customizer Settings.
- * 
  * Display the customizer settings in the customizer footer.
+ * 
+ * @package astra
  */
 
 namespace Astra\E2E\Customizer_Settings;
