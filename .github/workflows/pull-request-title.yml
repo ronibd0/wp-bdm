@@ -1,6 +1,10 @@
 name: "PR Title Checker"
 on:
   pull_request:
+    branches:
+      - master
+      - next-release
+      - release-candidate
     types:
       - opened
       - edited
