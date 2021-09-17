@@ -4,6 +4,7 @@ v3.7.3 (Unreleased)
 - Fix: W3C HTML validation - Duplicate ID: ast-hf-mobile-menu.
 - Fix: W3C HTML validation - Duplicate ID: Layer_1.
 - Fix: The default "Add Widget" text alignment issue in header.
+- Fix: W3 validator - CSS parse error for '.menu-link' & '.wp-block-button__link'.
 
 v3.7.2
 - Fix: Incorrect Site Background Color on pages with Full Width layout.

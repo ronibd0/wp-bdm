@@ -1640,7 +1640,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					),
 				);
 
-				$btn_text_color_selectors = '.wp-block-button .wp-block-button__link, ';
+				$btn_text_color_selectors = '.wp-block-button .wp-block-button__link';
 
 				if ( 'color-typo' === self::elementor_default_color_font_setting() || 'color' === self::elementor_default_color_font_setting() || 'typo' === self::elementor_default_color_font_setting() ) {
 					$ele_btn_default_desktop = array(
@@ -1692,9 +1692,9 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				if ( 'color-typo' === self::elementor_default_color_font_setting() || 'color' === self::elementor_default_color_font_setting() ) {
 					// Check if Global Elementor - Theme Style - button color is set. If yes then remove ( :visited ) CSS for the compatibility.
 					if ( false === self::is_elementor_kit_button_color_set() ) {
-						$btn_text_color_selectors .= '.elementor-button-wrapper .elementor-button, .elementor-button-wrapper .elementor-button:visited';
+						$btn_text_color_selectors .= ' , .elementor-button-wrapper .elementor-button, .elementor-button-wrapper .elementor-button:visited';
 					} else {
-						$btn_text_color_selectors .= '.elementor-button-wrapper .elementor-button';
+						$btn_text_color_selectors .= ' , .elementor-button-wrapper .elementor-button';
 					}
 
 					$ele_btn_color_builder_desktop = array(
@@ -2979,7 +2979,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'-ms-flex-direction'      => 'column',
 						'flex-direction'          => 'column',
 					),
-					'.main-header-menu > .menu-item > .menu-link, #astra-footer-menu > .menu-item > .menu-link,' => array(
+					'.main-header-menu > .menu-item > .menu-link, #astra-footer-menu > .menu-item > .menu-link' => array(
 						'height'              => '100%',
 						'-webkit-box-align'   => 'center',
 						'-webkit-align-items' => 'center',
