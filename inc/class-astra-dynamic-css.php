@@ -2472,10 +2472,10 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 			if ( is_astra_addon_3_5_0_version() ) {
 				$mega_menu_css = array(
-					'.ast-desktop .main-header-menu:not(#ast-hf-mobile-menu) .astra-full-megamenu-wrapper .sub-menu, .ast-desktop .main-header-menu:not(#ast-hf-mobile-menu) .astra-megamenu .sub-menu' => array(
+					'.ast-desktop .main-header-menu .astra-full-megamenu-wrapper .sub-menu, .ast-desktop .main-header-menu .astra-megamenu .sub-menu' => array(
 						'box-shadow' => 'none',
 					),
-					'.ast-desktop .main-header-menu:not(#ast-hf-mobile-menu) .astra-full-megamenu-wrapper' => array(
+					'.ast-desktop .main-header-menu.ast-menu-shadow .astra-full-megamenu-wrapper' => array(
 						'box-shadow' => '0 4px 10px -2px rgba(0, 0, 0, 0.1)',
 					),
 					'.ast-desktop .main-header-menu > .menu-item .astra-full-megamenu-wrapper:before' => array(

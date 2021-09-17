@@ -532,6 +532,10 @@
   top: 73px;
 }
 
+.astra-color-picker-wrap.picker-open + span {
+  display: none;
+}
+
 #customize-control-astra-color-palettes .ast-color-palette-wrap > div {
 	margin-bottom: 8px;
 	position: relative;
@@ -1750,6 +1754,10 @@
 
 .customize-control-ast-color-group .ast-divider-title + .ast-control-wrap .astra-color-picker-wrap {
   top: 73px;
+}
+
+.astra-color-picker-wrap.picker-open + span {
+  display: none;
 }
 
 #customize-control-astra-color-palettes .ast-color-palette-wrap > div {
