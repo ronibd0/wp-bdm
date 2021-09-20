@@ -45,7 +45,7 @@ class Astra_Mobile_Menu_Component {
 	 *
 	 * @since 3.0.0.
 	 */
-	public static function menu_markup( $device = '' ) {
+	public static function menu_markup( $device = 'mobile' ) {
 
 		$theme_location        = 'mobile_menu';
 		$submenu_class         = apply_filters( 'secondary_submenu_border_class', ' submenu-with-border' );
@@ -75,8 +75,8 @@ class Astra_Mobile_Menu_Component {
 		$items_wrap .= astra_attr(
 			'site-navigation',
 			array(
-				'id'         => 'site-navigation',
-				'class'      => 'ast-flex-grow-1 navigation-accessibility site-header-focus-item',
+				'id'         => 'ast-' . esc_attr( $device ) . '-site-navigation',
+				'class'      => 'site-navigation ast-flex-grow-1 navigation-accessibility site-header-focus-item',
 				'aria-label' => esc_attr__( 'Site Navigation', 'astra' ),
 			)
 		);
@@ -121,10 +121,10 @@ class Astra_Mobile_Menu_Component {
 					echo astra_attr(
 						'site-navigation',
 						array(
-							'id' => 'site-navigation',
+							'id' => 'ast-' . esc_attr( $device ) . '-site-navigation',
 						)
 					);
-					echo ' class="ast-flex-grow-1 navigation-accessibility" aria-label="' . esc_attr__( 'Site Navigation', 'astra' ) . '">';
+					echo ' class="site-navigation ast-flex-grow-1 navigation-accessibility" aria-label="' . esc_attr__( 'Site Navigation', 'astra' ) . '">';
 						wp_page_menu( $fallback_menu_args );
 					echo '</nav>';
 				echo '</div>';
