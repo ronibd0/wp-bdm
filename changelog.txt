@@ -1,5 +1,6 @@
 v3.7.3
 - Fix: Builder - Offcanvas content directly visible on frontend even 'Toggle Button' component is not added in builder area.
+- Fix: Customizer - Block Settings area getting irrelevant round shapes.
 
 v3.7.2
 - Fix: Incorrect Site Background Color on pages with Full Width layout.
