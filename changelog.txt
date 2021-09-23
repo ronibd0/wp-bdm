@@ -1,6 +1,7 @@
 v3.7.3
 - Fix: Builder - Offcanvas content directly visible on frontend even 'Toggle Button' component is not added in builder area.
 - Fix: Full Size & Wide Size block layout options missing from core/image block.
+- Fix: Button Preset preview not working for an edge case.
 
 v3.7.2
 - Fix: Incorrect Site Background Color on pages with Full Width layout.
