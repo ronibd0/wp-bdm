@@ -3,7 +3,6 @@ import {
 	createNewPost,
 	publishPost,
 } from '@wordpress/e2e-test-utils';
-import { create } from 'lodash';
 import { setCustomize } from '../../../../utils/set-customize';
 describe( 'Primary menu typography settings in customizer', () => {
 	it( 'primary menu typgraphy settings should be applied properly', async () => {
