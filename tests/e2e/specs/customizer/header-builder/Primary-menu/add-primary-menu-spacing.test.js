@@ -5,31 +5,23 @@ describe( 'Add menu spacing left', () => {
 		const menuSpacing = {
 			'header-menu1-menu-spacing': '30px',
 		};
-
 		await setCustomize( menuSpacing );
-
 		await createNewPost( {
-            postType: 'page',
-            title: 'Test Page',
+			postType: 'page',
+			title: 'Test Page',
 			content: 'This is simple test page'
-        } );
-
-        await publishPost();
-
+		} );
+		await publishPost();
 		await createNewPost( {
-            postType: 'page',
-            title: 'Sample Page',
+			postType: 'page',
+			title: 'Sample Page',
 			content: 'This is Sample test page'
-        } );
-		
-        await publishPost();
-
+		} );
+		await publishPost();
 		await page.goto( createURL( '/' ), {
 			waitUntil: 'networkidle0',
 		} );
-
 		await page.waitForSelector( '#ast-desktop-header .main-navigation a' );
-
 		await expect( {
 			selector: '.menu-link',
 			property: 'padding-left',
@@ -38,20 +30,16 @@ describe( 'Add menu spacing left', () => {
 		);
 	} );
 } );
-describe( 'Add menu spacing right', () => {
-	it( 'menu spacing should be added properly on right', async () => {
+describe( 'Add primary menu spacing right', () => {
+	it( 'primary menu spacing should be added properly on right', async () => {
 		const menuSpacing = {
 			'header-menu1-menu-spacing': '10px',
 		};
-
 		await setCustomize( menuSpacing );
-
 		await page.goto( createURL( '/' ), {
 			waitUntil: 'networkidle0',
 		} );
-
 		await page.waitForSelector( '#ast-desktop-header .main-navigation a' );
-
 		await expect( {
 			selector: '.menu-link',
 			property: 'padding-right',
@@ -65,15 +53,11 @@ describe( 'Add menu spacing top', () => {
 		const menuSpacing = {
 			'header-menu1-menu-spacing': '40px',
 		};
-
 		await setCustomize( menuSpacing );
-
 		await page.goto( createURL( '/' ), {
 			waitUntil: 'networkidle0',
 		} );
-
 		await page.waitForSelector( '#ast-desktop-header .main-navigation a' );
-
 		await expect( {
 			selector: '.menu-link',
 			property: 'padding-top',
@@ -87,15 +71,11 @@ describe( 'Add menu spacing bottom', () => {
 		const menuSpacing = {
 			'header-menu1-menu-spacing': '50px',
 		};
-
 		await setCustomize( menuSpacing );
-
 		await page.goto( createURL( '/' ), {
 			waitUntil: 'networkidle0',
 		} );
-
 		await page.waitForSelector( '#ast-desktop-header .main-navigation a' );
-
 		await expect( {
 			selector: '.menu-link',
 			property: 'padding-bottom',
