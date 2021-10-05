@@ -4,12 +4,12 @@ describe( 'copyright font size settings in the customizer', () => {
 	it( 'copyright font size should apply correctly', async () => {
 		const copyrightfontsize = {
 			'font-size-section-footer-copyright': {
-            	desktop: '20',
-            	tablet: '20',
-            	mobile: '20',
-            	'desktop-unit': 'px',
-            	'tablet-unit': 'px',
-            	'mobile-unit': 'px',
+				desktop: '20',
+				tablet: '20',
+				mobile: '20',
+				'desktop-unit': 'px',
+				'tablet-unit': 'px',
+				'mobile-unit': 'px',
 			},
 		};
 
