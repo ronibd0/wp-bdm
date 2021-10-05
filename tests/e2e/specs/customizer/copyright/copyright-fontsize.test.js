@@ -1,4 +1,4 @@
-import { createURL } from "@wordpress/e2e-test-utils";
+import { createURL } from '@wordpress/e2e-test-utils';
 import { setCustomize } from '../../../utils/set-customize';
 describe( 'copyright font size settings in the customizer', () => {
     it( 'copyright font size should apply correctly', async () => {
