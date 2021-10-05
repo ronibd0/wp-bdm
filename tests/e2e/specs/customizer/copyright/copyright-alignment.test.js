@@ -1,14 +1,14 @@
 import { createURL, setBrowserViewport } from '@wordpress/e2e-test-utils';
 import { setCustomize } from '../../../utils/set-customize';
-    describe( 'copyright alignment settings in the customizer', () => {
-        it( 'copyright alignment should apply correctly', async () => {
-            const copyrightAlignment = {
-                'footer-copyright-alignment':{
-                    'desktop':'left',
-                    'tablet':'left',
-                    'mobile':'left',
-                }
-            };
+	describe( 'copyright alignment settings in the customizer', () => {
+			it( 'copyright alignment should apply correctly', async () => {
+				const copyrightAlignment = {
+					'footer-copyright-alignment':{
+						'desktop':'left',
+						'tablet':'left',
+						'mobile':'left',
+					}
+				};
             await setCustomize( copyrightAlignment );
             await page.goto( createURL( '/' ), {
                 waitUntil: 'networkidle0',
