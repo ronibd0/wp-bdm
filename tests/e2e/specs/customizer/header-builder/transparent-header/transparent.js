@@ -37,17 +37,21 @@ describe( 'transparent header settings in the customizer', () => {
 		await page.goto( createURL( '/' ), {
 			waitUntil: 'networkidle0',
 		} );
-		await page.waitForSelector( '.ast-theme-transparent-header #ast-desktop-header > [CLASS*="-header-wrap"]:nth-last-child(2) > [CLASS*="-header-bar"]' );
+		await page.waitForSelector(
+			'.ast-theme-transparent-header #ast-desktop-header > [CLASS*="-header-wrap"]:nth-last-child(2) > [CLASS*="-header-bar"]',
+		);
 		// to test transparent header bottom border width
 		await expect( {
-			selector: '.ast-theme-transparent-header #ast-desktop-header > [CLASS*="-header-wrap"]:nth-last-child(2) > [CLASS*="-header-bar"]',
+			selector:
+				'.ast-theme-transparent-header #ast-desktop-header > [CLASS*="-header-wrap"]:nth-last-child(2) > [CLASS*="-header-bar"]',
 			property: 'border-bottom-width',
 		} ).cssValueToBe(
 			`${ transparentColorBorder[ 'transparent-header-main-sep' ] }`,
 		);
 		//to test transparent header bottom border color
 		await expect( {
-			selector: '.ast-theme-transparent-header #ast-desktop-header > [CLASS*="-header-wrap"]:nth-last-child(2) > [CLASS*="-header-bar"]',
+			selector:
+				'.ast-theme-transparent-header #ast-desktop-header > [CLASS*="-header-wrap"]:nth-last-child(2) > [CLASS*="-header-bar"]',
 			property: 'border-bottom-color',
 		} ).cssValueToBe(
 			`${ transparentColorBorder[ 'transparent-header-main-sep-color' ] }`,
@@ -70,14 +74,16 @@ describe( 'transparent header settings in the customizer', () => {
 
 		//to test transparent header menu normal color
 		await expect( {
-			selector: '.ast-theme-transparent-header .main-header-menu .menu-link',
+			selector:
+				'.ast-theme-transparent-header .main-header-menu .menu-link',
 			property: 'color',
 		} ).cssValueToBe(
 			`${ transparentColorBorder[ 'transparent-header-colors-menu' ].desktop }`,
 		);
 		//to test transparent header menu background normal color
 		await expect( {
-			selector: '.ast-theme-transparent-header .main-header-menu .menu-link',
+			selector:
+				'.ast-theme-transparent-header .main-header-menu .menu-link',
 			property: 'background-color',
 		} ).cssValueToBe(
 			`${ transparentColorBorder[ 'transparent-menu-bg-color-responsive' ].desktop }`,
