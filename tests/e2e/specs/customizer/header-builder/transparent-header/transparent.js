@@ -13,11 +13,11 @@ describe( 'transparent header settings in the customizer', () => {
 			'transparent-header-main-sep': 10,
 			'transparent-header-main-sep-color': 'rgb(11, 12, 13)',
 			'transparent-header-bg-color-responsive': {
-				desktop: 'rgb(128, 45, 45)',
+				desktop: 'rgb(255, 214, 170)',
 				tablet: 'rgb(220, 198, 198)',
-				mobile: 'rgb(60, 110, 110)',
+				mobile: 'rgb(220, 110, 110)',
 			},
-			'transparent-header-colors': {
+			'transparent-header-color-site-title-responsive': {
 				desktop: 'rgb(129, 67, 54)',
 				tablet: 'rgb(22, 19, 19)',
 				mobile: 'rgb(6, 11, 11)',
@@ -54,12 +54,12 @@ describe( 'transparent header settings in the customizer', () => {
 			`${ transparentColorBorder[ 'transparent-header-bg-color-responsive' ].desktop }`,
 		);
 
-		//to test transparent header site title normal color
+		//to test transparent header site title normal
 		await expect( {
 			selector: '.ast-theme-transparent-header .site-title a',
 			property: 'color',
 		} ).cssValueToBe(
-			`${ transparentColorBorder[ 'transparent-header-colors' ].desktop }`,
+			`${ transparentColorBorder[ 'transparent-header-color-site-title-responsive' ].desktop }`,
 		);
 	} );
 } );
