@@ -12,25 +12,15 @@ describe( 'transparent header settings in the customizer', () => {
 			'transparent-header-disable-posts': false,
 			'transparent-header-main-sep': 10,
 			'transparent-header-main-sep-color': 'rgb(11, 12, 13)',
-			'transparent-header-bg-color': {
+			'transparent-header-bg-color-responsive': {
 				desktop: 'rgb(128, 45, 45)',
 				tablet: 'rgb(220, 198, 198)',
 				mobile: 'rgb(60, 110, 110)',
 			},
 			'transparent-header-colors': {
-				desktop: 'rgb(12, 4, 4)',
+				desktop: 'rgb(129, 67, 54)',
 				tablet: 'rgb(22, 19, 19)',
 				mobile: 'rgb(6, 11, 11)',
-			},
-			'transparent-header-colors-menu': {
-				desktop: 'rgb(28, 5, 5)',
-				tablet: 'rgb(20, 98, 98)',
-				mobile: 'rgb(30, 10, 10)',
-			},
-			'transparent-menu-bg-color-responsive': {
-				desktop: 'rgb(18, 8, 3)',
-				tablet: 'rgb(20, 18, 18)',
-				mobile: 'rgb(70, 10, 20)',
 			},
 		};
 		await setCustomize( transparentColorBorder );
@@ -46,7 +36,7 @@ describe( 'transparent header settings in the customizer', () => {
 				'.ast-theme-transparent-header #ast-desktop-header > [CLASS*="-header-wrap"]:nth-last-child(2) > [CLASS*="-header-bar"]',
 			property: 'border-bottom-width',
 		} ).cssValueToBe(
-			`${ transparentColorBorder[ 'transparent-header-main-sep' ] }`,
+			`${ transparentColorBorder[ 'transparent-header-main-sep' ] + 'px' }`,
 		);
 		//to test transparent header bottom border color
 		await expect( {
@@ -61,7 +51,7 @@ describe( 'transparent header settings in the customizer', () => {
 			selector: '.ast-theme-transparent-header .main-header-bar',
 			property: 'background-color',
 		} ).cssValueToBe(
-			`${ transparentColorBorder[ 'transparent-header-bg-color' ].desktop }`,
+			`${ transparentColorBorder[ 'transparent-header-bg-color-responsive' ].desktop }`,
 		);
 
 		//to test transparent header site title normal color
@@ -70,23 +60,6 @@ describe( 'transparent header settings in the customizer', () => {
 			property: 'color',
 		} ).cssValueToBe(
 			`${ transparentColorBorder[ 'transparent-header-colors' ].desktop }`,
-		);
-
-		//to test transparent header menu normal color
-		await expect( {
-			selector:
-				'.ast-theme-transparent-header .main-header-menu .menu-link',
-			property: 'color',
-		} ).cssValueToBe(
-			`${ transparentColorBorder[ 'transparent-header-colors-menu' ].desktop }`,
-		);
-		//to test transparent header menu background normal color
-		await expect( {
-			selector:
-				'.ast-theme-transparent-header .main-header-menu .menu-link',
-			property: 'background-color',
-		} ).cssValueToBe(
-			`${ transparentColorBorder[ 'transparent-menu-bg-color-responsive' ].desktop }`,
 		);
 	} );
 } );
