@@ -36,7 +36,9 @@ describe( 'transparent header settings in the customizer', () => {
 				'.ast-theme-transparent-header #ast-desktop-header > [CLASS*="-header-wrap"]:nth-last-child(2) > [CLASS*="-header-bar"]',
 			property: 'border-bottom-width',
 		} ).cssValueToBe(
-			`${ transparentColorBorder[ 'transparent-header-main-sep' ] + 'px' }`,
+			`${
+				transparentColorBorder[ 'transparent-header-main-sep' ] + 'px'
+			}`,
 		);
 		//to test transparent header bottom border color
 		await expect( {
