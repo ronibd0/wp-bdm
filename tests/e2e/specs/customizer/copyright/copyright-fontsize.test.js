@@ -1,12 +1,14 @@
 import { createURL } from '@wordpress/e2e-test-utils';
-import { setCustomize } from '../../../utils/set-customize';
+import { setCustomize } from '../../../utils/customize';
+import { responsiveFontSize } from '../../../utils/responsive-utils';
+import { setBrowserViewport } from '../../../utils/set-browser-viewport';
 describe( 'copyright font size settings in the customizer', () => {
 	it( 'copyright font size should apply correctly', async () => {
 		const copyrightfontsize = {
 			'font-size-section-footer-copyright': {
-				desktop: '20',
-				tablet: '20',
-				mobile: '20',
+				desktop: '72',
+				tablet: '42',
+				mobile: '32',
 				'desktop-unit': 'px',
 				'tablet-unit': 'px',
 				'mobile-unit': 'px',
@@ -28,14 +30,30 @@ describe( 'copyright font size settings in the customizer', () => {
 			property: 'font-size',
 		} ).cssValueToBe( `${ copyrightfontsize[ 'font-size-section-footer-copyright' ].desktop }${ copyrightfontsize[ 'font-size-section-footer-copyright' ][ 'desktop-unit' ] }` );
 
-		await expect( {
-			selector: '.ast-footer-copyright',
-			property: 'font-size',
-		} ).cssValueToBe( `${ copyrightfontsize[ 'font-size-section-footer-copyright' ].tablet }${ copyrightfontsize[ 'font-size-section-footer-copyright' ][ 'tablet-unit' ] }` );
+		await setBrowserViewport( 'medium' );
 
 		await expect( {
 			selector: '.ast-footer-copyright',
 			property: 'font-size',
-		} ).cssValueToBe( `${ copyrightfontsize[ 'font-size-section-footer-copyright' ].mobile }${ copyrightfontsize[ 'font-size-section-footer-copyright' ][ 'mobile-unit' ] }` );
+		} ).cssValueToBe(
+			`${ await responsiveFontSize(
+				copyrightfontsize[ 'font-size-section-footer-copyright' ].tablet,
+			) }${
+				copyrightfontsize[ 'font-size-section-footer-copyright' ][ 'tablet-unit' ]
+			}`,
+		);
+
+		await setBrowserViewport( 'small' );
+
+		await expect( {
+			selector: '.ast-footer-copyright',
+			property: 'font-size',
+		} ).cssValueToBe(
+			`${ await responsiveFontSize(
+				copyrightfontsize[ 'font-size-section-footer-copyright' ].mobile,
+			) }${
+				copyrightfontsize[ 'font-size-section-footer-copyright' ][ 'mobile-unit' ]
+			}`,
+		);
 	} );
 } );
