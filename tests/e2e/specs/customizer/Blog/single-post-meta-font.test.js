@@ -1,5 +1,7 @@
 import { createURL, createNewPost, publishPost } from '@wordpress/e2e-test-utils';
-import { setCustomize } from '../../../utils/set-customize';
+import { setCustomize } from '../../../utils/customize';
+import { responsiveFontSize } from '../../../utils/responsive-utils';
+import { setBrowserViewport } from '../../../utils/set-browser-viewport';
 describe( 'Meta font option under the customizer', () => {
 	it( 'meta font option should apply correctly', async () => {
 		const Metafont = {
@@ -35,10 +37,6 @@ describe( 'Meta font option under the customizer', () => {
 			waitUntil: 'networkidle0',
 		} );
 
-		await page.evaluate( () => {
-			window.scrollBy( 0, window.innerHeight );
-		} );
-
 		await page.waitForSelector( '.ast-related-post-content .entry-meta *' );
 		await expect( {
 			selector: '.ast-related-post-content .entry-meta *',
@@ -60,5 +58,31 @@ describe( 'Meta font option under the customizer', () => {
 			selector: '.ast-related-post-content .entry-meta *',
 			property: 'font-size',
 		} ).cssValueToBe( `${ Metafont[ 'related-posts-meta-font-size' ].desktop }${ Metafont[ 'related-posts-meta-font-size' ][ 'desktop-unit' ] }` );
+
+		await setBrowserViewport( 'medium' );
+
+		await expect( {
+			selector: '.ast-related-post-content .entry-meta *',
+			property: 'font-size',
+		} ).cssValueToBe(
+			`${ await responsiveFontSize(
+				Metafont[ 'related-posts-meta-font-size' ].tablet,
+			) }${
+				Metafont[ 'related-posts-meta-font-size' ][ 'tablet-unit' ]
+			}`,
+		);
+
+		await setBrowserViewport( 'small' );
+
+		await expect( {
+			selector: '.ast-related-post-content .entry-meta *',
+			property: 'font-size',
+		} ).cssValueToBe(
+			`${ await responsiveFontSize(
+				Metafont[ 'related-posts-meta-font-size' ].mobile,
+			) }${
+				Metafont[ 'related-posts-meta-font-size' ][ 'mobile-unit' ]
+			}`,
+		);
 	} );
 } );
