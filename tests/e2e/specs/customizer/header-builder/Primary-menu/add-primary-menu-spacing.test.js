@@ -1,5 +1,5 @@
 import { createURL, createNewPost, publishPost } from '@wordpress/e2e-test-utils';
-import { setCustomize } from '../../../../utils/set-customize';
+import { setCustomize } from '../../../../utils/customize';
 describe( 'Add menu spacing left', () => {
 	it( 'menu spacing should be added properly on left', async () => {
 		const menuSpacing = {
@@ -9,13 +9,13 @@ describe( 'Add menu spacing left', () => {
 		await createNewPost( {
 			postType: 'page',
 			title: 'Test Page',
-			content: 'This is simple test page'
+			content: 'This is simple test page',
 		} );
 		await publishPost();
 		await createNewPost( {
 			postType: 'page',
 			title: 'Sample Page',
-			content: 'This is Sample test page'
+			content: 'This is Sample test page',
 		} );
 		await publishPost();
 		await page.goto( createURL( '/' ), {
