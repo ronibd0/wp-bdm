@@ -1,5 +1,7 @@
 import { createURL, createNewPost, publishPost } from '@wordpress/e2e-test-utils';
-import { setCustomize } from '../../../utils/set-customize';
+import { setCustomize } from '../../../utils/customize';
+import { responsiveFontSize } from '../../../utils/responsive-utils';
+import { setBrowserViewport } from '../../../utils/set-browser-viewport';
 describe( 'Section title font option under the customizer', () => {
 	it( 'section title font option should apply correctly', async () => {
 		const sectiontitlefont = {
@@ -37,7 +39,7 @@ describe( 'Section title font option under the customizer', () => {
 		} );
 
 		await page.evaluate( () => {
-			window.scrollBy( 0, window.innerHeight );
+			window.scrollBy( 0, 150 );
 		} );
 
 		await page.waitForSelector( ' .ast-separate-container .ast-single-related-posts-container ' );
@@ -63,6 +65,32 @@ describe( 'Section title font option under the customizer', () => {
 			selector: '.ast-related-posts-title',
 			property: 'font-size',
 		} ).cssValueToBe( `${ sectiontitlefont[ 'related-posts-section-title-font-size' ].desktop }${ sectiontitlefont[ 'related-posts-section-title-font-size' ][ 'desktop-unit' ] }`,
+		);
+
+		await setBrowserViewport( 'medium' );
+
+		await expect( {
+			selector: '.ast-related-posts-title',
+			property: 'font-size',
+		} ).cssValueToBe(
+			`${ await responsiveFontSize(
+				sectiontitlefont[ 'related-posts-section-title-font-size' ].tablet,
+			) }${
+				sectiontitlefont[ 'related-posts-section-title-font-size' ][ 'tablet-unit' ]
+			}`,
+		);
+
+		await setBrowserViewport( 'small' );
+
+		await expect( {
+			selector: '.ast-related-posts-title',
+			property: 'font-size',
+		} ).cssValueToBe(
+			`${ await responsiveFontSize(
+				sectiontitlefont[ 'related-posts-section-title-font-size' ].mobile,
+			) }${
+				sectiontitlefont[ 'related-posts-section-title-font-size' ][ 'mobile-unit' ]
+			}`,
 		);
 	} );
 } );
