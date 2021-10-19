@@ -10,9 +10,9 @@ describe( 'Post title font option under the customizer', () => {
 			'related-posts-title-text-transform': 'uppercase',
 			'related-posts-title-font-weight': '400',
 			'related-posts-title-font-size': {
-				desktop: 72,
-				tablet: 42,
-				mobile: 32,
+				desktop: 50,
+				tablet: 50,
+				mobile: 50,
 				'desktop-unit': 'px',
 				'tablet-unit': 'px',
 				'mobile-unit': 'px',
