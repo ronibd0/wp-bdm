@@ -1,5 +1,7 @@
 import { createURL, createNewPost, publishPost } from '@wordpress/e2e-test-utils';
-import { setCustomize } from '../../../utils/set-customize';
+import { setCustomize } from '../../../utils/customize';
+import { responsiveFontSize } from '../../../utils/responsive-utils';
+import { setBrowserViewport } from '../../../utils/set-browser-viewport';
 describe( 'Blog Archive option under the customizer', () => {
 	it( 'blog Archive title font size options should apply correctly', async () => {
 		const btitlefontsize = {
@@ -25,20 +27,34 @@ describe( 'Blog Archive option under the customizer', () => {
 		} );
 		await page.waitForSelector( '.ast-archive-description .ast-archive-title ' );
 		await expect( {
-			selector: '.ast-archive-description .ast-archive-title  ',
+			selector: '.ast-archive-description .ast-archive-title',
 			property: 'font-size',
 		} ).cssValueToBe( `${ btitlefontsize[ 'font-size-archive-summary-title' ].desktop }${ btitlefontsize[ 'font-size-archive-summary-title' ][ 'desktop-unit' ] }` );
 
-		await page.waitForSelector( '.ast-archive-description .ast-archive-title  ' );
-		await expect( {
-			selector: '.ast-archive-description .ast-archive-title  ',
-			property: 'font-size',
-		} ).cssValueToBe( `${ btitlefontsize[ 'font-size-archive-summary-title' ].tablet }${ btitlefontsize[ 'font-size-archive-summary-title' ][ 'tablet-unit' ] }` );
+		await setBrowserViewport( 'medium' );
 
-		await page.waitForSelector( '.ast-archive-description .ast-archive-title  ' );
 		await expect( {
-			selector: '.ast-archive-description .ast-archive-title  ',
+			selector: '.ast-archive-description .ast-archive-title',
 			property: 'font-size',
-		} ).cssValueToBe( `${ btitlefontsize[ 'font-size-archive-summary-title' ].mobile }${ btitlefontsize[ 'font-size-archive-summary-title' ][ 'mobile-unit' ] }` );
-	} );
+		} ).cssValueToBe(
+			`${ await responsiveFontSize(
+				btitlefontsize[ 'font-size-archive-summary-title' ].tablet,
+			) }${
+				btitlefontsize[ 'font-size-archive-summary-title' ][ 'tablet-unit' ]
+			}`,
+		);
+		await setBrowserViewport( 'small' );
+
+		await expect( {
+			selector: '.ast-archive-description .ast-archive-title',
+			property: 'font-size',
+		} ).cssValueToBe(
+			`${ await responsiveFontSize(
+				btitlefontsize[ 'font-size-archive-summary-title' ].mobile,
+			) }${
+				btitlefontsize[ 'font-size-archive-summary-title' ][ 'mobile-unit' ]
+			}`,
+		);
+
+	});
 } );
