@@ -1,7 +1,8 @@
-import { createURL, setBrowserViewport } from '@wordpress/e2e-test-utils';
-import { setCustomize } from '../../../utils/set-customize';
+import { createURL } from '@wordpress/e2e-test-utils';
+import { setCustomize } from '../../../utils/customize';
+import { setBrowserViewport } from '../../../utils/set-browser-viewport';
 describe( 'copyright alignment settings in the customizer', () => {
-	it( 'copyright alignment should apply correctly', async () => {
+	it( 'copyright left alignment should apply correctly', async () => {
 		const copyrightAlignment = {
 			'footer-copyright-alignment': {
 				desktop: 'left',
@@ -10,48 +11,7 @@ describe( 'copyright alignment settings in the customizer', () => {
 			},
 		};
 		await setCustomize( copyrightAlignment );
-		await page.goto( createURL( '/' ), {
-			waitUntil: 'networkidle0',
-		} ),
 
-		await page.evaluate( () => {
-			window.scrollBy( 0, window.innerHeight );
-		} ),
-
-		await page.waitForSelector( '.ast-footer-copyright' ),
-
-		await setBrowserViewport( 'large' ),
-		await expect( {
-			selector: '.ast-footer-copyright',
-			property: 'text-align',
-		} ).cssValueToBe( `${ copyrightAlignment[ 'footer-copyright-alignment' ].desktop }` );
-
-		await page.waitForSelector( '.ast-footer-copyright' ),
-
-		await setBrowserViewport( 'medium' ),
-		await expect( {
-			selector: '.ast-footer-copyright',
-			property: 'text-align',
-		} ).cssValueToBe( `${ copyrightAlignment[ 'footer-copyright-alignment' ].tablet }` );
-
-		await page.waitForSelector( '.ast-footer-copyright' ),
-
-		await setBrowserViewport( 'small' ),
-		await expect( {
-			selector: '.ast-footer-copyright',
-			property: 'text-align',
-		} ).cssValueToBe( `${ copyrightAlignment[ 'footer-copyright-alignment' ].mobile }` );
-	} );
-
-	it( 'copyright alignment should apply correctly', async () => {
-		const copyrightAlignment = {
-			'footer-copyright-alignment': {
-				desktop: 'right',
-				tablet: 'right',
-				mobile: 'right',
-			},
-		};
-		await setCustomize( copyrightAlignment );
 		await page.goto( createURL( '/' ), {
 			waitUntil: 'networkidle0',
 		} );
@@ -62,21 +22,16 @@ describe( 'copyright alignment settings in the customizer', () => {
 
 		await page.waitForSelector( '.ast-footer-copyright' );
 
-		await setBrowserViewport( 'large' );
 		await expect( {
 			selector: '.ast-footer-copyright',
 			property: 'text-align',
 		} ).cssValueToBe( `${ copyrightAlignment[ 'footer-copyright-alignment' ].desktop }` );
-
-		await page.waitForSelector( '.ast-footer-copyright' );
 
 		await setBrowserViewport( 'medium' );
 		await expect( {
 			selector: '.ast-footer-copyright',
 			property: 'text-align',
 		} ).cssValueToBe( `${ copyrightAlignment[ 'footer-copyright-alignment' ].tablet }` );
-
-		await page.waitForSelector( '.ast-footer-copyright' );
 
 		await setBrowserViewport( 'small' );
 		await expect( {
@@ -85,15 +40,16 @@ describe( 'copyright alignment settings in the customizer', () => {
 		} ).cssValueToBe( `${ copyrightAlignment[ 'footer-copyright-alignment' ].mobile }` );
 	} );
 
-	it( 'copyright alignment should apply correctly', async () => {
+	it( 'copyright right alignment should apply correctly', async () => {
 		const copyrightAlignment = {
 			'footer-copyright-alignment': {
-				desktop: 'center',
-				tablet: 'center',
-				mobile: 'center',
+				desktop: 'right',
+				tablet: 'right',
+				mobile: 'right',
 			},
 		};
 		await setCustomize( copyrightAlignment );
+
 		await page.goto( createURL( '/' ), {
 			waitUntil: 'networkidle0',
 		} );
@@ -104,13 +60,10 @@ describe( 'copyright alignment settings in the customizer', () => {
 
 		await page.waitForSelector( '.ast-footer-copyright' );
 
-		await setBrowserViewport( 'large' );
 		await expect( {
 			selector: '.ast-footer-copyright',
 			property: 'text-align',
 		} ).cssValueToBe( `${ copyrightAlignment[ 'footer-copyright-alignment' ].desktop }` );
-
-		await page.waitForSelector( '.ast-footer-copyright' );
 
 		await setBrowserViewport( 'medium' );
 		await expect( {
@@ -118,7 +71,43 @@ describe( 'copyright alignment settings in the customizer', () => {
 			property: 'text-align',
 		} ).cssValueToBe( `${ copyrightAlignment[ 'footer-copyright-alignment' ].tablet }` );
 
+		await setBrowserViewport( 'small' );
+		await expect( {
+			selector: '.ast-footer-copyright',
+			property: 'text-align',
+		} ).cssValueToBe( `${ copyrightAlignment[ 'footer-copyright-alignment' ].mobile }` );
+	} );
+
+	it( 'copyright center alignment should apply correctly', async () => {
+		const copyrightAlignment = {
+			'footer-copyright-alignment': {
+				desktop: 'center',
+				tablet: 'center',
+				mobile: 'center',
+			},
+		};
+		await setCustomize( copyrightAlignment );
+
+		await page.goto( createURL( '/' ), {
+			waitUntil: 'networkidle0',
+		} );
+
+		await page.evaluate( () => {
+			window.scrollBy( 0, window.innerHeight );
+		} );
+
 		await page.waitForSelector( '.ast-footer-copyright' );
+
+		await expect( {
+			selector: '.ast-footer-copyright',
+			property: 'text-align',
+		} ).cssValueToBe( `${ copyrightAlignment[ 'footer-copyright-alignment' ].desktop }` );
+
+		await setBrowserViewport( 'medium' );
+		await expect( {
+			selector: '.ast-footer-copyright',
+			property: 'text-align',
+		} ).cssValueToBe( `${ copyrightAlignment[ 'footer-copyright-alignment' ].tablet }` );
 
 		await setBrowserViewport( 'small' );
 		await expect( {
