@@ -1,5 +1,5 @@
 import { createURL, createNewPost, publishPost } from '@wordpress/e2e-test-utils';
-import { setCustomize } from '../../../utils/set-customize';
+import { setCustomize } from '../../../utils/customize';
 describe( 'Enable related post option under the customizer', () => {
 	it( 'enable related post options should apply correctly', async () => {
 		const relatedpost = {
