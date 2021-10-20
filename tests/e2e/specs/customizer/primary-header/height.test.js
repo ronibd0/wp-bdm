@@ -1,12 +1,13 @@
 import { createURL } from '@wordpress/e2e-test-utils';
-import { setCustomize } from '../../../utils/set-customize';
+import { setCustomize } from '../../../utils/customize';
+import { setBrowserViewport } from '../../../utils/set-browser-viewport';
 describe( 'Primary header height setting in customizer', () => {
 	it( 'height should apply correctly', async () => {
 		const primaryheaderHeight = {
 			'hb-header-height': {
 				desktop: 90,
-				tablet: 90,
-				mobile: 90,
+				tablet: 70,
+				mobile: 50,
 				'desktop-unit': 'px',
 				'tablet-unit': 'px',
 				'mobile-unit': 'px',
@@ -24,14 +25,18 @@ describe( 'Primary header height setting in customizer', () => {
 		} ).cssValueToBe( `${ primaryheaderHeight[ 'hb-header-height' ].desktop }${ primaryheaderHeight[ 'hb-header-height' ][ 'desktop-unit' ] }`,
 		);
 
+		await setBrowserViewport( 'medium' );
+
 		await expect( {
-			selector: '.ast-primary-header-bar .site-primary-header-wrap',
+			selector: '.ast-mobile-header-wrap .ast-primary-header-bar',
 			property: 'min-height',
 		} ).cssValueToBe( `${ primaryheaderHeight[ 'hb-header-height' ].tablet }${ primaryheaderHeight[ 'hb-header-height' ][ 'tablet-unit' ] }`,
 		);
 
+		await setBrowserViewport( 'small' );
+
 		await expect( {
-			selector: '.ast-primary-header-bar .site-primary-header-wrap',
+			selector: '.ast-mobile-header-wrap .ast-primary-header-bar',
 			property: 'min-height',
 		} ).cssValueToBe( `${ primaryheaderHeight[ 'hb-header-height' ].mobile }${ primaryheaderHeight[ 'hb-header-height' ][ 'mobile-unit' ] }`,
 		);
