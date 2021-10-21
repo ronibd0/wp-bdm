@@ -6,7 +6,17 @@ import { setCustomize } from '../../../../utils/customize';
 describe( 'Primary menu color settings in the customizer', () => {
 	it( 'primary menu color should apply corectly', async () => {
 		const menuColor = {
-			'header-menu-text-colors': 'rgb(255, 255, 27)',
+			'header-menu1-color-responsive': {
+				desktop: {
+					'text-color': 'rgb(255, 255, 27)',
+				},
+				tablet: {
+					'text-color': 'rgb(255, 255, 27)',
+				},
+				mobile: {
+					'text-color': 'rgb(255, 255, 27)',
+				},
+			},
 		};
 		await setCustomize( menuColor );
 		await createNewPost( {
@@ -41,7 +51,7 @@ describe( 'Primary menu color settings in the customizer', () => {
 			selector: '.menu-link',
 			property: 'color',
 		} ).cssValueToBe(
-			`rgb(255, 255, 27)`,
+			`${ menuColor[ 'header-menu1-color-responsive' ].desktop[ 'text-color' ] }`,
 		);
 	} );
 } );
