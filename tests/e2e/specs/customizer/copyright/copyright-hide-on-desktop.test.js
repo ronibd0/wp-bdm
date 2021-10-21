@@ -11,13 +11,13 @@ describe( 'copyright hide on desktop settings in the customizer', () => {
 		await page.goto( createURL( '/' ), {
 			waitUntil: 'networkidle0',
 		} );
-		await page.waitForSelector('.site-below-footer-wrap[data-section="section-below-footer-builder');
+		await page.waitForSelector( '.site-below-footer-wrap[data-section="section-below-footer-builder' );
 		await setBrowserViewport( 'large' );
 		await scrollToElement( '#colophon' );
 		await expect( {
 			selector: '.site-below-footer-wrap[data-section="section-below-footer-builder',
 			property: 'display',
-		} ).cssValueToBe(`${ copyrighthideonDesktop[ 'section-footer-copyright-hide-desktop' ] }`,
+		} ).cssValueToBe( `${ copyrighthideonDesktop[ 'section-footer-copyright-hide-desktop' ] }`,
 		);
 	} );
 
@@ -30,13 +30,13 @@ describe( 'copyright hide on desktop settings in the customizer', () => {
 		await page.goto( createURL( '/' ), {
 			waitUntil: 'networkidle0',
 		} );
-		await page.waitForSelector('.site-below-footer-wrap[data-section="section-below-footer-builder');
+		await page.waitForSelector( '.site-below-footer-wrap[data-section="section-below-footer-builder' );
 		await setBrowserViewport( 'medium' );
 		await scrollToElement( '#colophon' );
 		await expect( {
 			selector: '.site-below-footer-wrap[data-section="section-below-footer-builder',
 			property: 'display',
-		} ).cssValueToBe(`${ copyrighthideonTablet[ 'section-footer-copyright-hide-tablet' ] }`,
+		} ).cssValueToBe( `${ copyrighthideonTablet[ 'section-footer-copyright-hide-tablet' ] }`,
 		);
 	} );
 
@@ -49,13 +49,13 @@ describe( 'copyright hide on desktop settings in the customizer', () => {
 		await page.goto( createURL( '/' ), {
 			waitUntil: 'networkidle0',
 		} );
-		await page.waitForSelector('.site-below-footer-wrap[data-section="section-below-footer-builder');
+		await page.waitForSelector( '.site-below-footer-wrap[data-section="section-below-footer-builder' );
 		await setBrowserViewport( 'small' );
 		await scrollToElement( '#colophon' );
 		await expect( {
 			selector: '.site-below-footer-wrap[data-section="section-below-footer-builder',
 			property: 'display',
-		} ).cssValueToBe(`${ copyrighthideonMobile[ 'section-footer-copyright-hide-mobile' ] }`,
+		} ).cssValueToBe( `${ copyrighthideonMobile[ 'section-footer-copyright-hide-mobile' ] }`,
 		);
 	} );
 } );
