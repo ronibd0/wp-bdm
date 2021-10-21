@@ -1,7 +1,7 @@
 import { createURL } from '@wordpress/e2e-test-utils';
 import { setCustomize } from '../../../utils/customize';
-import { responsiveFontSize } from '../../../utils/responsive-utils';
 import { setBrowserViewport } from '../../../utils/set-browser-viewport';
+import { scrollToElement } from '../../../utils/scroll-to-element';
 describe( 'copyright hide on desktop settings in the customizer', () => {
 	it( 'copyright hide on desktop setting should apply correctly', async () => {
 		const copyrighthideonDesktop = {
@@ -11,17 +11,13 @@ describe( 'copyright hide on desktop settings in the customizer', () => {
 		await page.goto( createURL( '/' ), {
 			waitUntil: 'networkidle0',
 		} );
-		await page.evaluate( () => {
-			window.scrollBy( 0, window.innerHeight );
-		} );
-		await page.waitForSelector(
-			'.site-below-footer-wrap[data-section="section-below-footer-builder',
-		);
+		await page.waitForSelector('.site-below-footer-wrap[data-section="section-below-footer-builder');
+		await setBrowserViewport( 'large' );
+		await scrollToElement( '#colophon' );
 		await expect( {
 			selector: '.site-below-footer-wrap[data-section="section-below-footer-builder',
 			property: 'display',
-		} ).cssValueToBe(
-			`${ copyrighthideonDesktop[ 'section-footer-copyright-hide-desktop' ] }`,
+		} ).cssValueToBe(`${ copyrighthideonDesktop[ 'section-footer-copyright-hide-desktop' ] }`,
 		);
 	} );
 
@@ -34,23 +30,13 @@ describe( 'copyright hide on desktop settings in the customizer', () => {
 		await page.goto( createURL( '/' ), {
 			waitUntil: 'networkidle0',
 		} );
-		await page.evaluate( () => {
-			window.scrollBy( 0, window.innerHeight );
-		} );
-		await page.waitForSelector(
-			'.site-below-footer-wrap[data-section="section-below-footer-builder',
-		);
-
+		await page.waitForSelector('.site-below-footer-wrap[data-section="section-below-footer-builder');
 		await setBrowserViewport( 'medium' );
+		await scrollToElement( '#colophon' );
 		await expect( {
 			selector: '.site-below-footer-wrap[data-section="section-below-footer-builder',
 			property: 'display',
-		} ).cssValueToBe(
-			`${ await responsiveFontSize(
-				copyrighthideonTablet[ 'section-footer-copyright-hide-tablet' ].tablet,
-			) }${
-				copyrighthideonTablet[ 'section-footer-copyright-hide-tablet' ][ 'tablet-unit' ]
-			}`,
+		} ).cssValueToBe(`${ copyrighthideonTablet[ 'section-footer-copyright-hide-tablet' ] }`,
 		);
 	} );
 
@@ -63,23 +49,13 @@ describe( 'copyright hide on desktop settings in the customizer', () => {
 		await page.goto( createURL( '/' ), {
 			waitUntil: 'networkidle0',
 		} );
-		await page.evaluate( () => {
-			window.scrollBy( 0, window.innerHeight );
-		} );
-		await page.waitForSelector(
-			'.site-below-footer-wrap[data-section="section-below-footer-builder',
-		);
-
+		await page.waitForSelector('.site-below-footer-wrap[data-section="section-below-footer-builder');
 		await setBrowserViewport( 'small' );
+		await scrollToElement( '#colophon' );
 		await expect( {
 			selector: '.site-below-footer-wrap[data-section="section-below-footer-builder',
 			property: 'display',
-		} ).cssValueToBe(
-			`${ await responsiveFontSize(
-				copyrighthideonMobile[ 'section-footer-copyright-hide-mobile' ].mobile,
-			) }${
-				copyrighthideonMobile[ 'section-footer-copyright-hide-mobile' ][ 'mobile-unit' ]
-			}`,
+		} ).cssValueToBe(`${ copyrighthideonMobile[ 'section-footer-copyright-hide-mobile' ] }`,
 		);
 	} );
 } );
