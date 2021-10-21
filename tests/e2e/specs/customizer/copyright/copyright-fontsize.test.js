@@ -2,12 +2,13 @@ import { createURL } from '@wordpress/e2e-test-utils';
 import { setCustomize } from '../../../utils/customize';
 import { responsiveFontSize } from '../../../utils/responsive-utils';
 import { setBrowserViewport } from '../../../utils/set-browser-viewport';
+import { scrollToElement } from '../../../utils/scroll-to-element';
 describe( 'copyright font size settings in the customizer', () => {
 	it( 'copyright font size should apply correctly', async () => {
 		const copyrightfontsize = {
 			'font-size-section-footer-copyright': {
-				desktop: '72',
-				tablet: '42',
+				desktop: '50',
+				tablet: '40',
 				mobile: '32',
 				'desktop-unit': 'px',
 				'tablet-unit': 'px',
@@ -24,6 +25,10 @@ describe( 'copyright font size settings in the customizer', () => {
 			window.scrollBy( 0, window.innerHeight );
 		} );
 		await page.waitForSelector( '.ast-footer-copyright' );
+
+		await setBrowserViewport( 'large' );
+
+		await scrollToElement( '#colophon' );
 
 		await expect( {
 			selector: '.ast-footer-copyright',
