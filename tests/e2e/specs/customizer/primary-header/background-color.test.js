@@ -25,18 +25,18 @@ describe( 'Primary header background color setting in customizer', () => {
 		await expect( {
 			selector: '#ast-desktop-header .ast-primary-header-bar',
 			property: 'background-color',
-		} ).cssValueToBe( `${ backgroundColor[ 'hb-header-bg-obj-responsive' ].desktop }` );
+		} ).cssValueToBe( `${ backgroundColor[ 'hb-header-bg-obj-responsive' ].desktop[ 'background-color' ] }` );
 
 		await setBrowserViewport( 'medium' );
 		await expect( {
 			selector: '#ast-desktop-header .ast-primary-header-bar',
 			property: 'background-color',
-		} ).cssValueToBe( `${ backgroundColor[ 'hb-header-bg-obj-responsive' ].tablet }` );
+		} ).cssValueToBe( `${ backgroundColor[ 'hb-header-bg-obj-responsive' ].tablet[ 'background-color' ] }` );
 
 		await setBrowserViewport( 'small' );
 		await expect( {
 			selector: '#ast-desktop-header .ast-primary-header-bar',
 			property: 'background-color',
-		} ).cssValueToBe( `${ backgroundColor[ 'hb-header-bg-obj-responsive' ].mobile }` );
+		} ).cssValueToBe( `${ backgroundColor[ 'hb-header-bg-obj-responsive' ].mobile[ 'background-color' ] }` );
 	} );
 } );
