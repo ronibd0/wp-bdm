@@ -16,7 +16,7 @@ describe( 'global button font setting under the Customizer', () => {
 		} ).cssValueToBe( `${ btnFont[ 'font-family-button' ] }` );
 	} );
 
-	it( 'button size should apply correctly', async () => {
+	it( 'button font weight should apply correctly', async () => {
 		const fontWeight = {
 			'font-weight-button': '700',
 		};
