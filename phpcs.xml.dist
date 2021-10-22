@@ -21,6 +21,11 @@
 			</property>
 		</properties>
 	</rule>
+	<rule ref="WordPress.NamingConventions.PrefixAllGlobals">
+		<properties>
+			<property name="prefixes" type="array" value="astra_"/>
+		</properties>
+	</rule>
 
 	<rule ref="PHPCompatibility.Keywords.NewKeywords.t_useFound">
 		<exclude-pattern>inc/compatibility/class-astra-web-stories.php</exclude-pattern>
@@ -40,6 +45,7 @@
 	<exclude-pattern>tests/php/static-analysis-stubs/*</exclude-pattern>
 	<exclude-pattern>inc/addons/breadcrumbs/class-astra-breadcrumb-trail.php</exclude-pattern>
 	<exclude-pattern>inc/customizer/extend-custom-controls/build/index.asset.php</exclude-pattern>
+	<exclude-pattern>inc/metabox/extend-metabox/build/index.asset.php</exclude-pattern>
 	<exclude-pattern>*/node_modules/*</exclude-pattern>
 	<exclude-pattern>*/vendor/*</exclude-pattern>
 	<!-- Exclude Libraries -->

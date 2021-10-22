@@ -5,7 +5,7 @@
  * @package Astra.
  */
 
-namespace Astra\REST;
+namespace Astra\E2E\REST;
 
 use WP_Rest_Server;
 use WP_Rest_Request;
@@ -82,6 +82,32 @@ function rest_route() : void {
 					'settings' => array(
 						'default'  => array(),
 						'required' => true,
+					),
+				),
+			),
+		)
+	);
+
+	register_rest_route(
+		REST_NAMESPACE,
+		REST_BASE . '/get-astra-settings',
+		array(
+			array(
+				'methods'             => WP_Rest_Server::READABLE,
+				'callback'            => function ( WP_Rest_Request $response ) {
+					return rest_ensure_response(
+						array(
+							'success'  => true,
+							'settings' => astra_get_option( $response['key'] ),
+						)
+					);
+				},
+				'permission_callback' => '__return_true',
+				'args'                => array(
+					'key' => array(
+						'default'           => '',
+						'required'          => true,
+						'sanitize_callback' => 'sanitize_text_field',
 					),
 				),
 			),
