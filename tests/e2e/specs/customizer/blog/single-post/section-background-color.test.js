@@ -1,5 +1,5 @@
 import { createURL, createNewPost, publishPost } from '@wordpress/e2e-test-utils';
-import { setCustomize } from '../../../utils/set-customize';
+import { setCustomize } from '../../../../utils/customize';
 describe( 'Section baclground color option under the customizer', () => {
 	it( 'section background color option should apply correctly', async () => {
 		const backgroundcolor = {
