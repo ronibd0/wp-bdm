@@ -1,8 +1,8 @@
 import { createURL } from '@wordpress/e2e-test-utils';
-import { setCustomize } from '../../../utils/customize';
-import { responsiveFontSize } from '../../../utils/responsive-utils';
-import { setBrowserViewport } from '../../../utils/set-browser-viewport';
-import { scrollToElement } from '../../../utils/scroll-to-element';
+import { setCustomize } from '../../../../utils/customize';
+import { responsiveFontSize } from '../../../../utils/responsive-utils';
+import { setBrowserViewport } from '../../../../utils/set-browser-viewport';
+import { scrollToElement } from '../../../../utils/scroll-to-element';
 describe( 'copyright font size settings in the customizer', () => {
 	it( 'copyright font size should apply correctly', async () => {
 		const copyrightfontsize = {
