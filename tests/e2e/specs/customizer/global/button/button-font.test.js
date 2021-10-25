@@ -11,9 +11,9 @@ describe( 'global button font setting under the Customizer', () => {
 		await page.goto( createURL( '/' ), {
 			waitUntil: 'networkidle0',
 		} );
-		await page.waitForSelector( 'form[CLASS*="wp-block-search__"].wp-block-search .wp-block-search__inside-wrapper .wp-block-search__button' );
+		await page.waitForSelector( '.wp-block-search__button' );
 		await expect( {
-			selector: 'form[CLASS*="wp-block-search__"].wp-block-search .wp-block-search__inside-wrapper .wp-block-search__button',
+			selector: '.wp-block-search__button',
 			property: 'font-family',
 		} ).cssValueToBe( `${ btnFont[ 'font-family-button' ] }` );
 	} );
@@ -61,6 +61,7 @@ describe( 'global button font setting under the Customizer', () => {
 				btnFontsize[ 'font-size-button' ].mobile,
 			) }${ btnFontsize[ 'font-size-button' ][ 'mobile-unit' ] }` );
 	} );
+	
 	it( 'button font weight should apply correctly', async () => {
 		const fontWeight = {
 			'font-weight-button': '700',
@@ -84,9 +85,9 @@ describe( 'global button font setting under the Customizer', () => {
 		await page.goto( createURL( '/' ), {
 			waitUntil: 'networkidle0',
 		} );
-		await page.waitForSelector( 'form[CLASS*="wp-block-search__"].wp-block-search .wp-block-search__inside-wrapper .wp-block-search__button' );
+		await page.waitForSelector( '.wp-block-search__button' );
 		await expect( {
-			selector: 'form[CLASS*="wp-block-search__"].wp-block-search .wp-block-search__inside-wrapper .wp-block-search__button',
+			selector: '.wp-block-search__button',
 			property: 'text-transform',
 		} ).cssValueToBe( `${ textTransform[ 'text-transform-button' ] }` );
 	} );
@@ -99,9 +100,9 @@ describe( 'global button font setting under the Customizer', () => {
 		await page.goto( createURL( '/' ), {
 			waitUntil: 'networkidle0',
 		} );
-		await page.waitForSelector( 'form[CLASS*="wp-block-search__"].wp-block-search .wp-block-search__inside-wrapper .wp-block-search__button' );
+		await page.waitForSelector( '.wp-block-search__button' );
 		await expect( {
-			selector: 'form[CLASS*="wp-block-search__"].wp-block-search .wp-block-search__inside-wrapper .wp-block-search__button',
+			selector: '.wp-block-search__button',
 			property: 'line-height',
 		} ).cssValueToBe( `${ btnlineHeight[ 'theme-btn-line-height' ] }` );
 	} );
@@ -115,9 +116,9 @@ describe( 'global button font setting under the Customizer', () => {
 		await page.goto( createURL( '/' ), {
 			waitUntil: 'networkidle0',
 		} );
-		await page.waitForSelector( 'form[CLASS*="wp-block-search__"].wp-block-search .wp-block-search__inside-wrapper .wp-block-search__button' );
+		await page.waitForSelector( '.wp-block-search__button' );
 		await expect( {
-			selector: 'form[CLASS*="wp-block-search__"].wp-block-search .wp-block-search__inside-wrapper .wp-block-search__button',
+			selector: '.wp-block-search__button',
 			property: 'letter-spacing',
 		} ).cssValueToBe( `${ letterSpacing[ 'theme-btn-letter-spacing' ] }${ letterSpacing[ 'ast-range-unit' ] }` );
 	} );
