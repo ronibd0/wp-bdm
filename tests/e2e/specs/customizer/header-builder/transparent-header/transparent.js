@@ -71,20 +71,20 @@ describe( 'transparent header settings in the customizer', () => {
 		} ).cssValueToBe(
 			`${ transparentColorBorder[ 'transparent-header-bg-color-responsive' ].desktop }`,
 		);
-		// await setBrowserViewport( 'medium' );
-		// await expect( {
-		// 	selector: '.ast-theme-transparent-header .main-header-bar',
-		// 	property: 'background-color',
-		// } ).cssValueToBe(
-		// 	`${ transparentColorBorder[ 'transparent-menu-bg-color-responsive' ].tablet }`,
-		// );
-		// await setBrowserViewport( 'small' );
-		// await expect( {
-		// 	selector: '.ast-theme-transparent-header .main-header-bar',
-		// 	property: 'background-color',
-		// } ).cssValueToBe(
-		// 	`${ transparentColorBorder[ 'transparent-menu-bg-color-responsive' ].mobile }`,
-		// );
+		await setBrowserViewport( 'medium' );
+		await expect( {
+			selector: '.ast-theme-transparent-header .main-header-bar',
+			property: 'background-color',
+		} ).cssValueToBe(
+			`${ transparentColorBorder[ 'transparent-header-bg-color-responsive' ].tablet }`,
+		);
+		await setBrowserViewport( 'small' );
+		await expect( {
+			selector: '.ast-theme-transparent-header .main-header-bar',
+			property: 'background-color',
+		} ).cssValueToBe(
+			`${ transparentColorBorder[ 'transparent-header-bg-color-responsive' ].mobile }`,
+		);
 		//to test transparent header site title normal
 		await setBrowserViewport( 'large' );
 		await expect( {
