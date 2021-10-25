@@ -45,7 +45,7 @@ describe( 'global button font setting under the Customizer', () => {
 
 		await setBrowserViewport( 'medium' );
 		await expect( {
-			selector: '.wp-block-button .wp-block-button__link',
+			selector: '.wp-block-button__link',
 			property: 'font-size',
 		} ).cssValueToBe(
 			`${ await responsiveFontSize(
@@ -54,7 +54,7 @@ describe( 'global button font setting under the Customizer', () => {
 
 		await setBrowserViewport( 'small' );
 		await expect( {
-			selector: '.wp-block-button .wp-block-button__link',
+			selector: '.wp-block-button__link',
 			property: 'font-size',
 		} ).cssValueToBe(
 			`${ await responsiveFontSize(
