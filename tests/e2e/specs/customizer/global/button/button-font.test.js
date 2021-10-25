@@ -61,7 +61,6 @@ describe( 'global button font setting under the Customizer', () => {
 				btnFontsize[ 'font-size-button' ].mobile,
 			) }${ btnFontsize[ 'font-size-button' ][ 'mobile-unit' ] }` );
 	} );
-	
 	it( 'button font weight should apply correctly', async () => {
 		const fontWeight = {
 			'font-weight-button': '700',
