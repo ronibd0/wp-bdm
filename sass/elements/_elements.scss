@@ -67,9 +67,6 @@ blockquote {
 	font-style:italic;
 	margin: 0 0 1.5em;
 	position: relative;
-	p:last-child {
-		margin: 0;
-	}
 }
 
 address {
@@ -112,7 +109,7 @@ hr {
 
 .ast-button,
 .button,
-button,
+button:not(.components-button),
 input,
 select,
 textarea {
