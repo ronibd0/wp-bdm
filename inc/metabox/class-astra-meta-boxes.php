@@ -615,7 +615,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 		/**
 		 * Register Post Meta options for react based fields.
 		 *
-		 * @since x.x.x
+		 * @since 3.7.4
 		 */
 		public function register_meta_settings() {
 			register_post_meta(
