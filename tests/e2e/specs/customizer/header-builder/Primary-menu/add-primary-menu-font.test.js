@@ -25,6 +25,7 @@ describe( 'Primary menu typography settings in customizer', () => {
 				'tablet-unit': 'px',
 				'mobile-unit': 'px',
 			},
+			'header-mobile-menu-line-height': '10px',
 		};
 		await setCustomize( menuFont );
 		await createNewPost( {
@@ -77,6 +78,12 @@ describe( 'Primary menu typography settings in customizer', () => {
 				menuFont[ 'header-mobile-menu-font-size' ].tablet,
 			) }${ menuFont[ 'header-mobile-menu-font-size' ][ 'tablet-unit' ] }`,
 		);
+		await expect( {
+			selector: '.ast-builder-menu-mobile .menu-item .menu-link',
+			property: 'line-height',
+		} ).cssValueToBe(
+			`${ menuFont[ 'header-mobile-menu-line-height' ] }`,
+		);
 		await setBrowserViewport( 'small' );
 		await page.click( '.main-header-menu-toggle' );
 		await page.waitForSelector( '#ast-hf-mobile-menu .menu-item' );
@@ -87,6 +94,12 @@ describe( 'Primary menu typography settings in customizer', () => {
 			`${ await responsiveFontSize(
 				menuFont[ 'header-mobile-menu-font-size' ].mobile,
 			) }${ menuFont[ 'header-mobile-menu-font-size' ][ 'mobile-unit' ] }`,
+		);
+		await expect( {
+			selector: '.ast-builder-menu-mobile .menu-item .menu-link',
+			property: 'line-height',
+		} ).cssValueToBe(
+			`${ menuFont[ 'header-mobile-menu-line-height' ] }`,
 		);
 	} );
 } );
