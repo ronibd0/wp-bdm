@@ -22,24 +22,23 @@ describe( 'Below footer inner column spacing setting in customizer', () => {
 		await page.waitForSelector( '.site-below-footer-wrap[data-section="section-below-footer-builder"] .ast-builder-grid-row' );
 		await setBrowserViewport( 'large' );
 		await scrollToElement( '#colophon' );
+	
 		await expect( {
 			selector: '.site-below-footer-wrap[data-section="section-below-footer-builder"] .ast-builder-grid-row',
 			property: 'grid-column-gap',
 		} ).cssValueToBe( `${ innercolumnSpacing[ 'hbb-inner-spacing' ].desktop }${ innercolumnSpacing[ 'hbb-inner-spacing' ][ 'desktop-unit' ] }`,
 		);
-
-		await expect( {
-			selector: '.site-below-footer-wrap[data-section="section-below-footer-builder"] .ast-builder-grid-row',
-			property: 'grid-column-gap',
-		} ).cssValueToBe( `${ innercolumnSpacing[ 'hbb-inner-spacing' ].desktop }${ innercolumnSpacing[ 'hbb-inner-spacing' ][ 'desktop-unit' ] }`,
-		);
-
+		
+		await setBrowserViewport( 'medium' );
+		await scrollToElement( '#colophon' );
 		await expect( {
 			selector: '.site-below-footer-wrap[data-section="section-below-footer-builder"] .ast-builder-grid-row',
 			property: 'grid-column-gap',
 		} ).cssValueToBe( `${ innercolumnSpacing[ 'hbb-inner-spacing' ].tablet }${ innercolumnSpacing[ 'hbb-inner-spacing' ][ 'tablet-unit' ] }`,
 		);
 
+		await setBrowserViewport( 'small' );
+		await scrollToElement( '#colophon' );
 		await expect( {
 			selector: '.site-below-footer-wrap[data-section="section-below-footer-builder"] .ast-builder-grid-row',
 			property: 'grid-column-gap',
