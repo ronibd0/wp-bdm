@@ -5,7 +5,7 @@ import {
 	setBrowserViewport,
 } from '@wordpress/e2e-test-utils';
 import { setCustomize } from '../../../../utils/customize';
-//import { responsiveFontSize } from '../../../../utils/responsive-utils';
+import { responsiveFontSize } from '../../../../utils/responsive-utils';
 describe( 'Primary menu typography settings in customizer', () => {
 	it( 'primary menu typgraphy settings should be applied properly', async () => {
 		const menuFont = {
@@ -18,8 +18,10 @@ describe( 'Primary menu typography settings in customizer', () => {
 			'header-menu1-text-transform': 'uppercase',
 			'header-menu1-line-height': '50px',
 			'header-mobile-menu-font-size': {
-				tablet: 50,
-				mobile: 50,
+				desktop: 50,
+				tablet: 20,
+				mobile: 18,
+				'desktop-unit': 'px',
 				'tablet-unit': 'px',
 				'mobile-unit': 'px',
 			},
@@ -71,7 +73,9 @@ describe( 'Primary menu typography settings in customizer', () => {
 			selector: '.ast-builder-menu-mobile .main-navigation .menu-item .menu-link',
 			property: 'font-size',
 		} ).cssValueToBe(
-			`${ menuFont[ 'header-mobile-menu-font-size' ].tablet }${ menuFont[ 'header-mobile-menu-font-size' ][ 'tablet-unit' ] }`,
+			`${ await responsiveFontSize(
+				siteTagline[ 'header-mobile-menu-font-size' ].tablet,
+			) }${ siteTagline[ 'header-mobile-menu-font-size' ][ 'tablet-unit' ] }`,
 		);
 		await setBrowserViewport( 'small' );
 		await page.click( '.main-header-menu-toggle' );
@@ -80,7 +84,9 @@ describe( 'Primary menu typography settings in customizer', () => {
 			selector: '.ast-builder-menu-mobile .main-navigation .menu-item .menu-link',
 			property: 'font-size',
 		} ).cssValueToBe(
-			`${ menuFont[ 'header-mobile-menu-font-size' ].mobile }${ menuFont[ 'header-mobile-menu-font-size' ][ 'mobile-unit' ] }`,
+			`${ await responsiveFontSize(
+				siteTagline[ 'header-mobile-menu-font-size' ].mobile,
+			) }${ siteTagline[ 'header-mobile-menu-font-size' ][ 'mobile-unit' ] }`,
 		);
 	} );
 } );
