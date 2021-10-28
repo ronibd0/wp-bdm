@@ -2,8 +2,8 @@ import { createURL } from '@wordpress/e2e-test-utils';
 import { setCustomize } from '../../../../utils/customize';
 import { setBrowserViewport } from '../../../../utils/set-browser-viewport';
 import { scrollToElement } from '../../../../utils/scroll-to-element';
-describe( 'Below footer border top color setting in customizer', () => {
-	it( 'border top color should apply correctly', async () => {
+describe( 'Below footer inner column spacing setting in customizer', () => {
+	it( 'Spacing should apply correctly', async () => {
 		const innercolumnSpacing = {
 			'hbb-inner-spacing':
             {
