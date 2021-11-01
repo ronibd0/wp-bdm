@@ -1,4 +1,4 @@
-v3.7.5 (Unreleased)
+v3.7.5
 - Improvement: Added compatibility for Elementor Pro v3.5.0 WooCommerce widgets.
 
 v3.7.4
