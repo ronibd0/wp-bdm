@@ -1,7 +1,4 @@
-import { createNewPost,
-	createURL,
-	publishPost,
-} from '@wordpress/e2e-test-utils';
+import { createNewPost, createURL, publishPost } from '@wordpress/e2e-test-utils';
 import { setCustomize } from '../../../../utils/customize';
 import { setBrowserViewport } from '../../../../utils/set-browser-viewport';
 
@@ -9,11 +6,7 @@ describe( 'transparent header settings in the customizer', () => {
 	it( 'transparent header setting should apply correctly', async () => {
 		const transparentColorBorder = {
 			'transparent-header-enable': true,
-			'transparent-header-disable-archive': false,
-			'transparent-header-disable-index': false,
-			'transparent-header-disable-latest-posts-index': false,
 			'transparent-header-disable-page': false,
-			'transparent-header-disable-posts': false,
 			'transparent-header-main-sep': 10,
 			'transparent-header-main-sep-color': 'rgb(11, 12, 13)',
 			'transparent-header-bg-color-responsive': {
@@ -26,10 +19,20 @@ describe( 'transparent header settings in the customizer', () => {
 				tablet: 'rgb(129, 67, 54)',
 				mobile: 'rgb(129, 67, 54)',
 			},
+			'transparent-header-color-h-site-title-responsive': {
+				desktop: 'rgb(129, 6, 54)',
+				tablet: 'rgb(129, 6, 54)',
+				mobile: 'rgb(129, 6, 54)',
+			},
 			'transparent-menu-color-responsive': {
 				desktop: 'rgb(12, 6, 54)',
 				tablet: 'rgb(12, 6, 54)',
 				mobile: 'rgb(12, 6, 54)',
+			},
+			'transparent-menu-h-color-responsive': {
+				desktop: 'rgb(12, 6, 5)',
+				tablet: 'rgb(12, 6, 5)',
+				mobile: 'rgb(12, 6, 5)',
 			},
 			'transparent-menu-bg-color-responsive': {
 				desktop: 'rgb(236, 236, 38)',
@@ -38,6 +41,8 @@ describe( 'transparent header settings in the customizer', () => {
 			},
 		};
 		await setCustomize( transparentColorBorder );
+		await createNewPost( { postType: 'page', title: 'test page' } );
+		await publishPost();
 		await createNewPost( { postType: 'page', title: 'transparent page' } );
 		await publishPost();
 		await page.goto( createURL( '/transparent-page' ), {
@@ -85,7 +90,7 @@ describe( 'transparent header settings in the customizer', () => {
 		} ).cssValueToBe(
 			`${ transparentColorBorder[ 'transparent-header-bg-color-responsive' ].mobile }`,
 		);
-		//to test transparent header site title normal
+		//to test transparent header site title normal color
 		await setBrowserViewport( 'large' );
 		await expect( {
 			selector: '.ast-theme-transparent-header .site-title a',
@@ -107,7 +112,16 @@ describe( 'transparent header settings in the customizer', () => {
 		} ).cssValueToBe(
 			`${ transparentColorBorder[ 'transparent-header-color-site-title-responsive' ].mobile }`,
 		);
-		//to test transparent header menu text/link color
+		//to test transparent header site title hover color
+		await setBrowserViewport( 'large' );
+		await page.hover( '.ast-theme-transparent-header .site-title a' );
+		await expect( {
+			selector: '.ast-theme-transparent-header .site-title a',
+			property: 'color',
+		} ).cssValueToBe(
+			`${ transparentColorBorder[ 'transparent-header-color-h-site-title-responsive' ].desktop }`,
+		);
+		//to test transparent header menu text/link normal color
 		await setBrowserViewport( 'large' );
 		await expect( {
 			selector: '.ast-theme-transparent-header .main-header-menu .menu-link',
@@ -115,12 +129,35 @@ describe( 'transparent header settings in the customizer', () => {
 		} ).cssValueToBe(
 			`${ transparentColorBorder[ 'transparent-menu-color-responsive' ].desktop }`,
 		);
-		//to test transparent header menu text/link color
+		//to test transparent header menu text/link hover color
+		await setBrowserViewport( 'large' );
+		await page.hover( '.ast-theme-transparent-header .main-header-menu .menu-link' );
+		await expect( {
+			selector: '.ast-theme-transparent-header .main-header-menu .menu-link',
+			property: 'color',
+		} ).cssValueToBe(
+			`${ transparentColorBorder[ 'transparent-menu-h-color-responsive' ].desktop }`,
+		);
+		//to test transparent header menu background color
 		await expect( {
 			selector: '.ast-theme-transparent-header .main-header-menu .menu-link',
 			property: 'background-color',
 		} ).cssValueToBe(
 			`${ transparentColorBorder[ 'transparent-menu-bg-color-responsive' ].desktop }`,
+		);
+		await setBrowserViewport( 'medium' );
+		await expect( {
+			selector: '.ast-theme-transparent-header .main-header-menu .menu-link',
+			property: 'background-color',
+		} ).cssValueToBe(
+			`${ transparentColorBorder[ 'transparent-menu-bg-color-responsive' ].tablet }`,
+		);
+		await setBrowserViewport( 'small' );
+		await expect( {
+			selector: '.ast-theme-transparent-header .main-header-menu .menu-link',
+			property: 'background-color',
+		} ).cssValueToBe(
+			`${ transparentColorBorder[ 'transparent-menu-bg-color-responsive' ].mobile }`,
 		);
 	} );
 } );
