@@ -1,5 +1,6 @@
 v3.7.5
 - Improvement: Added compatibility for Elementor Pro v3.5.0 WooCommerce widgets.
+- Fix: WPForms submit button not inheriting global button text color.
 - Fix: 'Disable Below Header' option is not visible in Astra meta settings.
 
 v3.7.4
