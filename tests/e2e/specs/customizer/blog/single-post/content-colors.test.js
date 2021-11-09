@@ -6,7 +6,7 @@ describe( 'Section Content color option under the customizer', () => {
 			'enable-related-posts': 'true',
 			'related-posts-text-color': 'rgb(138, 13, 0)',
 			'related-posts-meta-color': 'rgb(138, 13, 0)',
-			'related-posts-meta-link-hover-color': 'rgb(13, 65, 189)',
+			'related-posts-meta-link-hover-color': 'rgb(172, 36, 143)',
 		};
 		await setCustomize( contentcolor );
 		await createNewPost( {
@@ -51,10 +51,10 @@ describe( 'Section Content color option under the customizer', () => {
 			window.scrollBy( 0, window.innerHeight );
 		} );
 
+		await page.waitForSelector( '#main > div.ast-single-related-posts-container > div.ast-related-posts-wrapper > article > div > div > header > div > span.comments-link > a' );
 		await page.hover( '#main > div.ast-single-related-posts-container > div.ast-related-posts-wrapper > article > div > div > header > div > span.comments-link > a' );
-		await page.waitForSelector( '.ast-related-post-content .entry-header .ast-related-post-title a' );
 		await expect( {
-			selector: '.ast-related-post-content .entry-meta a:hover',
+			selector: '#main > div.ast-single-related-posts-container > div.ast-related-posts-wrapper > article > div > div > header > div > span.comments-link > a',
 			property: 'color',
 		} ).cssValueToBe( `${ contentcolor[ 'related-posts-meta-link-hover-color' ] }` );
 	} );
