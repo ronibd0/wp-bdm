@@ -114,6 +114,7 @@ describe( 'transparent header settings in the customizer', () => {
 		);
 		//to test transparent header site title hover color
 		await setBrowserViewport( 'large' );
+		await page.waitForSelector( '.ast-theme-transparent-header .site-title a' );
 		await page.hover( '.ast-theme-transparent-header .site-title a' );
 		await expect( {
 			selector: '.ast-theme-transparent-header .site-title a',
@@ -122,7 +123,6 @@ describe( 'transparent header settings in the customizer', () => {
 			`${ transparentColorBorder[ 'transparent-header-color-h-site-title-responsive' ].desktop }`,
 		);
 		//to test transparent header menu text/link normal color
-		await setBrowserViewport( 'large' );
 		await expect( {
 			selector: '.ast-theme-transparent-header .main-header-menu .menu-link',
 			property: 'color',
@@ -130,7 +130,7 @@ describe( 'transparent header settings in the customizer', () => {
 			`${ transparentColorBorder[ 'transparent-menu-color-responsive' ].desktop }`,
 		);
 		//to test transparent header menu text/link hover color
-		await setBrowserViewport( 'large' );
+		await page.waitForSelector( '.ast-theme-transparent-header .main-header-menu .menu-link' );
 		await page.hover( '.ast-theme-transparent-header .main-header-menu .menu-link' );
 		await expect( {
 			selector: '.ast-theme-transparent-header .main-header-menu .menu-link',
