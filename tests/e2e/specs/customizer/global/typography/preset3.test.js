@@ -6,7 +6,8 @@ import {
 } from '@wordpress/e2e-test-utils';
 import { setCustomize } from '../../../../utils/customize';
 import { TPOGRAPHY_TEST_POST_CONTENT } from '../../../../utils/post';
- describe( 'Global typography preset-3 style in the customizer', () => {
+import { setBrowserViewport } from '../../../../utils/set-browser-viewport';
+describe( 'Global typography preset-3 style in the customizer', () => {
 	it( 'body style should be applied correctly', async () => {
 		const globaltypographyPreset3 = {
 			'typography-presets': 'Preset3',
@@ -14,6 +15,14 @@ import { TPOGRAPHY_TEST_POST_CONTENT } from '../../../../utils/post';
 			'body-font-weight': '400',
 			'body-text-transform': 'lowercase',
 			'body-line-height': '25px',
+			'font-size-body': {
+				desktop: '17',
+				tablet: '17',
+				mobile: '17',
+				'desktop-unit': 'px',
+				'tablet-unit': 'px',
+				'mobile-unit': 'px',
+			},
 		};
 		await setCustomize( globaltypographyPreset3 );
 
@@ -44,6 +53,26 @@ import { TPOGRAPHY_TEST_POST_CONTENT } from '../../../../utils/post';
 			selector: 'body, button, input, select, textarea, .ast-button, .ast-custom-button',
 			property: 'line-height',
 		} ).cssValueToBe( `${ globaltypographyPreset3[ 'body-line-height' ] }`,
+		);
+		await expect( {
+			selector: 'body',
+			property: 'font-size',
+		} ).cssValueToBe(
+			`${ globaltypographyPreset3[ 'font-size-body' ].desktop }${ globaltypographyPreset3[ 'font-size-body' ][ 'desktop-unit' ] }`,
+		);
+
+		await setBrowserViewport( 'medium' );
+		await expect( {
+			selector: 'body',
+			property: 'font-size',
+		} ).cssValueToBe( `${ globaltypographyPreset3[ 'font-size-body' ].tablet }${ globaltypographyPreset3[ 'font-size-body' ][ 'tablet-unit' ] }`,
+		);
+
+		await setBrowserViewport( 'small' );
+		await expect( {
+			selector: 'body',
+			property: 'font-size',
+		} ).cssValueToBe( `${ globaltypographyPreset3[ 'font-size-body' ].mobile }${ globaltypographyPreset3[ 'font-size-body' ][ 'mobile-unit' ] }`,
 		);
 	} );
 	it( 'heading style should be applied correctly', async () => {
