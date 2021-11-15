@@ -3,7 +3,7 @@ import { setCustomize } from '../../../utils/customize';
 describe( 'Social Icons in the customizer', () => {
 	it( 'social icon background color for desktop should apply correctly', async () => {
 		const socialiconbackColor = {
-			'header-social-1-background-color-group': {
+			'header-social-1-bg-color': {
 				desktop: 'rgb(198, 68, 47)',
 			},
 			'header-desktop-items': {
@@ -21,12 +21,11 @@ describe( 'Social Icons in the customizer', () => {
 			waitUntil: 'networkidle0',
 		} );
 
-		await page.waitForSelector( '.ast-header-social-1-wrap .ast-social-color-type-custom .ast-builder-social-element' );
-
+		await page.waitForSelector( '.ast-header-social-1-wrap .ast-builder-social-element' );
 		await expect( {
 			selector: '.ast-header-social-1-wrap .ast-social-color-type-custom .ast-builder-social-element',
 			property: 'background-color',
-		} ).cssValueToBe( `${ socialiconbackColor[ 'header-social-1-background-color-group' ].desktop }`,
+		} ).cssValueToBe( `${ socialiconbackColor[ 'header-social-1-bg-color' ].desktop }`,
 		);
 	} );
 } );
