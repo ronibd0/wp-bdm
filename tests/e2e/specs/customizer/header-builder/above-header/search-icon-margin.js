@@ -26,7 +26,7 @@ describe( 'Search-icon margin in the customizer', () => {
 		await page.goto( createURL( '/' ), {
 			waitUntil: 'networkidle0',
 		} );
-		await page.waitForSelector( '.ast-hfb-header .ast-header-search' );
+		await page.waitForSelector( '.ast-header-search' );
 		await expect( {
 			selector: '.ast-header-search',
 			property: 'margin-top',
