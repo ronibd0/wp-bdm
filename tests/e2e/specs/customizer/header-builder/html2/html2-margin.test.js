@@ -1,7 +1,6 @@
 import { createURL } from '@wordpress/e2e-test-utils';
 import { setCustomize } from '../../../../utils/customize';
 import { setBrowserViewport } from '../../../../utils/set-browser-viewport';
-import { responsiveFontSize } from '../../../../utils/responsive-utils';
 describe( 'html2 block settings in the customizer', () => {
 	it( 'html2 margin for desktop should apply correctly', async () => {
 		const htmlMargin = {
