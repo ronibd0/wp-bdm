@@ -2,7 +2,7 @@ import { createURL } from '@wordpress/e2e-test-utils';
 import { setCustomize } from '../../../../utils/customize';
 import { setBrowserViewport } from '../../../../utils/set-browser-viewport';
 describe( 'HTML1 widget margin in the above header section under the customizer', () => {
-	it( 'html1 widget margincfor desktop should apply correctly', async () => {
+	it( 'html1 widget margin for desktop should apply correctly', async () => {
 		const htmlMargin = {
 			'header-html-1': '<p>HTML Text color |<a href="https://wpastra.com/" rel="nofollow noopener" target="_blank">Astra QA</a></p>',
 			'section-hb-html-1-margin': {
