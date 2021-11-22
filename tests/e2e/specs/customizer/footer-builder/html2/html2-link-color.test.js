@@ -38,7 +38,7 @@ describe( 'html2 block settings in the customizer', () => {
 		const html2LinkColor = {
 			'footer-html-2': '<a href="https://wpastra.com/">HTML2 link color</a>',
 			'footer-html-2link-color': {
-				tablet: 'rgb(161, 21, 105)',
+				tablet: 'rgb(54, 82, 158)',
 			},
 			'footer-desktop-items': {
 				primary: {
@@ -69,7 +69,7 @@ describe( 'html2 block settings in the customizer', () => {
 		const html2LinkColor = {
 			'footer-html-2': '<a href="https://wpastra.com/">HTML2 link color</a>',
 			'footer-html-2link-color': {
-				mobile: 'rgb(161, 21, 105)',
+				mobile: 'rgb(14, 104, 178)',
 			},
 			'footer-desktop-items': {
 				primary: {
