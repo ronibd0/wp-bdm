@@ -1,6 +1,6 @@
 import { createURL } from '@wordpress/e2e-test-utils';
-import { setCustomize } from '../../../utils/customize';
-import { setBrowserViewport } from '../../../utils/set-browser-viewport';
+import { setCustomize } from '../../../../utils/customize';
+import { setBrowserViewport } from '../../../../utils/set-browser-viewport';
 describe( 'Social Icons in the customizer', () => {
 	it( 'social icon hide on tablet should apply correctly', async () => {
 		const hideonTablet = {
