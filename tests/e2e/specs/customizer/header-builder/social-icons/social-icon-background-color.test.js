@@ -1,5 +1,5 @@
 import { createURL } from '@wordpress/e2e-test-utils';
-import { setCustomize } from '../../../utils/customize';
+import { setCustomize } from '../../../../utils/customize';
 describe( 'Social Icons in the customizer', () => {
 	it( 'social icon background color for desktop should apply correctly', async () => {
 		const socialiconbackColor = {
