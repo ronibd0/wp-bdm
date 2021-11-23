@@ -1,7 +1,7 @@
 import { createURL } from '@wordpress/e2e-test-utils';
-import { setCustomize } from '../../../utils/customize';
-import { responsiveFontSize } from '../../../utils/responsive-utils';
-import { setBrowserViewport } from '../../../utils/set-browser-viewport';
+import { setCustomize } from '../../../../utils/customize';
+import { responsiveFontSize } from '../../../../utils/responsive-utils';
+import { setBrowserViewport } from '../../../../utils/set-browser-viewport';
 describe( 'Social Icons show label in the customizer', () => {
 	it( 'social icon color for desktop should apply correctly', async () => {
 		const socialiconlabeFontsizel = {
