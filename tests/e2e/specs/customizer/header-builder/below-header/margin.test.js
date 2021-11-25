@@ -3,7 +3,7 @@ import { setCustomize } from '../../../../utils/customize';
 import { setBrowserViewport } from '../../../../utils/set-browser-viewport';
 describe( 'Below header margin setting in customizer', () => {
 	it( 'margin should apply correctly', async () => {
-		const belowheaderMargin = {
+		const belowHeaderMargin = {
 			'header-desktop-items': {
 				below: {
 					below_center: {
@@ -20,10 +20,10 @@ describe( 'Below header margin setting in customizer', () => {
 			},
 			'section-below-header-builder-margin': {
 				desktop: {
-					top: '50',
-					right: '50',
-					bottom: '50',
-					left: '50',
+					top: '40',
+					right: '45',
+					bottom: '40',
+					left: '45',
 				},
 				tablet: {
 					top: '50',
@@ -32,17 +32,17 @@ describe( 'Below header margin setting in customizer', () => {
 					left: '50',
 				},
 				mobile: {
-					top: '50',
-					right: '50',
-					bottom: '50',
-					left: '50',
+					top: '20',
+					right: '30',
+					bottom: '20',
+					left: '30',
 				},
 				'desktop-unit': 'px',
 				'tablet-unit': 'px',
 				'mobile-unit': 'px',
 			},
 		};
-		await setCustomize( belowheaderMargin );
+		await setCustomize( belowHeaderMargin );
 		await page.goto( createURL( '/' ), {
 			waitUntil: 'networkidle0',
 		} );
@@ -51,66 +51,66 @@ describe( 'Below header margin setting in customizer', () => {
 		await expect( {
 			selector: '.ast-below-header-bar.ast-below-header',
 			property: 'margin-top',
-		} ).cssValueToBe( `${ belowheaderMargin[ 'section-below-header-builder-margin' ].desktop.top }${ belowheaderMargin[ 'section-below-header-builder-margin' ][ 'desktop-unit' ] }`,
+		} ).cssValueToBe( `${ belowHeaderMargin[ 'section-below-header-builder-margin' ].desktop.top }${ belowHeaderMargin[ 'section-below-header-builder-margin' ][ 'desktop-unit' ] }`,
 		);
 		await expect( {
 			selector: '.ast-below-header-bar.ast-below-header',
 			property: 'margin-right',
-		} ).cssValueToBe( `${ belowheaderMargin[ 'section-below-header-builder-margin' ].desktop.right }${ belowheaderMargin[ 'section-below-header-builder-margin' ][ 'desktop-unit' ] }`,
+		} ).cssValueToBe( `${ belowHeaderMargin[ 'section-below-header-builder-margin' ].desktop.right }${ belowHeaderMargin[ 'section-below-header-builder-margin' ][ 'desktop-unit' ] }`,
 		);
 		await expect( {
 			selector: '.ast-below-header-bar.ast-below-header',
 			property: 'margin-bottom',
-		} ).cssValueToBe( `${ belowheaderMargin[ 'section-below-header-builder-margin' ].desktop.bottom }${ belowheaderMargin[ 'section-below-header-builder-margin' ][ 'desktop-unit' ] }`,
+		} ).cssValueToBe( `${ belowHeaderMargin[ 'section-below-header-builder-margin' ].desktop.bottom }${ belowHeaderMargin[ 'section-below-header-builder-margin' ][ 'desktop-unit' ] }`,
 		);
 		await expect( {
 			selector: '.ast-below-header-bar.ast-below-header',
 			property: 'margin-left',
-		} ).cssValueToBe( `${ belowheaderMargin[ 'section-below-header-builder-margin' ].desktop.left }${ belowheaderMargin[ 'section-below-header-builder-margin' ][ 'desktop-unit' ] }`,
+		} ).cssValueToBe( `${ belowHeaderMargin[ 'section-below-header-builder-margin' ].desktop.left }${ belowHeaderMargin[ 'section-below-header-builder-margin' ][ 'desktop-unit' ] }`,
 		);
 
 		await setBrowserViewport( 'medium' );
 		await expect( {
 			selector: '.ast-below-header-bar.ast-below-header, .ast-header-break-point .ast-below-header-bar.ast-below-header',
 			property: 'margin-top',
-		} ).cssValueToBe( `${ belowheaderMargin[ 'section-below-header-builder-margin' ].tablet.top }${ belowheaderMargin[ 'section-below-header-builder-margin' ][ 'tablet-unit' ] }`,
+		} ).cssValueToBe( `${ belowHeaderMargin[ 'section-below-header-builder-margin' ].tablet.top }${ belowHeaderMargin[ 'section-below-header-builder-margin' ][ 'tablet-unit' ] }`,
 		);
 		await expect( {
 			selector: '.ast-below-header-bar.ast-below-header, .ast-header-break-point .ast-below-header-bar.ast-below-header',
 			property: 'margin-right',
-		} ).cssValueToBe( `${ belowheaderMargin[ 'section-below-header-builder-margin' ].tablet.right }${ belowheaderMargin[ 'section-below-header-builder-margin' ][ 'tablet-unit' ] }`,
+		} ).cssValueToBe( `${ belowHeaderMargin[ 'section-below-header-builder-margin' ].tablet.right }${ belowHeaderMargin[ 'section-below-header-builder-margin' ][ 'tablet-unit' ] }`,
 		);
 		await expect( {
 			selector: '.ast-below-header-bar.ast-below-header, .ast-header-break-point .ast-below-header-bar.ast-below-header',
 			property: 'margin-bottom',
-		} ).cssValueToBe( `${ belowheaderMargin[ 'section-below-header-builder-margin' ].tablet.bottom }${ belowheaderMargin[ 'section-below-header-builder-margin' ][ 'tablet-unit' ] }`,
+		} ).cssValueToBe( `${ belowHeaderMargin[ 'section-below-header-builder-margin' ].tablet.bottom }${ belowHeaderMargin[ 'section-below-header-builder-margin' ][ 'tablet-unit' ] }`,
 		);
 		await expect( {
 			selector: '.ast-below-header-bar.ast-below-header, .ast-header-break-point .ast-below-header-bar.ast-below-header',
 			property: 'margin-left',
-		} ).cssValueToBe( `${ belowheaderMargin[ 'section-below-header-builder-margin' ].tablet.left }${ belowheaderMargin[ 'section-below-header-builder-margin' ][ 'tablet-unit' ] }`,
+		} ).cssValueToBe( `${ belowHeaderMargin[ 'section-below-header-builder-margin' ].tablet.left }${ belowHeaderMargin[ 'section-below-header-builder-margin' ][ 'tablet-unit' ] }`,
 		);
 
 		await setBrowserViewport( 'small' );
 		await expect( {
 			selector: '.ast-below-header-bar.ast-below-header, .ast-header-break-point .ast-below-header-bar.ast-below-header',
 			property: 'margin-top',
-		} ).cssValueToBe( `${ belowheaderMargin[ 'section-below-header-builder-margin' ].mobile.top }${ belowheaderMargin[ 'section-below-header-builder-margin' ][ 'mobile-unit' ] }`,
+		} ).cssValueToBe( `${ belowHeaderMargin[ 'section-below-header-builder-margin' ].mobile.top }${ belowHeaderMargin[ 'section-below-header-builder-margin' ][ 'mobile-unit' ] }`,
 		);
 		await expect( {
 			selector: '.ast-below-header-bar.ast-below-header, .ast-header-break-point .ast-below-header-bar.ast-below-header',
 			property: 'margin-right',
-		} ).cssValueToBe( `${ belowheaderMargin[ 'section-below-header-builder-margin' ].mobile.right }${ belowheaderMargin[ 'section-below-header-builder-margin' ][ 'mobile-unit' ] }`,
+		} ).cssValueToBe( `${ belowHeaderMargin[ 'section-below-header-builder-margin' ].mobile.right }${ belowHeaderMargin[ 'section-below-header-builder-margin' ][ 'mobile-unit' ] }`,
 		);
 		await expect( {
 			selector: '.ast-below-header-bar.ast-below-header, .ast-header-break-point .ast-below-header-bar.ast-below-header',
 			property: 'margin-bottom',
-		} ).cssValueToBe( `${ belowheaderMargin[ 'section-below-header-builder-margin' ].mobile.bottom }${ belowheaderMargin[ 'section-below-header-builder-margin' ][ 'mobile-unit' ] }`,
+		} ).cssValueToBe( `${ belowHeaderMargin[ 'section-below-header-builder-margin' ].mobile.bottom }${ belowHeaderMargin[ 'section-below-header-builder-margin' ][ 'mobile-unit' ] }`,
 		);
 		await expect( {
 			selector: '.ast-below-header-bar.ast-below-header, .ast-header-break-point .ast-below-header-bar.ast-below-header',
 			property: 'margin-left',
-		} ).cssValueToBe( `${ belowheaderMargin[ 'section-below-header-builder-margin' ].mobile.left }${ belowheaderMargin[ 'section-below-header-builder-margin' ][ 'mobile-unit' ] }`,
+		} ).cssValueToBe( `${ belowHeaderMargin[ 'section-below-header-builder-margin' ].mobile.left }${ belowHeaderMargin[ 'section-below-header-builder-margin' ][ 'mobile-unit' ] }`,
 		);
 	} );
 } );
