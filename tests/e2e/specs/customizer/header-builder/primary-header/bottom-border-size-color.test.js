@@ -1,5 +1,5 @@
 import { createURL } from '@wordpress/e2e-test-utils';
-import { setCustomize } from '../../../utils/customize';
+import { setCustomize } from '../../../../utils/customize';
 describe( 'Primary header bottom border size setting in customizer', () => {
 	it( 'border size should apply correctly', async () => {
 		const borderSizeColor = {
