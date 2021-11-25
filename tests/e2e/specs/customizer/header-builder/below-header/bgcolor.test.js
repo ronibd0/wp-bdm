@@ -2,8 +2,8 @@ import { createURL } from '@wordpress/e2e-test-utils';
 import { setCustomize } from '../../../../utils/customize';
 import { setBrowserViewport } from '../../../../utils/set-browser-viewport';
 describe( 'Below header background color setting in customizer', () => {
-	it( 'background color for below header should apply correctly', async () => {
-		const belowheaderBgcolor = {
+	it( 'background color for below header section should apply correctly', async () => {
+		const belowHeaderBgcolor = {
 			'header-desktop-items': {
 				below: {
 					below_center: {
@@ -30,7 +30,7 @@ describe( 'Below header background color setting in customizer', () => {
 				},
 			},
 		};
-		await setCustomize( belowheaderBgcolor );
+		await setCustomize( belowHeaderBgcolor );
 		await page.goto( createURL( '/' ), {
 			waitUntil: 'networkidle0',
 		} );
@@ -39,21 +39,21 @@ describe( 'Below header background color setting in customizer', () => {
 			selector: '.ast-below-header.ast-below-header-bar',
 			property: 'background-color',
 		} ).cssValueToBe(
-			`${ belowheaderBgcolor[ 'hbb-header-bg-obj-responsive' ].desktop[ 'background-color' ] }`,
+			`${ belowHeaderBgcolor[ 'hbb-header-bg-obj-responsive' ].desktop[ 'background-color' ] }`,
 		);
 		await setBrowserViewport( 'medium' );
 		await expect( {
 			selector: '.ast-below-header.ast-below-header-bar',
 			property: 'background-color',
 		} ).cssValueToBe(
-			`${ belowheaderBgcolor[ 'hbb-header-bg-obj-responsive' ].tablet[ 'background-color' ] }`,
+			`${ belowHeaderBgcolor[ 'hbb-header-bg-obj-responsive' ].tablet[ 'background-color' ] }`,
 		);
 		await setBrowserViewport( 'small' );
 		await expect( {
 			selector: '.ast-below-header.ast-below-header-bar',
 			property: 'background-color',
 		} ).cssValueToBe(
-			`${ belowheaderBgcolor[ 'hbb-header-bg-obj-responsive' ].mobile[ 'background-color' ] }`,
+			`${ belowHeaderBgcolor[ 'hbb-header-bg-obj-responsive' ].mobile[ 'background-color' ] }`,
 		);
 	} );
 } );
