@@ -16,6 +16,19 @@ describe( 'site layout meta setting', () => {
 		} );
 		await page.waitForSelector( '.interface-pinned-items .components-button:not(:first-child)' );
 		await page.click( '.interface-pinned-items .components-button:not(:first-child)' );
+        await page.waitForSelector( '#inspector-select-control-1' );
+
+		const authorNameOption = (
+			await page.$x(
+				'//*[ @id = "inspector-select-control-1" ]/option[ text() = "Left Sidebar" ]',
+			)
+		)[ 0 ];
+
+		const authorNameValue = await (
+			await authorNameOption.getProperty( 'value' )
+		).jsonValue();
+
+		await page.select( '#inspector-select-control-1', authorNameValue);
 		await page.waitForSelector( '#astra_settings_meta_box > div:nth-child(2)' );
 		await page.click( '#astra_settings_meta_box > div:nth-child(2) > div > div > div > div.components-input-control__container.css-ygaqem-Container.e1cr7zh11' );
 		await page.click('#astra_settings_meta_box > div:nth-child(5) > div.components-base-control.components-toggle-control.ast-main-header-display.css-wdf2ti-Wrapper.e1puf3u0');
