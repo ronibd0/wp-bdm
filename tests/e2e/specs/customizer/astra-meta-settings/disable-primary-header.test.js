@@ -14,24 +14,19 @@ describe( 'site layout meta setting', () => {
 			postType: 'page',
 			title: 'QA',
 		} );
+		//Astra button setting click action
 		await page.waitForSelector( '.interface-pinned-items .components-button:not(:first-child)' );
 		await page.click( '.interface-pinned-items .components-button:not(:first-child)' );
-        await page.waitForSelector( '#inspector-select-control-1' );
-
-		const authorNameOption = (
-			await page.$x(
-				'//*[ @id = "inspector-select-control-1" ]/option[ text() = "Left Sidebar" ]',
-			)
-		)[ 0 ];
-
-		const authorNameValue = await (
-			await authorNameOption.getProperty( 'value' )
-		).jsonValue();
-
-		await page.select( '#inspector-select-control-1', authorNameValue);
+		//sidebar setting 
 		await page.waitForSelector( '#astra_settings_meta_box > div:nth-child(2)' );
 		await page.click( '#astra_settings_meta_box > div:nth-child(2) > div > div > div > div.components-input-control__container.css-ygaqem-Container.e1cr7zh11' );
+		//primary header
 		await page.click('#astra_settings_meta_box > div:nth-child(5) > div.components-base-control.components-toggle-control.ast-main-header-display.css-wdf2ti-Wrapper.e1puf3u0');
+
+		// await page.select( '#astra_settings_meta_box > div:nth-child(2) > div', authorNameValue);
+		// await page.waitForSelector( '#astra_settings_meta_box > div:nth-child(2)' );
+		// await page.click( '#astra_settings_meta_box > div:nth-child(2) > div > div > div > div.components-input-control__container.css-ygaqem-Container.e1cr7zh11' );
+		// await page.click('#astra_settings_meta_box > div:nth-child(5) > div.components-base-control.components-toggle-control.ast-main-header-display.css-wdf2ti-Wrapper.e1puf3u0');
         await publishPost();
 		await page.goto( createURL( '/QA' ), {
 			waitUntil: 'networkidle0',
