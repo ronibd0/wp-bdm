@@ -2,8 +2,8 @@ import { createURL, createNewPost, publishPost } from '@wordpress/e2e-test-utils
 import { setCustomize } from '../../../../utils/customize';
 import { setBrowserViewport } from '../../../../utils/set-browser-viewport';
 import { scrollToElement } from '../../../../utils/scroll-to-element';
-describe( 'Add footer menu spacing for desktop view', () => {
-	it( 'footer menu spacing should be added properly in desktop view', async () => {
+describe( 'Add footer menu margin for desktop view', () => {
+	it( 'footer menu margin should be added properly in desktop view', async () => {
 		await createNewPost( {
 			postType: 'page',
 			title: 'Test Page',
@@ -36,13 +36,13 @@ describe( 'Add footer menu spacing for desktop view', () => {
 		await page.waitForSelector( '.publishing-action' );
 		await page.focus( '#save_menu_footer' );
 		await page.click( '#save_menu_footer' );
-		const footerMenuSpacing = {
-			'footer-main-menu-spacing': {
+		const footerMenuMargin = {
+			'section-footer-menu-margin': {
 				desktop: {
-					top: '100',
-					right: '100',
-					bottom: '100',
-					left: '100',
+					top: '50',
+					right: '50',
+					bottom: '50',
+					left: '50',
 				},
 				'desktop-unit': 'px',
 			},
@@ -54,7 +54,7 @@ describe( 'Add footer menu spacing for desktop view', () => {
 				},
 			},
 		};
-		await setCustomize( footerMenuSpacing );
+		await setCustomize( footerMenuMargin );
 		await page.goto( createURL( '/' ), {
 			waitUntil: 'networkidle0',
 		} );
@@ -62,29 +62,24 @@ describe( 'Add footer menu spacing for desktop view', () => {
 		await setBrowserViewport( 'large' );
 		await scrollToElement( '#colophon' );
 		await expect( {
-			selector: '#astra-footer-menu .menu-item .menu-link',
-			property: 'padding-top',
-		} ).cssValueToBe( `${ footerMenuSpacing[ 'footer-main-menu-spacing' ].desktop.top }${ footerMenuSpacing[ 'footer-main-menu-spacing' ][ 'desktop-unit' ] }`,
+			selector: '#astra-footer-menu',
+			property: 'margin-top',
+		} ).cssValueToBe( `${ footerMenuMargin[ 'section-footer-menu-margin' ].desktop.top }${ footerMenuMargin[ 'section-footer-menu-margin' ][ 'desktop-unit' ] }`,
 		);
 		await expect( {
-			selector: '#astra-footer-menu .menu-item .menu-link',
-			property: 'padding-top',
-		} ).cssValueToBe( `${ footerMenuSpacing[ 'footer-main-menu-spacing' ].desktop.top }${ footerMenuSpacing[ 'footer-main-menu-spacing' ][ 'desktop-unit' ] }`,
+			selector: '#astra-footer-menu',
+			property: 'margin-left',
+		} ).cssValueToBe( `${ footerMenuMargin[ 'section-footer-menu-margin' ].desktop.left }${ footerMenuMargin[ 'section-footer-menu-margin' ][ 'desktop-unit' ] }`,
 		);
 		await expect( {
-			selector: '#astra-footer-menu .menu-item .menu-link',
-			property: 'padding-left',
-		} ).cssValueToBe( `${ footerMenuSpacing[ 'footer-main-menu-spacing' ].desktop.left }${ footerMenuSpacing[ 'footer-main-menu-spacing' ][ 'desktop-unit' ] }`,
+			selector: '#astra-footer-menu',
+			property: 'margin-right',
+		} ).cssValueToBe( `${ footerMenuMargin[ 'section-footer-menu-margin' ].desktop.right }${ footerMenuMargin[ 'section-footer-menu-margin' ][ 'desktop-unit' ] }`,
 		);
 		await expect( {
-			selector: '#astra-footer-menu .menu-item .menu-link',
-			property: 'padding-right',
-		} ).cssValueToBe( `${ footerMenuSpacing[ 'footer-main-menu-spacing' ].desktop.right }${ footerMenuSpacing[ 'footer-main-menu-spacing' ][ 'desktop-unit' ] }`,
-		);
-		await expect( {
-			selector: '#astra-footer-menu .menu-item .menu-link',
-			property: 'padding-bottom',
-		} ).cssValueToBe( `${ footerMenuSpacing[ 'footer-main-menu-spacing' ].desktop.bottom }${ footerMenuSpacing[ 'footer-main-menu-spacing' ][ 'desktop-unit' ] }`,
+			selector: '#astra-footer-menu',
+			property: 'margin-bottom',
+		} ).cssValueToBe( `${ footerMenuMargin[ 'section-footer-menu-margin' ].desktop.bottom }${ footerMenuMargin[ 'section-footer-menu-margin' ][ 'desktop-unit' ] }`,
 		);
 	} );
 } );
