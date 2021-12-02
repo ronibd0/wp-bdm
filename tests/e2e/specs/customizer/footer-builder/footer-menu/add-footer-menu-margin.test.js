@@ -2,8 +2,8 @@ import { createURL, createNewPost, publishPost } from '@wordpress/e2e-test-utils
 import { setCustomize } from '../../../../utils/customize';
 import { setBrowserViewport } from '../../../../utils/set-browser-viewport';
 import { scrollToElement } from '../../../../utils/scroll-to-element';
-describe( 'Add footer menu margin for desktop view', () => {
-	it( 'footer menu margin should be added properly in desktop view', async () => {
+describe( 'Add footer menu margin', () => {
+	it( 'footer menu margin should be added properly', async () => {
 		await createNewPost( {
 			postType: 'page',
 			title: 'Test Page',
