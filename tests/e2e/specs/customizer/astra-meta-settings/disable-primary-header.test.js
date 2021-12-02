@@ -5,7 +5,7 @@ import { createURL,
 import { setCustomize } from '../../../utils/customize';
 
 describe( 'site layout meta setting', () => {
-	it( 'site layout meta setting', async () => {
+	it( 'sidebar, content layout and primary header disable setting', async () => {
 		const astraMetaSetting = {
 			'header-desktop-items': {
 				above: {
@@ -81,7 +81,7 @@ describe( 'site layout meta setting', () => {
 		} ).cssValueToBe( `block`,
 		);
 	} );
-	it( 'site layout meta setting', async () => {
+	it( 'sidebar, content layout settings and above header disable setting', async () => {
 		const astraMetaSetting = {
 			'header-desktop-items': {
 				above: {
@@ -144,4 +144,3 @@ describe( 'site layout meta setting', () => {
 		);
 	} );
 } );
-
