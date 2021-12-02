@@ -81,5 +81,51 @@ describe( 'Add footer menu margin for desktop view', () => {
 			property: 'margin-bottom',
 		} ).cssValueToBe( `${ footerMenuMargin[ 'section-footer-menu-margin' ].desktop.bottom }${ footerMenuMargin[ 'section-footer-menu-margin' ][ 'desktop-unit' ] }`,
 		);
+		//for tablet view
+		await setBrowserViewport( 'medium' );
+		await scrollToElement( '#colophon' );
+		await expect( {
+			selector: '#astra-footer-menu',
+			property: 'margin-top',
+		} ).cssValueToBe( `${ footerMenuMargin[ 'section-footer-menu-margin' ].desktop.top }${ footerMenuMargin[ 'section-footer-menu-margin' ][ 'desktop-unit' ] }`,
+		);
+		await expect( {
+			selector: '#astra-footer-menu',
+			property: 'margin-left',
+		} ).cssValueToBe( `${ footerMenuMargin[ 'section-footer-menu-margin' ].desktop.left }${ footerMenuMargin[ 'section-footer-menu-margin' ][ 'desktop-unit' ] }`,
+		);
+		await expect( {
+			selector: '#astra-footer-menu',
+			property: 'margin-right',
+		} ).cssValueToBe( `${ footerMenuMargin[ 'section-footer-menu-margin' ].desktop.right }${ footerMenuMargin[ 'section-footer-menu-margin' ][ 'desktop-unit' ] }`,
+		);
+		await expect( {
+			selector: '#astra-footer-menu',
+			property: 'margin-bottom',
+		} ).cssValueToBe( `${ footerMenuMargin[ 'section-footer-menu-margin' ].desktop.bottom }${ footerMenuMargin[ 'section-footer-menu-margin' ][ 'desktop-unit' ] }`,
+		);
+		//for mobile view
+		await setBrowserViewport( 'small' );
+		await scrollToElement( '#colophon' );
+		await expect( {
+			selector: '#astra-footer-menu',
+			property: 'margin-top',
+		} ).cssValueToBe( `${ footerMenuMargin[ 'section-footer-menu-margin' ].desktop.top }${ footerMenuMargin[ 'section-footer-menu-margin' ][ 'desktop-unit' ] }`,
+		);
+		await expect( {
+			selector: '#astra-footer-menu',
+			property: 'margin-left',
+		} ).cssValueToBe( `${ footerMenuMargin[ 'section-footer-menu-margin' ].desktop.left }${ footerMenuMargin[ 'section-footer-menu-margin' ][ 'desktop-unit' ] }`,
+		);
+		await expect( {
+			selector: '#astra-footer-menu',
+			property: 'margin-right',
+		} ).cssValueToBe( `${ footerMenuMargin[ 'section-footer-menu-margin' ].desktop.right }${ footerMenuMargin[ 'section-footer-menu-margin' ][ 'desktop-unit' ] }`,
+		);
+		await expect( {
+			selector: '#astra-footer-menu',
+			property: 'margin-bottom',
+		} ).cssValueToBe( `${ footerMenuMargin[ 'section-footer-menu-margin' ].desktop.bottom }${ footerMenuMargin[ 'section-footer-menu-margin' ][ 'desktop-unit' ] }`,
+		);
 	} );
 } );
