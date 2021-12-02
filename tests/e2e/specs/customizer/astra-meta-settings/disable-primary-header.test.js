@@ -81,4 +81,67 @@ describe( 'site layout meta setting', () => {
 		} ).cssValueToBe( `block`,
 		);
 	} );
+	it( 'site layout meta setting', async () => {
+		const astraMetaSetting = {
+			'header-desktop-items': {
+				above: {
+					above_left: {
+						0: 'menu-2',
+
+					},
+				},
+				primary: {
+					primary_center: {
+						0: 'search',
+					},
+				},
+				below: {
+					below_right: {
+						1: 'button-1',
+					},
+				},
+			},
+
+		};
+		await setCustomize( astraMetaSetting );
+		await createNewPost( {
+			postType: 'page',
+			title: 'QA1',
+			content: 'Test page to disable above header',
+		} );
+		//Astra button setting click action
+		await page.waitForSelector( '.interface-pinned-items .components-button:not(:first-child)' );
+		await page.click( '.interface-pinned-items .components-button:not(:first-child)' );
+
+		//above header disable
+		await page.click( '#astra_settings_meta_box > div:nth-child(5) > div.components-base-control.components-toggle-control.ast-hfb-above-header-display.css-wdf2ti-Wrapper.e1puf3u0' );
+
+		await publishPost();
+		await page.goto( createURL( '/QA1' ), {
+			waitUntil: 'networkidle0',
+		} );
+
+		//assertion for above header
+		// await page.waitForSelector( '.ast-above-header-bar' );
+		// await expect( {
+		// 	selector: '.ast-above-header-bar',
+		// 	property: 'display',
+		// } ).cssValueToBe( `none`,
+		// );
+		await page.waitForSelector( '.ast-primary-header-bar' );
+		await expect( {
+			selector: '.ast-primary-header-bar',
+			property: 'display',
+		} ).cssValueToBe( `block`,
+		);
+
+		//assertion for below header
+		await page.waitForSelector( '.ast-below-header-bar' );
+		await expect( {
+			selector: '.ast-below-header-bar',
+			property: 'display',
+		} ).cssValueToBe( `block`,
+		);
+	} );
 } );
+
