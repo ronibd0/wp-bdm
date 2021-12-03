@@ -143,4 +143,34 @@ describe( 'site layout meta setting', () => {
 		} ).cssValueToBe( `block`,
 		);
 	} );
-} );
+		//Disable title
+		it( 'disable title setting', async () => {
+			const astraMetaSetting = {
+
+			};
+			await setCustomize( astraMetaSetting );
+			await createNewPost( {
+				postType: 'page',
+				title: 'title-disable',
+				content: 'Test page to disable above header',
+			} );
+			//Astra button setting click action
+			await page.waitForSelector( '.interface-pinned-items .components-button:not(:first-child)' );
+			await page.click( '.interface-pinned-items .components-button:not(:first-child)' );
+
+			//Title disable
+			await page.click( '#astra_settings_meta_box > div:nth-child(5) > div.components-base-control.components-toggle-control.ast-hfb-mobile-header-display.css-wdf2ti-Wrapper.e1puf3u0' );
+
+			await publishPost();
+			await page.goto( createURL( 'title-disable' ), {
+				waitUntil: 'networkidle0',
+			} );
+			//assertion for disable title
+			// await page.waitForSelector( '.ast-below-header-bar' );
+			// await expect( {
+			// 	selector: '.ast-below-header-bar',
+			// 	property: 'display',
+			// } ).cssValueToBe( `block`,
+			// );
+		} );
+	} );
