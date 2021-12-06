@@ -27,6 +27,6 @@ describe( 'off canvas flyout header type settings in the customizer', () => {
 		await expect( {
 			selector: '.ast-mobile-popup-drawer.ast-mobile-popup-left .ast-mobile-popup-inner',
 			property: 'left',
-		} ).cssValueToBe( `${ flyoutPosition[ 'off-canvas-slide' ] }` );
+		} ).cssValueToBe( '0px' );
 	} );
 } );
