@@ -4,7 +4,7 @@ v3.7.6
 - Fix: Responsive color options from 'color-group-control' are hiding when trying to set them in responsive devices.
 - Fix: Removed unwanted title and desc tag present for search icon.
 - Fix: WooCommerce Pagination markup misaligned on mobile devices.
-- Fix: Guteneberg separator dots not appearing properly on frontend.
+- Fix: Gutenberg separator dots not appearing properly on frontend.
 - Fix: JS console error when Custom Layout is added for header.
 - Fix: Accessibility - Tab navigation does not highlight menu with submenus.
 
