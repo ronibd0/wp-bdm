@@ -25,7 +25,6 @@ describe( 'Astra meta setting', () => {
 					},
 				},
 			},
-
 		};
 		await setCustomize( astraMetaSetting );
 		await createNewPost( {
@@ -98,7 +97,6 @@ describe( 'Astra meta setting', () => {
 					},
 				},
 			},
-
 		};
 		await setCustomize( astraMetaSetting );
 		await createNewPost( {
@@ -160,8 +158,6 @@ describe( 'Astra meta setting', () => {
 					},
 				},
 			},
-
-
 		};
 		await setCustomize( astraMetaSetting );
 		await createNewPost( {
@@ -177,11 +173,12 @@ describe( 'Astra meta setting', () => {
 		await page.click( '#astra_settings_meta_box > div:nth-child(5) > div.components-base-control.components-toggle-control.ast-hfb-below-header-display.css-wdf2ti-Wrapper.e1puf3u0' );
 
 		// mobile header disable
-		await page.click('#astra_settings_meta_box > div:nth-child(5) > div.components-base-control.components-toggle-control.ast-hfb-mobile-header-display.css-wdf2ti-Wrapper.e1puf3u0');
+		await page.click( '#astra_settings_meta_box > div:nth-child(5) > div.components-base-control.components-toggle-control.ast-hfb-mobile-header-display.css-wdf2ti-Wrapper.e1puf3u0' );
 		await publishPost();
-		await page.goto( createURL( 'belowHeader-disable' ), {
-			waitUntil: 'networkidle0',
-		} );
+		await page.goto( createURL( 'belowHeader-disable' ),
+			{
+				waitUntil: 'networkidle0',
+			} );
 		//assertion for disable below header
 		// await page.waitForSelector( '.ast-below-header-bar' );
 		// await expect( {
