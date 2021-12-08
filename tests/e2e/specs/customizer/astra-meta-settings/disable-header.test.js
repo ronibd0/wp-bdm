@@ -40,7 +40,7 @@ describe( 'Astra meta setting', () => {
 		await page.click( '#astra_settings_meta_box > div:nth-child(5) > div.components-base-control.components-toggle-control.ast-main-header-display.css-wdf2ti-Wrapper.e1puf3u0' );
 
 		await publishPost();
-		await page.goto( createURL( '/primary-header' ), {
+		await page.goto( createURL( 'meta' ), {
 			waitUntil: 'networkidle0',
 		} );
 
@@ -92,19 +92,12 @@ describe( 'Astra meta setting', () => {
 			},
 		};
 		await setCustomize( astraMetaSetting );
-		await createNewPost( {
-			postType: 'page',
-			title: 'above-header',
-		} );
-		//Astra button setting click action
-		await page.waitForSelector( '.interface-pinned-items .components-button:not(:first-child)' );
-		await page.click( '.interface-pinned-items .components-button:not(:first-child)' );
-
+		await metaButton();
 		//above header disable
 		await page.click( '#astra_settings_meta_box > div:nth-child(5) > div.components-base-control.components-toggle-control.ast-hfb-above-header-display.css-wdf2ti-Wrapper.e1puf3u0' );
 
 		await publishPost();
-		await page.goto( createURL( '/above-header' ), {
+		await page.goto( createURL( 'meta' ), {
 			waitUntil: 'networkidle0',
 		} );
 
@@ -153,22 +146,14 @@ describe( 'Astra meta setting', () => {
 			},
 		};
 		await setCustomize( astraMetaSetting );
-		await createNewPost( {
-			postType: 'page',
-			title: 'belowHeader-disable',
-			content: 'Test page to disable above header',
-		} );
-		//Astra button setting click action
-		await page.waitForSelector( '.interface-pinned-items .components-button:not(:first-child)' );
-		await page.click( '.interface-pinned-items .components-button:not(:first-child)' );
-
+		await metaButton();
 		//below header disable
 		await page.click( '#astra_settings_meta_box > div:nth-child(5) > div.components-base-control.components-toggle-control.ast-hfb-below-header-display.css-wdf2ti-Wrapper.e1puf3u0' );
 
 		// mobile header disable
 		await page.click( '#astra_settings_meta_box > div:nth-child(5) > div.components-base-control.components-toggle-control.ast-hfb-mobile-header-display.css-wdf2ti-Wrapper.e1puf3u0' );
 		await publishPost();
-		await page.goto( createURL( 'belowHeader-disable' ),
+		await page.goto( createURL( 'meta' ),
 			{
 				waitUntil: 'networkidle0',
 			} );
