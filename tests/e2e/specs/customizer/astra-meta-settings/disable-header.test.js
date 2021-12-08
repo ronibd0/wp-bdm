@@ -1,5 +1,4 @@
 import { createURL,
-	createNewPost,
 	publishPost,
 } from '@wordpress/e2e-test-utils';
 import { metaButton } from '../../../utils/astra-metasetting-button';
@@ -12,7 +11,6 @@ describe( 'Astra meta setting', () => {
 				above: {
 					above_left: {
 						0: 'menu-2',
-
 					},
 				},
 				primary: {
@@ -30,12 +28,9 @@ describe( 'Astra meta setting', () => {
 		await setCustomize( astraMetaSetting );
 		await metaButton();
 		//sidebar setting
-
 		await page.click( '#astra_settings_meta_box > div:nth-child(2) > div > div > div > div.components-input-control__container.css-ygaqem-Container.e1cr7zh11' );
-
 		//content layout
 		await page.click( '#astra_settings_meta_box > div:nth-child(3) > div > div > div > div.components-input-control__container.css-ygaqem-Container.e1cr7zh11' );
-
 		//primary header
 		await page.click( '#astra_settings_meta_box > div:nth-child(5) > div.components-base-control.components-toggle-control.ast-main-header-display.css-wdf2ti-Wrapper.e1puf3u0' );
 
