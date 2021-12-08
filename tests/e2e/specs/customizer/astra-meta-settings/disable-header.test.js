@@ -2,6 +2,7 @@ import { createURL,
 	createNewPost,
 	publishPost,
 } from '@wordpress/e2e-test-utils';
+import { metaButton } from '../../../utils/astra-metasetting-button';
 import { setBrowserViewport } from '../../../utils/set-browser-viewport';
 import { setCustomize } from '../../../utils/customize';
 describe( 'Astra meta setting', () => {
@@ -27,20 +28,12 @@ describe( 'Astra meta setting', () => {
 			},
 		};
 		await setCustomize( astraMetaSetting );
-		await createNewPost( {
-			postType: 'page',
-			title: 'primary-header',
-			content: 'Test page to disable header',
-		} );
-		//Astra button setting click action
-		await page.waitForSelector( '.interface-pinned-items .components-button:not(:first-child)' );
-		await page.click( '.interface-pinned-items .components-button:not(:first-child)' );
+		await metaButton();
 		//sidebar setting
-		//await page.waitForSelector( '#astra_settings_meta_box > div:nth-child(2)' );
+
 		await page.click( '#astra_settings_meta_box > div:nth-child(2) > div > div > div > div.components-input-control__container.css-ygaqem-Container.e1cr7zh11' );
 
 		//content layout
-		//await page.waitForSelector( '#astra_settings_meta_box > div:nth-child(3)' );
 		await page.click( '#astra_settings_meta_box > div:nth-child(3) > div > div > div > div.components-input-control__container.css-ygaqem-Container.e1cr7zh11' );
 
 		//primary header
