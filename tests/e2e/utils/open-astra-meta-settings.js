@@ -1,7 +1,6 @@
-import {
-	createNewPost,
-} from '@wordpress/e2e-test-utils';
-export const metaButton = async () => {
+import { createNewPost } from '@wordpress/e2e-test-utils';
+
+export const openAstraMetaSettings = async () => {
 	await createNewPost( {
 		postType: 'page',
 		title: 'meta',

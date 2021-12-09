@@ -1,7 +1,5 @@
-import { createURL,
-	publishPost,
-} from '@wordpress/e2e-test-utils';
-import { metaButton } from '../../../utils/astra-metasetting-button';
+import { createURL, publishPost } from '@wordpress/e2e-test-utils';
+import { openAstraMetaSettings } from '../../../utils/open-astra-meta-settings';
 import { setBrowserViewport } from '../../../utils/set-browser-viewport';
 import { setCustomize } from '../../../utils/customize';
 describe( 'Astra meta setting', () => {
@@ -26,7 +24,7 @@ describe( 'Astra meta setting', () => {
 			},
 		};
 		await setCustomize( astraMetaSetting );
-		await metaButton();
+		await openAstraMetaSettings();
 		//sidebar setting
 		await page.click( '#astra_settings_meta_box > div:nth-child(2) > div > div > div > div.components-input-control__container.css-ygaqem-Container.e1cr7zh11' );
 		//content layout
