@@ -85,7 +85,7 @@ describe( 'Astra meta setting', () => {
 			},
 		};
 		await setCustomize( astraMetaSetting );
-		await metaButton();
+		await openAstraMetaSettings();
 		//above header disable
 		await page.click( '#astra_settings_meta_box > div:nth-child(5) > div.components-base-control.components-toggle-control.ast-hfb-above-header-display.css-wdf2ti-Wrapper.e1puf3u0' );
 
@@ -139,7 +139,7 @@ describe( 'Astra meta setting', () => {
 			},
 		};
 		await setCustomize( astraMetaSetting );
-		await metaButton();
+		await openAstraMetaSettings();
 		//below header disable
 		await page.click( '#astra_settings_meta_box > div:nth-child(5) > div.components-base-control.components-toggle-control.ast-hfb-below-header-display.css-wdf2ti-Wrapper.e1puf3u0' );
 
