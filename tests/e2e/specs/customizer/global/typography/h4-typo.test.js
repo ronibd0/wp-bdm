@@ -10,7 +10,7 @@ import { setBrowserViewport } from '../../../../utils/set-browser-viewport';
 import { responsiveFontSize } from '../../../../utils/responsive-utils';
 
 describe( 'Global typography heading 4 settings in the customizer', () => {
-	it( 'Heading 4 font family settings should be applied correctly', async () => {
+	it( 'heading 4 font family settings should be applied correctly', async () => {
 		const heading4Font = {
 			'font-family-h4': "'Eagle Lake', handwriting",
 			'font-weight-h4': '400',
