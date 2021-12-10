@@ -26,30 +26,30 @@ describe( 'H2 global typography settings in the customizer', () => {
 
 		await setCustomize( h2Typography );
 
-		await createNewPost( { postType: 'post', title: 'heading-2' } );
+		await createNewPost( { postType: 'post', title: 'heading-2-typography-test' } );
 		await setPostContent( TPOGRAPHY_TEST_POST_CONTENT );
 		await publishPost();
-		await page.goto( createURL( 'heading-2' ), {
+		await page.goto( createURL( 'heading-2-typography-test' ), {
 			waitUntil: 'networkidle0',
 		} );
-		await page.waitForSelector( 'h2, .entry-content h2' );
+		await page.waitForSelector( '.entry-content h2' );
 		await expect( {
-			selector: 'h2, .entry-content h2',
+			selector: '.entry-content h2',
 			property: 'font-family',
 		} ).cssValueToBe( `${ h2Typography[ 'font-family-h2' ] }` );
 
 		await expect( {
-			selector: 'h2, .entry-content h2',
+			selector: '.entry-content h2',
 			property: 'font-weight',
 		} ).cssValueToBe( `${ h2Typography[ 'font-weight-h2' ] }` );
 
 		await expect( {
-			selector: 'h2, .entry-content h2',
+			selector: '.entry-content h2',
 			property: 'text-transform',
 		} ).cssValueToBe( `${ h2Typography[ 'text-transform-h2' ] }` );
 
 		await expect( {
-			selector: 'h2, .entry-content h2',
+			selector: '.entry-content h2',
 			property: 'font-size',
 		} ).cssValueToBe(
 			`${ h2Typography[ 'font-size-h2' ].desktop }${ h2Typography[ 'font-size-h2' ][ 'desktop-unit' ] }`,
@@ -57,7 +57,7 @@ describe( 'H2 global typography settings in the customizer', () => {
 		await setBrowserViewport( 'medium' );
 
 		await expect( {
-			selector: 'h2, .entry-content h2',
+			selector: '.entry-content h2',
 			property: 'font-size',
 		} ).cssValueToBe(
 			`${ h2Typography[ 'font-size-h2' ].tablet }${ h2Typography[ 'font-size-h2' ][ 'tablet-unit' ] }`,
@@ -65,14 +65,14 @@ describe( 'H2 global typography settings in the customizer', () => {
 		await setBrowserViewport( 'small' );
 
 		await expect( {
-			selector: 'h2, .entry-content h2',
+			selector: '.entry-content h2',
 			property: 'font-size',
 		} ).cssValueToBe(
 			`${ h2Typography[ 'font-size-h2' ].mobile }${ h2Typography[ 'font-size-h2' ][ 'mobile-unit' ] }`,
 		);
 
 		await expect( {
-			selector: 'h2, .entry-content h2',
+			selector: '.entry-content h2',
 			property: 'line-height',
 		} ).cssValueToBe( `${ h2Typography[ 'line-height-h2' ] }` );
 	} );
