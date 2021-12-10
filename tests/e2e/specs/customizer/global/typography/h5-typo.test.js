@@ -16,9 +16,9 @@ describe( 'Global typography heading 5 settings in the customizer', () => {
 			'font-weight-h5': '400',
 			'text-transform-h5': 'uppercase',
 			'font-size-h5': {
-				desktop: '50',
-				tablet: '50',
-				mobile: '50',
+				desktop: '30',
+				tablet: '20',
+				mobile: '10',
 				'desktop-unit': 'px',
 				'tablet-unit': 'px',
 				'mobile-unit': 'px',
@@ -28,10 +28,10 @@ describe( 'Global typography heading 5 settings in the customizer', () => {
 
 		await setCustomize( heading5Font );
 
-		await createNewPost( { postType: 'post', title: 'heading-5' } );
+		await createNewPost( { postType: 'post', title: 'heading-5-typography-test' } );
 		await setPostContent( TPOGRAPHY_TEST_POST_CONTENT );
 		await publishPost();
-		await page.goto( createURL( 'heading-5' ), {
+		await page.goto( createURL( 'heading-5-typography-test' ), {
 			waitUntil: 'networkidle0',
 		} );
 		await page.waitForSelector( 'h5, .entry-content h5' );
