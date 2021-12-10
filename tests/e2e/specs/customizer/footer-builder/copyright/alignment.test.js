@@ -38,12 +38,12 @@ describe( 'copyright alignment settings in the customizer', () => {
 		} ).cssValueToBe( `${ copyrightAlignment[ 'footer-copyright-alignment' ].mobile }` );
 	} );
 
-	it( 'copyright right alignment should apply correctly', async () => {
+	it( 'copyright center alignment should apply correctly', async () => {
 		const copyrightAlignment = {
 			'footer-copyright-alignment': {
-				desktop: 'right',
-				tablet: 'right',
-				mobile: 'right',
+				desktop: 'center',
+				tablet: 'center',
+				mobile: 'center',
 			},
 		};
 		await setCustomize( copyrightAlignment );
@@ -77,12 +77,12 @@ describe( 'copyright alignment settings in the customizer', () => {
 		} ).cssValueToBe( `${ copyrightAlignment[ 'footer-copyright-alignment' ].mobile }` );
 	} );
 
-	it( 'copyright center alignment should apply correctly', async () => {
+	it( 'copyright right alignment should apply correctly', async () => {
 		const copyrightAlignment = {
 			'footer-copyright-alignment': {
-				desktop: 'center',
-				tablet: 'center',
-				mobile: 'center',
+				desktop: 'right',
+				tablet: 'right',
+				mobile: 'right',
 			},
 		};
 		await setCustomize( copyrightAlignment );
