@@ -7,9 +7,9 @@ describe( 'Search-icon margin in the customizer', () => {
 			'section-header-search-margin': {
 				desktop: {
 					top: '30',
-					right: '30',
-					bottom: '30',
-					left: '30',
+					right: '25',
+					bottom: '20',
+					left: '15',
 				},
 				'desktop-unit': 'px',
 			},
@@ -54,9 +54,9 @@ describe( 'Search-icon margin in the customizer', () => {
 			'section-header-search-margin': {
 				tablet: {
 					top: '50',
-					right: '60',
-					bottom: '50',
-					left: '60',
+					right: '45',
+					bottom: '40',
+					left: '35',
 				},
 				'tablet-unit': 'px',
 			},
@@ -100,6 +100,15 @@ describe( 'Search-icon margin in the customizer', () => {
 
 	it( 'search icon margin for mobile should apply correctly', async () => {
 		const searchiconMargin = {
+			'section-header-search-margin': {
+				mobile: {
+					top: '30',
+					right: '25',
+					bottom: '20',
+					left: '15',
+				},
+				'mobile-unit': 'px',
+			},
 			'header-mobile-items': {
 				above: {
 					above_left: {
@@ -107,15 +116,6 @@ describe( 'Search-icon margin in the customizer', () => {
 
 					},
 				},
-			},
-			'section-header-search-margin': {
-				mobile: {
-					top: '40',
-					right: '40',
-					bottom: '40',
-					left: '40',
-				},
-				'mobile-unit': 'px',
 			},
 		};
 		await setCustomize( searchiconMargin );
