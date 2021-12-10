@@ -24,10 +24,10 @@ describe( 'Global typography H1 settings in the customizer', () => {
 			'line-height-h1': '3px',
 		};
 		await setCustomize( heading1Font );
-		await createNewPost( { postType: 'post', title: 'heading-1-test' } );
+		await createNewPost( { postType: 'post', title: 'heading-1-typography-test' } );
 		await setPostContent( TPOGRAPHY_TEST_POST_CONTENT );
 		await publishPost();
-		await page.goto( createURL( 'heading-1-test' ), {
+		await page.goto( createURL( 'heading-1-typography-test' ), {
 			waitUntil: 'networkidle0',
 		} );
 		await page.waitForSelector( '.entry-content' );
@@ -40,7 +40,7 @@ describe( 'Global typography H1 settings in the customizer', () => {
 			property: 'font-weight',
 		} ).cssValueToBe( `${ heading1Font[ 'font-weight-h1' ] }` );
 		await expect( {
-			selector: 'h1, .entry-content h1',
+			selector: '.entry-content h1',
 			property: 'text-transform',
 		} ).cssValueToBe( `${ heading1Font[ 'text-transform-h1' ] }` );
 		await expect( {
