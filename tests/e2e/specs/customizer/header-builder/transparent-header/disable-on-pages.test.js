@@ -3,8 +3,8 @@ import { setCustomize } from '../../../../utils/customize';
 describe( 'transparent header in the customizer', () => {
 	it( 'disable on pages should apply corectly', async () => {
 		const Disableonpages = {
-			'transparent-header-enable': true,
-			'transparent-header-disable-page': false,
+			'transparent-header-enable': 1,
+			'transparent-header-disable-page': 1,
 		};
 		await setCustomize( Disableonpages );
 		await createNewPost( { postType: 'page', title: 'hello world' } );
