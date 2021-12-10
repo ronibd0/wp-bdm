@@ -6,13 +6,13 @@ describe( 'Testing site background and content background color setting under th
 		const sitebgColors = {
 			'site-layout-outside-bg-obj-responsive': {
 				desktop: {
-					'background-color': 'rgb(255, 255, 255)',
+					'background-color': 'rgb(229, 219, 219)',
 				},
 				tablet: {
 					'background-color': 'rgb(255, 255, 255)',
 				},
 				mobile: {
-					'background-color': 'rgb(255, 255, 255)',
+					'background-color': 'rgb(253, 242, 242)',
 				},
 			},
 		};
@@ -55,7 +55,7 @@ describe( 'Testing site background and content background color setting under th
 					'background-color': 'rgb(240, 255, 240)',
 				},
 				tablet: {
-					'background-color': 'rgb(240, 255, 240)',
+					'background-color': 'rgb(219, 242, 217)',
 				},
 				mobile: {
 					'background-color': 'rgb(240, 255, 240)',
