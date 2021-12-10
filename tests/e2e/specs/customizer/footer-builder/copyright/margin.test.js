@@ -1,35 +1,33 @@
 import { createURL } from '@wordpress/e2e-test-utils';
-import { setCustomize } from '../../../utils/customize';
-import { setBrowserViewport } from '../../../utils/set-browser-viewport';
-import { scrollToElement } from '../../../utils/scroll-to-element';
+import { setCustomize } from '../../../../utils/customize';
+import { setBrowserViewport } from '../../../../utils/set-browser-viewport';
+import { scrollToElement } from '../../../../utils/scroll-to-element';
 describe( 'Copyright Margin setting in customizer', () => {
 	it( 'copyright margin style should apply correctly', async () => {
 		const copyrightmargin = {
 			'section-footer-copyright-margin': {
 				desktop: {
-					top: '50',
-					right: '50',
-					bottom: '50',
-					left: '50',
+					top: '30',
+					right: '27',
+					bottom: '24',
+					left: '21',
 				},
 				tablet: {
-					top: '50',
-					right: '50',
-					bottom: '50',
-					left: '50',
+					top: '20',
+					right: '17',
+					bottom: '14',
+					left: '11',
 				},
 				mobile: {
-					top: '50',
-					right: '50',
-					bottom: '50',
-					left: '50',
+					top: '10',
+					right: '7',
+					bottom: '4',
+					left: '1',
 				},
 				'desktop-unit': 'px',
 				'tablet-unit': 'px',
 				'mobile-unit': 'px',
-
 			},
-
 		};
 		await setCustomize( copyrightmargin );
 
