@@ -12,25 +12,6 @@ describe( 'Copyright Margin setting in customizer', () => {
 					bottom: '24',
 					left: '21',
 				},
-<<<<<<< HEAD:tests/e2e/specs/customizer/copyright/copyright-margin.test.js
-				'desktop-unit': 'px',
-=======
-				tablet: {
-					top: '20',
-					right: '17',
-					bottom: '14',
-					left: '11',
-				},
-				mobile: {
-					top: '10',
-					right: '7',
-					bottom: '4',
-					left: '1',
-				},
-				'desktop-unit': 'px',
-				'tablet-unit': 'px',
-				'mobile-unit': 'px',
->>>>>>> 72e6701b1b161964148331f31fcef31fa3a66d7c:tests/e2e/specs/customizer/footer-builder/copyright/margin.test.js
 			},
 		};
 		await setCustomize( copyrightmargin );
