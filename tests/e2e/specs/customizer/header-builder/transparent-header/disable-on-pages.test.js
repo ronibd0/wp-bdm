@@ -6,8 +6,8 @@ describe( 'transparent header in the customizer', () => {
 			'transparent-header-enable': 1,
 			'transparent-header-disable-archive': {
 				position: 'absolute',
-				left : 0,
-				right : 0,
+				left: 0,
+				right: 0,
 
 			},
 		};
@@ -52,8 +52,8 @@ describe( 'transparent header in the customizer', () => {
 			'transparent-header-enable': 1,
 			'transparent-header-disable-posts': {
 				position: 'absolute',
-				left : 0,
-				right : 0,
+				left: 0,
+				right: 0,
 
 			},
 		};
