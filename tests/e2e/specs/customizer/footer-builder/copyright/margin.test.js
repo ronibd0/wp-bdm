@@ -19,7 +19,6 @@ describe( 'Copyright Margin setting in customizer', () => {
 					primary_2: {
 						0: 'copyright',
 						1: 'social-icons-1',
-
 					},
 				},
 			},
@@ -73,7 +72,6 @@ describe( 'Copyright Margin setting in customizer', () => {
 					primary_2: {
 						0: 'copyright',
 						1: 'social-icons-1',
-
 					},
 				},
 			},
@@ -125,7 +123,6 @@ describe( 'Copyright Margin setting in customizer', () => {
 					primary_2: {
 						0: 'copyright',
 						1: 'social-icons-1',
-
 					},
 				},
 			},
