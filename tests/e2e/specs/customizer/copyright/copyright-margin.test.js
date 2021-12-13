@@ -3,7 +3,7 @@ import { setCustomize } from '../../../utils/customize';
 import { setBrowserViewport } from '../../../utils/set-browser-viewport';
 import { scrollToElement } from '../../../utils/scroll-to-element';
 describe( 'Copyright Margin setting in customizer', () => {
-	it( 'copyright margin style should apply correctly', async () => {
+	it( 'copyright margin for desktop should apply correctly', async () => {
 		const copyrightmargin = {
 			'section-footer-copyright-margin': {
 				desktop: {
@@ -12,22 +12,7 @@ describe( 'Copyright Margin setting in customizer', () => {
 					bottom: '50',
 					left: '50',
 				},
-				tablet: {
-					top: '50',
-					right: '50',
-					bottom: '50',
-					left: '50',
-				},
-				mobile: {
-					top: '50',
-					right: '50',
-					bottom: '50',
-					left: '50',
-				},
 				'desktop-unit': 'px',
-				'tablet-unit': 'px',
-				'mobile-unit': 'px',
-
 			},
 
 		};
@@ -61,8 +46,30 @@ describe( 'Copyright Margin setting in customizer', () => {
 			property: 'margin-left',
 		} ).cssValueToBe( `${ copyrightmargin[ 'section-footer-copyright-margin' ].desktop.left }${ copyrightmargin[ 'section-footer-copyright-margin' ][ 'desktop-unit' ] }`,
 		);
+	} );
+
+	it( 'copyright margin for tablet should apply correctly', async () => {
+		const copyrightmargin = {
+			'section-footer-copyright-margin': {
+				tablet: {
+					top: '50',
+					right: '50',
+					bottom: '50',
+					left: '50',
+				},
+				'tablet-unit': 'px',
+			},
+		};
+		await setCustomize( copyrightmargin );
+
+		await page.goto( createURL( '/' ), {
+			waitUntil: 'networkidle0',
+		} );
+
+		await page.waitForSelector( '.ast-footer-copyright' );
 
 		await setBrowserViewport( 'medium' );
+		await scrollToElement( '#colophon' );
 		await expect( {
 			selector: '.ast-footer-copyright',
 			property: 'margin-top',
@@ -83,8 +90,28 @@ describe( 'Copyright Margin setting in customizer', () => {
 			property: 'margin-left',
 		} ).cssValueToBe( `${ copyrightmargin[ 'section-footer-copyright-margin' ].tablet.left }${ copyrightmargin[ 'section-footer-copyright-margin' ][ 'tablet-unit' ] }`,
 		);
+	} );
+	it( 'copyright margin for mobile should apply correctly', async () => {
+		const copyrightmargin = {
+			'section-footer-copyright-margin': {
+				mobile: {
+					top: '50',
+					right: '50',
+					bottom: '50',
+					left: '50',
+				},
+				'mobile-unit': 'px',
+			},
+		};
+		await setCustomize( copyrightmargin );
 
+		await page.goto( createURL( '/' ), {
+			waitUntil: 'networkidle0',
+		} );
+
+		await page.waitForSelector( '.ast-footer-copyright' );
 		await setBrowserViewport( 'small' );
+		await scrollToElement( '#colophon' );
 		await expect( {
 			selector: '.ast-footer-copyright',
 			property: 'margin-top',
