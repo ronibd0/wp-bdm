@@ -2,16 +2,16 @@ import { createURL } from '@wordpress/e2e-test-utils';
 import { setCustomize } from '../../../../utils/customize';
 import { setBrowserViewport } from '../../../../utils/set-browser-viewport';
 import { scrollToElement } from '../../../../utils/scroll-to-element';
-describe( 'footer html1 block settings in the customizer', () => {
-	it( 'footer html1 margin for desktop should apply correctly', async () => {
+describe( 'footer html-1 block settings in the customizer', () => {
+	it( 'footer html-1 margin for desktop should apply correctly', async () => {
 		const htmlMargin = {
-			'footer-html-1': '<a href="https://wpastra.com/">HTML margin</a>',
+			'footer-html-1': 'Here is HTML-1 element. <a href="https://wpastra.com/"> with anchor link. </a>',
 			'section-fb-html-1-margin': {
 				desktop: {
 					top: 50,
-					right: 50,
-					bottom: 50,
-					left: 60,
+					right: 40,
+					bottom: 30,
+					left: 20,
 				},
 				'desktop-unit': 'px',
 			},
@@ -54,19 +54,19 @@ describe( 'footer html1 block settings in the customizer', () => {
 		);
 	} );
 
-	it( 'footer html1 margin for tablet should apply correctly', async () => {
+	it( 'footer html-1 margin for tablet should apply correctly', async () => {
 		const htmlMargin = {
-			'footer-html-1': '<a href="https://wpastra.com/">HTML margin</a>',
+			'footer-html-1': 'Here is HTML-1 element. <a href="https://wpastra.com/"> with anchor link. </a>',
 			'section-fb-html-1-margin': {
 				tablet: {
-					top: 60,
-					right: 60,
-					bottom: 60,
-					left: 65,
+					top: 40,
+					right: 30,
+					bottom: 20,
+					left: 10,
 				},
 				'tablet-unit': 'px',
 			},
-			'footer-mobile-items': {
+			'footer-desktop-items': {
 				primary: {
 					primary_2: {
 						0: 'html-1',
@@ -105,19 +105,19 @@ describe( 'footer html1 block settings in the customizer', () => {
 		);
 	} );
 
-	it( 'footer html1 margin for mobile should apply correctly', async () => {
+	it( 'footer html-1 margin for mobile should apply correctly', async () => {
 		const htmlMargin = {
-			'footer-html-1': '<a href="https://wpastra.com/">HTML margin</a>',
+			'footer-html-1': 'Here is HTML-1 element. <a href="https://wpastra.com/"> with anchor link. </a>',
 			'section-fb-html-1-margin': {
 				mobile: {
 					top: 30,
-					right: 30,
-					bottom: 30,
-					left: 60,
+					right: 20,
+					bottom: 10,
+					left: 0,
 				},
 				'mobile-unit': 'px',
 			},
-			'footer-mobile-items': {
+			'footer-desktop-items': {
 				primary: {
 					primary_2: {
 						0: 'html-1',
