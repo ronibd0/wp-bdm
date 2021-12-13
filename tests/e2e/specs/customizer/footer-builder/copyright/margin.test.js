@@ -12,25 +12,16 @@ describe( 'Copyright Margin setting in customizer', () => {
 					bottom: '24',
 					left: '21',
 				},
-<<<<<<< HEAD:tests/e2e/specs/customizer/copyright/copyright-margin.test.js
 				'desktop-unit': 'px',
-=======
-				tablet: {
-					top: '20',
-					right: '17',
-					bottom: '14',
-					left: '11',
+			},
+			'footer-desktop-items': {
+				primary: {
+					primary_2: {
+						0: 'copyright',
+						1: 'social-icons-1',
+
+					},
 				},
-				mobile: {
-					top: '10',
-					right: '7',
-					bottom: '4',
-					left: '1',
-				},
-				'desktop-unit': 'px',
-				'tablet-unit': 'px',
-				'mobile-unit': 'px',
->>>>>>> 72e6701b1b161964148331f31fcef31fa3a66d7c:tests/e2e/specs/customizer/footer-builder/copyright/margin.test.js
 			},
 		};
 		await setCustomize( copyrightmargin );
@@ -56,7 +47,8 @@ describe( 'Copyright Margin setting in customizer', () => {
 		await expect( {
 			selector: '.ast-footer-copyright',
 			property: 'margin-bottom',
-		} ).cssValueToBe( `${ copyrightmargin[ 'section-footer-copyright-margin' ].desktop.bottom }${ copyrightmargin[ 'section-footer-copyright-margin' ][ 'desktop-unit' ] }`,
+		} ).cssValueToBe( `${ copyrightmargin[ 'section-footer-copyright-margin' ].desktop.bottom
+		}${ copyrightmargin[ 'section-footer-copyright-margin' ][ 'desktop-unit' ] }`,
 		);
 		await expect( {
 			selector: '.ast-footer-copyright',
@@ -75,6 +67,15 @@ describe( 'Copyright Margin setting in customizer', () => {
 					left: '50',
 				},
 				'tablet-unit': 'px',
+			},
+			'footer-desktop-items': {
+				primary: {
+					primary_2: {
+						0: 'copyright',
+						1: 'social-icons-1',
+
+					},
+				},
 			},
 		};
 		await setCustomize( copyrightmargin );
@@ -118,6 +119,15 @@ describe( 'Copyright Margin setting in customizer', () => {
 					left: '50',
 				},
 				'mobile-unit': 'px',
+			},
+			'footer-desktop-items': {
+				primary: {
+					primary_2: {
+						0: 'copyright',
+						1: 'social-icons-1',
+
+					},
+				},
 			},
 		};
 		await setCustomize( copyrightmargin );
