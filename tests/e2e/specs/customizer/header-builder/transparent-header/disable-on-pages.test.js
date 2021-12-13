@@ -4,7 +4,12 @@ describe( 'transparent header in the customizer', () => {
 	it( 'disable on pages should apply corectly', async () => {
 		const Disableonpages = {
 			'transparent-header-enable': 1,
-			'transparent-header-disable-page': 1,
+			'transparent-header-disable-page': {
+				position: 'absolute',
+				left : 0,
+				right : 0,
+
+			},
 		};
 		await setCustomize( Disableonpages );
 		await createNewPost( { postType: 'page', title: 'hello world' } );
@@ -12,12 +17,12 @@ describe( 'transparent header in the customizer', () => {
 		await page.goto( createURL( '/hello-world/' ), {
 			waitUntil: 'networkidle0',
 		} );
-		await page.waitForSelector( '.ast-theme-transparent-header .main-header-bar' );
+		await page.waitForSelector( '.ast-theme-transparent-header #masthead' );
 
 		await expect( {
-			selector: '.ast-theme-transparent-header .main-header-bar',
-			property: 'display',
+			selector: '.ast-theme-transparent-header #masthead',
+			property: 'position',
 		} ).cssValueToBe(
-			`${ Disableonpages[ 'transparent-header-disable-page' ] }` );
+			`${ Disableonpages[ 'transparent-header-disable-page' ].position }` );
 	} );
 } );
