@@ -12,6 +12,7 @@ describe( 'Copyright Margin setting in customizer', () => {
 					bottom: '24',
 					left: '21',
 				},
+				'desktop-unit': 'px',
 			},
 		};
 		await setCustomize( copyrightmargin );
