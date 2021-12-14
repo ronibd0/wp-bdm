@@ -23,6 +23,60 @@ describe( 'transparent header in the customizer', () => {
 		} ).cssValueToBe(
 			`${ Disableonarchive[ 'transparent-header-disable-archive' ].position }` );
 	} );
+	it( 'disable on blog page should apply corectly', async () => {
+		const Disableonlatestpostpage = {
+			'transparent-header-enable': 1,
+			'transparent-header-disable-index': {
+				position: 'absolute',
+				left : 0,
+				right : 0,
+
+			},
+		};
+		await setCustomize( Disableonlatestpostpage );
+		await createNewPost( { postType: 'post', title: 'sample' } );
+		await publishPost();
+		await createNewPost( { postType: 'post', title: 'test' } );
+		await publishPost();
+		await createNewPost( { postType: 'post', title: 'QA' } );
+		await publishPost();
+		await page.goto( createURL( '/' ), {
+			waitUntil: 'networkidle0',
+		} );
+		await page.waitForSelector( '.ast-theme-transparent-header #masthead' );
+
+		await expect( {
+			selector: '.ast-theme-transparent-header #masthead',
+			property: 'position',
+		} ).cssValueToBe(
+			`${ Disableonlatestpostpage[ 'transparent-header-disable-index' ].position }` );
+	} );
+	it( 'disable on latest posts page should apply corectly', async () => {
+		const Disableonlatestpostpage = {
+			'transparent-header-enable': 1,
+			'transparent-header-disable-latest-posts-index': {
+				position: 'absolute',
+				left : 0,
+				right : 0,
+
+			},
+		};
+		await setCustomize( Disableonlatestpostpage );
+		await createNewPost( { postType: 'post', title: 'sample' } );
+		await publishPost();
+		await createNewPost( { postType: 'post', title: 'test' } );
+		await publishPost();
+		await page.goto( createURL( '/' ), {
+			waitUntil: 'networkidle0',
+		} );
+		await page.waitForSelector( '.ast-theme-transparent-header #masthead' );
+
+		await expect( {
+			selector: '.ast-theme-transparent-header #masthead',
+			property: 'position',
+		} ).cssValueToBe(
+			`${ Disableonlatestpostpage[ 'transparent-header-disable-latest-posts-index' ].position }` );
+	} );
 	it( 'disable on pages should apply corectly', async () => {
 		const Disableonpages = {
 			'transparent-header-enable': 1,
