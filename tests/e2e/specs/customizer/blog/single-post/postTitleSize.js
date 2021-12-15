@@ -32,3 +32,4 @@ describe( 'post title size in the customizer', () => {
 		);
 	} );
 } );
+
