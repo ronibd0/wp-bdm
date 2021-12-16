@@ -1,5 +1,5 @@
 v3.7.6
-- Improvement: Added a new filter 'astra_web_stories_position' to change the position of web stories. ( Needs Doc )
+- Improvement: Added a new filter 'astra_web_stories_position' to change the position of web stories. ( https://wpastra.com/docs/change-web-stories-position/ )
 - Improvement: Builder - Button - Added typography options from Astra Pro to free theme.
 - Fix: Mobile menu does not close when you click a one page navigation link inside them.
 - Fix: Responsive color options from 'color-group-control' are hiding when trying to set them in responsive devices.
