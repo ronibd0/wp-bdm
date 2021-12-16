@@ -9,10 +9,10 @@ describe( 'Primary header background color setting in customizer', () => {
 					'background-color': 'rgb(198, 236, 1)',
 				},
 				tablet: {
-					'background-color': 'rgb(198, 236, 1)',
+					'background-color': 'rgb(198, 126, 1)',
 				},
 				mobile: {
-					'background-color': 'rgb(198, 236, 1)',
+					'background-color': 'rgb(122, 236, 1)',
 				},
 			},
 		};
