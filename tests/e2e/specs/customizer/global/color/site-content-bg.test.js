@@ -48,6 +48,7 @@ describe( 'Testing site background and content background color setting under th
 			`${ sitebgColors[ 'site-layout-outside-bg-obj-responsive' ].mobile[ 'background-color' ] }`,
 		);
 	} );
+
 	it( 'content background color should apply correctly', async () => {
 		const contentColors = {
 			'content-bg-obj-responsive': {
