@@ -20,7 +20,7 @@ describe( 'Testing site background and content background color setting under th
 		await createNewPost( {
 			postType: 'post',
 			title: 'color-test',
-			content: 'this is the text color test',
+			content: 'this is the background color test',
 		} );
 		await publishPost();
 		await page.goto( createURL( 'color-test' ), {
