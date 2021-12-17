@@ -26,10 +26,10 @@ describe( 'Below header margin setting in customizer', () => {
 					left: '45',
 				},
 				tablet: {
-					top: '50',
-					right: '50',
-					bottom: '50',
-					left: '50',
+					top: '15',
+					right: '10',
+					bottom: '15',
+					left: '10',
 				},
 				mobile: {
 					top: '20',
