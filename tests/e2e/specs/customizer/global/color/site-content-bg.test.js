@@ -23,7 +23,7 @@ describe( 'Testing site background and content background color setting under th
 			content: 'this is the background color test',
 		} );
 		await publishPost();
-		await page.goto( createURL( 'color-test' ), {
+		await page.goto( createURL( 'background-color-test' ), {
 			waitUntil: 'networkidle0',
 		} );
 		await page.waitForSelector( '.ast-separate-container' );
@@ -64,7 +64,7 @@ describe( 'Testing site background and content background color setting under th
 			},
 		};
 		await setCustomize( contentColors );
-		await page.goto( createURL( 'color-test' ), {
+		await page.goto( createURL( 'background-color-test' ), {
 			waitUntil: 'networkidle0',
 		} );
 		await page.waitForSelector( '.ast-article-single:not(.ast-related-post)' );
