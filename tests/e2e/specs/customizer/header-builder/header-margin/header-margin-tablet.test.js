@@ -1,7 +1,5 @@
 import {
 	createURL,
-	createNewPost,
-	publishPost,
 } from '@wordpress/e2e-test-utils';
 import { setBrowserViewport } from '../../../../utils/set-browser-viewport';
 import { setCustomize } from '../../../../utils/customize';
