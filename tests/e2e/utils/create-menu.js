@@ -35,12 +35,12 @@ export const createNewMenu = async () => {
 
 	await page.waitForSelector( '.menu-item-depth-0:nth-child(2) .menu-item-handle' );
 
-	const example = await page.$('.menu-item-depth-0:nth-child(2) .menu-item-handle');
-	const bounding_box = await example.boundingBox();
+	const menuToSubMenu = await page.$( '.menu-item-depth-0:nth-child(2) .menu-item-handle' );
+	const boundingBox = await menuToSubMenu.boundingBox();
 
-	await page.mouse.move(bounding_box.x + bounding_box.width / 2, bounding_box.y + bounding_box.height / 2);
+	await page.mouse.move( boundingBox.x + boundingBox.width / 2, boundingBox.y + boundingBox.height / 2 );
 	await page.mouse.down();
-	await page.mouse.move(126, 19);
+	await page.mouse.move( 126, 19 );
 	await page.mouse.up();
 
 	await page.waitForSelector( '#save_menu_footer' );
