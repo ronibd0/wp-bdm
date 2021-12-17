@@ -19,7 +19,7 @@ describe( 'Testing site background and content background color setting under th
 		await setCustomize( sitebgColors );
 		await createNewPost( {
 			postType: 'post',
-			title: 'color-test',
+			title: 'background-color-test',
 			content: 'this is the background color test',
 		} );
 		await publishPost();
