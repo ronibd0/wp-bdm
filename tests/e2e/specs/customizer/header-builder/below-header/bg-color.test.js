@@ -23,10 +23,10 @@ describe( 'Below header background color setting in customizer', () => {
 					'background-color': 'rgb(113, 229, 202)',
 				},
 				tablet: {
-					'background-color': 'rgb(113, 229, 202)',
+					'background-color': 'rgb(113, 115, 202)',
 				},
 				mobile: {
-					'background-color': 'rgb(113, 229, 202)',
+					'background-color': 'rgb(95, 229, 202)',
 				},
 			},
 		};
