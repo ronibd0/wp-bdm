@@ -3,7 +3,7 @@ import { openAstraMetaSettings } from '../../../utils/open-astra-meta-settings';
 import { setBrowserViewport } from '../../../utils/set-browser-viewport';
 import { setCustomize } from '../../../utils/customize';
 describe( 'Astra meta setting', () => {
-	it( 'sidebar, content layout and primary header disable setting', async () => {
+	it( 'sidebar, content layout and header disable setting', async () => {
 		const astraMetaSetting = {
 			'header-desktop-items': {
 				above: {
