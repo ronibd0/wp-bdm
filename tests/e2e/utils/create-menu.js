@@ -1,22 +1,49 @@
-import { createURL } from '@wordpress/e2e-test-utils';
+import { createURL, createNewPost, publishPost } from '@wordpress/e2e-test-utils';
+import { scrollToElement } from './scroll-to-element';
+import { setBrowserViewport } from '../../e2e/utils/set-browser-viewport';
+
 export const createNewMenu = async () => {
+	await createNewPost( {
+		postType: 'page',
+		title: 'Test Page',
+		content: 'This is simple test page',
+	} );
+	await publishPost();
+	await createNewPost( {
+		postType: 'page',
+		title: 'Sub Test Page',
+		content: 'This is simple sub test page',
+	} );
+	await publishPost();
 	await page.goto( createURL( '/wp-admin/nav-menus.php' ), {
 		waitUntil: 'networkidle0',
 	} );
-	//await page.waitForSelector( '#nav-menu-footer' );
+	await setBrowserViewport( 'large' );
+	await scrollToElement( '#nav-menu-footer' );
 	if ( await page.$( '.menu-delete' ) ) {
 		await page.click( '.menu-delete' );
 	}
 	await page.focus( '#menu-name' );
 	await page.type( '#menu-name', 'Menu' );
+	await page.focus( '#locations-primary' );
+	await page.click( '#locations-primary' );
 	await page.click( '#save_menu_footer' );
-	await page.waitForSelector( '.accordion-section-content ' );
+	await page.waitForSelector( '.accordion-section-content' );
 	await page.focus( '#page-tab' );
 	await page.click( '#page-tab' );
 	await page.click( '#submit-posttype-page' );
-	await page.focus( '#locations-footer_menu' );
-	await page.click( '#locations-footer_menu' );
+
+	await page.waitForSelector( '.menu-item-depth-0:nth-child(2) .menu-item-handle' );
+
+	const example = await page.$('.menu-item-depth-0:nth-child(2) .menu-item-handle');
+	const bounding_box = await example.boundingBox();
+
+	await page.mouse.move(bounding_box.x + bounding_box.width / 2, bounding_box.y + bounding_box.height / 2);
+	await page.mouse.down();
+	await page.mouse.move(126, 19);
+	await page.mouse.up();
+
+	await page.waitForSelector( '#save_menu_footer' );
 	await page.focus( '#save_menu_footer' );
 	await page.click( '#save_menu_footer' );
-	await page.setDragInterception( true );
 };
