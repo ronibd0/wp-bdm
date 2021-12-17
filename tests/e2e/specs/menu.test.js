@@ -7,19 +7,7 @@ import { setCustomize } from '../utils/customize';
 
 describe( 'Hello World', () => {
 	it( 'elementor Hello, World!', async () => {
-		// await createNewElementorPost( 'page' );
-		// await insertSection();
-		// await insertWidget( {
-		// 	widgetName: 'Retina Image',
-		// 	section: 1,
-		// 	column: 1,
-		// } );
-
-		// await publishPage();
-		// await viewPage();
-
 		await createNewMenu();
-
 		//center alignment for desktop, tablet and mobile
 		const headerMenuAlignment = {
 			'header-desktop-items': {
@@ -34,9 +22,7 @@ describe( 'Hello World', () => {
 		await page.goto( createURL( '/' ), {
 			waitUntil: 'networkidle0',
 		} );
-
 		await page.waitForSelector( '#primary-site-navigation' );
-
 		await expect( true ).toBe( true );
 	} );
 } );
