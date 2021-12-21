@@ -4,9 +4,8 @@
 import { createURL } from '@wordpress/e2e-test-utils';
 import { createNewMenu } from '../utils/create-menu';
 import { setCustomize } from '../utils/customize';
-
-describe( 'Hello World', () => {
-	it( 'elementor Hello, World!', async () => {
+describe( 'Add sub menu for primary', () => {
+	it( 'sub menu should be added successfully', async () => {
 		await createNewMenu();
 		//center alignment for desktop, tablet and mobile
 		const headerMenuAlignment = {
