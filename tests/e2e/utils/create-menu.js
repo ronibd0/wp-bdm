@@ -22,7 +22,7 @@ export const createNewMenu = async () => {
 	await scrollToElement( '#nav-menu-footer' );
 	if ( await page.$( '.menu-delete' ) ) {
 		await page.click( '.menu-delete' );
-	};
+	}
 	await page.focus( '#menu-name' );
 	await page.type( '#menu-name', 'Menu' );
 	await page.focus( '#locations-primary' );
