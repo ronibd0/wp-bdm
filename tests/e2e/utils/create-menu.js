@@ -22,11 +22,12 @@ export const createNewMenu = async () => {
 	await scrollToElement( '#nav-menu-footer' );
 	if ( await page.$( '.menu-delete' ) ) {
 		await page.click( '.menu-delete' );
-	}
+	};
 	await page.focus( '#menu-name' );
 	await page.type( '#menu-name', 'Menu' );
 	await page.focus( '#locations-primary' );
 	await page.click( '#locations-primary' );
+	await page.focus( '#save_menu_footer' );
 	await page.click( '#save_menu_footer' );
 	await page.waitForSelector( '.accordion-section-content' );
 	await page.focus( '#page-tab' );
@@ -38,7 +39,7 @@ export const createNewMenu = async () => {
 	const menuToSubMenu = await page.$( '.menu-item-depth-0:nth-child(2) .menu-item-handle' );
 	const boundingBox = await menuToSubMenu.boundingBox();
 
-	await page.mouse.move( ( boundingBox.x + boundingBox.width ) / 2, ( boundingBox.y + boundingBox.height ) / 2 );
+	await page.mouse.move( boundingBox.x + ( boundingBox.width / 2 ), boundingBox.y + ( boundingBox.height / 2 ) );
 	await page.mouse.down();
 	await page.mouse.move( 126, 19 );
 	await page.mouse.up();
