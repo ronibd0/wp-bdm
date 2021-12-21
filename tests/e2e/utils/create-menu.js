@@ -38,7 +38,7 @@ export const createNewMenu = async () => {
 	const menuToSubMenu = await page.$( '.menu-item-depth-0:nth-child(2) .menu-item-handle' );
 	const boundingBox = await menuToSubMenu.boundingBox();
 
-	await page.mouse.move( boundingBox.x + boundingBox.width / 2, boundingBox.y + boundingBox.height / 2 );
+	await page.mouse.move( ( boundingBox.x + boundingBox.width ) / 2, ( boundingBox.y + boundingBox.height ) / 2 );
 	await page.mouse.down();
 	await page.mouse.move( 126, 19 );
 	await page.mouse.up();
