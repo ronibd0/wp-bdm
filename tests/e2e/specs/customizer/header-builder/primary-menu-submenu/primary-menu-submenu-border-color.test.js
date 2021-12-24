@@ -21,8 +21,9 @@ describe( 'Add sub menu for primary menu and add border to the sub menu', () => 
 		await page.waitForSelector( '#primary-site-navigation' );
 		await expect( true ).toBe( true );
 	} );
-	it( 'border to the submenu should be added correctly', async () => {
+	it( 'border color to the submenu should be added correctly', async () => {
 		const submenuBorder = {
+			'header-menu1-submenu-b-color': 'rgb(242, 33, 217)',
 			'header-menu1-submenu-border': {
 				top: 10,
 				bottom: 10,
@@ -37,27 +38,9 @@ describe( 'Add sub menu for primary menu and add border to the sub menu', () => 
 		await page.hover( '.menu-link' );
 		await expect( {
 			selector: '.sub-menu',
-			property: 'border-top-width',
+			property: 'border-color',
 		} ).cssValueToBe(
-			`${ submenuBorder[ 'header-menu1-submenu-border' ].top + 'px' }`,
-		);
-		await expect( {
-			selector: '.sub-menu',
-			property: 'border-left-width',
-		} ).cssValueToBe(
-			`${ submenuBorder[ 'header-menu1-submenu-border' ].left + 'px' }`,
-		);
-		await expect( {
-			selector: '.sub-menu',
-			property: 'border-bottom-width',
-		} ).cssValueToBe(
-			`${ submenuBorder[ 'header-menu1-submenu-border' ].bottom + 'px' }`,
-		);
-		await expect( {
-			selector: '.sub-menu',
-			property: 'border-right-width',
-		} ).cssValueToBe(
-			`${ submenuBorder[ 'header-menu1-submenu-border' ].right + 'px' }`,
+			`${ submenuBorder[ 'header-menu1-submenu-b-color' ] }`,
 		);
 	} );
 } );
