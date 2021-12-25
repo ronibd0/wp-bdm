@@ -1,26 +1,20 @@
 import { createURL, createNewPost, publishPost } from '@wordpress/e2e-test-utils';
 import { setCustomize } from '../../../../utils/customize';
-describe( 'transparent header logo settings in the customizer', () => {
-	it( 'logo width should apply correctly', async () => {
-		const logoWidth = {
+describe( 'single post in the customizer', () => {
+	it( 'structure should apply corectly', async () => {
+		const SinglepostStructure = {
 			'blog-single-post-structure': {
-				1: 'single-title-meta',
+				'single-title-meta': 1,
 			},
 		};
-		await setCustomize( logoWidth );
-		await createNewPost( {
-			postType: 'post',
-			title: 'sample-page',
-
-		} );
+		await setCustomize( SinglepostStructure );
+		await createNewPost( { postType: 'post', title: 'hello world' } );
 		await publishPost();
 		await page.goto( createURL( '/hello-world/' ), {
 			waitUntil: 'networkidle0',
 		} );
-		await page.waitForSelector( 'article' );
-		await expect( {
-			selector: 'article',
-			property: 'display',
-		} ).cssValueToBe( `${ logoWidth[ 'blog-single-post-structure' ] }` );
+		await page.waitForSelector( '.entry-header' );
+		const titleMeta = await page.$eval( '.entry-header', ( element ) => element.getAttribute( '.ast-single-post-order' ) );
+		await expect( titleMeta ).toBeNull( );
 	} );
 } );
