@@ -4,8 +4,10 @@ describe( 'single post in the customizer', () => {
 	it( 'structure should apply corectly', async () => {
 		const SinglepostMeta = {
 			'blog-single-meta': {
-				comments: 1,
-				category: 1,
+				0: 'comments',
+				1: 'category',
+				2: 'author',
+				3: 'date',
 			},
 		};
 		await setCustomize( SinglepostMeta );
@@ -15,7 +17,19 @@ describe( 'single post in the customizer', () => {
 			waitUntil: 'networkidle0',
 		} );
 		await page.waitForSelector( '.entry-meta' );
-		const Meta = await page.$eval( '.entry-meta', ( element ) => element.getAttribute( '.comments-link' ) );
-		await expect( Meta ).toBeNull( );
+		const Comment = await page.$eval( '.entry-meta', ( element ) => element.getAttribute( '.comments-link' ) );
+		await expect( Comment ).toBeNull();
+
+		await page.waitForSelector( '.entry-meta' );
+		const Category = await page.$eval( '.entry-meta', ( element ) => element.getAttribute( '.cat-links' ) );
+		await expect( Category ).toBeNull();
+
+		await page.waitForSelector( '.entry-meta' );
+		const Author = await page.$eval( '.entry-meta', ( element ) => element.getAttribute( '.author-name' ) );
+		await expect( Author ).toBeNull();
+
+		await page.waitForSelector( '.entry-meta' );
+		const Date = await page.$eval( '.entry-meta', ( element ) => element.getAttribute( 'posted-on' ) );
+		await expect( Date ).toBeNull();
 	} );
 } );
