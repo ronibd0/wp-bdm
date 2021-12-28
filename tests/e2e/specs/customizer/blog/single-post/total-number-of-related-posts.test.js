@@ -1,12 +1,12 @@
 import { createURL, createNewPost, publishPost } from '@wordpress/e2e-test-utils';
 import { setCustomize } from '../../../../utils/customize';
-describe( 'Single post font option under the customizer', () => {
-	it( 'related post structure option should apply correctly', async () => {
-		const relatedpostStructure = {
+describe( 'Single post option under the customizer', () => {
+	it( 'total number of related post option should apply correctly', async () => {
+		const Numberofpost = {
 			'enable-related-posts': true,
 			'related-posts-total-count': 3,
 		};
-		await setCustomize( relatedpostStructure );
+		await setCustomize( Numberofpost );
 		await createNewPost( {
 			postType: 'post',
 			title: 'sample-post',
@@ -34,7 +34,7 @@ describe( 'Single post font option under the customizer', () => {
 			window.scrollBy( 0, window.innerHeight );
 		} );
 		await page.waitForSelector( '.ast-related-posts-wrapper .ast-related-post' );
-		const RelatedtitleMeta = await page.$eval( '.ast-related-posts-wrapper .ast-related-post', ( element ) => element.getAttribute( '.ast-related-post-content' ) );
-		await expect( RelatedtitleMeta ).toBeNull( );
+		const posts = await page.$eval( '.ast-related-posts-wrapper .ast-related-post', ( element ) => element.getAttribute( '.ast-related-post-content' ) );
+		await expect( posts ).toBeNull( );
 	} );
 } );
