@@ -1,3 +1,5 @@
+/* eslint-disable eslint-comments/disable-enable-pair */
+/* eslint-disable no-console */
 import { createURL, publishPost } from '@wordpress/e2e-test-utils';
 import { openAstraMetaSettings } from '../../../utils/open-astra-meta-settings';
 import { setBrowserViewport } from '../../../utils/set-browser-viewport';
@@ -23,6 +25,7 @@ describe( 'Astra meta setting', () => {
 				},
 			},
 		};
+		let result = null;
 		await setCustomize( astraMetaSetting );
 		await openAstraMetaSettings();
 		//sidebar setting
@@ -36,32 +39,18 @@ describe( 'Astra meta setting', () => {
 		await page.goto( createURL( 'meta' ), {
 			waitUntil: 'networkidle0',
 		} );
-
-		//assertion for above header
-		await page.waitForSelector( '.ast-above-header-bar' );
-		await expect( {
-			selector: '.ast-above-header-bar',
-			property: 'display',
-		} ).cssValueToBe( `block`,
-		);
-
-		//assertion for primary header
-		await page.waitForSelector( '#ast-desktop-header .ast-desktop-header-content' );
-		await expect( {
-			selector: '#ast-desktop-header .ast-desktop-header-content',
-			property: 'display',
-		} ).cssValueToBe( `none`,
-		);
-
-		//assertion for below header
-		await page.waitForSelector( '.ast-below-header-bar' );
-		await expect( {
-			selector: '.ast-below-header-bar',
-			property: 'display',
-		} ).cssValueToBe( `block`,
-		);
+		const primaryHeader = await page.evaluate( () => {
+			// !! converts to boolean value
+			return !! document.querySelector( '#ast-desktop-header .ast-desktop-header-content' );
+		} );
+		if ( primaryHeader ) {
+			result = 'Primary_Header_Disabled';
+		} else {
+			console.log( result );
+		}
+		console.log( result );
+		await expect( result ).toBe( 'Primary_Header_Disabled' );
 	} );
-
 	//Above header disable
 	it( 'sidebar, content layout settings and above header disable setting', async () => {
 		const astraMetaSetting = {
@@ -69,7 +58,6 @@ describe( 'Astra meta setting', () => {
 				above: {
 					above_left: {
 						0: 'menu-2',
-
 					},
 				},
 				primary: {
@@ -84,6 +72,7 @@ describe( 'Astra meta setting', () => {
 				},
 			},
 		};
+		let result = null;
 		await setCustomize( astraMetaSetting );
 		await openAstraMetaSettings();
 		//above header disable
@@ -93,28 +82,17 @@ describe( 'Astra meta setting', () => {
 		await page.goto( createURL( 'meta' ), {
 			waitUntil: 'networkidle0',
 		} );
-
-		//assertion for above header
-		// await page.waitForSelector( '.ast-above-header-bar' );
-		// await expect( {
-		// 	selector: '.ast-above-header-bar',
-		// 	property: 'display',
-		// } ).cssValueToBe( `none`,
-		// );
-		await page.waitForSelector( '.ast-primary-header-bar' );
-		await expect( {
-			selector: '.ast-primary-header-bar',
-			property: 'display',
-		} ).cssValueToBe( `block`,
-		);
-
-		//assertion for below header
-		await page.waitForSelector( '.ast-below-header-bar' );
-		await expect( {
-			selector: '.ast-below-header-bar',
-			property: 'display',
-		} ).cssValueToBe( `block`,
-		);
+		const aboveHeaderClass = await page.evaluate( () => {
+			// !! converts to boolean value
+			return !! document.querySelector( '.ast-above-header-bar' );
+		} );
+		if ( aboveHeaderClass ) {
+			result = 'Above_Header_Disabled';
+		} else {
+			console.log( result );
+		}
+		console.log( result );
+		await expect( result ).toBe( 'Above_Header_Disabled' );
 	} );
 	//Disable below header
 	it( 'disable below header setting', async () => {
@@ -138,6 +116,8 @@ describe( 'Astra meta setting', () => {
 				},
 			},
 		};
+		let result = null;
+		let mobileHeaderResult = null;
 		await setCustomize( astraMetaSetting );
 		await openAstraMetaSettings();
 		//below header disable
@@ -150,24 +130,30 @@ describe( 'Astra meta setting', () => {
 			{
 				waitUntil: 'networkidle0',
 			} );
-		//assertion for disable below header
-		// await page.waitForSelector( '.ast-below-header-bar' );
-		// await expect( {
-		// 	selector: '.ast-below-header-bar',
-		// 	property: 'display',
-		// } ).cssValueToBe( `block`,
-		// );
+		const belowHeaderClass = await page.evaluate( () => {
+			// !! converts to boolean value
+			return !! document.querySelector( '.ast-below-header-bar' );
+		} );
+		if ( belowHeaderClass ) {
+			result = 'Below_Header_Disabled';
+		} else {
+			console.log( result );
+		}
+		console.log( result );
+		await expect( result ).toBe( 'Below_Header_Disabled' );
+
+		//assertion for mobile header
 		await setBrowserViewport( 'medium' );
-		await page.waitForSelector( '.ast-mobile-header-wrap .ast-mobile-header-content' );
-		await expect( {
-			selector: '.ast-mobile-header-wrap .ast-mobile-header-content',
-			property: 'display',
-		} ).cssValueToBe( `none` );
-		await setBrowserViewport( 'small' );
-		await page.waitForSelector( '.ast-mobile-header-wrap .ast-mobile-header-content' );
-		await expect( {
-			selector: '.ast-mobile-header-wrap .ast-mobile-header-content',
-			property: 'display',
-		} ).cssValueToBe( `none` );
+		const mobileHeaderClass = await page.evaluate( () => {
+			// !! converts to boolean value
+			return !! document.querySelector( '.ast-mobile-header-wrap .ast-mobile-header-content' );
+		} );
+		if ( mobileHeaderClass ) {
+			mobileHeaderResult = 'Mobile_Header_Disabled';
+		} else {
+			console.log( mobileHeaderResult );
+		}
+		console.log( mobileHeaderResult );
+		await expect( mobileHeaderResult ).toBe( 'Mobile_Header_Disabled' );
 	} );
 } );
