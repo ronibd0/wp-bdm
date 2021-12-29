@@ -2,7 +2,6 @@
 /* eslint-disable no-console */
 import { createURL, publishPost } from '@wordpress/e2e-test-utils';
 import { openAstraMetaSettings } from '../../../utils/open-astra-meta-settings';
-import { setBrowserViewport } from '../../../utils/set-browser-viewport';
 import { setCustomize } from '../../../utils/customize';
 describe( 'Astra meta setting', () => {
 	it( 'sidebar, content layout and header disable setting', async () => {
@@ -41,7 +40,7 @@ describe( 'Astra meta setting', () => {
 		} );
 		const primaryHeader = await page.evaluate( () => {
 			// !! converts to boolean value
-			return !! document.querySelector( '#ast-desktop-header .ast-desktop-header-content' );
+			return !! document.querySelector( '.ast-primary-header-bar' );
 		} );
 		if ( primaryHeader ) {
 			result = 'Primary_Header_Disabled';
@@ -117,14 +116,10 @@ describe( 'Astra meta setting', () => {
 			},
 		};
 		let result = null;
-		let mobileHeaderResult = null;
 		await setCustomize( astraMetaSetting );
 		await openAstraMetaSettings();
 		//below header disable
 		await page.click( '#astra_settings_meta_box > div:nth-child(5) > div.components-base-control.components-toggle-control.ast-hfb-below-header-display.css-wdf2ti-Wrapper.e1puf3u0' );
-
-		// mobile header disable
-		await page.click( '#astra_settings_meta_box > div:nth-child(5) > div.components-base-control.components-toggle-control.ast-hfb-mobile-header-display.css-wdf2ti-Wrapper.e1puf3u0' );
 		await publishPost();
 		await page.goto( createURL( 'meta' ),
 			{
@@ -141,19 +136,5 @@ describe( 'Astra meta setting', () => {
 		}
 		console.log( result );
 		await expect( result ).toBe( 'Below_Header_Disabled' );
-
-		//assertion for mobile header
-		await setBrowserViewport( 'medium' );
-		const mobileHeaderClass = await page.evaluate( () => {
-			// !! converts to boolean value
-			return !! document.querySelector( '.ast-mobile-header-wrap .ast-mobile-header-content' );
-		} );
-		if ( mobileHeaderClass ) {
-			mobileHeaderResult = 'Mobile_Header_Disabled';
-		} else {
-			console.log( mobileHeaderResult );
-		}
-		console.log( mobileHeaderResult );
-		await expect( mobileHeaderResult ).toBe( 'Mobile_Header_Disabled' );
 	} );
 } );
