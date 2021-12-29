@@ -13,8 +13,8 @@ describe( 'blog archive in the customizer', () => {
 		await page.goto( createURL( '/author/admin' ), {
 			waitUntil: 'networkidle0',
 		} );
-		await page.waitForSelector( '.entry-header' );
-		const title = await page.$eval( '.entry-header', ( element ) => element.getAttribute( '.ast-post-format- ast-no-thumb blog-layout-1' ) );
+		await page.waitForSelector( '.blog-layout-1 .post-content' );
+		const title = await page.$eval( '.blog-layout-1 .post-content', ( element ) => element.getAttribute( '.entry-header' ) );
 		await expect( title ).toBeNull( );
 	} );
 } );
