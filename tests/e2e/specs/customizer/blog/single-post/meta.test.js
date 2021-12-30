@@ -16,8 +16,6 @@ describe( 'single post in the customizer', () => {
 		await page.click( '#editor > div.edit-post-layout.is-mode-visual.is-sidebar-opened.interface-interface-skeleton.has-footer > div.interface-interface-skeleton__editor > div.interface-interface-skeleton__body > div.interface-interface-skeleton__sidebar > div > div.components-panel > div:nth-child(4) > h2 > button' );
 		await page.click( '#editor > div.edit-post-layout.is-mode-visual.is-sidebar-opened.interface-interface-skeleton.has-footer > div.interface-interface-skeleton__editor > div.interface-interface-skeleton__body > div.interface-interface-skeleton__sidebar > div > div.components-panel > div:nth-child(4) > div > div' );
 		await page.type( '.components-form-token-field__input-container', 'Articles' );
-		//await page.waitForSelector( '.components-form-token-field__input-container' );
-		//await page.click( '.components-form-token-field__suggestion' );
 		await publishPost();
 		await page.goto( createURL( '/hello-world' ), {
 			waitUntil: 'networkidle0',
