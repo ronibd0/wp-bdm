@@ -4,34 +4,22 @@ describe( 'transparent header in the customizer', () => {
 	it( 'disable on archive should apply corectly', async () => {
 		const Disableonarchive = {
 			'transparent-header-enable': 1,
-			'transparent-header-disable-archive': {
-				position: 'absolute',
-				left: 0,
-				right: 0,
-
-			},
+			'transparent-header-disable-archive': 0,
 		};
 		await setCustomize( Disableonarchive );
 		await page.goto( createURL( '/author/admin' ), {
 			waitUntil: 'networkidle0',
 		} );
 		await page.waitForSelector( '.ast-theme-transparent-header #masthead' );
-
 		await expect( {
 			selector: '.ast-theme-transparent-header #masthead',
 			property: 'position',
-		} ).cssValueToBe(
-			`${ Disableonarchive[ 'transparent-header-disable-archive' ].position }` );
+		} ).cssValueToBe( `absolute` );
 	} );
 	it( 'disable on latest posts page should apply corectly', async () => {
 		const Disableonlatestpostpage = {
 			'transparent-header-enable': 1,
-			'transparent-header-disable-latest-posts-index': {
-				position: 'absolute',
-				left: 0,
-				right: 0,
-
-			},
+			'transparent-header-disable-latest-posts-index': 0,
 		};
 		await setCustomize( Disableonlatestpostpage );
 		await createNewPost( { postType: 'post', title: 'sample' } );
@@ -46,18 +34,12 @@ describe( 'transparent header in the customizer', () => {
 		await expect( {
 			selector: '.ast-theme-transparent-header #masthead',
 			property: 'position',
-		} ).cssValueToBe(
-			`${ Disableonlatestpostpage[ 'transparent-header-disable-latest-posts-index' ].position }` );
+		} ).cssValueToBe( `absolute` );
 	} );
 	it( 'disable on pages should apply corectly', async () => {
 		const Disableonpages = {
 			'transparent-header-enable': 1,
-			'transparent-header-disable-page': {
-				position: 'absolute',
-				left: 0,
-				right: 0,
-
-			},
+			'transparent-header-disable-page': 0,
 		};
 		await setCustomize( Disableonpages );
 		await createNewPost( { postType: 'page', title: 'hello world' } );
@@ -70,18 +52,12 @@ describe( 'transparent header in the customizer', () => {
 		await expect( {
 			selector: '.ast-theme-transparent-header #masthead',
 			property: 'position',
-		} ).cssValueToBe(
-			`${ Disableonpages[ 'transparent-header-disable-page' ].position }` );
+		} ).cssValueToBe( `absolute` );
 	} );
 	it( 'disable on posts should apply corectly', async () => {
 		const Disableonposts = {
 			'transparent-header-enable': 1,
-			'transparent-header-disable-posts': {
-				position: 'absolute',
-				left: 0,
-				right: 0,
-
-			},
+			'transparent-header-disable-posts': 0,
 		};
 		await setCustomize( Disableonposts );
 		await createNewPost( { postType: 'post', title: 'QA' } );
@@ -94,7 +70,6 @@ describe( 'transparent header in the customizer', () => {
 		await expect( {
 			selector: '.ast-theme-transparent-header #masthead',
 			property: 'position',
-		} ).cssValueToBe(
-			`${ Disableonposts[ 'transparent-header-disable-posts' ].position }` );
+		} ).cssValueToBe( `absolute` );
 	} );
 } );
