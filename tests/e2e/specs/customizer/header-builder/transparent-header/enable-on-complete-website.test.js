@@ -28,7 +28,7 @@ describe( 'transparent header in the customizer', () => {
 		await page.goto( createURL( '/' ), {
 			waitUntil: 'networkidle0',
 		} );
-		await page.click( '.widget_search .search-form .search-field' );
+		await page.click( '.widget_search .search-form' );
 		await page.keyboard.type( 'test' );
 		await page.keyboard.press( 'Enter' );
 		await page.waitForSelector( '.ast-theme-transparent-header' );
