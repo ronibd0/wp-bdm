@@ -22,15 +22,18 @@ describe( 'transparent header in the customizer', () => {
 		const disable404 = await page.$eval( '.ast-theme-transparent-header', ( element ) => element.getAttribute( '.ast-theme-transparent-header #masthead' ) );
 		await expect( disable404 ).toBeNull( );
 
-	// await setCustomize( Disableonarchive );
-	// await createNewPost( { postType: 'post', title: 'test' } );
-	// await publishPost();
-	// await page.goto( createURL( '/?s=test' ), {
-	// 	waitUntil: 'networkidle0',
-	// } );
-	// await page.waitForSelector( '.ast-theme-transparent-header' );
-	// const disableSearch = await page.$eval( '.ast-theme-transparent-header', ( element ) => element.getAttribute( '.ast-theme-transparent-header #masthead' ) );
-	// await expect( disableSearch ).toBeNull( );
+		await setCustomize( Disableonarchive );
+		await createNewPost( { postType: 'post', title: 'test' } );
+		await publishPost();
+		await page.goto( createURL( '/' ), {
+			waitUntil: 'networkidle0',
+		} );
+		await page.click( '.widget_search .search-form .search-field' );
+		await page.keyboard.type( 'test' );
+		await page.keyboard.press( 'Enter' );
+		await page.waitForSelector( '.ast-theme-transparent-header' );
+		const disableSearch = await page.$eval( '.ast-theme-transparent-header', ( element ) => element.getAttribute( '.ast-theme-transparent-header #masthead' ) );
+		await expect( disableSearch ).toBeNull( );
 	} );
 	it( 'enable on blog page should apply corectly', async () => {
 		const Disableonblogpage = {
