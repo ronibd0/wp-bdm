@@ -22,15 +22,30 @@ describe( 'transparent header in the customizer', () => {
 		const disable404 = await page.$eval( '.ast-theme-transparent-header', ( element ) => element.getAttribute( '.ast-theme-transparent-header #masthead' ) );
 		await expect( disable404 ).toBeNull( );
 
-		// await setCustomize( Disableonarchive );
-		// await createNewPost( { postType: 'post', title: 'test' } );
-		// await publishPost();
-		// await page.goto( createURL( '/?s=test' ), {
-		// 	waitUntil: 'networkidle0',
-		// } );
-		// await page.waitForSelector( '.ast-theme-transparent-header' );
-		// const disableSearch = await page.$eval( '.ast-theme-transparent-header', ( element ) => element.getAttribute( '.ast-theme-transparent-header #masthead' ) );
-		// await expect( disableSearch ).toBeNull( );
+	// await setCustomize( Disableonarchive );
+	// await createNewPost( { postType: 'post', title: 'test' } );
+	// await publishPost();
+	// await page.goto( createURL( '/?s=test' ), {
+	// 	waitUntil: 'networkidle0',
+	// } );
+	// await page.waitForSelector( '.ast-theme-transparent-header' );
+	// const disableSearch = await page.$eval( '.ast-theme-transparent-header', ( element ) => element.getAttribute( '.ast-theme-transparent-header #masthead' ) );
+	// await expect( disableSearch ).toBeNull( );
+	} );
+	it( 'enable on blog page should apply corectly', async () => {
+		const Disableonblogpage = {
+			'transparent-header-enable': 1,
+			'transparent-header-disable-index': 0,
+		};
+		await setCustomize( Disableonblogpage );
+		await createNewPost( { postType: 'post', title: 'test' } );
+		await publishPost();
+		await page.goto( createURL( '/test' ), {
+			waitUntil: 'networkidle0',
+		} );
+		await page.waitForSelector( '.ast-theme-transparent-header' );
+		const disableblog = await page.$eval( '.ast-theme-transparent-header', ( element ) => element.getAttribute( '.ast-theme-transparent-header #masthead' ) );
+		await expect( disableblog ).toBeNull( );
 	} );
 	it( 'enable on latest posts page should apply corectly', async () => {
 		const Disableonlatestpostpage = {
