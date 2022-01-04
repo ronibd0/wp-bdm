@@ -1,8 +1,8 @@
 import { createURL,
-	createNewPost,
 	publishPost,
 } from '@wordpress/e2e-test-utils';
-import { setCustomize } from '../../../utils/customize';
+import { setCustomize } from '../../utils/customize';
+import { openAstraMetaSettings } from '../../utils/open-astra-meta-setting';
 
 describe( 'site layout meta setting', () => {
 	it( 'site layout meta setting', async () => {
@@ -10,19 +10,13 @@ describe( 'site layout meta setting', () => {
 			'site-post-title': 'disabled',
 		};
 		await setCustomize( astraMetaSetting );
-		await createNewPost( {
-			postType: 'page',
-			title: 'QA',
-		} );
-		//Astra button setting click action
-		await page.waitForSelector( '.interface-pinned-items .components-button:not(:first-child)' );
-		await page.click( '.interface-pinned-items .components-button:not(:first-child)' );
+		await openAstraMetaSettings();
 		//title disable
 		await page.evaluate( () => {
 			[ ...document.querySelectorAll( '.ast-sidebar-layout-meta-wrap .components-toggle-control__label' ) ].find( ( element ) => element.textContent === 'Disable Title' ).click();
 		} );
 		await publishPost();
-		await page.goto( createURL( '/qa' ), {
+		await page.goto( createURL( '/meta' ), {
 			waitUntil: 'networkidle0',
 		} );
 
