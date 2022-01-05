@@ -3976,9 +3976,12 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'.astra-mobile-cart-overlay, #astra-mobile-cart-drawer' => array(
 						'display' => 'none',
 					),
+					'.ast-mobile-cart-active body.ast-hfb-header' => array(
+						'overflow' => 'unset',
+					),
 				);
-				$cart_static_css               .= astra_parse_css( $hide_mobile_tablet_cart_flyout, '', astra_get_tablet_breakpoint() );
-				$cart_static_css               .= astra_parse_css( $hide_mobile_tablet_cart_flyout, '', astra_get_mobile_breakpoint() );
+				$cart_static_css               .= astra_parse_css( $hide_mobile_tablet_cart_flyout, '', strval( astra_get_tablet_breakpoint() ) );
+				$cart_static_css               .= astra_parse_css( $hide_mobile_tablet_cart_flyout, '', strval( astra_get_mobile_breakpoint() ) );
 			}
 
 			return $cart_static_css;
