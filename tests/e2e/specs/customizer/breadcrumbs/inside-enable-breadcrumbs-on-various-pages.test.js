@@ -42,7 +42,7 @@ describe( 'breadcrumb settings in the customizer', () => {
 		await page.goto( createURL( '/' ), {
 			waitUntil: 'networkidle0',
 		} );
-		await page.click( '.widget_search .search-form' );
+		await page.click( '.widget_search .search-field' );
 		await page.keyboard.type( 'test' );
 		await page.keyboard.press( 'Enter' );
 		await page.waitForSelector( '.ast-breadcrumbs-wrapper' );
