@@ -32,8 +32,9 @@ describe( 'Astra meta setting', () => {
 		//content layout
 		await page.click( '#astra_settings_meta_box > div:nth-child(3) > div > div > div > div.components-input-control__container.css-ygaqem-Container.e1cr7zh11' );
 		//primary header
-		await page.click( '#astra_settings_meta_box > div:nth-child(5) > div.components-base-control.components-toggle-control.ast-main-header-display.css-wdf2ti-Wrapper.e1puf3u0' );
-
+		await page.evaluate( () => {
+			[ ...document.querySelectorAll( '.ast-sidebar-layout-meta-wrap .components-toggle-control__label' ) ].find( ( element ) => element.textContent === 'Disable Primary Header' ).click();
+		} );
 		await publishPost();
 		await page.goto( createURL( 'meta' ), {
 			waitUntil: 'networkidle0',
@@ -75,8 +76,9 @@ describe( 'Astra meta setting', () => {
 		await setCustomize( astraMetaSetting );
 		await openAstraMetaSettings();
 		//above header disable
-		await page.click( '#astra_settings_meta_box > div:nth-child(5) > div.components-base-control.components-toggle-control.ast-hfb-above-header-display.css-wdf2ti-Wrapper.e1puf3u0' );
-
+		await page.evaluate( () => {
+			[ ...document.querySelectorAll( '.ast-sidebar-layout-meta-wrap .components-toggle-control__label' ) ].find( ( element ) => element.textContent === 'Disable Above Header' ).click();
+		} );
 		await publishPost();
 		await page.goto( createURL( 'meta' ), {
 			waitUntil: 'networkidle0',
@@ -119,7 +121,9 @@ describe( 'Astra meta setting', () => {
 		await setCustomize( astraMetaSetting );
 		await openAstraMetaSettings();
 		//below header disable
-		await page.click( '#astra_settings_meta_box > div:nth-child(5) > div.components-base-control.components-toggle-control.ast-hfb-below-header-display.css-wdf2ti-Wrapper.e1puf3u0' );
+		await page.evaluate( () => {
+			[ ...document.querySelectorAll( '.ast-sidebar-layout-meta-wrap .components-toggle-control__label' ) ].find( ( element ) => element.textContent === 'Disable Below Header' ).click();
+		} );
 		await publishPost();
 		await page.goto( createURL( 'meta' ),
 			{
