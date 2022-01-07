@@ -40,7 +40,8 @@ describe( 'Astra meta setting', () => {
 			waitUntil: 'networkidle0',
 		} );
 		const primaryHeader = await page.evaluate( () => {
-			// !! converts to boolean value
+			// !! converts to boolean  value
+
 			return !! document.querySelector( '.ast-primary-header-bar' );
 		} );
 		if ( primaryHeader ) {
