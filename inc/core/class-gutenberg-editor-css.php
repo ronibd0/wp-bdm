@@ -1170,12 +1170,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 
 			if ( true === $improve_gb_ui ) {
 				$boxed_editor_content_area = '.ast-separate-container .block-editor-block-list__layout.is-root-container, .ast-max-width-layout.ast-plain-container .edit-post-visual-editor .block-editor-block-list__layout.is-root-container, .ast-separate-container .editor-post-title, .ast-two-container .editor-post-title';
-
-				$boxed_container = array(
-					'.ast-separate-container .editor-post-title' => array(
-						'margin-bottom' => '-35px',
-					),
-				);
+				$boxed_container           = array();
 			}
 
 			$boxed_container_tablet = array();
