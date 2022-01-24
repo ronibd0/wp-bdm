@@ -1,4 +1,5 @@
 v3.7.7 (WP-5.9 release compatibility unreleased update)
+- Fix: Column figure blocks overlapping on one another in block editor.
 - Fix: Color picker module ui breaking
 
 v3.7.6
