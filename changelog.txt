@@ -4,6 +4,7 @@ v3.7.7 (WP-5.9 release compatibility unreleased update)
 - Fix: Color picker's UI breaking in customizer & in block editor.
 - Fix: Gradient picker's UI breaking inside color picker.
 - Fix: Column figure blocks overlapping on one another in block editor.
+- Fix: WooCommerce - Variation product label is not align properly with WooCommerce 6.1 version.
 - Fix: Gradient picker module ui inside color picker.
 
 v3.7.6
