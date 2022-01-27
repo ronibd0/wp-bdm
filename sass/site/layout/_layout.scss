@@ -162,3 +162,13 @@ body{
 		}
 	}
 }
+
+.ast-single-entry-banner {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	text-align: center;
+	position: relative;
+	padding: 50px;
+	background: #e8dada;
+}

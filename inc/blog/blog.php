@@ -390,3 +390,83 @@ if ( ! function_exists( 'astra_get_video_from_post' ) ) {
 		}
 	}
 }
+
+/**
+ * Get last word of string to get metakey of custom post structure.
+ *
+ * @since x.x.x
+ * @param string $string.
+ * @return string $last_word.
+ */
+function ast_get_last_meta_word( $string ) {
+	$string = explode( '-', $string );
+	$last_word = array_pop( $string );
+	return $last_word;
+}
+
+/**
+ * Custom single post Title & Meta order display.
+ *
+ * @since x.x.x
+ * @param array $structure.
+ * @return mixed
+ */
+function astra_banner_order_markup( $structure ) {
+	if( ! is_array( $structure ) || empty( $structure ) ) {
+		return;
+	}
+
+	$prefix = 'archive';
+	if ( is_single() ) {
+		$prefix = 'single';
+	}
+
+	foreach ( $structure as $metaval ) {
+		$meta_key  = $prefix . '-' . ast_get_last_meta_word( $metaval );
+
+		switch ( $meta_key ) {
+			case 'single-breadcrumb':
+				do_action( 'astra_single_post_banner_breadcrumb_before' );
+				echo astra_get_breadcrumb();
+				do_action( 'astra_single_post_banner_breadcrumb_after' );
+			break;
+
+			case 'single-title':
+				do_action( 'astra_single_post_banner_title_before' );
+				astra_the_title(
+					'<h1 class="entry-title" ' . astra_attr(
+						'article-title-blog-single',
+						array(
+							'class' => '',
+						)
+					) . '>',
+					'</h1>'
+				);
+				do_action( 'astra_single_post_banner_title_before' );
+			break;
+
+			case 'single-excerpt':
+				do_action( 'astra_single_post_banner_excerpt_before' );
+				echo get_the_excerpt( get_the_ID() );
+				do_action( 'astra_single_post_banner_excerpt_before' );
+			break;
+
+			case 'single-meta':
+				do_action( 'astra_single_post_banner_meta_before' );
+
+				$post_type = get_post_type();
+				$post_meta  = astra_get_option( 'single-' . $post_type . '-metadata' );
+				$output = '';
+				if ( ! empty( $post_meta ) ) {
+					$output_str = astra_get_post_meta( $post_meta );
+					if ( ! empty( $output_str ) ) {
+						$output = apply_filters( 'astra_single_banner_post_meta', '<div class="entry-meta">' . $output_str . '</div>', $output_str ); // WPCS: XSS OK.
+					}
+				}
+				echo $output; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+
+				do_action( 'astra_single_post_banner_meta_before' );
+			break;
+		}
+	}
+}
