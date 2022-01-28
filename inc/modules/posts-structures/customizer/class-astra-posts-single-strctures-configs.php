@@ -115,7 +115,6 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 					'section'           => $section,
 					'default'    => astra_get_option( $section . '-banner-width-type', 'fullwidth' ),
 					'priority'   => 10,
-					'context'           => Astra_Builder_Helper::$general_tab,
 					'title'      => __( 'Container Width', 'astra' ),
 					'choices'    => array(
 						'fullwidth' => __( 'Full Width', 'astra' ),
@@ -125,6 +124,15 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 					'transport'  => 'postMessage',
 					'responsive' => false,
 					'renderAs'   => 'text',
+					'context'   => array(
+						Astra_Builder_Helper::$general_tab_config,
+						'relation' => 'AND',
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[' . $section . '-layout]',
+							'operator' => '===',
+							'value'    => 'layout-2',
+						),
+					),
 				),
 
 				/**
@@ -139,6 +147,12 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 					'default'     => astra_get_option( $section . '-banner-custom-width', 1200 ),
 					'context'     => array(
 						Astra_Builder_Helper::$general_tab_config,
+						'relation' => 'AND',
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[' . $section . '-layout]',
+							'operator' => '===',
+							'value'    => 'layout-2',
+						),
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[' . $section . '-banner-width-type]',
 							'operator' => '===',
@@ -165,7 +179,15 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 					'section'           => $section,
 					'default'    => astra_get_option( $section . '-banner-image-type', 'none' ),
 					'priority'   => 20,
-					'context'           => Astra_Builder_Helper::$general_tab,
+					'context'   => array(
+						Astra_Builder_Helper::$general_tab_config,
+						'relation' => 'AND',
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[' . $section . '-layout]',
+							'operator' => '===',
+							'value'    => 'layout-2',
+						),
+					),
 					'title'      => __( 'Container Background', 'astra' ),
 					'choices'    => array(
 						'none'  => __( 'None', 'astra' ),
@@ -192,6 +214,12 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 					'priority'  => 25,
 					'context'           => array(
 						Astra_Builder_Helper::$general_tab_config,
+						'relation' => 'AND',
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[' . $section . '-layout]',
+							'operator' => '===',
+							'value'    => 'layout-2',
+						),
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[' . $section . '-banner-image-type]',
 							'operator' => '===',
@@ -208,12 +236,17 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 					'type'     => 'control',
 					'control'  => 'ast-color',
 					'section'  => $section,
-					'context'  => Astra_Builder_Helper::$general_tab,
 					'default'  => astra_get_option( $section . '-banner-featured-overlay' ),
 					'priority' => 30,
 					'title'    => __( 'Overlay Color', 'astra' ),
 					'context'           => array(
 						Astra_Builder_Helper::$general_tab_config,
+						'relation' => 'AND',
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[' . $section . '-layout]',
+							'operator' => '===',
+							'value'    => 'layout-2',
+						),
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[' . $section . '-banner-image-type]',
 							'operator' => '===',
@@ -231,7 +264,15 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 					'control'           => 'ast-sortable',
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_multi_choices' ),
 					'section'           => $section,
-					'context'   		=> Astra_Builder_Helper::$general_tab,
+					'context'   => array(
+						Astra_Builder_Helper::$general_tab_config,
+						'relation' => 'AND',
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[' . $section . '-layout]',
+							'operator' => '===',
+							'value'    => 'layout-2',
+						),
+					),
 					'default'           => astra_get_option( $section . '-structure', array( $section . '-title', $section . '-breadcrumb' ) ),
 					'priority'          => 35,
 					'title'             => __( 'Structure', 'astra' ),
@@ -252,6 +293,12 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 					'default'           => astra_get_option( $section . '-metadata', array( 'comments', 'author', 'date' ) ),
 					'context'           => array(
 						Astra_Builder_Helper::$general_tab_config,
+						'relation' => 'AND',
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[' . $section . '-layout]',
+							'operator' => '===',
+							'value'    => 'layout-2',
+						),
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[' . $section . '-structure]',
 							'operator' => 'contains',
@@ -283,6 +330,12 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 					'choices'    => $taxonomies,
 					'context'           => array(
 						Astra_Builder_Helper::$general_tab_config,
+						'relation' => 'AND',
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[' . $section . '-layout]',
+							'operator' => '===',
+							'value'    => 'layout-2',
+						),
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[' . $section . '-metadata]',
 							'operator' => 'contains',
@@ -303,7 +356,15 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 					'section'           => $section,
 					'priority'  => 45,
 					'title'     => __( 'Content Alignment', 'astra' ),
-					'context'   => Astra_Builder_Helper::$general_tab,
+					'context'   => array(
+						Astra_Builder_Helper::$general_tab_config,
+						'relation' => 'AND',
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[' . $section . '-layout]',
+							'operator' => '===',
+							'value'    => 'layout-2',
+						),
+					),
 					'transport' => 'postMessage',
 					'choices'   => array(
 						'left'   => 'align-left',
@@ -329,7 +390,15 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 						'center'     => __( 'Middle', 'astra' ),
 						'flex-end'   => __( 'Bottom', 'astra' ),
 					),
-					'context'    => Astra_Builder_Helper::$general_tab,
+					'context'   => array(
+						Astra_Builder_Helper::$general_tab_config,
+						'relation' => 'AND',
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[' . $section . '-layout]',
+							'operator' => '===',
+							'value'    => 'layout-2',
+						),
+					),
 					'transport'  => 'postMessage',
 					'renderAs'   => 'text',
 					'responsive' => false,
