@@ -37,6 +37,61 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 	public function register_configuration( $configurations, $wp_customize ) {
 
 		$post_types = Astra_Posts_Strctures_Loader::get_supported_post_types();
+		$responsive_bg_default = array(
+			'desktop' => array(
+				'background-color'      => '',
+				'background-image'      => '',
+				'background-repeat'     => 'repeat',
+				'background-position'   => 'center center',
+				'background-size'       => 'auto',
+				'background-attachment' => 'scroll',
+				'background-type'       => '',
+				'background-media'      => '',
+			),
+			'tablet'  => array(
+				'background-color'      => '',
+				'background-image'      => '',
+				'background-repeat'     => 'repeat',
+				'background-position'   => 'center center',
+				'background-size'       => 'auto',
+				'background-attachment' => 'scroll',
+				'background-type'       => '',
+				'background-media'      => '',
+			),
+			'mobile'  => array(
+				'background-color'      => '',
+				'background-image'      => '',
+				'background-repeat'     => 'repeat',
+				'background-position'   => 'center center',
+				'background-size'       => 'auto',
+				'background-attachment' => 'scroll',
+				'background-type'       => '',
+				'background-media'      => '',
+			),
+		);
+		$spacing_default = array(
+			'desktop'      => array(
+				'top'    => '',
+				'right'  => '',
+				'bottom' => '',
+				'left'   => '',
+			),
+			'tablet'       => array(
+				'top'    => '',
+				'right'  => '',
+				'bottom' => '',
+				'left'   => '',
+			),
+			'mobile'       => array(
+				'top'    => '',
+				'right'  => '',
+				'bottom' => '',
+				'left'   => '',
+			),
+			'desktop-unit' => 'px',
+			'tablet-unit'  => 'px',
+			'mobile-unit'  => 'px',
+		);
 
 		foreach ( $post_types as $index => $post_type ) {
 
@@ -81,6 +136,25 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 				),
 
 				/**
+				 * Option: Builder Tabs
+				 */
+				array(
+					'name'        => $section . '-ast-context-tabs',
+					'section'     => $section,
+					'type'        => 'control',
+					'control'     => 'ast-builder-header-control',
+					'priority'    => 0,
+					'description' => '',
+					'context'     => array(
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[' . $section . '-layout]',
+							'operator' => '===',
+							'value'    => 'layout-2',
+						),
+					),
+				),
+
+				/**
 				 * Layout option.
 				 */
 				array(
@@ -121,7 +195,6 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 						'custom'    => __( 'Custom', 'astra' ),
 					),
 					'divider'    => array( 'ast_class' => 'ast-top-divider' ),
-					'transport'  => 'postMessage',
 					'responsive' => false,
 					'renderAs'   => 'text',
 					'context'    => array(
@@ -195,7 +268,6 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 						'featured' => __( 'Featured Image', 'astra' ),
 					),
 					'divider'    => array( 'ast_class' => 'ast-top-divider' ),
-					'transport'  => 'postMessage',
 					'responsive' => false,
 					'renderAs'   => 'text',
 				),
@@ -205,7 +277,7 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 				 */
 				array(
 					'name'      => ASTRA_THEME_SETTINGS . '[' . $section . '-banner-custom-bg]',
-					'default'   => astra_get_option( 'content-bg-obj-responsive' ),
+					'default'   => astra_get_option( $section . '-banner-custom-bg', $responsive_bg_default ),
 					'type'      => 'control',
 					'control'   => 'ast-responsive-background',
 					'section'   => $section,
@@ -236,7 +308,7 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 					'type'     => 'control',
 					'control'  => 'ast-color',
 					'section'  => $section,
-					'default'  => astra_get_option( $section . '-banner-featured-overlay' ),
+					'default'  => astra_get_option( $section . '-banner-featured-overlay', '' ),
 					'priority' => 30,
 					'title'    => __( 'Overlay Color', 'astra' ),
 					'context'  => array(
@@ -269,7 +341,7 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 						'relation' => 'AND',
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[' . $section . '-layout]',
-							'operator' => '===',
+							'operator' => '==',
 							'value'    => 'layout-2',
 						),
 					),
@@ -296,7 +368,7 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 						'relation' => 'AND',
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[' . $section . '-layout]',
-							'operator' => '===',
+							'operator' => '==',
 							'value'    => 'layout-2',
 						),
 						array(
@@ -333,7 +405,7 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 						'relation' => 'AND',
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[' . $section . '-layout]',
-							'operator' => '===',
+							'operator' => '==',
 							'value'    => 'layout-2',
 						),
 						array(
@@ -350,7 +422,7 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 				 */
 				array(
 					'name'      => ASTRA_THEME_SETTINGS . '[' . $section . '-horizontal-alignment]',
-					'default'   => astra_get_option( $section . '-horizontal-alignment', 'center' ),
+					'default'   => astra_get_option( $section . '-horizontal-alignment' ),
 					'type'      => 'control',
 					'control'   => 'ast-selector',
 					'section'   => $section,
@@ -361,7 +433,7 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 						'relation' => 'AND',
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[' . $section . '-layout]',
-							'operator' => '===',
+							'operator' => '==',
 							'value'    => 'layout-2',
 						),
 					),
@@ -395,13 +467,166 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 						'relation' => 'AND',
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[' . $section . '-layout]',
-							'operator' => '===',
+							'operator' => '==',
 							'value'    => 'layout-2',
 						),
 					),
 					'transport'  => 'postMessage',
 					'renderAs'   => 'text',
 					'responsive' => false,
+				),
+
+				/**
+				 * Option: Text Color
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[' . $section . '-banner-text-color]',
+					'type'     => 'control',
+					'control'  => 'ast-color',
+					'section'    => $section,
+					'default'  => astra_get_option( $section . '-banner-text-color' ),
+					'priority' => 5,
+					'title'    => __( 'Text Color', 'astra' ),
+					'transport'  => 'postMessage',
+					'context'   => array(
+						Astra_Builder_Helper::$design_tab_config,
+						'relation' => 'AND',
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[' . $section . '-layout]',
+							'operator' => '==',
+							'value'    => 'layout-2',
+						),
+					),
+				),
+
+				/**
+				 * Option: Title Color
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[' . $section . '-banner-title-color]',
+					'type'     => 'control',
+					'control'  => 'ast-color',
+					'section'    => $section,
+					'default'  => astra_get_option( $section . '-banner-title-color' ),
+					'transport'  => 'postMessage',
+					'priority' => 10,
+					'title'    => __( 'Title Color', 'astra' ),
+					'context'   => array(
+						Astra_Builder_Helper::$design_tab_config,
+						'relation' => 'AND',
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[' . $section . '-layout]',
+							'operator' => '==',
+							'value'    => 'layout-2',
+						),
+					),
+				),
+
+				/**
+				 * Option: Link Color
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[' . $section . '-banner-link-color]',
+					'type'     => 'control',
+					'control'  => 'ast-color',
+					'section'    => $section,
+					'default'  => astra_get_option( $section . '-banner-link-color' ),
+					'transport'  => 'postMessage',
+					'priority' => 15,
+					'title'    => __( 'Link Color', 'astra' ),
+					'context'   => array(
+						Astra_Builder_Helper::$design_tab_config,
+						'relation' => 'AND',
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[' . $section . '-layout]',
+							'operator' => '==',
+							'value'    => 'layout-2',
+						),
+					),
+				),
+
+				/**
+				 * Option: Link Hover Color
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[' . $section . '-banner-link-hover-color]',
+					'type'     => 'control',
+					'control'  => 'ast-color',
+					'section'    => $section,
+					'default'  => astra_get_option( $section . '-banner-link-hover-color' ),
+					'transport'  => 'postMessage',
+					'priority' => 20,
+					'title'    => __( 'Link Hover Color', 'astra' ),
+					'divider'    => array( 'ast_class' => 'ast-bottom-divider' ),
+					'context'   => array(
+						Astra_Builder_Helper::$design_tab_config,
+						'relation' => 'AND',
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[' . $section . '-layout]',
+							'operator' => '==',
+							'value'    => 'layout-2',
+						),
+					),
+				),
+
+				array(
+					'name'              => ASTRA_THEME_SETTINGS . '[' . $section . '-banner-margin]',
+					'default'           => astra_get_option( $section . '-banner-margin', $spacing_default ),
+					'type'              => 'control',
+					'control'           => 'ast-responsive-spacing',
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_spacing' ),
+					'section'    => $section,
+					'title'             => __( 'Margin', 'astra' ),
+					'linked_choices'    => true,
+					'transport'         => 'postMessage',
+					'unit_choices'      => array( 'px', 'em', '%' ),
+					'choices'           => array(
+						'top'    => __( 'Top', 'astra' ),
+						'right'  => __( 'Right', 'astra' ),
+						'bottom' => __( 'Bottom', 'astra' ),
+						'left'   => __( 'Left', 'astra' ),
+					),
+					'context'    => array(
+						Astra_Builder_Helper::$design_tab_config,
+						'relation' => 'AND',
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[' . $section . '-layout]',
+							'operator' => '==',
+							'value'    => 'layout-2',
+						),
+					),
+					'priority'          => 100,
+					'connected'         => false,
+				),
+
+				array(
+					'name'              => ASTRA_THEME_SETTINGS . '[' . $section . '-banner-padding]',
+					'default'           => astra_get_option( $section . '-banner-padding', $spacing_default ),
+					'type'              => 'control',
+					'control'           => 'ast-responsive-spacing',
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_spacing' ),
+					'section'    => $section,
+					'title'             => __( 'Padding', 'astra' ),
+					'linked_choices'    => true,
+					'transport'         => 'postMessage',
+					'unit_choices'      => array( 'px', 'em', '%' ),
+					'choices'           => array(
+						'top'    => __( 'Top', 'astra' ),
+						'right'  => __( 'Right', 'astra' ),
+						'bottom' => __( 'Bottom', 'astra' ),
+						'left'   => __( 'Left', 'astra' ),
+					),
+					'context'    => array(
+						Astra_Builder_Helper::$design_tab_config,
+						'relation' => 'AND',
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[' . $section . '-layout]',
+							'operator' => '==',
+							'value'    => 'layout-2',
+						),
+					),
+					'priority'          => 120,
+					'connected'         => false,
 				),
 			);
 

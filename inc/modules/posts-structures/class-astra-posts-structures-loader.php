@@ -42,6 +42,7 @@ class Astra_Posts_Strctures_Loader {
 	public function __construct() {
 		add_action( 'customize_register', array( $this, 'posts_strctures_customize_register' ), 2 );
 		add_action( 'astra_get_fonts', array( $this, 'add_fonts' ), 1 );
+		add_action( 'customize_preview_init', array( $this, 'preview_scripts' ) );
 	}
 
 	/**
@@ -86,8 +87,8 @@ class Astra_Posts_Strctures_Loader {
 				array(
 					'public'   => true,
 					'_builtin' => false,
-				) 
-			) 
+				)
+			)
 		);
 
 		$queried_post_types[] = 'page';
@@ -120,7 +121,7 @@ class Astra_Posts_Strctures_Loader {
 				'sfwd-certificates',
 				'sfwd-quiz',
 				'e-landing-page',
-			) 
+			)
 		);
 
 		$supported_post_types = array_reverse( array_unique( $queried_post_types ) );
@@ -136,6 +137,30 @@ class Astra_Posts_Strctures_Loader {
 		// Remove till here.
 
 		return apply_filters( 'astra_dynamic_posts_strctures_query_posttypes', $supported_post_types );
+	}
+
+	/**
+	 * Customizer preview support.
+	 *
+	 * @since x.x.x
+	 */
+	public function preview_scripts() {
+		/**
+		 * Load unminified if SCRIPT_DEBUG is true.
+		 * Directory and Extension.
+		 */
+		$dir_name    = ( SCRIPT_DEBUG ) ? 'unminified' : 'minified';
+		$file_prefix = ( SCRIPT_DEBUG ) ? '' : '.min';
+		wp_enqueue_script( 'astra-post-strctures-customizer-preview', ASTRA_THEME_POST_STRUCTURE_URI . 'assets/js/' . $dir_name . '/customizer-preview' . $file_prefix . '.js', array( 'customize-preview', 'astra-customizer-preview-js' ), ASTRA_THEME_VERSION, true );
+
+		// Localize variables for further JS.
+		wp_localize_script(
+			'astra-post-strctures-customizer-preview',
+			'AstraPostStrcturesData',
+			array(
+				'post_types' => self::get_supported_post_types(),
+			)
+		);
 	}
 }
 
