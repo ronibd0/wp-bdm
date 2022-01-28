@@ -49,7 +49,7 @@ class Astra_Posts_Archive_Strctures_Configs extends Astra_Customizer_Config_Base
 				 */
 				array(
 					'name'     => $section,
-					'title'    => __( 'Archive ', 'astra' ) .  $label,
+					'title'    => __( 'Archive ', 'astra' ) . ucfirst( $label ),
 					'section'  => 'section-posttype-' . $label,
 					'type'     => 'section',
 					'priority' => 10,

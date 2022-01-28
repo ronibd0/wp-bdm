@@ -427,7 +427,7 @@ function astra_banner_order_markup( $structure ) {
 		switch ( $meta_key ) {
 			case 'single-breadcrumb':
 				do_action( 'astra_single_post_banner_breadcrumb_before' );
-				echo astra_get_breadcrumb();
+				echo astra_get_breadcrumb(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 				do_action( 'astra_single_post_banner_breadcrumb_after' );
 			break;
 
@@ -447,7 +447,7 @@ function astra_banner_order_markup( $structure ) {
 
 			case 'single-excerpt':
 				do_action( 'astra_single_post_banner_excerpt_before' );
-				echo get_the_excerpt( get_the_ID() );
+				echo get_the_excerpt( get_the_ID() ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 				do_action( 'astra_single_post_banner_excerpt_before' );
 			break;
 
@@ -455,7 +455,7 @@ function astra_banner_order_markup( $structure ) {
 				do_action( 'astra_single_post_banner_meta_before' );
 
 				$post_type = get_post_type();
-				$post_meta  = astra_get_option( 'single-' . $post_type . '-metadata' );
+				$post_meta  = astra_get_option( 'single-' . $post_type . '-metadata', array( 'comments', 'author', 'date' ) );
 				$output = '';
 				if ( ! empty( $post_meta ) ) {
 					$output_str = astra_get_post_meta( $post_meta );

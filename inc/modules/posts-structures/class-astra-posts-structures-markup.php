@@ -51,7 +51,7 @@ class Astra_Posts_Strctures_Markup {
 
 		$layout_type = astra_get_option( 'single-' . $post_type . '-layout', 'layout-1' );
 
-		if( is_singular( $post_type ) && 'layout-2' === $layout_type ) {
+		if( is_single() && 'layout-2' === $layout_type ) {
 
 			do_action( 'astra_before_single_' . $post_type . '_banner_content' );
 

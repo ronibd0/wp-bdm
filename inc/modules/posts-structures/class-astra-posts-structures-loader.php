@@ -116,9 +116,19 @@ class Astra_Posts_Strctures_Loader {
 			'e-landing-page'
 		) );
 
-		$supported_post_types = array_unique( $queried_post_types );
+		$supported_post_types = array_reverse( array_unique( $queried_post_types ) );
 
-		return apply_filters( 'astra_dynamic_posts_strctures_query_posttypes', array_reverse( $supported_post_types ) );
+		/**
+		 * Adding post & product support as of now, once dynamic custom post types finalized we will remove this code.
+		 */
+		// Start removing.
+		$supported_post_types = array( 'post' );
+		if ( function_exists( 'is_product' ) ) {
+			$supported_post_types[] = 'product';
+		}
+		// Remove till here.
+
+		return apply_filters( 'astra_dynamic_posts_strctures_query_posttypes', $supported_post_types );
 	}
 }
 

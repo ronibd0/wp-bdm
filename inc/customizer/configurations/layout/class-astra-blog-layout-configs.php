@@ -33,6 +33,22 @@ if ( ! class_exists( 'Astra_Blog_Layout_Configs' ) ) {
 			$_configs = array(
 
 				/**
+				 * Link to the Post type's Archive Post stcrure.
+				 */
+				array(
+					'name'           => ASTRA_THEME_SETTINGS . '[archive-post-banner-section-link]',
+					'type'           => 'control',
+					'control'        => 'ast-customizer-link',
+					'section'        => 'section-blog',
+					'priority'       => 5,
+					'link_type'      => 'section',
+					'is_button_link' => true,
+					'linked'         => 'archive-post',
+					'context'        => Astra_Builder_Helper::$general_tab,
+					'link_text'      => __( 'Design Banner Section', 'astra' ),
+				),
+
+				/**
 				 * Option: Blog Content Width
 				 */
 				array(

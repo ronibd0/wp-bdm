@@ -33,6 +33,22 @@ if ( ! class_exists( 'Astra_Blog_Single_Layout_Configs' ) ) {
 			$_configs = array(
 
 				/**
+				 * Link to the Post type's Single Post stcrure.
+				 */
+				array(
+					'name'           => ASTRA_THEME_SETTINGS . '[single-post-banner-section-link]',
+					'type'           => 'control',
+					'control'        => 'ast-customizer-link',
+					'section'        => 'section-blog-single',
+					'priority'       => 5,
+					'link_type'      => 'section',
+					'is_button_link' => true,
+					'linked'         => 'single-post',
+					'context'        => Astra_Builder_Helper::$general_tab,
+					'link_text'      => __( 'Design Banner Section', 'astra' ),
+				),
+
+				/**
 				 * Option: Single Post Content Width
 				 */
 				array(

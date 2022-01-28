@@ -42,10 +42,17 @@ class Astra_Posts_Strctures_Configs extends Astra_Customizer_Config_Base {
 
 			$_configs = array(
 				array(
+					'name'             => 'post-types-section-separator',
+					'type'             => 'section',
+					'ast_type'         => 'ast-section-separator',
+					'priority'         => 68,
+					'section_callback' => 'Astra_WP_Customize_Separator',
+				),
+				array(
 					'name'     => 'section-posts-strctures',
 					'type'     => 'section',
-					'priority' => 55,
-					'title'    => __( 'Posts Strcture', 'astra' ),
+					'priority' => 69,
+					'title'    => __( 'Posts Types', 'astra' ),
 				),
 			);
 
