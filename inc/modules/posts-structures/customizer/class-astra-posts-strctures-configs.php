@@ -41,13 +41,13 @@ class Astra_Posts_Strctures_Configs extends Astra_Customizer_Config_Base {
 		if( ! empty( $post_types ) ) {
 
 			$_configs = array(
-				array(
-					'name'             => 'post-types-section-separator',
-					'type'             => 'section',
-					'ast_type'         => 'ast-section-separator',
-					'priority'         => 68,
-					'section_callback' => 'Astra_WP_Customize_Separator',
-				),
+				// array(
+				// 	'name'             => 'post-types-section-separator',
+				// 	'type'             => 'section',
+				// 	'ast_type'         => 'ast-section-separator',
+				// 	'priority'         => 68,
+				// 	'section_callback' => 'Astra_WP_Customize_Separator',
+				// ),
 				array(
 					'name'     => 'section-posts-strctures',
 					'type'     => 'section',

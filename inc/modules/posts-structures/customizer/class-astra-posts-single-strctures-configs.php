@@ -59,6 +59,14 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 
 			$section = 'single-' . $post_type;
 
+			if( 'product' === $post_type ) {
+				$parent_section = 'section-woo-shop-single';
+			} elseif ( 'post' === $post_type ) {
+				$parent_section = 'section-blog-single';
+			} else {
+				$parent_section = 'section-posttype-' . $post_type;
+			}
+
 			$_configs = array(
 
 				/**
@@ -67,7 +75,7 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 				array(
 					'name'     => $section,
 					'title'    => __( 'Single ', 'astra' ) . ucfirst( $post_type ),
-					'section'  => 'section-posttype-' . $post_type,
+					'section'  => $parent_section,
 					'type'     => 'section',
 					'priority' => 5,
 				),
