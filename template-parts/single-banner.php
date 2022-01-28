@@ -18,12 +18,12 @@ if ( is_customize_preview() ) {
 }
 
 $data_attrs = 'data-post-type="' . $post_type . '"';
-if( 'custom' === astra_get_option( 'ast-single-' . $post_type . '-banner-width-type', 'fullwidth' ) ) {
+if ( 'custom' === astra_get_option( 'ast-single-' . $post_type . '-banner-width-type', 'fullwidth' ) ) {
 	$data_attrs .= 'data-banner-width-type="custom"';
 }
 
 $background_type = astra_get_option( 'ast-single-' . $post_type . '-banner-image-type', 'none' );
-if( 'none' !== $background_type ) {
+if ( 'none' !== $background_type ) {
 	$data_attrs .= 'data-banner-background-type="' . $background_type . '"';
 }
 

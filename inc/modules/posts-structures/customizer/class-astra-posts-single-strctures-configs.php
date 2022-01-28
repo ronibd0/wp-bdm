@@ -36,7 +36,7 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 	 */
 	public function register_configuration( $configurations, $wp_customize ) {
 
-		$post_types = Astra_Posts_Strctures_Loader::get_supported_post_types();
+		$post_types            = Astra_Posts_Strctures_Loader::get_supported_post_types();
 		$responsive_bg_default = array(
 			'desktop' => array(
 				'background-color'      => '',
@@ -69,7 +69,7 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 				'background-media'      => '',
 			),
 		);
-		$spacing_default = array(
+		$spacing_default       = array(
 			'desktop'      => array(
 				'top'    => '',
 				'right'  => '',
@@ -480,14 +480,14 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 				 * Option: Text Color
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[' . $section . '-banner-text-color]',
-					'type'     => 'control',
-					'control'  => 'ast-color',
-					'section'    => $section,
-					'default'  => astra_get_option( $section . '-banner-text-color' ),
-					'priority' => 5,
-					'title'    => __( 'Text Color', 'astra' ),
-					'transport'  => 'postMessage',
+					'name'      => ASTRA_THEME_SETTINGS . '[' . $section . '-banner-text-color]',
+					'type'      => 'control',
+					'control'   => 'ast-color',
+					'section'   => $section,
+					'default'   => astra_get_option( $section . '-banner-text-color' ),
+					'priority'  => 5,
+					'title'     => __( 'Text Color', 'astra' ),
+					'transport' => 'postMessage',
 					'context'   => array(
 						Astra_Builder_Helper::$design_tab_config,
 						'relation' => 'AND',
@@ -503,14 +503,14 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 				 * Option: Title Color
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[' . $section . '-banner-title-color]',
-					'type'     => 'control',
-					'control'  => 'ast-color',
-					'section'    => $section,
-					'default'  => astra_get_option( $section . '-banner-title-color' ),
-					'transport'  => 'postMessage',
-					'priority' => 10,
-					'title'    => __( 'Title Color', 'astra' ),
+					'name'      => ASTRA_THEME_SETTINGS . '[' . $section . '-banner-title-color]',
+					'type'      => 'control',
+					'control'   => 'ast-color',
+					'section'   => $section,
+					'default'   => astra_get_option( $section . '-banner-title-color' ),
+					'transport' => 'postMessage',
+					'priority'  => 10,
+					'title'     => __( 'Title Color', 'astra' ),
 					'context'   => array(
 						Astra_Builder_Helper::$design_tab_config,
 						'relation' => 'AND',
@@ -526,14 +526,14 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 				 * Option: Link Color
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[' . $section . '-banner-link-color]',
-					'type'     => 'control',
-					'control'  => 'ast-color',
-					'section'    => $section,
-					'default'  => astra_get_option( $section . '-banner-link-color' ),
-					'transport'  => 'postMessage',
-					'priority' => 15,
-					'title'    => __( 'Link Color', 'astra' ),
+					'name'      => ASTRA_THEME_SETTINGS . '[' . $section . '-banner-link-color]',
+					'type'      => 'control',
+					'control'   => 'ast-color',
+					'section'   => $section,
+					'default'   => astra_get_option( $section . '-banner-link-color' ),
+					'transport' => 'postMessage',
+					'priority'  => 15,
+					'title'     => __( 'Link Color', 'astra' ),
 					'context'   => array(
 						Astra_Builder_Helper::$design_tab_config,
 						'relation' => 'AND',
@@ -549,15 +549,15 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 				 * Option: Link Hover Color
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[' . $section . '-banner-link-hover-color]',
-					'type'     => 'control',
-					'control'  => 'ast-color',
-					'section'    => $section,
-					'default'  => astra_get_option( $section . '-banner-link-hover-color' ),
-					'transport'  => 'postMessage',
-					'priority' => 20,
-					'title'    => __( 'Link Hover Color', 'astra' ),
-					'divider'    => array( 'ast_class' => 'ast-bottom-divider' ),
+					'name'      => ASTRA_THEME_SETTINGS . '[' . $section . '-banner-link-hover-color]',
+					'type'      => 'control',
+					'control'   => 'ast-color',
+					'section'   => $section,
+					'default'   => astra_get_option( $section . '-banner-link-hover-color' ),
+					'transport' => 'postMessage',
+					'priority'  => 20,
+					'title'     => __( 'Link Hover Color', 'astra' ),
+					'divider'   => array( 'ast_class' => 'ast-bottom-divider' ),
 					'context'   => array(
 						Astra_Builder_Helper::$design_tab_config,
 						'relation' => 'AND',
@@ -575,7 +575,7 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 					'type'              => 'control',
 					'control'           => 'ast-responsive-spacing',
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_spacing' ),
-					'section'    => $section,
+					'section'           => $section,
 					'title'             => __( 'Margin', 'astra' ),
 					'linked_choices'    => true,
 					'transport'         => 'postMessage',
@@ -586,7 +586,7 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 						'bottom' => __( 'Bottom', 'astra' ),
 						'left'   => __( 'Left', 'astra' ),
 					),
-					'context'    => array(
+					'context'           => array(
 						Astra_Builder_Helper::$design_tab_config,
 						'relation' => 'AND',
 						array(
@@ -605,7 +605,7 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 					'type'              => 'control',
 					'control'           => 'ast-responsive-spacing',
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_spacing' ),
-					'section'    => $section,
+					'section'           => $section,
 					'title'             => __( 'Padding', 'astra' ),
 					'linked_choices'    => true,
 					'transport'         => 'postMessage',
@@ -616,7 +616,7 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 						'bottom' => __( 'Bottom', 'astra' ),
 						'left'   => __( 'Left', 'astra' ),
 					),
-					'context'    => array(
+					'context'           => array(
 						Astra_Builder_Helper::$design_tab_config,
 						'relation' => 'AND',
 						array(
