@@ -40,7 +40,7 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 
 		foreach ( $post_types as $index => $post_type ) {
 
-			$raw_taxonomies = array_diff(
+			$raw_taxonomies     = array_diff(
 				get_object_taxonomies( $post_type ),
 				array( 'post_format' )
 			);
@@ -49,7 +49,7 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 			// Filter out taxonomies in index-value format.
 			$taxonomies = array();
 			foreach ( $raw_taxonomies as $index => $value ) {
-				if( '' === $index ) {
+				if ( '' === $index ) {
 					$taxonomies[''] = $value;
 				} else {
 					$taxonomies[ $value ] = ucfirst( $value );
@@ -59,7 +59,7 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 
 			$section = 'ast-single-' . $post_type;
 
-			if( 'product' === $post_type ) {
+			if ( 'product' === $post_type ) {
 				$parent_section = 'section-woo-shop-single';
 			} elseif ( 'post' === $post_type ) {
 				$parent_section = 'section-blog-single';
@@ -94,7 +94,7 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 					'context'           => Astra_Builder_Helper::$general_tab,
 					'title'             => __( 'Banner Layout', 'astra-addon' ),
 					'choices'           => array(
-						'layout-1'      => array(
+						'layout-1' => array(
 							'label' => __( 'Default', 'astra' ),
 							'path'  => Astra_Builder_UI_Controller::fetch_svg_icon( 'disabled' ),
 						),
@@ -112,19 +112,19 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 					'name'       => ASTRA_THEME_SETTINGS . '[' . $section . '-banner-width-type]',
 					'type'       => 'control',
 					'control'    => 'ast-selector',
-					'section'           => $section,
+					'section'    => $section,
 					'default'    => astra_get_option( $section . '-banner-width-type', 'fullwidth' ),
 					'priority'   => 10,
 					'title'      => __( 'Container Width', 'astra' ),
 					'choices'    => array(
 						'fullwidth' => __( 'Full Width', 'astra' ),
-						'custom'  => __( 'Custom', 'astra' ),
+						'custom'    => __( 'Custom', 'astra' ),
 					),
-					'divider'   => array( 'ast_class' => 'ast-top-divider' ),
+					'divider'    => array( 'ast_class' => 'ast-top-divider' ),
 					'transport'  => 'postMessage',
 					'responsive' => false,
 					'renderAs'   => 'text',
-					'context'   => array(
+					'context'    => array(
 						Astra_Builder_Helper::$general_tab_config,
 						'relation' => 'AND',
 						array(
@@ -142,7 +142,7 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 					'name'        => ASTRA_THEME_SETTINGS . '[' . $section . '-banner-custom-width]',
 					'type'        => 'control',
 					'control'     => 'ast-slider',
-					'section'           => $section,
+					'section'     => $section,
 					'transport'   => 'postMessage',
 					'default'     => astra_get_option( $section . '-banner-custom-width', 1200 ),
 					'context'     => array(
@@ -176,10 +176,10 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 					'name'       => ASTRA_THEME_SETTINGS . '[' . $section . '-banner-image-type]',
 					'type'       => 'control',
 					'control'    => 'ast-selector',
-					'section'           => $section,
+					'section'    => $section,
 					'default'    => astra_get_option( $section . '-banner-image-type', 'none' ),
 					'priority'   => 20,
-					'context'   => array(
+					'context'    => array(
 						Astra_Builder_Helper::$general_tab_config,
 						'relation' => 'AND',
 						array(
@@ -190,11 +190,11 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 					),
 					'title'      => __( 'Container Background', 'astra' ),
 					'choices'    => array(
-						'none'  => __( 'None', 'astra' ),
-						'custom'  => __( 'Custom', 'astra' ),
+						'none'     => __( 'None', 'astra' ),
+						'custom'   => __( 'Custom', 'astra' ),
 						'featured' => __( 'Featured Image', 'astra' ),
 					),
-					'divider'   => array( 'ast_class' => 'ast-top-divider' ),
+					'divider'    => array( 'ast_class' => 'ast-top-divider' ),
 					'transport'  => 'postMessage',
 					'responsive' => false,
 					'renderAs'   => 'text',
@@ -204,15 +204,15 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 				 * Option: Featured Image Custom Banner BG.
 				 */
 				array(
-					'name'       => ASTRA_THEME_SETTINGS . '[' . $section . '-banner-custom-bg]',
+					'name'      => ASTRA_THEME_SETTINGS . '[' . $section . '-banner-custom-bg]',
 					'default'   => astra_get_option( 'content-bg-obj-responsive' ),
 					'type'      => 'control',
 					'control'   => 'ast-responsive-background',
-					'section'           => $section,
+					'section'   => $section,
 					'title'     => __( 'Background', 'astra' ),
 					'transport' => 'postMessage',
 					'priority'  => 25,
-					'context'           => array(
+					'context'   => array(
 						Astra_Builder_Helper::$general_tab_config,
 						'relation' => 'AND',
 						array(
@@ -239,7 +239,7 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 					'default'  => astra_get_option( $section . '-banner-featured-overlay' ),
 					'priority' => 30,
 					'title'    => __( 'Overlay Color', 'astra' ),
-					'context'           => array(
+					'context'  => array(
 						Astra_Builder_Helper::$general_tab_config,
 						'relation' => 'AND',
 						array(
@@ -264,7 +264,7 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 					'control'           => 'ast-sortable',
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_multi_choices' ),
 					'section'           => $section,
-					'context'   => array(
+					'context'           => array(
 						Astra_Builder_Helper::$general_tab_config,
 						'relation' => 'AND',
 						array(
@@ -280,8 +280,8 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 					'choices'           => array(
 						$section . '-title'      => __( 'Title', 'astra' ),
 						$section . '-breadcrumb' => __( 'Breadcrumb', 'astra' ),
-						$section . '-meta' 		 => __( 'Meta', 'astra' ),
-						$section . '-excerpt' 	 => __( 'Excerpt', 'astra' ),
+						$section . '-meta'       => __( 'Meta', 'astra' ),
+						$section . '-excerpt'    => __( 'Excerpt', 'astra' ),
 					),
 				),
 
@@ -328,7 +328,7 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 					'control'    => 'ast-select',
 					'priority'   => 41,
 					'choices'    => $taxonomies,
-					'context'           => array(
+					'context'    => array(
 						Astra_Builder_Helper::$general_tab_config,
 						'relation' => 'AND',
 						array(
@@ -353,7 +353,7 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 					'default'   => astra_get_option( $section . '-horizontal-alignment', 'center' ),
 					'type'      => 'control',
 					'control'   => 'ast-selector',
-					'section'           => $section,
+					'section'   => $section,
 					'priority'  => 45,
 					'title'     => __( 'Content Alignment', 'astra' ),
 					'context'   => array(
@@ -382,7 +382,7 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 					'default'    => astra_get_option( $section . '-vertical-alignment', 'center' ),
 					'type'       => 'control',
 					'control'    => 'ast-selector',
-					'section'           => $section,
+					'section'    => $section,
 					'priority'   => 50,
 					'title'      => __( 'Vertical Alignment', 'astra' ),
 					'choices'    => array(
@@ -390,7 +390,7 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 						'center'     => __( 'Middle', 'astra' ),
 						'flex-end'   => __( 'Bottom', 'astra' ),
 					),
-					'context'   => array(
+					'context'    => array(
 						Astra_Builder_Helper::$general_tab_config,
 						'relation' => 'AND',
 						array(

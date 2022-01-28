@@ -399,7 +399,7 @@ if ( ! function_exists( 'astra_get_video_from_post' ) ) {
  * @return string $last_word.
  */
 function ast_get_last_meta_word( $string ) {
-	$string = explode( '-', $string );
+	$string    = explode( '-', $string );
 	$last_word = array_pop( $string );
 	return $last_word;
 }
@@ -412,7 +412,7 @@ function ast_get_last_meta_word( $string ) {
  * @return mixed
  */
 function astra_banner_order_markup( $structure ) {
-	if( ! is_array( $structure ) || empty( $structure ) ) {
+	if ( ! is_array( $structure ) || empty( $structure ) ) {
 		return;
 	}
 
@@ -422,14 +422,14 @@ function astra_banner_order_markup( $structure ) {
 	}
 
 	foreach ( $structure as $metaval ) {
-		$meta_key  = $prefix . '-' . ast_get_last_meta_word( $metaval );
+		$meta_key = $prefix . '-' . ast_get_last_meta_word( $metaval );
 
 		switch ( $meta_key ) {
 			case 'single-breadcrumb':
 				do_action( 'astra_single_post_banner_breadcrumb_before' );
 				echo astra_get_breadcrumb(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 				do_action( 'astra_single_post_banner_breadcrumb_after' );
-			break;
+				break;
 
 			case 'single-title':
 				do_action( 'astra_single_post_banner_title_before' );
@@ -443,20 +443,20 @@ function astra_banner_order_markup( $structure ) {
 					'</h1>'
 				);
 				do_action( 'astra_single_post_banner_title_before' );
-			break;
+				break;
 
 			case 'single-excerpt':
 				do_action( 'astra_single_post_banner_excerpt_before' );
 				echo get_the_excerpt( get_the_ID() ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 				do_action( 'astra_single_post_banner_excerpt_before' );
-			break;
+				break;
 
 			case 'single-meta':
 				do_action( 'astra_single_post_banner_meta_before' );
 
 				$post_type = get_post_type();
-				$post_meta  = astra_get_option( 'ast-single-' . $post_type . '-metadata', array( 'comments', 'author', 'date' ) );
-				$output = '';
+				$post_meta = astra_get_option( 'ast-single-' . $post_type . '-metadata', array( 'comments', 'author', 'date' ) );
+				$output    = '';
 				if ( ! empty( $post_meta ) ) {
 					$output_str = astra_get_post_meta( $post_meta );
 					if ( ! empty( $output_str ) ) {
@@ -466,7 +466,7 @@ function astra_banner_order_markup( $structure ) {
 				echo $output; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 
 				do_action( 'astra_single_post_banner_meta_before' );
-			break;
+				break;
 		}
 	}
 }

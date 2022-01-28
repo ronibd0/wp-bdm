@@ -40,7 +40,7 @@ if ( ! class_exists( 'Astra_Woo_Shop_Single_Layout_Configs' ) ) {
 					'name'           => ASTRA_THEME_SETTINGS . '[wc-single-product-banner-section-link]',
 					'type'           => 'control',
 					'control'        => 'ast-customizer-link',
-					'section'  		 => 'section-woo-shop-single',
+					'section'        => 'section-woo-shop-single',
 					'priority'       => 1,
 					'link_type'      => 'section',
 					'is_button_link' => true,

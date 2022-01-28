@@ -38,15 +38,15 @@ class Astra_Posts_Strctures_Configs extends Astra_Customizer_Config_Base {
 
 		$post_types = Astra_Posts_Strctures_Loader::get_supported_post_types();
 
-		if( ! empty( $post_types ) ) {
+		if ( ! empty( $post_types ) ) {
 
 			$_configs = array(
 				// array(
-				// 	'name'             => 'post-types-section-separator',
-				// 	'type'             => 'section',
-				// 	'ast_type'         => 'ast-section-separator',
-				// 	'priority'         => 68,
-				// 	'section_callback' => 'Astra_WP_Customize_Separator',
+				// 'name'             => 'post-types-section-separator',
+				// 'type'             => 'section',
+				// 'ast_type'         => 'ast-section-separator',
+				// 'priority'         => 68,
+				// 'section_callback' => 'Astra_WP_Customize_Separator',
 				// ),
 				array(
 					'name'     => 'section-posts-strctures',
@@ -61,10 +61,10 @@ class Astra_Posts_Strctures_Configs extends Astra_Customizer_Config_Base {
 			 */
 			foreach ( $post_types as $index => $label ) {
 				$_configs[] = array(
-					'name'     => 'section-posttype-' . $label,
-					'type'     => 'section',
-					'title'    => ucfirst( $label ),
-					'section'  => 'section-posts-strctures',
+					'name'    => 'section-posttype-' . $label,
+					'type'    => 'section',
+					'title'   => ucfirst( $label ),
+					'section' => 'section-posts-strctures',
 				);
 			}
 

@@ -13,7 +13,7 @@ $post_type = $post->post_type;
 
 // Conditionally updating data attr & class.
 $attr = 'class="ast-single-entry-banner"';
-if( is_customize_preview() ) {
+if ( is_customize_preview() ) {
 	$attr = 'class="ast-single-entry-banner ast-post-banner-highlight site-header-focus-item" data-section="ast-single-' . esc_attr( $post_type ) . '"';
 }
 
@@ -22,9 +22,9 @@ if( is_customize_preview() ) {
 <section <?php echo $attr; ?>>
 
 	<?php
-		if ( is_customize_preview() ) {
-			Astra_Builder_UI_Controller::render_banner_customizer_edit_button();
-		}
+	if ( is_customize_preview() ) {
+		Astra_Builder_UI_Controller::render_banner_customizer_edit_button();
+	}
 	?>
 
 	<?php astra_banner_order_markup( astra_get_option( 'ast-single-' . $post_type . '-structure', array( 'ast-single-' . $post_type . '-title', 'ast-single-' . $post_type . '-breadcrumb' ) ) ); ?>

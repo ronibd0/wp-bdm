@@ -36,7 +36,7 @@ if ( ! function_exists( 'astra_get_post_meta' ) ) {
 			switch ( $meta_value ) {
 
 				case 'author':
-					if ( ! empty( get_the_author_meta( 'display_name',get_queried_object()->post_author ) ) ) {
+					if ( ! empty( get_the_author_meta( 'display_name', get_queried_object()->post_author ) ) ) {
 						$output_str .= ( 1 != $loop_count && '' != $output_str ) ? ' ' . $separator . ' ' : '';
 						$output_str .= esc_html( astra_default_strings( 'string-blog-meta-author-by', false ) ) . astra_post_author();
 					}
@@ -73,7 +73,7 @@ if ( ! function_exists( 'astra_get_post_meta' ) ) {
 
 				case 'taxonomy':
 					$tax_name = '';
-					if( is_single() ) {
+					if ( is_single() ) {
 						$tax_name = astra_get_option( 'single-' . get_post_type() . '-taxonomy' );
 					}
 					if ( '' !== $tax_name ) {
@@ -491,12 +491,15 @@ add_filter( 'the_content_more_link', 'astra_the_content_more_link', 10, 2 );
 function astra_custom_post_taxonomies( $args = array() ) {
 
 	$output = '';
-	$args = wp_parse_args( $args, array(
-		'post_id' => null,
-		'taxonomy' => null,
-	) );
+	$args   = wp_parse_args(
+		$args,
+		array(
+			'post_id'  => null,
+			'taxonomy' => null,
+		) 
+	);
 
-	if( null === $args['post_id'] ) {
+	if ( null === $args['post_id'] ) {
 		global $post;
 		$args['post_id'] = $post->ID;
 	}
@@ -507,7 +510,7 @@ function astra_custom_post_taxonomies( $args = array() ) {
 		return $output;
 	}
 
-	if( ! empty( $terms ) ) {
+	if ( ! empty( $terms ) ) {
 		$loop_count = 1;
 		foreach ( $terms as $index => $term ) {
 			$output .= ( 1 !== $loop_count && '' !== $output ) ? ', ' : '';

@@ -81,40 +81,47 @@ class Astra_Posts_Strctures_Loader {
 	 */
 	public static function get_supported_post_types() {
 
-		$queried_post_types = array_keys( get_post_types( array(
-			'public'   => true,
-			'_builtin' => false
-		) ) );
+		$queried_post_types = array_keys(
+			get_post_types(
+				array(
+					'public'   => true,
+					'_builtin' => false,
+				) 
+			) 
+		);
 
 		$queried_post_types[] = 'page';
 		$queried_post_types[] = 'post';
 
-		$queried_post_types = array_diff( $queried_post_types, array(
-			'astra-advanced-hook',
-			'astra_adv_header',
-			'elementor_library',
-			'brizy_template',
+		$queried_post_types = array_diff(
+			$queried_post_types,
+			array(
+				'astra-advanced-hook',
+				'astra_adv_header',
+				'elementor_library',
+				'brizy_template',
 
-			'course',
-			'lesson',
+				'course',
+				'lesson',
 
-			// 'courses',
-			'tutor_quiz',
-			'tutor_assignments',
+				// 'courses',
+				'tutor_quiz',
+				'tutor_assignments',
 
-			// 'tribe_events',
-			'testimonial',
-			'frm_display',
-			'mec_esb',
-			'mec-events',
+				// 'tribe_events',
+				'testimonial',
+				'frm_display',
+				'mec_esb',
+				'mec-events',
 
-			'sfwd-assignment',
-			'sfwd-essays',
-			'sfwd-transactions',
-			'sfwd-certificates',
-			'sfwd-quiz',
-			'e-landing-page'
-		) );
+				'sfwd-assignment',
+				'sfwd-essays',
+				'sfwd-transactions',
+				'sfwd-certificates',
+				'sfwd-quiz',
+				'e-landing-page',
+			) 
+		);
 
 		$supported_post_types = array_reverse( array_unique( $queried_post_types ) );
 

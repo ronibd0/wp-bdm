@@ -39,7 +39,7 @@ if ( ! class_exists( 'Astra_Woo_Shop_Layout_Configs' ) ) {
 					'name'           => ASTRA_THEME_SETTINGS . '[wc-shop-banner-section-link]',
 					'type'           => 'control',
 					'control'        => 'ast-customizer-link',
-					'section'           => 'woocommerce_product_catalog',
+					'section'        => 'woocommerce_product_catalog',
 					'priority'       => 1,
 					'link_type'      => 'section',
 					'is_button_link' => true,
