@@ -49,7 +49,7 @@ class Astra_Posts_Strctures_Markup {
 		global $post;
 		$post_type = $post->post_type;
 
-		$layout_type = astra_get_option( 'single-' . $post_type . '-layout', 'layout-1' );
+		$layout_type = astra_get_option( 'ast-single-' . $post_type . '-layout', 'layout-1' );
 
 		if( is_single() && 'layout-2' === $layout_type ) {
 

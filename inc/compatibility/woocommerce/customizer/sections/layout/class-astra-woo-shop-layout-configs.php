@@ -43,7 +43,7 @@ if ( ! class_exists( 'Astra_Woo_Shop_Layout_Configs' ) ) {
 					'priority'       => 1,
 					'link_type'      => 'section',
 					'is_button_link' => true,
-					'linked'         => 'archive-product',
+					'linked'         => 'ast-archive-product',
 					'link_text'      => __( 'Design Banner Section', 'astra' ),
 				),
 

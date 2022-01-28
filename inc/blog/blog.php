@@ -455,7 +455,7 @@ function astra_banner_order_markup( $structure ) {
 				do_action( 'astra_single_post_banner_meta_before' );
 
 				$post_type = get_post_type();
-				$post_meta  = astra_get_option( 'single-' . $post_type . '-metadata', array( 'comments', 'author', 'date' ) );
+				$post_meta  = astra_get_option( 'ast-single-' . $post_type . '-metadata', array( 'comments', 'author', 'date' ) );
 				$output = '';
 				if ( ! empty( $post_meta ) ) {
 					$output_str = astra_get_post_meta( $post_meta );

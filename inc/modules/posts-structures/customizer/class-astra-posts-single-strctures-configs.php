@@ -57,7 +57,7 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 			}
 			$taxonomies = array_reverse( $taxonomies );
 
-			$section = 'single-' . $post_type;
+			$section = 'ast-single-' . $post_type;
 
 			if( 'product' === $post_type ) {
 				$parent_section = 'section-woo-shop-single';
