@@ -45,7 +45,7 @@ if ( ! class_exists( 'Astra_Blog_Single_Layout_Configs' ) ) {
 					'is_button_link' => true,
 					'linked'         => 'ast-single-post',
 					'context'        => Astra_Builder_Helper::$general_tab,
-					'link_text'      => __( 'Page Title Section', 'astra' ),
+					'link_text'      => __( 'Post Title Section', 'astra' ),
 				),
 
 				/**

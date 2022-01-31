@@ -74,13 +74,26 @@ if ( ! function_exists( 'astra_get_post_meta' ) ) {
 				case 'taxonomy':
 					$tax_name = '';
 					if ( is_single() ) {
-						$tax_name = astra_get_option( 'single-' . get_post_type() . '-taxonomy' );
+						$tax_name = astra_get_option( 'ast-single-' . get_post_type() . '-taxonomy' );
 					}
 					if ( '' !== $tax_name ) {
-						$taxonomies = astra_custom_post_taxonomies( array( 'taxonomy' => $tax_name ) );
-						if ( '' != $taxonomies ) {
-							$output_str .= ( 1 != $loop_count && '' != $output_str ) ? ' ' . $separator . ' ' : '';
-							$output_str .= $taxonomies;
+						if( 'category-tag' === $tax_name ) {
+							$category = astra_post_categories();
+							if ( '' != $category ) {
+								$output_str .= ( 1 != $loop_count && '' != $output_str ) ? ' ' . $separator . ' ' : '';
+								$output_str .= $category;
+							}
+							$tags = astra_post_tags();
+							if ( '' != $tags ) {
+								$output_str .= ( 1 != $loop_count && '' != $output_str ) ? ' ' . $separator . ' ' : '';
+								$output_str .= $tags;
+							}
+						} else {
+							$taxonomies = astra_custom_post_taxonomies( array( 'taxonomy' => $tax_name ) );
+							if ( '' != $taxonomies ) {
+								$output_str .= ( 1 != $loop_count && '' != $output_str ) ? ' ' . $separator . ' ' : '';
+								$output_str .= $taxonomies;
+							}
 						}
 					}
 					break;
@@ -496,7 +509,7 @@ function astra_custom_post_taxonomies( $args = array() ) {
 		array(
 			'post_id'  => null,
 			'taxonomy' => null,
-		) 
+		)
 	);
 
 	if ( null === $args['post_id'] ) {
@@ -513,8 +526,9 @@ function astra_custom_post_taxonomies( $args = array() ) {
 	if ( ! empty( $terms ) ) {
 		$loop_count = 1;
 		foreach ( $terms as $index => $term ) {
+			$term_link = get_term_link( $term );
 			$output .= ( 1 !== $loop_count && '' !== $output ) ? ', ' : '';
-			$output .= '<span class="cat-links"> ' . $term->name . '</span>';
+			$output .= '<span class="cat-links"> <a href="' . esc_url( $term_link ) . '">' . $term->name . '</a> </span>';
 			$loop_count ++;
 		}
 	}
