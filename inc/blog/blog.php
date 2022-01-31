@@ -413,12 +413,12 @@ function ast_get_last_meta_word( $string ) {
  *
  * @since x.x.x
  * @param string $layout.
- * @param array $structure.
+ * @param array  $structure.
  * @return mixed
  */
 function astra_banner_elements_order( $layout = 'layout-1', $structure = array() ) {
 
-	if( true === apply_filters( 'astra_remove_entry_header_content', false ) ) {
+	if ( true === apply_filters( 'astra_remove_entry_header_content', false ) ) {
 		return;
 	}
 

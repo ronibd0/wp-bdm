@@ -77,7 +77,7 @@ if ( ! function_exists( 'astra_get_post_meta' ) ) {
 						$tax_name = astra_get_option( 'ast-single-' . get_post_type() . '-taxonomy' );
 					}
 					if ( '' !== $tax_name ) {
-						if( 'category-tag' === $tax_name ) {
+						if ( 'category-tag' === $tax_name ) {
 							$category = astra_post_categories();
 							if ( '' != $category ) {
 								$output_str .= ( 1 != $loop_count && '' != $output_str ) ? ' ' . $separator . ' ' : '';
@@ -527,8 +527,8 @@ function astra_custom_post_taxonomies( $args = array() ) {
 		$loop_count = 1;
 		foreach ( $terms as $index => $term ) {
 			$term_link = get_term_link( $term );
-			$output .= ( 1 !== $loop_count && '' !== $output ) ? ', ' : '';
-			$output .= '<span class="cat-links"> <a href="' . esc_url( $term_link ) . '">' . $term->name . '</a> </span>';
+			$output   .= ( 1 !== $loop_count && '' !== $output ) ? ', ' : '';
+			$output   .= '<span class="cat-links"> <a href="' . esc_url( $term_link ) . '">' . $term->name . '</a> </span>';
 			$loop_count ++;
 		}
 	}
