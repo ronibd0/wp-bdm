@@ -22,15 +22,15 @@
 			value.bind( function( type ) {
 				console.error( type );
 				if ( 'custom' === type ) {
-					jQuery('.ast-entry-banner').attr( 'data-banner-width-type', 'custom' );
+					jQuery('.ast-entry-banner[data-post-type="' + postType + '"]').attr( 'data-banner-width-type', 'custom' );
 					var customWidthSize = wp.customize( 'astra-settings[ast-single-' + postType + 'banner-custom-width]' ).get(),
 						dynamicStyle = '';
-						dynamicStyle += '.ast-entry-banner[data-banner-width-type="custom"] {';
+						dynamicStyle += '.ast-entry-banner[data-post-type="' + postType + '"][data-banner-width-type="custom"] {';
 						dynamicStyle += 'max-width: ' + customWidthSize + 'px;';
 						dynamicStyle += '} ';
 					astra_add_dynamic_css( 'ast-single-' + postType + '-banner-width-type', dynamicStyle );
 				} else {
-					jQuery('.ast-entry-banner').attr( 'data-banner-width-type', 'full' );
+					jQuery('.ast-entry-banner[data-post-type="' + postType + '"]').attr( 'data-banner-width-type', 'full' );
 				}
 			} );
 		} );
@@ -39,18 +39,18 @@
 			value.bind( function( alignment ) {
 				if( alignment.desktop != '' || alignment.tablet != '' || alignment.mobile != '' ) {
 					var dynamicStyle = '';
-					dynamicStyle += '.ast-entry-banner {';
+					dynamicStyle += '.ast-entry-banner[data-post-type="' + postType + '"] {';
 					dynamicStyle += 'text-align: ' + alignment['desktop'] + ';';
 					dynamicStyle += '} ';
 
 					dynamicStyle +=  '@media (max-width: ' + tablet_break_point + 'px) {';
-					dynamicStyle += '.ast-entry-banner {';
+					dynamicStyle += '.ast-entry-banner[data-post-type="' + postType + '"] {';
 					dynamicStyle += 'text-align: ' + alignment['tablet'] + ';';
 					dynamicStyle += '} ';
 					dynamicStyle += '} ';
 
 					dynamicStyle +=  '@media (max-width: ' + mobile_break_point + 'px) {';
-					dynamicStyle += '.ast-entry-banner {';
+					dynamicStyle += '.ast-entry-banner[data-post-type="' + postType + '"] {';
 					dynamicStyle += 'text-align: ' + alignment['mobile'] + ';';
 					dynamicStyle += '} ';
 					dynamicStyle += '} ';
@@ -63,46 +63,53 @@
 		astra_css(
 			'astra-settings[ast-single-' + postType + '-vertical-alignment]',
 			'justify-content',
-			'.ast-entry-banner'
+			'.ast-entry-banner[data-post-type="' + postType + '"]'
 		);
 
 		astra_css(
 			'astra-settings[ast-single-' + postType + '-banner-custom-width]',
 			'max-width',
-			'.ast-entry-banner[data-banner-width-type="custom"]',
+			'.ast-entry-banner[data-post-type="' + postType + '"][data-banner-width-type="custom"]',
+			'px'
+		);
+
+		astra_css(
+			'astra-settings[ast-single-' + postType + '-elements-gap]',
+			'margin-bottom',
+			'header.entry-header > *, .ast-entry-banner[data-post-type="' + postType + '"] > *',
 			'px'
 		);
 
 		astra_css(
 			'astra-settings[ast-single-' + postType + '-banner-text-color]',
 			'color',
-			'.ast-entry-banner'
+			'.ast-entry-banner[data-post-type="' + postType + '"]'
 		);
 
 		astra_css(
 			'astra-settings[ast-single-' + postType + '-banner-title-color]',
 			'color',
-			'.ast-entry-banner .entry-title'
+			'.ast-entry-banner[data-post-type="' + postType + '"] .entry-title'
 		);
 
 		astra_css(
 			'astra-settings[ast-single-' + postType + '-banner-link-color]',
 			'color',
-			'.ast-entry-banner a'
+			'.ast-entry-banner[data-post-type="' + postType + '"] a'
 		);
 
 		astra_css(
 			'astra-settings[ast-single-' + postType + '-banner-link-hover-color]',
 			'color',
-			'.ast-entry-banner a:hover'
+			'.ast-entry-banner[data-post-type="' + postType + '"] a:hover'
 		);
 
-		astra_apply_responsive_background_css( 'astra-settings[ast-single-' + postType + '-banner-custom-bg]', '.ast-entry-banner[data-banner-background-type="custom"]', 'desktop' );
-		astra_apply_responsive_background_css( 'astra-settings[ast-single-' + postType + '-banner-custom-bg]', '.ast-entry-banner[data-banner-background-type="custom"]', 'tablet' );
-		astra_apply_responsive_background_css( 'astra-settings[ast-single-' + postType + '-banner-custom-bg]', '.ast-entry-banner[data-banner-background-type="custom"]', 'mobile' );
+		astra_apply_responsive_background_css( 'astra-settings[ast-single-' + postType + '-banner-custom-bg]', '.ast-entry-banner[data-post-type="' + postType + '"][data-banner-background-type="custom"]', 'desktop' );
+		astra_apply_responsive_background_css( 'astra-settings[ast-single-' + postType + '-banner-custom-bg]', '.ast-entry-banner[data-post-type="' + postType + '"][data-banner-background-type="custom"]', 'tablet' );
+		astra_apply_responsive_background_css( 'astra-settings[ast-single-' + postType + '-banner-custom-bg]', '.ast-entry-banner[data-post-type="' + postType + '"][data-banner-background-type="custom"]', 'mobile' );
 
-		astra_responsive_spacing( 'astra-settings[ast-single-' + postType + '-banner-padding]','.ast-entry-banner', 'padding',  ['top', 'right', 'bottom', 'left' ] );
-		astra_responsive_spacing( 'astra-settings[ast-single-' + postType + '-banner-margin]','.ast-entry-banner', 'margin',  ['top', 'right', 'bottom', 'left' ] );
+		astra_responsive_spacing( 'astra-settings[ast-single-' + postType + '-banner-padding]','.ast-entry-banner[data-post-type="' + postType + '"]', 'padding',  ['top', 'right', 'bottom', 'left' ] );
+		astra_responsive_spacing( 'astra-settings[ast-single-' + postType + '-banner-margin]','.ast-entry-banner[data-post-type="' + postType + '"]', 'margin',  ['top', 'right', 'bottom', 'left' ] );
 	}
 
 } )( jQuery );

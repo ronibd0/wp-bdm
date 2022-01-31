@@ -45,7 +45,7 @@ if ( ! class_exists( 'Astra_Woo_Shop_Single_Layout_Configs' ) ) {
 					'link_type'      => 'section',
 					'is_button_link' => true,
 					'linked'         => 'ast-single-product',
-					'link_text'      => __( 'Design Banner Section', 'astra' ),
+					'link_text'      => __( 'Page Title Section', 'astra' ),
 				),
 
 				/**

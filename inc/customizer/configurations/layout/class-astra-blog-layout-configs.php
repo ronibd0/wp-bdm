@@ -45,7 +45,7 @@ if ( ! class_exists( 'Astra_Blog_Layout_Configs' ) ) {
 					'is_button_link' => true,
 					'linked'         => 'ast-archive-post',
 					'context'        => Astra_Builder_Helper::$general_tab,
-					'link_text'      => __( 'Design Banner Section', 'astra' ),
+					'link_text'      => __( 'Page Title Section', 'astra' ),
 				),
 
 				/**

@@ -58,6 +58,8 @@ class Astra_Posts_Strctures_Markup {
 			get_template_part( 'template-parts/single-banner' );
 
 			do_action( 'astra_after_single_' . $post_type . '_banner_content' );
+
+			add_filter( 'astra_remove_entry_header_content', '__return_true' );
 		}
 	}
 }

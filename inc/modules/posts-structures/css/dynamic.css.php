@@ -59,6 +59,8 @@ function astra_post_single_strcture_dynamic_css( $dynamic_css, $dynamic_css_filt
 		$link_color       = astra_get_option( 'ast-single-' . $post_type . '-banner-link-color' );
 		$link_hover_color = astra_get_option( 'ast-single-' . $post_type . '-banner-link-hover-color' );
 
+		$elements_gap    = astra_get_option( 'ast-single-' . $post_type . '-elements-gap', 10 );
+
 		/**
 		 * Desktop CSS.
 		 */
@@ -84,6 +86,9 @@ function astra_post_single_strcture_dynamic_css( $dynamic_css, $dynamic_css_filt
 			),
 			$selector . ' a:hover'      => array(
 				'color' => esc_attr( $link_hover_color ),
+			),
+			$selector . ' > *'      => array(
+				'margin-bottom' => $elements_gap . 'px',
 			),
 		);
 

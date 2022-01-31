@@ -178,10 +178,12 @@ body.customize-partial-edit-shortcuts-shown .customize-partial-edit-shortcut but
 	outline: 1px solid #007cba;
 	z-index: 99;
 }
+.ast-post-banner-highlight .banner-editor-shortcut {
+    top: -2px;
+    right: 30px;
+}
 .ast-post-banner-highlight .banner-editor-shortcut > button {
-	top: -4px;
-	right: -48px;
 	box-shadow: unset;
 	border: unset;
-	border-radius: 0 0 0 2px;
+	border-radius: 0 0 2px 0;
 }
