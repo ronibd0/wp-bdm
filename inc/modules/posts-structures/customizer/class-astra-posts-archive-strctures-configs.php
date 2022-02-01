@@ -91,25 +91,25 @@ class Astra_Posts_Archive_Strctures_Configs extends Astra_Customizer_Config_Base
 			'tablet-unit'  => 'px',
 			'mobile-unit'  => 'px',
 		);
-		$post_types = Astra_Posts_Strctures_Loader::get_supported_post_types();
+		$post_types            = Astra_Posts_Strctures_Loader::get_supported_post_types();
 
 		foreach ( $post_types as $index => $post_type ) {
 
-			$section = 'ast-archive-' . $post_type;
+			$section    = 'ast-archive-' . $post_type;
 			$bg_choices = array(
-				'none'     => __( 'None', 'astra' ),
-				'custom'   => __( 'Custom', 'astra' )
+				'none'   => __( 'None', 'astra' ),
+				'custom' => __( 'Custom', 'astra' ),
 			);
 
 			if ( 'product' === $post_type ) {
 				$parent_section = 'woocommerce_product_catalog';
-				$bg_choices = array(
+				$bg_choices     = array(
 					'none'     => __( 'None', 'astra' ),
 					'custom'   => __( 'Custom', 'astra' ),
 					'featured' => __( 'Featured Image', 'astra' ),
 				);
 			} elseif ( 'post' === $post_type ) {
-				$parent_section             = 'section-blog';
+				$parent_section = 'section-blog';
 			} else {
 				$parent_section = 'section-posttype-' . $post_type;
 			}
@@ -160,7 +160,7 @@ class Astra_Posts_Archive_Strctures_Configs extends Astra_Customizer_Config_Base
 					'context'           => Astra_Builder_Helper::$general_tab,
 					'title'             => __( 'Title Layout', 'astra-addon' ),
 					'choices'           => array(
-						'default' => array(
+						'default'  => array(
 							'label' => __( 'None', 'astra' ),
 							'path'  => Astra_Builder_UI_Controller::fetch_svg_icon( 'disabled' ),
 						),
@@ -247,7 +247,7 @@ class Astra_Posts_Archive_Strctures_Configs extends Astra_Customizer_Config_Base
 					'control'           => 'ast-sortable',
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_multi_choices' ),
 					'section'           => $section,
-					'context'     => array(
+					'context'           => array(
 						Astra_Builder_Helper::$general_tab_config,
 						'relation' => 'AND',
 						array(
@@ -261,9 +261,9 @@ class Astra_Posts_Archive_Strctures_Configs extends Astra_Customizer_Config_Base
 					'title'             => __( 'Elements', 'astra' ),
 					'divider'           => array( 'ast_class' => 'ast-top-divider' ),
 					'choices'           => array(
-						$section . '-title'      => __( 'Title', 'astra' ),
+						$section . '-title'       => __( 'Title', 'astra' ),
 						$section . '-description' => __( 'Description', 'astra' ),
-						$section . '-breadcrumb' => __( 'Breadcrumb', 'astra' )
+						$section . '-breadcrumb'  => __( 'Breadcrumb', 'astra' ),
 					),
 				),
 
@@ -277,7 +277,7 @@ class Astra_Posts_Archive_Strctures_Configs extends Astra_Customizer_Config_Base
 					'section'    => $section,
 					'default'    => astra_get_option( $section . '-banner-image-type', 'none' ),
 					'priority'   => 30,
-					'context'     => array(
+					'context'    => array(
 						Astra_Builder_Helper::$general_tab_config,
 						'relation' => 'AND',
 						array(
@@ -564,19 +564,19 @@ class Astra_Posts_Archive_Strctures_Configs extends Astra_Customizer_Config_Base
 				),
 			);
 
-			if( 'product' === $post_type ) {
+			if ( 'product' === $post_type ) {
 				/**
 				 * Option: Featured Image Overlay Color.
 				 */
 				$_configs[] = array(
-				   'name'     => ASTRA_THEME_SETTINGS . '[' . $section . '-banner-featured-overlay]',
-				   'type'     => 'control',
-				   'control'  => 'ast-color',
-				   'section'  => $section,
-				   'default'  => astra_get_option( $section . '-banner-featured-overlay', '' ),
-				   'priority' => 40,
-				   'title'    => __( 'Overlay Color', 'astra' ),
-				   'context'  => array(
+					'name'     => ASTRA_THEME_SETTINGS . '[' . $section . '-banner-featured-overlay]',
+					'type'     => 'control',
+					'control'  => 'ast-color',
+					'section'  => $section,
+					'default'  => astra_get_option( $section . '-banner-featured-overlay', '' ),
+					'priority' => 40,
+					'title'    => __( 'Overlay Color', 'astra' ),
+					'context'  => array(
 						Astra_Builder_Helper::$general_tab_config,
 						'relation' => 'AND',
 						array(
@@ -589,7 +589,7 @@ class Astra_Posts_Archive_Strctures_Configs extends Astra_Customizer_Config_Base
 							'operator' => '===',
 							'value'    => 'featured',
 						),
-				    ),
+					),
 				);
 			}
 

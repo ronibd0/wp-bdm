@@ -832,7 +832,7 @@ function astra_get_author_id() {
 	}
 
 	if ( ! $author_id ) {
-		$author = get_user_by( 'slug', get_query_var( 'author_name' ) );
+		$author    = get_user_by( 'slug', get_query_var( 'author_name' ) );
 		$author_id = $author->ID;
 	}
 

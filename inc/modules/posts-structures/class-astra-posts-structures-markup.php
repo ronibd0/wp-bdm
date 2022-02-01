@@ -47,16 +47,16 @@ class Astra_Posts_Strctures_Markup {
 	 */
 	public function override_entry_header() {
 		global $post;
-		if( is_null( $post ) ) {
+		if ( is_null( $post ) ) {
 			return;
 		}
 
 		$post_type = $post->post_type;
 
-		$type = 'archive';
+		$type        = 'archive';
 		$layout_type = astra_get_option( 'ast-archive-' . $post_type . '-layout', 'default' );
-		if( is_single() ) {
-			$type = 'single';
+		if ( is_single() ) {
+			$type        = 'single';
 			$layout_type = astra_get_option( 'ast-single-' . $post_type . '-layout', 'layout-1' );
 		}
 

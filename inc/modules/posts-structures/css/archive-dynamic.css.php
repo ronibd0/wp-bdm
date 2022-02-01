@@ -62,7 +62,7 @@ function astra_post_archive_strcture_dynamic_css( $dynamic_css, $dynamic_css_fil
 		 * Desktop CSS.
 		 */
 		$css_output_desktop = array(
-			$selector                   => array(
+			$selector              => array(
 				'text-align'      => $deskt_h_alignment,
 				'justify-content' => $vert_alignment,
 				'padding-top'     => astra_responsive_spacing( $banner_padding, 'top', 'desktop' ),
@@ -75,27 +75,27 @@ function astra_post_archive_strcture_dynamic_css( $dynamic_css, $dynamic_css_fil
 				'margin-left'     => astra_responsive_spacing( $banner_margin, 'left', 'desktop' ),
 				'color'           => esc_attr( $text_color ),
 			),
-			$selector . ' h1' => array(
+			$selector . ' h1'      => array(
 				'color' => esc_attr( $title_color ),
 			),
-			$selector . ' a'            => array(
+			$selector . ' a'       => array(
 				'color' => esc_attr( $link_color ),
 			),
-			$selector . ' a:hover'      => array(
+			$selector . ' a:hover' => array(
 				'color' => esc_attr( $link_hover_color ),
 			),
-			$selector . ' > *'          => array(
+			$selector . ' > *'     => array(
 				'margin-bottom' => $elements_gap . 'px',
 			),
 		);
 
 		/* Site width Responsive */
-		if( 'layout-1' === $layout ) {
-			$site_content_width         = astra_get_option( 'site-content-width', 1200 );
-			$container_width = array(
+		if ( 'layout-1' === $layout ) {
+			$site_content_width = astra_get_option( 'site-content-width', 1200 );
+			$container_width    = array(
 				$selector . '[data-banner-layout="layout-1"]' => array(
 					'max-width' => $site_content_width . 'px',
-					'margin' => '0 auto',
+					'margin'    => '0 auto',
 				),
 			);
 

@@ -424,7 +424,7 @@ function astra_banner_elements_order( $layout = 'layout-1', $structure = array()
 
 	global $post;
 	$post_type = $post->post_type;
-	$post_id = astra_get_post_id();
+	$post_id   = astra_get_post_id();
 
 	$prefix = 'archive';
 	if ( is_single() ) {
@@ -492,7 +492,7 @@ function astra_banner_elements_order( $layout = 'layout-1', $structure = array()
 				break;
 
 			case 'archive-breadcrumb':
-				if( ! is_author() ) {
+				if ( ! is_author() ) {
 					do_action( 'astra_blog_archive_breadcrumb_before' );
 					echo astra_get_breadcrumb(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 					do_action( 'astra_blog_archive_breadcrumb_after' );
