@@ -34,7 +34,7 @@ class Astra_Posts_Strctures_Markup {
 	 * @return void
 	 */
 	public function astra_add_hero_section_markup() {
-		if ( apply_filters( 'astra_override_default_entry_header', true ) ) {
+		if ( apply_filters( 'astra_apply_hero_header_banner', true ) ) {
 			$this->override_entry_header();
 		}
 	}
@@ -47,11 +47,20 @@ class Astra_Posts_Strctures_Markup {
 	 */
 	public function override_entry_header() {
 		global $post;
+		if( is_null( $post ) ) {
+			return;
+		}
+
 		$post_type = $post->post_type;
 
-		$layout_type = astra_get_option( 'ast-single-' . $post_type . '-layout', 'layout-1' );
+		$type = 'archive';
+		$layout_type = astra_get_option( 'ast-archive-' . $post_type . '-layout', 'default' );
+		if( is_single() ) {
+			$type = 'single';
+			$layout_type = astra_get_option( 'ast-single-' . $post_type . '-layout', 'layout-1' );
+		}
 
-		if ( is_single() && 'layout-2' === $layout_type ) {
+		if ( 'single' === $type && 'layout-2' === $layout_type ) {
 
 			do_action( 'astra_before_single_' . $post_type . '_banner_content' );
 
@@ -60,6 +69,16 @@ class Astra_Posts_Strctures_Markup {
 			do_action( 'astra_after_single_' . $post_type . '_banner_content' );
 
 			add_filter( 'astra_remove_entry_header_content', '__return_true' );
+
+		} elseif ( 'archive' === $type && 'default' !== $layout_type ) {
+
+			do_action( 'astra_before_archive_' . $post_type . '_banner_content' );
+
+			get_template_part( 'template-parts/archive-banner' );
+
+			do_action( 'astra_after_archive_' . $post_type . '_banner_content' );
+
+			remove_action( 'astra_archive_header', 'astra_archive_page_info' );
 		}
 	}
 }

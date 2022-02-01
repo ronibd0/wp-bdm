@@ -12,9 +12,9 @@ global $post;
 $post_type = $post->post_type;
 
 // Conditionally updating data section & class.
-$attr = 'class="ast-entry-banner"';
+$attr = 'class="ast-single-entry-banner"';
 if ( is_customize_preview() ) {
-	$attr = 'class="ast-entry-banner ast-post-banner-highlight site-header-focus-item" data-section="ast-single-' . esc_attr( $post_type ) . '"';
+	$attr = 'class="ast-single-entry-banner ast-post-banner-highlight site-header-focus-item" data-section="ast-single-' . esc_attr( $post_type ) . '"';
 }
 
 $data_attrs = 'data-post-type="' . $post_type . '"';

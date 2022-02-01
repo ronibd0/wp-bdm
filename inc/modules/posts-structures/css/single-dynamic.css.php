@@ -26,10 +26,6 @@ add_filter( 'astra_dynamic_theme_css', 'astra_post_single_strcture_dynamic_css' 
  */
 function astra_post_single_strcture_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 
-	if ( ! is_single() ) {
-		return $dynamic_css;
-	}
-
 	$post_types        = Astra_Posts_Strctures_Loader::get_supported_post_types();
 	$static_css_loaded = false;
 
@@ -39,7 +35,7 @@ function astra_post_single_strcture_dynamic_css( $dynamic_css, $dynamic_css_filt
 			continue;
 		}
 
-		$selector = '.ast-entry-banner[data-post-type="' . $post_type . '"]';
+		$selector = '.ast-single-entry-banner[data-post-type="' . $post_type . '"]';
 
 		$horz_alignment    = astra_get_option( 'ast-single-' . $post_type . '-horizontal-alignment' );
 		$deskt_h_alignment = ( isset( $horz_alignment['desktop'] ) ) ? $horz_alignment['desktop'] : '';
@@ -158,7 +154,7 @@ function astra_post_single_strcture_dynamic_css( $dynamic_css, $dynamic_css_filt
 		}
 
 		if ( false === $static_css_loaded || is_customize_preview() ) {
-			$dynamic_css      .= '.ast-entry-banner {
+			$dynamic_css      .= '.ast-single-entry-banner {
 				-js-display: flex;
 				display: flex;
 				flex-direction: column;
