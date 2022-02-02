@@ -98,7 +98,7 @@ if ( ! class_exists( 'Astra_Blog_Single_Layout_Configs' ) ) {
 				),
 			);
 
-			if ( false === astra_get_option( 'post-structure-migration-succeed', false ) ) {
+			if ( false === astra_get_option( 'post-structure-migration-succeed', true ) ) {
 				/**
 				 * Option: Display Post Structure
 				 */

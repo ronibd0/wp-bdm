@@ -37,6 +37,6 @@ if ( 'none' !== $background_type ) {
 	}
 	?>
 
-	<?php astra_banner_elements_order( 'layout-2' ); ?>
+	<?php astra_banner_elements_order(); ?>
 
 </section>

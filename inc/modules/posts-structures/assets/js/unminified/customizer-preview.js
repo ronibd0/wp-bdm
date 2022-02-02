@@ -17,14 +17,23 @@
 
 	// For single layouts.
     for ( var index = 0; index < postTypesCount; index++ ) {
-		var postType = postTypes[ index ];
+		var postType = postTypes[ index ],
+			layoutType = ( undefined !== wp.customize( 'astra-settings[ast-single-' + postType + '-layout]' ) ) ? wp.customize( 'astra-settings[ast-single-' + postType + '-layout]' ).get() : 'both';
+
+		if( 'layout-2' === layoutType ) {
+			var selector = '.ast-single-entry-banner[data-post-type="' + postType + '"]';
+		} else if( 'layout-1' === layoutType ) {
+			var selector = 'header.entry-header';
+		} else {
+			var selector = '.ast-single-entry-banner[data-post-type="' + postType + '"], header.entry-header';
+		}
 
 		wp.customize( 'astra-settings[ast-single-' + postType + 'banner-width-type]', function( value ) {
 			value.bind( function( type ) {
 				console.error( type );
 				if ( 'custom' === type ) {
 					jQuery('.ast-single-entry-banner[data-post-type="' + postType + '"]').attr( 'data-banner-width-type', 'custom' );
-					var customWidthSize = wp.customize( 'astra-settings[ast-single-' + postType + 'banner-custom-width]' ).get(),
+					var customWidthSize = wp.customize( 'astra-settings[ast-single-' + postType + '-banner-custom-width]' ).get(),
 						dynamicStyle = '';
 						dynamicStyle += '.ast-single-entry-banner[data-post-type="' + postType + '"][data-banner-width-type="custom"] {';
 						dynamicStyle += 'max-width: ' + customWidthSize + 'px;';
@@ -40,18 +49,18 @@
 			value.bind( function( alignment ) {
 				if( alignment.desktop != '' || alignment.tablet != '' || alignment.mobile != '' ) {
 					var dynamicStyle = '';
-					dynamicStyle += '.ast-single-entry-banner[data-post-type="' + postType + '"] {';
+					dynamicStyle += selector + ' {';
 					dynamicStyle += 'text-align: ' + alignment['desktop'] + ';';
 					dynamicStyle += '} ';
 
 					dynamicStyle +=  '@media (max-width: ' + tablet_break_point + 'px) {';
-					dynamicStyle += '.ast-single-entry-banner[data-post-type="' + postType + '"] {';
+					dynamicStyle += selector + ' {';
 					dynamicStyle += 'text-align: ' + alignment['tablet'] + ';';
 					dynamicStyle += '} ';
 					dynamicStyle += '} ';
 
 					dynamicStyle +=  '@media (max-width: ' + mobile_break_point + 'px) {';
-					dynamicStyle += '.ast-single-entry-banner[data-post-type="' + postType + '"] {';
+					dynamicStyle += selector + ' {';
 					dynamicStyle += 'text-align: ' + alignment['mobile'] + ';';
 					dynamicStyle += '} ';
 					dynamicStyle += '} ';
@@ -84,25 +93,25 @@
 		astra_css(
 			'astra-settings[ast-single-' + postType + '-banner-text-color]',
 			'color',
-			'.ast-single-entry-banner[data-post-type="' + postType + '"]'
+			selector
 		);
 
 		astra_css(
 			'astra-settings[ast-single-' + postType + '-banner-title-color]',
 			'color',
-			'.ast-single-entry-banner[data-post-type="' + postType + '"] .entry-title'
+			selector + ' .entry-title'
 		);
 
 		astra_css(
 			'astra-settings[ast-single-' + postType + '-banner-link-color]',
 			'color',
-			'.ast-single-entry-banner[data-post-type="' + postType + '"] a'
+			selector + ' a'
 		);
 
 		astra_css(
 			'astra-settings[ast-single-' + postType + '-banner-link-hover-color]',
 			'color',
-			'.ast-single-entry-banner[data-post-type="' + postType + '"] a:hover'
+			selector + ' a:hover'
 		);
 
 		astra_apply_responsive_background_css( 'astra-settings[ast-single-' + postType + '-banner-custom-bg]', '.ast-single-entry-banner[data-post-type="' + postType + '"][data-banner-background-type="custom"]', 'desktop' );
