@@ -95,6 +95,35 @@ class Astra_Posts_Strctures_Markup {
 				do_action( 'astra_after_archive_' . $post_type . '_banner_content' );
 			}
 
+		} elseif ( class_exists( 'WooCommerce' ) && ( is_shop() || is_product_taxonomy() ) ) {
+
+			if( 'layout-2' === astra_get_option( 'ast-archive-product-layout', 'layout-1' ) ) {
+
+				add_filter('woocommerce_show_page_title', '__return_false');
+
+				remove_action(
+					'woocommerce_before_main_content',
+					'woocommerce_breadcrumb',
+					20
+				);
+
+				remove_action(
+					'woocommerce_archive_description',
+					'woocommerce_taxonomy_archive_description'
+				);
+
+				remove_action(
+					'woocommerce_archive_description',
+					'woocommerce_product_archive_description'
+				);
+
+				do_action( 'astra_before_archive_' . $post_type . '_banner_content' );
+
+				get_template_part( 'template-parts/archive-banner' );
+
+				do_action( 'astra_after_archive_' . $post_type . '_banner_content' );
+			}
+
 		} elseif ( 'archive' === $type ) {
 
 			do_action( 'astra_before_archive_' . $post_type . '_banner_content' );
