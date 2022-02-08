@@ -89,10 +89,10 @@ function astra_post_single_strcture_dynamic_css( $dynamic_css, $dynamic_css_filt
 			$selector . ' .entry-title'         => array(
 				'color' => esc_attr( $title_color ),
 			),
-			$selector . ' a'                    => array(
+			$selector . ' a, ' . $selector . ' a *'                    => array(
 				'color' => esc_attr( $link_color ),
 			),
-			$selector . ' a:hover'              => array(
+			$selector . ' a:hover, ' . $selector . ' a:hover *'              => array(
 				'color' => esc_attr( $link_hover_color ),
 			),
 		);

@@ -16,7 +16,7 @@
 		mobile_break_point    = astraBuilderPreview.mobile_break_point || 544;
 
 	// For single layouts.
-    for ( var index = 0; index < postTypesCount; index++ ) {
+	for ( var index = 0; index < postTypesCount; index++ ) {
 		var postType = postTypes[ index ],
 			layoutType = ( undefined !== wp.customize( 'astra-settings[ast-single-' + postType + '-layout]' ) ) ? wp.customize( 'astra-settings[ast-single-' + postType + '-layout]' ).get() : 'both';
 
@@ -86,32 +86,32 @@
 		astra_css(
 			'astra-settings[ast-single-' + postType + '-elements-gap]',
 			'margin-bottom',
-			'header.entry-header > *, .ast-single-entry-banner[data-post-type="' + postType + '"] > *',
+			'header.entry-header > *:not(:last-child), .ast-single-entry-banner[data-post-type="' + postType + '"] > *:not(:last-child)',
 			'px'
 		);
 
 		astra_css(
 			'astra-settings[ast-single-' + postType + '-banner-text-color]',
 			'color',
-			selector
+			'header.entry-header *, .ast-single-entry-banner[data-post-type="' + postType + '"] *',
 		);
 
 		astra_css(
 			'astra-settings[ast-single-' + postType + '-banner-title-color]',
 			'color',
-			selector + ' .entry-title'
+			'header.entry-header .entry-title, .ast-single-entry-banner[data-post-type="' + postType + '"] .entry-title',
 		);
 
 		astra_css(
 			'astra-settings[ast-single-' + postType + '-banner-link-color]',
 			'color',
-			selector + ' a'
+			'.ast-single-entry-banner[data-post-type="' + postType + '"] a, header.entry-header a, .ast-single-entry-banner[data-post-type="' + postType + '"] a *, header.entry-header a *'
 		);
 
 		astra_css(
 			'astra-settings[ast-single-' + postType + '-banner-link-hover-color]',
 			'color',
-			selector + ' a:hover'
+			'.ast-single-entry-banner[data-post-type="' + postType + '"] a:hover, header.entry-header a:hover, .ast-single-entry-banner[data-post-type="' + postType + '"] a:hover *, header.entry-header a:hover *'
 		);
 
 		astra_apply_responsive_background_css( 'astra-settings[ast-single-' + postType + '-banner-custom-bg]', '.ast-single-entry-banner[data-post-type="' + postType + '"][data-banner-background-type="custom"]', 'desktop' );

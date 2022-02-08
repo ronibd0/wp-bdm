@@ -311,6 +311,27 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 				),
 
 				/**
+				 * Option: Horizontal Alignment.
+				 */
+				array(
+					'name'      => ASTRA_THEME_SETTINGS . '[' . $section . '-horizontal-alignment]',
+					'default'   => astra_get_option( $section . '-horizontal-alignment' ),
+					'type'      => 'control',
+					'control'   => 'ast-selector',
+					'section'   => $section,
+					'priority'  => 27,
+					'title'     => __( 'Content Alignment', 'astra' ),
+					'context'   => Astra_Builder_Helper::$general_tab,
+					'transport' => 'postMessage',
+					'choices'   => array(
+						'left'   => 'align-left',
+						'center' => 'align-center',
+						'right'  => 'align-right',
+					),
+					'divider'   => array( 'ast_class' => 'ast-top-divider' ),
+				),
+
+				/**
 				 * Option: Banner Content Width.
 				 */
 				array(
@@ -393,27 +414,6 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 							'value'    => 'featured',
 						),
 					),
-				),
-
-				/**
-				 * Option: Horizontal Alignment.
-				 */
-				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[' . $section . '-horizontal-alignment]',
-					'default'   => astra_get_option( $section . '-horizontal-alignment' ),
-					'type'      => 'control',
-					'control'   => 'ast-selector',
-					'section'   => $section,
-					'priority'  => 45,
-					'title'     => __( 'Content Alignment', 'astra' ),
-					'context'   => Astra_Builder_Helper::$general_tab,
-					'transport' => 'postMessage',
-					'choices'   => array(
-						'left'   => 'align-left',
-						'center' => 'align-center',
-						'right'  => 'align-right',
-					),
-					'divider'   => array( 'ast_class' => 'ast-top-divider' ),
 				),
 
 				/**
