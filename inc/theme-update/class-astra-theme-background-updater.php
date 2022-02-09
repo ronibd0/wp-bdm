@@ -121,7 +121,7 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 				'astra_fullwidth_layouts_apply_content_background',
 			),
 			'3.9.0' => array(
-				'astra_post_strctures_meta_migration',
+				// 'astra_post_strctures_meta_migration',
 			),
 		);
 

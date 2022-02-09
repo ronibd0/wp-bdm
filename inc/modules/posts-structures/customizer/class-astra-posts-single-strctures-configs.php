@@ -92,6 +92,14 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 			'tablet-unit'  => 'px',
 			'mobile-unit'  => 'px',
 		);
+		$font_size_defaults    = array(
+			'desktop'      => '',
+			'tablet'       => '',
+			'mobile'       => '',
+			'desktop-unit' => 'px',
+			'tablet-unit'  => 'px',
+			'mobile-unit'  => 'px',
+		);
 
 		foreach ( $post_types as $index => $post_type ) {
 
@@ -525,8 +533,339 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 					'transport' => 'postMessage',
 					'priority'  => 20,
 					'title'     => __( 'Link Hover Color', 'astra' ),
-					'divider'   => array( 'ast_class' => 'ast-bottom-divider' ),
 					'context'   => Astra_Builder_Helper::$design_tab,
+				),
+
+				array(
+					'name'      => ASTRA_THEME_SETTINGS . '[' . $section . '-banner-text-typography-group]',
+					'type'      => 'control',
+					'priority'  => 25,
+					'divider'   => array( 'ast_class' => 'ast-top-divider' ),
+					'control'   => 'ast-settings-group',
+					'context'   => Astra_Builder_Helper::$design_tab,
+					'title'     => __( 'Text Font', 'astra' ),
+					'section'   => $section,
+					'transport' => 'postMessage',
+				),
+
+				/**
+				 * Option: Text Font Family
+				 */
+				array(
+					'name'      => $section . '-text-font-family',
+					'parent'    => ASTRA_THEME_SETTINGS . '[' . $section . '-banner-text-typography-group]',
+					'section'   => $section,
+					'type'      => 'sub-control',
+					'control'   => 'ast-font',
+					'font_type' => 'ast-font-family',
+					'default'   => astra_get_option( $section . '-text-font-family' ),
+					'title'     => __( 'Family', 'astra' ),
+					'connect'   => ASTRA_THEME_SETTINGS . '[' . $section . '-text-font-weight]',
+				),
+
+				/**
+				 * Option: Text Font Size
+				 */
+				array(
+					'name'        => $section . '-text-font-size',
+					'parent'      => ASTRA_THEME_SETTINGS . '[' . $section . '-banner-text-typography-group]',
+					'section'     => $section,
+					'type'        => 'sub-control',
+					'control'     => 'ast-responsive',
+					'default'     => astra_get_option( $section . '-text-font-size', $font_size_defaults ),
+					'transport'   => 'postMessage',
+					'title'       => __( 'Size', 'astra' ),
+					'input_attrs' => array(
+						'min' => 0,
+					),
+					'units'       => array(
+						'px' => 'px',
+						'em' => 'em',
+					),
+				),
+
+				/**
+				 * Option: Text Font Weight
+				 */
+				array(
+					'name'              => $section . '-text-font-weight',
+					'parent'            => ASTRA_THEME_SETTINGS . '[' . $section . '-banner-text-typography-group]',
+					'section'           => $section,
+					'type'              => 'sub-control',
+					'control'           => 'ast-font',
+					'font_type'         => 'ast-font-weight',
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_font_weight' ),
+					'default'           => astra_get_option( $section . '-text-font-weight' ),
+					'title'             => __( 'Weight', 'astra' ),
+					'connect'           => $section . '-text-font-family',
+				),
+
+				/**
+				 * Option: Text Text Transform
+				 */
+				array(
+					'name'      => $section . '-text-transform',
+					'parent'    => ASTRA_THEME_SETTINGS . '[' . $section . '-banner-text-typography-group]',
+					'section'   => $section,
+					'type'      => 'sub-control',
+					'title'     => __( 'Text Transform', 'astra' ),
+					'default'   => astra_get_option( $section . '-text-transform' ),
+					'transport' => 'postMessage',
+					'control'   => 'ast-select',
+					'choices'   => array(
+						''           => __( 'Inherit', 'astra' ),
+						'none'       => __( 'None', 'astra' ),
+						'capitalize' => __( 'Capitalize', 'astra' ),
+						'uppercase'  => __( 'Uppercase', 'astra' ),
+						'lowercase'  => __( 'Lowercase', 'astra' ),
+					),
+				),
+
+				/**
+				 * Option: Text Line Height
+				 */
+				array(
+					'name'              => $section . '-text-line-height',
+					'parent'            => ASTRA_THEME_SETTINGS . '[' . $section . '-banner-text-typography-group]',
+					'section'           => $section,
+					'type'              => 'sub-control',
+					'transport'         => 'postMessage',
+					'default'           => astra_get_option( $section . '-text-line-height' ),
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
+					'title'             => __( 'Line Height', 'astra' ),
+					'control'           => 'ast-slider',
+					'suffix'            => '',
+					'input_attrs'       => array(
+						'min'  => 1,
+						'step' => 1,
+						'max'  => 5,
+					),
+				),
+
+				array(
+					'name'      => ASTRA_THEME_SETTINGS . '[' . $section . '-banner-title-typography-group]',
+					'type'      => 'control',
+					'priority'  => 30,
+					'control'   => 'ast-settings-group',
+					'context'   => array(
+						Astra_Builder_Helper::$design_tab_config,
+						'relation' => 'AND',
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[' . $section . '-structure]',
+							'operator' => 'contains',
+							'value'    => $section . '-title',
+						),
+					),
+					'title'     => __( 'Title Font', 'astra' ),
+					'section'   => $section,
+					'transport' => 'postMessage',
+				),
+
+				/**
+				 * Option: Title Font Family
+				 */
+				array(
+					'name'      => $section . '-title-font-family',
+					'parent'    => ASTRA_THEME_SETTINGS . '[' . $section . '-banner-title-typography-group]',
+					'section'   => $section,
+					'type'      => 'sub-control',
+					'control'   => 'ast-font',
+					'font_type' => 'ast-font-family',
+					'default'   => astra_get_option( $section . '-title-font-family' ),
+					'title'     => __( 'Family', 'astra' ),
+					'connect'   => ASTRA_THEME_SETTINGS . '[' . $section . '-title-font-weight]',
+				),
+
+				/**
+				 * Option: Title Font Size
+				 */
+				array(
+					'name'        => $section . '-title-font-size',
+					'parent'      => ASTRA_THEME_SETTINGS . '[' . $section . '-banner-title-typography-group]',
+					'section'     => $section,
+					'type'        => 'sub-control',
+					'control'     => 'ast-responsive',
+					'default'     => astra_get_option( $section . '-title-font-size', $font_size_defaults ),
+					'transport'   => 'postMessage',
+					'title'       => __( 'Size', 'astra' ),
+					'input_attrs' => array(
+						'min' => 0,
+					),
+					'units'       => array(
+						'px' => 'px',
+						'em' => 'em',
+					),
+				),
+
+				/**
+				 * Option: Title Font Weight
+				 */
+				array(
+					'name'              => $section . '-title-font-weight',
+					'parent'            => ASTRA_THEME_SETTINGS . '[' . $section . '-banner-title-typography-group]',
+					'section'           => $section,
+					'type'              => 'sub-control',
+					'control'           => 'ast-font',
+					'font_type'         => 'ast-font-weight',
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_font_weight' ),
+					'default'           => astra_get_option( $section . '-title-font-weight' ),
+					'title'             => __( 'Weight', 'astra' ),
+					'connect'           => $section . '-title-font-family',
+				),
+
+				/**
+				 * Option: Title Text Transform
+				 */
+				array(
+					'name'      => $section . '-title-text-transform',
+					'parent'    => ASTRA_THEME_SETTINGS . '[' . $section . '-banner-title-typography-group]',
+					'section'   => $section,
+					'type'      => 'sub-control',
+					'title'     => __( 'Text Transform', 'astra' ),
+					'default'   => astra_get_option( $section . '-title-text-transform' ),
+					'transport' => 'postMessage',
+					'control'   => 'ast-select',
+					'choices'   => array(
+						''           => __( 'Inherit', 'astra' ),
+						'none'       => __( 'None', 'astra' ),
+						'capitalize' => __( 'Capitalize', 'astra' ),
+						'uppercase'  => __( 'Uppercase', 'astra' ),
+						'lowercase'  => __( 'Lowercase', 'astra' ),
+					),
+				),
+
+				/**
+				 * Option: Title Line Height
+				 */
+				array(
+					'name'              => $section . '-title-line-height',
+					'parent'            => ASTRA_THEME_SETTINGS . '[' . $section . '-banner-title-typography-group]',
+					'section'           => $section,
+					'type'              => 'sub-control',
+					'transport'         => 'postMessage',
+					'default'           => astra_get_option( $section . '-title-line-height' ),
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
+					'title'             => __( 'Line Height', 'astra' ),
+					'control'           => 'ast-slider',
+					'suffix'            => '',
+					'input_attrs'       => array(
+						'min'  => 1,
+						'step' => 1,
+						'max'  => 5,
+					),
+				),
+
+				array(
+					'name'      => ASTRA_THEME_SETTINGS . '[' . $section . '-banner-meta-typography-group]',
+					'type'      => 'control',
+					'priority'  => 35,
+					'control'   => 'ast-settings-group',
+					'context'   => array(
+						Astra_Builder_Helper::$design_tab_config,
+						'relation' => 'AND',
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[' . $section . '-structure]',
+							'operator' => 'contains',
+							'value'    => $section . '-meta',
+						),
+					),
+					'title'     => __( 'Meta Font', 'astra' ),
+					'section'   => $section,
+					'transport' => 'postMessage',
+				),
+
+				/**
+				 * Option: Meta Font Family
+				 */
+				array(
+					'name'      => $section . '-meta-font-family',
+					'parent'    => ASTRA_THEME_SETTINGS . '[' . $section . '-banner-meta-typography-group]',
+					'section'   => $section,
+					'type'      => 'sub-control',
+					'control'   => 'ast-font',
+					'font_type' => 'ast-font-family',
+					'default'   => astra_get_option( $section . '-meta-font-family' ),
+					'title'     => __( 'Family', 'astra' ),
+					'connect'   => ASTRA_THEME_SETTINGS . '[' . $section . '-meta-font-weight]',
+				),
+
+				/**
+				 * Option: Meta Font Size
+				 */
+				array(
+					'name'        => $section . '-meta-font-size',
+					'parent'      => ASTRA_THEME_SETTINGS . '[' . $section . '-banner-meta-typography-group]',
+					'section'     => $section,
+					'type'        => 'sub-control',
+					'control'     => 'ast-responsive',
+					'default'     => astra_get_option( $section . '-meta-font-size', $font_size_defaults ),
+					'transport'   => 'postMessage',
+					'title'       => __( 'Size', 'astra' ),
+					'input_attrs' => array(
+						'min' => 0,
+					),
+					'units'       => array(
+						'px' => 'px',
+						'em' => 'em',
+					),
+				),
+
+				/**
+				 * Option: Meta Font Weight
+				 */
+				array(
+					'name'              => $section . '-meta-font-weight',
+					'parent'            => ASTRA_THEME_SETTINGS . '[' . $section . '-banner-meta-typography-group]',
+					'section'           => $section,
+					'type'              => 'sub-control',
+					'control'           => 'ast-font',
+					'font_type'         => 'ast-font-weight',
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_font_weight' ),
+					'default'           => astra_get_option( $section . '-meta-font-weight' ),
+					'title'             => __( 'Weight', 'astra' ),
+					'connect'           => $section . '-meta-font-family',
+				),
+
+				/**
+				 * Option: Meta Transform
+				 */
+				array(
+					'name'      => $section . '-meta-transform',
+					'parent'    => ASTRA_THEME_SETTINGS . '[' . $section . '-banner-meta-typography-group]',
+					'section'   => $section,
+					'type'      => 'sub-control',
+					'title'     => __( 'Text Transform', 'astra' ),
+					'default'   => astra_get_option( $section . '-meta-transform' ),
+					'transport' => 'postMessage',
+					'control'   => 'ast-select',
+					'choices'   => array(
+						''           => __( 'Inherit', 'astra' ),
+						'none'       => __( 'None', 'astra' ),
+						'capitalize' => __( 'Capitalize', 'astra' ),
+						'uppercase'  => __( 'Uppercase', 'astra' ),
+						'lowercase'  => __( 'Lowercase', 'astra' ),
+					),
+				),
+
+				/**
+				 * Option: Meta Line Height
+				 */
+				array(
+					'name'              => $section . '-meta-line-height',
+					'parent'            => ASTRA_THEME_SETTINGS . '[' . $section . '-banner-meta-typography-group]',
+					'section'           => $section,
+					'type'              => 'sub-control',
+					'transport'         => 'postMessage',
+					'default'           => astra_get_option( $section . '-meta-line-height' ),
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
+					'title'             => __( 'Line Height', 'astra' ),
+					'control'           => 'ast-slider',
+					'suffix'            => '',
+					'input_attrs'       => array(
+						'min'  => 1,
+						'step' => 1,
+						'max'  => 5,
+					),
 				),
 
 				array(
@@ -539,6 +878,7 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 					'title'             => __( 'Margin', 'astra' ),
 					'linked_choices'    => true,
 					'transport'         => 'postMessage',
+					'divider'           => array( 'ast_class' => 'ast-top-divider' ),
 					'unit_choices'      => array( 'px', 'em', '%' ),
 					'choices'           => array(
 						'top'    => __( 'Top', 'astra' ),
