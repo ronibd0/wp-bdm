@@ -74,6 +74,12 @@ class Astra_Posts_Strctures_Markup {
 			$layout_type = astra_get_option( 'ast-single-' . $post_type . '-layout', 'layout-1' );
 		}
 
+		$post_type_array   = apply_filters( 'astra_post_structures_supported_post_types', array( 'post', 'product' ) );
+
+		if( ! in_array( $post_type, $post_type_array ) ) {
+			return;
+		}
+
 		if ( 'single' === $type && 'layout-2' === $layout_type ) {
 
 			do_action( 'astra_before_single_' . $post_type . '_banner_content' );
@@ -93,7 +99,7 @@ class Astra_Posts_Strctures_Markup {
 				get_template_part( 'template-parts/archive-banner' );
 
 				do_action( 'astra_after_archive_' . $post_type . '_banner_content' );
-			}       
+			}
 		} elseif ( class_exists( 'WooCommerce' ) && ( is_shop() || is_product_taxonomy() ) ) {
 
 			if ( 'layout-2' === astra_get_option( 'ast-archive-product-layout', 'layout-1' ) ) {
@@ -121,7 +127,7 @@ class Astra_Posts_Strctures_Markup {
 				get_template_part( 'template-parts/archive-banner' );
 
 				do_action( 'astra_after_archive_' . $post_type . '_banner_content' );
-			}       
+			}
 		} elseif ( 'archive' === $type ) {
 
 			do_action( 'astra_before_archive_' . $post_type . '_banner_content' );
