@@ -2630,6 +2630,10 @@ p.demo_store a,
   display: flex;
 }
 
+.woocommerce .variations th {
+  text-align: left;
+}
+
 .woocommerce,
 .woocommerce-page {
   /**
