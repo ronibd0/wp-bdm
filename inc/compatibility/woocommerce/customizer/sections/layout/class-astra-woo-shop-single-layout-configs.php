@@ -120,6 +120,40 @@ if ( ! class_exists( 'Astra_Woo_Shop_Single_Layout_Configs' ) ) {
 					'control'  => 'ast-toggle-control',
 					'divider'  => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
+
+				/**
+				 * Option: Enable free shipping
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[single-product-enable-shipping]',
+					'default'  => astra_get_option( 'single-product-enable-shipping' ),
+					'type'     => 'control',
+					'section'  => 'section-woo-shop-single',
+					'title'    => __( 'Enable Shipping Text', 'astra' ),
+					'control'  => 'ast-toggle-control',
+					'priority' => 16,
+				),
+
+				/**
+				 * Option: Free shipping text
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[single-product-shipping-text]',
+					'default'  => astra_get_option( 'single-product-shipping-text' ),
+					'type'     => 'control',
+					'section'  => 'section-woo-shop-single',
+					'title'    => __( 'Shipping Text', 'astra' ),
+					'context'  => array(
+						Astra_Builder_Helper::$general_tab_config,
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[single-product-enable-shipping]',
+							'operator' => '==',
+							'value'    => true,
+						),
+					),
+					'control'  => 'text',
+					'priority' => 16,
+				),
 			);
 
 			return array_merge( $configurations, $_configs );
