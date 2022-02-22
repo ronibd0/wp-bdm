@@ -70,6 +70,32 @@
 			} );
 		} );
 
+		wp.customize( 'astra-settings[ast-single-' + postType + '-banner-height]', function( value ) {
+			value.bind( function( size ) {
+
+				if( size.desktop != '' || size.tablet != '' || size.mobile != '' ) {
+					var dynamicStyle = '';
+					dynamicStyle += '.ast-single-entry-banner[data-post-type="' + postType + '"] {';
+					dynamicStyle += 'min-height: ' + size.desktop + 'px;';
+					dynamicStyle += '} ';
+
+					dynamicStyle +=  '@media (max-width: ' + tablet_break_point + 'px) {';
+					dynamicStyle += '.ast-single-entry-banner[data-post-type="' + postType + '"] {';
+					dynamicStyle += 'min-height: ' + size.tablet + 'px;';
+					dynamicStyle += '} ';
+					dynamicStyle += '} ';
+
+					dynamicStyle +=  '@media (max-width: ' + mobile_break_point + 'px) {';
+					dynamicStyle += '.ast-single-entry-banner[data-post-type="' + postType + '"] {';
+					dynamicStyle += 'min-height: ' + size.mobile + 'px;';
+					dynamicStyle += '} ';
+					dynamicStyle += '} ';
+
+					astra_add_dynamic_css( 'ast-single-' + postType + '-banner-height', dynamicStyle );
+				}
+			} );
+		} );
+
 		astra_css(
 			'astra-settings[ast-single-' + postType + '-vertical-alignment]',
 			'justify-content',
@@ -185,6 +211,32 @@
 					dynamicStyle += '} ';
 
 					astra_add_dynamic_css( 'ast-archive-' + postType + '-horizontal-alignment', dynamicStyle );
+				}
+			} );
+		} );
+
+		wp.customize( 'astra-settings[ast-archive-' + postType + '-banner-height]', function( value ) {
+			value.bind( function( size ) {
+
+				if( size.desktop != '' || size.tablet != '' || size.mobile != '' ) {
+					var dynamicStyle = '';
+					dynamicStyle += '.ast-archive-entry-banner[data-post-type="' + postType + '"] {';
+					dynamicStyle += 'min-height: ' + size.desktop + 'px;';
+					dynamicStyle += '} ';
+
+					dynamicStyle +=  '@media (max-width: ' + tablet_break_point + 'px) {';
+					dynamicStyle += '.ast-archive-entry-banner[data-post-type="' + postType + '"] {';
+					dynamicStyle += 'min-height: ' + size.tablet + 'px;';
+					dynamicStyle += '} ';
+					dynamicStyle += '} ';
+
+					dynamicStyle +=  '@media (max-width: ' + mobile_break_point + 'px) {';
+					dynamicStyle += '.ast-archive-entry-banner[data-post-type="' + postType + '"] {';
+					dynamicStyle += 'min-height: ' + size.mobile + 'px;';
+					dynamicStyle += '} ';
+					dynamicStyle += '} ';
+
+					astra_add_dynamic_css( 'ast-archive-' + postType + '-banner-height', dynamicStyle );
 				}
 			} );
 		} );

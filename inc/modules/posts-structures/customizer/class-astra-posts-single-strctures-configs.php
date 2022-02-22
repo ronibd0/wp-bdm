@@ -100,6 +100,11 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 			'tablet-unit'  => 'px',
 			'mobile-unit'  => 'px',
 		);
+		$responsive_slider_defaults = array(
+			'desktop' => '',
+			'tablet'  => '',
+			'mobile'  => '',
+		);
 
 		foreach ( $post_types as $index => $post_type ) {
 
@@ -340,6 +345,37 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 				),
 
 				/**
+				 * Option: Vertical Alignment
+				 */
+				array(
+					'name'       => ASTRA_THEME_SETTINGS . '[' . $section . '-vertical-alignment]',
+					'default'    => astra_get_option( $section . '-vertical-alignment', 'center' ),
+					'type'       => 'control',
+					'control'    => 'ast-selector',
+					'section'    => $section,
+					'priority'   => 28,
+					'title'      => __( 'Vertical Alignment', 'astra' ),
+					'choices'    => array(
+						'flex-start' => __( 'Top', 'astra' ),
+						'center'     => __( 'Middle', 'astra' ),
+						'flex-end'   => __( 'Bottom', 'astra' ),
+					),
+					'divider'    => array( 'ast_class' => 'ast-top-divider' ),
+					'context'    => array(
+						Astra_Builder_Helper::$general_tab_config,
+						'relation' => 'AND',
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[' . $section . '-layout]',
+							'operator' => '===',
+							'value'    => 'layout-2',
+						),
+					),
+					'transport'  => 'postMessage',
+					'renderAs'   => 'text',
+					'responsive' => false,
+				),
+
+				/**
 				 * Option: Banner Content Width.
 				 */
 				array(
@@ -425,33 +461,26 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 				),
 
 				/**
-				 * Option: Vertical Alignment
+				 * Option: Container min height.
 				 */
 				array(
-					'name'       => ASTRA_THEME_SETTINGS . '[' . $section . '-vertical-alignment]',
-					'default'    => astra_get_option( $section . '-vertical-alignment', 'center' ),
-					'type'       => 'control',
-					'control'    => 'ast-selector',
-					'section'    => $section,
-					'priority'   => 50,
-					'title'      => __( 'Vertical Alignment', 'astra' ),
-					'choices'    => array(
-						'flex-start' => __( 'Top', 'astra' ),
-						'center'     => __( 'Middle', 'astra' ),
-						'flex-end'   => __( 'Bottom', 'astra' ),
+					'name'        => ASTRA_THEME_SETTINGS . '[' . $section . '-banner-height]',
+					'type'        => 'control',
+					'control'     => 'ast-responsive-slider',
+					'section'     => $section,
+					'transport'   => 'postMessage',
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
+					'default'     => astra_get_option( $section . '-banner-height', $responsive_slider_defaults ),
+					'context'     => Astra_Builder_Helper::$design_tab,
+					'priority'    => 1,
+					'title'       => __( 'Banner Min Height', 'astra' ),
+					'suffix'      => 'px',
+					'input_attrs' => array(
+						'min'  => 0,
+						'step' => 1,
+						'max'  => 1000,
 					),
-					'context'    => array(
-						Astra_Builder_Helper::$general_tab_config,
-						'relation' => 'AND',
-						array(
-							'setting'  => ASTRA_THEME_SETTINGS . '[' . $section . '-layout]',
-							'operator' => '===',
-							'value'    => 'layout-2',
-						),
-					),
-					'transport'  => 'postMessage',
-					'renderAs'   => 'text',
-					'responsive' => false,
+					'divider'     => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				/**
@@ -465,7 +494,7 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 					'transport'   => 'postMessage',
 					'default'     => astra_get_option( $section . '-elements-gap', 10 ),
 					'context'     => Astra_Builder_Helper::$design_tab,
-					'priority'    => 1,
+					'priority'    => 5,
 					'title'       => __( 'Inner Elements Spacing', 'astra' ),
 					'suffix'      => 'px',
 					'input_attrs' => array(
@@ -474,21 +503,6 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 						'max'  => 100,
 					),
 					'divider'     => array( 'ast_class' => 'ast-bottom-divider' ),
-				),
-
-				/**
-				 * Option: Text Color
-				 */
-				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[' . $section . '-banner-text-color]',
-					'type'      => 'control',
-					'control'   => 'ast-color',
-					'section'   => $section,
-					'default'   => astra_get_option( $section . '-banner-text-color' ),
-					'priority'  => 5,
-					'title'     => __( 'Text Color', 'astra' ),
-					'transport' => 'postMessage',
-					'context'   => Astra_Builder_Helper::$design_tab,
 				),
 
 				/**
@@ -501,8 +515,23 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 					'section'   => $section,
 					'default'   => astra_get_option( $section . '-banner-title-color' ),
 					'transport' => 'postMessage',
-					'priority'  => 10,
+					'priority'  => 5,
 					'title'     => __( 'Title Color', 'astra' ),
+					'context'   => Astra_Builder_Helper::$design_tab,
+				),
+
+				/**
+				 * Option: Text Color
+				 */
+				array(
+					'name'      => ASTRA_THEME_SETTINGS . '[' . $section . '-banner-text-color]',
+					'type'      => 'control',
+					'control'   => 'ast-color',
+					'section'   => $section,
+					'default'   => astra_get_option( $section . '-banner-text-color' ),
+					'priority'  => 10,
+					'title'     => __( 'Text Color', 'astra' ),
+					'transport' => 'postMessage',
 					'context'   => Astra_Builder_Helper::$design_tab,
 				),
 
@@ -537,10 +566,29 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 				),
 
 				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[' . $section . '-banner-text-typography-group]',
+					'name'      => ASTRA_THEME_SETTINGS . '[' . $section . '-banner-title-typography-group]',
 					'type'      => 'control',
 					'priority'  => 25,
+					'control'   => 'ast-settings-group',
+					'context'   => array(
+						Astra_Builder_Helper::$design_tab_config,
+						'relation' => 'AND',
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[' . $section . '-structure]',
+							'operator' => 'contains',
+							'value'    => $section . '-title',
+						),
+					),
 					'divider'   => array( 'ast_class' => 'ast-top-divider' ),
+					'title'     => __( 'Title Font', 'astra' ),
+					'section'   => $section,
+					'transport' => 'postMessage',
+				),
+
+				array(
+					'name'      => ASTRA_THEME_SETTINGS . '[' . $section . '-banner-text-typography-group]',
+					'type'      => 'control',
+					'priority'  => 30,
 					'control'   => 'ast-settings-group',
 					'context'   => Astra_Builder_Helper::$design_tab,
 					'title'     => __( 'Text Font', 'astra' ),
@@ -558,7 +606,7 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 					'type'      => 'sub-control',
 					'control'   => 'ast-font',
 					'font_type' => 'ast-font-family',
-					'default'   => astra_get_option( $section . '-text-font-family' ),
+					'default'   => astra_get_option( $section . '-text-font-family', 'inherit' ),
 					'title'     => __( 'Family', 'astra' ),
 					'connect'   => ASTRA_THEME_SETTINGS . '[' . $section . '-text-font-weight]',
 				),
@@ -595,7 +643,7 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 					'control'           => 'ast-font',
 					'font_type'         => 'ast-font-weight',
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_font_weight' ),
-					'default'           => astra_get_option( $section . '-text-font-weight' ),
+					'default'           => astra_get_option( $section . '-text-font-weight', 'inherit' ),
 					'title'             => __( 'Weight', 'astra' ),
 					'connect'           => $section . '-text-font-family',
 				),
@@ -609,7 +657,7 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 					'section'   => $section,
 					'type'      => 'sub-control',
 					'title'     => __( 'Text Transform', 'astra' ),
-					'default'   => astra_get_option( $section . '-text-transform' ),
+					'default'   => astra_get_option( $section . '-text-transform', '' ),
 					'transport' => 'postMessage',
 					'control'   => 'ast-select',
 					'choices'   => array(
@@ -642,25 +690,6 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 					),
 				),
 
-				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[' . $section . '-banner-title-typography-group]',
-					'type'      => 'control',
-					'priority'  => 30,
-					'control'   => 'ast-settings-group',
-					'context'   => array(
-						Astra_Builder_Helper::$design_tab_config,
-						'relation' => 'AND',
-						array(
-							'setting'  => ASTRA_THEME_SETTINGS . '[' . $section . '-structure]',
-							'operator' => 'contains',
-							'value'    => $section . '-title',
-						),
-					),
-					'title'     => __( 'Title Font', 'astra' ),
-					'section'   => $section,
-					'transport' => 'postMessage',
-				),
-
 				/**
 				 * Option: Title Font Family
 				 */
@@ -671,7 +700,7 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 					'type'      => 'sub-control',
 					'control'   => 'ast-font',
 					'font_type' => 'ast-font-family',
-					'default'   => astra_get_option( $section . '-title-font-family' ),
+					'default'   => astra_get_option( $section . '-title-font-family', 'inherit' ),
 					'title'     => __( 'Family', 'astra' ),
 					'connect'   => ASTRA_THEME_SETTINGS . '[' . $section . '-title-font-weight]',
 				),
@@ -708,7 +737,7 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 					'control'           => 'ast-font',
 					'font_type'         => 'ast-font-weight',
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_font_weight' ),
-					'default'           => astra_get_option( $section . '-title-font-weight' ),
+					'default'           => astra_get_option( $section . '-title-font-weight', 'inherit' ),
 					'title'             => __( 'Weight', 'astra' ),
 					'connect'           => $section . '-title-font-family',
 				),
@@ -722,7 +751,7 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 					'section'   => $section,
 					'type'      => 'sub-control',
 					'title'     => __( 'Text Transform', 'astra' ),
-					'default'   => astra_get_option( $section . '-title-text-transform' ),
+					'default'   => astra_get_option( $section . '-title-text-transform', '' ),
 					'transport' => 'postMessage',
 					'control'   => 'ast-select',
 					'choices'   => array(
@@ -784,7 +813,7 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 					'type'      => 'sub-control',
 					'control'   => 'ast-font',
 					'font_type' => 'ast-font-family',
-					'default'   => astra_get_option( $section . '-meta-font-family' ),
+					'default'   => astra_get_option( $section . '-meta-font-family', 'inherit' ),
 					'title'     => __( 'Family', 'astra' ),
 					'connect'   => ASTRA_THEME_SETTINGS . '[' . $section . '-meta-font-weight]',
 				),
@@ -821,7 +850,7 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 					'control'           => 'ast-font',
 					'font_type'         => 'ast-font-weight',
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_font_weight' ),
-					'default'           => astra_get_option( $section . '-meta-font-weight' ),
+					'default'           => astra_get_option( $section . '-meta-font-weight', 'inherit' ),
 					'title'             => __( 'Weight', 'astra' ),
 					'connect'           => $section . '-meta-font-family',
 				),
@@ -835,7 +864,7 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 					'section'   => $section,
 					'type'      => 'sub-control',
 					'title'     => __( 'Text Transform', 'astra' ),
-					'default'   => astra_get_option( $section . '-meta-transform' ),
+					'default'   => astra_get_option( $section . '-meta-transform', '' ),
 					'transport' => 'postMessage',
 					'control'   => 'ast-select',
 					'choices'   => array(
