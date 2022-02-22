@@ -16,6 +16,7 @@ const RadioImageComponent = props => {
 		label,
 		description,
 		id,
+		alt_layout,
 		choices,
 		inputAttrs,
 		choices_titles,
@@ -28,9 +29,9 @@ const RadioImageComponent = props => {
 		htmlRadio,
 		inp_array = [];
 
-
-	// Checks if unicode input is active which belongs in the breadcrumb customizer section.
-	const hasUnicode =  Object.keys( choices ).includes( 'unicode' ) ? 'ast-divide-four' : '';
+	
+	// Adds class to enable four column layout.
+	const hasUnicode =  alt_layout ? 'ast-divide-four' : '';
 
 	if (label) {
 		htmlLabel = <span className="customize-control-title">{label}</span>;
