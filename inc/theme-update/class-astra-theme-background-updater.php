@@ -118,6 +118,7 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 				'astra_improve_gutenberg_editor_ui',
 			),
 			'3.8.0' => array(
+				'astra_woocommerce_product_single_margin',
 				'astra_fullwidth_layouts_apply_content_background',
 			),
 		);

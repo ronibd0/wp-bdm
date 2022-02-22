@@ -9,6 +9,7 @@ v3.9.0 (woocommerce-improvements) (Unreleased)
 - New: WooCommerce - Added Icon size option in the Woocommerce Cart.
 - New: WooCommerce - Added Option to add free shipping text next to Woocommerce single product price.
 - New: WooCommerce - Added Product Variation Orientation option in the Single product.
+- Fix: WooCommerce - Margin issue for single shop page with the Full width & Contained Layout.
 
 v3.8.0(Unreleased)
 - Improvement: Added a new filter 'astra_settings_metabox_register' to prevent loading of block based Astra Settings metabox. ( https://wpastra.com/docs/hide-astra-settings-for-user-roles/ )

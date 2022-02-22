@@ -3276,6 +3276,21 @@ function astra_improve_gutenberg_editor_ui() {
 }
 
 /**
+ * Set flag to avoid woocommerce product single margin fix to be added for old users.
+ *
+ * @since x.x.x
+ * @return void
+ */
+function astra_woocommerce_product_single_margin() {
+	$theme_options = get_option( 'astra-settings', array() );
+
+	if ( ! isset( $theme_options['apply-woo-product-single-margin'] ) ) {
+		$theme_options['apply-woo-product-single-margin'] = true;
+		update_option( 'astra-settings', $theme_options );
+	}
+}
+
+/**
  * Set flag to avoid direct reflections on live site & to maintain backward compatibility for existing users.
  *
  * Starting supporting content-background color for Full Width Contained & Full Width Stretched layouts.
@@ -3291,3 +3306,4 @@ function astra_fullwidth_layouts_apply_content_background() {
 		update_option( 'astra-settings', $theme_options );
 	}
 }
+

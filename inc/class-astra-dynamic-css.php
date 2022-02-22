@@ -1061,8 +1061,12 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'1200'
 				);
 
+				// Checks if value is set and adds the condition accordingly.
+				$astra_condition_margin_flag = astra_get_option( 'apply-woo-product-single-margin', false );
+				$astra_condition_margin      = $astra_condition_margin_flag ? is_singular() : ( is_singular() && ( class_exists( 'woocommerce' ) && ! is_product() ) );
+				
 				// Remove margin top when Primary Header is not set and No Sidebar is added in Full-Width / Contained Layout.
-				if ( is_singular() ) {
+				if ( apply_filters( 'astra_content_margin_condition', $astra_condition_margin ) ) {
 					$display_header = get_post_meta( get_the_ID(), 'ast-main-header-display', true );
 					if ( 'disabled' === $display_header && apply_filters( 'astra_content_margin_full_width_contained', true ) || ( Astra_Ext_Transparent_Header_Markup::is_transparent_header() ) || ( self::gutenberg_core_blocks_css_comp() ) ) {
 						$gtn_margin_top = array(
