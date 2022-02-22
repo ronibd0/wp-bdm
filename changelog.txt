@@ -1,4 +1,4 @@
-v3.9.0 (woocommerce-improvements) (Unreleased)
+v3.8.0 (woocommerce-improvements) (Unreleased)
 - New: Builder - WooCommerce cart - Option for enabling desktop offcanvas cart flyout.
 - New: Builder - WooCommerce cart - Option to update offcanvas flyout direction.
 - New: Builder - WooCommerce cart - Option to change offcanvas flyout width.
@@ -11,8 +11,9 @@ v3.9.0 (woocommerce-improvements) (Unreleased)
 - New: WooCommerce - Added Product Variation Orientation option in the Single product.
 - Fix: WooCommerce - Margin issue for single shop page with the Full width & Contained Layout.
 
-v3.8.0(Unreleased)
+v3.7.8(Unreleased)
 - Improvement: Added a new filter 'astra_settings_metabox_register' to prevent loading of block based Astra Settings metabox. ( https://wpastra.com/docs/hide-astra-settings-for-user-roles/ )
+- Improvement: Predefined breadcrumb separator added in the breadcrumb customizer section.
 - Fix: W3 validation - Removed an element with the attribute tabindex for dropdown menu toggle.
 - Improvement: Site Background will be applied as background CSS for Full-Width Contained/Stretched layouts instead of Content Background.
 - Fix: W3 validation - legend HTML tag missing as fieldset tag is being used for comment section.
@@ -25,7 +26,9 @@ v3.8.0(Unreleased)
 - Fix: JS Error - Uncaught ReferenceError: bodyElement is not defined.
 - Fix: WooCommerce - Blank Flyout shopping cart appearing on checkout & cart page for mobile/tablet devices.
 - Fix: Gutenberg editor - Gutenberg Blocks jerks when users edit any of the blocks.
+- Fix: Fixed Astra meta settings are not getting saved for the Classic editor.
 - Fix: Gutenberg editor - Block Editor layout showing issue with heading block on page or post.
+- Fix: Elementor Popup – Youtube video fullscreen not working when the cart element is added.
 
 v3.7.7
 - Improvement: Compatibility with WordPress 5.9.

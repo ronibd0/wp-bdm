@@ -4535,3 +4535,10 @@ button.pswp__button--zoom:hover {
     width: 60%;
   }
 }
+
+/**
+ * Product categories - Hierarchy CSS.
+ */
+.wc-block-product-categories-list li {
+  padding-right: 15px;
+}
