@@ -17,6 +17,7 @@ v3.7.8(Unreleased)
 - Fix: Gutenberg editor - Block Editor layout showing issue with heading block on page or post.
 - Fix: The Menu get disappear on the Android mobile device when you select Header Type is set as Dropdown.
 - Fix: Elementor Popup – Youtube video fullscreen not working when the cart element is added.
+- Fix: Submenus are misaligned with old Astra header menu for specific cases.
 
 v3.7.7
 - Improvement: Compatibility with WordPress 5.9.
