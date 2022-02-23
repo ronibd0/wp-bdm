@@ -3643,7 +3643,7 @@ input[type="text"].select2-search__field {
 .customize-control-ast-responsive-spacing .ast-spacing-responsive-units li.single-unit {
   display: inline-block;
   margin-right: 6px;
-  width: 16px;
+  width: 18px;
   text-align: center;
   user-select: none;
   opacity: 0.6;

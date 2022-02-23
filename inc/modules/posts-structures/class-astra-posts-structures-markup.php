@@ -102,7 +102,7 @@ class Astra_Posts_Strctures_Markup {
 			}
 		} elseif ( class_exists( 'WooCommerce' ) && ( is_shop() || is_product_taxonomy() ) ) {
 
-			if ( 'layout-2' === astra_get_option( 'ast-archive-product-layout', 'layout-1' ) ) {
+			if ( 'layout-1' === astra_get_option( 'ast-archive-product-layout' ) || 'layout-2' === astra_get_option( 'ast-archive-product-layout' ) ) {
 
 				add_filter( 'woocommerce_show_page_title', '__return_false' );
 

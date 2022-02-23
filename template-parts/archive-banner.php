@@ -19,6 +19,7 @@ if ( is_customize_preview() ) {
 
 $layout_type = astra_get_option( 'ast-archive-' . $post_type . '-layout' );
 $data_attrs  = 'data-post-type="' . $post_type . '" data-banner-layout="' . $layout_type . '"';
+
 if ( 'custom' === astra_get_option( 'ast-archive-' . $post_type . '-banner-width-type', 'fullwidth' ) ) {
 	$data_attrs .= 'data-banner-width-type="custom"';
 }

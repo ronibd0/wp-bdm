@@ -59,6 +59,9 @@ if ( ! class_exists( 'Astra_Woo_Shop_Single_Layout_Configs' ) ) {
 					'default'  => astra_get_option( 'single-product-breadcrumb-disable' ),
 					'title'    => __( 'Disable Breadcrumb', 'astra' ),
 					'priority' => 16,
+					'divider'    => ( defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'woocommerce' ) ) ? array() : array(
+						'ast_class' => 'ast-top-divider',
+					),
 				),
 
 				/**

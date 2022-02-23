@@ -18,6 +18,10 @@ if ( is_customize_preview() ) {
 }
 
 $data_attrs = 'data-post-type="' . $post_type . '"';
+
+$layout_type = astra_get_option( 'ast-single-' . $post_type . '-layout', 'layout-1' );
+$data_attrs .= 'data-banner-layout="' . $layout_type . '"';
+
 if ( 'custom' === astra_get_option( 'ast-single-' . $post_type . '-banner-width-type', 'fullwidth' ) ) {
 	$data_attrs .= 'data-banner-width-type="custom"';
 }
