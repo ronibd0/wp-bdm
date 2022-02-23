@@ -132,19 +132,6 @@ function astra_post_archive_strcture_dynamic_css( $dynamic_css, $dynamic_css_fil
 			),
 		);
 
-		/* Site width Responsive */
-		if ( 'layout-2' === $layout ) {
-			$site_content_width = astra_get_option( 'site-content-width', 1200 );
-			$container_width    = array(
-				$selector . '[data-banner-layout="layout-2"]' => array(
-					'max-width' => $site_content_width . 'px',
-					'margin'    => '0 auto',
-				),
-			);
-
-			$dynamic_css .= astra_parse_css( $container_width, astra_get_tablet_breakpoint( '', 1 ) );
-		}
-
 		/**
 		 * Tablet CSS.
 		 */
@@ -193,23 +180,51 @@ function astra_post_archive_strcture_dynamic_css( $dynamic_css, $dynamic_css_fil
 			),
 		);
 
-		if ( ( 'layout-2' === $layout && 'custom' === $width_type ) || is_customize_preview() ) {
+		if ( ( 'layout-2' === $layout && 'custom' === $width_type ) ) {
 			$css_output_desktop[ $selector . '[data-banner-width-type="custom"]' ]['max-width'] = $custom_width . 'px';
 		}
 
-		if ( ( 'layout-1' === $layout ) || is_customize_preview() ) {
+		if ( ( 'layout-1' === $layout ) ) {
 			$site_content_width                           = astra_get_option( 'site-content-width', 1200 );
 			$css_output_desktop[ $selector ]['max-width'] = $site_content_width . 'px';
 		}
 
 		if ( 'layout-2' === $layout && 'none' !== $background_type ) {
-			$custom_background = astra_get_option( 'ast-archive-' . $post_type . '-banner-custom-bg' );
-			$css_output_desktop[ $selector . '[data-banner-background-type="custom"]' ] = astra_get_responsive_background_obj( $custom_background, 'desktop' );
-			$css_output_tablet[ $selector . '[data-banner-background-type="custom"]' ]  = astra_get_responsive_background_obj( $custom_background, 'tablet' );
-			$css_output_mobile[ $selector . '[data-banner-background-type="custom"]' ]  = astra_get_responsive_background_obj( $custom_background, 'mobile' );
+			if ( 'product' !== $post_type ) {
+				$custom_background = astra_get_option( 'ast-archive-' . $post_type . '-banner-custom-bg' );
+				$css_output_desktop[ $selector . '[data-banner-background-type="custom"]' ] = astra_get_responsive_background_obj( $custom_background, 'desktop' );
+				$css_output_tablet[ $selector . '[data-banner-background-type="custom"]' ]  = astra_get_responsive_background_obj( $custom_background, 'tablet' );
+				$css_output_mobile[ $selector . '[data-banner-background-type="custom"]' ]  = astra_get_responsive_background_obj( $custom_background, 'mobile' );
+			} else {
+				if ( 'custom' === $background_type ) {
+					$custom_background = astra_get_option( 'ast-archive-' . $post_type . '-banner-custom-bg' );
+					$css_output_desktop[ $selector . '[data-banner-background-type="custom"]' ] = astra_get_responsive_background_obj( $custom_background, 'desktop' );
+					$css_output_tablet[ $selector . '[data-banner-background-type="custom"]' ]  = astra_get_responsive_background_obj( $custom_background, 'tablet' );
+					$css_output_mobile[ $selector . '[data-banner-background-type="custom"]' ]  = astra_get_responsive_background_obj( $custom_background, 'mobile' );
+				} else {
+					global $wp_query;
+					$taxonomy = $wp_query->get_queried_object();
+					if ( ! empty( $taxonomy->term_id ) ) {
+						$thumbnail_id = get_term_meta( $taxonomy->term_id, 'thumbnail_id', true );
+						$feat_image_src = wp_get_attachment_url( $thumbnail_id );
+						$css_output_desktop[ $selector . '[data-banner-background-type="featured"]' ] = array(
+							'background'            => 'url( ' . esc_url( $feat_image_src ) . ' )',
+							'background-repeat'     => 'no-repeat',
+							'background-attachment' => 'scroll',
+							'background-position'   => 'center center',
+							'background-size'       => 'cover',
+						);
+						$overlay_color = astra_get_option( 'ast-archive-' . $post_type . '-banner-featured-overlay', '' );
+						if ( '' !== $overlay_color ) {
+							$css_output_desktop[ $selector . '[data-banner-background-type="featured"]' ]['background']            = 'url( ' . esc_url( $feat_image_src ) . ' ) ' . $overlay_color;
+							$css_output_desktop[ $selector . '[data-banner-background-type="featured"]' ]['background-blend-mode'] = 'multiply';
+						}
+					}
+				}
+			}
 		}
 
-		if ( true === $load_static_css || is_customize_preview() ) {
+		if ( true === $load_static_css ) {
 			$dynamic_css      .= '.ast-archive-entry-banner {
 				-js-display: flex;
 				display: flex;

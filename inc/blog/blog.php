@@ -516,7 +516,7 @@ function astra_banner_elements_order( $structure = array() ) {
 						}
 					}
 					if ( empty( $description ) ) {
-						$description = get_the_excerpt( $post->ID );
+						$description = '<p>' . get_the_excerpt( $post->ID ) . '</p>';
 					}
 					if ( empty( $description ) && ! have_posts() ) {
 						$description = esc_html( astra_default_strings( 'string-content-nothing-found-message', false ) );

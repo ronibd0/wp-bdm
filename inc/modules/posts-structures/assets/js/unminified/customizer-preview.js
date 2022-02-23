@@ -257,7 +257,7 @@
 		astra_css(
 			'astra-settings[ast-archive-' + postType + '-elements-gap]',
 			'margin-bottom',
-			'.ast-archive-description > *, .ast-archive-entry-banner[data-post-type="' + postType + '"] > *',
+			'.ast-archive-description > *:not(:last-child), .ast-archive-entry-banner[data-post-type="' + postType + '"] > *:not(:last-child)',
 			'px'
 		);
 

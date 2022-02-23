@@ -109,9 +109,17 @@ class Astra_Posts_Archive_Strctures_Configs extends Astra_Customizer_Config_Base
 		foreach ( $post_types as $index => $post_type ) {
 
 			$section = 'ast-archive-' . $post_type;
-
+			$background_choices = array(
+				'none'   => __( 'None', 'astra' ),
+				'custom' => __( 'Custom', 'astra' ),
+			);
 			if ( 'product' === $post_type ) {
 				$parent_section = 'woocommerce_product_catalog';
+				$background_choices = array(
+					'none'   => __( 'None', 'astra' ),
+					'custom' => __( 'Custom', 'astra' ),
+					'featured' => __( 'Featured', 'astra' ),
+				);
 			} elseif ( 'post' === $post_type ) {
 				$parent_section = 'section-blog';
 			} else {
@@ -325,10 +333,7 @@ class Astra_Posts_Archive_Strctures_Configs extends Astra_Customizer_Config_Base
 						),
 					),
 					'title'      => __( 'Container Background', 'astra' ),
-					'choices'    => array(
-						'none'   => __( 'None', 'astra' ),
-						'custom' => __( 'Custom', 'astra' ),
-					),
+					'choices'    => $background_choices,
 					'divider'    => array( 'ast_class' => 'ast-top-divider' ),
 					'responsive' => false,
 					'renderAs'   => 'text',
@@ -491,7 +496,6 @@ class Astra_Posts_Archive_Strctures_Configs extends Astra_Customizer_Config_Base
 					'name'      => ASTRA_THEME_SETTINGS . '[' . $section . '-banner-text-typography-group]',
 					'type'      => 'control',
 					'priority'  => 25,
-					'divider'   => array( 'ast_class' => 'ast-top-divider' ),
 					'control'   => 'ast-settings-group',
 					'context'   => Astra_Builder_Helper::$design_tab,
 					'title'     => __( 'Text Font', 'astra' ),
@@ -755,6 +759,35 @@ class Astra_Posts_Archive_Strctures_Configs extends Astra_Customizer_Config_Base
 					'priority'    => 7,
 					'control'     => 'ast-toggle-control',
 					'divider'     => array( 'ast_class' => 'ast-top-divider' ),
+				);
+			}
+
+			if ( 'product' === $post_type ) {
+				/**
+				 * Option: Featured Image Overlay Color.
+				 */
+				$_configs[] = array(
+				   'name'     => ASTRA_THEME_SETTINGS . '[' . $section . '-banner-featured-overlay]',
+				   'type'     => 'control',
+				   'control'  => 'ast-color',
+				   'section'  => $section,
+				   'default'  => astra_get_option( $section . '-banner-featured-overlay', '' ),
+				   'priority' => 40,
+				   'title'    => __( 'Overlay Color', 'astra' ),
+				   'context'  => array(
+					   Astra_Builder_Helper::$general_tab_config,
+					   'relation' => 'AND',
+					   array(
+						   'setting'  => ASTRA_THEME_SETTINGS . '[' . $section . '-layout]',
+						   'operator' => '===',
+						   'value'    => 'layout-2',
+					   ),
+					   array(
+						   'setting'  => ASTRA_THEME_SETTINGS . '[' . $section . '-banner-image-type]',
+						   'operator' => '===',
+						   'value'    => 'featured',
+					   ),
+				   ),
 				);
 			}
 
