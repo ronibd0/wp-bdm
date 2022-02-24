@@ -9,6 +9,7 @@ v3.8.0 (woocommerce-improvements) (Unreleased)
 - New: WooCommerce - Added Icon size option in the Woocommerce Cart.
 - New: WooCommerce - Added Option to add free shipping text next to Woocommerce single product price.
 - New: WooCommerce - Added Product Variation Orientation option in the Single product.
+- New: WooCommerce - Added show/hide cart total badge option
 - Fix: WooCommerce - Margin issue for single shop page with the Full width & Contained Layout.
 
 v3.7.8(Unreleased)
