@@ -40,43 +40,43 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 		$_configs = array(
 
 			/**
-			 * Option: Header cart total
+			 * Notice for Display Cart label.
 			 */
 			array(
-				'name'      => ASTRA_THEME_SETTINGS . '[woo-header-cart-total-display]',
-				'default'   => astra_get_option( 'woo-header-cart-total-display' ),
-				'type'      => 'control',
-				'section'   => $_section,
-				'transport' => 'postMessage',
-				'partial'   => array(
-					'selector'            => '.ast-header-woo-cart',
-					'container_inclusive' => false,
-					'render_callback'     => array( 'Astra_Builder_Header', 'header_woo_cart' ),
-				),
-				'title'     => __( 'Display Cart Total', 'astra' ),
-				'priority'  => 50,
-				'control'   => 'ast-toggle-control',
-				'context'   => Astra_Builder_Helper::$general_tab,
+				'name'     => ASTRA_THEME_SETTINGS . '[woo-header-cart-label-display-notice]',
+				'type'     => 'control',
+				'control'  => 'ast-description',
+				'section'  => $_section,
+				'priority' => 50,
+				'context'  => Astra_Builder_Helper::$general_tab,
+				'help'     => '<p>' . __( 'Note: The Cart Label on the page will be displayed by using the shortcodes. For more information, please refer to the article ', 'astra' ) . '<a href="#">' . __( 'here', 'astra' ) . '</a>.</p>',
 			),
 
 			/**
-			 * Option: Cart Title
+			 * Option: Cart Label
 			 */
 			array(
-				'name'      => ASTRA_THEME_SETTINGS . '[woo-header-cart-title-display]',
-				'default'   => astra_get_option( 'woo-header-cart-title-display' ),
-				'type'      => 'control',
-				'section'   => $_section,
-				'title'     => __( 'Display Cart Title', 'astra' ),
-				'priority'  => 55,
-				'transport' => 'postMessage',
-				'partial'   => array(
+				'name'              => ASTRA_THEME_SETTINGS . '[woo-header-cart-label-display]',
+				'default'           => astra_get_option( 'woo-header-cart-label-display' ),
+				'type'              => 'control',
+				'section'           => $_section,
+				'transport'         => 'postMessage',
+				'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_html' ),
+				'partial'           => array(
 					'selector'            => '.ast-header-woo-cart',
 					'container_inclusive' => false,
-					'render_callback'     => array( 'Astra_Builder_Header', 'header_woo_cart' ),
+					'render_callback'     => array( Astra_Builder_Header::get_instance(), 'header_woo_cart' ),
 				),
-				'control'   => 'ast-toggle-control',
-				'context'   => Astra_Builder_Helper::$general_tab,
+				'priority'          => 50,
+				'title'             => __( 'Cart Label', 'astra' ),
+				'control'           => 'ast-input-with-dropdown',
+				'choices'           => array(
+					'{cart_currency_name}'         => __( 'Currency Name', 'astra' ),
+					'{cart_total}'                 => __( 'Total amount', 'astra' ),
+					'{cart_currency_symbol}'       => __( 'Currency Symbol', 'astra' ),
+					'{cart_total_currency_symbol}' => __( 'Total + Currency symbol', 'astra' ),
+				),
+				'context'           => Astra_Builder_Helper::$general_tab,
 			),
 
 			/**

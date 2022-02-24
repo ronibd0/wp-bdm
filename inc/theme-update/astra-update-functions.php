@@ -3276,6 +3276,31 @@ function astra_improve_gutenberg_editor_ui() {
 }
 
 /**
+ * Display Cart Total and Title compatibility.
+ *
+ * @since x.x.x
+ * @return void
+ */
+function astra_display_cart_total_title_compatibility() {
+	$theme_options = get_option( 'astra-settings', array() );
+
+	if ( isset( $theme_options['woo-header-cart-label-display'] ) ) {
+		return;
+	}
+
+	// Set the Display Cart Label toggle values with shortcodes.
+	if ( ( isset( $theme_options['woo-header-cart-total-display'] ) && true === $theme_options['woo-header-cart-total-display'] ) && ( isset( $theme_options['woo-header-cart-title-display'] ) && true === $theme_options['woo-header-cart-title-display'] ) ) {
+		$theme_options['woo-header-cart-label-display'] = __( 'Cart', 'astra' ) . '/{cart_total_currency_symbol}';
+	} elseif ( isset( $theme_options['woo-header-cart-total-display'] ) && true === $theme_options['woo-header-cart-total-display'] ) {
+		$theme_options['woo-header-cart-label-display'] = '{cart_total_currency_symbol}';
+	} elseif ( isset( $theme_options['woo-header-cart-title-display'] ) && true === $theme_options['woo-header-cart-title-display'] ) {
+		$theme_options['woo-header-cart-label-display'] = __( 'Cart', 'astra' );
+	}
+
+	update_option( 'astra-settings', $theme_options );
+}
+
+/**
  * Set flag to avoid woocommerce product single margin fix to be added for old users.
  *
  * @since x.x.x

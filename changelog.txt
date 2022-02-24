@@ -11,6 +11,7 @@ v3.8.0 (woocommerce-improvements) (Unreleased)
 - New: WooCommerce - Added Product Variation Orientation option in the Single product.
 - New: WooCommerce - Added show/hide cart total badge option
 - Fix: WooCommerce - Margin issue for single shop page with the Full width & Contained Layout.
+- Improvement: WooCommerce - Modify the Cart label section via Shortcodes. (Needs Doc)
 
 v3.7.8(Unreleased)
 - Improvement: Added a new filter 'astra_settings_metabox_register' to prevent loading of block based Astra Settings metabox. ( https://wpastra.com/docs/hide-astra-settings-for-user-roles/ )
