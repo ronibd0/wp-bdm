@@ -1,7 +1,7 @@
 import { createURL } from '@wordpress/e2e-test-utils';
-import { setCustomize } from '../../../../../utils/customize';
-import { setBrowserViewport } from '../../../../../utils/set-browser-viewport';
-import { scrollToElement } from '../../../../../utils/scroll-to-element';
+import { setCustomize } from '../../../utils/customize';
+import { setBrowserViewport } from '../../../utils/set-browser-viewport';
+import { scrollToElement } from '../../../utils/scroll-to-element';
 describe( 'Footer builder backgeround image setting in customizer', () => {
 	it( 'background image for desktop should apply correctly', async () => {
 		const FooterBuilder = {
