@@ -38,7 +38,14 @@ describe( 'Footer builder backgeround image setting in customizer', () => {
 			'footer-desktop-items': {
 				primary: {
 					primary_1: {
-						0: 'social-icons-1',
+						0: 'copyright',
+					},
+				},
+			},
+			'footer-mobile-items': {
+				primary: {
+					primary_1: {
+						0: 'copyright',
 					},
 				},
 			},
