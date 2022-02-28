@@ -1,7 +1,7 @@
 import { createURL } from '@wordpress/e2e-test-utils';
-import { setCustomize } from '../../../../../utils/customize';
-import { setBrowserViewport } from '../../../../../utils/set-browser-viewport';
-import { scrollToElement } from '../../../../../utils/scroll-to-element';
+import { setCustomize } from '../../../utils/customize';
+import { setBrowserViewport } from '../../../utils/set-browser-viewport';
+import { scrollToElement } from '../../../utils/scroll-to-element';
 describe( 'Footer builder background gradient setting in customizer', () => {
 	it( 'background gradient should apply correctly', async () => {
 		const FooterBuilder = {
