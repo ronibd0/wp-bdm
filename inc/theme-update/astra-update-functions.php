@@ -3365,3 +3365,18 @@ function astra_post_strctures_meta_migration() {
 
 	update_option( 'astra-settings', $theme_options );
 }
+
+/**
+ * Sets the default breadcrumb separator selector value if the current user is an exsisting user
+ *
+ * @since x.x.x
+ * @return void
+ */
+function astra_set_default_breadcrumb_separator_option() {
+	$theme_options = get_option( 'astra-settings', array() );
+
+	if ( ! isset( $theme_options['breadcrumb-separator-selector'] ) ) {
+		$theme_options['breadcrumb-separator-selector'] = 'unicode';
+		update_option( 'astra-settings', $theme_options );
+	}
+}
