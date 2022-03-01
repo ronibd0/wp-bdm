@@ -36,6 +36,9 @@ function astra_fb_below_footer_dynamic_css( $dynamic_css, $dynamic_css_filtered 
 		'.site-footer' => astra_get_responsive_background_obj( $global_footer_bg, 'desktop' ),
 	);
 
+	// Advanced CSS for Header Builder.
+	$dynamic_css .= Astra_Builder_Base_Dynamic_CSS::prepare_advanced_margin_padding_css( 'section-footer-builder-layout', '.ast-hfb-header .site-footer' );
+
 	$dynamic_css .= astra_parse_css( $css_output_desktop );
 
 	$_section = 'section-below-footer-builder';
