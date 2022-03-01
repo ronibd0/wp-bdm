@@ -3,7 +3,7 @@ import { setCustomize } from '../../../../utils/customize';
 import { setBrowserViewport } from '../../../../utils/set-browser-viewport';
 describe( 'Social Icons in the customizer', () => {
 	it( 'social icon background color should apply correctly', async () => {
-		const BackgroundColor= {
+		const BackgroundColor = {
 			'header-social-1-bg-color': {
 				desktop: 'rgb(213, 132, 234)',
 				tablet: 'rgb(180, 230, 100)',
@@ -26,7 +26,7 @@ describe( 'Social Icons in the customizer', () => {
 				},
 			},
 		};
-		await setCustomize( BackgroundColor);
+		await setCustomize( BackgroundColor );
 
 		await page.goto( createURL( '/' ), {
 			waitUntil: 'networkidle0',
