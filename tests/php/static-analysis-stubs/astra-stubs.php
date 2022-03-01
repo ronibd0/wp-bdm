@@ -14693,7 +14693,7 @@ namespace {
      * 2. When site layout is Max-width.
      * 3. When site layout is Padded.
      *
-     * @since x.x.x
+     * @since 3.7.8
      * @return boolean
      */
     function astra_apply_content_background_fullwidth_layouts()
@@ -15737,7 +15737,7 @@ namespace {
      *
      * Starting supporting content-background color for Full Width Contained & Full Width Stretched layouts.
      *
-     * @since x.x.x
+     * @since 3.7.8
      * @return void
      */
     function astra_fullwidth_layouts_apply_content_background()
