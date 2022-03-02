@@ -3,7 +3,7 @@ import { setCustomize } from '../../../../utils/customize';
 import { setBrowserViewport } from '../../../../utils/set-browser-viewport';
 describe( 'Social Icons in the customizer', () => {
 	it( 'social icon background color should apply correctly', async () => {
-		const BackgroundColor = {
+		const backgroundColor = {
 			'header-social-1-bg-color': {
 				desktop: 'rgb(221, 230, 176)',
 				tablet: 'rgb(228, 167, 230)',
@@ -26,7 +26,7 @@ describe( 'Social Icons in the customizer', () => {
 				},
 			},
 		};
-		await setCustomize( BackgroundColor );
+		await setCustomize( backgroundColor );
 
 		await page.goto( createURL( '/' ), {
 			waitUntil: 'networkidle0',
@@ -36,28 +36,28 @@ describe( 'Social Icons in the customizer', () => {
 		await expect( {
 			selector: '.ast-header-social-1-wrap .ast-builder-social-element',
 			property: 'background-color',
-		} ).cssValueToBe( `${ BackgroundColor[ 'header-social-1-bg-color' ].desktop }` );
+		} ).cssValueToBe( `${ backgroundColor[ 'header-social-1-bg-color' ].desktop }` );
 
 		await page.waitForSelector( '.ast-header-social-1-wrap .ast-social-color-type-custom .ast-builder-social-element' );
 		await setBrowserViewport( 'medium' );
 		await expect( {
 			selector: '.ast-header-social-1-wrap .ast-social-color-type-custom .ast-builder-social-element',
 			property: 'background-color',
-		} ).cssValueToBe( `${ BackgroundColor[ 'header-social-1-bg-color' ].tablet }` );
+		} ).cssValueToBe( `${ backgroundColor[ 'header-social-1-bg-color' ].tablet }` );
 
 		await page.waitForSelector( '.ast-header-social-1-wrap .ast-social-color-type-custom .ast-builder-social-element' );
 		await setBrowserViewport( 'small' );
 		await expect( {
 			selector: '.ast-header-social-1-wrap .ast-social-color-type-custom .ast-builder-social-element',
 			property: 'background-color',
-		} ).cssValueToBe( `${ BackgroundColor[ 'header-social-1-bg-color' ].mobile }` );
+		} ).cssValueToBe( `${ backgroundColor[ 'header-social-1-bg-color' ].mobile }` );
 	} );
 
 	// eslint-disable-next-line eslint-comments/disable-enable-pair
 	/* eslint-disable jest/no-commented-out-tests */
 	// GitHub action E2E fail case
 	// it( 'social icon background hover color should apply correctly', async () => {
-	// 	const BackgroundColor = {
+	// 	const backgroundColor = {
 	// 		'header-social-1-bg-h-color': {
 	// 			desktop: 'rgb(213, 191, 134)',
 	// 			tablet: 'rgb(228, 167, 230)',
@@ -80,7 +80,7 @@ describe( 'Social Icons in the customizer', () => {
 	// 			},
 	// 		},
 	// 	};
-	// 	await setCustomize( BackgroundColor );
+	// 	await setCustomize( backgroundColor );
 
 	// 	await page.goto( createURL( '/' ), {
 	// 		waitUntil: 'networkidle0',
@@ -90,20 +90,20 @@ describe( 'Social Icons in the customizer', () => {
 	// 	await expect( {
 	// 		selector: '.ast-header-social-1-wrap .ast-social-color-type-custom .ast-builder-social-element:hover',
 	// 		property: 'background-color',
-	// 	} ).cssValueToBe( `${ BackgroundColor[ 'header-social-1-bg-h-color' ].desktop }` );
+	// 	} ).cssValueToBe( `${ backgroundColor[ 'header-social-1-bg-h-color' ].desktop }` );
 
 	// 	await page.waitForSelector( '.ast-header-social-1-wrap .ast-social-color-type-custom .ast-builder-social-element' );
 	// 	await setBrowserViewport( 'medium' );
 	// 	await expect( {
 	// 		selector: '.ast-header-social-1-wrap .ast-social-color-type-custom .ast-builder-social-element:hover',
 	// 		property: 'background-color',
-	// 	} ).cssValueToBe( `${ BackgroundColor[ 'header-social-1-bg-h-color' ].tablet }` );
+	// 	} ).cssValueToBe( `${ backgroundColor[ 'header-social-1-bg-h-color' ].tablet }` );
 
 	// 	await page.waitForSelector( '.ast-header-social-1-wrap .ast-social-color-type-custom .ast-builder-social-element:hover' );
 	// 	await setBrowserViewport( 'small' );
 	// 	await expect( {
 	// 		selector: '.ast-header-social-1-wrap .ast-social-color-type-custom .ast-builder-social-element',
 	// 		property: 'background-color',
-	// 	} ).cssValueToBe( `${ BackgroundColor[ 'header-social-1-bg-h-color' ].mobile }` );
+	// 	} ).cssValueToBe( `${ backgroundColor[ 'header-social-1-bg-h-color' ].mobile }` );
 	// } );
 } );
