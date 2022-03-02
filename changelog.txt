@@ -1,3 +1,6 @@
+v3.7.9
+- Fix:Footer - Footer global background color and padding is not working in the frontend
+
 v3.7.8(Unreleased)
 - Improvement: Added a new filter 'astra_settings_metabox_register' to prevent loading of block based Astra Settings metabox. ( https://wpastra.com/docs/hide-astra-settings-for-user-roles/ )
 - Improvement: Predefined breadcrumb separator added in the breadcrumb customizer section.
