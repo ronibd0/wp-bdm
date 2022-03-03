@@ -19,6 +19,7 @@ v3.7.8
 - Fix: Elementor Popup – Youtube video fullscreen not working when the cart element is added.
 - Fix: Submenus are misaligned with the old Astra header menu for specific cases.
 - Fix: WooCommerce - Product Categories widget's hierarchy layout is missing on the Frontend.
+- Fix: Column Block - Layout options missing when nested inside Group/Cover Blocks.
 
 v3.7.7
 - Improvement: Compatibility with WordPress 5.9.
