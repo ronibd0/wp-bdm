@@ -3,7 +3,7 @@ import { setCustomize } from '../../../../utils/customize';
 import { responsiveFontSize } from '../../../../utils/responsive-utils';
 import { setBrowserViewport } from '../../../../utils/set-browser-viewport';
 import { scrollToElement } from '../../../../utils/scroll-to-element';
-describe( 'social icons show label in the customizer', () => {
+describe( 'Social icons show label in the customizer', () => {
 	it( 'icon label font size should apply correctly', async () => {
 		const labelFontSize = {
 			'footer-social-1-label-toggle': '1',
