@@ -7,13 +7,13 @@ describe( 'below footer background color settings in the customizer', () => {
 		const backgroundColor = {
 			'hbb-footer-bg-obj-responsive': {
 				desktop: {
-					'background-color': 'rgba(217, 241, 188, 0.55)',
+					'background-color': 'rgb(244, 230, 230)',
 				},
 				tablet: {
-					'background-color': 'rgba(208, 185, 237, 0.66)',
+					'background-color': 'rgb(243, 242, 222)',
 				},
 				mobile: {
-					'background-color': 'rgba(153, 206, 232, 0.6)',
+					'background-color': 'rgb(206, 234, 232)',
 				},
 			},
 		};
