@@ -31,38 +31,4 @@ describe( 'below footer vertical alignment setting in customizer', () => {
 			property: 'align-items',
 		} ).cssValueToBe( `${ verticalAlignment[ 'hbb-footer-vertical-alignment' ] }` );
 	} );
-
-	// it( 'verical alignment center should apply correctly', async () => {
-	// 	const verticalAlignment = {
-	// 		'hbb-footer-vertical-alignment': 'center',
-	// 	};
-	// 	await setCustomize( verticalAlignment );
-	// 	await page.goto( createURL( '/' ), {
-	// 		waitUntil: 'networkidle0',
-	// 	} );
-	// 	await setBrowserViewport( 'large' );
-	// 	await scrollToElement( '#colophon' );
-	// 	await page.waitForSelector( '.site-below-footer-wrap[data-section="section-below-footer-builder"] .ast-builder-grid-row' );
-	// 	await expect( {
-	// 		selector: '.site-below-footer-wrap[data-section="section-below-footer-builder"] .ast-builder-grid-row',
-	// 		property: 'align-items',
-	// 	} ).cssValueToBe( `${ verticalAlignment[ 'hbb-footer-vertical-alignment' ] }` );
-	// } );
-
-	// it( 'verical alignment bottom should apply correctly', async () => {
-	// 	const verticalAlignment = {
-	// 		'hbb-footer-vertical-alignment': 'flex-end',
-	// 	};
-	// 	await setCustomize( verticalAlignment );
-	// 	await page.goto( createURL( '/' ), {
-	// 		waitUntil: 'networkidle0',
-	// 	} );
-	// 	await setBrowserViewport( 'large' );
-	// 	await scrollToElement( '#colophon' );
-	// 	await page.waitForSelector( '.site-below-footer-wrap[data-section="section-below-footer-builder"] .ast-builder-grid-row' );
-	// 	await expect( {
-	// 		selector: '.site-below-footer-wrap[data-section="section-below-footer-builder"] .ast-builder-grid-row',
-	// 		property: 'align-items',
-	// 	} ).cssValueToBe( `${ verticalAlignment[ 'hbb-footer-vertical-alignment' ] }` );
-	// } );
 } );
