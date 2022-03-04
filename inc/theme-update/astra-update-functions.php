@@ -3320,7 +3320,7 @@ function astra_woocommerce_product_single_margin() {
  *
  * Starting supporting content-background color for Full Width Contained & Full Width Stretched layouts.
  *
- * @since x.x.x
+ * @since 3.7.8
  * @return void
  */
 function astra_fullwidth_layouts_apply_content_background() {
@@ -3335,7 +3335,7 @@ function astra_fullwidth_layouts_apply_content_background() {
 /**
  * Sets the default breadcrumb separator selector value if the current user is an exsisting user
  *
- * @since x.x.x
+ * @since 3.7.8
  * @return void
  */
 function astra_set_default_breadcrumb_separator_option() {
