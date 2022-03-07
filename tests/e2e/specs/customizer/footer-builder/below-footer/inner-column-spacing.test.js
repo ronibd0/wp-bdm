@@ -15,6 +15,16 @@ describe( 'Below footer inner column spacing setting in customizer', () => {
 				'tablet-unit': 'px',
 				'mobile-unit': 'px',
 			},
+			'footer-desktop-items': {
+				below: {
+					below_1: {
+						0: 'copyright',
+					},
+					below_2: {
+						0: 'social-icons-1',
+					},
+				},
+			},
 		};
 		await setCustomize( innerColumnSpacing );
 		await page.goto( createURL( '/' ), {
