@@ -50,14 +50,12 @@ describe( 'Above footer backgeround image setting in customizer', () => {
 			selector: '.site-above-footer-wrap[data-section="section-above-footer-builder"]',
 			property: 'background-image',
 		} ).cssValueToBe( `url("${ aboveFooter[ 'hba-footer-bg-obj-responsive' ].desktop[ 'background-image' ] + '")' }` );
-
 		await setBrowserViewport( 'medium' );
 		await scrollToElement( '#colophon' );
 		await expect( {
 			selector: '.site-above-footer-wrap[data-section="section-above-footer-builder"]',
 			property: 'background-image',
 		} ).cssValueToBe( `url("${ aboveFooter[ 'hba-footer-bg-obj-responsive' ].tablet[ 'background-image' ] + '")' }` );
-
 		await setBrowserViewport( 'small' );
 		await scrollToElement( '#colophon' );
 		await expect( {
