@@ -1,12 +1,14 @@
 import { createURL } from '@wordpress/e2e-test-utils';
 import { setCustomize } from '../../../../utils/customize';
 import { setBrowserViewport } from '../../../../utils/set-browser-viewport';
-describe( 'html2 block settings in the customizer', () => {
+describe( 'HTML 2 block settings in the customizer', () => {
 	it( 'html2 link color for desktop should apply correctly', async () => {
 		const htmlLinkColor = {
 			'header-html-2': '<a href="https://wpastra.com/">HTML link color</a>',
 			'header-html-2link-color': {
-				desktop: 'rgb(120, 31, 158)',
+				desktop: 'rgb(12, 177, 115)',
+				tablet: 'rgb(131, 12, 166)',
+				mobile: 'rgb(156, 110, 11)',
 			},
 			'header-desktop-items': {
 				primary: {
@@ -16,27 +18,6 @@ describe( 'html2 block settings in the customizer', () => {
 					},
 				},
 			},
-		};
-		await setCustomize( htmlLinkColor );
-
-		await page.goto( createURL( '/' ), {
-			waitUntil: 'networkidle0',
-		} );
-
-		await page.waitForSelector( '.ast-header-html-2 .ast-builder-html-element a' );
-		await expect( {
-			selector: '.ast-header-html-2 .ast-builder-html-element a',
-			property: 'color',
-		} ).cssValueToBe( `${ htmlLinkColor[ 'header-html-2link-color' ].desktop }`,
-		);
-	} );
-
-	it( 'html2 text color for tablet should apply correctly', async () => {
-		const htmlLinkColor = {
-			'header-html-2': '<a href="https://wpastra.com/">HTML link color</a>',
-			'header-html-2link-color': {
-				tablet: 'rgb(19, 122, 23)',
-			},
 			'header-mobile-items': {
 				primary: {
 					primary_center: {
@@ -47,45 +28,25 @@ describe( 'html2 block settings in the customizer', () => {
 			},
 		};
 		await setCustomize( htmlLinkColor );
-
 		await page.goto( createURL( '/' ), {
 			waitUntil: 'networkidle0',
 		} );
+		await page.waitForSelector( '.ast-header-html-2 a' );
+		await expect( {
+			selector: '.ast-header-html-2 a',
+			property: 'color',
+		} ).cssValueToBe( `${ htmlLinkColor[ 'header-html-2link-color' ].desktop }` );
+
 		await setBrowserViewport( 'medium' );
-		await page.waitForSelector( '.ast-header-html-2 .ast-builder-html-element a' );
 		await expect( {
-			selector: '.ast-header-html-2 .ast-builder-html-element a',
+			selector: '.ast-header-html-2 a',
 			property: 'color',
-		} ).cssValueToBe( `${ htmlLinkColor[ 'header-html-2link-color' ].tablet }`,
-		);
-	} );
+		} ).cssValueToBe( `${ htmlLinkColor[ 'header-html-2link-color' ].tablet }` )
 
-	it( 'html2 text color for mobile should apply correctly', async () => {
-		const htmlLinkColor = {
-			'header-html-2': '<a href="https://wpastra.com/">HTML link color</a>',
-			'header-html-2link-color': {
-				mobile: 'rgb(39, 36, 200)',
-			},
-			'header-mobile-items': {
-				primary: {
-					primary_center: {
-						0: 'html-2',
-
-					},
-				},
-			},
-		};
-		await setCustomize( htmlLinkColor );
-
-		await page.goto( createURL( '/' ), {
-			waitUntil: 'networkidle0',
-		} );
 		await setBrowserViewport( 'small' );
-		await page.waitForSelector( '.ast-header-html-2 .ast-builder-html-element a' );
 		await expect( {
-			selector: '.ast-header-html-2 .ast-builder-html-element a',
+			selector: '.ast-header-html-2 a',
 			property: 'color',
-		} ).cssValueToBe( `${ htmlLinkColor[ 'header-html-2link-color' ].mobile }`,
-		);
+		} ).cssValueToBe( `${ htmlLinkColor[ 'header-html-2link-color' ].mobile }` );
 	} );
 } );
