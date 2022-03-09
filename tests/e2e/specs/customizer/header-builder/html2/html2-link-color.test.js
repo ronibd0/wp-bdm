@@ -39,7 +39,7 @@ describe( 'HTML 2 block settings in the customizer', () => {
 		await expect( {
 			selector: '.ast-header-html-2 a',
 			property: 'color',
-		} ).cssValueToBe( `${ htmlLinkColor[ 'header-html-2link-color' ].tablet }` )
+		} ).cssValueToBe( `${ htmlLinkColor[ 'header-html-2link-color' ].tablet }` );
 
 		await setBrowserViewport( 'small' );
 		await expect( {
