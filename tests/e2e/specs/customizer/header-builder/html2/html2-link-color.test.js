@@ -14,7 +14,6 @@ describe( 'HTML 2 block settings in the customizer', () => {
 				primary: {
 					primary_center: {
 						0: 'html-2',
-
 					},
 				},
 			},
@@ -22,7 +21,6 @@ describe( 'HTML 2 block settings in the customizer', () => {
 				primary: {
 					primary_center: {
 						0: 'html-2',
-
 					},
 				},
 			},
