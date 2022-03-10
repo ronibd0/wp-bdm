@@ -1,8 +1,7 @@
 import { createNewPost, createURL, publishPost } from '@wordpress/e2e-test-utils';
 import { setCustomize } from '../../../../utils/customize';
 import { setBrowserViewport } from '../../../../utils/set-browser-viewport';
-
-describe( 'transparent header settings in the customizer', () => {
+describe( 'Transparent header settings in the customizer', () => {
 	it( 'transparent header setting should apply correctly', async () => {
 		const transparentColorBorder = {
 			'transparent-header-enable': true,
@@ -48,70 +47,47 @@ describe( 'transparent header settings in the customizer', () => {
 		await page.goto( createURL( '/transparent-page' ), {
 			waitUntil: 'networkidle0',
 		} );
-		await page.waitForSelector(
-			'.ast-theme-transparent-header #ast-desktop-header > [CLASS*="-header-wrap"]:nth-last-child(2) > [CLASS*="-header-bar"]',
-		);
-
+		await page.waitForSelector( '.ast-theme-transparent-header #ast-desktop-header > [CLASS*="-header-wrap"]:nth-last-child(2) > [CLASS*="-header-bar"]' );
 		await expect( {
-			selector:
-				'.ast-theme-transparent-header #ast-desktop-header > [CLASS*="-header-wrap"]:nth-last-child(2) > [CLASS*="-header-bar"]',
+			selector: '.ast-theme-transparent-header #ast-desktop-header > [CLASS*="-header-wrap"]:nth-last-child(2) > [CLASS*="-header-bar"]',
 			property: 'border-bottom-width',
-		} ).cssValueToBe(
-			`${
-				transparentColorBorder[ 'transparent-header-main-sep' ] + 'px'
-			}`,
-		);
+		} ).cssValueToBe( `${ transparentColorBorder[ 'transparent-header-main-sep' ] + 'px' }` );
 
 		await expect( {
-			selector:
-				'.ast-theme-transparent-header #ast-desktop-header > [CLASS*="-header-wrap"]:nth-last-child(2) > [CLASS*="-header-bar"]',
+			selector: '.ast-theme-transparent-header #ast-desktop-header > [CLASS*="-header-wrap"]:nth-last-child(2) > [CLASS*="-header-bar"]',
 			property: 'border-bottom-color',
-		} ).cssValueToBe(
-			`${ transparentColorBorder[ 'transparent-header-main-sep-color' ] }`,
-		);
+		} ).cssValueToBe( `${ transparentColorBorder[ 'transparent-header-main-sep-color' ] }` );
 
 		await expect( {
 			selector: '.ast-theme-transparent-header .main-header-bar',
 			property: 'background-color',
-		} ).cssValueToBe(
-			`${ transparentColorBorder[ 'transparent-header-bg-color-responsive' ].desktop }`,
-		);
+		} ).cssValueToBe( `${ transparentColorBorder[ 'transparent-header-bg-color-responsive' ].desktop }` );
 		await setBrowserViewport( 'medium' );
 		await expect( {
 			selector: '.ast-theme-transparent-header .main-header-bar',
 			property: 'background-color',
-		} ).cssValueToBe(
-			`${ transparentColorBorder[ 'transparent-header-bg-color-responsive' ].tablet }`,
-		);
+		} ).cssValueToBe( `${ transparentColorBorder[ 'transparent-header-bg-color-responsive' ].tablet }` );
 		await setBrowserViewport( 'small' );
 		await expect( {
 			selector: '.ast-theme-transparent-header .main-header-bar',
 			property: 'background-color',
-		} ).cssValueToBe(
-			`${ transparentColorBorder[ 'transparent-header-bg-color-responsive' ].mobile }`,
-		);
+		} ).cssValueToBe( `${ transparentColorBorder[ 'transparent-header-bg-color-responsive' ].mobile }` );
 
 		await setBrowserViewport( 'large' );
 		await expect( {
 			selector: '.ast-theme-transparent-header .site-title a',
 			property: 'color',
-		} ).cssValueToBe(
-			`${ transparentColorBorder[ 'transparent-header-color-site-title-responsive' ].desktop }`,
-		);
+		} ).cssValueToBe( `${ transparentColorBorder[ 'transparent-header-color-site-title-responsive' ].desktop }` );
 		await setBrowserViewport( 'medium' );
 		await expect( {
 			selector: '.ast-theme-transparent-header .site-title a',
 			property: 'color',
-		} ).cssValueToBe(
-			`${ transparentColorBorder[ 'transparent-header-color-site-title-responsive' ].tablet }`,
-		);
+		} ).cssValueToBe( `${ transparentColorBorder[ 'transparent-header-color-site-title-responsive' ].tablet }` );
 		await setBrowserViewport( 'small' );
 		await expect( {
 			selector: '.ast-theme-transparent-header .site-title a',
 			property: 'color',
-		} ).cssValueToBe(
-			`${ transparentColorBorder[ 'transparent-header-color-site-title-responsive' ].mobile }`,
-		);
+		} ).cssValueToBe( `${ transparentColorBorder[ 'transparent-header-color-site-title-responsive' ].mobile }` );
 
 		// GitHub action E2E fail case
 		// await setBrowserViewport( 'large' );
@@ -128,9 +104,7 @@ describe( 'transparent header settings in the customizer', () => {
 		await expect( {
 			selector: '.ast-theme-transparent-header .main-header-menu .menu-link',
 			property: 'color',
-		} ).cssValueToBe(
-			`${ transparentColorBorder[ 'transparent-menu-color-responsive' ].desktop }`,
-		);
+		} ).cssValueToBe( `${ transparentColorBorder[ 'transparent-menu-color-responsive' ].desktop }` );
 
 		// GitHub action E2E fail case
 		// await page.waitForSelector( '.ast-theme-transparent-header .main-header-menu .menu-link' );
@@ -152,15 +126,11 @@ describe( 'transparent header settings in the customizer', () => {
 		await expect( {
 			selector: '.ast-theme-transparent-header .main-header-menu .menu-link',
 			property: 'background-color',
-		} ).cssValueToBe(
-			`${ transparentColorBorder[ 'transparent-menu-bg-color-responsive' ].tablet }`,
-		);
+		} ).cssValueToBe( `${ transparentColorBorder[ 'transparent-menu-bg-color-responsive' ].tablet }` );
 		await setBrowserViewport( 'small' );
 		await expect( {
 			selector: '.ast-theme-transparent-header .main-header-menu .menu-link',
 			property: 'background-color',
-		} ).cssValueToBe(
-			`${ transparentColorBorder[ 'transparent-menu-bg-color-responsive' ].mobile }`,
-		);
+		} ).cssValueToBe( `${ transparentColorBorder[ 'transparent-menu-bg-color-responsive' ].mobile }` );
 	} );
 } );
