@@ -1,28 +1,47 @@
 import { createURL, setBrowserViewport } from '@wordpress/e2e-test-utils';
 import { setCustomize } from '../../../utils/customize';
-describe( 'Account Icons in the customizer', () => {
+describe( 'Account icons in the customizer', () => {
 	it( 'account icon margin for desktop should apply correctly', async () => {
-		const accounticonMargin = {
+		const accountIconMargin = {
 			'header-account-margin': {
 				desktop: {
-					top: '20',
-					right: '26',
-					bottom: '20',
-					left: '20',
+					top: '80',
+					right: '80',
+					bottom: '80',
+					left: '80',
+				},
+				tablet: {
+					top: '60',
+					right: '60',
+					bottom: '60',
+					left: '60',
+				},
+				mobile: {
+					top: '40',
+					right: '40',
+					bottom: '40',
+					left: '40',
 				},
 				'desktop-unit': 'px',
+				'tablet-unit': 'px',
+				'mobile-unit': 'px',
 			},
 			'header-desktop-items': {
 				primary: {
 					primary_center: {
 						0: 'account',
-
+					},
+				},
+			},
+			'header-mobile-items': {
+				primary: {
+					primary_center: {
+						0: 'account',
 					},
 				},
 			},
 		};
-		await setCustomize( accounticonMargin );
-
+		await setCustomize( accountIconMargin );
 		await page.goto( createURL( '/' ), {
 			waitUntil: 'networkidle0',
 		} );
@@ -30,121 +49,56 @@ describe( 'Account Icons in the customizer', () => {
 		await expect( {
 			selector: '.ast-header-account-wrap',
 			property: 'margin-top',
-		} ).cssValueToBe( `${ accounticonMargin[ 'header-account-margin' ].desktop.top }${ accounticonMargin[ 'header-account-margin' ][ 'desktop-unit' ] }`,
-		);
+		} ).cssValueToBe( `${ accountIconMargin[ 'header-account-margin' ].desktop.top }${ accountIconMargin[ 'header-account-margin' ][ 'desktop-unit' ] }` );
 		await expect( {
 			selector: '.ast-header-account-wrap',
 			property: 'margin-right',
-		} ).cssValueToBe( `${ accounticonMargin[ 'header-account-margin' ].desktop.right }${ accounticonMargin[ 'header-account-margin' ][ 'desktop-unit' ] }`,
-		);
+		} ).cssValueToBe( `${ accountIconMargin[ 'header-account-margin' ].desktop.right }${ accountIconMargin[ 'header-account-margin' ][ 'desktop-unit' ] }` );
 		await expect( {
 			selector: '.ast-header-account-wrap',
 			property: 'margin-bottom',
-		} ).cssValueToBe( `${ accounticonMargin[ 'header-account-margin' ].desktop.bottom }${ accounticonMargin[ 'header-account-margin' ][ 'desktop-unit' ] }`,
-		);
+		} ).cssValueToBe( `${ accountIconMargin[ 'header-account-margin' ].desktop.bottom }${ accountIconMargin[ 'header-account-margin' ][ 'desktop-unit' ] }` );
 		await expect( {
 			selector: '.ast-header-account-wrap',
 			property: 'margin-left',
-		} ).cssValueToBe( `${ accounticonMargin[ 'header-account-margin' ].desktop.left }${ accounticonMargin[ 'header-account-margin' ][ 'desktop-unit' ] }`,
-		);
-	} );
+		} ).cssValueToBe( `${ accountIconMargin[ 'header-account-margin' ].desktop.left }${ accountIconMargin[ 'header-account-margin' ][ 'desktop-unit' ] }` );
 
-	it( 'account icon margin for tablet should apply correctly', async () => {
-		const accounticonMargin = {
-			'header-account-margin': {
-				tablet: {
-					top: '20',
-					right: '26',
-					bottom: '20',
-					left: '20',
-				},
-				'tablet-unit': 'px',
-			},
-			'header-mobile-items': {
-				primary: {
-					primary_center: {
-						0: 'account',
-
-					},
-				},
-			},
-		};
-		await setCustomize( accounticonMargin );
-
-		await page.goto( createURL( '/' ), {
-			waitUntil: 'networkidle0',
-		} );
 		await setBrowserViewport( 'medium' );
-		await page.waitForSelector( '.ast-header-account-wrap' );
 		await expect( {
 			selector: '.ast-header-account-wrap',
 			property: 'margin-top',
-		} ).cssValueToBe( `${ accounticonMargin[ 'header-account-margin' ].tablet.top }${ accounticonMargin[ 'header-account-margin' ][ 'tablet-unit' ] }`,
-		);
+		} ).cssValueToBe( `${ accountIconMargin[ 'header-account-margin' ].tablet.top }${ accountIconMargin[ 'header-account-margin' ][ 'tablet-unit' ] }` );
 		await expect( {
 			selector: '.ast-header-account-wrap',
 			property: 'margin-right',
-		} ).cssValueToBe( `${ accounticonMargin[ 'header-account-margin' ].tablet.right }${ accounticonMargin[ 'header-account-margin' ][ 'tablet-unit' ] }`,
-		);
+		} ).cssValueToBe( `${ accountIconMargin[ 'header-account-margin' ].tablet.right }${ accountIconMargin[ 'header-account-margin' ][ 'tablet-unit' ] }` );
 		await expect( {
 			selector: '.ast-header-account-wrap',
 			property: 'margin-bottom',
-		} ).cssValueToBe( `${ accounticonMargin[ 'header-account-margin' ].tablet.bottom }${ accounticonMargin[ 'header-account-margin' ][ 'tablet-unit' ] }`,
-		);
+		} ).cssValueToBe( `${ accountIconMargin[ 'header-account-margin' ].tablet.bottom }${ accountIconMargin[ 'header-account-margin' ][ 'tablet-unit' ] }` );
 		await expect( {
 			selector: '.ast-header-account-wrap',
 			property: 'margin-left',
-		} ).cssValueToBe( `${ accounticonMargin[ 'header-account-margin' ].tablet.left }${ accounticonMargin[ 'header-account-margin' ][ 'tablet-unit' ] }`,
-		);
-	} );
+		} ).cssValueToBe( `${ accountIconMargin[ 'header-account-margin' ].tablet.left }${ accountIconMargin[ 'header-account-margin' ][ 'tablet-unit' ] }` );
 
-	it( 'account icon margin for mobile should apply correctly', async () => {
-		const accounticonMargin = {
-			'header-account-margin': {
-				mobile: {
-					top: '20',
-					right: '26',
-					bottom: '20',
-					left: '20',
-				},
-				'mobile-unit': 'px',
-			},
-			'header-mobile-items': {
-				primary: {
-					primary_center: {
-						0: 'account',
-
-					},
-				},
-			},
-		};
-		await setCustomize( accounticonMargin );
-
-		await page.goto( createURL( '/' ), {
-			waitUntil: 'networkidle0',
-		} );
 		await setBrowserViewport( 'small' );
 		await page.waitForSelector( '.ast-header-account-wrap' );
 		await expect( {
 			selector: '.ast-header-account-wrap',
 			property: 'margin-top',
-		} ).cssValueToBe( `${ accounticonMargin[ 'header-account-margin' ].mobile.top }${ accounticonMargin[ 'header-account-margin' ][ 'mobile-unit' ] }`,
-		);
+		} ).cssValueToBe( `${ accountIconMargin[ 'header-account-margin' ].mobile.top }${ accountIconMargin[ 'header-account-margin' ][ 'mobile-unit' ] }` );
 		await expect( {
 			selector: '.ast-header-account-wrap',
 			property: 'margin-right',
-		} ).cssValueToBe( `${ accounticonMargin[ 'header-account-margin' ].mobile.right }${ accounticonMargin[ 'header-account-margin' ][ 'mobile-unit' ] }`,
-		);
+		} ).cssValueToBe( `${ accountIconMargin[ 'header-account-margin' ].mobile.right }${ accountIconMargin[ 'header-account-margin' ][ 'mobile-unit' ] }` );
 		await expect( {
 			selector: '.ast-header-account-wrap',
 			property: 'margin-bottom',
-		} ).cssValueToBe( `${ accounticonMargin[ 'header-account-margin' ].mobile.bottom }${ accounticonMargin[ 'header-account-margin' ][ 'mobile-unit' ] }`,
-		);
+		} ).cssValueToBe( `${ accountIconMargin[ 'header-account-margin' ].mobile.bottom }${ accountIconMargin[ 'header-account-margin' ][ 'mobile-unit' ] }` );
 		await expect( {
 			selector: '.ast-header-account-wrap',
 			property: 'margin-left',
-		} ).cssValueToBe( `${ accounticonMargin[ 'header-account-margin' ].mobile.left }${ accounticonMargin[ 'header-account-margin' ][ 'mobile-unit' ] }`,
-		);
+		} ).cssValueToBe( `${ accountIconMargin[ 'header-account-margin' ].mobile.left }${ accountIconMargin[ 'header-account-margin' ][ 'mobile-unit' ] }` );
 	} );
 } );
 
