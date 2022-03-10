@@ -4,7 +4,7 @@ import { setBrowserViewport } from '../../../../utils/set-browser-viewport';
 describe( 'HTML 2 block settings in the customizer', () => {
 	it( 'html2 margin for desktop should apply correctly', async () => {
 		const htmlMargin = {
-			'header-html-2': '<a href="https://wpastra.com/">HTML link color</a>',
+			'header-html-2': '<a href="https://wpastra.com/">HTML 2 margin</a>',
 			'section-hb-html-2-margin': {
 				desktop: {
 					top: 80,
