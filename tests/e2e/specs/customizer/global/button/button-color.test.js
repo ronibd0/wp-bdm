@@ -1,11 +1,11 @@
 import { setCustomize } from '../../../../utils/customize';
 import { createURL } from '@wordpress/e2e-test-utils';
-describe( 'global button setting under the Customizer', () => {
+describe( 'Global button setting under the Customizer', () => {
 	it( 'button text color should apply correctly', async () => {
-		const btntextColor = {
+		const btnTextColor = {
 			'button-color': 'rgb(245, 245, 245)',
 		};
-		await setCustomize( btntextColor );
+		await setCustomize( btnTextColor );
 		await page.goto( createURL( '/' ), {
 			waitUntil: 'networkidle0',
 		} );
@@ -13,14 +13,14 @@ describe( 'global button setting under the Customizer', () => {
 		await expect( {
 			selector: '#block-2 .wp-block-search__button',
 			property: 'color',
-		} ).cssValueToBe( `${ btntextColor[ 'button-color' ] }` );
+		} ).cssValueToBe( `${ btnTextColor[ 'button-color' ] }` );
 	} );
 
 	it( 'button background color should apply correctly', async () => {
-		const btnbgColor = {
+		const btnBgColor = {
 			'button-bg-color': 'rgb(4, 7, 11)',
 		};
-		await setCustomize( btnbgColor );
+		await setCustomize( btnBgColor );
 		await page.goto( createURL( '/' ), {
 			waitUntil: 'networkidle0',
 		} );
@@ -28,6 +28,6 @@ describe( 'global button setting under the Customizer', () => {
 		await expect( {
 			selector: '#block-2 > form > div > button',
 			property: 'background-color',
-		} ).cssValueToBe( `${ btnbgColor[ 'button-bg-color' ] }` );
+		} ).cssValueToBe( `${ btnBgColor[ 'button-bg-color' ] }` );
 	} );
 } );
