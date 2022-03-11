@@ -50,7 +50,7 @@ describe( 'Global button font setting under the Customizer', () => {
 		} ).cssValueToBe(
 			`${ await responsiveFontSize(
 				btnFontSize[ 'font-size-button' ].tablet,
-			) }${ btnFontSize[ 'font-size-button' ][ 'desktop-unit' ] }` );
+			) }${ btnFontSize[ 'font-size-button' ][ 'tablet-unit' ] }` );
 
 		await setBrowserViewport( 'small' );
 		await expect( {
