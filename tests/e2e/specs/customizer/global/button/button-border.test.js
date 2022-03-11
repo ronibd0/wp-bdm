@@ -1,8 +1,8 @@
 import { setCustomize } from '../../../../utils/customize';
 import { createURL } from '@wordpress/e2e-test-utils';
-describe( 'global button setting under the Customizer', () => {
+describe( 'Global button setting under the Customizer', () => {
 	it( 'button border width should apply correctly', async () => {
-		const border = {
+		const borderWidth = {
 			'theme-button-border-group-border-size': {
 				top: 5,
 				right: 5,
@@ -10,7 +10,7 @@ describe( 'global button setting under the Customizer', () => {
 				left: 5,
 			},
 		};
-		await setCustomize( border );
+		await setCustomize( borderWidth );
 		await page.goto( createURL( '/' ), {
 			waitUntil: 'networkidle0',
 		} );
@@ -18,19 +18,19 @@ describe( 'global button setting under the Customizer', () => {
 		await expect( {
 			selector: 'form[CLASS*="wp-block-search__"].wp-block-search .wp-block-search__inside-wrapper .wp-block-search__button',
 			property: 'border-top-width',
-		} ).cssValueToBe( `${ border[ 'theme-button-border-group-border-size' ].top + 'px' }` );
+		} ).cssValueToBe( `${ borderWidth[ 'theme-button-border-group-border-size' ].top + 'px' }` );
 		await expect( {
 			selector: '#block-2 .wp-block-search__button',
 			property: 'border-right-width',
-		} ).cssValueToBe( `${ border[ 'theme-button-border-group-border-size' ].right + 'px' }` );
+		} ).cssValueToBe( `${ borderWidth[ 'theme-button-border-group-border-size' ].right + 'px' }` );
 		await expect( {
 			selector: '#block-2 .wp-block-search__button',
 			property: 'border-bottom-width',
-		} ).cssValueToBe( `${ border[ 'theme-button-border-group-border-size' ].bottom + 'px' }` );
+		} ).cssValueToBe( `${ borderWidth[ 'theme-button-border-group-border-size' ].bottom + 'px' }` );
 		await expect( {
 			selector: '#block-2 .wp-block-search__button',
 			property: 'border-left-width',
-		} ).cssValueToBe( `${ border[ 'theme-button-border-group-border-size' ].left + 'px' }` );
+		} ).cssValueToBe( `${ borderWidth[ 'theme-button-border-group-border-size' ].left + 'px' }` );
 	} );
 
 	it( 'button border color should apply correctly', async () => {
