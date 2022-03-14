@@ -13,7 +13,7 @@ All the changes that are to be added to the Astra theme should come in a pull re
 Main (protected) branches in Astra are -
 1. `master` - This branch always has the stable release that is available on WordPress.org
 2. `release-candidate` - The code is merged into this branch by the release squad just before the release. This branch is used by the QA to do final release testing.
-3. `next-release` - All the pull reuqests should be made against this branch.
+3. `next-release` - All the pull requests should be made against this branch.
 4. `development` - The developers will manually merge the code into this branch to have it deployed to the dev site for testing.
 
 If you an code contributor then you can skip the Step #4, This will be done for you by one of the Astra team members.
