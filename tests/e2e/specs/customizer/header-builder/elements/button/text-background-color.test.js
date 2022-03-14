@@ -3,7 +3,7 @@ import { setCustomize } from '../../../../../utils/customize';
 import { setBrowserViewport } from '../../../../../utils/set-browser-viewport';
 describe( 'Header builder button setting in customizer', () => {
 	it( 'text and background color should apply correctly', async () => {
-		const buttonBorder = {
+		const buttonColor = {
 			'header-button1-text-color': {
 				desktop: 'rgb(230, 12, 12)',
 				tablet: 'rgb(76, 145, 13)',
@@ -29,7 +29,7 @@ describe( 'Header builder button setting in customizer', () => {
 				},
 			},
 		};
-		await setCustomize( buttonBorder );
+		await setCustomize( buttonColor );
 		await page.goto( createURL( '/' ), {
 			waitUntil: 'networkidle0',
 		} );
@@ -37,36 +37,36 @@ describe( 'Header builder button setting in customizer', () => {
 		await expect( {
 			selector: '.ast-header-button-1 .ast-custom-button',
 			property: 'color',
-		} ).cssValueToBe( `${ buttonBorder[ 'header-button1-text-color' ].desktop }` );
+		} ).cssValueToBe( `${ buttonColor[ 'header-button1-text-color' ].desktop }` );
 
 		await setBrowserViewport( 'medium' );
 		await expect( {
 			selector: '.ast-header-button-1 .ast-custom-button',
 			property: 'color',
-		} ).cssValueToBe( `${ buttonBorder[ 'header-button1-text-color' ].tablet }` );
+		} ).cssValueToBe( `${ buttonColor[ 'header-button1-text-color' ].tablet }` );
 
 		await setBrowserViewport( 'small' );
 		await expect( {
 			selector: '.ast-header-button-1 .ast-custom-button',
 			property: 'color',
-		} ).cssValueToBe( `${ buttonBorder[ 'header-button1-text-color' ].mobile }` );
+		} ).cssValueToBe( `${ buttonColor[ 'header-button1-text-color' ].mobile }` );
 
 		//Background color
 		await expect( {
 			selector: '.ast-header-button-1 .ast-custom-button',
 			property: 'background-color',
-		} ).cssValueToBe( `${ buttonBorder[ 'header-button1-back-color' ].desktop }` );
+		} ).cssValueToBe( `${ buttonColor[ 'header-button1-back-color' ].desktop }` );
 
 		await setBrowserViewport( 'medium' );
 		await expect( {
 			selector: '.ast-header-button-1 .ast-custom-button',
 			property: 'background-color',
-		} ).cssValueToBe( `${ buttonBorder[ 'header-button1-back-color' ].tablet }` );
+		} ).cssValueToBe( `${ buttonColor[ 'header-button1-back-color' ].tablet }` );
 
 		await setBrowserViewport( 'small' );
 		await expect( {
 			selector: '.ast-header-button-1 .ast-custom-button',
 			property: 'background-color',
-		} ).cssValueToBe( `${ buttonBorder[ 'header-button1-back-color' ].mobile }` );
+		} ).cssValueToBe( `${ buttonColor[ 'header-button1-back-color' ].mobile }` );
 	} );
 } );
