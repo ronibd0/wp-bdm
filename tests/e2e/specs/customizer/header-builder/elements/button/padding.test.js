@@ -1,7 +1,6 @@
 import { createURL } from '@wordpress/e2e-test-utils';
 import { setCustomize } from '../../../../../utils/customize';
 import { setBrowserViewport } from '../../../../../utils/set-browser-viewport';
-import { scrollToElement } from '../../../../../utils/scroll-to-element';
 describe( 'Header builder button setting in customizer', () => {
 	it( 'padding should apply correctly', async () => {
 		const buttonPadding = {
