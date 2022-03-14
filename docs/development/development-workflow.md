@@ -16,7 +16,7 @@ Main (protected) branches in Astra are -
 3. `next-release` - All the pull requests should be made against this branch.
 4. `development` - The developers will manually merge the code into this branch to have it deployed to the dev site for testing.
 
-If you an code contributor then you can skip the Step #4, This will be done for you by one of the Astra team members.
+If you are a code contributor then you can skip the Step #4, This will be done for you by one of the Astra team members.
 
 ### Creating a pull request
 
