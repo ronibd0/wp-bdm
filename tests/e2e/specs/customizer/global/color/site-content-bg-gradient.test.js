@@ -3,7 +3,7 @@ import { createURL,	createNewPost, publishPost } from '@wordpress/e2e-test-utils
 import { setBrowserViewport } from '../../../../utils/set-browser-viewport';
 describe( 'Testing site background gradient and content background gradient setting under the customizer', () => {
 	it( 'site background gradient should apply correctly', async () => {
-		const sitebgGradient = {
+		const siteBgGradient = {
 			'site-layout-outside-bg-obj-responsive': {
 				desktop: {
 					'background-color': 'linear-gradient(135deg, rgb(6, 147, 227) 31%, rgb(155, 81, 224) 64%)',
@@ -14,7 +14,7 @@ describe( 'Testing site background gradient and content background gradient sett
 					'background-type': 'gradient',
 				},
 				tablet: {
-					'background-color': 'linear-gradient(135deg, rgb(6, 147, 227) 31%, rgb(155, 81, 224) 64%)',
+					'background-color': 'linear-gradient(239deg, rgb(178, 250, 164) 22%, rgb(240, 178, 178) 93%)',
 					'background-repeat': 'no-repeat',
 					'background-position': 'left top',
 					'background-size': 'contain',
@@ -22,7 +22,7 @@ describe( 'Testing site background gradient and content background gradient sett
 					'background-type': 'gradient',
 				},
 				mobile: {
-					'background-color': 'linear-gradient(135deg, rgb(6, 147, 227) 31%, rgb(155, 81, 224) 64%)',
+					'background-color': 'linear-gradient(239deg, rgb(250, 248, 165) 22%, rgb(240, 188, 177) 93%)',
 					'background-repeat': 'no-repeat',
 					'background-position': 'left top',
 					'background-size': 'contain',
@@ -32,7 +32,7 @@ describe( 'Testing site background gradient and content background gradient sett
 			},
 		};
 
-		await setCustomize( sitebgGradient );
+		await setCustomize( siteBgGradient );
 		await page.goto( createURL( '/' ), {
 			waitUntil: 'networkidle0',
 		} );
@@ -41,29 +41,29 @@ describe( 'Testing site background gradient and content background gradient sett
 			selector: '.ast-separate-container',
 			property: 'background-image',
 		} ).cssValueToBe(
-			`${ sitebgGradient[ 'site-layout-outside-bg-obj-responsive' ].desktop[ 'background-color' ] }`,
+			`${ siteBgGradient[ 'site-layout-outside-bg-obj-responsive' ].desktop[ 'background-color' ] }`,
 		);
 		await setBrowserViewport( 'medium' );
 		await expect( {
 			selector: '.ast-separate-container',
 			property: 'background-image',
 		} ).cssValueToBe(
-			`${ sitebgGradient[ 'site-layout-outside-bg-obj-responsive' ].tablet[ 'background-color' ] }`,
+			`${ siteBgGradient[ 'site-layout-outside-bg-obj-responsive' ].tablet[ 'background-color' ] }`,
 		);
 		await setBrowserViewport( 'small' );
 		await expect( {
 			selector: '.ast-separate-container',
 			property: 'background-image',
 		} ).cssValueToBe(
-			`${ sitebgGradient[ 'site-layout-outside-bg-obj-responsive' ].mobile[ 'background-color' ] }`,
+			`${ siteBgGradient[ 'site-layout-outside-bg-obj-responsive' ].mobile[ 'background-color' ] }`,
 		);
 	} );
 
 	it( 'content background gradient should apply correctly', async () => {
-		const contentbgGradient = {
+		const contentBgGradient = {
 			'content-bg-obj-responsive': {
 				desktop: {
-					'background-color': 'linear-gradient(135deg, rgb(6, 147, 227) 31%, rgb(155, 81, 224) 64%)',
+					'background-color': 'linear-gradient(239deg, rgb(109, 103, 0) 22%, rgb(211, 211, 211) 93%)',
 					'background-repeat': 'no-repeat',
 					'background-position': 'left top',
 					'background-size': 'contain',
@@ -71,7 +71,7 @@ describe( 'Testing site background gradient and content background gradient sett
 					'background-type': 'gradient',
 				},
 				tablet: {
-					'background-color': 'linear-gradient(135deg, rgb(6, 147, 227) 31%, rgb(155, 81, 224) 64%)',
+					'background-color': 'linear-gradient(239deg, rgb(241, 249, 229) 22%, rgb(240, 220, 220) 85%)',
 					'background-repeat': 'no-repeat',
 					'background-position': 'left top',
 					'background-size': 'contain',
@@ -79,7 +79,7 @@ describe( 'Testing site background gradient and content background gradient sett
 					'background-type': 'gradient',
 				},
 				mobile: {
-					'background-color': 'linear-gradient(135deg, rgb(6, 147, 227) 31%, rgb(155, 81, 224) 64%)',
+					'background-color': 'linear-gradient(239deg, rgb(230, 236, 250) 22%, rgb(240, 221, 221) 85%)',
 					'background-repeat': 'no-repeat',
 					'background-position': 'left top',
 					'background-size': 'contain',
@@ -88,7 +88,7 @@ describe( 'Testing site background gradient and content background gradient sett
 				},
 			},
 		};
-		await setCustomize( contentbgGradient );
+		await setCustomize( contentBgGradient );
 		await createNewPost( {
 			postType: 'post',
 			title: 'test',
@@ -103,21 +103,21 @@ describe( 'Testing site background gradient and content background gradient sett
 			selector: '.ast-separate-container .ast-article-post',
 			property: 'background-image',
 		} ).cssValueToBe(
-			`${ contentbgGradient[ 'content-bg-obj-responsive' ].desktop[ 'background-color' ] }`,
+			`${ contentBgGradient[ 'content-bg-obj-responsive' ].desktop[ 'background-color' ] }`,
 		);
 		await setBrowserViewport( 'medium' );
 		await expect( {
 			selector: '.ast-separate-container .ast-article-post',
 			property: 'background-image',
 		} ).cssValueToBe(
-			`${ contentbgGradient[ 'content-bg-obj-responsive' ].tablet[ 'background-color' ] }`,
+			`${ contentBgGradient[ 'content-bg-obj-responsive' ].tablet[ 'background-color' ] }`,
 		);
 		await setBrowserViewport( 'small' );
 		await expect( {
 			selector: '.ast-separate-container .ast-article-post',
 			property: 'background-image',
 		} ).cssValueToBe(
-			`${ contentbgGradient[ 'content-bg-obj-responsive' ].mobile[ 'background-color' ] }`,
+			`${ contentBgGradient[ 'content-bg-obj-responsive' ].mobile[ 'background-color' ] }`,
 		);
 	} );
 } );
