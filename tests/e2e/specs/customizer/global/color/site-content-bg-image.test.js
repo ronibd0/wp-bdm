@@ -56,7 +56,7 @@ describe( 'Testing site background image and content background image setting un
 			property: 'background-image',
 		} ).cssValueToBe(
 			`url("${ siteBgImage[ 'site-layout-outside-bg-obj-responsive' ].mobile[ 'background-image' ] + '")' }`,
-		)
+		);
 	} );
 
 	it( 'content background image should apply correctly', async () => {
