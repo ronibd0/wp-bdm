@@ -64,41 +64,5 @@ describe( 'Header builder button setting in customizer', () => {
 			selector: '.ast-header-button-1 .ast-custom-button',
 			property: 'border-radius',
 		} ).cssValueToBe( `${ buttonBorder[ 'header-button1-border-radius' ] + 'px' }` );
-
-		// Text-color
-		await expect( {
-			selector: '.ast-header-button-1 .ast-custom-button',
-			property: 'color',
-		} ).cssValueToBe( `${ buttonBorder[ 'header-button1-text-color' ].desktop }` );
-
-		await setBrowserViewport( 'medium' );
-		await expect( {
-			selector: '.ast-header-button-1 .ast-custom-button',
-			property: 'color',
-		} ).cssValueToBe( `${ buttonBorder[ 'header-button1-text-color' ].tablet }` );
-
-		await setBrowserViewport( 'small' );
-		await expect( {
-			selector: '.ast-header-button-1 .ast-custom-button',
-			property: 'color',
-		} ).cssValueToBe( `${ buttonBorder[ 'header-button1-text-color' ].mobile }` );
-
-		//Background color
-		await expect( {
-			selector: '.ast-header-button-1 .ast-custom-button',
-			property: 'background-color',
-		} ).cssValueToBe( `${ buttonBorder[ 'header-button1-back-color' ].desktop }` );
-
-		await setBrowserViewport( 'medium' );
-		await expect( {
-			selector: '.ast-header-button-1 .ast-custom-button',
-			property: 'background-color',
-		} ).cssValueToBe( `${ buttonBorder[ 'header-button1-back-color' ].tablet }` );
-
-		await setBrowserViewport( 'small' );
-		await expect( {
-			selector: '.ast-header-button-1 .ast-custom-button',
-			property: 'background-color',
-		} ).cssValueToBe( `${ buttonBorder[ 'header-button1-back-color' ].mobile }` );
 	} );
 } );
