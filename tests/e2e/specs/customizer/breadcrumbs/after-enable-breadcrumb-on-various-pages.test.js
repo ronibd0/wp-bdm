@@ -1,6 +1,6 @@
 import { createURL, createNewPost, publishPost } from '@wordpress/e2e-test-utils';
 import { setCustomize } from '../../../utils/customize';
-describe( 'breadcrumb settings in the customizer', () => {
+describe( 'Breadcrumb settings in the customizer', () => {
 	it( 'enable breadcrumb on home page for after header position should apply corectly for inside position', async () => {
 		const afterBreadcrumb = {
 			'breadcrumb-position': 'astra_header_after',
