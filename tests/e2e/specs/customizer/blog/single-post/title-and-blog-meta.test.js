@@ -1,13 +1,13 @@
 import { createURL, createNewPost, publishPost } from '@wordpress/e2e-test-utils';
 import { setCustomize } from '../../../../utils/customize';
-describe( 'single post in the customizer', () => {
+describe( 'Single post in the customizer', () => {
 	it( 'structure should apply corectly', async () => {
-		const SinglepostStructure = {
+		const singlePostStructure = {
 			'blog-single-post-structure': {
 				'single-title-meta': 1,
 			},
 		};
-		await setCustomize( SinglepostStructure );
+		await setCustomize( singlePostStructure );
 		await createNewPost( { postType: 'post', title: 'hello world' } );
 		await publishPost();
 		await page.goto( createURL( '/hello-world/' ), {
