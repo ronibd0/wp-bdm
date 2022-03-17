@@ -1,6 +1,6 @@
 import { createURL, createNewPost, publishPost } from '@wordpress/e2e-test-utils';
 import { setCustomize } from '../../../../utils/customize';
-describe( 'single post in the customizer', () => {
+describe( 'Single post in the customizer', () => {
 	it( 'content width default should apply corectly', async () => {
 		const contentWidth = {
 			'blog-single-width': 'default',
@@ -16,8 +16,7 @@ describe( 'single post in the customizer', () => {
 		await expect( {
 			selector: '.single-post .site-content > .ast-container',
 			property: 'max-width',
-		} ).cssValueToBe(
-			`${ contentWidth[ 'blog-single-max-width' ] + 40 }` + 'px' );
+		} ).cssValueToBe( `${ contentWidth[ 'blog-single-max-width' ] + 40 }` + 'px' );
 	} );
 
 	it( 'content width custom should apply corectly', async () => {
@@ -35,8 +34,7 @@ describe( 'single post in the customizer', () => {
 		await expect( {
 			selector: '.single-post .site-content > .ast-container',
 			property: 'max-width',
-		} ).cssValueToBe(
-			`${ contentWidth[ 'blog-single-max-width' ] }` + 'px' );
+		} ).cssValueToBe( `${ contentWidth[ 'blog-single-max-width' ] }` + 'px' );
 	} );
 } );
 
