@@ -4,8 +4,8 @@ import { responsiveFontSize } from '../../../utils/responsive-utils';
 import { setBrowserViewport } from '../../../utils/set-browser-viewport';
 describe( 'Post title font option under the customizer', () => {
 	it( 'post title font option should apply correctly', async () => {
-		const posttitlefont = {
-			'enable-related-posts': true,
+		const postTitleFont = {
+			'enable-related-posts': 1,
 			'related-posts-title-font-family': 'Abel',
 			'related-posts-title-text-transform': 'uppercase',
 			'related-posts-title-font-weight': '400',
@@ -17,77 +17,57 @@ describe( 'Post title font option under the customizer', () => {
 				'tablet-unit': 'px',
 				'mobile-unit': 'px',
 			},
-
 		};
-		await setCustomize( posttitlefont );
-		await createNewPost( {
-			postType: 'post',
-			title: 'sample-post',
-
-		} );
+		await setCustomize( postTitleFont );
+		await createNewPost( { postType: 'post', title: 'sample-post' } );
 		await publishPost();
-
-		await createNewPost( {
-			postType: 'post',
-			title: 'test-post',
-
-		} );
+		await createNewPost( { postType: 'post', title: 'test-post' } );
 		await publishPost();
-
 		await page.goto( createURL( 'sample-post' ), {
 			waitUntil: 'networkidle0',
 		} );
-
 		await page.waitForSelector( ' .ast-separate-container .ast-single-related-posts-container ' );
 		await expect( {
 			selector: '.ast-related-post-content .entry-header .ast-related-post-title a',
 			property: 'font-family',
-		} ).cssValueToBe( `${ posttitlefont[ 'related-posts-title-font-family' ] }`,
-		);
+		} ).cssValueToBe( `${ postTitleFont[ 'related-posts-title-font-family' ] }` );
 
 		await expect( {
 			selector: '.ast-related-post-content .entry-header .ast-related-post-title a',
 			property: 'text-transform',
-		} ).cssValueToBe( `${ posttitlefont[ 'related-posts-title-text-transform' ] }`,
-		);
+		} ).cssValueToBe( `${ postTitleFont[ 'related-posts-title-text-transform' ] }` );
 
 		await expect( {
 			selector: '.ast-related-post-content .entry-header .ast-related-post-title a',
 			property: 'font-weight',
-		} ).cssValueToBe( `${ posttitlefont[ 'related-posts-title-font-weight' ] }`,
-		);
+		} ).cssValueToBe( `${ postTitleFont[ 'related-posts-title-font-weight' ] }` );
 
 		await expect( {
 			selector: '.ast-related-post-content .entry-header .ast-related-post-title a',
 			property: 'font-size',
 		} ).cssValueToBe(
-			`${ posttitlefont[ 'related-posts-title-font-size' ].desktop }${ posttitlefont[ 'related-posts-title-font-size' ][ 'desktop-unit' ] }`,
-		);
+			`${ postTitleFont[ 'related-posts-title-font-size' ].desktop }${ postTitleFont[ 'related-posts-title-font-size' ][ 'desktop-unit' ] }` );
 
 		await setBrowserViewport( 'medium' );
-
 		await expect( {
 			selector: '.ast-related-post-content .entry-header .ast-related-post-title a ',
 			property: 'font-size',
 		} ).cssValueToBe(
 			`${ await responsiveFontSize(
-				posttitlefont[ 'related-posts-title-font-size' ].tablet,
+				postTitleFont[ 'related-posts-title-font-size' ].tablet,
 			) }${
-				posttitlefont[ 'related-posts-title-font-size' ][ 'tablet-unit' ]
-			}`,
-		);
+				postTitleFont[ 'related-posts-title-font-size' ][ 'tablet-unit' ]
+			}` );
 
 		await setBrowserViewport( 'small' );
-
 		await expect( {
 			selector: '.ast-related-post-content .entry-header .ast-related-post-title a ',
 			property: 'font-size',
 		} ).cssValueToBe(
 			`${ await responsiveFontSize(
-				posttitlefont[ 'related-posts-title-font-size' ].mobile,
+				postTitleFont[ 'related-posts-title-font-size' ].mobile,
 			) }${
-				posttitlefont[ 'related-posts-title-font-size' ][ 'mobile-unit' ]
-			}`,
-		);
+				postTitleFont[ 'related-posts-title-font-size' ][ 'mobile-unit' ]
+			}` );
 	} );
 } );
