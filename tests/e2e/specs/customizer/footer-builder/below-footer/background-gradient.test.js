@@ -7,7 +7,7 @@ describe( 'Below footer background gradient setting in customizer', () => {
 		const belowFooter = {
 			'hbb-footer-bg-obj-responsive': {
 				desktop: {
-					'background-color': 'linear-gradient(135deg, rgb(6, 147, 227) 0%, rgb(255, 255, 255) 37%, rgb(155, 81, 224) 53%)',
+					'background-color': 'linear-gradient(135deg, rgb(6, 147, 227) 0%, rgb(155, 81, 224) 83%)',
 					'background-repeat': 'no-repeat',
 					'background-position': 'left top',
 					'background-size': 'contain',
@@ -15,7 +15,7 @@ describe( 'Below footer background gradient setting in customizer', () => {
 					'background-type': 'gradient',
 				},
 				tablet: {
-					'background-color': 'linear-gradient(135deg, rgb(6, 147, 227) 0%, rgb(255, 255, 255) 40%, rgb(21, 143, 37) 64%, rgb(155, 81, 224) 100%)',
+					'background-color': 'linear-gradient(135deg, rgb(6, 147, 227) 0%, rgb(169, 235, 201) 60%, rgb(155, 81, 224) 100%)',
 					'background-repeat': 'no-repeat',
 					'background-position': 'left top',
 					'background-size': 'contain',
@@ -23,7 +23,7 @@ describe( 'Below footer background gradient setting in customizer', () => {
 					'background-type': 'gradient',
 				},
 				mobile: {
-					'background-color': 'linear-gradient(135deg, rgb(6, 147, 227) 0%, rgb(197, 172, 58) 49%, rgb(155, 81, 224) 100%)',
+					'background-color': 'linear-gradient(135deg, rgb(6, 147, 227) 0%, rgb(233, 236, 130) 47%, rgb(155, 81, 224) 100%)',
 					'background-repeat': 'no-repeat',
 					'background-position': 'left top',
 					'background-size': 'contain',
