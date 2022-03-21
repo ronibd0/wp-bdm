@@ -29,7 +29,7 @@ describe( 'Breadcrumb settings in the customizer', () => {
 			waitUntil: 'networkidle0',
 		} );
 		await page.waitForSelector( '.ast-breadcrumbs-wrapper' );
-		const disableblog = await page.$eval( '.ast-breadcrumbs-wrapper', ( element ) => element.getAttribute( '.ast-separate-container .ast-article-single' ) );
+		const disableBlog = await page.$eval( '.ast-breadcrumbs-wrapper', ( element ) => element.getAttribute( '.ast-separate-container .ast-article-single' ) );
 		await expect( disableblog ).toBeNull( );
 	} );
 
