@@ -1975,16 +1975,6 @@ p.demo_store,
 		}
 	}
 
-	form.login,
-	form.checkout_coupon,
-	form.register {
-		border: 1px solid darken( $secondary, 10% );
-		padding: 20px;
-		margin: 2em 0;
-		text-align: left;
-		border-radius: 5px;
-	}
-
 	ul#shipping_method {
 		list-style: none outside;
 		margin: 0;
@@ -3382,8 +3372,7 @@ button.pswp__button--zoom:hover {
 /**
  * My Account Style
  */
-.woocommerce-MyAccount-navigation-link {
-
+body:not(.ast-modern-woo-account-page) .woocommerce-MyAccount-navigation-link {
 	list-style: none;
 	border: 1px solid rgba(0,0,0,.1);
 	border-bottom-width: 0;
@@ -3399,8 +3388,18 @@ button.pswp__button--zoom:hover {
 		display: block;
 		padding: .5em 1em;
 	}
+}
 
-
+body:not(.ast-modern-woo-account-page) .woocommerce {
+	form.login,
+	form.checkout_coupon,
+	form.register {
+		border: 1px solid darken( $secondary, 10% );
+		padding: 20px;
+		margin: 2em 0;
+		text-align: left;
+		border-radius: 5px;
+	}
 }
 
 .woocommerce-MyAccount-navigation > ul {
