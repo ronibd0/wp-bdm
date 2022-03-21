@@ -115,6 +115,45 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			} else {
 				add_filter( 'woocommerce_single_product_summary', array( $this, 'woocommerce_shipping_text' ), 11, 0 );
 			}
+
+			// Register Dynamic Sidebars.
+			if ( is_customize_preview() ) {
+				add_action( 'wp', array( $this, 'store_widgets_dynamic' ), 15 );
+			} else {
+				add_action( 'widgets_init', array( $this, 'store_widgets_dynamic' ), 15 );
+			}
+		}
+
+		/**
+		 * Dynamic Store widgets.
+		 */
+		public function store_widgets_dynamic() {
+			$shop_filter_array = array(
+				'name'          => esc_html__( 'WooCommerce Sidebar', 'astra' ),
+				'id'            => 'astra-woo-shop-sidebar',
+				'description'   => __( 'This sidebar will be used on Product archive, Cart, Checkout and My Account pages.', 'astra' ),
+				'before_widget' => '<div id="%1$s" class="ast-woo-sidebar-widget widget %2$s">',
+				'after_widget'  => '</div>',
+			);
+
+			if ( defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'woocommerce' ) && astra_get_option( 'shop-filter-accordion' ) ) {
+				$shop_filter_array['before_title']   = '<h3 class="widget-title">';
+				$shop_filter_array['after_title']    = Astra_Builder_UI_Controller::fetch_svg_icon( 'angle-down', false ) . '</h3>';
+				$shop_filter_array['before_sidebar'] = '<div class="ast-accordion-layout ast-filter-wrap">';
+				$shop_filter_array['after_sidebar']  = '</div>';
+			} else {
+				$shop_filter_array['before_title']   = '<h3 class="widget-title">';
+				$shop_filter_array['after_title']    = '</h3>';
+				$shop_filter_array['before_sidebar'] = '<div class="ast-filter-wrap">';
+				$shop_filter_array['after_sidebar']  = '</div>';
+			}
+
+			register_sidebar(
+				apply_filters(
+					'astra_woocommerce_shop_sidebar_init',
+					$shop_filter_array
+				)
+			);
 		}
 
 		/**
@@ -232,6 +271,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			);
 
 			// Theme's default icon with cart title and cart total.
+			/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			if ( 'default' == $icon || ! defined( 'ASTRA_EXT_VER' ) || ( defined( 'ASTRA_EXT_VER' ) && ! Astra_Ext_Extension::is_active( 'woocommerce' ) ) ) {
 				// Cart Total or Cart Title enable then only add markup.
 				if ( '' !== $cart_label_markup ) {
