@@ -1,6 +1,6 @@
 import { createURL, createNewPost } from '@wordpress/e2e-test-utils';
 import { setCustomize } from '../../../../utils/customize';
-import { publishPost } from '../../../../utils/publish-post'
+import { publishPost } from '../../../../utils/publish-post';
 describe( 'Section title color option under the customizer', () => {
 	it( 'section title color option should apply correctly', async () => {
 		const titleColor = {
