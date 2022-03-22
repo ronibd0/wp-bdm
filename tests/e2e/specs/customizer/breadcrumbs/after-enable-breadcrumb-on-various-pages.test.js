@@ -11,8 +11,8 @@ describe( 'Breadcrumb settings in the customizer', () => {
 			waitUntil: 'networkidle0',
 		} );
 		await page.waitForSelector( '.ast-breadcrumbs-wrapper' );
-		const enablehomePage = await page.$eval( '.ast-breadcrumbs-wrapper', ( element ) => element.getAttribute( '.site-header-focus-item + .ast-breadcrumbs-wrapper' ) );
-		await expect( enablehomePage ).toBeNull( );
+		const enableHomePage = await page.$eval( '.ast-breadcrumbs-wrapper', ( element ) => element.getAttribute( '.site-header-focus-item + .ast-breadcrumbs-wrapper' ) );
+		await expect( enableHomePage ).toBeNull( );
 	} );
 
 	it( 'enable breadcrumb on blog page for inside header position should apply corectly for inside position', async () => {
@@ -27,8 +27,8 @@ describe( 'Breadcrumb settings in the customizer', () => {
 			waitUntil: 'networkidle0',
 		} );
 		await page.waitForSelector( '.ast-breadcrumbs-wrapper' );
-		const disableblog = await page.$eval( '.ast-breadcrumbs-wrapper', ( element ) => element.getAttribute( '.site-header-focus-item + .ast-breadcrumbs-wrapper' ) );
-		await expect( disableblog ).toBeNull( );
+		const disableBlog = await page.$eval( '.ast-breadcrumbs-wrapper', ( element ) => element.getAttribute( '.site-header-focus-item + .ast-breadcrumbs-wrapper' ) );
+		await expect( disableBlog ).toBeNull( );
 	} );
 
 	// GitHub action E2E fail case
@@ -62,8 +62,8 @@ describe( 'Breadcrumb settings in the customizer', () => {
 			waitUntil: 'networkidle0',
 		} );
 		await page.waitForSelector( '.ast-breadcrumbs-wrapper' );
-		const enablearchivePage = await page.$eval( '.ast-breadcrumbs-wrapper', ( element ) => element.getAttribute( '.site-header-focus-item + .ast-breadcrumbs-wrapper' ) );
-		await expect( enablearchivePage ).toBeNull( );
+		const enableArchivePage = await page.$eval( '.ast-breadcrumbs-wrapper', ( element ) => element.getAttribute( '.site-header-focus-item + .ast-breadcrumbs-wrapper' ) );
+		await expect( enableArchivePage ).toBeNull( );
 	} );
 
 	it( 'enable breadcrumb on single page for inside header position should apply corectly for inside position', async () => {
