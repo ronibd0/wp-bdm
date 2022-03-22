@@ -4,16 +4,18 @@ describe( 'Section Content color option under the customizer', () => {
 	it( 'content color option should apply correctly', async () => {
 		const contentColor = {
 			'enable-related-posts': 1,
-			'related-posts-text-color': 'rgb(138, 13, 0)',
-			'related-posts-meta-color': 'rgb(138, 13, 0)',
-			'related-posts-meta-link-hover-color': 'rgb(172, 36, 143)',
+			'related-posts-text-color': 'rgb(118, 4, 124)',
+			'related-posts-meta-color': 'rgb(5, 61, 158)',
 		};
 		await setCustomize( contentColor );
-		await createNewPost( { postType: 'post', title: 'sample-post' } );
-		await publishPost();
-		await createNewPost( { postType: 'post', title: 'test-post' } );
-		await publishPost();
-		await page.goto( createURL( 'test-post' ), {
+		let ppStatus = false;
+		while ( false === ppStatus ) {
+			await createNewPost( { postType: 'post', title: 'sample-post' } );
+			ppStatus = await publishPost();
+			await createNewPost( { postType: 'post', title: 'test-post' } );
+			ppStatus = await publishPost();
+		}
+		await page.goto( createURL( '/test-post' ), {
 			waitUntil: 'networkidle0',
 		} );
 		await page.evaluate( () => {
@@ -25,23 +27,10 @@ describe( 'Section Content color option under the customizer', () => {
 			property: 'color',
 		} ).cssValueToBe( `${ contentColor[ 'related-posts-text-color' ] }` );
 
+		await page.waitForSelector( '.ast-related-post-content .entry-meta *' );
 		await expect( {
-			selector: ' .ast-related-post-content .entry-meta *',
+			selector: '.ast-related-post-content .entry-meta *',
 			property: 'color',
 		} ).cssValueToBe( `${ contentColor[ 'related-posts-meta-color' ] }` );
-		await page.goto( createURL( 'test-post' ), {
-			waitUntil: 'networkidle0',
-		} );
-
-		await page.evaluate( () => {
-			window.scrollBy( 0, window.innerHeight );
-		} );
-
-		await page.waitForSelector( '#main > div.ast-single-related-posts-container > div.ast-related-posts-wrapper > article > div > div > header > div > span.comments-link > a' );
-		await page.hover( '#main > div.ast-single-related-posts-container > div.ast-related-posts-wrapper > article > div > div > header > div > span.comments-link > a' );
-		await expect( {
-			selector: '#main > div.ast-single-related-posts-container > div.ast-related-posts-wrapper > article > div > div > header > div > span.comments-link > a',
-			property: 'color',
-		} ).cssValueToBe( `${ contentColor[ 'related-posts-meta-link-hover-color' ] }` );
 	} );
 } );
