@@ -8,9 +8,12 @@ describe( 'Single post in the customizer', () => {
 			},
 		};
 		await setCustomize( singlePostStructure );
-		await createNewPost( { postType: 'post', title: 'hello world' } );
-		await publishPost();
-		await page.goto( createURL( '/hello-world/' ), {
+		let ppStatus = false;
+		while ( false === ppStatus ) {
+			await createNewPost( { postType: 'post', title: 'hello world' } );
+			ppStatus = await publishPost();
+		}
+		await page.goto( createURL( '/hello-world' ), {
 			waitUntil: 'networkidle0',
 		} );
 		await page.waitForSelector( '.entry-header' );
