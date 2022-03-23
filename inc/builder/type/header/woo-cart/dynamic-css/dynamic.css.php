@@ -568,7 +568,7 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 	/**
 	 * Added for the Cart total label badge position
 	 */
-	
+
 	$css_total_position_common_selector = array(
 		'.cart-container, .ast-addon-cart-wrap' => array(
 			'display'     => 'flex',
@@ -594,16 +594,16 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 				$css_total_position_output_bottom = array(
 					'.ast-cart-' . $device . '-position-bottom' => array(
 						'flex-direction' => 'column',
-						'padding-top'    => '7px', 
+						'padding-top'    => '7px',
 						'padding-bottom' => '5px',
 					),
-					
+
 					'.ast-cart-' . $device . '-position-bottom .ast-woo-header-cart-info-wrap' => array(
 						'order'       => 2,
 						'line-height' => 1,
 						'margin-top'  => '0.5em',
 					),
-					
+
 				);
 				return $css_total_position_output_bottom;
 			case 'right':
@@ -615,12 +615,12 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 				);
 				return $css_total_position_output_right;
 			case 'left':
-				$css_total_position_output_left = array(    
+				$css_total_position_output_left = array(
 					'.ast-cart-' . $device . '-position-left .ast-woo-header-cart-info-wrap' => array(
 						'margin-right' => '0.5em',
 					),
 				);
-				return $css_total_position_output_left; 
+				return $css_total_position_output_left;
 			default:
 				break;
 		}

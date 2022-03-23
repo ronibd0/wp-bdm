@@ -6,10 +6,11 @@ v3.8.0 (woocommerce-improvements) (Unreleased)
 - New: WooCommerce - Added cart Margin and Padding spacing option.
 - New: WooCommerce - Added cart total Label position option.
 - New: WooCommerce - Added store notice text color & background color options.
+- New: WooCommerce - Added store notice position option.
 - New: WooCommerce - Added Icon size option in the Woocommerce Cart.
 - New: WooCommerce - Added Option to add free shipping text next to Woocommerce single product price.
 - New: WooCommerce - Added Product Variation Orientation option in the Single product.
-- New: WooCommerce - Added show/hide cart total badge option
+- New: WooCommerce - Added show/hide cart total badge option.
 - Fix: WooCommerce - Margin issue for single shop page with the Full width & Contained Layout.
 - Improvement: WooCommerce - Modify the Cart label section via Shortcodes. (Needs Doc)
 

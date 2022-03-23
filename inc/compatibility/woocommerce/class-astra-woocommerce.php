@@ -107,6 +107,8 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 			add_action( 'astra_cart_in_menu_class', array( $this, 'header_cart_icon_class' ), 99 );
 
+			add_filter( 'woocommerce_demo_store', array( $this, 'astra_woocommerce_update_store_notice_atts' ) );
+
 			add_filter( 'astra_dynamic_theme_css', array( $this, 'astra_woocommerce_store_dynamic_css' ) );
 
 			// Initialize Free shipping and checks if astra-addon plugin is installed.
@@ -157,6 +159,22 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		}
 
 		/**
+		 * Update WooCommerce store notice. Extending this function to add custom data-attr as per Astra's configuration.
+		 *
+		 * @since x.x.x
+		 *
+		 * @param  string $notice Store notice markup.
+		 * @return string $notice Store notice markup.
+		 */
+		public function astra_woocommerce_update_store_notice_atts( $notice ) {
+
+			$store_notice_position = astra_get_option( 'store-notice-position' );
+			$notice                = str_replace( 'data-notice-id', 'data-position="' . $store_notice_position . '" data-notice-id', $notice );
+
+			return $notice;
+		}
+
+		/**
 		 * Adds shipping text after price.
 		 *
 		 * @since x.x.x
@@ -199,8 +217,38 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				),
 			);
 
+			if ( 'hang-over-top' === astra_get_option( 'store-notice-position' ) ) {
+				$css_output_desktop['.ast-woocommerce-store-notice-hanged'] = array(
+					'margin-top' => '57px',
+				);
+				$css_output_desktop['.woocommerce-store-notice']            = array(
+					'max-height' => '57px',
+					'height'     => '100%',
+				);
+			}
+
 			/* Parse CSS from array() */
 			$dynamic_css .= astra_parse_css( $css_output_desktop );
+
+			if ( is_user_logged_in() ) {
+				$admin_bar_desktop_css = array(
+					'.admin-bar .demo_store[data-position="top"], .admin-bar .demo_store[data-position="hang-over-top"]' => array(
+						'top' => '32px',
+					),
+				);
+
+				/* Min width 763px because below to this point admin-bar height converts to 46px. */
+				$dynamic_css .= astra_parse_css( $admin_bar_desktop_css, '783' );
+
+				$admin_bar_responsive_css = array(
+					'.admin-bar .demo_store[data-position="top"], .admin-bar .demo_store[data-position="hang-over-top"]' => array(
+						'top' => '46px',
+					),
+				);
+
+				/* Max width 762px because below to this point admin-bar height converts to 46px. */
+				$dynamic_css .= astra_parse_css( $admin_bar_responsive_css, '', '782' );
+			}
 
 			return $dynamic_css;
 		}
@@ -524,6 +572,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			/* Store Notice */
 			$defaults['store-notice-text-color']       = '';
 			$defaults['store-notice-background-color'] = '';
+			$defaults['store-notice-position']         = 'top';
 
 			$defaults['shop-archive-width']     = 'default';
 			$defaults['shop-archive-max-width'] = 1200;
@@ -610,6 +659,10 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 			if ( 'woocommerce' === $rt_section ) {
 				$classes[] = 'ast-woocommerce-cart-menu';
+			}
+
+			if ( is_store_notice_showing() && 'hang-over-top' === astra_get_option( 'store-notice-position' ) ) {
+				$classes[] = 'ast-woocommerce-store-notice-hanged';
 			}
 
 			return $classes;

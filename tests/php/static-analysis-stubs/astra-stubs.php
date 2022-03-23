@@ -5295,6 +5295,17 @@ namespace {
         {
         }
         /**
+         * Update WooCommerce store notice. Extending this function to add custom data-attr as per Astra's configuration.
+         *
+         * @since x.x.x
+         *
+         * @param  string $notice Store notice markup.
+         * @return string $notice Store notice markup.
+         */
+        public function astra_woocommerce_update_store_notice_atts($notice)
+        {
+        }
+        /**
          * Dynamic CSS for store notice config.
          *
          * @since x.x.x
@@ -10690,6 +10701,88 @@ namespace {
          * Register Script for Meta options
          */
         public function register_script()
+        {
+        }
+        /**
+         * Enqueue Script for Meta settings.
+         *
+         * @return void
+         */
+        public function load_scripts()
+        {
+        }
+        /**
+         * Get all Sidebar Options.
+         */
+        public function get_sidebar_options()
+        {
+        }
+        /**
+         * Get Contenr Layout Options.
+         */
+        public function get_content_layout_options()
+        {
+        }
+        /**
+         * Get disable section fields.
+         */
+        public function get_disable_section_fields()
+        {
+        }
+        /**
+         * Get sticky header options.
+         */
+        public function get_sticky_header_options()
+        {
+        }
+        /**
+         * Get all transparet and sticky header options.
+         */
+        public function get_header_enabled_options()
+        {
+        }
+        /**
+         * Get page header Options.
+         */
+        public function get_page_header_options()
+        {
+        }
+        /**
+         * Register Post Meta options for react based fields.
+         *
+         * @since x.x.x
+         */
+        public function register_meta_settings()
+        {
+        }
+    }
+    /*!
+     * ISC License
+     *
+     * Copyright (c) 2018-2021, Andrea Giammarchi, @WebReflection
+     *
+     * Permission to use, copy, modify, and/or distribute this software for any
+     * purpose with or without fee is hereby granted, provided that the above
+     * copyright notice and this permission notice appear in all copies.
+     *
+     * THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
+     * REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
+     * AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
+     * INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
+     * LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE
+     * OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
+     * PERFORMANCE OF THIS SOFTWARE.
+     */
+    class FlattedString
+    {
+        public function __construct($value)
+        {
+        }
+    }
+    class Flatted
+    {
+        // public utilities
+        public static function parse($json, $assoc = \false, $depth = 512, $options = 0)
         {
         }
         /**
