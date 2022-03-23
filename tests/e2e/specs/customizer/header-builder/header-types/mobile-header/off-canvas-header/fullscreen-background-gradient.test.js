@@ -1,7 +1,7 @@
 import { createURL, createNewPost, publishPost } from '@wordpress/e2e-test-utils';
 import { setCustomize } from '../../../../../../utils/customize';
 import { setBrowserViewport } from '../../../../../../utils/set-browser-viewport';
-describe( 'off canvas flyout header type settings in the customizer', () => {
+describe( 'Off canvas flyout header type settings in the customizer', () => {
 	it( 'flyout header background gradient for tablet should apply correctly', async () => {
 		const offCanvas = {
 			'mobile-header-type': 'full-width',
