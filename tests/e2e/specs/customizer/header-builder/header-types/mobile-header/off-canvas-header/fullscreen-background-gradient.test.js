@@ -2,8 +2,8 @@ import { createURL, createNewPost, publishPost } from '@wordpress/e2e-test-utils
 import { setCustomize } from '../../../../../../utils/customize';
 import { setBrowserViewport } from '../../../../../../utils/set-browser-viewport';
 describe( 'Off canvas flyout header type settings in the customizer', () => {
-	it( 'flyout header background gradient for tablet should apply correctly', async () => {
-		const offCanvas = {
+	it( 'full screen header background gradient for responsive mode should apply correctly', async () => {
+		const offCanvasHeaderBgGradient = {
 			'mobile-header-type': 'full-width',
 			'off-canvas-background': {
 				'background-color': 'linear-gradient(135deg, rgb(6, 147, 227) 31%, rgb(155, 81, 224) 64%)',
@@ -14,7 +14,7 @@ describe( 'Off canvas flyout header type settings in the customizer', () => {
 				'background-type': 'gradient',
 			},
 		};
-		await setCustomize( offCanvas );
+		await setCustomize( offCanvasHeaderBgGradient );
 		await createNewPost( { postType: 'page', title: 'test-1' } );
 		await publishPost();
 		await page.goto( createURL( '/' ), {
@@ -26,7 +26,7 @@ describe( 'Off canvas flyout header type settings in the customizer', () => {
 		await expect( {
 			selector: '.ast-mobile-popup-drawer.active .ast-mobile-popup-inner',
 			property: 'background-image',
-		} ).cssValueToBe( `${ offCanvas[ 'off-canvas-background' ][ 'background-color' ] }` );
+		} ).cssValueToBe( `${ offCanvasHeaderBgGradient[ 'off-canvas-background' ][ 'background-color' ] }` );
 
 		await setBrowserViewport( 'small' );
 		await page.click( '.main-header-menu-toggle' );
@@ -34,6 +34,6 @@ describe( 'Off canvas flyout header type settings in the customizer', () => {
 		await expect( {
 			selector: '.ast-mobile-popup-drawer.active .ast-mobile-popup-inner',
 			property: 'background-image',
-		} ).cssValueToBe( `${ offCanvas[ 'off-canvas-background' ][ 'background-color' ] }` );
+		} ).cssValueToBe( `${ offCanvasHeaderBgGradient[ 'off-canvas-background' ][ 'background-color' ] }` );
 	} );
 } );
