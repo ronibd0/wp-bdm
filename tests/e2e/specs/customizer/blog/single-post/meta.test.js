@@ -1,8 +1,9 @@
-import { createURL, createNewPost, publishPost } from '@wordpress/e2e-test-utils';
+import { createURL, createNewPost } from '@wordpress/e2e-test-utils';
 import { setCustomize } from '../../../../utils/customize';
-describe( 'single post in the customizer', () => {
+import { publishPost } from '../../../../utils/publish-post';
+describe( 'Single post in the customizer', () => {
 	it( 'structure should apply corectly', async () => {
-		const SinglepostMeta = {
+		const singlePostMeta = {
 			'blog-single-meta': {
 				0: 'comments',
 				1: 'category',
@@ -11,12 +12,12 @@ describe( 'single post in the customizer', () => {
 				4: 'tag',
 			},
 		};
-		await setCustomize( SinglepostMeta );
-		await createNewPost( { postType: 'post', title: 'hello world' } );
-		await page.click( '#editor > div.edit-post-layout.is-mode-visual.is-sidebar-opened.interface-interface-skeleton.has-footer > div.interface-interface-skeleton__editor > div.interface-interface-skeleton__body > div.interface-interface-skeleton__sidebar > div > div.components-panel > div:nth-child(4) > h2 > button' );
-		await page.click( '#editor > div.edit-post-layout.is-mode-visual.is-sidebar-opened.interface-interface-skeleton.has-footer > div.interface-interface-skeleton__editor > div.interface-interface-skeleton__body > div.interface-interface-skeleton__sidebar > div > div.components-panel > div:nth-child(4) > div > div' );
-		await page.type( '.components-form-token-field__input-container', 'Articles' );
-		await publishPost();
+		await setCustomize( singlePostMeta );
+		let ppStatus = false;
+		while ( false === ppStatus ) {
+			await createNewPost( { postType: 'post', title: 'hello world' } );
+			ppStatus = await publishPost();
+		}
 		await page.goto( createURL( '/hello-world' ), {
 			waitUntil: 'networkidle0',
 		} );
