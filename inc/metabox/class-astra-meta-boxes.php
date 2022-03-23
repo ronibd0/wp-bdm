@@ -265,7 +265,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 				<div class="disable-section-meta">
 					<?php do_action( 'astra_meta_box_markup_disable_sections_before', $meta ); ?>
 
-					<?php if ( $show_meta_field && Astra_Builder_Helper::is_row_empty( 'above', 'header', 'desktop' ) ) : ?>
+					<?php if ( $show_meta_field && Astra_Builder_Helper::is_row_empty( 'above', 'header', 'desktop' ) && false == Astra_Builder_Helper::$is_header_footer_builder_active ) : ?>
 					<div class="ast-hfb-above-header-display-option-wrap">
 						<input type="checkbox" id="ast-hfb-above-header-display" name="ast-hfb-above-header-display" value="disabled" <?php checked( $above_header, 'disabled' ); ?> />
 						<label for="ast-hfb-above-header-display"><?php esc_html_e( 'Disable Above Header', 'astra' ); ?></label> <br />
@@ -281,7 +281,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 					</div>
 					<?php endif; ?>
 
-					<?php if ( $show_meta_field && Astra_Builder_Helper::is_row_empty( 'below', 'header', 'desktop' ) ) : ?>
+					<?php if ( $show_meta_field && Astra_Builder_Helper::is_row_empty( 'below', 'header', 'desktop' ) && false == Astra_Builder_Helper::$is_header_footer_builder_active ) : ?>
 					<div class="ast-hfb-below-header-display-option-wrap">
 						<input type="checkbox" id="ast-hfb-below-header-display" name="ast-hfb-below-header-display" value="disabled" <?php checked( $below_header, 'disabled' ); ?> />
 						<label for="ast-hfb-below-header-display"><?php esc_html_e( 'Disable Below Header', 'astra' ); ?></label> <br />
