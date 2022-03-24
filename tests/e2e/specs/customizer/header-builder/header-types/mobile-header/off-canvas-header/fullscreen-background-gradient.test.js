@@ -1,7 +1,7 @@
 import { createURL, createNewPost, publishPost } from '@wordpress/e2e-test-utils';
 import { setCustomize } from '../../../../../../utils/customize';
 import { setBrowserViewport } from '../../../../../../utils/set-browser-viewport';
-describe( 'Off canvas flyout header type settings in the customizer', () => {
+describe( 'Off canvas full screen header type settings in the customizer', () => {
 	it( 'full screen header background gradient for responsive mode should apply correctly', async () => {
 		const offCanvasHeaderBgGradient = {
 			'mobile-header-type': 'full-width',
