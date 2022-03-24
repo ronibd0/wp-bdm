@@ -2,7 +2,7 @@ import { createURL } from '@wordpress/e2e-test-utils';
 import { setCustomize } from '../../../../../utils/customize';
 import { setBrowserViewport } from '../../../../../utils/set-browser-viewport';
 describe( 'Header builder button setting in customizer', () => {
-	it( 'padding should apply correctly', async () => {
+	it( 'button padding should apply correctly', async () => {
 		const buttonPadding = {
 			'section-hb-button-1-padding': {
 				desktop: {
