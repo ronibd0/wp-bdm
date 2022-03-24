@@ -60,7 +60,7 @@ describe( 'Testing site background image and content background image setting un
 	} );
 
 	it( 'content background image should apply correctly', async () => {
-		const contentImage = {
+		const contentBgImage = {
 			'content-bg-obj-responsive': {
 				desktop: {
 					'background-image': 'https://pd.w.org/2022/03/532622cf651b6f630.19503963-200x300.jpg',
@@ -88,7 +88,7 @@ describe( 'Testing site background image and content background image setting un
 				},
 			},
 		};
-		await setCustomize( contentImage );
+		await setCustomize( contentBgImage );
 		await createNewPost( {
 			postType: 'post',
 			title: 'test',
@@ -103,21 +103,21 @@ describe( 'Testing site background image and content background image setting un
 			selector: '.ast-separate-container .ast-article-post',
 			property: 'background-image',
 		} ).cssValueToBe(
-			`url("${ contentImage[ 'content-bg-obj-responsive' ].desktop[ 'background-image' ] + '")' }`,
+			`url("${ contentBgImage[ 'content-bg-obj-responsive' ].desktop[ 'background-image' ] + '")' }`,
 		);
 		await setBrowserViewport( 'medium' );
 		await expect( {
 			selector: '.ast-separate-container .ast-article-post',
 			property: 'background-image',
 		} ).cssValueToBe(
-			`url("${ contentImage[ 'content-bg-obj-responsive' ].tablet[ 'background-image' ] + '")' }`,
+			`url("${ contentBgImage[ 'content-bg-obj-responsive' ].tablet[ 'background-image' ] + '")' }`,
 		);
 		await setBrowserViewport( 'small' );
 		await expect( {
 			selector: '.ast-separate-container .ast-article-post',
 			property: 'background-image',
 		} ).cssValueToBe(
-			`url("${ contentImage[ 'content-bg-obj-responsive' ].mobile[ 'background-image' ] + '")' }`,
+			`url("${ contentBgImage[ 'content-bg-obj-responsive' ].mobile[ 'background-image' ] + '")' }`,
 		);
 	} );
 } );
