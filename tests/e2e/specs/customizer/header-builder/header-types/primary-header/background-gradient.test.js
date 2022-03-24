@@ -14,7 +14,7 @@ describe( 'primary header background gradient setting in customizer', () => {
 					'background-type': 'gradient',
 				},
 				tablet: {
-					'background-color': 'linear-gradient(135deg, rgb(6, 147, 227) 31%, rgb(155, 81, 224) 64%)',
+					'background-color': 'linear-gradient(135deg, rgb(201, 188, 234) 0%, rgb(245, 103, 136) 96%)',
 					'background-repeat': 'no-repeat',
 					'background-position': 'left top',
 					'background-size': 'contain',
@@ -22,7 +22,7 @@ describe( 'primary header background gradient setting in customizer', () => {
 					'background-type': 'gradient',
 				},
 				mobile: {
-					'background-color': 'linear-gradient(135deg, rgb(6, 147, 227) 31%, rgb(155, 81, 224) 64%)',
+					'background-color': 'linear-gradient(135deg, rgb(61, 151, 235) 0%, rgb(19, 83, 92) 96%)',
 					'background-repeat': 'no-repeat',
 					'background-position': 'left top',
 					'background-size': 'contain',
