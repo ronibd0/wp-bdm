@@ -1,6 +1,6 @@
 import { createURL } from '@wordpress/e2e-test-utils';
-import { setCustomize } from '../../../../utils/customize';
-import { setBrowserViewport } from '../../../../utils/set-browser-viewport';
+import { setCustomize } from '../../../../../utils/customize';
+import { setBrowserViewport } from '../../../../../utils/set-browser-viewport';
 describe( 'HTML 1 widget margin in the above header section under the customizer', () => {
 	it( 'html1 widget margin for desktop should apply correctly', async () => {
 		const htmlMargin = {
