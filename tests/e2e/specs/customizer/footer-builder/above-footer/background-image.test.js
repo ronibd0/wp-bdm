@@ -4,10 +4,10 @@ import { setBrowserViewport } from '../../../../utils/set-browser-viewport';
 import { scrollToElement } from '../../../../utils/scroll-to-element';
 describe( 'Above footer backgeround image setting in customizer', () => {
 	it( 'background image for desktop should apply correctly', async () => {
-		const aboveFooter = {
+		const aboveFooterBgImage = {
 			'hba-footer-bg-obj-responsive': {
 				desktop: {
-					'background-image': 'https://pxhere.com/en/photo/967811',
+					'background-image': 'https://pd.w.org/2022/03/3146230b053848c21.81950886-300x200.jpeg',
 					'background-repeat': 'no-repeat',
 					'background-position': 'left top',
 					'background-size': 'cover',
@@ -15,7 +15,7 @@ describe( 'Above footer backgeround image setting in customizer', () => {
 					'background-type': 'image',
 				},
 				tablet: {
-					'background-image': 'https://pxhere.com/en/photo/667454',
+					'background-image': 'https://pd.w.org/2022/03/6462309002a5de46.79671062-300x200.jpg',
 					'background-repeat': 'no-repeat',
 					'background-position': 'left top',
 					'background-size': 'cover',
@@ -23,7 +23,7 @@ describe( 'Above footer backgeround image setting in customizer', () => {
 					'background-type': 'image',
 				},
 				mobile: {
-					'background-image': 'https://pxhere.com/en/photo/670741',
+					'background-image': 'https://pd.w.org/2022/03/361622a6f3c4e5ad0.29454670-225x300.jpg',
 					'background-repeat': 'no-repeat',
 					'background-position': 'left top',
 					'background-size': 'cover',
@@ -39,7 +39,7 @@ describe( 'Above footer backgeround image setting in customizer', () => {
 				},
 			},
 		};
-		await setCustomize( aboveFooter );
+		await setCustomize( aboveFooterBgImage );
 		await page.goto( createURL( '/' ), {
 			waitUntil: 'networkidle0',
 		} );
@@ -49,18 +49,18 @@ describe( 'Above footer backgeround image setting in customizer', () => {
 		await expect( {
 			selector: '.site-above-footer-wrap[data-section="section-above-footer-builder"]',
 			property: 'background-image',
-		} ).cssValueToBe( `url("${ aboveFooter[ 'hba-footer-bg-obj-responsive' ].desktop[ 'background-image' ] + '")' }` );
+		} ).cssValueToBe( `url("${ aboveFooterBgImage[ 'hba-footer-bg-obj-responsive' ].desktop[ 'background-image' ] + '")' }` );
 		await setBrowserViewport( 'medium' );
 		await scrollToElement( '#colophon' );
 		await expect( {
 			selector: '.site-above-footer-wrap[data-section="section-above-footer-builder"]',
 			property: 'background-image',
-		} ).cssValueToBe( `url("${ aboveFooter[ 'hba-footer-bg-obj-responsive' ].tablet[ 'background-image' ] + '")' }` );
+		} ).cssValueToBe( `url("${ aboveFooterBgImage[ 'hba-footer-bg-obj-responsive' ].tablet[ 'background-image' ] + '")' }` );
 		await setBrowserViewport( 'small' );
 		await scrollToElement( '#colophon' );
 		await expect( {
 			selector: '.site-above-footer-wrap[data-section="section-above-footer-builder"]',
 			property: 'background-image',
-		} ).cssValueToBe( `url("${ aboveFooter[ 'hba-footer-bg-obj-responsive' ].mobile[ 'background-image' ] + '")' }` );
+		} ).cssValueToBe( `url("${ aboveFooterBgImage[ 'hba-footer-bg-obj-responsive' ].mobile[ 'background-image' ] + '")' }` );
 	} );
 } );
