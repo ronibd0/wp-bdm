@@ -1,7 +1,7 @@
 import { createURL } from '@wordpress/e2e-test-utils';
 import { setCustomize } from '../../../../utils/customize';
 import { setBrowserViewport } from '../../../../utils/set-browser-viewport';
-describe( 'below header background gradient setting in customizer', () => {
+describe( 'Below header background gradient setting in customizer', () => {
 	it( 'background gradient should apply correctly', async () => {
 		const belowHeaderBgGradient = {
 			'header-desktop-items': {
