@@ -1,17 +1,20 @@
-import { createURL, createNewPost, publishPost } from '@wordpress/e2e-test-utils';
+import { createURL, createNewPost } from '@wordpress/e2e-test-utils';
+import { publishPost } from '../../../../../../utils/publish-post';
 import { setCustomize } from '../../../../../../utils/customize';
 import { setBrowserViewport } from '../../../../../../utils/set-browser-viewport';
-describe( 'off canvas menu design settings in the customizer', () => {
+describe( 'Off canvas menu settings in the customizer', () => {
 	it( 'off canvas hide on tablet and mobile should apply corectly for after header', async () => {
-		const Offcanvas = {
+		const offCanvasMenu = {
 			'section-header-mobile-menu-hide-tablet': 1,
 			'section-header-mobile-menu-hide-mobile': 1,
 		};
-		await setCustomize( Offcanvas );
-		await createNewPost( { postType: 'page', title: 'test-1' } );
-		await publishPost();
-		await createNewPost( { postType: 'page', title: 'test-2' } );
-		await publishPost();
+		await setCustomize( offCanvasMenu );
+		let ppStatus = false;
+		while ( false === ppStatus ) {
+			await createNewPost( { postType: 'post', title: 'test-1' } );
+			await createNewPost( { postType: 'page', title: 'test-2' } );
+			ppStatus = await publishPost();
+		}
 		await page.goto( createURL( '/' ), {
 			waitUntil: 'networkidle0',
 		} );
