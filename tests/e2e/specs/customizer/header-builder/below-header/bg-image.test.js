@@ -1,7 +1,7 @@
 import { createURL } from '@wordpress/e2e-test-utils';
 import { setCustomize } from '../../../../utils/customize';
 import { setBrowserViewport } from '../../../../utils/set-browser-viewport';
-describe( 'below header background image setting in customizer', () => {
+describe( 'Below header background image setting in customizer', () => {
 	it( 'background image should apply correctly', async () => {
 		const belowHeaderBgImage = {
 			'header-desktop-items': {
@@ -20,7 +20,7 @@ describe( 'below header background image setting in customizer', () => {
 			},
 			'hbb-header-bg-obj-responsive': {
 				desktop: {
-					'background-image': 'https://cdn.dribbble.com/users/34759/screenshots/13971601/media/30298693302288b91b5d3dc292a8cadb.png?compress=1&resize=400x300',
+					'background-image': 'https://pd.w.org/2022/03/9596222e354290608.12861121-300x225.jpg',
 
 					'background-repeat': 'no-repeat',
 					'background-position': 'left top',
@@ -29,7 +29,7 @@ describe( 'below header background image setting in customizer', () => {
 					'background-type': 'image',
 				},
 				tablet: {
-					'background-image': 'https://media.istockphoto.com/photos/modern-computerlaptop-with-blank-screen-on-counter-barand-window-view-picture-id1157789866?b=1&k=20&m=1157789866&s=170667a&w=0&h=XDdkkxtHlghnmrdl8NGE_GlRcPlOFLJkAlZa8N4E5Jg=',
+					'background-image': 'https://pd.w.org/2022/03/767621e1bf3b36b53.20274594-300x300.jpeg',
 
 					'background-repeat': 'no-repeat',
 					'background-position': 'left top',
@@ -38,7 +38,7 @@ describe( 'below header background image setting in customizer', () => {
 					'background-type': 'image',
 				},
 				mobile: {
-					'background-image': 'https://cdn.wallpapersafari.com/55/76/iYLa7g.jpg',
+					'background-image': 'https://pd.w.org/2022/03/850621d87c7c75fb1.47714339-225x300.jpeg',
 
 					'background-repeat': 'no-repeat',
 					'background-position': 'right top',
