@@ -2,7 +2,7 @@ import { createURL } from '@wordpress/e2e-test-utils';
 import { setCustomize } from '../../../../utils/customize';
 import { setBrowserViewport } from '../../../../utils/set-browser-viewport';
 import { scrollToElement } from '../../../../utils/scroll-to-element';
-describe( 'below footer border size setting in customizer', () => {
+describe( 'Below footer border size setting in customizer', () => {
 	it( 'top border size and color should apply correctly', async () => {
 		const borderSizeColor = {
 			'hbb-footer-separator': '60',
