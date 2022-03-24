@@ -7,7 +7,7 @@ describe( 'Below footer backgeround image setting in customizer', () => {
 		const belowFooter = {
 			'hbb-footer-bg-obj-responsive': {
 				desktop: {
-					'background-image': 'https://pxhere.com/en/photo/508049',
+					'background-image': 'https://pd.w.org/2022/03/4276227843c5411a8.42886635-300x225.jpg',
 
 					'background-repeat': 'no-repeat',
 					'background-position': 'left top',
@@ -16,7 +16,7 @@ describe( 'Below footer backgeround image setting in customizer', () => {
 					'background-type': 'image',
 				},
 				tablet: {
-					'background-image': 'https://pxhere.com/en/photo/1202475',
+					'background-image': 'https://pd.w.org/2022/03/542622502f45e1481.07648228-225x300.jpg',
 
 					'background-repeat': 'no-repeat',
 					'background-position': 'left top',
@@ -25,7 +25,7 @@ describe( 'Below footer backgeround image setting in customizer', () => {
 					'background-type': 'image',
 				},
 				mobile: {
-					'background-image': 'https://pxhere.com/en/photo/715913',
+					'background-image': 'https://pd.w.org/2022/03/97762248cf4dbc1f4.70553961-300x225.jpg',
 
 					'background-repeat': 'no-repeat',
 					'background-position': 'left top',
