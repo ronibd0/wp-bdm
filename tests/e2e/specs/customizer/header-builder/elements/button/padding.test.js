@@ -47,57 +47,57 @@ describe( 'Header builder button setting in customizer', () => {
 			waitUntil: 'networkidle0',
 		} );
 		await setBrowserViewport( 'large' );
-		await page.waitForSelector( '.ast-header-button-1[data-section*="section-hb-button-"] .ast-builder-button-wrap .ast-custom-button' );
+		await page.waitForSelector( '.ast-builder-button-wrap .ast-custom-button' );
 		await expect( {
-			selector: '.ast-header-button-1[data-section*="section-hb-button-"] .ast-builder-button-wrap .ast-custom-button',
+			selector: '.ast-builder-button-wrap .ast-custom-button',
 			property: 'padding-top',
 		} ).cssValueToBe( `${ buttonPadding[ 'section-hb-button-1-padding' ].desktop.top }${ buttonPadding[ 'section-hb-button-1-padding' ][ 'desktop-unit' ] }` );
 		await expect( {
-			selector: '.ast-header-button-1[data-section*="section-hb-button-"] .ast-builder-button-wrap .ast-custom-button',
+			selector: '.ast-builder-button-wrap .ast-custom-button',
 			property: 'padding-right',
 		} ).cssValueToBe( `${ buttonPadding[ 'section-hb-button-1-padding' ].desktop.right }${ buttonPadding[ 'section-hb-button-1-padding' ][ 'desktop-unit' ] }` );
 		await expect( {
-			selector: '.ast-header-button-1[data-section*="section-hb-button-"] .ast-builder-button-wrap .ast-custom-button',
+			selector: '.ast-builder-button-wrap .ast-custom-button',
 			property: 'padding-bottom',
 		} ).cssValueToBe( `${ buttonPadding[ 'section-hb-button-1-padding' ].desktop.bottom }${ buttonPadding[ 'section-hb-button-1-padding' ][ 'desktop-unit' ] }` );
 		await expect( {
-			selector: '.ast-header-button-1[data-section*="section-hb-button-"] .ast-builder-button-wrap .ast-custom-button',
+			selector: '.ast-builder-button-wrap .ast-custom-button',
 			property: 'padding-left',
 		} ).cssValueToBe( `${ buttonPadding[ 'section-hb-button-1-padding' ].desktop.left }${ buttonPadding[ 'section-hb-button-1-padding' ][ 'desktop-unit' ] }` );
 
 		await setBrowserViewport( 'medium' );
 		await expect( {
-			selector: '.ast-header-button-1[data-section*="section-hb-button-"] .ast-builder-button-wrap .ast-custom-button',
+			selector: '.ast-builder-button-wrap .ast-custom-button',
 			property: 'padding-top',
 		} ).cssValueToBe( `${ buttonPadding[ 'section-hb-button-1-padding' ].tablet.top }${ buttonPadding[ 'section-hb-button-1-padding' ][ 'tablet-unit' ] }` );
 		await expect( {
-			selector: '.ast-header-button-1[data-section*="section-hb-button-"] .ast-builder-button-wrap .ast-custom-button',
+			selector: '.ast-builder-button-wrap .ast-custom-button',
 			property: 'padding-right',
 		} ).cssValueToBe( `${ buttonPadding[ 'section-hb-button-1-padding' ].tablet.right }${ buttonPadding[ 'section-hb-button-1-padding' ][ 'tablet-unit' ] }` );
 		await expect( {
-			selector: '.ast-header-button-1[data-section*="section-hb-button-"] .ast-builder-button-wrap .ast-custom-button',
+			selector: '.ast-builder-button-wrap .ast-custom-button',
 			property: 'padding-bottom',
 		} ).cssValueToBe( `${ buttonPadding[ 'section-hb-button-1-padding' ].tablet.bottom }${ buttonPadding[ 'section-hb-button-1-padding' ][ 'tablet-unit' ] }` );
 		await expect( {
-			selector: '.ast-header-button-1[data-section*="section-hb-button-"] .ast-builder-button-wrap .ast-custom-button',
+			selector: '.ast-builder-button-wrap .ast-custom-button',
 			property: 'padding-left',
 		} ).cssValueToBe( `${ buttonPadding[ 'section-hb-button-1-padding' ].tablet.left }${ buttonPadding[ 'section-hb-button-1-padding' ][ 'tablet-unit' ] }` );
 
 		await setBrowserViewport( 'small' );
 		await expect( {
-			selector: '.ast-header-button-1[data-section*="section-hb-button-"] .ast-builder-button-wrap .ast-custom-button',
+			selector: '.ast-builder-button-wrap .ast-custom-button',
 			property: 'padding-top',
 		} ).cssValueToBe( `${ buttonPadding[ 'section-hb-button-1-padding' ].mobile.top }${ buttonPadding[ 'section-hb-button-1-padding' ][ 'mobile-unit' ] }` );
 		await expect( {
-			selector: '.ast-header-button-1[data-section*="section-hb-button-"] .ast-builder-button-wrap .ast-custom-button',
+			selector: '.ast-builder-button-wrap .ast-custom-button',
 			property: 'padding-right',
 		} ).cssValueToBe( `${ buttonPadding[ 'section-hb-button-1-padding' ].mobile.right }${ buttonPadding[ 'section-hb-button-1-padding' ][ 'mobile-unit' ] }` );
 		await expect( {
-			selector: '.ast-header-button-1[data-section*="section-hb-button-"] .ast-builder-button-wrap .ast-custom-button',
+			selector: '.ast-builder-button-wrap .ast-custom-button',
 			property: 'padding-bottom',
 		} ).cssValueToBe( `${ buttonPadding[ 'section-hb-button-1-padding' ].mobile.bottom }${ buttonPadding[ 'section-hb-button-1-padding' ][ 'mobile-unit' ] }` );
 		await expect( {
-			selector: '.ast-header-button-1[data-section*="section-hb-button-"] .ast-builder-button-wrap .ast-custom-button',
+			selector: '.ast-builder-button-wrap .ast-custom-button',
 			property: 'padding-left',
 		} ).cssValueToBe( `${ buttonPadding[ 'section-hb-button-1-padding' ].mobile.left }${ buttonPadding[ 'section-hb-button-1-padding' ][ 'mobile-unit' ] }` );
 	} );
