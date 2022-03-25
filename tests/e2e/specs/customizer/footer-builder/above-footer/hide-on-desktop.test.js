@@ -3,8 +3,8 @@ import { setCustomize } from '../../../../utils/customize';
 import { setBrowserViewport } from '../../../../utils/set-browser-viewport';
 import { scrollToElement } from '../../../../utils/scroll-to-element';
 describe( 'Above footer hide on desktop setting in customizer', () => {
-	it( 'hide on desktop should apply correctly', async () => {
-		const hideondesktop = {
+	it( 'should be hide on desktop mode', async () => {
+		const hideOnDesktop = {
 			'section-above-footer-builder-hide-desktop': 'grid',
 			'footer-desktop-items': {
 				above: {
@@ -14,7 +14,7 @@ describe( 'Above footer hide on desktop setting in customizer', () => {
 				},
 			},
 		};
-		await setCustomize( hideondesktop );
+		await setCustomize( hideOnDesktop );
 		await page.goto( createURL( '/' ), {
 			waitUntil: 'networkidle0',
 		} );
@@ -24,11 +24,11 @@ describe( 'Above footer hide on desktop setting in customizer', () => {
 		await expect( {
 			selector: '.site-above-footer-wrap[data-section="section-above-footer-builder"] .ast-builder-grid-row',
 			property: 'display',
-		} ).cssValueToBe( `${ hideondesktop[ 'section-above-footer-builder-hide-desktop' ] }` );
+		} ).cssValueToBe( `${ hideOnDesktop[ 'section-above-footer-builder-hide-desktop' ] }` );
 	} );
 
-	it( 'hide on tablet should apply correctly', async () => {
-		const hideontablet = {
+	it( 'should hide on tablet', async () => {
+		const hideOnTablet = {
 			'section-above-footer-builder-hide-tablet': 'grid',
 			'footer-desktop-items': {
 				above: {
@@ -38,7 +38,7 @@ describe( 'Above footer hide on desktop setting in customizer', () => {
 				},
 			},
 		};
-		await setCustomize( hideontablet );
+		await setCustomize( hideOnTablet );
 		await page.goto( createURL( '/' ), {
 			waitUntil: 'networkidle0',
 		} );
@@ -48,11 +48,11 @@ describe( 'Above footer hide on desktop setting in customizer', () => {
 		await expect( {
 			selector: '.site-above-footer-wrap[data-section="section-above-footer-builder"] .ast-builder-grid-row',
 			property: 'display',
-		} ).cssValueToBe( `${ hideontablet[ 'section-above-footer-builder-hide-tablet' ] }` );
+		} ).cssValueToBe( `${ hideOnTablet[ 'section-above-footer-builder-hide-tablet' ] }` );
 	} );
 
-	it( 'hide on mobile should apply correctly', async () => {
-		const hideonmobile = {
+	it( 'should hide on mobile', async () => {
+		const hideOnMobile = {
 			'section-above-footer-builder-hide-mobile': 'grid',
 			'footer-desktop-items': {
 				above: {
@@ -62,7 +62,7 @@ describe( 'Above footer hide on desktop setting in customizer', () => {
 				},
 			},
 		};
-		await setCustomize( hideonmobile );
+		await setCustomize( hideOnMobile );
 		await page.goto( createURL( '/' ), {
 			waitUntil: 'networkidle0',
 		} );
@@ -72,6 +72,6 @@ describe( 'Above footer hide on desktop setting in customizer', () => {
 		await expect( {
 			selector: '.site-above-footer-wrap[data-section="section-above-footer-builder"] .ast-builder-grid-row',
 			property: 'display',
-		} ).cssValueToBe( `${ hideonmobile[ 'section-above-footer-builder-hide-mobile' ] }` );
+		} ).cssValueToBe( `${ hideOnMobile[ 'section-above-footer-builder-hide-mobile' ] }` );
 	} );
 } );
