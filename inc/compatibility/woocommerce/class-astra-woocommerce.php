@@ -1057,7 +1057,9 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			$btn_border_color                 = astra_get_option( 'theme-button-border-group-border-color' );
 			$btn_border_h_color               = astra_get_option( 'theme-button-border-group-border-h-color' );
 
-			$css_output = array(
+			$css_output = '';
+
+			$css_desktop_output = array(
 				'#customer_details h3:not(.elementor-widget-woocommerce-checkout-page h3)' => array(
 					'font-size'     => '1.2rem',
 					'padding'       => '20px 0 14px',
@@ -1195,17 +1197,17 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 					),
 				);
 
-				$css_output = array_merge( $css_output, $compat_css_desktop );
+				$css_desktop_output = array_merge( $css_desktop_output, $compat_css_desktop );
 			}
 
 			if ( Astra_Builder_Helper::apply_flex_based_css() ) {
-				$css_output['.woocommerce[class*="rel-up-columns-"] .site-main div.product .related.products ul.products li.product, .woocommerce-page .site-main ul.products li.product'] = array(
+				$css_desktop_output['.woocommerce[class*="rel-up-columns-"] .site-main div.product .related.products ul.products li.product, .woocommerce-page .site-main ul.products li.product'] = array(
 					'width' => '100%',
 				);
 			}
 
 			if ( false === Astra_Icons::is_svg_icons() ) {
-				$css_output['.woocommerce ul.product-categories > li ul li:before'] = array(
+				$css_desktop_output['.woocommerce ul.product-categories > li ul li:before'] = array(
 					'content'     => '"\e900"',
 					'padding'     => '0 5px 0 5px',
 					'display'     => 'inline-block',
@@ -1215,11 +1217,11 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 					'font-size'   => '0.7rem',
 				);
 			} else {
-				$css_output['.woocommerce ul.product-categories > li ul li'] = array(
+				$css_desktop_output['.woocommerce ul.product-categories > li ul li'] = array(
 					'position' => 'relative',
 				);
 				if ( $is_site_rtl ) {
-					$css_output['.woocommerce ul.product-categories > li ul li:before'] = array(
+					$css_desktop_output['.woocommerce ul.product-categories > li ul li:before'] = array(
 						'content'           => '""',
 						'border-width'      => '1px 0 0 1px',
 						'border-style'      => 'solid',
@@ -1232,11 +1234,11 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 						'-webkit-transform' => 'rotate(45deg)',
 						'transform'         => 'rotate(45deg)',
 					);
-					$css_output['.woocommerce ul.product-categories > li ul li a']      = array(
+					$css_desktop_output['.woocommerce ul.product-categories > li ul li a']      = array(
 						'margin-right' => '15px',
 					);
 				} else {
-					$css_output['.woocommerce ul.product-categories > li ul li:before'] = array(
+					$css_desktop_output['.woocommerce ul.product-categories > li ul li:before'] = array(
 						'content'           => '""',
 						'border-width'      => '1px 1px 0 0',
 						'border-style'      => 'solid',
@@ -1249,14 +1251,41 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 						'-webkit-transform' => 'rotate(45deg)',
 						'transform'         => 'rotate(45deg)',
 					);
-					$css_output['.woocommerce ul.product-categories > li ul li a']      = array(
+					$css_desktop_output['.woocommerce ul.product-categories > li ul li a']      = array(
 						'margin-left' => '15px',
 					);
 				}
 			}
 
+			if ( false === astra_get_option( 'modern-woo-account-view', false ) ) {
+				$css_output .= '
+					body .woocommerce-MyAccount-navigation-link {
+					list-style: none;
+						border: 1px solid rgba(0, 0, 0, 0.1);
+						border-bottom-width: 0;
+					}
+					body .woocommerce-MyAccount-navigation-link:last-child {
+						border-bottom-width: 1px;
+					}
+					body .woocommerce-MyAccount-navigation-link.is-active a {
+						background-color: #fbfbfb;
+					}
+					body .woocommerce-MyAccount-navigation-link a {
+						display: block;
+						padding: .5em 1em;
+					}
+					body .woocommerce form.login, body .woocommerce form.checkout_coupon, body .woocommerce form.register {
+						border: 1px solid #d3ced2;
+						padding: 20px;
+						margin: 2em 0;
+						text-align: left;
+						border-radius: 5px;
+					}
+				';
+			}
+
 			/* Parse WooCommerce General CSS from array() */
-			$css_output = astra_parse_css( $css_output );
+			$css_output .= astra_parse_css( $css_desktop_output );
 
 			if ( ! Astra_Builder_Helper::apply_flex_based_css() ) {
 				$tablet_css_shop_page_grid = array(
