@@ -1,27 +1,26 @@
-import { createURL, createNewPost, publishPost } from '@wordpress/e2e-test-utils';
+import { createURL, createNewPost } from '@wordpress/e2e-test-utils';
+import { publishPost } from '../../../../utils/publish-post';
 import { setCustomize } from '../../../../utils/customize';
 import { responsiveFontSize } from '../../../../utils/responsive-utils';
 import { setBrowserViewport } from '../../../../utils/set-browser-viewport';
 describe( 'Blog Archive option under the customizer', () => {
 	it( 'blog Archive title font size options should apply correctly', async () => {
-		const btitlefontsize = {
+		const blogArchiveTitleFontSize = {
 			'font-size-archive-summary-title': {
-				desktop: '22',
-				tablet: '20',
-				mobile: '18',
+				desktop: '60',
+				tablet: '40',
+				mobile: '20',
 				'desktop-unit': 'px',
 				'tablet-unit': 'px',
 				'mobile-unit': 'px',
 			},
 		};
-		await setCustomize( btitlefontsize );
-		await createNewPost( {
-			postType: 'post',
-			title: 'sample-page',
-
-		} );
-		await publishPost();
-
+		await setCustomize( blogArchiveTitleFontSize );
+		let ppStatus = false;
+		while ( false === ppStatus ) {
+			await createNewPost( { postType: 'post', title: 'Blog-post' } );
+			ppStatus = await publishPost();
+		}
 		await page.goto( createURL( '/author/admin' ), {
 			waitUntil: 'networkidle0',
 		} );
@@ -29,7 +28,7 @@ describe( 'Blog Archive option under the customizer', () => {
 		await expect( {
 			selector: '.ast-archive-description .ast-archive-title ',
 			property: 'font-size',
-		} ).cssValueToBe( `${ ( btitlefontsize[ 'font-size-archive-summary-title' ].desktop ) }${ btitlefontsize[ 'font-size-archive-summary-title' ][ 'desktop-unit' ] }` );
+		} ).cssValueToBe( `${ ( blogArchiveTitleFontSize[ 'font-size-archive-summary-title' ].desktop ) }${ blogArchiveTitleFontSize[ 'font-size-archive-summary-title' ][ 'desktop-unit' ] }` );
 
 		await setBrowserViewport( 'medium' );
 		await expect( {
@@ -37,8 +36,8 @@ describe( 'Blog Archive option under the customizer', () => {
 			property: 'font-size',
 		} ).cssValueToBe(
 			`${ await responsiveFontSize(
-				btitlefontsize[ 'font-size-archive-summary-title' ].tablet,
-			) }${ btitlefontsize[ 'font-size-archive-summary-title' ][ 'tablet-unit' ] }`,
+				blogArchiveTitleFontSize[ 'font-size-archive-summary-title' ].tablet,
+			) }${ blogArchiveTitleFontSize[ 'font-size-archive-summary-title' ][ 'tablet-unit' ] }`,
 		);
 
 		await setBrowserViewport( 'small' );
@@ -47,8 +46,8 @@ describe( 'Blog Archive option under the customizer', () => {
 			property: 'font-size',
 		} ).cssValueToBe(
 			`${ await responsiveFontSize(
-				btitlefontsize[ 'font-size-archive-summary-title' ].mobile,
-			) }${ btitlefontsize[ 'font-size-archive-summary-title' ][ 'mobile-unit' ] }`,
+				blogArchiveTitleFontSize[ 'font-size-archive-summary-title' ].mobile,
+			) }${ blogArchiveTitleFontSize[ 'font-size-archive-summary-title' ][ 'mobile-unit' ] }`,
 		);
 	} );
 } );
