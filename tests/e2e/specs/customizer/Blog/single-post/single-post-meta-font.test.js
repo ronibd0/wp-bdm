@@ -1,4 +1,5 @@
-import { createURL, createNewPost, publishPost } from '@wordpress/e2e-test-utils';
+import { createURL, createNewPost } from '@wordpress/e2e-test-utils';
+import { publishPost } from '../../../../utils/publish-post';
 import { setCustomize } from '../../../../utils/customize';
 import { responsiveFontSize } from '../../../../utils/responsive-utils';
 import { setBrowserViewport } from '../../../../utils/set-browser-viewport';
@@ -6,12 +7,12 @@ describe( 'Meta font option under the customizer', () => {
 	it( 'meta font option should apply correctly', async () => {
 		const metaFont = {
 			'enable-related-posts': 1,
-			'related-posts-meta-font-family': 'Abel',
+			'related-posts-meta-font-family': "'Sofadi One', display",
 			'related-posts-meta-text-transform': 'uppercase',
 			'related-posts-meta-font-weight': '400',
 			'related-posts-meta-font-size': {
-				desktop: 50,
-				tablet: 20,
+				desktop: 60,
+				tablet: 40,
 				mobile: 20,
 				'desktop-unit': 'px',
 				'tablet-unit': 'px',
@@ -19,12 +20,14 @@ describe( 'Meta font option under the customizer', () => {
 			},
 		};
 		await setCustomize( metaFont );
-		await createNewPost( { postType: 'post', title: 'sample-post' } );
-		await publishPost();
-		await createNewPost( { postType: 'post', title: 'test-post' } );
-		await publishPost();
-
-		await page.goto( createURL( 'test-post' ), {
+		let ppStatus = false;
+		while ( false === ppStatus ) {
+			await createNewPost( { postType: 'post', title: 'sample-post' } );
+			ppStatus = await publishPost();
+			await createNewPost( { postType: 'post', title: 'test-post' } );
+			ppStatus = await publishPost();
+		}
+		await page.goto( createURL( '/test-post' ), {
 			waitUntil: 'networkidle0',
 		} );
 		await page.waitForSelector( '.ast-related-post-content .entry-meta *' );
