@@ -18,6 +18,7 @@ describe( 'Meta font option under the customizer', () => {
 				'tablet-unit': 'px',
 				'mobile-unit': 'px',
 			},
+			'related-posts-meta-line-height': 0.99,
 		};
 		await setCustomize( metaFont );
 		let ppStatus = false;
