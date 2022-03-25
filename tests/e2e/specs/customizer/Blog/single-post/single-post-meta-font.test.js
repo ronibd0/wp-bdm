@@ -69,6 +69,7 @@ describe( 'Meta font option under the customizer', () => {
 				metaFont[ 'related-posts-meta-font-size' ].mobile,
 			) }${
 				metaFont[ 'related-posts-meta-font-size' ][ 'mobile-unit' ]
-			}` );
+			}`,
+		);
 	} );
 } );
