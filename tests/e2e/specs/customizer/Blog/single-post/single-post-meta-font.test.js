@@ -18,6 +18,7 @@ describe( 'Meta font option under the customizer', () => {
 				'tablet-unit': 'px',
 				'mobile-unit': 'px',
 			},
+			'related-posts-meta-line-height': 0.99,
 		};
 		await setCustomize( metaFont );
 		let ppStatus = false;
@@ -70,5 +71,10 @@ describe( 'Meta font option under the customizer', () => {
 			) }${
 				metaFont[ 'related-posts-meta-font-size' ][ 'mobile-unit' ]
 			}` );
+		
+		await expect( {
+			selector: '.ast-related-post-content .entry-meta *',
+			property: 'line-height',
+		} ).cssValueToBe( `${ metaFont[ 'related-posts-meta-line-height' ] }` );
 	} );
 } );
