@@ -3,8 +3,8 @@ import { setCustomize } from '../../../../utils/customize';
 import { setBrowserViewport } from '../../../../utils/set-browser-viewport';
 import { scrollToElement } from '../../../../utils/scroll-to-element';
 describe( 'Primary footer hide on desktop setting in customizer', () => {
-	it( 'hide on desktop should apply correctly', async () => {
-		const hideondesktop = {
+	it( 'should be hide on desktop', async () => {
+		const hideOnDesktop = {
 			'section-primary-footer-builder-hide-desktop': 'grid',
 			'footer-desktop-items': {
 				primary: {
@@ -14,7 +14,7 @@ describe( 'Primary footer hide on desktop setting in customizer', () => {
 				},
 			},
 		};
-		await setCustomize( hideondesktop );
+		await setCustomize( hideOnDesktop );
 		await page.goto( createURL( '/' ), {
 			waitUntil: 'networkidle0',
 		} );
@@ -24,11 +24,11 @@ describe( 'Primary footer hide on desktop setting in customizer', () => {
 		await expect( {
 			selector: '.site-primary-footer-wrap[data-section="section-primary-footer-builder"] .ast-builder-grid-row',
 			property: 'display',
-		} ).cssValueToBe( `${ hideondesktop[ 'section-primary-footer-builder-hide-desktop' ] }` );
+		} ).cssValueToBe( `${ hideOnDesktop[ 'section-primary-footer-builder-hide-desktop' ] }` );
 	} );
 
-	it( 'hide on tablet should apply correctly', async () => {
-		const hideontablet = {
+	it( 'should be hide on tablet', async () => {
+		const hideOnTablet = {
 			'section-primary-footer-builder-hide-tablet': 'grid',
 			'footer-desktop-items': {
 				primary: {
@@ -38,7 +38,7 @@ describe( 'Primary footer hide on desktop setting in customizer', () => {
 				},
 			},
 		};
-		await setCustomize( hideontablet );
+		await setCustomize( hideOnTablet );
 		await page.goto( createURL( '/' ), {
 			waitUntil: 'networkidle0',
 		} );
@@ -48,11 +48,11 @@ describe( 'Primary footer hide on desktop setting in customizer', () => {
 		await expect( {
 			selector: '.site-primary-footer-wrap[data-section="section-primary-footer-builder"] .ast-builder-grid-row',
 			property: 'display',
-		} ).cssValueToBe( `${ hideontablet[ 'section-primary-footer-builder-hide-tablet' ] }` );
+		} ).cssValueToBe( `${ hideOnTablet[ 'section-primary-footer-builder-hide-tablet' ] }` );
 	} );
 
-	it( 'hide on mobile should apply correctly', async () => {
-		const hideonmobile = {
+	it( 'should be hide on mobile', async () => {
+		const hideOnMobile = {
 			'section-primary-footer-builder-hide-mobile': 'grid',
 			'footer-desktop-items': {
 				primary: {
@@ -62,7 +62,7 @@ describe( 'Primary footer hide on desktop setting in customizer', () => {
 				},
 			},
 		};
-		await setCustomize( hideonmobile );
+		await setCustomize( hideOnMobile );
 		await page.goto( createURL( '/' ), {
 			waitUntil: 'networkidle0',
 		} );
@@ -72,6 +72,6 @@ describe( 'Primary footer hide on desktop setting in customizer', () => {
 		await expect( {
 			selector: ' .site-primary-footer-wrap[data-section="section-primary-footer-builder"] .ast-builder-grid-row ',
 			property: 'display',
-		} ).cssValueToBe( `${ hideonmobile[ 'section-primary-footer-builder-hide-mobile' ] }` );
+		} ).cssValueToBe( `${ hideOnMobile[ 'section-primary-footer-builder-hide-mobile' ] }` );
 	} );
 } );
