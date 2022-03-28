@@ -4,7 +4,6 @@ import { setCustomize } from '../../../../utils/customize';
 describe( 'Add sub menu for primary menu and add border to the sub menu', () => {
 	it( 'sub menu should be added successfully', async () => {
 		await createNewMenu();
-		//center alignment for desktop, tablet and mobile
 		const headerMenuAlignment = {
 			'header-desktop-items': {
 				primary: {
@@ -22,7 +21,7 @@ describe( 'Add sub menu for primary menu and add border to the sub menu', () => 
 		await expect( true ).toBe( true );
 	} );
 	it( 'border color to the submenu should be added correctly', async () => {
-		const submenuBorder = {
+		const submenuBorderColor = {
 			'header-menu1-submenu-b-color': 'rgb(242, 33, 217)',
 			'header-menu1-submenu-border': {
 				top: 10,
@@ -31,7 +30,7 @@ describe( 'Add sub menu for primary menu and add border to the sub menu', () => 
 				right: 10,
 			},
 		};
-		await setCustomize( submenuBorder );
+		await setCustomize( submenuBorderColor );
 		await page.goto( createURL( '/' ), {
 			waitUntil: 'networkidle0',
 		} );
@@ -40,7 +39,7 @@ describe( 'Add sub menu for primary menu and add border to the sub menu', () => 
 			selector: '.sub-menu',
 			property: 'border-color',
 		} ).cssValueToBe(
-			`${ submenuBorder[ 'header-menu1-submenu-b-color' ] }`,
+			`${ submenuBorderColor[ 'header-menu1-submenu-b-color' ] }`,
 		);
 	} );
 } );
