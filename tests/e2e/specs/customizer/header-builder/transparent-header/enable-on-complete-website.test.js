@@ -1,6 +1,6 @@
 import { createURL,	createNewPost, publishPost } from '@wordpress/e2e-test-utils';
 import { setCustomize } from '../../../../utils/customize';
-describe( 'transparent header in the customizer', () => {
+describe( 'Transparent header in the customizer', () => {
 	it( 'enable on archive, 404 and search page should apply corectly', async () => {
 		const disableOnArchive = {
 			'transparent-header-enable': 1,
