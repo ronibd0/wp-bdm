@@ -3,7 +3,7 @@ import { setCustomize } from '../../../../../../utils/customize';
 import { setBrowserViewport } from '../../../../../../utils/set-browser-viewport';
 import { publishPost } from '../../../../../../utils/publish-post';
 describe( 'Off canvas menu item divider settings in the customizer', () => {
-	it( 'off canvas menu item divider size and color should apply corectly for after header', async () => {
+	it( 'item divider size and color should apply corectly for after header', async () => {
 		const offCanvas = {
 			'header-mobile-menu-submenu-item-border': 1,
 			'header-mobile-menu-submenu-item-b-size': '7',
