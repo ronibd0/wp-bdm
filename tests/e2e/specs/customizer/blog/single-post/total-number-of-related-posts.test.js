@@ -1,32 +1,38 @@
-import { createURL, createNewPost, publishPost } from '@wordpress/e2e-test-utils';
+import { createURL, createNewPost } from '@wordpress/e2e-test-utils';
+import { publishPost } from '../../../../utils/publish-post';
 import { setCustomize } from '../../../../utils/customize';
 describe( 'Single post option under the customizer', () => {
 	it( 'total number of related post option should apply correctly', async () => {
-		const Numberofpost = {
+		const NumberOfPost = {
 			'enable-related-posts': true,
 			'related-posts-total-count': 3,
 		};
-		await setCustomize( Numberofpost );
-		await createNewPost( {
-			postType: 'post',
-			title: 'sample-post',
-		} );
-		await publishPost();
+		await setCustomize( NumberOfPost );
+		let ppStatus = false;
+		while ( false === ppStatus ) {
+			await createNewPost( {
+				postType: 'post',
+				title: 'sample-post',
+			} );
+			ppStatus = await publishPost();
+		}
 		await createNewPost( {
 			postType: 'post',
 			title: 'test-post',
 		} );
-		await publishPost();
+		ppStatus = await publishPost();
 		await createNewPost( {
 			postType: 'post',
 			title: 'testing-post',
 		} );
-		await publishPost();
+		ppStatus = await publishPost();
+
 		await createNewPost( {
 			postType: 'post',
 			title: 'qa-post',
 		} );
-		await publishPost();
+		ppStatus = await publishPost();
+
 		await page.goto( createURL( 'sample-post' ), {
 			waitUntil: 'networkidle0',
 		} );
