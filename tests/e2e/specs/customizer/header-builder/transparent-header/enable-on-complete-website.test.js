@@ -2,11 +2,11 @@ import { createURL,	createNewPost, publishPost } from '@wordpress/e2e-test-utils
 import { setCustomize } from '../../../../utils/customize';
 describe( 'transparent header in the customizer', () => {
 	it( 'enable on archive, 404 and search page should apply corectly', async () => {
-		const Disableonarchive = {
+		const disableOnArchive = {
 			'transparent-header-enable': 1,
 			'transparent-header-disable-archive': 0,
 		};
-		await setCustomize( Disableonarchive );
+		await setCustomize( disableOnArchive );
 		await page.goto( createURL( '/author/admin' ), {
 			waitUntil: 'networkidle0',
 		} );
@@ -14,7 +14,7 @@ describe( 'transparent header in the customizer', () => {
 		const disableArchive = await page.$eval( '.ast-theme-transparent-header', ( element ) => element.getAttribute( '.ast-theme-transparent-header #masthead' ) );
 		await expect( disableArchive ).toBeNull( );
 
-		await setCustomize( Disableonarchive );
+		await setCustomize( disableOnArchive );
 		await page.goto( createURL( '/12' ), {
 			waitUntil: 'networkidle0',
 		} );
@@ -22,7 +22,7 @@ describe( 'transparent header in the customizer', () => {
 		const disable404 = await page.$eval( '.ast-theme-transparent-header', ( element ) => element.getAttribute( '.ast-theme-transparent-header #masthead' ) );
 		await expect( disable404 ).toBeNull( );
 
-		await setCustomize( Disableonarchive );
+		await setCustomize( disableOnArchive );
 		await createNewPost( { postType: 'post', title: 'test' } );
 		await publishPost();
 		await page.goto( createURL( '/' ), {
@@ -38,11 +38,11 @@ describe( 'transparent header in the customizer', () => {
 		// await expect( disableSearch ).toBeNull( );
 	} );
 	it( 'enable on blog page should apply corectly', async () => {
-		const Disableonblogpage = {
+		const disableOnBlogPage = {
 			'transparent-header-enable': 1,
 			'transparent-header-disable-index': 0,
 		};
-		await setCustomize( Disableonblogpage );
+		await setCustomize( disableOnBlogPage );
 		await createNewPost( { postType: 'post', title: 'test' } );
 		await publishPost();
 		await page.goto( createURL( '/test' ), {
@@ -53,11 +53,11 @@ describe( 'transparent header in the customizer', () => {
 		await expect( disableblog ).toBeNull( );
 	} );
 	it( 'enable on latest posts page should apply corectly', async () => {
-		const Disableonlatestpostpage = {
+		const disableOnLatestPostPage = {
 			'transparent-header-enable': 1,
 			'transparent-header-disable-latest-posts-index': 0,
 		};
-		await setCustomize( Disableonlatestpostpage );
+		await setCustomize( disableOnLatestPostPage );
 		await createNewPost( { postType: 'post', title: 'sample' } );
 		await publishPost();
 		await createNewPost( { postType: 'post', title: 'test' } );
@@ -70,11 +70,11 @@ describe( 'transparent header in the customizer', () => {
 		await expect( disablelatestPost ).toBeNull( );
 	} );
 	it( 'enable on pages should apply corectly', async () => {
-		const Disableonpages = {
+		const disableOnPages = {
 			'transparent-header-enable': 1,
 			'transparent-header-disable-page': 0,
 		};
-		await setCustomize( Disableonpages );
+		await setCustomize( disableOnPages );
 		await createNewPost( { postType: 'page', title: 'test' } );
 		await publishPost();
 		await page.goto( createURL( '/test' ), {
@@ -85,11 +85,11 @@ describe( 'transparent header in the customizer', () => {
 		await expect( disablePages ).toBeNull( );
 	} );
 	it( 'enable on posts should apply corectly', async () => {
-		const Disableonposts = {
+		const disableOnPosts = {
 			'transparent-header-enable': 1,
 			'transparent-header-disable-posts': 0,
 		};
-		await setCustomize( Disableonposts );
+		await setCustomize( disableOnPosts );
 		await createNewPost( { postType: 'post', title: 'test' } );
 		await publishPost();
 		await page.goto( createURL( '/test' ), {
