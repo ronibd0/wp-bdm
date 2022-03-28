@@ -1,7 +1,7 @@
 import { createURL, createNewPost } from '@wordpress/e2e-test-utils';
 import { setCustomize } from '../../../utils/customize';
 import { publishPost } from '../../../utils/publish-post';
-describe( 'breadcrumb settings in the customizer', () => {
+describe( 'Breadcrumb settings in the customizer', () => {
 	it( 'disable breadcrumb on home page for after header position should apply corectly', async () => {
 		const afterBreadcrumb = {
 			'breadcrumb-position': 'astra_header_after',
