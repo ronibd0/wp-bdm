@@ -1,4 +1,5 @@
-import { createURL,	createNewPost, publishPost } from '@wordpress/e2e-test-utils';
+import { createURL,	createNewPost } from '@wordpress/e2e-test-utils';
+import { publishPost } from '../../../../utils/publish-post';
 import { setCustomize } from '../../../../utils/customize';
 describe( 'Transparent header in the customizer', () => {
 	it( 'enable on archive, 404 and search page should apply corectly', async () => {
@@ -23,8 +24,11 @@ describe( 'Transparent header in the customizer', () => {
 		await expect( disable404 ).toBeNull( );
 
 		await setCustomize( disableOnArchive );
-		await createNewPost( { postType: 'post', title: 'test' } );
-		await publishPost();
+		let ppStatus = false;
+		while ( false === ppStatus ) {
+			await createNewPost( { postType: 'post', title: 'test' } );
+			ppStatus = await publishPost();
+		}
 		await page.goto( createURL( '/' ), {
 			waitUntil: 'networkidle0',
 		} );
@@ -43,8 +47,11 @@ describe( 'Transparent header in the customizer', () => {
 			'transparent-header-disable-index': 0,
 		};
 		await setCustomize( disableOnBlogPage );
-		await createNewPost( { postType: 'post', title: 'test' } );
-		await publishPost();
+		let ppStatus = false;
+		while ( false === ppStatus ) {
+			await createNewPost( { postType: 'post', title: 'test' } );
+			ppStatus = await publishPost();
+		}
 		await page.goto( createURL( '/test' ), {
 			waitUntil: 'networkidle0',
 		} );
@@ -58,10 +65,12 @@ describe( 'Transparent header in the customizer', () => {
 			'transparent-header-disable-latest-posts-index': 0,
 		};
 		await setCustomize( disableOnLatestPostPage );
-		await createNewPost( { postType: 'post', title: 'sample' } );
-		await publishPost();
-		await createNewPost( { postType: 'post', title: 'test' } );
-		await publishPost();
+		let ppStatus = false;
+		while ( false === ppStatus ) {
+			await createNewPost( { postType: 'post', title: 'sample' } );
+			await createNewPost( { postType: 'post', title: 'test' } );
+			ppStatus = await publishPost();
+		}
 		await page.goto( createURL( '/' ), {
 			waitUntil: 'networkidle0',
 		} );
@@ -75,8 +84,11 @@ describe( 'Transparent header in the customizer', () => {
 			'transparent-header-disable-page': 0,
 		};
 		await setCustomize( disableOnPages );
-		await createNewPost( { postType: 'page', title: 'test' } );
-		await publishPost();
+		let ppStatus = false;
+		while ( false === ppStatus ) {
+			await createNewPost( { postType: 'page', title: 'test' } );
+			ppStatus = await publishPost();
+		}
 		await page.goto( createURL( '/test' ), {
 			waitUntil: 'networkidle0',
 		} );
@@ -90,8 +102,11 @@ describe( 'Transparent header in the customizer', () => {
 			'transparent-header-disable-posts': 0,
 		};
 		await setCustomize( disableOnPosts );
-		await createNewPost( { postType: 'post', title: 'test' } );
-		await publishPost();
+		let ppStatus = false;
+		while ( false === ppStatus ) {
+			await createNewPost( { postType: 'post', title: 'test' } );
+			ppStatus = await publishPost();
+		}
 		await page.goto( createURL( '/test' ), {
 			waitUntil: 'networkidle0',
 		} );
