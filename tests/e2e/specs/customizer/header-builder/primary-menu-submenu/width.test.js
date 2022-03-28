@@ -30,7 +30,7 @@ describe( 'Add sub menu for primary menu', () => {
 		} );
 		await page.hover( '.menu-link' );
 		await expect( {
-			selector: '.sub-menu',
+			selector: '.ast-builder-menu-1 .sub-menu',
 			property: 'width',
 		} ).cssValueToBe(
 			`${ submenuWidth[ 'header-menu1-submenu-width' ] + 'px' }`,
