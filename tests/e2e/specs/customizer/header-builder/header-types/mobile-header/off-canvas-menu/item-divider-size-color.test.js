@@ -7,7 +7,7 @@ describe( 'Off canvas menu item divider settings in the customizer', () => {
 		const offCanvas = {
 			'header-mobile-menu-submenu-item-border': 1,
 			'header-mobile-menu-submenu-item-b-size': '7',
-			'header-mobile-menu-submenu-item-b-color': 'rgb(220, 36, 241)',
+			'header-mobile-menu-submenu-item-b-color': 'rgb(10, 123, 10)',
 		};
 		await setCustomize( offCanvas );
 		let ppStatus = false;
@@ -22,31 +22,31 @@ describe( 'Off canvas menu item divider settings in the customizer', () => {
 		} );
 		await setBrowserViewport( 'medium' );
 		await page.click( '.main-header-menu-toggle' );
-		await page.waitForSelector( '.ast-hfb-header .ast-builder-menu-mobile .main-navigation .main-header-menu, .ast-hfb-header .ast-builder-menu-mobile .main-navigation .main-header-menu, .ast-hfb-header .ast-mobile-header-content .ast-builder-menu-mobile .main-navigation .main-header-menu' );
+		await page.waitForSelector( '.ast-hfb-header .ast-builder-menu-mobile .main-navigation .main-header-menu' );
 		await expect( {
-			selector: '.ast-hfb-header .ast-builder-menu-mobile .main-navigation .main-header-menu, .ast-hfb-header .ast-builder-menu-mobile .main-navigation .main-header-menu, .ast-hfb-header .ast-mobile-header-content .ast-builder-menu-mobile .main-navigation .main-header-menu',
+			selector: '.ast-hfb-header .ast-builder-menu-mobile .main-navigation .main-header-menu',
 			property: 'border-top-width',
 		} ).cssValueToBe( `${ offCanvas[ 'header-mobile-menu-submenu-item-b-size' ] }` + 'px' );
 
 		await setBrowserViewport( 'medium' );
 		await page.click( '.main-header-menu-toggle' );
 		await expect( {
-			selector: '.ast-hfb-header .ast-builder-menu-mobile .main-navigation .main-header-menu, .ast-hfb-header .ast-builder-menu-mobile .main-navigation .main-header-menu, .ast-hfb-header .ast-mobile-header-content .ast-builder-menu-mobile .main-navigation .main-header-menu',
+			selector: '.ast-hfb-header .ast-builder-menu-mobile .main-navigation .main-header-menu',
 			property: 'border-color',
 		} ).cssValueToBe( `${ offCanvas[ 'header-mobile-menu-submenu-item-b-color' ] }` );
 
 		await setBrowserViewport( 'small' );
 		await page.click( '.main-header-menu-toggle' );
-		await page.waitForSelector( '.ast-hfb-header .ast-builder-menu-mobile .main-navigation .main-header-menu, .ast-hfb-header .ast-builder-menu-mobile .main-navigation .main-header-menu, .ast-hfb-header .ast-mobile-header-content .ast-builder-menu-mobile .main-navigation .main-header-menu' );
+		await page.waitForSelector( '.ast-hfb-header .ast-builder-menu-mobile .main-navigation .main-header-menu' );
 		await expect( {
-			selector: '.ast-hfb-header .ast-builder-menu-mobile .main-navigation .main-header-menu, .ast-hfb-header .ast-builder-menu-mobile .main-navigation .main-header-menu, .ast-hfb-header .ast-mobile-header-content .ast-builder-menu-mobile .main-navigation .main-header-menu',
+			selector: '.ast-hfb-header .ast-builder-menu-mobile .main-navigation .main-header-menu',
 			property: 'border-top-width',
 		} ).cssValueToBe( `${ offCanvas[ 'header-mobile-menu-submenu-item-b-size' ] }` + 'px' );
 
 		await setBrowserViewport( 'small' );
 		await page.click( '.main-header-menu-toggle' );
 		await expect( {
-			selector: '.ast-hfb-header .ast-builder-menu-mobile .main-navigation .main-header-menu, .ast-hfb-header .ast-builder-menu-mobile .main-navigation .main-header-menu, .ast-hfb-header .ast-mobile-header-content .ast-builder-menu-mobile .main-navigation .main-header-menu',
+			selector: '.ast-hfb-header .ast-builder-menu-mobile .main-navigation .main-header-menu',
 			property: 'border-color',
 		} ).cssValueToBe( `${ offCanvas[ 'header-mobile-menu-submenu-item-b-color' ] }` );
 	} );
