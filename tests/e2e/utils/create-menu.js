@@ -10,10 +10,6 @@ export const createNewMenu = async () => {
 			title: 'Test Page',
 			content: 'This is simple test page',
 		} );
-<<<<<<< HEAD
-
-=======
->>>>>>> 9b5c233a452854e97666ee88ce33e8e9f31c4f0b
 		ppStatus = await publishPost();
 	}
 	await createNewPost( {
