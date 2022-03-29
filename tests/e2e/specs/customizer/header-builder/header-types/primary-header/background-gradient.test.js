@@ -6,7 +6,7 @@ describe( 'primary header background gradient setting in customizer', () => {
 		const primaryHeader = {
 			'hb-header-bg-obj-responsive': {
 				desktop: {
-					'background-color': 'linear-gradient(135deg, rgb(6, 147, 227) 31%, rgb(155, 81, 224) 64%)',
+					'background-color': 'linear-gradient(135deg, rgb(6, 147, 227) 0%, rgb(194, 194, 194) 48%)',
 					'background-repeat': 'no-repeat',
 					'background-position': 'left top',
 					'background-size': 'contain',
@@ -14,7 +14,7 @@ describe( 'primary header background gradient setting in customizer', () => {
 					'background-type': 'gradient',
 				},
 				tablet: {
-					'background-color': 'linear-gradient(135deg, rgb(201, 188, 234) 0%, rgb(245, 103, 136) 96%)',
+					'background-color': 'linear-gradient(135deg, rgb(6, 147, 227) 0%, rgb(215, 224, 81) 85%)',
 					'background-repeat': 'no-repeat',
 					'background-position': 'left top',
 					'background-size': 'contain',
@@ -22,7 +22,7 @@ describe( 'primary header background gradient setting in customizer', () => {
 					'background-type': 'gradient',
 				},
 				mobile: {
-					'background-color': 'linear-gradient(135deg, rgb(61, 151, 235) 0%, rgb(19, 83, 92) 96%)',
+					'background-color': 'linear-gradient(135deg, rgb(6, 147, 227) 0%, rgb(138, 235, 201) 55%, rgb(155, 81, 224) 100%)',
 					'background-repeat': 'no-repeat',
 					'background-position': 'left top',
 					'background-size': 'contain',
@@ -35,26 +35,23 @@ describe( 'primary header background gradient setting in customizer', () => {
 		await page.goto( createURL( '/' ), {
 			waitUntil: 'networkidle0',
 		} );
-		await page.waitForSelector( '#ast-desktop-header .ast-primary-header-bar' );
+		await page.waitForSelector( '.ast-primary-header-bar' );
 		await expect( {
-			selector: '#ast-desktop-header .ast-primary-header-bar',
+			selector: '.ast-primary-header-bar',
 			property: 'background-image',
-		} ).cssValueToBe(
-			`${ primaryHeader[ 'hb-header-bg-obj-responsive' ].desktop[ 'background-color' ] }`,
-		);
+		} ).cssValueToBe( `${ primaryHeader[ 'hb-header-bg-obj-responsive' ].desktop[ 'background-color' ] }` );
+
 		await setBrowserViewport( 'medium' );
+		await page.waitForSelector( '.ast-primary-header-bar.ast-primary-header' );
 		await expect( {
-			selector: '#ast-desktop-header .ast-primary-header-bar',
+			selector: '.ast-primary-header-bar.ast-primary-header',
 			property: 'background-image',
-		} ).cssValueToBe(
-			`${ primaryHeader[ 'hb-header-bg-obj-responsive' ].tablet[ 'background-color' ] }`,
-		);
+		} ).cssValueToBe( `${ primaryHeader[ 'hb-header-bg-obj-responsive' ].tablet[ 'background-color' ] }` );
+
 		await setBrowserViewport( 'small' );
 		await expect( {
-			selector: '#ast-desktop-header .ast-primary-header-bar',
+			selector: '.ast-primary-header-bar.ast-primary-header',
 			property: 'background-image',
-		} ).cssValueToBe(
-			`${ primaryHeader[ 'hb-header-bg-obj-responsive' ].mobile[ 'background-color' ] }`,
-		);
+		} ).cssValueToBe( `${ primaryHeader[ 'hb-header-bg-obj-responsive' ].mobile[ 'background-color' ] }` );
 	} );
 } );
