@@ -4,7 +4,7 @@ import { setCustomize } from '../../../../utils/customize';
 describe( 'Single post option under the customizer', () => {
 	it( 'total number of related post option should apply correctly', async () => {
 		const numberOfPost = {
-			'enable-related-posts': true,
+			'enable-related-posts': 1,
 			'related-posts-total-count': 3,
 		};
 		await setCustomize( numberOfPost );
