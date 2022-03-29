@@ -1,8 +1,9 @@
-import { createURL, createNewPost, publishPost } from '@wordpress/e2e-test-utils';
+import { createURL, createNewPost } from '@wordpress/e2e-test-utils';
+import { publishPost } from '../../../../utils/publish-post';
 import { setCustomize } from '../../../../utils/customize';
 describe( 'Single post font option under the customizer', () => {
 	it( 'related post meta option should apply correctly', async () => {
-		const relatedpostMeta = {
+		const relatedPostMeta = {
 			'enable-related-posts': true,
 			'related-posts-meta-structure': {
 				0: 'comments',
@@ -11,21 +12,15 @@ describe( 'Single post font option under the customizer', () => {
 				3: 'date',
 			},
 		};
-		await setCustomize( relatedpostMeta );
-		await createNewPost( {
-			postType: 'post',
-			title: 'sample-post',
-
-		} );
-		await publishPost();
-
-		await createNewPost( {
-			postType: 'post',
-			title: 'test-post',
-
-		} );
-		await publishPost();
-		await page.goto( createURL( 'sample-post' ), {
+		await setCustomize( relatedPostMeta );
+		let ppStatus = false;
+		while ( false === ppStatus ) {
+			await createNewPost( { postType: 'post', title: 'test-post' } );
+			ppStatus = await publishPost();
+			await createNewPost( { postType: 'post', title: 'sample-post' } );
+			ppStatus = await publishPost();
+		}
+		await page.goto( createURL( '/sample-post' ), {
 			waitUntil: 'networkidle0',
 		} );
 		await page.evaluate( () => {
