@@ -4,7 +4,7 @@ import { setCustomize } from '../../../../utils/customize';
 describe( 'Single post font option under the customizer', () => {
 	it( 'related post meta option should apply correctly', async () => {
 		const relatedPostMeta = {
-			'enable-related-posts': true,
+			'enable-related-posts': 1,
 			'related-posts-meta-structure': {
 				0: 'comments',
 				1: 'category',
