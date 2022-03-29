@@ -3,62 +3,48 @@ import { setCustomize } from '../../../../utils/customize';
 import { setBrowserViewport } from '../../../../utils/set-browser-viewport';
 describe( 'Social Icons in the customizer', () => {
 	it( 'social icon hide on tablet should apply correctly', async () => {
-		const hideonTablet = {
+		const hideOnTablet = {
 			'section-hb-social-icons-1-hide-tablet': {
-				tablet: 'grid',
+				tablet: 1,
 			},
 			'header-mobile-items': {
 				above: {
 					above_center: {
 						0: 'social-icons-1',
-
 					},
 				},
 			},
 		};
-		await setCustomize( hideonTablet );
-
+		await setCustomize( hideOnTablet );
 		await page.goto( createURL( '/' ), {
 			waitUntil: 'networkidle0',
 		} );
-
 		await setBrowserViewport( 'medium' );
-		await page.waitForSelector( '.ast-header-break-point .ast-above-header-bar' );
-		await expect( {
-			selector: '.ast-header-break-point .ast-above-header-bar',
-			property: 'display',
-		} ).cssValueToBe(
-			`${ hideonTablet[ 'section-hb-social-icons-1-hide-tablet' ].tablet }`,
-		);
+		await page.waitForSelector( '.ast-header-break-point .ast-builder-layout-element[data-section="section-hb-social-icons-1"]' );
+		const tablet = await page.$eval( '.ast-header-break-point .ast-builder-layout-element[data-section="section-hb-social-icons-1"]', ( element ) => element.getAttribute( '.ast-builder-layout-element ast-flex site-header-focus-item' ) );
+		await expect( tablet ).toBeNull( );
 	} );
 
 	it( 'social icon hide on mobile should apply correctly', async () => {
-		const hideonMobile = {
+		const hideOnMobile = {
 			'section-hb-social-icons-1-hide-mobile': {
-				mobile: 'grid',
+				mobile: 1,
 			},
 			'header-mobile-items': {
 				above: {
 					above_center: {
 						0: 'social-icons-1',
-
 					},
 				},
 			},
 		};
-		await setCustomize( hideonMobile );
-
+		await setCustomize( hideOnMobile );
 		await page.goto( createURL( '/' ), {
 			waitUntil: 'networkidle0',
 		} );
-
 		await setBrowserViewport( 'small' );
-		await page.waitForSelector( '.ast-header-break-point .ast-above-header-bar' );
-		await expect( {
-			selector: '.ast-header-break-point .ast-above-header-bar',
-			property: 'display',
-		} ).cssValueToBe(
-			`${ hideonMobile[ 'section-hb-social-icons-1-hide-mobile' ].mobile }`,
-		);
+		await page.waitForSelector( '.ast-header-break-point .ast-builder-layout-element[data-section="section-hb-social-icons-1"]' );
+		const mobile = await page.$eval( '.ast-header-break-point .ast-builder-layout-element[data-section="section-hb-social-icons-1"]', ( element ) => element.getAttribute( '.ast-builder-layout-element ast-flex site-header-focus-item' ) );
+		await expect( mobile ).toBeNull( );
 	} );
 } );
