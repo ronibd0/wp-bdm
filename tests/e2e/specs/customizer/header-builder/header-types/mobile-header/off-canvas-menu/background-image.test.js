@@ -41,13 +41,13 @@ describe( 'Off canvas menu background image setting in customizer', () => {
 		await expect( {
 			selector: '.ast-builder-menu-mobile .main-navigation .main-header-menu',
 			property: 'background-image',
-		} ).cssValueToBe( `${ offCanvasMenuBgImage[ 'header-mobile-menu-bg-obj-responsive' ].tablet[ 'background-image' ] }` );
+		} ).cssValueToBe( 'url("' + `${ offCanvasMenuBgImage[ 'header-mobile-menu-bg-obj-responsive' ].tablet[ 'background-image' ] }` + '")' );
 
 		await setBrowserViewport( 'small' );
 		await page.click( '.main-header-menu-toggle' );
 		await expect( {
 			selector: '.ast-builder-menu-mobile .main-navigation .main-header-menu',
 			property: 'background-image',
-		} ).cssValueToBe( `${ offCanvasMenuBgImage[ 'header-mobile-menu-bg-obj-responsive' ].mobile[ 'background-image' ] }` );
+		} ).cssValueToBe( 'url("' + `${ offCanvasMenuBgImage[ 'header-mobile-menu-bg-obj-responsive' ].mobile[ 'background-image' ] }` + '")' );
 	} );
 } );
