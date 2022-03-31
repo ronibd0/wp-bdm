@@ -38,23 +38,23 @@ describe( 'primary header backgeround image setting in customizer', () => {
 		await page.goto( createURL( '/' ), {
 			waitUntil: 'networkidle0',
 		} );
-		await page.waitForSelector( '#ast-desktop-header .ast-primary-header-bar' );
+		await page.waitForSelector( '.ast-primary-header-bar' );
 		await expect( {
-			selector: '#ast-desktop-header .ast-primary-header-bar',
+			selector: '.ast-primary-header-bar',
 			property: 'background-image',
 		} ).cssValueToBe(
 			`url("${ primaryHeaderBgImage[ 'hb-header-bg-obj-responsive' ].desktop[ 'background-image' ] + '")' }`,
 		);
 		await setBrowserViewport( 'medium' );
 		await expect( {
-			selector: '#ast-desktop-header .ast-primary-header-bar',
+			selector: '.ast-primary-header-bar',
 			property: 'background-image',
 		} ).cssValueToBe(
 			`url("${ primaryHeaderBgImage[ 'hb-header-bg-obj-responsive' ].tablet[ 'background-image' ] + '")' }`,
 		);
 		await setBrowserViewport( 'small' );
 		await expect( {
-			selector: '#ast-desktop-header .ast-primary-header-bar',
+			selector: '.ast-primary-header-bar',
 			property: 'background-image',
 		} ).cssValueToBe(
 			`url("${ primaryHeaderBgImage[ 'hb-header-bg-obj-responsive' ].mobile[ 'background-image' ] + '")' }`,
