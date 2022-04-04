@@ -35,7 +35,7 @@ describe( 'Primary menu settings in the customizer', () => {
 		const primaryMenuImage = {
 			'header-mobile-menu-bg-obj-responsive': {
 				tablet: {
-					'background-image': 'https://pd.w.org/2022/03/4396229dc66495703.29624587-300x200.jpg',
+					'background-image': 'https://pd.w.org/2022/03/96622a0f432e6904.41498035-300x169.jpeg',
 					'background-repeat': 'no-repeat',
 					'background-position': 'left top',
 					'background-size': 'cover',
