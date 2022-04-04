@@ -1,23 +1,20 @@
-import { createURL, createNewPost, publishPost } from '@wordpress/e2e-test-utils';
+import { createURL, createNewPost } from '@wordpress/e2e-test-utils';
+import { publishPost } from '../../../../../utils/publish-post';
 import { setCustomize } from '../../../../../utils/customize';
 import { setBrowserViewport } from '../../../../../utils/set-browser-viewport';
-describe( 'off canvas flyout header type settings in the customizer', () => {
+describe( 'Off canvas flyout header type settings in the customizer', () => {
 	it( 'flyout header alignment right for mobile should apply correctly', async () => {
 		const flyoutAlignment = {
 			'mobile-header-type': 'off-canvas',
 			'header-offcanvas-content-alignment': 'flex-end',
 		};
 		await setCustomize( flyoutAlignment );
-		await createNewPost( {
-			postType: 'page',
-			title: 'sample-page',
-		} );
-		await publishPost();
-		await createNewPost( {
-			postType: 'page',
-			title: 'test-page',
-		} );
-		await publishPost();
+		let ppStatus = false;
+		while ( false === ppStatus ) {
+			await createNewPost( { postType: 'page', title: 'sample-page' } );
+			await createNewPost( { postType: 'page', title: 'test-page' } );
+			ppStatus = await publishPost();
+		}
 		await page.goto( createURL( '/' ), {
 			waitUntil: 'networkidle0',
 		} );
@@ -36,16 +33,12 @@ describe( 'off canvas flyout header type settings in the customizer', () => {
 			'header-offcanvas-content-alignment': 'center',
 		};
 		await setCustomize( flyoutAlignment );
-		await createNewPost( {
-			postType: 'page',
-			title: 'sample-page',
-		} );
-		await publishPost();
-		await createNewPost( {
-			postType: 'page',
-			title: 'test-page',
-		} );
-		await publishPost();
+		let ppStatus = false;
+		while ( false === ppStatus ) {
+			await createNewPost( { postType: 'page', title: 'sample-page' } );
+			await createNewPost( { postType: 'page', title: 'test-page' } );
+			ppStatus = await publishPost();
+		}
 		await page.goto( createURL( '/' ), {
 			waitUntil: 'networkidle0',
 		} );
@@ -64,16 +57,12 @@ describe( 'off canvas flyout header type settings in the customizer', () => {
 			'header-offcanvas-content-alignment': 'flex-start',
 		};
 		await setCustomize( flyoutAlignment );
-		await createNewPost( {
-			postType: 'page',
-			title: 'sample-page',
-		} );
-		await publishPost();
-		await createNewPost( {
-			postType: 'page',
-			title: 'test-page',
-		} );
-		await publishPost();
+		let ppStatus = false;
+		while ( false === ppStatus ) {
+			await createNewPost( { postType: 'page', title: 'sample-page' } );
+			await createNewPost( { postType: 'page', title: 'test-page' } );
+			ppStatus = await publishPost();
+		}
 		await page.goto( createURL( '/' ), {
 			waitUntil: 'networkidle0',
 		} );
@@ -92,16 +81,12 @@ describe( 'off canvas flyout header type settings in the customizer', () => {
 			'header-offcanvas-content-alignment': 'flex-end',
 		};
 		await setCustomize( flyoutAlignment );
-		await createNewPost( {
-			postType: 'page',
-			title: 'sample-page',
-		} );
-		await publishPost();
-		await createNewPost( {
-			postType: 'page',
-			title: 'test-page',
-		} );
-		await publishPost();
+		let ppStatus = false;
+		while ( false === ppStatus ) {
+			await createNewPost( { postType: 'page', title: 'sample-page' } );
+			await createNewPost( { postType: 'page', title: 'test-page' } );
+			ppStatus = await publishPost();
+		}
 		await page.goto( createURL( '/' ), {
 			waitUntil: 'networkidle0',
 		} );
@@ -120,16 +105,12 @@ describe( 'off canvas flyout header type settings in the customizer', () => {
 			'header-offcanvas-content-alignment': 'center',
 		};
 		await setCustomize( flyoutAlignment );
-		await createNewPost( {
-			postType: 'page',
-			title: 'sample-page',
-		} );
-		await publishPost();
-		await createNewPost( {
-			postType: 'page',
-			title: 'test-page',
-		} );
-		await publishPost();
+		let ppStatus = false;
+		while ( false === ppStatus ) {
+			await createNewPost( { postType: 'page', title: 'sample-page' } );
+			await createNewPost( { postType: 'page', title: 'test-page' } );
+			ppStatus = await publishPost();
+		}
 		await page.goto( createURL( '/' ), {
 			waitUntil: 'networkidle0',
 		} );
@@ -148,16 +129,12 @@ describe( 'off canvas flyout header type settings in the customizer', () => {
 			'header-offcanvas-content-alignment': 'flex-start',
 		};
 		await setCustomize( flyoutAlignment );
-		await createNewPost( {
-			postType: 'page',
-			title: 'sample-page',
-		} );
-		await publishPost();
-		await createNewPost( {
-			postType: 'page',
-			title: 'test-page',
-		} );
-		await publishPost();
+		let ppStatus = false;
+		while ( false === ppStatus ) {
+			await createNewPost( { postType: 'page', title: 'sample-page' } );
+			await createNewPost( { postType: 'page', title: 'test-page' } );
+			ppStatus = await publishPost();
+		}
 		await page.goto( createURL( '/' ), {
 			waitUntil: 'networkidle0',
 		} );
