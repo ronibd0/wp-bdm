@@ -63,17 +63,17 @@ describe( 'Primary menu settings in the customizer', () => {
 		} );
 		await setBrowserViewport( 'medium' );
 		await page.click( '.main-header-menu-toggle' );
-		await page.waitForSelector( '.ast-builder-menu-mobile .main-navigation .main-header-menu' );
+		await page.waitForSelector( '.ast-builder-menu-1 .main-header-menu' );
 		await expect( {
-			selector: '.ast-builder-menu-mobile .main-navigation .main-header-menu',
+			selector: '.ast-builder-menu-1 .main-header-menu',
 			property: 'background-image',
 		} ).cssValueToBe( `url("${ primaryMenuImage[ 'header-mobile-menu-bg-obj-responsive' ].tablet[ 'background-image' ] + '")' }` );
 
 		await setBrowserViewport( 'small' );
 		await page.click( '.main-header-menu-toggle' );
-		await page.waitForSelector( '.ast-builder-menu-mobile .main-navigation .main-header-menu' );
+		await page.waitForSelector( '.ast-builder-menu-1 .main-header-menu' );
 		await expect( {
-			selector: '.ast-builder-menu-mobile .main-navigation .main-header-menu',
+			selector: '.ast-builder-menu-1 .main-header-menu',
 			property: 'background-image',
 		} ).cssValueToBe( `url("${ primaryMenuImage[ 'header-mobile-menu-bg-obj-responsive' ].mobile[ 'background-image' ] + '")' }` );
 	} );
