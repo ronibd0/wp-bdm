@@ -43,7 +43,7 @@ describe( 'Primary menu settings in the customizer', () => {
 					'background-type': 'image',
 				},
 				mobile: {
-					'background-image': 'https://pd.w.org/2022/03/279622a6365c1a804.96566561-300x225.jpg',
+					'background-image': 'https://pd.w.org/2022/03/96622a0f432e6904.41498035-300x169.jpeg',
 					'background-repeat': 'no-repeat',
 					'background-position': 'left top',
 					'background-size': 'cover',
