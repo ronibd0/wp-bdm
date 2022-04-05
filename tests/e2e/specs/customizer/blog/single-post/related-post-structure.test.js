@@ -20,11 +20,8 @@ describe( 'Single post option under the customizer', () => {
 		await page.goto( createURL( '/sample-post' ), {
 			waitUntil: 'networkidle0',
 		} );
-		await page.evaluate( () => {
-			window.scrollBy( 0, window.innerHeight );
-		} );
-		await page.waitForSelector( '.entry-header' );
-		const relatedTitleMeta = await page.$eval( '.entry-header', ( element ) => element.getAttribute( '.ast-related-post-content .entry-header' ) );
+		await page.waitForSelector( '.ast-related-post-content' );
+		const relatedTitleMeta = await page.$eval( '.ast-related-post-content', ( element ) => element.getAttribute( '.entry-header .entry-meta' ) );
 		await expect( relatedTitleMeta ).toBeNull( );
 	} );
 } );
