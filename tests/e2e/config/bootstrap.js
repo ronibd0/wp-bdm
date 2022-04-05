@@ -14,7 +14,6 @@ import {
 	setBrowserViewport,
 	trashAllPosts,
 	deactivatePlugin,
-	activatePlugin,
 } from '@wordpress/e2e-test-utils';
 
 import './expect-extensions';
@@ -221,7 +220,6 @@ beforeAll( async () => {
 	observeConsoleLogging();
 	await setupBrowser();
 	await deactivatePlugin( 'gutenberg' ); // by default keep the Gutenberg plugin deactive, Activate when needed.
-	await activatePlugin( 'lifterlms' );
 	await trashAllPosts();
 	await trashAllPosts( 'page' );
 	await siteReset();
