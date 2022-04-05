@@ -1003,7 +1003,7 @@
 .astra-color-picker-wrap .astra-popover-color .components-color-picker,
 .astra-color-picker-wrap .astra-popover-color .react-colorful {
     width: 100%;
-} 
+}
 
 .astra-color-picker-wrap.picker-open{
 	display: block;
@@ -1124,7 +1124,7 @@
 
 .astra-color-picker-wrap .ast-gradient-ui .components-custom-gradient-picker__remove-control-point {
     padding: 0 16px 16px 16px;
-    border: 0; 
+    border: 0;
 }
 
 .astra-color-picker-wrap .ast-gradient-ui .components-custom-gradient-picker__remove-control-point:focus {
@@ -1271,10 +1271,7 @@
 .ast-color-palette.components-circular-option-picker .components-circular-option-picker__swatches{
     width: 100%;
 }
-.components-circular-option-picker__option-wrapper:hover,
-.components-circular-option-picker__option-wrapper{
-    transform: none;
-}
+
 .customize-control-ast-customizer-link .customizer-link {
   font-style: italic;
   text-decoration: none;
@@ -1457,9 +1454,12 @@ input[type="text"].select2-search__field {
 }
 
 /* Customizer - builder widget area's block gets round shapes in more-settings tab */
-.customize-widgets-layout__inspector .components-circular-option-picker__option::after {
-  box-shadow: none;
-  position: unset;
+.components-circular-option-picker__option-wrapper::before {
+  background: unset;
+}
+
+.block-editor-panel-color-gradient-settings .components-circular-option-picker__option-wrapper {
+  position: relative;
 }
 
 .customize-control-ast-description .ast-description {
