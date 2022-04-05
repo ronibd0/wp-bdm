@@ -5,7 +5,7 @@ import { scrollToElement } from '../../../../utils/scroll-to-element';
 describe( 'primary footer column and layout setting in customizer', () => {
 	it( 'column and dlayout should apply correctly', async () => {
 		const Primaryfooter = {
-			'hb-footer-column': '2',
+			'hb-footer-column': '3',
 			'hb-footer-layout': {
 				desktop: '3-rheavy',
 			},
