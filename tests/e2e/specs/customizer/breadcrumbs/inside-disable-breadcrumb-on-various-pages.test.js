@@ -2,7 +2,7 @@ import { createURL, createNewPost } from '@wordpress/e2e-test-utils';
 import { publishPost } from '../../../utils/publish-post';
 import { setCustomize } from '../../../utils/customize';
 describe( 'Breadcrumb settings in the customizer', () => {
-	it( 'disable breadcrumb on home page for inside header position should apply corectly for inside position', async () => {
+	it( 'disable breadcrumb on home page for inside header position should apply correctly for inside position', async () => {
 		const insideBreadcrumb = {
 			'breadcrumb-position': 'astra_header_primary_container_after',
 			'breadcrumb-disable-home-page': 1,
