@@ -48,33 +48,4 @@ describe( 'Above footer inner element layout setting in customizer', () => {
 			property: 'display',
 		} ).cssValueToBe( `flex` );
 	} );
-
-	// it( 'inline layout should apply correctly', async () => {
-	// 	const innerElementLayout = {
-	// 		'hba-stack': {
-	// 			desktop: 'inline',
-	// 			tablet: 'inline',
-	// 			mobile: 'inline',
-	// 		},
-	// 		'footer-desktop-items': {
-	// 			above: {
-	// 				above_1: {
-	// 					0: 'social-icons-1',
-	// 				},
-	// 			},
-	// 		},
-	// 	};
-	// 	await setCustomize( innerElementLayout );
-	// 	await page.goto( createURL( '/' ), {
-	// 		waitUntil: 'networkidle0',
-	// 	} );
-	// 	await page.waitForSelector( '.site-above-footer-wrap[data-section="section-above-footer-builder"] .ast-builder-grid-row' );
-	// 	await setBrowserViewport( 'large' );
-	// 	await scrollToElement( '#colophon' );
-	// 	await expect( {
-	// 		selector: '.site-above-footer-wrap[data-section="section-above-footer-builder"] .ast-builder-grid-row',
-	// 		property: '',
-	// 	} ).cssValueToBe( ``,
-	// 	);
-	// } );
 } );
