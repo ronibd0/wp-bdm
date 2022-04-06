@@ -35,29 +35,27 @@ describe( 'breadcrumb settings in the customizer', () => {
 		await expect( disableBlog ).toBeNull( );
 	} );
 
-	// GitHub action E2E fail case
-	// eslint-disable-next-line jest/no-commented-out-tests
-	// it( 'enable breadcrumb on search page inside header position should apply corectly for inside position', async () => {
-	// 	const insideBreadcrumb = {
-	// 		'breadcrumb-position': 'astra_header_primary_container_after',
-	// 		'breadcrumb-disable-archive': 0,
-	// 	};
-	// 	await setCustomize( insideBreadcrumb );
-	// 	let ppStatus = false;
-	// 	while ( false === ppStatus ) {
-	// 		await createNewPost( { postType: 'post', title: 'test' } );
-	// 		ppStatus = await publishPost();
-	// 	}
-	// 	await page.goto( createURL( '/' ), {
-	// 		waitUntil: 'networkidle0',
-	// 	} );
-	// 	await page.click( '.widget_search .search-form .search-field' );
-	// 	await page.keyboard.type( 'test' );
-	// 	await page.keyboard.press( 'Enter' );
-	// 	await page.waitForSelector( '.ast-breadcrumbs-wrapper' );
-	// 	const enableSearchPage = await page.$eval( '.ast-breadcrumbs-wrapper', ( element ) => element.getAttribute( '.site-header-focus-item + .ast-breadcrumbs-wrapper' ) );
-	// 	await expect( enableSearchPage ).toBeNull( );
-	// } );
+	it( 'enable breadcrumb on search page inside header position should apply corectly for inside position', async () => {
+		const insideBreadcrumb = {
+			'breadcrumb-position': 'astra_header_primary_container_after',
+			'breadcrumb-disable-archive': 0,
+		};
+		await setCustomize( insideBreadcrumb );
+		let ppStatus = false;
+		while ( false === ppStatus ) {
+			await createNewPost( { postType: 'post', title: 'test' } );
+			ppStatus = await publishPost();
+		}
+		await page.goto( createURL( '/' ), {
+			waitUntil: 'networkidle0',
+		} );
+		await page.click( '#wp-block-search__input-1' );
+		await page.keyboard.type( 'test' );
+		await page.keyboard.press( 'Enter' );
+		await page.waitForSelector( '.ast-breadcrumbs-wrapper' );
+		const enableSearchPage = await page.$eval( '.ast-breadcrumbs-wrapper', ( element ) => element.getAttribute( '.site-header-focus-item + .ast-breadcrumbs-wrapper' ) );
+		await expect( enableSearchPage ).toBeNull( );
+	} );
 
 	it( 'enable breadcrumb on archive page inside header position should apply corectly for inside position', async () => {
 		const insideBreadcrumb = {
