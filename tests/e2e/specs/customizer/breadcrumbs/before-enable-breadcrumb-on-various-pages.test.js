@@ -1,4 +1,5 @@
-import { createURL, createNewPost, publishPost } from '@wordpress/e2e-test-utils';
+import { createURL, createNewPost } from '@wordpress/e2e-test-utils';
+import { publishPost } from '../../../utils/publish-post';
 import { setCustomize } from '../../../utils/customize';
 describe( 'Breadcrumb settings in the customizer', () => {
 	it( 'enable breadcrumb on home page for before title header position should apply corectly', async () => {
@@ -7,14 +8,17 @@ describe( 'Breadcrumb settings in the customizer', () => {
 			'breadcrumb-disable-home-page': 0,
 		};
 		await setCustomize( beforeBreadcrumb );
-		await createNewPost( { postType: 'page', title: 'test-1' } );
-		await publishPost();
+		let ppStatus = false;
+		while ( false === ppStatus ) {
+			await createNewPost( { postType: 'page', title: 'test-1' } );
+			ppStatus = await publishPost();
+		}
 		await page.goto( createURL( '/test-1' ), {
 			waitUntil: 'networkidle0',
 		} );
 		await page.waitForSelector( '.ast-breadcrumbs-wrapper' );
-		const enablehomePage = await page.$eval( '.ast-breadcrumbs-wrapper', ( element ) => element.getAttribute( '.ast-separate-container .ast-article-single' ) );
-		await expect( enablehomePage ).toBeNull( );
+		const enableHomePage = await page.$eval( '.ast-breadcrumbs-wrapper', ( element ) => element.getAttribute( '.ast-separate-container .ast-article-single' ) );
+		await expect( enableHomePage ).toBeNull( );
 	} );
 
 	it( 'enable breadcrumb on blog page for before title header position should apply corectly', async () => {
@@ -23,14 +27,17 @@ describe( 'Breadcrumb settings in the customizer', () => {
 			'breadcrumb-disable-blog-posts-page': 0,
 		};
 		await setCustomize( beforeBreadcrumb );
-		await createNewPost( { postType: 'page', title: 'test-2' } );
-		await publishPost();
+		let ppStatus = false;
+		while ( false === ppStatus ) {
+			await createNewPost( { postType: 'page', title: 'test-2' } );
+			ppStatus = await publishPost();
+		}
 		await page.goto( createURL( '/test-2' ), {
 			waitUntil: 'networkidle0',
 		} );
 		await page.waitForSelector( '.ast-breadcrumbs-wrapper' );
 		const disableBlog = await page.$eval( '.ast-breadcrumbs-wrapper', ( element ) => element.getAttribute( '.ast-separate-container .ast-article-single' ) );
-		await expect( disableblog ).toBeNull( );
+		await expect( disableBlog ).toBeNull( );
 	} );
 
 	it( 'enable breadcrumb on search page before title header position should apply corectly', async () => {
@@ -39,8 +46,11 @@ describe( 'Breadcrumb settings in the customizer', () => {
 			'breadcrumb-disable-archive': 0,
 		};
 		await setCustomize( beforeBreadcrumb );
-		await createNewPost( { postType: 'post', title: 'test' } );
-		await publishPost();
+		let ppStatus = false;
+		while ( false === ppStatus ) {
+			await createNewPost( { postType: 'post', title: 'test' } );
+			ppStatus = await publishPost();
+		}
 		await page.goto( createURL( '/' ), {
 			waitUntil: 'networkidle0',
 		} );
@@ -58,12 +68,17 @@ describe( 'Breadcrumb settings in the customizer', () => {
 			'breadcrumb-disable-archive': 0,
 		};
 		await setCustomize( beforeBreadcrumb );
+		let ppStatus = false;
+		while ( false === ppStatus ) {
+			await createNewPost( { postType: 'post', title: 'test' } );
+			ppStatus = await publishPost();
+		}
 		await page.goto( createURL( '/author/admin' ), {
 			waitUntil: 'networkidle0',
 		} );
 		await page.waitForSelector( '.ast-breadcrumbs-wrapper' );
-		const enablearchivePage = await page.$eval( '.ast-breadcrumbs-wrapper', ( element ) => element.getAttribute( '.ast-author-box' ) );
-		await expect( enablearchivePage ).toBeNull( );
+		const enableArchivePage = await page.$eval( '.ast-breadcrumbs-wrapper', ( element ) => element.getAttribute( '.ast-author-box' ) );
+		await expect( enableArchivePage ).toBeNull( );
 	} );
 
 	it( 'enable breadcrumb on single page for before title position should apply corectly', async () => {
@@ -72,8 +87,11 @@ describe( 'Breadcrumb settings in the customizer', () => {
 			'breadcrumb-disable-single-page': 0,
 		};
 		await setCustomize( beforeBreadcrumb );
-		await createNewPost( { postType: 'page', title: 'single-page' } );
-		await publishPost();
+		let ppStatus = false;
+		while ( false === ppStatus ) {
+			await createNewPost( { postType: 'page', title: 'single-page' } );
+			ppStatus = await publishPost();
+		}
 		await page.goto( createURL( '/single-page' ), {
 			waitUntil: 'networkidle0',
 		} );
@@ -88,8 +106,11 @@ describe( 'Breadcrumb settings in the customizer', () => {
 			'breadcrumb-disable-single-post': 0,
 		};
 		await setCustomize( beforeBreadcrumb );
-		await createNewPost( { postType: 'page', title: 'single-post' } );
-		await publishPost();
+		let ppStatus = false;
+		while ( false === ppStatus ) {
+			await createNewPost( { postType: 'post', title: 'single-post' } );
+			ppStatus = await publishPost();
+		}
 		await page.goto( createURL( '/single-post' ), {
 			waitUntil: 'networkidle0',
 		} );
@@ -104,8 +125,11 @@ describe( 'Breadcrumb settings in the customizer', () => {
 			'breadcrumb-disable-404-page': 0,
 		};
 		await setCustomize( beforeBreadcrumb );
-		await createNewPost( { postType: 'page', title: '404-page' } );
-		await publishPost();
+		let ppStatus = false;
+		while ( false === ppStatus ) {
+			await createNewPost( { postType: 'page', title: '404-page' } );
+			ppStatus = await publishPost();
+		}
 		await page.goto( createURL( '/12' ), {
 			waitUntil: 'networkidle0',
 		} );
