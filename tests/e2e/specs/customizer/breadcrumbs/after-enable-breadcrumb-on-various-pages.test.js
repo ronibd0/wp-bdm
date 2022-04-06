@@ -35,24 +35,22 @@ describe( 'Breadcrumb settings in the customizer', () => {
 		await expect( disableBlog ).toBeNull( );
 	} );
 
-	// GitHub action E2E fail case
-	// eslint-disable-next-line jest/no-commented-out-tests
-	// it( 'enable breadcrumb on search page after header position should apply corectly', async () => {
-	// 	const afterBreadcrumb = {
-	// 		'breadcrumb-position': 'astra_header_after',
-	// 		'breadcrumb-disable-archive': 0,
-	// 	};
-	// 	await setCustomize( afterBreadcrumb );
-	// 	await page.goto( createURL( '/' ), {
-	// 		waitUntil: 'networkidle0',
-	// 	} );
-	// 	await page.click( '.widget_search .search-form .search-field' );
-	// 	await page.keyboard.type( 'test' );
-	// 	await page.keyboard.press( 'Enter' );
-	// 	await page.waitForSelector( '.ast-breadcrumbs-wrapper' );
-	// 	const enableSearchPage = await page.$eval( '.ast-breadcrumbs-wrapper', ( element ) => element.getAttribute( '.site-header-focus-item + .ast-breadcrumbs-wrapper' ) );
-	// 	await expect( enableSearchPage ).toBeNull( );
-	// } );
+	it( 'enable breadcrumb on search page after header position should apply corectly', async () => {
+		const afterBreadcrumb = {
+			'breadcrumb-position': 'astra_header_after',
+			'breadcrumb-disable-archive': 0,
+		};
+		await setCustomize( afterBreadcrumb );
+		await page.goto( createURL( '/' ), {
+			waitUntil: 'networkidle0',
+		} );
+		await page.click( '#wp-block-search__input-1' );
+		await page.keyboard.type( 'test' );
+		await page.keyboard.press( 'Enter' );
+		await page.waitForSelector( '.ast-breadcrumbs-wrapper' );
+		const enableSearchPage = await page.$eval( '.ast-breadcrumbs-wrapper', ( element ) => element.getAttribute( '.site-header-focus-item + .ast-breadcrumbs-wrapper' ) );
+		await expect( enableSearchPage ).toBeNull( );
+	} );
 
 	it( 'enable breadcrumb on archive page after header position should apply corectly', async () => {
 		const afterBreadcrumb = {
