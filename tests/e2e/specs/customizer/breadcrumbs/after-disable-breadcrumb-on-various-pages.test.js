@@ -35,28 +35,26 @@ describe( 'Breadcrumb settings in the customizer', () => {
 		await expect( disableblog ).toBeNull( );
 	} );
 
-	// GitHub action E2E fail case
-	// eslint-disable-next-line jest/no-commented-out-tests
-	// it( 'disable breadcrumb on search page after header position should apply corectly', async () => {
-	// 	const afterBreadcrumb = {
-	// 		'breadcrumb-position': 'astra_header_after',
-	// 		'breadcrumb-disable-archive': 1,
-	// 	};
-	// 	await setCustomize( afterBreadcrumb );
-	// let ppStatus = false;
-	// while ( false === ppStatus ) {
-	// 	await createNewPost( { postType: 'page', title: 'test' } );
-	// }
-	// 	await page.goto( createURL( '/' ), {
-	// 		waitUntil: 'networkidle0',
-	// 	} );
-	// 	await page.click( '.widget_search .search-form .search-field' );
-	// 	await page.keyboard.type( 'test' );
-	// 	await page.keyboard.press( 'Enter' );
-	// 	await page.waitForSelector( '.ast-primary-header-bar' );
-	// 	const enableSearchPage = await page.$eval( '.ast-primary-header-bar', ( element ) => element.getAttribute( '.site-header-focus-item + .ast-breadcrumbs-wrapper' ) );
-	// 	await expect( enableSearchPage ).toBeNull( );
-	// } );
+	it( 'disable breadcrumb on search page after header position should apply corectly', async () => {
+		const afterBreadcrumb = {
+			'breadcrumb-position': 'astra_header_after',
+			'breadcrumb-disable-archive': 1,
+		};
+		await setCustomize( afterBreadcrumb );
+		const ppStatus = false;
+		while ( false === ppStatus ) {
+			await createNewPost( { postType: 'page', title: 'test' } );
+		}
+		await page.goto( createURL( '/' ), {
+			waitUntil: 'networkidle0',
+		} );
+		await page.click( '#wp-block-search__input-1' );
+		await page.keyboard.type( 'test' );
+		await page.keyboard.press( 'Enter' );
+		await page.waitForSelector( '.ast-primary-header-bar' );
+		const enableSearchPage = await page.$eval( '.ast-primary-header-bar', ( element ) => element.getAttribute( '.site-header-focus-item + .ast-breadcrumbs-wrapper' ) );
+		await expect( enableSearchPage ).toBeNull( );
+	} );
 
 	it( 'disable breadcrumb on archive page after header position should apply corectly', async () => {
 		const afterBreadcrumb = {
