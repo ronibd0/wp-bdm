@@ -1,4 +1,4 @@
-import { createURL, createNewPost } from '@wordpress/e2e-test-utils';
+ import { createURL, createNewPost } from '@wordpress/e2e-test-utils';
 import { publishPost } from '../../../utils/publish-post';
 import { setCustomize } from '../../../utils/customize';
 describe( 'Breadcrumb settings in the customizer', () => {
