@@ -224,7 +224,7 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 			'border-bottom-color' => esc_attr( $cart_separator_color_desktop ),
 		),
 		'#ast-site-header-cart .widget_shopping_cart .mini_cart_item' => array(
-			'border-bottom-color' => astra_hex_to_rgba( $cart_separator_color_desktop ),
+			'border-bottom-color' => $cart_separator_color_desktop ? astra_hex_to_rgba( $cart_separator_color_desktop ) : '',
 		),
 		'#ast-site-header-cart .widget_shopping_cart:before, #ast-site-header-cart .widget_shopping_cart:after, .open-preview-woocommerce-cart #ast-site-header-cart .widget_shopping_cart:before' => array(
 			'border-bottom-color' => esc_attr( $cart_bg_color_desktop ),
@@ -277,15 +277,15 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 			'visibility' => 'hidden',
 		);
 		$css_output_desktop['.ast-desktop .astra-cart-drawer.open-right'] = array(
-			'width' => astra_get_css_value( $desktop_flyout_cart_width, '%' ),
+			'width' => astra_get_css_value( $desktop_flyout_cart_width, 'px' ),
 		);
 		if ( 'left' === $desktop_flyout_cart_direction ) {
 			$css_output_desktop['.ast-desktop .astra-cart-drawer.open-right']        = array(
-				'width' => astra_get_css_value( $desktop_flyout_cart_width, '%' ),
-				'left'  => '-' . astra_get_css_value( $desktop_flyout_cart_width, '%' ),
+				'width' => astra_get_css_value( $desktop_flyout_cart_width, 'px' ),
+				'left'  => '-' . astra_get_css_value( $desktop_flyout_cart_width, 'px' ),
 			);
 			$css_output_desktop['.ast-desktop .astra-cart-drawer.open-right.active'] = array(
-				'left' => astra_get_css_value( $desktop_flyout_cart_width, '%' ),
+				'left' => astra_get_css_value( $desktop_flyout_cart_width, 'px' ),
 			);
 		}
 	} else {
@@ -341,7 +341,7 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 			'border-bottom-color' => esc_attr( $cart_separator_color_mobile ),
 		),
 		'#astra-mobile-cart-drawer .widget_shopping_cart .mini_cart_item' => array(
-			'border-bottom-color' => astra_hex_to_rgba( $cart_separator_color_mobile ),
+			'border-bottom-color' => $cart_separator_color_mobile ? astra_hex_to_rgba( $cart_separator_color_mobile ) : '',
 		),
 		$responsive_selector . ' .widget_shopping_cart_content a:not(.button):hover' => array(
 			'color' => esc_attr( $cart_h_link_color_mobile ),
@@ -411,7 +411,7 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 			'border-bottom-color' => esc_attr( $cart_separator_color_tablet ),
 		),
 		'#astra-mobile-cart-drawer .widget_shopping_cart .mini_cart_item' => array(
-			'border-bottom-color' => astra_hex_to_rgba( $cart_separator_color_tablet ),
+			'border-bottom-color' => $cart_separator_color_tablet ? astra_hex_to_rgba( $cart_separator_color_tablet ) : '',
 		),
 		$responsive_selector . ' .widget_shopping_cart_content a:not(.button):hover' => array(
 			'color' => esc_attr( $cart_h_link_color_tablet ),

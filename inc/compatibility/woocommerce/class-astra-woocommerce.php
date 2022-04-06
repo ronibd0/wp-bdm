@@ -118,6 +118,9 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				add_filter( 'woocommerce_single_product_summary', array( $this, 'woocommerce_shipping_text' ), 11, 0 );
 			}
 
+			// Changes Woocommerce template directory path.
+			add_action( 'wp', array( $this, 'woocommerce_template_directory_path_change' ), 1 );
+			
 			// Register Dynamic Sidebars.
 			if ( is_customize_preview() ) {
 				add_action( 'wp', array( $this, 'store_widgets_dynamic' ), 15 );
@@ -1132,7 +1135,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 					'padding-left'   => astra_responsive_spacing( $theme_btn_padding, 'left', 'desktop' ),
 				),
 				'.woocommerce .star-rating, .woocommerce .comment-form-rating .stars a, .woocommerce .star-rating::before' => array(
-					'color' => $link_color,
+					'color' => '#777',
 				),
 				'.woocommerce div.product .woocommerce-tabs ul.tabs li.active:before' => array(
 					'background' => $link_color,
@@ -1405,15 +1408,6 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			 */
 			if ( $is_site_rtl ) {
 				$min_tablet_css = array(
-					'.woocommerce #reviews #comments'   => array(
-						'width' => '55%',
-						'float' => 'right',
-					),
-					'.woocommerce #reviews #review_form_wrapper' => array(
-						'width'         => '45%',
-						'float'         => 'left',
-						'padding-right' => '2em',
-					),
 					'.woocommerce form.checkout_coupon' => array(
 						'width' => '50%',
 					),
@@ -1424,13 +1418,6 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				}
 			} else {
 				$min_tablet_css = array(
-					'.woocommerce #reviews #comments'   => array(
-						'width' => '55%',
-					),
-					'.woocommerce #reviews #review_form_wrapper' => array(
-						'width'        => '45%',
-						'padding-left' => '2em',
-					),
 					'.woocommerce form.checkout_coupon' => array(
 						'width' => '50%',
 					),
@@ -2115,6 +2102,25 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		}
 
 		/**
+		 * Change woocommerce template directory path
+		 *
+		 * @since x.x.x
+		 */
+		public function woocommerce_template_directory_path_change() {
+			add_filter( 'woocommerce_template_path', array( $this, 'woocommerce_template_path' ) );
+		}
+
+		/**
+		 * Woocommerce template path
+		 *
+		 * @since x.x.x
+		 * @return string
+		 */
+		public function woocommerce_template_path() {
+			return 'inc/compatibility/woocommerce/templates';
+		}
+
+		/**
 		 * For existing users, do not load the wide/full width image CSS by default.
 		 *
 		 * @since 2.5.0
@@ -2132,3 +2138,5 @@ endif;
 if ( apply_filters( 'astra_enable_woocommerce_integration', true ) ) {
 	Astra_Woocommerce::get_instance();
 }
+
+
