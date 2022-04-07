@@ -2,7 +2,7 @@ import { createURL } from '@wordpress/e2e-test-utils';
 import { setCustomize } from '../../../../utils/customize';
 import { setBrowserViewport } from '../../../../utils/set-browser-viewport';
 import { scrollToElement } from '../../../../utils/scroll-to-element';
-describe( 'Below footer hide on desktop setting in customizer', () => {
+describe( 'Below footer hide on devices setting in customizer', () => {
 	it( 'below footer should hide on desktop', async () => {
 		const hideOnDesktop = {
 			'section-below-footer-builder-hide-desktop': 1,
@@ -13,9 +13,11 @@ describe( 'Below footer hide on desktop setting in customizer', () => {
 		} );
 		await setBrowserViewport( 'large' );
 		await scrollToElement( '#colophon' );
-		await page.waitForSelector( '.site-footer' );
-		const desktop = await page.$eval( '.site-footer', ( element ) => element.getAttribute( '.site-below-footer-wrap[data-section="section-below-footer-builder"]' ) );
-		await expect( desktop ).toBeNull( );
+		await page.waitForSelector( '.site-below-footer-wrap[data-section="section-below-footer-builder"]' );
+		await expect( {
+			selector: '.site-below-footer-wrap[data-section="section-below-footer-builder"]',
+			property: 'display',
+		} ).cssValueToBe( `none` );
 	} );
 
 	it( 'below footer should hide on tablet', async () => {
@@ -28,9 +30,11 @@ describe( 'Below footer hide on desktop setting in customizer', () => {
 		} );
 		await setBrowserViewport( 'medium' );
 		await scrollToElement( '#colophon' );
-		await page.waitForSelector( '.site-footer' );
-		const tablet = await page.$eval( '.site-footer', ( element ) => element.getAttribute( '.site-below-footer-wrap[data-section="section-below-footer-builder"]' ) );
-		await expect( tablet ).toBeNull( );
+		await page.waitForSelector( '.ast-header-break-point .site-below-footer-wrap[data-section="section-below-footer-builder"]' );
+		await expect( {
+			selector: '.ast-header-break-point .site-below-footer-wrap[data-section="section-below-footer-builder"]',
+			property: 'display',
+		} ).cssValueToBe( `none` );
 	} );
 
 	it( 'below footer should hide on mobile', async () => {
@@ -43,8 +47,10 @@ describe( 'Below footer hide on desktop setting in customizer', () => {
 		} );
 		await setBrowserViewport( 'small' );
 		await scrollToElement( '#colophon' );
-		await page.waitForSelector( '.site-footer' );
-		const tablet = await page.$eval( '.site-footer', ( element ) => element.getAttribute( '.site-below-footer-wrap[data-section="section-below-footer-builder"]' ) );
-		await expect( tablet ).toBeNull( );
+		await page.waitForSelector( '.ast-header-break-point .site-below-footer-wrap[data-section="section-below-footer-builder"]' );
+		await expect( {
+			selector: '.ast-header-break-point .site-below-footer-wrap[data-section="section-below-footer-builder"]',
+			property: 'display',
+		} ).cssValueToBe( `none` );
 	} );
 } );
