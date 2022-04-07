@@ -3276,11 +3276,51 @@ function astra_improve_gutenberg_editor_ui() {
 }
 
 /**
+ * Display Cart Total and Title compatibility.
+ *
+ * @since x.x.x
+ * @return void
+ */
+function astra_display_cart_total_title_compatibility() {
+	$theme_options = get_option( 'astra-settings', array() );
+
+	if ( isset( $theme_options['woo-header-cart-label-display'] ) ) {
+		return;
+	}
+
+	// Set the Display Cart Label toggle values with shortcodes.
+	if ( ( isset( $theme_options['woo-header-cart-total-display'] ) && true === $theme_options['woo-header-cart-total-display'] ) && ( isset( $theme_options['woo-header-cart-title-display'] ) && true === $theme_options['woo-header-cart-title-display'] ) ) {
+		$theme_options['woo-header-cart-label-display'] = __( 'Cart', 'astra' ) . '/{cart_total_currency_symbol}';
+	} elseif ( isset( $theme_options['woo-header-cart-total-display'] ) && true === $theme_options['woo-header-cart-total-display'] ) {
+		$theme_options['woo-header-cart-label-display'] = '{cart_total_currency_symbol}';
+	} elseif ( isset( $theme_options['woo-header-cart-title-display'] ) && true === $theme_options['woo-header-cart-title-display'] ) {
+		$theme_options['woo-header-cart-label-display'] = __( 'Cart', 'astra' );
+	}
+
+	update_option( 'astra-settings', $theme_options );
+}
+
+/**
+ * Set flag to avoid woocommerce product single margin fix to be added for old users.
+ *
+ * @since x.x.x
+ * @return void
+ */
+function astra_woocommerce_product_single_margin() {
+	$theme_options = get_option( 'astra-settings', array() );
+
+	if ( ! isset( $theme_options['apply-woo-product-single-margin'] ) ) {
+		$theme_options['apply-woo-product-single-margin'] = true;
+		update_option( 'astra-settings', $theme_options );
+	}
+}
+
+/**
  * Set flag to avoid direct reflections on live site & to maintain backward compatibility for existing users.
  *
  * Starting supporting content-background color for Full Width Contained & Full Width Stretched layouts.
  *
- * @since x.x.x
+ * @since 3.7.8
  * @return void
  */
 function astra_fullwidth_layouts_apply_content_background() {
@@ -3369,7 +3409,7 @@ function astra_post_strctures_meta_migration() {
 /**
  * Sets the default breadcrumb separator selector value if the current user is an exsisting user
  *
- * @since x.x.x
+ * @since 3.7.8
  * @return void
  */
 function astra_set_default_breadcrumb_separator_option() {
