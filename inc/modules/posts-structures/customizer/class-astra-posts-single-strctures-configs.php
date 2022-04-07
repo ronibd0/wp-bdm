@@ -136,6 +136,37 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 				$parent_section = 'section-posttype-' . $post_type;
 			}
 
+			$clone_limit = 3;
+			$to_clone    = true;
+			if ( absint( astra_get_option( $section . '-taxonomy-clone-tracker', 1 ) ) === $clone_limit ) {
+				$to_clone = false;
+			}
+
+			$taxonomy_meta[$section . '-taxonomy'] = array(
+				'clone'         => $to_clone,
+				'is_parent'     => true,
+				'main_index'    => $section . '-taxonomy',
+				'clone_limit'   => $clone_limit,
+				'clone_tracker' => ASTRA_THEME_SETTINGS . '[' . $section . '-taxonomy-clone-tracker]',
+				'title'         => __( 'Taxonomy', 'astra' ),
+			);
+			$taxonomy_meta[$section . '-taxonomy-1'] = array(
+				'clone'         => $to_clone,
+				'is_parent'     => true,
+				'main_index'    => $section . '-taxonomy',
+				'clone_limit'   => $clone_limit,
+				'clone_tracker' => ASTRA_THEME_SETTINGS . '[' . $section . '-taxonomy-clone-tracker]',
+				'title'         => __( 'Taxonomy', 'astra' ),
+			);
+			$taxonomy_meta[$section . '-taxonomy-2'] = array(
+				'clone'         => $to_clone,
+				'is_parent'     => true,
+				'main_index'    => $section . '-taxonomy',
+				'clone_limit'   => $clone_limit,
+				'clone_tracker' => ASTRA_THEME_SETTINGS . '[' . $section . '-taxonomy-clone-tracker]',
+				'title'         => __( 'Taxonomy', 'astra' ),
+			);
+
 			$_configs = array(
 
 				/**
@@ -274,6 +305,17 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 				),
 
 				array(
+					'name'      => ASTRA_THEME_SETTINGS . '[' . $section . '-taxonomy-clone-tracker]',
+					'section'   => $section,
+					'type'      => 'control',
+					'control'   => 'ast-hidden',
+					'priority'  => 22,
+					'transport' => 'postMessage',
+					'partial'   => false,
+					'default'   => astra_get_option( $section . '-taxonomy-clone-tracker', 1 ),
+				),
+
+				array(
 					'name'              => ASTRA_THEME_SETTINGS . '[' . $section . '-metadata]',
 					'type'              => 'control',
 					'control'           => 'ast-sortable',
@@ -291,36 +333,14 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 					'section'           => $section,
 					'priority'          => 25,
 					'title'             => __( 'Meta', 'astra' ),
-					'choices'           => array(
-						'comments' => __( 'Comments', 'astra' ),
-						'taxonomy' => __( 'Taxonomy', 'astra' ),
-						'author'   => __( 'Author', 'astra' ),
-						'date'     => __( 'Publish Date', 'astra' ),
-					),
-				),
-
-				/**
-				 * Option: Taxonomy Selection.
-				 */
-				array(
-					'name'       => ASTRA_THEME_SETTINGS . '[' . $section . '-taxonomy]',
-					'default'    => astra_get_option( $section . '-taxonomy', '' ),
-					'section'    => $section,
-					'title'      => __( 'Select Taxonomy', 'astra' ),
-					'type'       => 'control',
-					'control'    => 'ast-select',
-					'priority'   => 26,
-					'choices'    => $taxonomies,
-					'context'    => array(
-						Astra_Builder_Helper::$general_tab_config,
-						'relation' => 'AND',
+					'choices'           => array_merge(
 						array(
-							'setting'  => ASTRA_THEME_SETTINGS . '[' . $section . '-metadata]',
-							'operator' => 'contains',
-							'value'    => 'taxonomy',
+							'comments' => __( 'Comments', 'astra' ),
+							'author'   => __( 'Author', 'astra' ),
+							'date'     => __( 'Publish Date', 'astra' ),
 						),
-					),
-					'responsive' => false,
+						$taxonomy_meta
+					)
 				),
 
 				/**
@@ -966,6 +986,28 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 					'connected'         => false,
 				),
 			);
+
+			for ( $index = 1; $index <= $clone_limit; $index++ ) {
+
+				$control_suffix = ( 1 === $index ) ? '' : '-' . ( $index - 1 );
+
+				/**
+				 * Option: Taxonomy Selection.
+				 */
+				$_configs[] = array(
+					'name'       => $section . '-taxonomy-' . $control_suffix,
+					'parent'     => ASTRA_THEME_SETTINGS . '[' . $section . '-metadata]',
+					'default'    => astra_get_option( $section . '-taxonomy-' . $control_suffix ),
+					'linked'     => $section . '-taxonomy' . $control_suffix,
+					'type'       => 'sub-control',
+					'control'    => 'ast-select',
+					'section'    => $section,
+					'priority'   => 5,
+					'title'      => __( 'Select Taxonomy', 'astra' ),
+					'choices'    => $taxonomies,
+					'responsive' => false,
+				);
+			}
 
 			$configurations = array_merge( $configurations, $_configs );
 		}
