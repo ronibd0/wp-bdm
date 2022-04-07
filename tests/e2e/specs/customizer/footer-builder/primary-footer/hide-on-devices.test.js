@@ -2,7 +2,7 @@ import { createURL } from '@wordpress/e2e-test-utils';
 import { setCustomize } from '../../../../utils/customize';
 import { setBrowserViewport } from '../../../../utils/set-browser-viewport';
 import { scrollToElement } from '../../../../utils/scroll-to-element';
-describe( 'Primary footer hide on desktop setting in customizer', () => {
+describe( 'Primary footer hide on devices setting in customizer', () => {
 	it( 'should be hide on desktop', async () => {
 		const hideOnDesktop = {
 			'section-primary-footer-builder-hide-desktop': 1,
