@@ -44,7 +44,7 @@ describe( 'Breadcrumb settings in the customizer', () => {
 		await page.goto( createURL( '/' ), {
 			waitUntil: 'networkidle0',
 		} );
-		await page.click( 'wp-block-search__input-1' );
+		await page.click( '#wp-block-search__input-1' );
 		await page.keyboard.type( 'test' );
 		await page.keyboard.press( 'Enter' );
 		await page.waitForSelector( '.ast-breadcrumbs-wrapper' );
