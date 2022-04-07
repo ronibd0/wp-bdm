@@ -72,26 +72,26 @@ describe( 'Below footer inner element layout setting in customizer', () => {
 		} );
 		await setBrowserViewport( 'large' );
 		await scrollToElement( '#colophon' );
-		await page.waitForSelector( '.ast-footer-row-stack' );
+		await page.waitForSelector( '.site-below-footer-wrap[data-section="section-below-footer-builder"].ast-footer-row-stack .site-footer-section' );
 		await expect( {
-			selector: '.ast-footer-row-stack',
+			selector: '.site-below-footer-wrap[data-section="section-below-footer-builder"].ast-footer-row-stack .site-footer-section',
 			property: 'display',
-		} ).cssValueToBe( `grid` );
+		} ).cssValueToBe( `block` );
 
 		await setBrowserViewport( 'medium' );
 		await scrollToElement( '#colophon' );
-		await page.waitForSelector( '.ast-footer-row-tablet-stack' );
+		await page.waitForSelector( '.site-below-footer-wrap[data-section="section-below-footer-builder"].ast-footer-row-tablet-stack .site-footer-section' );
 		await expect( {
-			selector: '.ast-footer-row-tablet-stack',
+			selector: '.site-below-footer-wrap[data-section="section-below-footer-builder"].ast-footer-row-tablet-stack .site-footer-section',
 			property: 'display',
-		} ).cssValueToBe( `grid` );
+		} ).cssValueToBe( `block` );
 
 		await setBrowserViewport( 'small' );
 		await scrollToElement( '#colophon' );
-		await page.waitForSelector( '.ast-footer-row-mobile-stack' );
+		await page.waitForSelector( '.site-below-footer-wrap[data-section="section-below-footer-builder"].ast-footer-row-mobile-stack .site-footer-section' );
 		await expect( {
-			selector: '.ast-footer-row-mobile-stack',
+			selector: '.site-below-footer-wrap[data-section="section-below-footer-builder"].ast-footer-row-mobile-stack .site-footer-section',
 			property: 'display',
-		} ).cssValueToBe( `grid` );
+		} ).cssValueToBe( `block` );
 	} );
 } );
