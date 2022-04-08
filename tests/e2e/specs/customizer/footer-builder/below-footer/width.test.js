@@ -4,38 +4,36 @@ import { setBrowserViewport } from '../../../../utils/set-browser-viewport';
 import { scrollToElement } from '../../../../utils/scroll-to-element';
 describe( 'Below footer width setting in customizer', () => {
 	it( 'full width should apply correctly', async () => {
-		const BelowfooterWidth = {
+		const belowFooterWidth = {
 			'hbb-footer-layout-width': 'full',
 		};
-		await setCustomize( BelowfooterWidth );
-
+		await setCustomize( belowFooterWidth );
 		await page.goto( createURL( '/' ), {
 			waitUntil: 'networkidle0',
 		} );
-		await page.waitForSelector( '.site-below-footer-wrap' );
 		await setBrowserViewport( 'large' );
 		await scrollToElement( '#colophon' );
+		await page.waitForSelector( '.site-below-footer-wrap[data-section="section-below-footer-builder"] .ast-builder-grid-row' );
 		await expect( {
-			selector: '.site-below-footer-wrap',
-			property: '',
-		} ).cssValueToBe( ``,
-		);
+			selector: '.site-below-footer-wrap[data-section="section-below-footer-builder"] .ast-builder-grid-row',
+			property: 'max-width',
+		} ).cssValueToBe( `100%` );
 	} );
 
 	it( 'content width should apply correctly', async () => {
-		const BelowfooterWidth = {
+		const belowFooterWidth = {
 			'hbb-footer-layout-width': 'content',
 		};
-		await setCustomize( BelowfooterWidth );
-		await page.evaluate( () => {
-			window.scrollBy( 0, window.innerHeight );
+		await setCustomize( belowFooterWidth );
+		await page.goto( createURL( '/' ), {
+			waitUntil: 'networkidle0',
 		} );
-
-		await page.waitForSelector( '.site-below-footer-wrap' );
+		await setBrowserViewport( 'large' );
+		await scrollToElement( '#colophon' );
+		await page.waitForSelector( '.site-below-footer-wrap[data-section="section-below-footer-builder"] .ast-builder-grid-row' );
 		await expect( {
-			selector: '.site-below-footer-wrap',
-			property: '',
-		} ).cssValueToBe( ``,
-		);
+			selector: '.site-below-footer-wrap[data-section="section-below-footer-builder"] .ast-builder-grid-row',
+			property: 'max-width',
+		} ).cssValueToBe( `1200px` );
 	} );
 } );
