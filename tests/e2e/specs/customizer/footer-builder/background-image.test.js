@@ -8,7 +8,7 @@ describe( 'Footer builder backgeround image setting in customizer', () => {
 			'section-footer-builder-layout-padding': 60,
 			'footer-bg-obj-responsive': {
 				desktop: {
-					'background-image': 'https://pxhere.com/en/photo/9381',
+					'background-image': 'https://c.pxhere.com/photos/b1/0b/sky_hot_air_balloon_air_balloon_float_fly-1392552.jpg!s1',
 
 					'background-repeat': 'no-repeat',
 					'background-position': 'left top',
@@ -17,7 +17,7 @@ describe( 'Footer builder backgeround image setting in customizer', () => {
 					'background-type': 'image',
 				},
 				tablet: {
-					'background-image': 'https://pxhere.com/en/photo/937815',
+					'background-image': 'https://c.pxhere.com/photos/b1/b0/flower_field_plant_nature-174602.jpg!s1',
 
 					'background-repeat': 'no-repeat',
 					'background-position': 'left top',
@@ -26,7 +26,7 @@ describe( 'Footer builder backgeround image setting in customizer', () => {
 					'background-type': 'image',
 				},
 				mobile: {
-					'background-image': 'https://pxhere.com/en/photo/1435825',
+					'background-image': 'https://c.pxhere.com/photos/f0/a1/plant_leaf_palm-26883.jpg!s1',
 
 					'background-repeat': 'no-repeat',
 					'background-position': 'left top',
