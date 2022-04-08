@@ -49,7 +49,7 @@ describe( 'social icons hide on devices in the customizer', () => {
 			selector: '.ast-builder-layout-element[data-section="section-fb-social-icons-1"]',
 			property: 'display',
 		} ).cssValueToBe( `none` );
-	} ); 
+	} );
 
 	it( 'social icon hide on mobile should apply correctly', async () => {
 		const hideOnMobile = {
