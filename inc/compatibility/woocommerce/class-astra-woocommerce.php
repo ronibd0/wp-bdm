@@ -1260,7 +1260,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				}
 			}
 
-			if ( false === astra_get_option( 'modern-woo-account-view', false ) ) {
+			if ( is_account_page() && false === astra_get_option( 'modern-woo-account-view', false ) ) {
 				$css_output .= '
 					body .woocommerce-MyAccount-navigation-link {
 					list-style: none;
