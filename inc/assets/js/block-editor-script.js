@@ -80,36 +80,41 @@ function astra_onload_function() {
 	});
 }
 
-window.addEventListener('mousedown', function () {
-	console.log("GK");
-
-	var css2 = document.getElementById('astra-block-editor-styles-css');
-	var css1 = document.getElementById('astra-block-editor-styles-inline-css');
+document.body.addEventListener('mousedown', function () {
 
 
-	var temp2 = css2.cloneNode(true);
-	var temp = css1.cloneNode(true);
-	let tabletPreview = document.getElementsByClassName('is-tablet-preview');
-	let mobilePreview = document.getElementsByClassName('is-mobile-preview');
+	var blockCss = document.getElementById('astra-block-editor-styles-css');
+	var inlineCss = document.getElementById('astra-block-editor-styles-inline-css');
 
-	if (0 !== tabletPreview.length || 0 !== mobilePreview.length) {
-		console.log(temp);
-		var styleTagId = 'astra-block-editor-styles-inline-css';
-		let preview = tabletPreview[0] || mobilePreview[0];
 
-			let iframe = preview.getElementsByTagName('iframe')[0];
-			let iframeDocument = iframe.contentWindow.document || iframe.contentDocument;
+	var blockFixCss = blockCss.cloneNode(true);
+	var blockInlineCss = inlineCss.cloneNode(true);
 
-			let inlineElement = iframeDocument.getElementById(
-				styleTagId
-			);
-			let externalElement = iframeDocument.getElementById(
-				styleTagId
-			);
-			if ( null === inlineElement || undefined === inlineElement && null === externalElement || undefined === externalElement ) {
+	setTimeout( function() {
 
-					iframeDocument.head.appendChild( temp2 );
-					iframeDocument.head.appendChild( temp );
-			}
-	}
+		let tabletPreview = document.getElementsByClassName('is-tablet-preview');
+		let mobilePreview = document.getElementsByClassName('is-mobile-preview');
+
+		if (0 !== tabletPreview.length || 0 !== mobilePreview.length) {
+			var styleTagId = 'astra-block-editor-styles-inline-css';
+			var styleTagBlockId = 'astra-block-editor-styles-css';
+			let preview = tabletPreview[0] || mobilePreview[0];
+
+				let iframe = preview.getElementsByTagName('iframe')[0];
+				let iframeDocument = iframe.contentWindow.document || iframe.contentDocument;
+
+				let element = iframeDocument.getElementById(
+					styleTagId
+				);
+				let elementBlock = iframeDocument.getElementById(
+					styleTagBlockId
+				);
+				if ( (null === element || undefined === element)&& (null === elementBlock || undefined === elementBlock )) {
+
+						iframeDocument.head.appendChild( blockFixCss );
+						iframeDocument.head.appendChild( blockInlineCss );
+				}
+		}
+	}, 1000);
+
 });
