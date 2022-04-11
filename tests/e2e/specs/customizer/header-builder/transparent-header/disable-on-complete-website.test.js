@@ -2,7 +2,7 @@ import { createURL,	createNewPost } from '@wordpress/e2e-test-utils';
 import { publishPost } from '../../../../utils/publish-post';
 import { setCustomize } from '../../../../utils/customize';
 describe( 'Transparent header in the customizer', () => {
-	it( 'disable on archive, 404 and search page should apply corectly', async () => {
+	it( 'disable on archive, 404 and search page should apply correctly', async () => {
 		const disableOnArchive = {
 			'transparent-header-enable': 1,
 			'transparent-header-disable-archive': 1,
@@ -58,7 +58,7 @@ describe( 'Transparent header in the customizer', () => {
 		const disableBlog = await page.$eval( '.ast-primary-header-bar', ( element ) => element.getAttribute( '.ast-theme-transparent-header #masthead' ) );
 		await expect( disableBlog ).toBeNull( );
 	} );
-	it( 'disable on latest posts page should apply corectly', async () => {
+	it( 'disable on latest posts page should apply correctly', async () => {
 		const disableOnLatestPostPage = {
 			'transparent-header-enable': 1,
 			'transparent-header-disable-latest-posts-index': 1,
@@ -78,7 +78,7 @@ describe( 'Transparent header in the customizer', () => {
 		const disableLatestPost = await page.$eval( '.ast-primary-header-bar', ( element ) => element.getAttribute( '.ast-theme-transparent-header #masthead' ) );
 		await expect( disableLatestPost ).toBeNull( );
 	} );
-	it( 'disable on pages should apply corectly', async () => {
+	it( 'disable on pages should apply correctly', async () => {
 		const disableOnPages = {
 			'transparent-header-enable': 1,
 			'transparent-header-disable-page': 1,
@@ -96,7 +96,7 @@ describe( 'Transparent header in the customizer', () => {
 		const disablePages = await page.$eval( '.ast-primary-header-bar', ( element ) => element.getAttribute( '.ast-theme-transparent-header #masthead' ) );
 		await expect( disablePages ).toBeNull( );
 	} );
-	it( 'disable on posts should apply corectly', async () => {
+	it( 'disable on posts should apply correctly', async () => {
 		const disableOnPosts = {
 			'transparent-header-enable': 1,
 			'transparent-header-disable-posts': 1,
