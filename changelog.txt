@@ -1,3 +1,6 @@
+v3.7.10
+- Fix: Fixed block editor style issue with the responsive preview option on the post or page.
+
 v3.7.9
 - Fix: Added correct version number for background updater.
 
