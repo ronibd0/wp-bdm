@@ -66,7 +66,7 @@ describe( 'Social Icons show label option in the customizer', () => {
 		const socialIconLabelFontSize = {
 			'header-social-1-label-toggle': '1',
 			'font-size-section-hb-social-icons-1': {
-				mobile: 42,
+				mobile: 25,
 				'mobile-unit': 'px',
 			},
 			'header-mobile-items': {
