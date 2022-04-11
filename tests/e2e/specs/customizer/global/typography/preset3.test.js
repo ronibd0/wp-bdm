@@ -2,9 +2,9 @@ import {
 	createURL,
 	createNewPost,
 	setPostContent,
-	publishPost,
 } from '@wordpress/e2e-test-utils';
 import { setCustomize } from '../../../../utils/customize';
+import { publishPost } from '../../../../utils/publish-post';
 import { TPOGRAPHY_TEST_POST_CONTENT } from '../../../../utils/post';
 import { setBrowserViewport } from '../../../../utils/set-browser-viewport';
 describe( 'Global typography preset-3 style in the customizer', () => {
@@ -26,9 +26,12 @@ describe( 'Global typography preset-3 style in the customizer', () => {
 		};
 		await setCustomize( globalTypographyPreset3 );
 
-		await createNewPost( { postType: 'post', title: 'preset3' } );
-		await setPostContent( TPOGRAPHY_TEST_POST_CONTENT );
-		await publishPost();
+		let ppStatus = false;
+		while ( false === ppStatus ) {
+			await createNewPost( { postType: 'post', title: 'preset3' } );
+			await setPostContent( TPOGRAPHY_TEST_POST_CONTENT );
+			ppStatus = await publishPost();
+		}
 		await page.goto( createURL( 'preset3' ), {
 			waitUntil: 'networkidle0',
 		} );
@@ -84,9 +87,12 @@ describe( 'Global typography preset-3 style in the customizer', () => {
 		};
 		await setCustomize( globalTypographyPreset3 );
 
-		await createNewPost( { postType: 'post', title: 'preset3' } );
-		await setPostContent( TPOGRAPHY_TEST_POST_CONTENT );
-		await publishPost();
+		let ppStatus = false;
+		while ( false === ppStatus ) {
+			await createNewPost( { postType: 'post', title: 'preset3' } );
+			await setPostContent( TPOGRAPHY_TEST_POST_CONTENT );
+			ppStatus = await publishPost();
+		}
 		await page.goto( createURL( 'preset3' ), {
 			waitUntil: 'networkidle0',
 		} );
