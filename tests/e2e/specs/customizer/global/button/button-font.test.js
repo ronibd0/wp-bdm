@@ -1,13 +1,14 @@
-import { insertBlock, createURL, createNewPost, publishPost } from '@wordpress/e2e-test-utils';
+import { insertBlock, createURL, createNewPost } from '@wordpress/e2e-test-utils';
 import { setCustomize } from '../../../../utils/customize';
+import { publishPost } from '../../../../utils/publish-post';
 import { setBrowserViewport } from '../../../../utils/set-browser-viewport';
 import { responsiveFontSize } from '../../../../utils/responsive-utils';
 describe( 'Global button font setting under the Customizer', () => {
 	it( 'button font should apply correctly', async () => {
-		const btnFont = {
+		const buttonFont = {
 			'font-family-button': 'Helvetica, Verdana, Arial, sans-serif',
 		};
-		await setCustomize( btnFont );
+		await setCustomize( buttonFont );
 		await page.goto( createURL( '/' ), {
 			waitUntil: 'networkidle0',
 		} );
@@ -15,11 +16,11 @@ describe( 'Global button font setting under the Customizer', () => {
 		await expect( {
 			selector: '.wp-block-search__button',
 			property: 'font-family',
-		} ).cssValueToBe( `${ btnFont[ 'font-family-button' ] }` );
+		} ).cssValueToBe( `${ buttonFont[ 'font-family-button' ] }` );
 	} );
 
 	it( 'button font size should apply correctly', async () => {
-		const btnFontSize = {
+		const buttonFontSize = {
 			'font-size-button': {
 				desktop: 30,
 				tablet: 20,
@@ -29,11 +30,14 @@ describe( 'Global button font setting under the Customizer', () => {
 				'mobile-unit': 'px',
 			},
 		};
-		await setCustomize( btnFontSize );
-		await createNewPost( { postType: 'post', title: 'buttonfontsize' } );
-		await insertBlock( 'Buttons' );
-		await page.keyboard.type( 'Login' );
-		await publishPost();
+		await setCustomize( buttonFontSize );
+		let ppStatus = false;
+		while ( false === ppStatus ) {
+			await createNewPost( { postType: 'post', title: 'buttonfontsize' } );
+			await insertBlock( 'Buttons' );
+			await page.keyboard.type( 'Login' );
+			ppStatus = await publishPost();
+		}
 		await page.goto( createURL( '/buttonfontsize/' ), {
 			waitUntil: 'networkidle0',
 		} );
@@ -41,7 +45,7 @@ describe( 'Global button font setting under the Customizer', () => {
 		await expect( {
 			selector: '.wp-block-button__link',
 			property: 'font-size',
-		} ).cssValueToBe( `${ btnFontSize[ 'font-size-button' ].desktop }${ btnFontSize[ 'font-size-button' ][ 'desktop-unit' ] }` );
+		} ).cssValueToBe( `${ buttonFontSize[ 'font-size-button' ].desktop }${ buttonFontSize[ 'font-size-button' ][ 'desktop-unit' ] }` );
 
 		await setBrowserViewport( 'medium' );
 		await expect( {
@@ -49,8 +53,8 @@ describe( 'Global button font setting under the Customizer', () => {
 			property: 'font-size',
 		} ).cssValueToBe(
 			`${ await responsiveFontSize(
-				btnFontSize[ 'font-size-button' ].tablet,
-			) }${ btnFontSize[ 'font-size-button' ][ 'tablet-unit' ] }` );
+				buttonFontSize[ 'font-size-button' ].tablet,
+			) }${ buttonFontSize[ 'font-size-button' ][ 'tablet-unit' ] }` );
 
 		await setBrowserViewport( 'small' );
 		await expect( {
@@ -58,8 +62,8 @@ describe( 'Global button font setting under the Customizer', () => {
 			property: 'font-size',
 		} ).cssValueToBe(
 			`${ await responsiveFontSize(
-				btnFontSize[ 'font-size-button' ].mobile,
-			) }${ btnFontSize[ 'font-size-button' ][ 'mobile-unit' ] }` );
+				buttonFontSize[ 'font-size-button' ].mobile,
+			) }${ buttonFontSize[ 'font-size-button' ][ 'mobile-unit' ] }` );
 	} );
 	it( 'button font weight should apply correctly', async () => {
 		const fontWeight = {
@@ -92,10 +96,10 @@ describe( 'Global button font setting under the Customizer', () => {
 	} );
 
 	it( 'button font line height should apply correctly', async () => {
-		const btnLineHeight = {
+		const buttonLineHeight = {
 			'theme-btn-line-height': '50px',
 		};
-		await setCustomize( btnLineHeight );
+		await setCustomize( buttonLineHeight );
 		await page.goto( createURL( '/' ), {
 			waitUntil: 'networkidle0',
 		} );
@@ -103,7 +107,7 @@ describe( 'Global button font setting under the Customizer', () => {
 		await expect( {
 			selector: '.wp-block-search__button',
 			property: 'line-height',
-		} ).cssValueToBe( `${ btnLineHeight[ 'theme-btn-line-height' ] }` );
+		} ).cssValueToBe( `${ buttonLineHeight[ 'theme-btn-line-height' ] }` );
 	} );
 
 	it( 'button font letter spacing should apply correctly', async () => {
