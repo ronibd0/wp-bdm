@@ -1,33 +1,24 @@
 import { setCustomize } from '../../../../utils/customize';
 import { createURL } from '@wordpress/e2e-test-utils';
 describe( 'Global button setting under the Customizer', () => {
-	it( 'button text color should apply correctly', async () => {
-		const btnTextColor = {
-			'button-color': 'rgb(245, 245, 245)',
+	it( 'button text and background color should apply correctly', async () => {
+		const buttonColor = {
+			'button-color': 'rgb(14, 12, 157)',
+			'button-bg-color': 'rgb(212, 238, 186)',
 		};
-		await setCustomize( btnTextColor );
+		await setCustomize( buttonColor );
 		await page.goto( createURL( '/' ), {
 			waitUntil: 'networkidle0',
 		} );
-		await page.waitForSelector( '#block-2 .wp-block-search__button' );
+		await page.waitForSelector( '.wp-block-search__inside-wrapper .wp-block-search__button' );
 		await expect( {
-			selector: '#block-2 .wp-block-search__button',
+			selector: '.wp-block-search__inside-wrapper .wp-block-search__button',
 			property: 'color',
-		} ).cssValueToBe( `${ btnTextColor[ 'button-color' ] }` );
-	} );
+		} ).cssValueToBe( `${ buttonColor[ 'button-color' ] }` );
 
-	it( 'button background color should apply correctly', async () => {
-		const btnBgColor = {
-			'button-bg-color': 'rgb(4, 7, 11)',
-		};
-		await setCustomize( btnBgColor );
-		await page.goto( createURL( '/' ), {
-			waitUntil: 'networkidle0',
-		} );
-		await page.waitForSelector( '#block-2 > form > div > button' );
 		await expect( {
-			selector: '#block-2 > form > div > button',
+			selector: '.wp-block-search__inside-wrapper .wp-block-search__button',
 			property: 'background-color',
-		} ).cssValueToBe( `${ btnBgColor[ 'button-bg-color' ] }` );
+		} ).cssValueToBe( `${ buttonColor[ 'button-bg-color' ] }` );
 	} );
 } );
