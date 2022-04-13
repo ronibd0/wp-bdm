@@ -1,20 +1,24 @@
-import { createURL, createNewPost, publishPost } from '@wordpress/e2e-test-utils';
+import { createURL, createNewPost } from '@wordpress/e2e-test-utils';
+import { publishPost } from '../../../../utils/publish-post';
 import { setCustomize } from '../../../../utils/customize';
 describe( 'blog archive in the customizer', () => {
 	it( 'post structure structure should apply corectly', async () => {
-		const BlogpostStructure = {
+		const blogPostStructure = {
 			'blog-post-structure': {
-				'title-meta': 1,
+				'title-meta': 0,
 			},
 		};
-		await setCustomize( BlogpostStructure );
-		await createNewPost( { postType: 'post', title: 'hello world' } );
-		await publishPost();
+		await setCustomize( blogPostStructure );
+		let ppStatus = false;
+		while ( false === ppStatus ) {
+			await createNewPost( { postType: 'post', title: 'test' } );
+			ppStatus = await publishPost();
+		}
 		await page.goto( createURL( '/author/admin' ), {
 			waitUntil: 'networkidle0',
 		} );
-		await page.waitForSelector( '.blog-layout-1 .post-content' );
-		const title = await page.$eval( '.blog-layout-1 .post-content', ( element ) => element.getAttribute( '.entry-header' ) );
-		await expect( title ).toBeNull( );
+		await page.waitForSelector( '.ast-separate-container .site-main > .ast-row' );
+		const postStructure = await page.$eval( '.ast-separate-container .site-main > .ast-row', ( element ) => element.getAttribute( '.entry-header' ) );
+		await expect( postStructure ).toBeNull( );
 	} );
 } );
