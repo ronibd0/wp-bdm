@@ -25,19 +25,19 @@ describe( 'Below footer column and layout setting in customizer', () => {
 		await setBrowserViewport( 'large' );
 		await scrollToElement( '#colophon' );
 		await page.waitForSelector( '.site-below-footer-wrap' );
-		const desktopLayout = await page.$eval( '.ast-builder-grid-row-2-equal', ( element ) => element.getAttribute( '.ast-builder-grid-row-2-equal' ) );
+		const desktopLayout = await page.$eval( '.site-below-footer-wrap', ( element ) => element.getAttribute( '.ast-builder-grid-row-2-equal' ) );
 		await expect( desktopLayout ).toBeNull();
 
 		await setBrowserViewport( 'medium' );
 		await scrollToElement( '#colophon' );
 		await page.waitForSelector( '.site-below-footer-wrap' );
-		const tabletLayout = await page.$eval( '.ast-builder-grid-row-tablet-2-equal', ( element ) => element.getAttribute( '.ast-builder-grid-row-tablet-2-equal' ) );
+		const tabletLayout = await page.$eval( '.site-below-footer-wrap', ( element ) => element.getAttribute( '.ast-builder-grid-row-tablet-2-equal' ) );
 		await expect( tabletLayout ).toBeNull();
 
 		await setBrowserViewport( 'small' );
 		await scrollToElement( '#colophon' );
 		await page.waitForSelector( '.site-below-footer-wrap' );
-		const mobileLayout = await page.$eval( '.ast-builder-grid-row-mobile-full', ( element ) => element.getAttribute( '.ast-builder-grid-row-mobile-full' ) );
+		const mobileLayout = await page.$eval( '.site-below-footer-wrap', ( element ) => element.getAttribute( '.ast-builder-grid-row-mobile-full' ) );
 		await expect( mobileLayout ).toBeNull();
 	} );
 
