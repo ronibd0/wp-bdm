@@ -51,6 +51,15 @@
 	}
 }
 
+#secondary {
+		.wp-block-search__input {
+			line-height: 1;
+		}
+		.wp-block-search__button {
+			padding: 0.7em 1em;
+		}
+}
+
 /* Search widget. */
 .widget_search {
 	.search-form {

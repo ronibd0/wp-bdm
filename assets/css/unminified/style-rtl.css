@@ -3726,6 +3726,14 @@ body .entry-content .wp-block-latest-posts li {
   transition: all 0.2s linear;
 }
 
+#secondary .wp-block-search__input {
+  line-height: 1;
+}
+
+#secondary .wp-block-search__button {
+  padding: 0.7em 1em;
+}
+
 /* Search widget. */
 .widget_search .search-form {
   position: relative;
