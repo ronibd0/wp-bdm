@@ -43,7 +43,7 @@ describe( 'Above footer column and layout setting in customizer', () => {
 
 	it( 'column should apply correctly', async () => {
 		const aboveFooterColumn = {
-			'hb-footer-column': '2',
+			'hba-footer-column': '2',
 			'footer-desktop-items': {
 				above: {
 					above_1: {
