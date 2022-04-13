@@ -3,7 +3,7 @@ v3.7.10
 - Fix: Search element not displaying in Mobile Offcanvas.
 - Fix: Elementor Pro - WooCommerce Checkout Form's shipping details not look appropriate in editor mode as it looks on the frontend.
 - Fix: Gutenberg editor - Layout settings is not visble for Group block.
-- Fix: Fixed block editor style issue with the responsive preview option on the post or page.
+- Fix: Theme's responsive styles not loading with the responsive preview option in the block editor.
 
 v3.7.9
 - Fix: Added correct version number for background updater.
