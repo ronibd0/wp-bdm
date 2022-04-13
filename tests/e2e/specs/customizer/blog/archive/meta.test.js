@@ -1,8 +1,9 @@
-import { createURL, createNewPost, publishPost } from '@wordpress/e2e-test-utils';
+import { createURL, createNewPost } from '@wordpress/e2e-test-utils';
+import { publishPost } from '../../../../utils/publish-post';
 import { setCustomize } from '../../../../utils/customize';
-describe( 'blog archive in the customizer', () => {
-	it( 'post structure structure should apply corectly', async () => {
-		const BlogpostStructure = {
+describe( 'Blog archive in the customizer', () => {
+	it( 'post structure should apply correctly', async () => {
+		const blogPostStructure = {
 			'blog-meta': {
 				0: 'comments',
 				1: 'category',
@@ -10,26 +11,29 @@ describe( 'blog archive in the customizer', () => {
 				3: 'date',
 			},
 		};
-		await setCustomize( BlogpostStructure );
-		await createNewPost( { postType: 'post', title: 'hello world' } );
-		await publishPost();
+		await setCustomize( blogPostStructure );
+		let ppStatus = false;
+		while ( false === ppStatus ) {
+			await createNewPost( { postType: 'post', title: 'test' } );
+			ppStatus = await publishPost();
+		}
 		await page.goto( createURL( '/author/admin' ), {
 			waitUntil: 'networkidle0',
 		} );
-		await page.waitForSelector( '.blog-layout-1 .post-content' );
-		const Comments = await page.$eval( '.blog-layout-1 .post-content', ( element ) => element.getAttribute( '.comments-link' ) );
-		await expect( Comments ).toBeNull( );
+		await page.waitForSelector( '.entry-meta' );
+		const comments = await page.$eval( '.entry-meta', ( element ) => element.getAttribute( '.comments-link' ) );
+		await expect( comments ).toBeNull( );
 
-		await page.waitForSelector( '.blog-layout-1 .post-content' );
-		const Category = await page.$eval( '.blog-layout-1 .post-content', ( element ) => element.getAttribute( '.cat-links' ) );
-		await expect( Category ).toBeNull( );
+		await page.waitForSelector( '.entry-meta' );
+		const category = await page.$eval( '.entry-meta', ( element ) => element.getAttribute( '.cat-links' ) );
+		await expect( category ).toBeNull( );
 
-		await page.waitForSelector( '.blog-layout-1 .post-content' );
-		const Authorname = await page.$eval( '.blog-layout-1 .post-content', ( element ) => element.getAttribute( '.author-name' ) );
-		await expect( Authorname ).toBeNull( );
+		await page.waitForSelector( '.entry-meta' );
+		const authorName = await page.$eval( '.entry-meta', ( element ) => element.getAttribute( '.posted-by.vcard.author' ) );
+		await expect( authorName ).toBeNull( );
 
-		await page.waitForSelector( '.blog-layout-1 .post-content' );
-		const Postedon = await page.$eval( '.blog-layout-1 .post-content', ( element ) => element.getAttribute( 'posted-on' ) );
-		await expect( Postedon ).toBeNull( );
+		await page.waitForSelector( '.entry-meta' );
+		const date = await page.$eval( '.entry-meta', ( element ) => element.getAttribute( '.posted-on' ) );
+		await expect( date ).toBeNull( );
 	} );
 } );
