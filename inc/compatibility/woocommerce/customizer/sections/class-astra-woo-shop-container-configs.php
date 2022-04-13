@@ -43,7 +43,6 @@ if ( ! class_exists( 'Astra_Woo_Shop_Container_Configs' ) ) {
 					'section'  => 'section-container-layout',
 					'priority' => 85,
 					'title'    => __( 'WooCommerce Layout', 'astra' ),
-					'divider'  => array( 'ast_class' => 'ast-top-divider' ),
 					'choices'  => array(
 						'default'                 => __( 'Default', 'astra' ),
 						'boxed-container'         => __( 'Boxed', 'astra' ),
