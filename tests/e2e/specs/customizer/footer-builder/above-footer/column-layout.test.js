@@ -2,15 +2,13 @@ import { createURL } from '@wordpress/e2e-test-utils';
 import { setCustomize } from '../../../../utils/customize';
 import { setBrowserViewport } from '../../../../utils/set-browser-viewport';
 import { scrollToElement } from '../../../../utils/scroll-to-element';
-
 describe( 'Above footer column and layout setting in customizer', () => {
-	it( 'column na dlayout should apply correctly', async () => {
-		const Abovefooter = {
-			'hba-footer-column': '2',
+	it( 'layout should apply correctly', async () => {
+		const aboveFooterLayout = {
 			'hba-footer-layout': {
-				desktop: '2-rheavy',
-				tablet: '2-lheavy',
-				mobile: '2-lheavy',
+				desktop: '2-equal',
+				tablet: '2-equal',
+				mobile: 'full',
 			},
 			'footer-desktop-items': {
 				above: {
@@ -20,29 +18,48 @@ describe( 'Above footer column and layout setting in customizer', () => {
 				},
 			},
 		};
-
-		await setCustomize( Abovefooter );
+		await setCustomize( aboveFooterLayout );
 		await page.goto( createURL( '/' ), {
 			waitUntil: 'networkidle0',
 		} );
-		await page.waitForSelector( '.site-above-footer-wrap[data-section="section-above-footer-builder"] .ast-builder-grid-row' );
 		await setBrowserViewport( 'large' );
 		await scrollToElement( '#colophon' );
+		await page.waitForSelector( '.site-above-footer-wrap' );
+		const desktopLayout = await page.$eval( '.ast-builder-grid-row-2-equal', ( element ) => element.getAttribute( '.ast-builder-grid-row-2-equal' ) );
+		await expect( desktopLayout ).toBeNull();
 
-		await expect( {
-			selector: '.site-above-footer-wrap[data-section="section-above-footer-builder"] .ast-builder-grid-row',
-			property: 'grid-template-columns',
-		} ).cssValueToBe( `${ Abovefooter[ 'hba-footer-layout' ].desktop }`,
-		);
-		await expect( {
-			selector: '.site-above-footer-wrap[data-section="section-above-footer-builder"] .ast-builder-grid-row',
-			property: 'grid-template-columns',
-		} ).cssValueToBe( `${ Abovefooter[ 'hba-footer-layout' ].tablet }`,
-		);
-		await expect( {
-			selector: '.site-above-footer-wrap[data-section="section-above-footer-builder"] .ast-builder-grid-row',
-			property: 'grid-template-columns',
-		} ).cssValueToBe( `${ Abovefooter[ 'hba-footer-layout' ].mobile }`,
-		);
+		await setBrowserViewport( 'medium' );
+		await scrollToElement( '#colophon' );
+		await page.waitForSelector( '.site-above-footer-wrap' );
+		const tabletLayout = await page.$eval( '.ast-builder-grid-row-tablet-2-equal', ( element ) => element.getAttribute( '.ast-builder-grid-row-tablet-2-equal' ) );
+		await expect( tabletLayout ).toBeNull();
+
+		await setBrowserViewport( 'small' );
+		await scrollToElement( '#colophon' );
+		await page.waitForSelector( '.site-above-footer-wrap' );
+		const mobileLayout= await page.$eval( '.ast-builder-grid-row-mobile-full', ( element ) => element.getAttribute( '.ast-builder-grid-row-mobile-full' ) );
+		await expect( mobileLayout ).toBeNull();
+	} );
+
+	it( 'column should apply correctly', async () => {
+		const aboveFooterCoulmn = {
+			'hb-footer-column': '2',
+			'footer-desktop-items': {
+				above: {
+					above_1: {
+						0: 'social-icons-1',
+					},
+				},
+			},
+		};
+		await setCustomize( aboveFooterCoulmn );
+		await page.goto( createURL( '/' ), {
+			waitUntil: 'networkidle0',
+		} );
+		await setBrowserViewport( 'large' );
+		await scrollToElement( '#colophon' );
+		await page.waitForSelector( '.site-above-footer-wrap' );
+		const Coulumn= await page.$eval( '.site-above-footer-wrap', ( element ) => element.getAttribute( '.ast-builder-grid-row-2-equal .ast-builder-grid-row' ) );
+		await expect( Coulumn ).toBeNull();
 	} );
 } );
