@@ -37,12 +37,12 @@ describe( 'Above footer column and layout setting in customizer', () => {
 		await setBrowserViewport( 'small' );
 		await scrollToElement( '#colophon' );
 		await page.waitForSelector( '.site-above-footer-wrap' );
-		const mobileLayout= await page.$eval( '.ast-builder-grid-row-mobile-full', ( element ) => element.getAttribute( '.ast-builder-grid-row-mobile-full' ) );
+		const mobileLayout = await page.$eval( '.ast-builder-grid-row-mobile-full', ( element ) => element.getAttribute( '.ast-builder-grid-row-mobile-full' ) );
 		await expect( mobileLayout ).toBeNull();
 	} );
 
 	it( 'column should apply correctly', async () => {
-		const aboveFooterCoulmn = {
+		const aboveFooterColumn = {
 			'hb-footer-column': '2',
 			'footer-desktop-items': {
 				above: {
@@ -52,14 +52,14 @@ describe( 'Above footer column and layout setting in customizer', () => {
 				},
 			},
 		};
-		await setCustomize( aboveFooterCoulmn );
+		await setCustomize( aboveFooterColumn );
 		await page.goto( createURL( '/' ), {
 			waitUntil: 'networkidle0',
 		} );
 		await setBrowserViewport( 'large' );
 		await scrollToElement( '#colophon' );
 		await page.waitForSelector( '.site-above-footer-wrap' );
-		const Coulumn= await page.$eval( '.site-above-footer-wrap', ( element ) => element.getAttribute( '.ast-builder-grid-row-2-equal .ast-builder-grid-row' ) );
-		await expect( Coulumn ).toBeNull();
+		const Column = await page.$eval( '.site-above-footer-wrap', ( element ) => element.getAttribute( '.ast-builder-grid-row-2-equal .ast-builder-grid-row' ) );
+		await expect( Column ).toBeNull();
 	} );
 } );
