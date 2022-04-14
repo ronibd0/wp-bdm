@@ -44,9 +44,9 @@ describe( 'social icons hide on devices in the customizer', () => {
 		} );
 		await setBrowserViewport( 'medium' );
 		await scrollToElement( '#colophon' );
-		await page.waitForSelector( '.ast-builder-layout-element[data-section="section-fb-social-icons-1"]' );
+		await page.waitForSelector( '.ast-header-break-point .ast-builder-layout-element[data-section="section-fb-social-icons-1"]' );
 		await expect( {
-			selector: '.ast-builder-layout-element[data-section="section-fb-social-icons-1"]',
+			selector: '.ast-header-break-point .ast-builder-layout-element[data-section="section-fb-social-icons-1"]',
 			property: 'display',
 		} ).cssValueToBe( `none` );
 	} );
@@ -68,9 +68,9 @@ describe( 'social icons hide on devices in the customizer', () => {
 		} );
 		await setBrowserViewport( 'small' );
 		await scrollToElement( '#colophon' );
-		await page.waitForSelector( '.ast-builder-layout-element[data-section="section-fb-social-icons-1"]' );
+		await page.waitForSelector( '.ast-header-break-point .ast-builder-layout-element[data-section="section-fb-social-icons-1"]' );
 		await expect( {
-			selector: '.ast-builder-layout-element[data-section="section-fb-social-icons-1"]',
+			selector: '.ast-header-break-point .ast-builder-layout-element[data-section="section-fb-social-icons-1"]',
 			property: 'display',
 		} ).cssValueToBe( `none` );
 	} );
