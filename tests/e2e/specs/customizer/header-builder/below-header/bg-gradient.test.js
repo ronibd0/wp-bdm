@@ -49,28 +49,25 @@ describe( 'Below header background gradient setting in customizer', () => {
 		await page.goto( createURL( '/' ), {
 			waitUntil: 'networkidle0',
 		} );
-		await page.waitForSelector( '.ast-below-header.ast-below-header-bar' );
+		await page.waitForSelector( '.ast-below-header-bar' );
 		await expect( {
-			selector: '.ast-below-header.ast-below-header-bar',
+			selector: '.ast-below-header-bar',
 			property: 'background-image',
 		} ).cssValueToBe(
 			`${ belowHeaderBgGradient[ 'hbb-header-bg-obj-responsive' ].desktop[ 'background-color' ] }`,
 		);
 		await setBrowserViewport( 'medium' );
-		await page.waitFor( 2000 );
-		await page.waitForSelector( '.ast-below-header.ast-below-header-bar' );
+		await page.waitForSelector( '.ast-below-header-bar' );
 		await expect( {
-			selector: '.ast-below-header.ast-below-header-bar',
+			selector: '.ast-below-header-bar',
 			property: 'background-image',
 		} ).cssValueToBe(
 			`${ belowHeaderBgGradient[ 'hbb-header-bg-obj-responsive' ].tablet[ 'background-color' ] }`,
 		);
-		await page.waitFor( 2000 );
 		await setBrowserViewport( 'small' );
-		await page.waitForSelector( '.ast-below-header.ast-below-header-bar' );
-		await page.waitFor( 2000 );
+		await page.waitForSelector( '.ast-below-header-bar' );
 		await expect( {
-			selector: '.ast-below-header.ast-below-header-bar',
+			selector: '.ast-below-header-bar',
 			property: 'background-image',
 		} ).cssValueToBe(
 			`${ belowHeaderBgGradient[ 'hbb-header-bg-obj-responsive' ].mobile[ 'background-color' ] }`,
