@@ -7,12 +7,12 @@ describe( 'Header builder button setting in customizer', () => {
 			'header-button1-text-color': {
 				desktop: 'rgb(230, 12, 12)',
 				tablet: 'rgb(76, 145, 13)',
-				mobile: 'rgb(169, 17, 150)',
+				mobile: 'rgb(105, 12, 12)',
 			},
 			'header-button1-back-color': {
-				desktop: 'rgb(232, 205, 205)',
+				desktop: 'rgb(230, 188, 230)',
 				tablet: 'rgb(243, 239, 217)',
-				mobile: 'rgb(232, 205, 205)',
+				mobile: 'rgb(230, 188, 230)',
 			},
 			'header-desktop-items': {
 				above: {
