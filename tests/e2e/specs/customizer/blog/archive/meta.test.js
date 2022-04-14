@@ -17,9 +17,13 @@ describe( 'Blog archive in the customizer', () => {
 			await createNewPost( { postType: 'post', title: 'test' } );
 			ppStatus = await publishPost();
 		}
-		await page.goto( createURL( '/author/admin' ), {
+		await page.goto( createURL( '/' ), {
 			waitUntil: 'networkidle0',
 		} );
+		await page.click( '#wp-block-search__input-1' );
+		await page.keyboard.type( 'test' );
+		await page.keyboard.press( 'Enter' );
+
 		await page.waitForSelector( '.entry-meta' );
 		const comments = await page.$eval( '.entry-meta', ( element ) => element.getAttribute( '.comments-link' ) );
 		await expect( comments ).toBeNull( );
