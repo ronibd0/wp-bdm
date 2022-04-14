@@ -1,6 +1,6 @@
 import { createURL } from '@wordpress/e2e-test-utils';
 import { setCustomize } from '../../../utils/customize';
-describe( 'Account Icons in the customizer', () => {
+describe( 'Account icons in the customizer', () => {
 	it( 'account icon color for desktop should apply correctly', async () => {
 		const accountIconColor = {
 			'header-account-icon-color': 'rgb(120, 22, 162)',
@@ -27,4 +27,4 @@ describe( 'Account Icons in the customizer', () => {
 		} ).cssValueToBe( `${ accountIconColor[ 'header-account-icon-color' ] }`,
 		);
 	} );
-});
+} );
