@@ -1,5 +1,6 @@
 v3.7.10
-- Fix: Woocommerce - WooCommerce Grid layout issue in WooCommerce Products Archive shortcode.
+- Fix: WooCommerce - WooCommerce Grid layout issue in WooCommerce Products Archive shortcode.
+- Fix: Compatibility with WordPress 5.9.2 - Customizer block editor color More Settings getting oval shape around palette.
 
 v3.7.9
 - Fix: Added correct version number for background updater.
