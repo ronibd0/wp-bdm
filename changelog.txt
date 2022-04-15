@@ -1,5 +1,5 @@
 v3.7.10
-- Fix: WooCommerce - WooCommerce Grid layout issue in WooCommerce Products Archive shortcode.
+- Fix: WooCommerce - Grid layout not working properly with Products Archive shortcode.
 - Fix: Toggle menu not collapsible on below IOS 13 version.
 - Fix: Compatibility with WordPress 5.9.2 - Customizer block editor color More Settings getting oval shape around palette.
 
