@@ -2,7 +2,7 @@ import { createURL } from '@wordpress/e2e-test-utils';
 import { setCustomize } from '../../../../utils/customize';
 import { scrollToElement } from '../../../../utils/scroll-to-element';
 import { setBrowserViewport } from '../../../../utils/set-browser-viewport';
-describe( 'social icons hide on devices in the customizer', () => {
+describe( 'Social icons hide on devices in the customizer', () => {
 	it( 'social icon hide on desktop should apply correctly', async () => {
 		const hideOnDesktop = {
 			'section-fb-social-icons-1-hide-desktop': 1,
