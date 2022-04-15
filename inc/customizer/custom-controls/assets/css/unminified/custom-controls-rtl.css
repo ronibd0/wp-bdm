@@ -746,7 +746,10 @@
     height: 16px;
     margin-right: 0.8rem;
     display: inline-block;
-    border: none;
+}
+
+.astra-advanced-color-indicate.component-color-indicator {
+	border: none;
 }
 
 .astra-color-icon-indicate.components-button {
@@ -2020,7 +2023,6 @@
     height: 16px;
     margin-right: 0.8rem;
     display: inline-block;
-    border: none;
 }
 
 .astra-color-icon-indicate.components-button {
@@ -3795,7 +3797,7 @@ input[type="text"].select2-search__field {
     margin-bottom: 0;
     display: none;
 }
-  
+
 .ast-responsive-toggle-btns > li.active {
     display: inline-block;
 }
