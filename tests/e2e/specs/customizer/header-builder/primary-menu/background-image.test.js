@@ -1,7 +1,7 @@
 import { createURL, createNewPost } from '@wordpress/e2e-test-utils';
-import { setBrowserViewport } from '../../../../../utils/set-browser-viewport';
-import { setCustomize } from '../../../../../utils/customize';
-import { publishPost } from '../../../../../utils/publish-post';
+import { setBrowserViewport } from '../../../../utils/set-browser-viewport';
+import { setCustomize } from '../../../../utils/customize';
+import { publishPost } from '../../../../utils/publish-post';
 describe( 'Primary menu settings in the customizer', () => {
 	it( 'background image should apply corectly', async () => {
 		const primaryMenuImage = {
@@ -19,7 +19,7 @@ describe( 'Primary menu settings in the customizer', () => {
 		await setCustomize( primaryMenuImage );
 		let ppStatus = false;
 		while ( false === ppStatus ) {
-			await createNewPost( { postType: 'page', title: 'test' } );
+			await createNewPost( { postType: 'page', title: 'test-1' } );
 			ppStatus = await publishPost();
 		}
 		await page.goto( createURL( '/' ), {
