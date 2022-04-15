@@ -35,7 +35,7 @@ describe( 'Primary menu settings in the customizer', () => {
 		const primaryMenuImage = {
 			'header-mobile-menu-bg-obj-responsive': {
 				tablet: {
-					'background-image': 'https://pd.w.org/2022/03/4396229dc66495703.29624587-300x200.jpg',
+					'background-image': 'https://pd.w.org/2022/03/96622a0f432e6904.41498035-300x169.jpeg',
 					'background-repeat': 'no-repeat',
 					'background-position': 'left top',
 					'background-size': 'cover',
@@ -43,7 +43,7 @@ describe( 'Primary menu settings in the customizer', () => {
 					'background-type': 'image',
 				},
 				mobile: {
-					'background-image': 'https://pd.w.org/2022/03/279622a6365c1a804.96566561-300x225.jpg',
+					'background-image': 'https://pd.w.org/2022/03/96622a0f432e6904.41498035-300x169.jpeg',
 					'background-repeat': 'no-repeat',
 					'background-position': 'left top',
 					'background-size': 'cover',
@@ -63,17 +63,17 @@ describe( 'Primary menu settings in the customizer', () => {
 		} );
 		await setBrowserViewport( 'medium' );
 		await page.click( '.main-header-menu-toggle' );
-		await page.waitForSelector( '.ast-builder-menu-mobile .main-navigation .main-header-menu' );
+		await page.waitForSelector( '.ast-builder-menu-1 .main-header-menu' );
 		await expect( {
-			selector: '.ast-builder-menu-mobile .main-navigation .main-header-menu',
+			selector: '.ast-builder-menu-1 .main-header-menu',
 			property: 'background-image',
 		} ).cssValueToBe( `url("${ primaryMenuImage[ 'header-mobile-menu-bg-obj-responsive' ].tablet[ 'background-image' ] + '")' }` );
 
 		await setBrowserViewport( 'small' );
 		await page.click( '.main-header-menu-toggle' );
-		await page.waitForSelector( '.ast-builder-menu-mobile .main-navigation .main-header-menu' );
+		await page.waitForSelector( '.ast-builder-menu-1 .main-header-menu' );
 		await expect( {
-			selector: '.ast-builder-menu-mobile .main-navigation .main-header-menu',
+			selector: '.ast-builder-menu-1 .main-header-menu',
 			property: 'background-image',
 		} ).cssValueToBe( `url("${ primaryMenuImage[ 'header-mobile-menu-bg-obj-responsive' ].mobile[ 'background-image' ] + '")' }` );
 	} );
