@@ -12,7 +12,6 @@ const FontFamilyComponent = props => {
 		link
 	} = props.control.params;
 
-
 	const [state, setState] = useState({
 		value: props.control.setting.get(),
 	});
@@ -32,7 +31,8 @@ const FontFamilyComponent = props => {
 		descriptionHtml = null,
 		selectHtml = null,
 		inp_array = [],
-		inherit = __('Inherit', 'astra');
+		inherit = __('Inherit', 'astra'),
+		linkedVariant = variant;
 
 	if (label) {
 		labelHtml = <span className="customize-control-title">{label}</span>;
@@ -51,6 +51,10 @@ const FontFamilyComponent = props => {
 				inp_array[item_values[0]] = item_values[1].replace(/"/g, "");
 			}
 		});
+	}
+
+	if( variant ) {
+		linkedVariant = '';
 	}
 
 	if (connect && variant) {
