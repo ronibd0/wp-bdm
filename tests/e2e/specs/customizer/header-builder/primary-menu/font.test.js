@@ -7,7 +7,7 @@ describe( 'Primary menu settings in customizer', () => {
 			'header-menu1-font-family': 'Zeyada, handwriting',
 			'header-menu1-font-weight': '400',
 			'header-menu1-text-transform': 'uppercase',
-			'header-menu1-line-height': '10',
+			'header-menu1-line-height': '0.99',
 			'header-menu1-font-size': {
 				desktop: 45,
 				'desktop-unit': 'px',
@@ -40,7 +40,7 @@ describe( 'Primary menu settings in customizer', () => {
 		await expect( {
 			selector: '.ast-builder-menu-1 .menu-item > .menu-link',
 			property: 'line-height',
-		} ).cssValueToBe( `${ primaryMenuFont[ 'header-menu1-line-height' ] + 'px' }` );
+		} ).cssValueToBe( `${ primaryMenuFont[ 'header-menu1-line-height' ] }` );
 
 		await expect( {
 			selector: '.ast-builder-menu-1 .menu-item > .menu-lin',
