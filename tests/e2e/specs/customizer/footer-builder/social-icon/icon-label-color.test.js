@@ -2,7 +2,7 @@ import { createURL } from '@wordpress/e2e-test-utils';
 import { setCustomize } from '../../../../utils/customize';
 import { setBrowserViewport } from '../../../../utils/set-browser-viewport';
 import { scrollToElement } from '../../../../utils/scroll-to-element';
-describe( 'social icons show label in the customizer', () => {
+describe( 'Social icons show label in the customizer', () => {
 	it( 'icon label color should apply correctly', async () => {
 		const socialIconLabelColor = {
 			'footer-social-1-label-toggle': '1',
