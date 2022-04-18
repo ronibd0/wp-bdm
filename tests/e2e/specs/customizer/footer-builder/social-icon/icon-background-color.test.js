@@ -2,7 +2,7 @@ import { createURL } from '@wordpress/e2e-test-utils';
 import { setCustomize } from '../../../../utils/customize';
 import { scrollToElement } from '../../../../utils/scroll-to-element';
 import { setBrowserViewport } from '../../../../utils/set-browser-viewport';
-describe( 'social icons in the customizer', () => {
+describe( 'Social icons in the customizer', () => {
 	it( 'icon background color should apply correctly', async () => {
 		const socialIconBackColor = {
 			'footer-social-1-bg-color': {
