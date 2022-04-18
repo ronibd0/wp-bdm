@@ -49,7 +49,7 @@ describe( 'Transparent header settings in the customizer', () => {
 		} ).cssValueToBe( `${ socialIconTextColor[ 'transparent-header-social-icons-color' ].mobile }` );
 	} );
 
-    it( 'social icon background color setting should apply correctly', async () => {
+	it( 'social icon background color setting should apply correctly', async () => {
 		const socialIconBgColor = {
 			'transparent-header-enable': 1,
 			'transparent-header-social-icons-bg-color': {
