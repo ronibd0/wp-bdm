@@ -106,7 +106,7 @@ describe( 'Transparent header settings in the customizer', () => {
 			'header-desktop-items': {
 				primary: {
 					primary_center: {
-						0: 'social-icons-1',
+						0: 'search',
 					},
 				},
 			},
