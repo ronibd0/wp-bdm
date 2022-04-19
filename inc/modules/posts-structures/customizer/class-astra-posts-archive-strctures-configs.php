@@ -127,18 +127,9 @@ class Astra_Posts_Archive_Strctures_Configs extends Astra_Customizer_Config_Base
 				$parent_section = 'section-posttype-' . $post_type;
 			}
 
-			$_configs = array(
+			$post_type_object = get_post_type_object( $post_type );
 
-				/**
-				 * Archive Parent.
-				 */
-				array(
-					'name'     => $section_parent,
-					'title'    => ucfirst( $post_type ) . __( ' Archive', 'astra' ),
-					'section'  => $parent_section,
-					'type'     => 'section',
-					'priority' => 10,
-				),
+			$_configs = array(
 
 				/**
 				 * Link to the Page title.
@@ -257,17 +248,6 @@ class Astra_Posts_Archive_Strctures_Configs extends Astra_Customizer_Config_Base
 						),
 					),
 					'divider'           => array( 'ast_class' => 'ast-bottom-divider' ),
-				),
-
-				/**
-				 * Archive Post section.
-				 */
-				array(
-					'name'     => $section,
-					'title'    => ucfirst( $post_type ) . __( ' Archive Title', 'astra' ),
-					'type'     => 'section',
-					'section'  => $section_parent,
-					'priority' => 5,
 				),
 
 				/**
@@ -891,6 +871,43 @@ class Astra_Posts_Archive_Strctures_Configs extends Astra_Customizer_Config_Base
 					'connected'         => false,
 				),
 			);
+
+			if ( 'post' !== $post_type && 'product' !== $post_type ) {
+
+				/**
+				 * Archive Parent.
+				 */
+				$_configs[] = array(
+					'name'     => $section_parent,
+					'title'    => isset( $post_type_object->labels->name ) ? $post_type_object->labels->name . __( ' Archive', 'astra' ) : ucfirst( $post_type ) . __( ' Archive', 'astra' ),
+					'section'  => $parent_section,
+					'type'     => 'section',
+					'priority' => 10,
+				);
+
+				/**
+				 * Archive Post section.
+				 */
+				$_configs[] = array(
+					'name'     => $section,
+					'title'    => isset( $post_type_object->labels->name ) ? $post_type_object->labels->name . __( ' Archive Title', 'astra' ) : ucfirst( $post_type ) . __( ' Archive Title', 'astra' ),
+					'type'     => 'section',
+					'section'  => $section_parent,
+					'priority' => 5,
+				);
+
+			} else {
+				/**
+				 * Archive Post section.
+				 */
+				$_configs[] = array(
+					'name'     => $section,
+					'title'    => isset( $post_type_object->labels->name ) ? $post_type_object->labels->name . __( ' Archive Title', 'astra' ) : ucfirst( $post_type ) . __( ' Archive Title', 'astra' ),
+					'type'     => 'section',
+					'section'  => $parent_section,
+					'priority' => 5,
+				);
+			}
 
 			if ( 'post' === $post_type ) {
 				/**

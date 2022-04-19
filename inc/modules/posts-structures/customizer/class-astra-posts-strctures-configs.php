@@ -65,7 +65,7 @@ class Astra_Posts_Strctures_Configs extends Astra_Customizer_Config_Base {
 				$_configs[] = array(
 					'name'     => 'section-posttype-' . $slug,
 					'type'     => 'section',
-					'title'    => ucfirst( $post_type_object->labels->name ),
+					'title'    => isset( $post_type_object->labels->name ) ? $post_type_object->labels->name : ucfirst( $slug ),
 					'priority' => 69,
 					// 'section' => 'section-posts-strctures',
 				);

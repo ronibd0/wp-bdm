@@ -137,6 +137,8 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 				$parent_section = 'section-posttype-' . $post_type;
 			}
 
+			$post_type_object = get_post_type_object( $post_type );
+
 			$clone_limit = 3;
 			$to_clone    = true;
 			if ( absint( astra_get_option( $section . '-taxonomy-clone-tracker', 1 ) ) === $clone_limit ) {
@@ -170,17 +172,6 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 
 
 			$_configs = array(
-
-				/**
-				 * Single Post Parent.
-				 */
-				array(
-					'name'     => $section_parent,
-					'title'    => ucfirst( $post_type ) . __( ' Single', 'astra' ),
-					'section'  => $parent_section,
-					'type'     => 'section',
-					'priority' => 10,
-				),
 
 				// array(
 				// 	'name'           => ASTRA_THEME_SETTINGS . '['. $section. '-banner-section-link]',
@@ -296,18 +287,6 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 						),
 					),
 					'divider'           => array( 'ast_class' => 'ast-bottom-divider' ),
-				),
-
-
-				/**
-				 * Single Post section.
-				 */
-				array(
-					'name'     => $section,
-					'title'    => ucfirst( $post_type ) . __( ' Title', 'astra' ),
-					'section'  => $section_parent,
-					'type'     => 'section',
-					'priority' => 5,
 				),
 
 				/**
@@ -1116,6 +1095,43 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 					'connected'         => false,
 				),
 			);
+
+			if ( 'post' !== $post_type && 'product' !== $post_type ) {
+				
+				/**
+				 * Archive Parent.
+				 */
+				$_configs[] = array(
+					'name'     => $section_parent,
+					'title'    => isset( $post_type_object->labels->name ) ? $post_type_object->labels->name . __( ' Single', 'astra' ) : ucfirst( $post_type ) . __( ' Single', 'astra' ),
+					'section'  => $parent_section,
+					'type'     => 'section',
+					'priority' => 10,
+				);
+
+				/**
+				 * Archive Post section.
+				 */
+				$_configs[] = array(
+					'name'     => $section,
+					'title'    => isset( $post_type_object->labels->name ) ? $post_type_object->labels->name . __( ' Single Title', 'astra' ) : ucfirst( $post_type ) . __( ' Single Title', 'astra' ),
+					'type'     => 'section',
+					'section'  => $section_parent,
+					'priority' => 5,
+				);
+
+			} else {
+				/**
+				 * Archive Post section.
+				 */
+				$_configs[] = array(
+					'name'     => $section,
+					'title'    => isset( $post_type_object->labels->name ) ? $post_type_object->labels->name . __( ' Single Title', 'astra' ) : ucfirst( $post_type ) . __( ' Single Title', 'astra' ),
+					'type'     => 'section',
+					'section'  => $parent_section,
+					'priority' => 5,
+				);
+			}
 
 			for ( $index = 1; $index <= $clone_limit; $index++ ) {
 
