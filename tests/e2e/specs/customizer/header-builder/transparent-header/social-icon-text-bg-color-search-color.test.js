@@ -95,4 +95,27 @@ describe( 'Transparent header settings in the customizer', () => {
 			property: 'background-color',
 		} ).cssValueToBe( `${ socialIconBgColor[ 'transparent-header-social-icons-bg-color' ].mobile }` );
 	} );
+
+	it( 'search icon color setting should apply correctly', async () => {
+		const searchIconColor = {
+			'transparent-header-enable': 1,
+			'transparent-header-search-icon-color': 'rgb(169, 11, 113)',
+			'header-desktop-items': {
+				primary: {
+					primary_center: {
+						0: 'social-icons-1',
+					},
+				},
+			},
+		};
+		await setCustomize( searchIconColor );
+		await page.goto( createURL( '/' ), {
+			waitUntil: 'networkidle0',
+		} );
+		await page.waitForSelector( '.ast-theme-transparent-header .ast-header-search .ast-icon' );
+		await expect( {
+			selector: '.ast-theme-transparent-header .ast-header-search .ast-icon',
+			property: 'color',
+		} ).cssValueToBe( `${ searchIconColor[ 'transparent-header-search-icon-color' ] }` );
+	} );
 } );
