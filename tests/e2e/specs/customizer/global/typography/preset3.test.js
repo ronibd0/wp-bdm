@@ -3,7 +3,6 @@ import { setCustomize } from '../../../../utils/customize';
 import { publishPost } from '../../../../utils/publish-post';
 import { TPOGRAPHY_TEST_POST_CONTENT } from '../../../../utils/post';
 import { setBrowserViewport } from '../../../../utils/set-browser-viewport';
-import { responsiveFontSize } from '../../../../utils/responsive-utils';
 describe( 'Global typography preset-3 style in the customizer', () => {
 	it( 'body style should be applied correctly', async () => {
 		const globalTypographyPreset3 = {
