@@ -4,6 +4,7 @@ describe( 'Transparent header settings in the customizer', () => {
 	it( 'button text color setting should apply correctly', async () => {
 		const buttonTextColor = {
 			'transparent-header-enable': 1,
+			'transparent-header-disable-latest-posts-index': 0,
 			'transparent-header-button-text-color': 'rgb(70, 5, 95)',
 			'header-desktop-items': {
 				primary: {
@@ -27,6 +28,7 @@ describe( 'Transparent header settings in the customizer', () => {
 	it( 'button background color setting should apply correctly', async () => {
 		const buttonBackgroundColor = {
 			'transparent-header-enable': 1,
+			'transparent-header-disable-latest-posts-index': 0,
 			'transparent-header-button-bg-color': 'rgb(228, 237, 200)',
 			'header-desktop-items': {
 				primary: {
