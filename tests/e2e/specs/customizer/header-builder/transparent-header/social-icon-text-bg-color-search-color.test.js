@@ -5,6 +5,7 @@ describe( 'Transparent header settings in the customizer', () => {
 	it( 'social icon text color setting should apply correctly', async () => {
 		const socialIconTextColor = {
 			'transparent-header-enable': 1,
+			'transparent-header-disable-latest-posts-index': 0,
 			'transparent-header-social-icons-color': {
 				desktop: 'rgb(6, 65, 113)',
 				tablet: 'rgb(43, 103, 3)',
@@ -52,6 +53,7 @@ describe( 'Transparent header settings in the customizer', () => {
 	it( 'social icon background color setting should apply correctly', async () => {
 		const socialIconBgColor = {
 			'transparent-header-enable': 1,
+			'transparent-header-disable-latest-posts-index': 0,
 			'transparent-header-social-icons-bg-color': {
 				desktop: 'rgb(206, 236, 200)',
 				tablet: 'rgb(249, 214, 217)',
@@ -99,6 +101,7 @@ describe( 'Transparent header settings in the customizer', () => {
 	it( 'search icon color setting should apply correctly', async () => {
 		const searchIconColor = {
 			'transparent-header-enable': 1,
+			'transparent-header-disable-latest-posts-index': 0,
 			'transparent-header-search-icon-color': 'rgb(169, 11, 113)',
 			'header-desktop-items': {
 				primary: {
