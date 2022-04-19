@@ -5,6 +5,7 @@ describe( 'Transparent header settings in the customizer', () => {
 		const transparentHeaderBorder = {
 			'transparent-header-enable': 1,
 			'transparent-header-main-sep': '45',
+			'transparent-header-disable-latest-posts-index': 0,
 			'transparent-header-main-sep-color': 'rgb(230, 206, 206)',
 		};
 		await setCustomize( transparentHeaderBorder );
