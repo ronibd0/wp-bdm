@@ -14,8 +14,8 @@ describe( 'Global typography preset-3 style in the customizer', () => {
 			'body-line-height': '25px',
 			'font-size-body': {
 				desktop: '17',
-				tablet: '15',
-				mobile: '10',
+				tablet: '20',
+				mobile: '15',
 				'desktop-unit': 'px',
 				'tablet-unit': 'px',
 				'mobile-unit': 'px',
@@ -54,25 +54,19 @@ describe( 'Global typography preset-3 style in the customizer', () => {
 		} ).cssValueToBe(
 			`${ globalTypographyPreset3[ 'font-size-body' ].desktop }${ globalTypographyPreset3[ 'font-size-body' ][ 'desktop-unit' ] }`,
 		);
-
 		await setBrowserViewport( 'medium' );
 		await expect( {
 			selector: 'body',
 			property: 'font-size',
 		} ).cssValueToBe(
-			`${ await responsiveFontSize(
-				globalTypographyPreset3[ 'font-size-body' ].tablet,
-			) }${ globalTypographyPreset3[ 'font-size-body' ][ 'tablet-unit' ] }`,
+			`${ globalTypographyPreset3[ 'font-size-body' ].tablet }${ globalTypographyPreset3[ 'font-size-body' ][ 'tablet-unit' ] }`,
 		);
-
 		await setBrowserViewport( 'small' );
 		await expect( {
 			selector: 'body',
 			property: 'font-size',
 		} ).cssValueToBe(
-			`${ await responsiveFontSize(
-				globalTypographyPreset3[ 'font-size-body' ].mobile,
-			) }${ globalTypographyPreset3[ 'font-size-body' ][ 'mobile-unit' ] }`,
+			`${ globalTypographyPreset3[ 'font-size-body' ].mobile }${ globalTypographyPreset3[ 'font-size-body' ][ 'mobile-unit' ] }`,
 		);
 	} );
 
