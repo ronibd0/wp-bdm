@@ -25,6 +25,8 @@ if ( ! function_exists( 'astra_page_layout' ) ) {
 	 */
 	function astra_page_layout() {
 
+		$supported_post_types =  Astra_Posts_Strctures_Loader::get_supported_post_types();
+
 		if ( is_singular() ) {
 
 			// If post meta value is empty,
@@ -35,7 +37,9 @@ if ( ! function_exists( 'astra_page_layout' ) ) {
 
 				$post_type = get_post_type();
 
-				if ( 'post' === $post_type || 'page' === $post_type || 'product' === $post_type ) {
+
+				if ( 'post' === $post_type || 'page' === $post_type || 'product' === $post_type || in_array( $post_type, $supported_post_types ) ) {
+				
 					$layout = astra_get_option( 'single-' . get_post_type() . '-sidebar-layout' );
 				}
 
@@ -64,7 +68,7 @@ if ( ! function_exists( 'astra_page_layout' ) ) {
 				$post_type = get_post_type();
 				$layout    = '';
 
-				if ( 'post' === $post_type ) {
+				if ( 'post' === $post_type || in_array( $post_type, $supported_post_types ) ) {
 					$layout = astra_get_option( 'archive-' . get_post_type() . '-sidebar-layout' );
 				}
 

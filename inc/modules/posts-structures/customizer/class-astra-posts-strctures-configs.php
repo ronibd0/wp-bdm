@@ -59,13 +59,17 @@ class Astra_Posts_Strctures_Configs extends Astra_Customizer_Config_Base {
 			/**
 			 * Individual post types main section.
 			 */
-			foreach ( $post_types as $index => $label ) {
+			foreach ( $post_types as $index => $slug ) {
+				$post_type_object = get_post_type_object( $slug );
+
 				$_configs[] = array(
-					'name'    => 'section-posttype-' . $label,
-					'type'    => 'section',
-					'title'   => ucfirst( $label ),
-					'section' => 'section-posts-strctures',
+					'name'     => 'section-posttype-' . $slug,
+					'type'     => 'section',
+					'title'    => ucfirst( $post_type_object->labels->name ),
+					'priority' => 69,
+					// 'section' => 'section-posts-strctures',
 				);
+				
 			}
 
 			$configurations = array_merge( $configurations, $_configs );
