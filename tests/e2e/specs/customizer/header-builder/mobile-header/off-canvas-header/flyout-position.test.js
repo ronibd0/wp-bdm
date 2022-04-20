@@ -1,23 +1,21 @@
-import { createURL, createNewPost, publishPost } from '@wordpress/e2e-test-utils';
+import { createURL, createNewPost } from '@wordpress/e2e-test-utils';
+import { publishPost } from '../../../../../utils/publish-post';
 import { setCustomize } from '../../../../../utils/customize';
 import { setBrowserViewport } from '../../../../../utils/set-browser-viewport';
-describe( 'off canvas flyout header type settings in the customizer', () => {
+describe( 'Off canvas flyout header type settings in the customizer', () => {
 	it( 'flyout position for tablet should apply correctly', async () => {
 		const flyoutPosition = {
 			'mobile-header-type': 'off-canvas',
 			'off-canvas-slide': 'left',
 		};
 		await setCustomize( flyoutPosition );
-		await createNewPost( {
-			postType: 'page',
-			title: 'sample-page',
-		} );
-		await publishPost();
-		await createNewPost( {
-			postType: 'page',
-			title: 'test-page',
-		} );
-		await publishPost();
+		let ppStatus = false;
+		while ( false === ppStatus ) {
+			await createNewPost( { postType: 'page', title: 'sample-page' } );
+			ppStatus = await publishPost();
+			await createNewPost( { postType: 'page', title: 'test-page' } );
+			ppStatus = await publishPost();
+		}
 		await page.goto( createURL( '/' ), {
 			waitUntil: 'networkidle0',
 		} );
