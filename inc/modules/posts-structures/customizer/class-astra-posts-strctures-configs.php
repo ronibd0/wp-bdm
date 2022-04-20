@@ -40,22 +40,6 @@ class Astra_Posts_Strctures_Configs extends Astra_Customizer_Config_Base {
 
 		if ( ! empty( $post_types ) ) {
 
-			$_configs = array(
-				// array(
-				// 'name'             => 'post-types-section-separator',
-				// 'type'             => 'section',
-				// 'ast_type'         => 'ast-section-separator',
-				// 'priority'         => 68,
-				// 'section_callback' => 'Astra_WP_Customize_Separator',
-				// ),
-				array(
-					'name'     => 'section-posts-strctures',
-					'type'     => 'section',
-					'priority' => 69,
-					'title'    => __( 'Posts Types', 'astra' ),
-				),
-			);
-
 			/**
 			 * Individual post types main section.
 			 */
@@ -67,7 +51,6 @@ class Astra_Posts_Strctures_Configs extends Astra_Customizer_Config_Base {
 					'type'     => 'section',
 					'title'    => isset( $post_type_object->labels->name ) ? $post_type_object->labels->name : ucfirst( $slug ),
 					'priority' => 69,
-					// 'section' => 'section-posts-strctures',
 				);
 				
 			}

@@ -36,7 +36,7 @@ if ( ! function_exists( 'astra_get_post_meta' ) ) {
 			switch ( $meta_value ) {
 
 				case 'author':
-					if ( ! empty( get_the_author_meta( 'display_name', get_queried_object()->post_author ) ) ) {
+					if ( ! empty( get_the_author_meta( 'display_name', isset( get_queried_object()->post_author ) ) ) ) {
 						$output_str .= ( 1 != $loop_count && '' != $output_str ) ? ' ' . $separator . ' ' : '';
 						$output_str .= esc_html( astra_default_strings( 'string-blog-meta-author-by', false ) ) . astra_post_author();
 					}
@@ -191,7 +191,7 @@ if ( ! function_exists( 'astra_post_author' ) ) {
 						)
 					);
 				?>
-				><?php echo get_the_author_meta( 'display_name', get_queried_object()->post_author ); ?></span>
+				><?php echo esc_html( get_the_author_meta( 'display_name', isset( get_queried_object()->post_author ) ) ); ?></span>
 			</a>
 		</span>
 
