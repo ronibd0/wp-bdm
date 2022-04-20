@@ -36,7 +36,7 @@ class Astra_Posts_Archive_Strctures_Configs extends Astra_Customizer_Config_Base
 	 */
 	public function register_configuration( $configurations, $wp_customize ) {
 
-		$responsive_bg_default = array(
+		$responsive_bg_default      = array(
 			'desktop' => array(
 				'background-color'      => '#eeeeee',
 				'background-image'      => '',
@@ -68,7 +68,7 @@ class Astra_Posts_Archive_Strctures_Configs extends Astra_Customizer_Config_Base
 				'background-media'      => '',
 			),
 		);
-		$spacing_default       = array(
+		$spacing_default            = array(
 			'desktop'      => array(
 				'top'    => '',
 				'right'  => '',
@@ -91,7 +91,7 @@ class Astra_Posts_Archive_Strctures_Configs extends Astra_Customizer_Config_Base
 			'tablet-unit'  => 'px',
 			'mobile-unit'  => 'px',
 		);
-		$font_size_defaults    = array(
+		$font_size_defaults         = array(
 			'desktop'      => '',
 			'tablet'       => '',
 			'mobile'       => '',
@@ -104,21 +104,21 @@ class Astra_Posts_Archive_Strctures_Configs extends Astra_Customizer_Config_Base
 			'tablet'  => '',
 			'mobile'  => '',
 		);
-		$post_types            = Astra_Posts_Strctures_Loader::get_supported_post_types();
+		$post_types                 = Astra_Posts_Strctures_Loader::get_supported_post_types();
 
 		foreach ( $post_types as $index => $post_type ) {
 
-			$section = 'ast-archive-' . $post_type;
-			$section_parent = 'ast-archive-parent' . $post_type;
+			$section            = 'ast-archive-' . $post_type;
+			$section_parent     = 'ast-archive-parent' . $post_type;
 			$background_choices = array(
 				'none'   => __( 'None', 'astra' ),
 				'custom' => __( 'Custom', 'astra' ),
 			);
 			if ( 'product' === $post_type ) {
-				$parent_section = 'woocommerce_product_catalog';
+				$parent_section     = 'woocommerce_product_catalog';
 				$background_choices = array(
-					'none'   => __( 'None', 'astra' ),
-					'custom' => __( 'Custom', 'astra' ),
+					'none'     => __( 'None', 'astra' ),
+					'custom'   => __( 'Custom', 'astra' ),
 					'featured' => __( 'Featured', 'astra' ),
 				);
 			} elseif ( 'post' === $post_type ) {
@@ -131,49 +131,15 @@ class Astra_Posts_Archive_Strctures_Configs extends Astra_Customizer_Config_Base
 
 			$_configs = array(
 
-				/**
-				 * Link to the Page title.
-				 */
-				// array(
-				// 	'name'           => ASTRA_THEME_SETTINGS . '['. $section. '-banner-section-link]',
-				// 	'type'           => 'control',
-				// 	'control'        => 'ast-customizer-link',
-				// 	'section'  		 => $section_parent,
-				// 	'priority'       => 5,
-				// 	'link_type'      => 'section',
-				// 	'is_button_link' => true,
-				// 	'linked'         => $section,
-				// 	'context'        => Astra_Builder_Helper::$general_tab,
-				// 	'link_text'      => __( 'Archive Title Section', 'astra' ),
-				// ),
-
-				/**
-				 * Option: Container Layout.
-				 */
-				// array(
-				// 	'name'     => ASTRA_THEME_SETTINGS . '[archive-'. $post_type .'-content-layout]',
-				// 	'type'     => 'control',
-				// 	'control'  => 'ast-select',
-				// 	'section'  => $section_parent,
-				// 	'default'  => astra_get_option( 'archive-'. $post_type . '-content-layout' ),
-				// 	'priority' => 5,
-				// 	'title'    => __( 'Container Layout', 'astra' ),
-				// 	'choices'  => array(
-				// 		'default'                 => __( 'Default', 'astra' ),
-				// 		'boxed-container'         => __( 'Boxed', 'astra' ),
-				// 		'content-boxed-container' => __( 'Content Boxed', 'astra' ),
-				// 		'plain-container'         => __( 'Full Width / Contained', 'astra' ),
-				// 		'page-builder'            => __( 'Full Width / Stretched', 'astra' ),
-				// 	),
-				// ),
+		
 
 				array(
-					'name'              => ASTRA_THEME_SETTINGS . '[archive-'. $post_type .'-content-layout]',
+					'name'              => ASTRA_THEME_SETTINGS . '[archive-' . $post_type . '-content-layout]',
 					'type'              => 'control',
 					'control'           => 'ast-radio-image',
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
 					'section'           => $section_parent,
-					'default'           => astra_get_option( 'archive-'. $post_type . '-content-layout' ),
+					'default'           => astra_get_option( 'archive-' . $post_type . '-content-layout', 'default' ),
 					'priority'          => 5,
 					'title'             => __( 'Container Layout', 'astra' ),
 					'choices'           => array(
@@ -201,32 +167,15 @@ class Astra_Posts_Archive_Strctures_Configs extends Astra_Customizer_Config_Base
 					'divider'           => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
-				/**
-				 * Option: Sidebar Layout
-				 */
-				// array(
-				// 	'name'     => ASTRA_THEME_SETTINGS . '[archive-'. $post_type .'-sidebar-layout]',
-				// 	'type'     => 'control',
-				// 	'control'  => 'ast-select',
-				// 	'section'  => $section_parent,
-				// 	'default'  => astra_get_option( 'archive-'. $post_type . '-sidebar-layout' ),
-				// 	'priority' => 5,
-				// 	'title'    => __( 'Sidebar Layout', 'astra' ),
-				// 	'choices'  => array(
-				// 		'default'       => __( 'Default', 'astra' ),
-				// 		'no-sidebar'    => __( 'No Sidebar', 'astra' ),
-				// 		'left-sidebar'  => __( 'Left Sidebar', 'astra' ),
-				// 		'right-sidebar' => __( 'Right Sidebar', 'astra' ),
-				// 	),
-				// ),
+
 
 				array(
-					'name'              => ASTRA_THEME_SETTINGS . '[archive-'. $post_type .'-sidebar-layout]',
+					'name'              => ASTRA_THEME_SETTINGS . '[archive-' . $post_type . '-sidebar-layout]',
 					'type'              => 'control',
 					'control'           => 'ast-radio-image',
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
 					'section'           => $section_parent,
-					'default'           => astra_get_option( 'archive-'. $post_type . '-sidebar-layout' ),
+					'default'           => astra_get_option( 'archive-' . $post_type . '-sidebar-layout', 'default' ),
 					'priority'          => 5,
 					'title'             => __( 'Sidebar Layout', 'astra' ),
 					'choices'           => array(
@@ -482,14 +431,14 @@ class Astra_Posts_Archive_Strctures_Configs extends Astra_Customizer_Config_Base
 				 * Option: Container min height.
 				 */
 				array(
-					'name'        => ASTRA_THEME_SETTINGS . '[' . $section . '-banner-height]',
-					'type'        => 'control',
-					'control'     => 'ast-responsive-slider',
-					'section'     => $section,
-					'transport'   => 'postMessage',
+					'name'              => ASTRA_THEME_SETTINGS . '[' . $section . '-banner-height]',
+					'type'              => 'control',
+					'control'           => 'ast-responsive-slider',
+					'section'           => $section,
+					'transport'         => 'postMessage',
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
-					'default'     => astra_get_option( $section . '-banner-height', $responsive_slider_defaults ),
-					'context'    => array(
+					'default'           => astra_get_option( $section . '-banner-height', $responsive_slider_defaults ),
+					'context'           => array(
 						Astra_Builder_Helper::$design_tab_config,
 						'relation' => 'AND',
 						array(
@@ -498,15 +447,15 @@ class Astra_Posts_Archive_Strctures_Configs extends Astra_Customizer_Config_Base
 							'value'    => 'layout-2',
 						),
 					),
-					'priority'    => 1,
-					'title'       => __( 'Banner Min Height', 'astra' ),
-					'suffix'      => 'px',
-					'input_attrs' => array(
+					'priority'          => 1,
+					'title'             => __( 'Banner Min Height', 'astra' ),
+					'suffix'            => 'px',
+					'input_attrs'       => array(
 						'min'  => 0,
 						'step' => 1,
 						'max'  => 1000,
 					),
-					'divider'     => array( 'ast_class' => 'ast-bottom-divider' ),
+					'divider'           => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				/**
@@ -605,7 +554,7 @@ class Astra_Posts_Archive_Strctures_Configs extends Astra_Customizer_Config_Base
 							'value'    => $section . '-title',
 						),
 					),
-					'divider'    => array( 'ast_class' => 'ast-top-divider' ),
+					'divider'   => array( 'ast_class' => 'ast-top-divider' ),
 					'title'     => __( 'Title Font', 'astra' ),
 					'section'   => $section,
 					'transport' => 'postMessage',
@@ -828,7 +777,7 @@ class Astra_Posts_Archive_Strctures_Configs extends Astra_Customizer_Config_Base
 						'bottom' => __( 'Bottom', 'astra' ),
 						'left'   => __( 'Left', 'astra' ),
 					),
-					'context'    => array(
+					'context'           => array(
 						Astra_Builder_Helper::$design_tab_config,
 						'relation' => 'AND',
 						array(
@@ -858,7 +807,7 @@ class Astra_Posts_Archive_Strctures_Configs extends Astra_Customizer_Config_Base
 						'bottom' => __( 'Bottom', 'astra' ),
 						'left'   => __( 'Left', 'astra' ),
 					),
-					'context'    => array(
+					'context'           => array(
 						Astra_Builder_Helper::$design_tab_config,
 						'relation' => 'AND',
 						array(
@@ -872,41 +821,46 @@ class Astra_Posts_Archive_Strctures_Configs extends Astra_Customizer_Config_Base
 				),
 			);
 
-			if ( 'post' !== $post_type && 'product' !== $post_type ) {
 
-				/**
-				 * Archive Parent.
-				 */
-				$_configs[] = array(
-					'name'     => $section_parent,
-					'title'    => isset( $post_type_object->labels->name ) ? $post_type_object->labels->name . __( ' Archive', 'astra' ) : ucfirst( $post_type ) . __( ' Archive', 'astra' ),
-					'section'  => $parent_section,
-					'type'     => 'section',
-					'priority' => 10,
-				);
+			
+			if ( isset( $post_type_object->has_archive ) && true === $post_type_object->has_archive ) {
 
-				/**
-				 * Archive Post section.
-				 */
-				$_configs[] = array(
-					'name'     => $section,
-					'title'    => isset( $post_type_object->labels->name ) ? $post_type_object->labels->name . __( ' Archive Title', 'astra' ) : ucfirst( $post_type ) . __( ' Archive Title', 'astra' ),
-					'type'     => 'section',
-					'section'  => $section_parent,
-					'priority' => 5,
-				);
+				if ( 'post' !== $post_type && 'product' !== $post_type ) {
 
-			} else {
-				/**
-				 * Archive Post section.
-				 */
-				$_configs[] = array(
-					'name'     => $section,
-					'title'    => isset( $post_type_object->labels->name ) ? $post_type_object->labels->name . __( ' Archive Title', 'astra' ) : ucfirst( $post_type ) . __( ' Archive Title', 'astra' ),
-					'type'     => 'section',
-					'section'  => $parent_section,
-					'priority' => 5,
-				);
+					/**
+					 * Archive Parent.
+					 */
+					$_configs[] = array(
+						'name'     => $section_parent,
+						'title'    => isset( $post_type_object->labels->name ) ? $post_type_object->labels->name . __( ' Archive', 'astra' ) : ucfirst( $post_type ) . __( ' Archive', 'astra' ),
+						'section'  => $parent_section,
+						'type'     => 'section',
+						'priority' => 10,
+					);
+
+					/**
+					 * Archive Post section.
+					 */
+					$_configs[] = array(
+						'name'     => $section,
+						'title'    => isset( $post_type_object->labels->name ) ? $post_type_object->labels->name . __( ' Archive Title', 'astra' ) : ucfirst( $post_type ) . __( ' Archive Title', 'astra' ),
+						'type'     => 'section',
+						'section'  => $section_parent,
+						'priority' => 5,
+					);
+
+				} else {
+					/**
+					 * Archive Post section.
+					 */
+					$_configs[] = array(
+						'name'     => $section,
+						'title'    => isset( $post_type_object->labels->name ) ? $post_type_object->labels->name . __( ' Archive Title', 'astra' ) : ucfirst( $post_type ) . __( ' Archive Title', 'astra' ),
+						'type'     => 'section',
+						'section'  => $parent_section,
+						'priority' => 5,
+					);
+				}           
 			}
 
 			if ( 'post' === $post_type ) {
@@ -939,27 +893,27 @@ class Astra_Posts_Archive_Strctures_Configs extends Astra_Customizer_Config_Base
 				 * Option: Featured Image Overlay Color.
 				 */
 				$_configs[] = array(
-				   'name'     => ASTRA_THEME_SETTINGS . '[' . $section . '-banner-featured-overlay]',
-				   'type'     => 'control',
-				   'control'  => 'ast-color',
-				   'section'  => $section,
-				   'default'  => astra_get_option( $section . '-banner-featured-overlay', '' ),
-				   'priority' => 40,
-				   'title'    => __( 'Overlay Color', 'astra' ),
-				   'context'  => array(
-					   Astra_Builder_Helper::$general_tab_config,
-					   'relation' => 'AND',
-					   array(
-						   'setting'  => ASTRA_THEME_SETTINGS . '[' . $section . '-layout]',
-						   'operator' => '===',
-						   'value'    => 'layout-2',
-					   ),
-					   array(
-						   'setting'  => ASTRA_THEME_SETTINGS . '[' . $section . '-banner-image-type]',
-						   'operator' => '===',
-						   'value'    => 'featured',
-					   ),
-				   ),
+					'name'     => ASTRA_THEME_SETTINGS . '[' . $section . '-banner-featured-overlay]',
+					'type'     => 'control',
+					'control'  => 'ast-color',
+					'section'  => $section,
+					'default'  => astra_get_option( $section . '-banner-featured-overlay', '' ),
+					'priority' => 40,
+					'title'    => __( 'Overlay Color', 'astra' ),
+					'context'  => array(
+						Astra_Builder_Helper::$general_tab_config,
+						'relation' => 'AND',
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[' . $section . '-layout]',
+							'operator' => '===',
+							'value'    => 'layout-2',
+						),
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[' . $section . '-banner-image-type]',
+							'operator' => '===',
+							'value'    => 'featured',
+						),
+					),
 				);
 			}
 

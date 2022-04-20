@@ -990,6 +990,25 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 					$sidebar_layout = $edd_sidebar;
 				}
 
+				$supported_post_types = Astra_Posts_Strctures_Loader::get_supported_post_types();
+				$post_type            = get_post_type();
+	
+				if ( in_array( $post_type, $supported_post_types ) ) {
+					$dynamic_sidebar_layout = '';
+
+					if ( is_singular() ) {
+						$dynamic_sidebar_layout = astra_get_option( 'single-' . $post_type . '-sidebar-layout' );
+					}
+					
+					if ( is_archive() ) {
+						$dynamic_sidebar_layout = astra_get_option( 'archive-' . $post_type . '-sidebar-layout' );
+					}
+
+					if ( ! empty( $dynamic_sidebar_layout ) && 'default' !== $dynamic_sidebar_layout ) {
+						$sidebar_layout = $dynamic_sidebar_layout;
+					}
+				}
+
 				if ( $is_edd_single_product_page ) {
 					$edd_single_product_sidebar = astra_get_option( 'edd-single-product-sidebar-layout' );
 

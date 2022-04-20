@@ -85,8 +85,10 @@ class Astra_Posts_Strctures_Loader {
 		$queried_post_types = array_keys(
 			get_post_types(
 				array(
-					'public'   => true,
-					'_builtin' => false,
+					'public'              => true,
+					'_builtin'            => false,
+					'exclude_from_search' => false,
+					
 				)
 			)
 		);
@@ -132,7 +134,7 @@ class Astra_Posts_Strctures_Loader {
 		// Start removing.
 		// $supported_post_types = array( 'post' );
 		// if ( function_exists( 'is_product' ) ) {
-		// 	$supported_post_types[] = 'product';
+		// $supported_post_types[] = 'product';
 		// }
 		// Remove till here.
 

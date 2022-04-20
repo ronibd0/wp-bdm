@@ -326,6 +326,25 @@ if ( ! class_exists( 'Astra_LearnDash' ) ) :
 					$layout = $learndash_sidebar;
 				}
 
+				$supported_post_types = Astra_Posts_Strctures_Loader::get_supported_post_types();
+				$post_type            = get_post_type();
+
+			
+				if ( in_array( $post_type, $supported_post_types ) ) {
+					$dynamic_sidebar_layout = '';
+
+					if ( is_singular() ) {
+						$dynamic_sidebar_layout = astra_get_option( 'single-' . $post_type . '-sidebar-layout' );
+					}
+					if ( is_archive() ) {
+						$dynamic_sidebar_layout = astra_get_option( 'archive-' . $post_type . '-sidebar-layout' );
+					}
+
+					if ( ! empty( $dynamic_sidebar_layout ) && 'default' !== $dynamic_sidebar_layout ) {
+						$layout = $dynamic_sidebar_layout;
+					}
+				}
+
 				$sidebar = astra_get_option_meta( 'site-sidebar-layout', '', true );
 
 				if ( 'default' !== $sidebar && ! empty( $sidebar ) ) {
@@ -369,6 +388,24 @@ if ( ! class_exists( 'Astra_LearnDash' ) ) :
 
 				if ( 'default' !== $learndash_layout ) {
 					$layout = $learndash_layout;
+				}
+
+				$supported_post_types = Astra_Posts_Strctures_Loader::get_supported_post_types();
+				$post_type            = get_post_type();
+
+				if ( in_array( $post_type, $supported_post_types ) ) {
+					$dynamic_sidebar_layout = '';
+
+					if ( is_singular() ) {
+						$dynamic_sidebar_layout = astra_get_option( 'single-' . $post_type . '-content-layout' );
+					}
+					if ( is_archive() ) {
+						$dynamic_sidebar_layout = astra_get_option( 'archive-' . $post_type . '-content-layout' );
+					}
+
+					if ( ! empty( $dynamic_sidebar_layout ) && 'default' !== $dynamic_sidebar_layout ) {
+						$layout = $dynamic_sidebar_layout;
+					}
 				}
 
 				$learndash_layout = astra_get_option_meta( 'site-content-layout', '', true );
