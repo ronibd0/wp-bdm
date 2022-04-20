@@ -2626,10 +2626,6 @@
   display: contents;
 }
 
-.customize-control-ast-font-variant .select2 {
-  margin-bottom: 12px;
-}
-
 .customize-control .ast-control-tooltip {
   position: absolute;
   top: 0;
@@ -4485,10 +4481,6 @@ span.select2-container.select2-container--default.select2-container--open li.sel
 .customize-control-ast-color .customize-control-title, .customize-control-ast-responsive-background .customize-control-title,
 .customize-control-ast-background .customize-control-title, .customize-control-ast-responsive-color .customize-control-title {
   display: contents;
-}
-
-.customize-control-ast-font-variant .select2 {
-  margin-bottom: 12px;
 }
 
 .customize-control .ast-control-tooltip {
