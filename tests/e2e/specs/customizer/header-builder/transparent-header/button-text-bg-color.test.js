@@ -5,7 +5,7 @@ describe( 'Transparent header settings in the customizer', () => {
 		const buttonTextColor = {
 			'transparent-header-enable': 1,
 			'transparent-header-disable-latest-posts-index': 0,
-			'transparent-header-button-text-color': 'rgb(70, 5, 95)',
+			'transparent-header-button-text-color': 'rgb(18, 87, 5)',
 			'header-desktop-items': {
 				primary: {
 					primary_center: {
@@ -29,7 +29,7 @@ describe( 'Transparent header settings in the customizer', () => {
 		const buttonBackgroundColor = {
 			'transparent-header-enable': 1,
 			'transparent-header-disable-latest-posts-index': 0,
-			'transparent-header-button-bg-color': 'rgb(228, 237, 200)',
+			'transparent-header-button-bg-color': 'rgb(227, 233, 252)',
 			'header-desktop-items': {
 				primary: {
 					primary_center: {
