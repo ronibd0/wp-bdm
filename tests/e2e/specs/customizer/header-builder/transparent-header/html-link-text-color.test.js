@@ -22,7 +22,7 @@ describe( 'Transparent header settings in the customizer', () => {
 		await page.waitForSelector( '.ast-theme-transparent-header [CLASS*="ast-header-html-"] .ast-builder-html-element' );
 		await expect( {
 			selector: '.ast-theme-transparent-header [CLASS*="ast-header-html-"] .ast-builder-html-element',
-			property: 'fill',
+			property: 'color',
 		} ).cssValueToBe( `${ htmlTextColor[ 'transparent-header-html-text-color' ] }` );
 	} );
 
@@ -47,7 +47,7 @@ describe( 'Transparent header settings in the customizer', () => {
 		await page.waitForSelector( '.ast-theme-transparent-header [CLASS*="ast-header-html-"] .ast-builder-html-element a' );
 		await expect( {
 			selector: '.ast-theme-transparent-header [CLASS*="ast-header-html-"] .ast-builder-html-element a',
-			property: 'fill',
+			property: 'color',
 		} ).cssValueToBe( `${ htmlLinkColor[ 'transparent-header-html-link-color' ] }` );
 	} );
 } );
