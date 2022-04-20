@@ -1,5 +1,5 @@
 import { setCustomize } from '../../../../utils/customize';
-import { createURL, createNewPost,insertBlock } from '@wordpress/e2e-test-utils';
+import { createURL, createNewPost, insertBlock } from '@wordpress/e2e-test-utils';
 import { publishPost } from '../../../../utils/publish-post';
 describe( 'Global button setting under the Customizer', () => {
 	it( 'button text and background color should apply correctly', async () => {
