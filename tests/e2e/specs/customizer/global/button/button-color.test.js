@@ -1,5 +1,5 @@
 import { setCustomize } from '../../../../utils/customize';
-import { createURL, createNewPost } from '@wordpress/e2e-test-utils';
+import { createURL, createNewPost,insertBlock } from '@wordpress/e2e-test-utils';
 import { publishPost } from '../../../../utils/publish-post';
 describe( 'Global button setting under the Customizer', () => {
 	it( 'button text and background color should apply correctly', async () => {
@@ -14,8 +14,24 @@ describe( 'Global button setting under the Customizer', () => {
 				postType: 'post',
 				title: 'button-color-test',
 			} );
+			await insertBlock( 'Buttons' );
+			await page.keyboard.type( 'Login' );
 			ppStatus = await publishPost();
 		}
+		await page.goto( createURL( 'button-color-test' ), {
+			waitUntil: 'networkidle0',
+		} );
+		await page.waitForSelector( '.wp-block-button .wp-block-button__link' );
+		await expect( {
+			selector: '.wp-block-button .wp-block-button__link',
+			property: 'color',
+		} ).cssValueToBe( `${ buttonColor[ 'button-color' ] }` );
+		await page.waitForSelector( '.wp-block-button .wp-block-button__link' );
+		await expect( {
+			selector: '.wp-block-button .wp-block-button__link',
+			property: 'background-color',
+		} ).cssValueToBe( `${ buttonColor[ 'button-bg-color' ] }` );
+
 		await page.goto( createURL( 'button-color-test' ), {
 			waitUntil: 'networkidle0',
 		} );
