@@ -6,6 +6,7 @@ describe( 'Transparent header settings in the customizer', () => {
 		const socialIconTextColor = {
 			'transparent-header-enable': 1,
 			'transparent-header-disable-latest-posts-index': 0,
+			'header-social-1-label-toggle': 1,
 			'transparent-header-social-icons-color': {
 				desktop: 'rgb(6, 65, 113)',
 				tablet: 'rgb(43, 103, 3)',
@@ -36,6 +37,12 @@ describe( 'Transparent header settings in the customizer', () => {
 			property: 'fill',
 		} ).cssValueToBe( `${ socialIconTextColor[ 'transparent-header-social-icons-color' ].desktop }` );
 
+		await page.waitForSelector( '.ast-theme-transparent-header .ast-header-social-wrap .ast-social-color-type-custom .ast-builder-social-element .social-item-label');
+		await expect( {
+			selector: '.ast-theme-transparent-header .ast-header-social-wrap .ast-social-color-type-custom .ast-builder-social-element .social-item-label',
+			property: 'color',
+		} ).cssValueToBe( `${ socialIconTextColor[ 'transparent-header-social-icons-color' ].desktop }` );
+
 		await setBrowserViewport( 'medium' );
 		await page.waitForSelector( '.ast-theme-transparent-header .ast-header-social-wrap .ast-social-color-type-custom .ast-builder-social-element svg' );
 		await expect( {
@@ -43,10 +50,22 @@ describe( 'Transparent header settings in the customizer', () => {
 			property: 'fill',
 		} ).cssValueToBe( `${ socialIconTextColor[ 'transparent-header-social-icons-color' ].tablet }` );
 
+		await page.waitForSelector( '.ast-theme-transparent-header .ast-header-social-wrap .ast-social-color-type-custom .ast-builder-social-element .social-item-label');
+		await expect( {
+			selector: '.ast-theme-transparent-header .ast-header-social-wrap .ast-social-color-type-custom .ast-builder-social-element .social-item-label',
+			property: 'color',
+		} ).cssValueToBe( `${ socialIconTextColor[ 'transparent-header-social-icons-color' ].tablet }` );
+
 		await setBrowserViewport( 'small' );
 		await expect( {
 			selector: '.ast-theme-transparent-header .ast-header-social-wrap .ast-social-color-type-custom .ast-builder-social-element svg',
 			property: 'fill',
+		} ).cssValueToBe( `${ socialIconTextColor[ 'transparent-header-social-icons-color' ].mobile }` );
+
+		await page.waitForSelector( '.ast-theme-transparent-header .ast-header-social-wrap .ast-social-color-type-custom .ast-builder-social-element .social-item-label');
+		await expect( {
+			selector: '.ast-theme-transparent-header .ast-header-social-wrap .ast-social-color-type-custom .ast-builder-social-element .social-item-label',
+			property: 'color',
 		} ).cssValueToBe( `${ socialIconTextColor[ 'transparent-header-social-icons-color' ].mobile }` );
 	} );
 
@@ -54,6 +73,7 @@ describe( 'Transparent header settings in the customizer', () => {
 		const socialIconBgColor = {
 			'transparent-header-enable': 1,
 			'transparent-header-disable-latest-posts-index': 0,
+			'header-social-1-label-toggle': 1,
 			'transparent-header-social-icons-bg-color': {
 				desktop: 'rgb(206, 236, 200)',
 				tablet: 'rgb(249, 214, 217)',
