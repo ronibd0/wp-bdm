@@ -37,7 +37,7 @@ describe( 'Transparent header settings in the customizer', () => {
 			property: 'fill',
 		} ).cssValueToBe( `${ socialIconTextColor[ 'transparent-header-social-icons-color' ].desktop }` );
 
-		await page.waitForSelector( '.ast-theme-transparent-header .ast-header-social-wrap .ast-social-color-type-custom .ast-builder-social-element .social-item-label');
+		await page.waitForSelector( '.ast-theme-transparent-header .ast-header-social-wrap .ast-social-color-type-custom .ast-builder-social-element .social-item-label' );
 		await expect( {
 			selector: '.ast-theme-transparent-header .ast-header-social-wrap .ast-social-color-type-custom .ast-builder-social-element .social-item-label',
 			property: 'color',
@@ -50,7 +50,7 @@ describe( 'Transparent header settings in the customizer', () => {
 			property: 'fill',
 		} ).cssValueToBe( `${ socialIconTextColor[ 'transparent-header-social-icons-color' ].tablet }` );
 
-		await page.waitForSelector( '.ast-theme-transparent-header .ast-header-social-wrap .ast-social-color-type-custom .ast-builder-social-element .social-item-label');
+		await page.waitForSelector( '.ast-theme-transparent-header .ast-header-social-wrap .ast-social-color-type-custom .ast-builder-social-element .social-item-label' );
 		await expect( {
 			selector: '.ast-theme-transparent-header .ast-header-social-wrap .ast-social-color-type-custom .ast-builder-social-element .social-item-label',
 			property: 'color',
@@ -62,7 +62,7 @@ describe( 'Transparent header settings in the customizer', () => {
 			property: 'fill',
 		} ).cssValueToBe( `${ socialIconTextColor[ 'transparent-header-social-icons-color' ].mobile }` );
 
-		await page.waitForSelector( '.ast-theme-transparent-header .ast-header-social-wrap .ast-social-color-type-custom .ast-builder-social-element .social-item-label');
+		await page.waitForSelector( '.ast-theme-transparent-header .ast-header-social-wrap .ast-social-color-type-custom .ast-builder-social-element .social-item-label' );
 		await expect( {
 			selector: '.ast-theme-transparent-header .ast-header-social-wrap .ast-social-color-type-custom .ast-builder-social-element .social-item-label',
 			property: 'color',
