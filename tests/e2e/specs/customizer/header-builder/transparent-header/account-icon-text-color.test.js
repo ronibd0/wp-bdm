@@ -29,7 +29,7 @@ describe( 'Transparent header settings in the customizer', () => {
 		const accountTextColor = {
 			'transparent-header-enable': 1,
 			'transparent-header-disable-latest-posts-index': 0,
-			'transparent-account-type-text-color': 'rgb(206, 13, 55)',
+			'transparent-account-type-text-color': 'rgb(18, 87, 5)',
 			'header-account-login-style': 'text',
 			'header-desktop-items': {
 				primary: {
