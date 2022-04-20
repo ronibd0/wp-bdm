@@ -41,15 +41,15 @@ describe( 'Global button font setting under the Customizer', () => {
 		await page.goto( createURL( '/buttonfontsize/' ), {
 			waitUntil: 'networkidle0',
 		} );
-		await page.waitForSelector( '.wp-block-button__link' );
+		await page.waitForSelector( '.wp-block-button .wp-block-button__link' );
 		await expect( {
-			selector: '.wp-block-button__link',
+			selector: '.wp-block-button .wp-block-button__link',
 			property: 'font-size',
 		} ).cssValueToBe( `${ buttonFontSize[ 'font-size-button' ].desktop }${ buttonFontSize[ 'font-size-button' ][ 'desktop-unit' ] }` );
 
 		await setBrowserViewport( 'medium' );
 		await expect( {
-			selector: '.wp-block-button__link',
+			selector: '.wp-block-button .wp-block-button__link',
 			property: 'font-size',
 		} ).cssValueToBe(
 			`${ await responsiveFontSize(
@@ -58,7 +58,7 @@ describe( 'Global button font setting under the Customizer', () => {
 
 		await setBrowserViewport( 'small' );
 		await expect( {
-			selector: '.wp-block-button__link',
+			selector: '.wp-block-button .wp-block-button__link',
 			property: 'font-size',
 		} ).cssValueToBe(
 			`${ await responsiveFontSize(
