@@ -1230,14 +1230,6 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 				)
 			);
 
-			// Astra_Customizer_Control_Base::add_control(
-			// 'ast-font-variant',
-			// array(
-			// 'callback'          => 'Astra_Control_Font_Variant',
-			// 'sanitize_callback' => 'sanitize_text_field',
-			// )
-			// );
-
 			Astra_Customizer_Control_Base::add_control(
 				'ast-description',
 				array(

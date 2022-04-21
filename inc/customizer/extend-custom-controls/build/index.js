@@ -2060,6 +2060,8 @@ const FontVariantComponent = props => {
 
   const getUpatedFontVariantOptions = () => {
     document.addEventListener('AstraGlobalFontChanged', function (e) {
+      setValue(null);
+
       if ('inherit' === e.detail.font) {
         setfontVal('');
       } else {
@@ -2126,7 +2128,7 @@ const FontVariantComponent = props => {
   const variantValue = 'string' === typeof propValue ? propValue.split(',') : propValue;
   let selectedVariants = null;
 
-  if (variantValue.length) {
+  if (variantValue && variantValue.length) {
     selectedVariants = Object.entries(variantValue).map(_ref3 => {
       let [key, name] = _ref3;
       return {
