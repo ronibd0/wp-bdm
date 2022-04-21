@@ -9,7 +9,7 @@ describe( 'Social icons show label in the customizer', () => {
 			'footer-social-1-label-color': {
 				desktop: 'rgb(191, 28, 28)',
 				tablet: 'rgb(64, 1, 1)',
-				mobile: 'rgb(191, 28, 28)',
+				mobile: 'rgb(121, 7, 7)',
 			},
 			'footer-desktop-items': {
 				primary: {
