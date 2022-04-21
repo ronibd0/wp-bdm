@@ -1,8 +1,9 @@
-import { createURL, createNewPost } from '@wordpress/e2e-test-utils';
-import { publishPost } from '../../../../utils/publish-post';
+import { createURL } from '@wordpress/e2e-test-utils';
 import { setCustomize } from '../../../../utils/customize';
+import { createNewMenu } from '../../../../utils/create-menu';
 describe( 'Primary menu settings in customizer', () => {
 	it( 'primary menu typgraphy settings should be apply correctly', async () => {
+		await createNewMenu();
 		const primaryMenuFont = {
 			'header-menu1-font-family': 'Zeyada, handwriting',
 			'header-menu1-font-weight': '400',
@@ -14,11 +15,6 @@ describe( 'Primary menu settings in customizer', () => {
 			},
 		};
 		await setCustomize( primaryMenuFont );
-		let ppStatus = false;
-		while ( false === ppStatus ) {
-			await createNewPost( { postType: 'page', title: 'test-1' } );
-			ppStatus = await publishPost();
-		}
 		await page.goto( createURL( '/' ), {
 			waitUntil: 'networkidle0',
 		} );
