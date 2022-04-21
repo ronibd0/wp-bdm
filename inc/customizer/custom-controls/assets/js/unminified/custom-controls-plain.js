@@ -81,7 +81,6 @@
 
 			if ( 'undefined' != typeof variant ) {
 				api( link ).bind( AstTypography._fontSelectChange );
-				// AstTypography._setFontVarianttOptions.apply( api( link ), [ true ] );
 			}
 		},
 
@@ -98,10 +97,6 @@
 			variants            	= fontSelect.data( 'connected-variant' );
 
 			AstTypography._setFontWeightOptions.apply( this, [ false ] );
-
-			if ( 'undefined' != typeof variants ) {
-				// AstTypography._setFontVarianttOptions.apply( this, [ false ] );
-			}
 		},
 
 		/**
@@ -213,62 +208,6 @@
 			}
 		},
 
-		/**
-		 * Sets the options for a font variant control when a
-		 * font family control changes.
-		 *
-		 * @since 1.5.2
-		 * @access private
-		 * @method _setFontVarianttOptions
-		 * @param {Boolean} init Whether or not we're initializing this font variant control.
-		 */
-		_setFontVarianttOptions: function( init )
-		{
-				var i               = 0,
-				fontSelect          = api.control( this.id ).container.find( 'select' ),
-				fontValue           = this(),
-				selected            = '',
-				variants            = fontSelect.data( 'connected-variant' ),
-				variantSelect       = api.control( variants ).container.find( 'select' ),
-				variantSavedField   = api.control( variants ).container.find( '.ast-font-variant-hidden-value' ).val(),
-				variantSavedField   = '400,500',
-				weightValue        = '',
-				weightOptions       = '',
-				currentWeightTitle  = variantSelect.data( 'inherit' ),
-				weightMap           = astraTypo;
-
-				var variantArray = variantSavedField.split(',');
-
-				// Hide font variant for any ohter fonts then Google
-				var selectedOptionGroup = fontSelect.find('option[value="' + fontSelect.val() + '"]').closest('optgroup').attr('label') || '';
-				if ( 'Google' == selectedOptionGroup ) {
-					variantSelect.parent().removeClass('ast-hide');
-				} else{
-					variantSelect.parent().addClass('ast-hide');
-				}
-
-				var fontValue = AstTypography._cleanGoogleFonts(fontValue);
-				var weightObject = AstTypography._getWeightObject( fontValue );
-
-				weightMap[ 'inherit' ] = currentWeightTitle;
-
-				for ( var i = 0; i < weightObject.length; i++ ) {
-					for ( var e = 0; e < variantArray.length; e++ ) {
-						if ( weightObject[i] === variantArray[e] ) {
-							weightValue = weightObject[ i ];
-							selected 	= ' selected="selected"';
-						} else{
-							selected = ( weightObject[ i ] == weightValue ) ? ' selected="selected"' : '';
-						}
-					}
-					weightOptions += '<option value="' + weightObject[ i ] + '"' + selected + '>' + weightMap[ weightObject[ i ] ] + '</option>';
-				}
-
-				variantSelect.html( weightOptions );
-				if ( ! init ) {
-					api( variants ).set( '' );
-				}
-		},
 		setOption: function( optionName, value, isSelect2 ) {
 			$( "[data-name='"+ optionName + "']" ).val(value);
 			if( isSelect2 ) {
