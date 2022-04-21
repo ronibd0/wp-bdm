@@ -1,3 +1,6 @@
+v3.7.11 (unreleased)
+- Fix: W3 validator - background color property parse error.
+
 v3.7.10
 - Fix: Offcanvas Shopping cart closed automatically on mobile when scrolled.
 - Fix: Search element not displaying in Mobile Offcanvas.
