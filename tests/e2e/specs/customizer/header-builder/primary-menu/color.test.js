@@ -1,5 +1,4 @@
-import { createURL, createNewPost } from '@wordpress/e2e-test-utils';
-import { publishPost } from '../../../../utils/publish-post';
+import { createURL } from '@wordpress/e2e-test-utils';
 import { setCustomize } from '../../../../utils/customize';
 import { createNewMenu } from '../../../../utils/create-menu';
 describe( 'Primary menu setting in customizer', () => {
