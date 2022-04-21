@@ -804,13 +804,27 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		 */
 		public function store_sidebar_layout( $sidebar_layout ) {
 
-			if ( is_shop() || is_product_taxonomy() || is_checkout() || is_cart() || is_account_page() ) {
+			if ( is_shop() || is_product_taxonomy() || is_checkout() || is_cart() || is_account_page() || is_product() ) {
 
 				$woo_sidebar = astra_get_option( 'woocommerce-sidebar-layout' );
 
 				if ( 'default' !== $woo_sidebar ) {
 
 					$sidebar_layout = $woo_sidebar;
+				}
+
+				$global_page_specific_layout = 'default';
+
+				if( is_shop() || is_product_taxonomy() )  {
+					$global_page_specific_layout = astra_get_option( 'archive-product-sidebar-layout', 'default' );
+				} 
+
+				if( is_product() ) {
+					$global_page_specific_layout = astra_get_option( 'single-product-sidebar-layout', 'default' );
+				}
+
+				if ( 'default' !== $global_page_specific_layout ) {
+					$sidebar_layout = $global_page_specific_layout;
 				}
 
 				if ( is_shop() ) {
@@ -845,6 +859,20 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				if ( 'default' !== $woo_layout ) {
 
 					$layout = $woo_layout;
+				}
+
+				$global_page_specific_layout = 'default';
+
+				if( is_shop() || is_product_taxonomy() )  {
+					$global_page_specific_layout = astra_get_option( 'archive-product-content-layout', 'default' );
+				} 
+
+				if( is_product() ) {
+					$global_page_specific_layout = astra_get_option( 'single-product-content-layout', 'default' );
+				}
+
+				if ( 'default' !== $global_page_specific_layout ) {
+					$layout = $global_page_specific_layout;
 				}
 
 				if ( is_shop() ) {

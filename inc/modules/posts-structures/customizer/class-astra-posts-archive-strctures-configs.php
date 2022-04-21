@@ -823,10 +823,11 @@ class Astra_Posts_Archive_Strctures_Configs extends Astra_Customizer_Config_Base
 
 
 			
-			if ( isset( $post_type_object->has_archive ) && true === $post_type_object->has_archive ) {
+			
 
-				if ( 'post' !== $post_type && 'product' !== $post_type ) {
+			if ( 'post' !== $post_type && 'product' !== $post_type ) {
 
+				if ( isset( $post_type_object->has_archive ) && true === $post_type_object->has_archive ) {
 					/**
 					 * Archive Parent.
 					 */
@@ -848,20 +849,20 @@ class Astra_Posts_Archive_Strctures_Configs extends Astra_Customizer_Config_Base
 						'section'  => $section_parent,
 						'priority' => 5,
 					);
+				}
 
-				} else {
-					/**
-					 * Archive Post section.
-					 */
-					$_configs[] = array(
-						'name'     => $section,
-						'title'    => isset( $post_type_object->labels->name ) ? $post_type_object->labels->name . __( ' Archive Title', 'astra' ) : ucfirst( $post_type ) . __( ' Archive Title', 'astra' ),
-						'type'     => 'section',
-						'section'  => $parent_section,
-						'priority' => 5,
-					);
-				}           
-			}
+			} else {
+				/**
+				 * Archive Post section.
+				 */
+				$_configs[] = array(
+					'name'     => $section,
+					'title'    => isset( $post_type_object->labels->name ) ? $post_type_object->labels->name . __( ' Archive Title', 'astra' ) : ucfirst( $post_type ) . __( ' Archive Title', 'astra' ),
+					'type'     => 'section',
+					'section'  => $parent_section,
+					'priority' => 5,
+				);
+			}           
 
 			if ( 'post' === $post_type ) {
 				/**
