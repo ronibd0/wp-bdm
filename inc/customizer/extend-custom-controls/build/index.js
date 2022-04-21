@@ -2075,10 +2075,6 @@ const FontVariantComponent = props => {
   let fontName = fontVal.split(','),
       fontFamily = fontName[0].replace(/['"]+/g, '');
 
-  if ('inherit' === fontVal || '' === fontVal) {
-    return null;
-  }
-
   if (undefined === fontVariants[fontFamily]) {
     return null;
   }
@@ -10589,7 +10585,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _divider_divider_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../divider/divider-component */ "./src/divider/divider-component.js");
 /* harmony import */ var _box_shadow_box_shadow_component_js__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../box-shadow/box-shadow-component.js */ "./src/box-shadow/box-shadow-component.js");
 /* harmony import */ var _selector_selector_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../selector/selector-component */ "./src/selector/selector-component.js");
-/* harmony import */ var _common_responsive_helper__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../common/responsive-helper */ "./src/common/responsive-helper.js");
+/* harmony import */ var _ast_font_variant_ast_font_variant_js__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../ast-font-variant/ast-font-variant.js */ "./src/ast-font-variant/ast-font-variant.js");
+/* harmony import */ var _common_responsive_helper__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../common/responsive-helper */ "./src/common/responsive-helper.js");
+
 
 
 
@@ -10812,31 +10810,31 @@ const settingsGroupControl = wp.customize.astraControl.extend({
     _.each(control_types, function (control_type, index) {
       switch (control_type.key) {
         case "ast-color":
-          (0,_common_responsive_helper__WEBPACK_IMPORTED_MODULE_15__.astraGetColor)("#customize-control-" + control_type.name);
+          (0,_common_responsive_helper__WEBPACK_IMPORTED_MODULE_16__.astraGetColor)("#customize-control-" + control_type.name);
           break;
 
         case "ast-background":
-          (0,_common_responsive_helper__WEBPACK_IMPORTED_MODULE_15__.astraGetBackground)("#customize-control-" + control_type.name);
+          (0,_common_responsive_helper__WEBPACK_IMPORTED_MODULE_16__.astraGetBackground)("#customize-control-" + control_type.name);
           break;
 
         case "ast-responsive-background":
-          (0,_common_responsive_helper__WEBPACK_IMPORTED_MODULE_15__.astraGetResponsiveBgJs)(control, "#customize-control-" + control_type.name);
+          (0,_common_responsive_helper__WEBPACK_IMPORTED_MODULE_16__.astraGetResponsiveBgJs)(control, "#customize-control-" + control_type.name);
           break;
 
         case "ast-responsive-color":
-          (0,_common_responsive_helper__WEBPACK_IMPORTED_MODULE_15__.astraGetResponsiveColorJs)(control, "#customize-control-" + control_type.name);
+          (0,_common_responsive_helper__WEBPACK_IMPORTED_MODULE_16__.astraGetResponsiveColorJs)(control, "#customize-control-" + control_type.name);
           break;
 
         case "ast-responsive":
-          (0,_common_responsive_helper__WEBPACK_IMPORTED_MODULE_15__.astraGetResponsiveJs)(control);
+          (0,_common_responsive_helper__WEBPACK_IMPORTED_MODULE_16__.astraGetResponsiveJs)(control);
           break;
 
         case "ast-responsive-slider":
-          (0,_common_responsive_helper__WEBPACK_IMPORTED_MODULE_15__.astraGetResponsiveSliderJs)(control);
+          (0,_common_responsive_helper__WEBPACK_IMPORTED_MODULE_16__.astraGetResponsiveSliderJs)(control);
           break;
 
         case "ast-responsive-spacing":
-          (0,_common_responsive_helper__WEBPACK_IMPORTED_MODULE_15__.astraGetResponsiveSpacingJs)(control);
+          (0,_common_responsive_helper__WEBPACK_IMPORTED_MODULE_16__.astraGetResponsiveSpacingJs)(control);
           break;
 
         case "ast-font":
@@ -11025,7 +11023,8 @@ const settingsGroupControl = wp.customize.astraControl.extend({
       'ast-responsive-spacing': _responsive_spacing_responsive_spacing_component__WEBPACK_IMPORTED_MODULE_5__["default"],
       'ast-select': _select_select_component__WEBPACK_IMPORTED_MODULE_11__["default"],
       'ast-divider': _divider_divider_component__WEBPACK_IMPORTED_MODULE_12__["default"],
-      'ast-selector': _selector_selector_component__WEBPACK_IMPORTED_MODULE_14__["default"]
+      'ast-selector': _selector_selector_component__WEBPACK_IMPORTED_MODULE_14__["default"],
+      'ast-font-variant': _ast_font_variant_ast_font_variant_js__WEBPACK_IMPORTED_MODULE_15__["default"]
     };
 
     if (astra.customizer.is_pro) {

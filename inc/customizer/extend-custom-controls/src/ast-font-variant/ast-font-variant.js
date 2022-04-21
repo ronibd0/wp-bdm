@@ -12,7 +12,7 @@ const FontVariantComponent = props => {
 		variant,
 	} = props.control.params;
 
-	const [ propValue, setValue ] = useState( props.control.setting.get() || []);
+	const [ propValue, setValue ] = useState( props.control.setting.get() || [] );
 	const [ fontVal, setfontVal ] = useState( wp.customize.control( variant ).setting.get() || 'inherit');
 
 	// If settings are changed externally.
@@ -32,10 +32,6 @@ const FontVariantComponent = props => {
 	const fontVariants = window.AstraBuilderCustomizerData.googleFonts;
 	let fontName = fontVal.split(','),
 		fontFamily = fontName[0].replace(/['"]+/g, '');
-
-	if ( 'inherit' === fontVal || '' === fontVal ) {
-		return null;
-	}
 
 	if( undefined === fontVariants[fontFamily] ) {
 		return null;

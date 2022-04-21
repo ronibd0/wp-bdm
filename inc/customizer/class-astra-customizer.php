@@ -688,6 +688,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 				'sanitize_callback' => $sanitize_callback,
 				'suffix'            => astra_get_prop( $config, 'suffix' ),
 				'control_type'      => astra_get_prop( $config, 'control' ),
+				'variant'           => astra_get_prop( $config, 'variant' ),
 			);
 
 			self::$dynamic_options['settings'][ astra_get_prop( $new_config, 'name' ) ] = array(

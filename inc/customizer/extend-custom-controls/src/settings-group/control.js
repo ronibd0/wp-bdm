@@ -12,6 +12,7 @@ import SelectComponent from '../select/select-component';
 import DividerComponent from '../divider/divider-component';
 import BoxShadowComponent from '../box-shadow/box-shadow-component.js';
 import SelectorComponent from '../selector/selector-component';
+import FontVariantComponent from '../ast-font-variant/ast-font-variant.js';
 
 import {
 	astraGetBackground,
@@ -486,6 +487,7 @@ export const settingsGroupControl = wp.customize.astraControl.extend( {
 			'ast-select' : SelectComponent,
 			'ast-divider' : DividerComponent,
 			'ast-selector' : SelectorComponent,
+			'ast-font-variant' : FontVariantComponent,
 		};
 
 		if( astra.customizer.is_pro ) {
