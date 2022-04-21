@@ -19,7 +19,7 @@ const FontVariantComponent = props => {
 	const getUpatedFontVariantOptions = () => {
 		document.addEventListener( 'AstraGlobalFontChanged', function (e) {
 			setValue( null );
-			if(  'inherit' === e.detail.font ) {
+			if( 'inherit' === e.detail.font ) {
 				setfontVal( '' );
 			} else {
 				setfontVal( wp.customize.control( variant ).setting.get() );
