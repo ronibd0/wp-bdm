@@ -2052,20 +2052,32 @@ const FontVariantComponent = props => {
   const {
     description,
     label,
+    name,
     variant
   } = props.control.params;
-  const [propValue, setValue] = (0,react__WEBPACK_IMPORTED_MODULE_2__.useState)(props.control.setting.get() || []); // If settings are changed externally.
-  // useEffect( () => {
-  // 	setValue(prevState => ({
-  // 		...prevState,
-  // 		value: props.control.setting.get()
-  // 	}));
-  // }, [props]);
+  const [propValue, setValue] = (0,react__WEBPACK_IMPORTED_MODULE_2__.useState)(props.control.setting.get() || []);
+  const [fontVal, setfontVal] = (0,react__WEBPACK_IMPORTED_MODULE_2__.useState)(wp.customize.control(variant).setting.get() || 'inherit'); // If settings are changed externally.
 
-  const variantValue = 'string' == typeof propValue ? propValue.split(',') : propValue;
-  let setFont = wp.customize.control(variant).setting.get();
+  const getUpatedFontVariantOptions = () => {
+    document.addEventListener('AstraGlobalFontChanged', function (e) {
+      if ('inherit' === e.detail.font) {
+        setfontVal('');
+      } else {
+        setfontVal(wp.customize.control(variant).setting.get());
+      }
+    });
+  };
 
-  if ('inherit' === setFont || '' === setFont) {
+  getUpatedFontVariantOptions();
+  const fontVariants = window.AstraBuilderCustomizerData.googleFonts;
+  let fontName = fontVal.split(','),
+      fontFamily = fontName[0].replace(/['"]+/g, '');
+
+  if ('inherit' === fontVal || '' === fontVal) {
+    return null;
+  }
+
+  if (undefined === fontVariants[fontFamily]) {
     return null;
   }
 
@@ -2073,25 +2085,26 @@ const FontVariantComponent = props => {
       descriptionHtml = description ? (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
     className: "description customize-control-description"
   }, description) : null;
-  const fontVariants = window.AstraBuilderCustomizerData.googleFonts;
 
   const prepareToSave = variants => {
     let fontVariantVal = Object.entries(variants).map(_ref => {
       let [key, name] = _ref;
-      return [name.value];
+
+      if ('string' == typeof name) {
+        return name;
+      } else {
+        return name.value;
+      }
     });
-    let stringFontVariant = fontVariantVal.join(",");
+    let unique = [...new Set(fontVariantVal)];
+    let stringFontVariant = unique.join(",");
+    setValue(stringFontVariant);
     props.control.setting.set(stringFontVariant);
   };
 
   const updateValues = newVal => {
-    console.error(newVal);
-    setValue(newVal);
     prepareToSave(newVal);
   };
-
-  let fontName = setFont.split(','),
-      fontFamily = fontName[0].replace(/['"]+/g, '');
 
   if (!fontVariants[fontFamily][0]) {
     return null;
@@ -2110,12 +2123,26 @@ const FontVariantComponent = props => {
       value: name
     };
   });
+  const variantValue = 'string' === typeof propValue ? propValue.split(',') : propValue;
+  let selectedVariants = null;
+
+  if (variantValue.length) {
+    selectedVariants = Object.entries(variantValue).map(_ref3 => {
+      let [key, name] = _ref3;
+      return {
+        label: variantLabels[name],
+        value: name
+      };
+    });
+  }
+
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", {
     className: "customize-control-title"
   }, labelHtml, descriptionHtml), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "ast-customizer-font-varient-wrap"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(react_select__WEBPACK_IMPORTED_MODULE_3__["default"], {
-    value: variantValue,
+    name: name,
+    value: selectedVariants,
     options: options,
     isMulti: true,
     onChange: value => updateValues(value),
@@ -6172,6 +6199,34 @@ function responsive_helper_dynamic_css(control, style) {
             'columns': columns,
             'layout': api.value('astra-settings[hbb-footer-layout]').get(),
             'type': 'below'
+          }
+        });
+        document.dispatchEvent(event);
+      });
+    });
+    /**
+     * Trigger on Global body font change.
+     */
+
+    api('astra-settings[body-font-family]', function (value) {
+      value.bind(function (font) {
+        let event = new CustomEvent('AstraGlobalFontChanged', {
+          'detail': {
+            'font': font
+          }
+        });
+        document.dispatchEvent(event);
+      });
+    });
+    /**
+     * Trigger on Global headings font change.
+     */
+
+    api('astra-settings[headings-font-family]', function (value) {
+      value.bind(function (font) {
+        let event = new CustomEvent('AstraGlobalFontChanged', {
+          'detail': {
+            'font': font
           }
         });
         document.dispatchEvent(event);

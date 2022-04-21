@@ -17,7 +17,6 @@ const FontFamilyComponent = props => {
 	});
 
 	const linkRemoteUpdate = () => {
-
 		document.addEventListener( 'AstRemoteUpdateState', function( e ) {
 			if ( e.detail === 'typography' ) {
 				setState({ value : props.control.setting.get() });
