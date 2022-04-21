@@ -8,7 +8,7 @@ describe( 'Primary menu settings in customizer', () => {
 			'header-menu1-font-family': 'Zeyada, handwriting',
 			'header-menu1-font-weight': '400',
 			'header-menu1-text-transform': 'uppercase',
-			'header-menu1-line-height': '70',
+			'header-menu1-line-height': '1',
 			'header-menu1-font-size': {
 				desktop: 45,
 				'desktop-unit': 'px',
@@ -32,11 +32,11 @@ describe( 'Primary menu settings in customizer', () => {
 			property: 'text-transform',
 		} ).cssValueToBe( `${ primaryMenuFont[ 'header-menu1-text-transform' ] }` );
 
-		await page.waitForSelector( '.ast-desktop .ast-primary-header-bar .main-header-menu > .menu-item' );
+		await page.waitForSelector( '.ast-builder-menu-1 .menu-item > .menu-link' );
 		await expect( {
-			selector: '.ast-desktop .ast-primary-header-bar .main-header-menu > .menu-item',
+			selector: '.ast-builder-menu-1 .menu-item > .menu-link',
 			property: 'line-height',
-		} ).cssValueToBe( `${ primaryMenuFont[ 'header-menu1-line-height' ] + 'px' }` );
+		} ).cssValueToBe( `${ primaryMenuFont[ 'header-menu1-line-height' ] * primaryMenuFont[ 'header-menu1-font-size' ].desktop }` + 'px' );
 
 		await expect( {
 			selector: '.ast-builder-menu-1 .menu-item > .menu-link',
