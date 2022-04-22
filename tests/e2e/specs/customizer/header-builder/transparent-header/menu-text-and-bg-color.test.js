@@ -21,9 +21,9 @@ describe( 'Transparent header settings in the customizer', () => {
 		await page.goto( createURL( '/text-color' ), {
 			waitUntil: 'networkidle0',
 		} );
-		await page.waitForSelector( '.ast-theme-transparent-header .ast-builder-menu .main-header-menu .menu-link, .ast-theme-transparent-header [CLASS*="ast-builder-menu-"] .main-header-menu .menu-item > .menu-link, .ast-theme-transparent-header [CLASS*="ast-builder-menu-"] .main-header-menu .menu-item > .menu-link' );
+		await page.waitForSelector( '.ast-theme-transparent-header .ast-builder-menu .main-header-menu .menu-link, .ast-theme-transparent-header [CLASS*="ast-builder-menu-"] .main-header-menu .menu-item > .menu-link, .ast-theme-transparent-header .main-header-menu .menu-link' );
 		await expect( {
-			selector: '.ast-theme-transparent-header .ast-builder-menu .main-header-menu .menu-link, .ast-theme-transparent-header [CLASS*="ast-builder-menu-"] .main-header-menu .menu-item > .menu-link, .ast-theme-transparent-header [CLASS*="ast-builder-menu-"] .main-header-menu .menu-item > .menu-link',
+			selector: '.ast-theme-transparent-header .ast-builder-menu .main-header-menu .menu-link, .ast-theme-transparent-header [CLASS*="ast-builder-menu-"] .main-header-menu .menu-item > .menu-link, .ast-theme-transparent-header .main-header-menu .menu-link',
 			property: 'color',
 		} ).cssValueToBe( `${ menuTextColor[ 'transparent-menu-color-responsive' ].desktop }` );
 
