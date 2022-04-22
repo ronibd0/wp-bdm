@@ -44,7 +44,7 @@ describe( 'Social icons show label in the customizer', () => {
 			selector: '.ast-footer-social-1-wrap .ast-social-color-type-custom .social-item-label',
 			property: 'color',
 		} ).cssValueToBe( `${ socialIconLabelColor[ 'footer-social-1-label-color' ].mobile }` );
-	} )
+	} );
 
 	// eslint-disable-next-line eslint-comments/disable-enable-pair
 	/* eslint-disable jest/no-commented-out-tests */
