@@ -28,7 +28,7 @@ describe( 'Section title font option under the customizer', () => {
 			await createNewPost( { postType: 'post', title: 'test-post' } );
 			ppStatus = await publishPost();
 		}
-		await page.goto( createURL( 'test-post' ), {
+		await page.goto( createURL( '/test-post' ), {
 			waitUntil: 'networkidle0',
 		} );
 		await page.evaluate( () => {
@@ -78,7 +78,6 @@ describe( 'Section title font option under the customizer', () => {
 				sectionTitleFont[ 'related-posts-section-title-font-size' ][ 'mobile-unit' ]
 			}`,
 		);
-
 		await expect( {
 			selector: '.ast-related-posts-title',
 			property: 'line-height',
