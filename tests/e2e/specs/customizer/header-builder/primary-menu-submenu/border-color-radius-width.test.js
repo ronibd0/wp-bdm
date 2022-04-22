@@ -15,7 +15,7 @@ describe( 'Primary menu submenu option under the customizer', () => {
 			},
 			'header-desktop-items': {
 				primary: {
-					primary_right: {
+					primary_center: {
 						0: 'menu-1',
 					},
 				},
