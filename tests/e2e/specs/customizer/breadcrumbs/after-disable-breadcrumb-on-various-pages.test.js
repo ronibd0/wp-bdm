@@ -16,7 +16,7 @@ describe( 'Breadcrumb settings in the customizer', () => {
 		await expect( enablehomePage ).toBeNull( );
 	} );
 
-	it( 'disable breadcrumb on blog page for after header position should apply corectly', async () => {
+	it( 'disable breadcrumb on blog page for after header position should apply correctly', async () => {
 		const afterBreadcrumb = {
 			'breadcrumb-position': 'astra_header_after',
 			'breadcrumb-disable-blog-posts-page': 1,
@@ -35,7 +35,7 @@ describe( 'Breadcrumb settings in the customizer', () => {
 		await expect( disableblog ).toBeNull( );
 	} );
 
-	it( 'disable breadcrumb on search page after header position should apply corectly', async () => {
+	it( 'disable breadcrumb on search page after header position should apply correctly', async () => {
 		const afterBreadcrumb = {
 			'breadcrumb-position': 'astra_header_after',
 			'breadcrumb-disable-archive': 1,
@@ -56,7 +56,7 @@ describe( 'Breadcrumb settings in the customizer', () => {
 		await expect( enableSearchPage ).toBeNull( );
 	} );
 
-	it( 'disable breadcrumb on archive page after header position should apply corectly', async () => {
+	it( 'disable breadcrumb on archive page after header position should apply correctly', async () => {
 		const afterBreadcrumb = {
 			'breadcrumb-position': 'astra_header_after',
 			'breadcrumb-disable-archive': 1,
@@ -75,7 +75,7 @@ describe( 'Breadcrumb settings in the customizer', () => {
 		await expect( enablearchivePage ).toBeNull( );
 	} );
 
-	it( 'disable breadcrumb on single page for after header position should apply corectly', async () => {
+	it( 'disable breadcrumb on single page for after header position should apply correctly', async () => {
 		const afterBreadcrumb = {
 			'breadcrumb-position': 'astra_header_after',
 			'breadcrumb-disable-single-page': 1,
@@ -94,7 +94,7 @@ describe( 'Breadcrumb settings in the customizer', () => {
 		await expect( disablePage ).toBeNull( );
 	} );
 
-	it( 'disable breadcrumb on single post for after header position should apply corectly', async () => {
+	it( 'disable breadcrumb on single post for after header position should apply correctly', async () => {
 		const afterBreadcrumb = {
 			'breadcrumb-position': 'astra_header_after',
 			'breadcrumb-disable-single-post': 1,
@@ -113,7 +113,7 @@ describe( 'Breadcrumb settings in the customizer', () => {
 		await expect( disablePost ).toBeNull( );
 	} );
 
-	it( 'disable breadcrumb on 404 page for after header position should apply corectly', async () => {
+	it( 'disable breadcrumb on 404 page for after header position should apply correctly', async () => {
 		const afterBreadcrumb = {
 			'breadcrumb-position': 'astra_header_after',
 			'breadcrumb-disable-404-page': 1,
