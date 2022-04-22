@@ -2,7 +2,7 @@ import { createURL, createNewPost } from '@wordpress/e2e-test-utils';
 import { publishPost } from '../../../utils/publish-post';
 import { setCustomize } from '../../../utils/customize';
 describe( 'Breadcrumb settings in the customizer', () => {
-	it( 'enable breadcrumb on home page for before title header position should apply corectly', async () => {
+	it( 'enable breadcrumb on home page for before title header position should apply correctly', async () => {
 		const beforeBreadcrumb = {
 			'breadcrumb-position': 'astra_entry_top',
 			'breadcrumb-disable-home-page': 0,
@@ -21,7 +21,7 @@ describe( 'Breadcrumb settings in the customizer', () => {
 		await expect( enableHomePage ).toBeNull( );
 	} );
 
-	it( 'enable breadcrumb on blog page for before title header position should apply corectly', async () => {
+	it( 'enable breadcrumb on blog page for before title header position should apply correctly', async () => {
 		const beforeBreadcrumb = {
 			'breadcrumb-position': 'astra_entry_top',
 			'breadcrumb-disable-blog-posts-page': 0,
@@ -40,7 +40,7 @@ describe( 'Breadcrumb settings in the customizer', () => {
 		await expect( disableBlog ).toBeNull( );
 	} );
 
-	it( 'enable breadcrumb on search page before title header position should apply corectly', async () => {
+	it( 'enable breadcrumb on search page before title header position should apply correctly', async () => {
 		const beforeBreadcrumb = {
 			'breadcrumb-position': 'astra_entry_top',
 			'breadcrumb-disable-archive': 0,
@@ -62,7 +62,7 @@ describe( 'Breadcrumb settings in the customizer', () => {
 		await expect( enableSearchPage ).toBeNull( );
 	} );
 
-	it( 'enable breadcrumb on archive page before title header position should apply corectly', async () => {
+	it( 'enable breadcrumb on archive page before title header position should apply correctly', async () => {
 		const beforeBreadcrumb = {
 			'breadcrumb-position': 'astra_entry_top',
 			'breadcrumb-disable-archive': 0,
@@ -81,7 +81,7 @@ describe( 'Breadcrumb settings in the customizer', () => {
 		await expect( enableArchivePage ).toBeNull( );
 	} );
 
-	it( 'enable breadcrumb on single page for before title position should apply corectly', async () => {
+	it( 'enable breadcrumb on single page for before title position should apply correctly', async () => {
 		const beforeBreadcrumb = {
 			'breadcrumb-position': 'astra_entry_top',
 			'breadcrumb-disable-single-page': 0,
@@ -100,7 +100,7 @@ describe( 'Breadcrumb settings in the customizer', () => {
 		await expect( disablePage ).toBeNull( );
 	} );
 
-	it( 'enable breadcrumb on single post for before title header position should apply corectly', async () => {
+	it( 'enable breadcrumb on single post for before title header position should apply correctly', async () => {
 		const beforeBreadcrumb = {
 			'breadcrumb-position': 'astra_entry_top',
 			'breadcrumb-disable-single-post': 0,
@@ -119,7 +119,7 @@ describe( 'Breadcrumb settings in the customizer', () => {
 		await expect( disablePost ).toBeNull( );
 	} );
 
-	it( 'enable breadcrumb on 404 page for before title header position should apply corectly', async () => {
+	it( 'enable breadcrumb on 404 page for before title header position should apply correctly', async () => {
 		const beforeBreadcrumb = {
 			'breadcrumb-position': 'astra_entry_top',
 			'breadcrumb-disable-404-page': 0,
