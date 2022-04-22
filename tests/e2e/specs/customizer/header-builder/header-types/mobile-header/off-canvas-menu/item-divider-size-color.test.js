@@ -3,7 +3,39 @@ import { setCustomize } from '../../../../../../utils/customize';
 import { setBrowserViewport } from '../../../../../../utils/set-browser-viewport';
 import { publishPost } from '../../../../../../utils/publish-post';
 describe( 'Off canvas menu item divider settings in the customizer', () => {
-	it( 'item divider size and color should apply corectly for after header', async () => {
+	// it( 'item divider size and color for tablet should apply corectly for after header', async () => {
+	// 	const offCanvas = {
+	// 		'header-mobile-menu-submenu-item-border': 1,
+	// 		'header-mobile-menu-submenu-item-b-size': '7',
+	// 		'header-mobile-menu-submenu-item-b-color': 'rgb(10, 123, 10)',
+	// 	};
+	// 	await setCustomize( offCanvas );
+	// 	let ppStatus = false;
+	// 	while ( false === ppStatus ) {
+	// 		await createNewPost( { postType: 'page', title: 'test-1' } );
+	// 		ppStatus = await publishPost();
+	// 		await createNewPost( { postType: 'page', title: 'test-2' } );
+	// 		ppStatus = await publishPost();
+	// 	}
+	// 	await page.goto( createURL( '/' ), {
+	// 		waitUntil: 'networkidle0',
+	// 	} );
+	// 	await setBrowserViewport( 'medium' );
+	// 	await page.click( '.main-header-menu-toggle' );
+	// 	await page.waitForSelector( '.ast-hfb-header .ast-builder-menu-mobile .main-navigation .main-header-menu, .ast-hfb-header .ast-builder-menu-mobile .main-navigation .main-header-menu, .ast-hfb-header .ast-mobile-header-content .ast-builder-menu-mobile .main-navigation .main-header-menu' );
+	// 	await expect( {
+	// 		selector: '.ast-hfb-header .ast-builder-menu-mobile .main-navigation .main-header-menu, .ast-hfb-header .ast-builder-menu-mobile .main-navigation .main-header-menu, .ast-hfb-header .ast-mobile-header-content .ast-builder-menu-mobile .main-navigation .main-header-menu',
+	// 		property: 'border-top-width',
+	// 	} ).cssValueToBe( `${ offCanvas[ 'header-mobile-menu-submenu-item-b-size' ] }` + 'px' );
+
+	// 	await setBrowserViewport( 'medium' );
+	// 	await page.click( '.main-header-menu-toggle' );
+	// 	await expect( {
+	// 		selector: '.ast-hfb-header .ast-builder-menu-mobile .main-navigation .main-header-menu',
+	// 		property: 'border-color',
+	// 	} ).cssValueToBe( `${ offCanvas[ 'header-mobile-menu-submenu-item-b-color' ] }` );
+	// } );
+	it( 'item divider size and color for mobile should apply corectly for after header', async () => {
 		const offCanvas = {
 			'header-mobile-menu-submenu-item-border': 1,
 			'header-mobile-menu-submenu-item-b-size': '7',
@@ -20,33 +52,18 @@ describe( 'Off canvas menu item divider settings in the customizer', () => {
 		await page.goto( createURL( '/' ), {
 			waitUntil: 'networkidle0',
 		} );
-		await setBrowserViewport( 'medium' );
-		await page.click( '.main-header-menu-toggle' );
-		await page.waitForSelector( '.ast-hfb-header .ast-builder-menu-mobile .main-navigation .main-header-menu, .ast-hfb-header .ast-builder-menu-mobile .main-navigation .main-header-menu, .ast-hfb-header .ast-mobile-header-content .ast-builder-menu-mobile .main-navigation .main-header-menu' );
-		await expect( {
-			selector: '.ast-hfb-header .ast-builder-menu-mobile .main-navigation .main-header-menu, .ast-hfb-header .ast-builder-menu-mobile .main-navigation .main-header-menu, .ast-hfb-header .ast-mobile-header-content .ast-builder-menu-mobile .main-navigation .main-header-menu',
-			property: 'border-top-width',
-		} ).cssValueToBe( `${ offCanvas[ 'header-mobile-menu-submenu-item-b-size' ] }` + 'px' );
-
-		await setBrowserViewport( 'medium' );
-		await page.click( '.main-header-menu-toggle' );
-		await expect( {
-			selector: '.ast-hfb-header .ast-builder-menu-mobile .main-navigation .main-header-menu',
-			property: 'border-color',
-		} ).cssValueToBe( `${ offCanvas[ 'header-mobile-menu-submenu-item-b-color' ] }` );
-
 		await setBrowserViewport( 'small' );
 		await page.click( '.main-header-menu-toggle' );
-		await page.waitForSelector( '.ast-hfb-header .ast-builder-menu-mobile .main-navigation .menu-item .menu-link, .ast-hfb-header .ast-mobile-header-content .ast-builder-menu-mobile .main-navigation .menu-item .menu-link' );
+		await page.waitForSelector( '.ast-hfb-header .ast-builder-menu-mobile .main-navigation .menu-item .menu-link' );
 		await expect( {
-			selector: '.ast-hfb-header .ast-builder-menu-mobile .main-navigation .menu-item .menu-link, .ast-hfb-header .ast-mobile-header-content .ast-builder-menu-mobile .main-navigation .menu-item .menu-link ',
+			selector: '.ast-hfb-header .ast-builder-menu-mobile .main-navigation .menu-item .menu-link',
 			property: 'border-top-width',
 		} ).cssValueToBe( `${ offCanvas[ 'header-mobile-menu-submenu-item-b-size' ] }` + 'px' );
 
 		await setBrowserViewport( 'small' );
 		await page.click( '.main-header-menu-toggle' );
 		await expect( {
-			selector: '.ast-hfb-header .ast-builder-menu-mobile .main-navigation .main-header-menu',
+			selector: '.ast-hfb-header .ast-builder-menu-mobile .main-navigation .menu-item .menu-link',
 			property: 'border-color',
 		} ).cssValueToBe( `${ offCanvas[ 'header-mobile-menu-submenu-item-b-color' ] }` );
 	} );
