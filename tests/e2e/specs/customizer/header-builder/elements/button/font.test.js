@@ -8,7 +8,7 @@ describe( 'Header builder button setting in customizer', () => {
 			'header-button1-font-family': 'Aubrey, display',
 			'header-button1-font-weight': 400,
 			'header-button1-text-transform': 'uppercase',
-			'header-button1-line-height': 100,
+			'header-button1-line-height': '10px',
 			'header-button1-letter-spacing': 10,
 			'header-button1-font-size': {
 				desktop: 25,
@@ -56,7 +56,7 @@ describe( 'Header builder button setting in customizer', () => {
 		await expect( {
 			selector: '.ast-header-button-1[data-section*="section-hb-button-"] .ast-builder-button-wrap .ast-custom-button',
 			property: 'line-height',
-		} ).cssValueToBe( `${ buttonFont[ 'header-button1-line-height' ] + 'px' }` );
+		} ).cssValueToBe( `${ buttonFont[ 'header-button1-line-height' ] }` );
 
 		await expect( {
 			selector: '.ast-header-button-1[data-section*="section-hb-button-"] .ast-builder-button-wrap .ast-custom-button',
