@@ -18,7 +18,7 @@ describe( 'Section title font option under the customizer', () => {
 				'tablet-unit': 'px',
 				'mobile-unit': 'px',
 			},
-			'related-posts-section-title-line-height': 0.99,
+			'related-posts-section-title-line-height': '10px',
 		};
 		await setCustomize( sectionTitleFont );
 		let ppStatus = false;
