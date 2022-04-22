@@ -6,7 +6,7 @@ describe( 'Transparent header settings in the customizer', () => {
 			'transparent-header-enable': 1,
 			'transparent-header-disable-latest-posts-index': 0,
 			'transparent-header-html-text-color': 'rgb(11, 91, 41)',
-			'header-html-2': 'Testing transparent header HTML text color',
+			'header-html-1': 'Testing transparent header HTML text color',
 			'header-desktop-items': {
 				primary: {
 					primary_center: {
@@ -31,7 +31,7 @@ describe( 'Transparent header settings in the customizer', () => {
 			'transparent-header-enable': 1,
 			'transparent-header-disable-latest-posts-index': 0,
 			'transparent-header-html-link-color': 'rgb(94, 1, 165)',
-			'header-html-2': '<a href="https://wpastra.com/docs/">Testing transparent header HTML link color</a>',
+			'header-html-1': '<a href="https://wpastra.com/docs/">Testing transparent header HTML link color</a>',
 			'header-desktop-items': {
 				primary: {
 					primary_center: {
