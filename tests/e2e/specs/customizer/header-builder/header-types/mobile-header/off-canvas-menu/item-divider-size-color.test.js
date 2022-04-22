@@ -22,9 +22,9 @@ describe( 'Off canvas menu item divider settings in the customizer', () => {
 		} );
 		await setBrowserViewport( 'medium' );
 		await page.click( '.main-header-menu-toggle' );
-		await page.waitForSelector( '.ast-hfb-header .ast-builder-menu-mobile .main-navigation .main-header-menu' );
+		await page.waitForSelector( '.ast-hfb-header .ast-builder-menu-mobile .main-navigation .main-header-menu, .ast-hfb-header .ast-builder-menu-mobile .main-navigation .main-header-menu, .ast-hfb-header .ast-mobile-header-content .ast-builder-menu-mobile .main-navigation .main-header-menu' );
 		await expect( {
-			selector: '.ast-hfb-header .ast-builder-menu-mobile .main-navigation .main-header-menu',
+			selector: '.ast-hfb-header .ast-builder-menu-mobile .main-navigation .main-header-menu, .ast-hfb-header .ast-builder-menu-mobile .main-navigation .main-header-menu, .ast-hfb-header .ast-mobile-header-content .ast-builder-menu-mobile .main-navigation .main-header-menu',
 			property: 'border-top-width',
 		} ).cssValueToBe( `${ offCanvas[ 'header-mobile-menu-submenu-item-b-size' ] }` + 'px' );
 
@@ -37,9 +37,9 @@ describe( 'Off canvas menu item divider settings in the customizer', () => {
 
 		await setBrowserViewport( 'small' );
 		await page.click( '.main-header-menu-toggle' );
-		await page.waitForSelector( '.ast-hfb-header .ast-builder-menu-mobile .main-navigation .main-header-menu' );
+		await page.waitForSelector( '.ast-hfb-header .ast-builder-menu-mobile .main-navigation .menu-item .menu-link, .ast-hfb-header .ast-mobile-header-content .ast-builder-menu-mobile .main-navigation .menu-item .menu-link' );
 		await expect( {
-			selector: '.ast-hfb-header .ast-builder-menu-mobile .main-navigation .main-header-menu',
+			selector: '.ast-hfb-header .ast-builder-menu-mobile .main-navigation .menu-item .menu-link, .ast-hfb-header .ast-mobile-header-content .ast-builder-menu-mobile .main-navigation .menu-item .menu-link ',
 			property: 'border-top-width',
 		} ).cssValueToBe( `${ offCanvas[ 'header-mobile-menu-submenu-item-b-size' ] }` + 'px' );
 
