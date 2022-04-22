@@ -2,18 +2,18 @@ import { createURL } from '@wordpress/e2e-test-utils';
 import { setCustomize } from '../../../../utils/customize';
 import { setBrowserViewport } from '../../../../utils/set-browser-viewport';
 import { scrollToElement } from '../../../../utils/scroll-to-element';
-describe( 'below footer background color settings in the customizer', () => {
+describe( 'Below footer background color settings in the customizer', () => {
 	it( 'background color should apply correctly', async () => {
 		const backgroundColor = {
 			'hbb-footer-bg-obj-responsive': {
 				desktop: {
-					'background-color': 'rgb(244, 230, 230)',
+					'background-color': 'rgb(75, 79, 88)',
 				},
 				tablet: {
-					'background-color': 'rgb(243, 242, 222)',
+					'background-color': 'rgb(255, 249, 239)',
 				},
 				mobile: {
-					'background-color': 'rgb(206, 234, 232)',
+					'background-color': 'rgb(249, 240, 255)',
 				},
 			},
 		};
