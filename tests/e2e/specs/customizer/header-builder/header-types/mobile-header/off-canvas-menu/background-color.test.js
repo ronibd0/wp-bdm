@@ -6,12 +6,8 @@ describe( 'Off canvas menu background color settings in the customizer', () => {
 	it( 'background color should apply corectly for after header', async () => {
 		const offCanvasBgColor = {
 			'header-mobile-menu-bg-obj-responsive': {
-				tablet: {
-					'background-color': 'rgb(230, 244, 243)',
-				},
-				mobile: {
-					'background-color': 'rgb(249, 235, 249)',
-				},
+				tablet: 'rgb(230, 244, 243)',
+				mobile: 'rgb(249, 235, 249)',
 			},
 		};
 		await setCustomize( offCanvasBgColor );
@@ -45,12 +41,8 @@ describe( 'Off canvas menu background color settings in the customizer', () => {
 	it( 'active background color should apply corectly for after header', async () => {
 		const offCanvasBgColor = {
 			'header-mobile-menu-a-bg-color-responsive': {
-				tablet: {
-					'background-color': 'rgb(230, 244, 243)',
-				},
-				mobile: {
-					'background-color': 'rgb(249, 235, 249)',
-				},
+				tablet: 'rgb(230, 244, 243)',
+				mobile: 'rgb(249, 235, 249)',
 			},
 		};
 		await setCustomize( offCanvasBgColor );
