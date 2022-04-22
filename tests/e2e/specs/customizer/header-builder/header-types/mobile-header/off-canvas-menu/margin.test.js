@@ -35,6 +35,7 @@ describe( 'Off canvas menu margin settings in the customizer', () => {
 		} );
 		await setBrowserViewport( 'medium' );
 		await page.click( '.main-header-menu-toggle' );
+		await page.waitForSelector('.ast-builder-menu-mobile .main-header-menu, .ast-header-break-point .ast-builder-menu-mobile .main-header-menu');
 		await expect( {
 			selector: '.ast-builder-menu-mobile .main-header-menu, .ast-header-break-point .ast-builder-menu-mobile .main-header-menu',
 			property: 'margin-top',
@@ -54,6 +55,7 @@ describe( 'Off canvas menu margin settings in the customizer', () => {
 
 		await setBrowserViewport( 'small' );
 		await page.click( '.main-header-menu-toggle' );
+		await page.waitForSelector('.ast-builder-menu-mobile .main-header-menu, .ast-header-break-point .ast-builder-menu-mobile .main-header-menu');
 		await expect( {
 			selector: '.ast-builder-menu-mobile .main-header-menu, .ast-header-break-point .ast-builder-menu-mobile .main-header-menu',
 			property: 'margin-top',
