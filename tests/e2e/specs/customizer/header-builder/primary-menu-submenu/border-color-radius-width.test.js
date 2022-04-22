@@ -6,12 +6,12 @@ describe( 'Primary menu submenu option under the customizer', () => {
 		await createNewMenu();
 		const submenuBorder = {
 			'header-menu1-submenu-b-color': 'rgb(138, 12, 136)',
-			'header-menu1-submenu-border-radius': 10,
+			'header-menu1-submenu-border-radius': 40,
 			'header-menu1-submenu-border': {
-				top: 10,
-				bottom: 10,
-				left: 10,
-				right: 10,
+				top: 55,
+				bottom: 45,
+				left: 35,
+				right: 25,
 			},
 			'header-desktop-items': {
 				primary: {
