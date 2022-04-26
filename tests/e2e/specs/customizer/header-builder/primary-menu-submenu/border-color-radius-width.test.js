@@ -37,19 +37,19 @@ describe( 'Primary menu submenu option under the customizer', () => {
 		} ).cssValueToBe( `${ submenuBorder[ 'header-menu1-submenu-border-radius' ] + 'px' }` );
 
 		await expect( {
-			selector: '.sub-menu',
+			selector: '.ast-builder-menu-1 .sub-menu',
 			property: 'border-top-width',
 		} ).cssValueToBe( `${ submenuBorder[ 'header-menu1-submenu-border' ].top + 'px' }` );
 		await expect( {
-			selector: '.sub-menu',
+			selector: '.ast-builder-menu-1 .sub-menu',
 			property: 'border-left-width',
 		} ).cssValueToBe( `${ submenuBorder[ 'header-menu1-submenu-border' ].left + 'px' }` );
 		await expect( {
-			selector: '.sub-menu',
+			selector: '.ast-builder-menu-1 .sub-menu',
 			property: 'border-bottom-width',
 		} ).cssValueToBe( `${ submenuBorder[ 'header-menu1-submenu-border' ].bottom + 'px' }` );
 		await expect( {
-			selector: '.sub-menu',
+			selector: '.ast-builder-menu-1 .sub-menu',
 			property: 'border-right-width',
 		} ).cssValueToBe( `${ submenuBorder[ 'header-menu1-submenu-border' ].right + 'px' }` );
 	} );
