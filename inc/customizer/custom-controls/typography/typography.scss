@@ -39,3 +39,7 @@ span.select2-container.select2-container--default.select2-container--open {
     }
   }
 }
+
+.customize-control-ast-font-variant .ast-variant-select input#react-select-2-input:focus {
+	box-shadow: none;
+}
