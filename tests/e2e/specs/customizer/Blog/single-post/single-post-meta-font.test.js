@@ -1,7 +1,6 @@
 import { createURL, createNewPost } from '@wordpress/e2e-test-utils';
 import { publishPost } from '../../../../utils/publish-post';
 import { setCustomize } from '../../../../utils/customize';
-import { responsiveFontSize } from '../../../../utils/responsive-utils';
 import { setBrowserViewport } from '../../../../utils/set-browser-viewport';
 describe( 'Meta font option under the customizer', () => {
 	it( 'meta font option should apply correctly', async () => {
