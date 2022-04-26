@@ -55,7 +55,6 @@ describe( 'Meta font option under the customizer', () => {
 			property: 'font-size',
 		} ).cssValueToBe( `${ metaFont[ 'related-posts-meta-font-size' ].tablet }${ metaFont[ 'related-posts-meta-font-size' ][ 'tablet-unit' ] }` );
 
-
 		await setBrowserViewport( 'small' );
 		await expect( {
 			selector: '.ast-related-post-content .entry-meta *',
