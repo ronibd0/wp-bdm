@@ -55,6 +55,10 @@ const FontVariantComponent = props => {
 	};
 
 	const updateValues = (newVal) => {
+		if( ! newVal.length ) {
+			setValue( null );
+			return;
+		}
 		prepareToSave( newVal );
 	};
 
