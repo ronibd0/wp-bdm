@@ -749,7 +749,10 @@
     height: 16px;
     margin-right: 0.8rem;
     display: inline-block;
-    border: none;
+}
+
+.astra-advanced-color-indicate.component-color-indicator {
+	border: none;
 }
 
 .astra-color-icon-indicate.components-button {
@@ -2026,7 +2029,10 @@
     height: 16px;
     margin-right: 0.8rem;
     display: inline-block;
-    border: none;
+}
+
+.astra-advanced-color-indicate.component-color-indicator {
+	border: none;
 }
 
 .astra-color-icon-indicate.components-button {
@@ -3416,7 +3422,7 @@ input[type="text"].select2-search__field {
   display: block;
 }
 .customize-control select, .ast-variant-select > div, .customize-control input {
-    border-color: #ddd;
+  border-color: #ddd;
 }
 
 .customize-control-ast-responsive-slider .wrapper, .customize-control-ast-slider .wrapper {
