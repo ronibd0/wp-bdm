@@ -1,7 +1,6 @@
 import { createURL, createNewPost } from '@wordpress/e2e-test-utils';
 import { publishPost } from '../../../../utils/publish-post';
 import { setCustomize } from '../../../../utils/customize';
-import { responsiveFontSize } from '../../../../utils/responsive-utils';
 import { setBrowserViewport } from '../../../../utils/set-browser-viewport';
 describe( 'Related post option under the customizer', () => {
 	it( 'post title font option should apply correctly', async () => {
@@ -50,30 +49,19 @@ describe( 'Related post option under the customizer', () => {
 		await expect( {
 			selector: '.ast-related-post-content .entry-header .ast-related-post-title a',
 			property: 'font-size',
-		} ).cssValueToBe(
-			`${ postTitleFont[ 'related-posts-title-font-size' ].desktop }${ postTitleFont[ 'related-posts-title-font-size' ][ 'desktop-unit' ] }` );
+		} ).cssValueToBe( `${ postTitleFont[ 'related-posts-title-font-size' ].desktop }${ postTitleFont[ 'related-posts-title-font-size' ][ 'desktop-unit' ] }` );
 
 		await setBrowserViewport( 'medium' );
 		await expect( {
-			selector: '.ast-related-post-content .entry-header .ast-related-post-title a ',
+			selector: '.ast-related-post-content .entry-header .ast-related-post-title a',
 			property: 'font-size',
-		} ).cssValueToBe(
-			`${ await responsiveFontSize(
-				postTitleFont[ 'related-posts-title-font-size' ].tablet,
-			) }${
-				postTitleFont[ 'related-posts-title-font-size' ][ 'tablet-unit' ]
-			}` );
+		} ).cssValueToBe( `${ postTitleFont[ 'related-posts-title-font-size' ].tablet }${ postTitleFont[ 'related-posts-title-font-size' ][ 'tablet-unit' ] }` );
 
 		await setBrowserViewport( 'small' );
 		await expect( {
 			selector: '.ast-related-post-content .entry-header .ast-related-post-title a',
 			property: 'font-size',
-		} ).cssValueToBe(
-			`${ await responsiveFontSize(
-				postTitleFont[ 'related-posts-title-font-size' ].mobile,
-			) }${
-				postTitleFont[ 'related-posts-title-font-size' ][ 'mobile-unit' ]
-			}` );
+		} ).cssValueToBe( `${ postTitleFont[ 'related-posts-title-font-size' ].mobile }${ postTitleFont[ 'related-posts-title-font-size' ][ 'mobile-unit' ] }` );
 
 		await expect( {
 			selector: '.ast-related-post-content .entry-header .ast-related-post-title a',
