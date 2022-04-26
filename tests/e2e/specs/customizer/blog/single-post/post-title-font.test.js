@@ -76,8 +76,8 @@ describe( 'Related post option under the customizer', () => {
 			}` );
 
 		await expect( {
-			selector: '.ast-related-post-content .entry-header .ast-related-post-title a ',
+			selector: '.ast-related-post-content .entry-header .ast-related-post-title a',
 			property: 'line-height',
-		} ).cssValueToBe( `${ postTitleFont[ 'related-posts-title-line-height' ] }` );
+		} ).cssValueToBe( `${ postTitleFont[ 'related-posts-title-line-height' ] * postTitleFont[ 'related-posts-title-font-size' ].desktop }` + 'px' );
 	} );
 } );
