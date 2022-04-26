@@ -54,24 +54,15 @@ describe( 'Meta font option under the customizer', () => {
 		await expect( {
 			selector: '.ast-related-post-content .entry-meta *',
 			property: 'font-size',
-		} ).cssValueToBe(
-			`${ await responsiveFontSize(
-				metaFont[ 'related-posts-meta-font-size' ].tablet,
-			) }${
-				metaFont[ 'related-posts-meta-font-size' ][ 'tablet-unit' ]
-			}` );
+		} ).cssValueToBe( `${ metaFont[ 'related-posts-meta-font-size' ].tablet }${ metaFont[ 'related-posts-meta-font-size' ][ 'tablet-unit' ] }` );
+
 
 		await setBrowserViewport( 'small' );
 		await expect( {
 			selector: '.ast-related-post-content .entry-meta *',
 			property: 'font-size',
-		} ).cssValueToBe(
-			`${ await responsiveFontSize(
-				metaFont[ 'related-posts-meta-font-size' ].mobile,
-			) }${
-				metaFont[ 'related-posts-meta-font-size' ][ 'mobile-unit' ]
-			}`,
-		);
+		} ).cssValueToBe( `${ metaFont[ 'related-posts-meta-font-size' ].mobile }${ metaFont[ 'related-posts-meta-font-size' ][ 'mobile-unit' ] }` );
+
 		await expect( {
 			selector: '.ast-related-post-content .entry-meta *',
 			property: 'line-height',
