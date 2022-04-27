@@ -2,7 +2,6 @@ import { insertBlock, createURL, createNewPost } from '@wordpress/e2e-test-utils
 import { setCustomize } from '../../../../utils/customize';
 import { publishPost } from '../../../../utils/publish-post';
 import { setBrowserViewport } from '../../../../utils/set-browser-viewport';
-import { responsiveFontSize } from '../../../../utils/responsive-utils';
 describe( 'Global button font setting under the Customizer', () => {
 	it( 'button font should apply correctly', async () => {
 		const buttonFont = {
@@ -47,23 +46,19 @@ describe( 'Global button font setting under the Customizer', () => {
 			property: 'font-size',
 		} ).cssValueToBe( `${ buttonFontSize[ 'font-size-button' ].desktop }${ buttonFontSize[ 'font-size-button' ][ 'desktop-unit' ] }` );
 
-		await setBrowserViewport( 'medium' );
-		await expect( {
-			selector: '.wp-block-button .wp-block-button__link',
-			property: 'font-size',
-		} ).cssValueToBe(
-			`${ await responsiveFontSize(
-				buttonFontSize[ 'font-size-button' ].tablet,
-			) }${ buttonFontSize[ 'font-size-button' ][ 'tablet-unit' ] }` );
+		// await setBrowserViewport( 'medium' );
+		// await expect( {
+		// 	selector: '.wp-block-button',
+		// 	property: 'font-size',
+		// } ).cssValueToBe(
+		// 	`${ buttonFontSize[ 'font-size-button' ].tablet }${ buttonFontSize[ 'font-size-button' ][ 'tablet-unit' ] }` );
 
-		await setBrowserViewport( 'small' );
-		await expect( {
-			selector: '.wp-block-button .wp-block-button__link',
-			property: 'font-size',
-		} ).cssValueToBe(
-			`${ await responsiveFontSize(
-				buttonFontSize[ 'font-size-button' ].mobile,
-			) }${ buttonFontSize[ 'font-size-button' ][ 'mobile-unit' ] }` );
+		// await setBrowserViewport( 'small' );
+		// await expect( {
+		// 	selector: '.wp-block-button',
+		// 	property: 'font-size',
+		// } ).cssValueToBe(
+		// 	`${ buttonFontSize[ 'font-size-button' ].mobile }${ buttonFontSize[ 'font-size-button' ][ 'mobile-unit' ] }` );
 	} );
 	it( 'button font weight should apply correctly', async () => {
 		const fontWeight = {
