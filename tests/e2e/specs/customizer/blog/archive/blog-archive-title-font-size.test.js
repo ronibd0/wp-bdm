@@ -1,7 +1,6 @@
 import { createURL, createNewPost } from '@wordpress/e2e-test-utils';
 import { publishPost } from '../../../../utils/publish-post';
 import { setCustomize } from '../../../../utils/customize';
-import { responsiveFontSize } from '../../../../utils/responsive-utils';
 import { setBrowserViewport } from '../../../../utils/set-browser-viewport';
 describe( 'Blog Archive option under the customizer', () => {
 	it( 'blog Archive title font size options should apply correctly', async () => {
@@ -32,22 +31,14 @@ describe( 'Blog Archive option under the customizer', () => {
 
 		await setBrowserViewport( 'medium' );
 		await expect( {
-			selector: '.ast-archive-description .ast-archive-title',
+			selector: '.ast-archive-description .ast-archive-title ',
 			property: 'font-size',
-		} ).cssValueToBe(
-			`${ await responsiveFontSize(
-				blogArchiveTitleFontSize[ 'font-size-archive-summary-title' ].tablet,
-			) }${ blogArchiveTitleFontSize[ 'font-size-archive-summary-title' ][ 'tablet-unit' ] }`,
-		);
+		} ).cssValueToBe( `${ ( blogArchiveTitleFontSize[ 'font-size-archive-summary-title' ].tablet ) }${ blogArchiveTitleFontSize[ 'font-size-archive-summary-title' ][ 'tablet-unit' ] }` );
 
 		await setBrowserViewport( 'small' );
 		await expect( {
-			selector: '.ast-archive-description .ast-archive-title',
+			selector: '.ast-archive-description .ast-archive-title ',
 			property: 'font-size',
-		} ).cssValueToBe(
-			`${ await responsiveFontSize(
-				blogArchiveTitleFontSize[ 'font-size-archive-summary-title' ].mobile,
-			) }${ blogArchiveTitleFontSize[ 'font-size-archive-summary-title' ][ 'mobile-unit' ] }`,
-		);
+		} ).cssValueToBe( `${ ( blogArchiveTitleFontSize[ 'font-size-archive-summary-title' ].mobile ) }${ blogArchiveTitleFontSize[ 'font-size-archive-summary-title' ][ 'mobile-unit' ] }` );
 	} );
 } );
