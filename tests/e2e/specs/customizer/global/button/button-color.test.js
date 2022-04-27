@@ -4,8 +4,8 @@ import { publishPost } from '../../../../utils/publish-post';
 describe( 'Global button setting under the Customizer', () => {
 	it( 'button text and background color should apply correctly', async () => {
 		const buttonColor = {
-			'button-color': 'rgb(14, 12, 157)',
-			'button-bg-color': 'rgb(212, 238, 186)',
+			'button-color': 'rgb(2, 66, 95)',
+			'button-bg-color': 'rgb(226, 207, 227)',
 		};
 		await setCustomize( buttonColor );
 		let ppStatus = false;
