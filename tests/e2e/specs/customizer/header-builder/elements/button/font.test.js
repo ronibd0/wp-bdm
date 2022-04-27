@@ -1,7 +1,6 @@
 import { createURL } from '@wordpress/e2e-test-utils';
 import { setCustomize } from '../../../../../utils/customize';
 import { setBrowserViewport } from '../../../../../utils/set-browser-viewport';
-import { responsiveFontSize } from '../../../../../utils/responsive-utils';
 describe( 'Header builder button setting in customizer', () => {
 	it( 'button font should apply correctly', async () => {
 		const buttonFont = {
