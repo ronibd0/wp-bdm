@@ -1,6 +1,7 @@
 import { createURL } from '@wordpress/e2e-test-utils';
 import { setCustomize } from '../../../../../utils/customize';
 import { setBrowserViewport } from '../../../../../utils/set-browser-viewport';
+import { responsiveFontSize } from '../../../../../utils/responsive-utils';
 describe( 'Header builder button setting in customizer', () => {
 	it( 'button font should apply correctly', async () => {
 		const buttonFont = {
@@ -71,12 +72,14 @@ describe( 'Header builder button setting in customizer', () => {
 		await expect( {
 			selector: '.ast-header-button-1[data-section*="section-hb-button-"] .ast-builder-button-wrap .ast-custom-button',
 			property: 'font-size',
-		} ).cssValueToBe( `${ buttonFont[ 'header-button1-font-size' ].tablet }${ buttonFont[ 'header-button1-font-size' ][ 'tablet-unit' ] }` );
+		} ).cssValueToBe( `${ await responsiveFontSize( buttonFont[ 'header-button1-font-size' ].tablet,
+		) }${ buttonFont[ 'header-button1-font-size' ][ 'tablet-unit' ] }` );
 
 		await setBrowserViewport( 'small' );
 		await expect( {
 			selector: '.ast-header-button-1[data-section*="section-hb-button-"] .ast-builder-button-wrap .ast-custom-button',
 			property: 'font-size',
-		} ).cssValueToBe( `${ buttonFont[ 'header-button1-font-size' ].mobile }${ buttonFont[ 'header-button1-font-size' ][ 'mobile-unit' ] }` );
+		} ).cssValueToBe( `${ await responsiveFontSize( buttonFont[ 'header-button1-font-size' ].mobile,
+		) }${ buttonFont[ 'header-button1-font-size' ][ 'mobile-unit' ] }` );
 	} );
 } );
