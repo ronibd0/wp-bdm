@@ -1,11 +1,12 @@
-import { createURL, createNewPost, publishPost } from '@wordpress/e2e-test-utils';
+import { createURL, createNewPost } from '@wordpress/e2e-test-utils';
+import { publishPost } from '../../../../utils/publish-post';
 import { setCustomize } from '../../../../utils/customize';
 describe( 'Section Content color option under the customizer', () => {
 	it( 'content color option should apply correctly', async () => {
 		const contentColor = {
 			'enable-related-posts': 1,
 			'related-posts-text-color': 'rgb(118, 4, 124)',
-			'related-posts-meta-color': 'rgb(5, 61, 158)',
+			'related-posts-meta-color': 'rgb(124, 3, 117)',
 		};
 		await setCustomize( contentColor );
 		let ppStatus = false;
@@ -18,18 +19,15 @@ describe( 'Section Content color option under the customizer', () => {
 		await page.goto( createURL( '/test-post' ), {
 			waitUntil: 'networkidle0',
 		} );
-		await page.evaluate( () => {
-			window.scrollBy( 0, window.innerHeight );
-		} );
 		await page.waitForSelector( '.ast-related-post-content .entry-header .ast-related-post-title a' );
 		await expect( {
 			selector: '.ast-related-post-content .entry-header .ast-related-post-title a',
 			property: 'color',
 		} ).cssValueToBe( `${ contentColor[ 'related-posts-text-color' ] }` );
 
-		await page.waitForSelector( '.ast-related-post-content .entry-meta *' );
+		await page.waitForSelector( '.ast-related-post-content .entry-meta' );
 		await expect( {
-			selector: '.ast-related-post-content .entry-meta *',
+			selector: '.ast-related-post-content .entry-meta',
 			property: 'color',
 		} ).cssValueToBe( `${ contentColor[ 'related-posts-meta-color' ] }` );
 	} );
