@@ -26,6 +26,7 @@ describe( 'Global button setting under the Customizer', () => {
 			selector: '.wp-block-button .wp-block-button__link',
 			property: 'color',
 		} ).cssValueToBe( `${ buttonColor[ 'button-color' ] }` );
+
 		await page.waitForSelector( '.wp-block-button .wp-block-button__link' );
 		await expect( {
 			selector: '.wp-block-button .wp-block-button__link',
@@ -40,6 +41,7 @@ describe( 'Global button setting under the Customizer', () => {
 			selector: 'input#submit, input[type="submit"]',
 			property: 'background-color',
 		} ).cssValueToBe( `${ buttonColor[ 'button-bg-color' ] }` );
+
 		await page.waitForSelector( 'input#submit, input[type="submit"]' );
 		await expect( {
 			selector: 'input#submit, input[type="submit"]',
