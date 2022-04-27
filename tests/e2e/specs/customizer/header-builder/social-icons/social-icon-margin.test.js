@@ -1,26 +1,27 @@
-import { createURL, setBrowserViewport } from '@wordpress/e2e-test-utils';
+import { createURL } from '@wordpress/e2e-test-utils';
+import { setBrowserViewport } from '../../../../utils/set-browser-viewport';
 import { setCustomize } from '../../../../utils/customize';
 describe( 'Social icons in the customizer', () => {
 	it( 'social icon margin for desktop should apply correctly', async () => {
 		const socialIconMargin = {
 			'section-hb-social-icons-1-margin': {
 				desktop: {
-					top: '45',
-					right: '45',
-					bottom: '45',
-					left: '45',
+					top: '80',
+					right: '80',
+					bottom: '80',
+					left: '80',
 				},
 				tablet: {
-					top: '35',
-					right: '35',
-					bottom: '35',
-					left: '35',
+					top: '60',
+					right: '60',
+					bottom: '60',
+					left: '60',
 				},
 				mobile: {
-					top: '25',
-					right: '25',
-					bottom: '25',
-					left: '25',
+					top: '40',
+					right: '40',
+					bottom: '40',
+					left: '40',
 				},
 				'desktop-unit': 'px',
 				'tablet-unit': 'px',
