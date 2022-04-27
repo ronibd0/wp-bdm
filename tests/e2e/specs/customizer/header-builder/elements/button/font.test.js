@@ -72,7 +72,7 @@ describe( 'Header builder button setting in customizer', () => {
 		await expect( {
 			selector: '.ast-header-button-1[data-section*="section-hb-button-"] .ast-builder-button-wrap .ast-custom-button',
 			property: 'font-size',
-		} ).cssValueToBe( `${ buttonFont[ 'header-button1-font-size' ].tabelt }${ buttonFont[ 'header-button1-font-size' ][ 'tabelt-unit' ] }` );
+		} ).cssValueToBe( `${ buttonFont[ 'header-button1-font-size' ].tablet }${ buttonFont[ 'header-button1-font-size' ][ 'tablet-unit' ] }` );
 
 		await setBrowserViewport( 'small' );
 		await expect( {
