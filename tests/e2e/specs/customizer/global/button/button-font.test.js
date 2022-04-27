@@ -1,7 +1,6 @@
 import { insertBlock, createURL, createNewPost } from '@wordpress/e2e-test-utils';
 import { setCustomize } from '../../../../utils/customize';
 import { publishPost } from '../../../../utils/publish-post';
-import { setBrowserViewport } from '../../../../utils/set-browser-viewport';
 describe( 'Global button font setting under the Customizer', () => {
 	it( 'button font should apply correctly', async () => {
 		const buttonFont = {
@@ -46,6 +45,7 @@ describe( 'Global button font setting under the Customizer', () => {
 			property: 'font-size',
 		} ).cssValueToBe( `${ buttonFontSize[ 'font-size-button' ].desktop }${ buttonFontSize[ 'font-size-button' ][ 'desktop-unit' ] }` );
 
+		//responsive mode test case is commented due to GitHub issue
 		// await setBrowserViewport( 'medium' );
 		// await expect( {
 		// 	selector: '.wp-block-button',
