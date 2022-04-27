@@ -1,7 +1,8 @@
-import { createURL, setBrowserViewport } from '@wordpress/e2e-test-utils';
-import { setCustomize } from '../../../utils/customize';
+import { createURL } from '@wordpress/e2e-test-utils';
+import { setBrowserViewport } from '../../../../../utils/set-browser-viewport';
+import { setCustomize } from '../../../../../utils/customize';
 describe( 'Account icons in the customizer', () => {
-	it( 'account icon margin for desktop should apply correctly', async () => {
+	it( 'account icon margin for should apply correctly', async () => {
 		const accountIconMargin = {
 			'header-account-margin': {
 				desktop: {
