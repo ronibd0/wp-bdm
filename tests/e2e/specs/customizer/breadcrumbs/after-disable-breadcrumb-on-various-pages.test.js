@@ -38,7 +38,7 @@ describe( 'Breadcrumb settings in the customizer', () => {
 	it( 'disable breadcrumb on search page after header position should apply correctly', async () => {
 		const afterBreadcrumb = {
 			'breadcrumb-position': 'astra_header_after',
-			'breadcrumb-disable-archive': 1,
+			'breadcrumb-disable-search': 1,
 		};
 		await setCustomize( afterBreadcrumb );
 		let ppStatus = false;
