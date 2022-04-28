@@ -38,7 +38,7 @@ describe( 'Breadcrumb settings in the customizer', () => {
 	it( 'disable breadcrumb on search page inside header position should apply correctly for inside position', async () => {
 		const insideBreadcrumb = {
 			'breadcrumb-position': 'astra_header_primary_container_after',
-			'breadcrumb-disable-archive': 1,
+			'breadcrumb-disable-search': 1,
 		};
 		await setCustomize( insideBreadcrumb );
 		await page.goto( createURL( '/' ), {
