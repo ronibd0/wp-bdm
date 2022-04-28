@@ -3,9 +3,16 @@ import { setCustomize } from '../../../../../../utils/customize';
 import { setBrowserViewport } from '../../../../../../utils/set-browser-viewport';
 import { publishPost } from '../../../../../../utils/publish-post';
 describe( 'Off canvas menu background color settings in the customizer', () => {
-	it( 'background color should apply corectly for after header', async () => {
+	it( 'background color should apply correctly for after header', async () => {
 		const offCanvasBgColor = {
 			'header-mobile-menu-bg-obj-responsive': {
+				desktop: {
+					'background-color': '',
+					'background-repeat': '',
+					'background-position': '',
+					'background-size': '',
+					'background-attachment': '',
+				},
 				tablet: {
 					'background-color': 'rgb(239, 239, 239)',
 					'background-repeat': 'repeat',
@@ -50,9 +57,10 @@ describe( 'Off canvas menu background color settings in the customizer', () => {
 		} ).cssValueToBe( `${ offCanvasBgColor[ 'header-mobile-menu-bg-obj-responsive' ].mobile[ 'background-color' ] }` );
 	} );
 
-	it( 'active background color should apply corectly for after header', async () => {
+	it( 'active background color should apply correctly for after header', async () => {
 		const offCanvasBgColor = {
 			'header-mobile-menu-a-bg-color-responsive': {
+				desktop: '',
 				tablet: 'rgb(255, 227, 227)',
 				mobile: 'rgb(249, 235, 249)',
 			},
