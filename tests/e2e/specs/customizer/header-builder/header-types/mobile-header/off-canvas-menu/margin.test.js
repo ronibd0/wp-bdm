@@ -3,9 +3,9 @@ import { setCustomize } from '../../../../../../utils/customize';
 import { setBrowserViewport } from '../../../../../../utils/set-browser-viewport';
 import { publishPost } from '../../../../../../utils/publish-post';
 describe( 'Off canvas menu margin settings in the customizer', () => {
-	it( 'margin should apply correctly for after header', async () => {
+	it( 'margin should apply correctly', async () => {
 		const offCanvasMargin = {
-			'header-mobile-menu-margin': {
+			'section-header-mobile-menu-margin': {
 				tablet: {
 					top: '40',
 					right: '40',
@@ -39,19 +39,19 @@ describe( 'Off canvas menu margin settings in the customizer', () => {
 		await expect( {
 			selector: '.ast-builder-menu-mobile .main-header-menu, .ast-header-break-point .ast-builder-menu-mobile .main-header-menu',
 			property: 'margin-top',
-		} ).cssValueToBe( `${ offCanvasMargin[ 'header-mobile-menu-margin' ].tablet.top }${ offCanvasMargin[ 'header-mobile-menu-margin' ][ 'tablet-unit' ] }` );
+		} ).cssValueToBe( `${ offCanvasMargin[ 'section-header-mobile-menu-margin' ].tablet.top }${ offCanvasMargin[ 'section-header-mobile-menu-margin' ][ 'tablet-unit' ] }` );
 		await expect( {
 			selector: '.ast-builder-menu-mobile .main-header-menu, .ast-header-break-point .ast-builder-menu-mobile .main-header-menu',
 			property: 'margin-right',
-		} ).cssValueToBe( `${ offCanvasMargin[ 'header-mobile-menu-margin' ].tablet.right }${ offCanvasMargin[ 'header-mobile-menu-margin' ][ 'tablet-unit' ] }` );
+		} ).cssValueToBe( `${ offCanvasMargin[ 'section-header-mobile-menu-margin' ].tablet.right }${ offCanvasMargin[ 'section-header-mobile-menu-margin' ][ 'tablet-unit' ] }` );
 		await expect( {
 			selector: '.ast-builder-menu-mobile .main-header-menu, .ast-header-break-point .ast-builder-menu-mobile .main-header-menu',
 			property: 'margin-bottom',
-		} ).cssValueToBe( `${ offCanvasMargin[ 'header-mobile-menu-margin' ].tablet.bottom }${ offCanvasMargin[ 'header-mobile-menu-margin' ][ 'tablet-unit' ] }` );
+		} ).cssValueToBe( `${ offCanvasMargin[ 'section-header-mobile-menu-margin' ].tablet.bottom }${ offCanvasMargin[ 'section-header-mobile-menu-margin' ][ 'tablet-unit' ] }` );
 		await expect( {
 			selector: '.ast-builder-menu-mobile .main-header-menu, .ast-header-break-point .ast-builder-menu-mobile .main-header-menu',
 			property: 'margin-left',
-		} ).cssValueToBe( `${ offCanvasMargin[ 'header-mobile-menu-margin' ].tablet.left }${ offCanvasMargin[ 'header-mobile-menu-margin' ][ 'tablet-unit' ] }` );
+		} ).cssValueToBe( `${ offCanvasMargin[ 'section-header-mobile-menu-margin' ].tablet.left }${ offCanvasMargin[ 'section-header-mobile-menu-margin' ][ 'tablet-unit' ] }` );
 
 		await setBrowserViewport( 'small' );
 		await page.click( '.main-header-menu-toggle' );
@@ -59,18 +59,18 @@ describe( 'Off canvas menu margin settings in the customizer', () => {
 		await expect( {
 			selector: '.ast-builder-menu-mobile .main-header-menu, .ast-header-break-point .ast-builder-menu-mobile .main-header-menu',
 			property: 'margin-top',
-		} ).cssValueToBe( `${ offCanvasMargin[ 'header-mobile-menu-margin' ].mobile.top }${ offCanvasMargin[ 'header-mobile-menu-margin' ][ 'mobile-unit' ] }` );
+		} ).cssValueToBe( `${ offCanvasMargin[ 'section-header-mobile-menu-margin' ].mobile.top }${ offCanvasMargin[ 'section-header-mobile-menu-margin' ][ 'mobile-unit' ] }` );
 		await expect( {
 			selector: '.ast-builder-menu-mobile .main-header-menu, .ast-header-break-point .ast-builder-menu-mobile .main-header-menu',
 			property: 'margin-right',
-		} ).cssValueToBe( `${ offCanvasMargin[ 'header-mobile-menu-margin' ].mobile.right }${ offCanvasMargin[ 'header-mobile-menu-margin' ][ 'mobile-unit' ] }` );
+		} ).cssValueToBe( `${ offCanvasMargin[ 'section-header-mobile-menu-margin' ].mobile.right }${ offCanvasMargin[ 'section-header-mobile-menu-margin' ][ 'mobile-unit' ] }` );
 		await expect( {
 			selector: '.ast-builder-menu-mobile .main-header-menu, .ast-header-break-point .ast-builder-menu-mobile .main-header-menu',
 			property: 'margin-bottom',
-		} ).cssValueToBe( `${ offCanvasMargin[ 'header-mobile-menu-margin' ].mobile.bottom }${ offCanvasMargin[ 'header-mobile-menu-margin' ][ 'mobile-unit' ] }` );
+		} ).cssValueToBe( `${ offCanvasMargin[ 'section-header-mobile-menu-margin' ].mobile.bottom }${ offCanvasMargin[ 'section-header-mobile-menu-margin' ][ 'mobile-unit' ] }` );
 		await expect( {
 			selector: '.ast-builder-menu-mobile .main-header-menu, .ast-header-break-point .ast-builder-menu-mobile .main-header-menu',
 			property: 'margin-left',
-		} ).cssValueToBe( `${ offCanvasMargin[ 'header-mobile-menu-margin' ].mobile.left }${ offCanvasMargin[ 'header-mobile-menu-margin' ][ 'mobile-unit' ] }` );
+		} ).cssValueToBe( `${ offCanvasMargin[ 'section-header-mobile-menu-margin' ].mobile.left }${ offCanvasMargin[ 'section-header-mobile-menu-margin' ][ 'mobile-unit' ] }` );
 	} );
 } );
