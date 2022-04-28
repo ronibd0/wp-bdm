@@ -4,15 +4,22 @@ import { publishPost } from '../../../../utils/publish-post';
 describe( 'Global button font setting under the Customizer', () => {
 	it( 'button font should apply correctly', async () => {
 		const buttonFont = {
-			'font-family-button': 'Helvetica, Verdana, Arial, sans-serif',
+			'font-family-button': 'Aclonica,sans-serif',
 		};
 		await setCustomize( buttonFont );
-		await page.goto( createURL( '/' ), {
+		let ppStatus = false;
+		while ( false === ppStatus ) {
+			await createNewPost( { postType: 'post', title: 'buttonFontFamily' } );
+			await insertBlock( 'Buttons' );
+			await page.keyboard.type( 'font' );
+			ppStatus = await publishPost();
+		}
+		await page.goto( createURL( '/buttonFontFamily/' ), {
 			waitUntil: 'networkidle0',
 		} );
-		await page.waitForSelector( '.wp-block-search__button' );
+		await page.waitForSelector( '.wp-block-button .wp-block-button__link, input#submit, button, form[CLASS*="wp-block-search__"].wp-block-search .wp-block-search__inside-wrapper .wp-block-search__button, input[type="submit"]' );
 		await expect( {
-			selector: '.wp-block-search__button',
+			selector: '.wp-block-button .wp-block-button__link, input#submit, button, form[CLASS*="wp-block-search__"].wp-block-search .wp-block-search__inside-wrapper .wp-block-search__button, input[type="submit"]',
 			property: 'font-family',
 		} ).cssValueToBe( `${ buttonFont[ 'font-family-button' ] }` );
 	} );
@@ -29,19 +36,12 @@ describe( 'Global button font setting under the Customizer', () => {
 			},
 		};
 		await setCustomize( buttonFontSize );
-		let ppStatus = false;
-		while ( false === ppStatus ) {
-			await createNewPost( { postType: 'post', title: 'buttonfontsize' } );
-			await insertBlock( 'Buttons' );
-			await page.keyboard.type( 'Login' );
-			ppStatus = await publishPost();
-		}
-		await page.goto( createURL( '/buttonfontsize/' ), {
+		await page.goto( createURL( 'buttonFontFamily' ), {
 			waitUntil: 'networkidle0',
 		} );
-		await page.waitForSelector( '.wp-block-button .wp-block-button__link' );
+		await page.waitForSelector( '.wp-block-button .wp-block-button__link, input#submit, input[type="submit"], form[CLASS*="wp-block-search__"].wp-block-search .wp-block-search__inside-wrapper .wp-block-search__button' );
 		await expect( {
-			selector: '.wp-block-button .wp-block-button__link',
+			selector: '.wp-block-button .wp-block-button__link, input#submit, input[type="submit"], form[CLASS*="wp-block-search__"].wp-block-search .wp-block-search__inside-wrapper .wp-block-search__button',
 			property: 'font-size',
 		} ).cssValueToBe( `${ buttonFontSize[ 'font-size-button' ].desktop }${ buttonFontSize[ 'font-size-button' ][ 'desktop-unit' ] }` );
 
@@ -65,12 +65,12 @@ describe( 'Global button font setting under the Customizer', () => {
 			'font-weight-button': '700',
 		};
 		await setCustomize( fontWeight );
-		await page.goto( createURL( '/' ), {
+		await page.goto( createURL( 'buttonFontFamily' ), {
 			waitUntil: 'networkidle0',
 		} );
-		await page.waitForSelector( 'form[CLASS*="wp-block-search__"].wp-block-search .wp-block-search__inside-wrapper .wp-block-search__button' );
+		await page.waitForSelector( '.wp-block-button .wp-block-button__link .wp-block-button .wp-block-button__link, input#submit, input[type="submit"]' );
 		await expect( {
-			selector: 'form[CLASS*="wp-block-search__"].wp-block-search .wp-block-search__inside-wrapper .wp-block-search__button',
+			selector: '.wp-block-button .wp-block-button__link .wp-block-button .wp-block-button__link, input#submit, input[type="submit"]',
 			property: 'font-weight',
 		} ).cssValueToBe( `${ fontWeight[ 'font-weight-button' ] }` );
 	} );
@@ -80,12 +80,12 @@ describe( 'Global button font setting under the Customizer', () => {
 			'text-transform-button': 'uppercase',
 		};
 		await setCustomize( textTransform );
-		await page.goto( createURL( '/' ), {
+		await page.goto( createURL( 'buttonFontFamily' ), {
 			waitUntil: 'networkidle0',
 		} );
-		await page.waitForSelector( '.wp-block-search__button' );
+		await page.waitForSelector( '.wp-block-button .wp-block-button__link, input#submit, input[type="submit"], .wp-block-search__button' );
 		await expect( {
-			selector: '.wp-block-search__button',
+			selector: '.wp-block-button .wp-block-button__link, input#submit, input[type="submit"], .wp-block-search__button',
 			property: 'text-transform',
 		} ).cssValueToBe( `${ textTransform[ 'text-transform-button' ] }` );
 	} );
@@ -95,12 +95,12 @@ describe( 'Global button font setting under the Customizer', () => {
 			'theme-btn-line-height': '50px',
 		};
 		await setCustomize( buttonLineHeight );
-		await page.goto( createURL( '/' ), {
+		await page.goto( createURL( 'buttonFontFamily' ), {
 			waitUntil: 'networkidle0',
 		} );
-		await page.waitForSelector( '.wp-block-search__button' );
+		await page.waitForSelector( '.wp-block-button .wp-block-button__link, #comments .submit' );
 		await expect( {
-			selector: '.wp-block-search__button',
+			selector: '.wp-block-button .wp-block-button__link, #comments .submit',
 			property: 'line-height',
 		} ).cssValueToBe( `${ buttonLineHeight[ 'theme-btn-line-height' ] }` );
 	} );
@@ -111,12 +111,12 @@ describe( 'Global button font setting under the Customizer', () => {
 			'ast-range-unit': 'px',
 		};
 		await setCustomize( letterSpacing );
-		await page.goto( createURL( '/' ), {
+		await page.goto( createURL( 'buttonFontFamily' ), {
 			waitUntil: 'networkidle0',
 		} );
-		await page.waitForSelector( '.wp-block-search__button' );
+		await page.waitForSelector( '.wp-block-button .wp-block-button__link, input#submit, input[type="submit"],' );
 		await expect( {
-			selector: '.wp-block-search__button',
+			selector: '.wp-block-button .wp-block-button__link, input#submit, input[type="submit"]',
 			property: 'letter-spacing',
 		} ).cssValueToBe( `${ letterSpacing[ 'theme-btn-letter-spacing' ] }${ letterSpacing[ 'ast-range-unit' ] }` );
 	} );
