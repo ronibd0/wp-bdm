@@ -23,8 +23,8 @@ describe( 'Off canvas menu background color settings in the customizer', () => {
 					'background-type': 'color',
 				},
 				mobile: {
-					'background-color': 'rgb(243, 243, 185)'
-,					'background-repeat': 'repeat',
+					'background-color': 'rgb(243, 243, 185)',
+					'background-repeat': 'repeat',
 					'background-position': 'center center',
 					'background-size': 'auto',
 					'background-attachment': 'scroll',
