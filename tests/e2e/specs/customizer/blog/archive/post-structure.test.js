@@ -1,8 +1,8 @@
 import { createURL, createNewPost } from '@wordpress/e2e-test-utils';
 import { publishPost } from '../../../../utils/publish-post';
 import { setCustomize } from '../../../../utils/customize';
-describe( 'blog archive in the customizer', () => {
-	it( 'post structure structure should apply corectly', async () => {
+describe( 'Blog archive in the customizer', () => {
+	it( 'post structure should apply correctly', async () => {
 		const blogPostStructure = {
 			'blog-post-structure': {
 				'title-meta': 0,
