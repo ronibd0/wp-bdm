@@ -41,9 +41,10 @@ describe( 'Breadcrumb settings in the customizer', () => {
 			'breadcrumb-disable-archive': 1,
 		};
 		await setCustomize( afterBreadcrumb );
-		const ppStatus = false;
+		let ppStatus = false;
 		while ( false === ppStatus ) {
 			await createNewPost( { postType: 'page', title: 'test' } );
+			ppStatus = await publishPost();
 		}
 		await page.goto( createURL( '/' ), {
 			waitUntil: 'networkidle0',
