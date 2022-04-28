@@ -18,7 +18,7 @@ describe( 'Section title font option under the customizer', () => {
 				'tablet-unit': 'px',
 				'mobile-unit': 'px',
 			},
-			'related-posts-section-title-line-height': '10px',
+			'related-posts-section-title-line-height': '2',
 		};
 		await setCustomize( sectionTitleFont );
 		let ppStatus = false;
@@ -81,6 +81,6 @@ describe( 'Section title font option under the customizer', () => {
 		await expect( {
 			selector: '.ast-related-posts-title',
 			property: 'line-height',
-		} ).cssValueToBe( `${ sectionTitleFont[ 'related-posts-section-title-line-height' ] }` );
+		} ).cssValueToBe( `${ sectionTitleFont[ 'related-posts-section-title-line-height' ] * sectionTitleFont[ 'related-posts-section-title-font-size' ].desktop }` + 'px' );
 	} );
 } );
