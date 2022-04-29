@@ -5,8 +5,8 @@ describe( 'Section Content color option under the customizer', () => {
 	it( 'content color option should apply correctly', async () => {
 		const contentColor = {
 			'enable-related-posts': 1,
-			'related-posts-text-color': 'rgb(118, 4, 124)',
-			'related-posts-meta-color': 'rgb(124, 3, 117)',
+			'related-posts-text-color': 'rgb(75, 0, 0)',
+			'related-posts-meta-color': 'rgb(0, 34, 8)',
 		};
 		await setCustomize( contentColor );
 		let ppStatus = false;
