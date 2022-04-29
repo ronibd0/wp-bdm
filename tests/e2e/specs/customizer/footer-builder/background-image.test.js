@@ -8,7 +8,7 @@ describe( 'Footer builder backgeround image setting in customizer', () => {
 			'section-footer-builder-layout-padding': 60,
 			'footer-bg-obj-responsive': {
 				desktop: {
-					'background-image': 'https://c.pxhere.com/photos/b1/0b/sky_hot_air_balloon_air_balloon_float_fly-1392552.jpg!s1',
+					'background-image': 'https://pickupimage.com/free-photos/Combine-harvester/2358359',
 
 					'background-repeat': 'no-repeat',
 					'background-position': 'left top',
@@ -17,7 +17,7 @@ describe( 'Footer builder backgeround image setting in customizer', () => {
 					'background-type': 'image',
 				},
 				tablet: {
-					'background-image': 'https://c.pxhere.com/photos/b1/b0/flower_field_plant_nature-174602.jpg!s1',
+					'background-image': 'https://pd.w.org/2022/04/2966264f298b6e007.81903590-300x200.jpg',
 
 					'background-repeat': 'no-repeat',
 					'background-position': 'left top',
@@ -26,7 +26,7 @@ describe( 'Footer builder backgeround image setting in customizer', () => {
 					'background-type': 'image',
 				},
 				mobile: {
-					'background-image': 'https://c.pxhere.com/photos/f0/a1/plant_leaf_palm-26883.jpg!s1',
+					'background-image': 'https://pd.w.org/2022/04/276262a8d1470467.39785232-300x200.jpeg',
 
 					'background-repeat': 'no-repeat',
 					'background-position': 'left top',
