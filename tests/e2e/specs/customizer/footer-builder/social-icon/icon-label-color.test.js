@@ -34,7 +34,7 @@ describe( 'Social icons show label in the customizer', () => {
 		const socialIconLabelColor = {
 			'footer-social-1-label-toggle': '1',
 			'footer-social-1-label-color': {
-				tablet: 'rgb(92, 30, 80)',
+				tablet: 'rgb(75, 44, 69)',
 			},
 			'footer-desktop-items': {
 				primary: {
@@ -61,7 +61,7 @@ describe( 'Social icons show label in the customizer', () => {
 		const socialIconLabelColor = {
 			'footer-social-1-label-toggle': '1',
 			'footer-social-1-label-color': {
-				mobile: 'rgb(44, 69, 49)',
+				mobile: 'rgb(55, 61, 56)',
 			},
 			'footer-desktop-items': {
 				primary: {
