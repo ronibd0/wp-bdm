@@ -2,11 +2,8 @@ name: Tests
 
 # Run the deployment only when code is committed to the branch.
 
-on:
+  on:
   pull_request:
-    # Sequence of patterns matched against refs/heads
-    branches-ignore:
-      - 'next-release/-offcanvas**'
 
 # Cancels all previous workflow runs for pull requests that have not completed.
 concurrency:
