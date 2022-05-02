@@ -6,6 +6,13 @@ describe( 'Astra meta setting', () => {
 	it( 'disabling above header should apply correctly', async () => {
 		const astraMetaSetting = {
 			'ast-hfb-above-header-display': 'disabled',
+			'header-desktop-items': {
+				above: {
+					above_left: {
+						0: 'html-2',
+					},
+				},
+			},
 		};
 		await setCustomize( astraMetaSetting );
 		let ppStatus = false;
@@ -66,6 +73,13 @@ describe( 'Astra meta setting', () => {
 	it( 'disabling below header should apply correctly', async () => {
 		const astraMetaSetting = {
 			'ast-hfb-above-header-display': 'disabled',
+			'header-desktop-items': {
+				below: {
+					below_left: {
+						0: 'html-2',
+					},
+				},
+			},
 		};
 		await setCustomize( astraMetaSetting );
 		let ppStatus = false;
