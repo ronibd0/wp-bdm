@@ -1,5 +1,5 @@
 import { setCustomize } from '../../../../utils/customize';
-import { createURL, createNewPost,insertBlock } from '@wordpress/e2e-test-utils';
+import { createURL, createNewPost, insertBlock } from '@wordpress/e2e-test-utils';
 import { setBrowserViewport } from '../../../../utils/set-browser-viewport';
 import { publishPost } from '../../../../utils/publish-post';
 describe( 'Global button setting under the Customizer', () => {
