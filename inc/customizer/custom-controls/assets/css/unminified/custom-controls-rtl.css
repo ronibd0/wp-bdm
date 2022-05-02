@@ -3421,8 +3421,8 @@ input[type="text"].select2-search__field {
 .ast-responsive-select-container.active {
   display: block;
 }
-.customize-control select, .ast-variant-select > div, .customize-control input {
-  border-color: #ddd;
+.ast-variant-select > div {
+  border-color: #dddddd;
 }
 
 .customize-control-ast-responsive-slider .wrapper, .customize-control-ast-slider .wrapper {
