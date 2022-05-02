@@ -15,19 +15,19 @@ describe( 'off canvas menu design settings in the customizer', () => {
 				mobile: 'rgb(10, 10, 10)',
 			},
 			'header-mobile-menu-a-color-responsive': {
-				desktop: 'rgb(23, 46, 207)',
-				tablet: 'rgb(23, 46, 207)',
-				mobile: 'rgb(23, 46, 207)',
+				desktop: 'rgb(22, 22, 22)',
+				tablet: 'rgb(2, 2, 4)',
+				mobile: 'rgb(3, 3, 3)',
 			},
 			'header-mobile-menu-bg-obj-responsive': {
 				desktop: {
-					'background-color': 'rgb(254, 113, 213)',
+					'background-color': 'rgb(247, 230, 243)',
 				},
 				tablet: {
-					'background-color': 'rgb(254, 113, 213)',
+					'background-color': 'rgb(230, 247, 244)',
 				},
 				mobile: {
-					'background-color': 'rgb(254, 113, 213)',
+					'background-color': 'rgb(255, 255, 243)',
 				},
 			},
 			'header-mobile-menu-a-bg-color-responsive': {
