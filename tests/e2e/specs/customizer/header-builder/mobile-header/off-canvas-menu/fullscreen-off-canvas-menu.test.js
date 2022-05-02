@@ -16,7 +16,7 @@ describe( 'off canvas menu design settings in the customizer', () => {
 			},
 			'header-mobile-menu-a-color-responsive': {
 				desktop: 'rgb(22, 22, 22)',
-				tablet: 'rgb(2, 2, 4)',
+				tablet: 'rgb(5, 5, 7)',
 				mobile: 'rgb(3, 3, 3)',
 			},
 			'header-mobile-menu-bg-obj-responsive': {
