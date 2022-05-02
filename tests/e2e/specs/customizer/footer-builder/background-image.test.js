@@ -8,7 +8,7 @@ describe( 'Footer builder background image setting in customizer', () => {
 			'section-footer-builder-layout-padding': 60,
 			'footer-bg-obj-responsive': {
 				desktop: {
-					'background-image': 'https://pickupimage.com/free-photos/Combine-harvester/2358359',
+					'background-image': 'https://pd.w.org/2022/04/2626264f36443b827.24646863-220x300.jpg',
 
 					'background-repeat': 'no-repeat',
 					'background-position': 'left top',
