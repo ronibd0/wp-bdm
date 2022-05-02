@@ -15,7 +15,7 @@ const FontVariantComponent = props => {
 	const [ propValue, setValue ] = useState( props.control.setting.get() || [] );
 	const [ fontVal, setfontVal ] = useState( wp.customize.control( variant ).setting.get() || 'inherit' );
 
-	var controlCleanName = props.control.params.name;
+	let controlCleanName = props.control.params.name;
 
 		controlCleanName = controlCleanName.replace('[', '_');
 		controlCleanName = controlCleanName.replace(']', '');
