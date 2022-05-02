@@ -64,9 +64,11 @@
 		api('astra-settings[body-font-family]', function (value) {
 			value.bind(function (font) {
 				let event = new CustomEvent(
-					'AstraGlobalFontChanged', {
+					'AstraGlobalFontChangedastra_settings_body-font-variant', {
 						'detail': {
-							'font': font
+							'font': font,
+							'control': 'body-font-family',
+							'variant': 'body-font-variant'
 						}
 					});
 				document.dispatchEvent(event);
@@ -79,9 +81,11 @@
 		api('astra-settings[headings-font-family]', function (value) {
 			value.bind(function (font) {
 				let event = new CustomEvent(
-					'AstraGlobalFontChanged', {
+					'AstraGlobalFontChangedastra_settings_headings-font-variant', {
 						'detail': {
-							'font': font
+							'font': font,
+							'control': 'headings-font-family',
+							'variant': 'headings-font-variant'
 						}
 					});
 				document.dispatchEvent(event);

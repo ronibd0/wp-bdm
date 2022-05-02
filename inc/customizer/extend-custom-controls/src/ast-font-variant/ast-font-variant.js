@@ -6,18 +6,26 @@ import Select from 'react-select';
 const FontVariantComponent = props => {
 
 	const {
-		description,
+		help,
 		label,
 		name,
 		variant,
 	} = props.control.params;
 
 	const [ propValue, setValue ] = useState( props.control.setting.get() || [] );
-	const [ fontVal, setfontVal ] = useState( wp.customize.control( variant ).setting.get() || 'inherit');
+	const [ fontVal, setfontVal ] = useState( wp.customize.control( variant ).setting.get() || 'inherit' );
+
+	var controlCleanName = props.control.params.name;
+
+		controlCleanName = controlCleanName.replace('[', '_');
+		controlCleanName = controlCleanName.replace(']', '');
+		controlCleanName = controlCleanName.replace('-', '_');
+
+	const eventListner = 'AstraGlobalFontChanged' + controlCleanName;
 
 	// If settings are changed externally.
-	const getUpatedFontVariantOptions = () => {
-		document.addEventListener( 'AstraGlobalFontChanged', function (e) {
+	const getUpatedBodyFontVariantOptions = () => {
+		document.addEventListener( eventListner, function (e) {
 			setValue( null );
 			if( 'inherit' === e.detail.font ) {
 				setfontVal( '' );
@@ -27,7 +35,7 @@ const FontVariantComponent = props => {
 		});
 	}
 
-	getUpatedFontVariantOptions();
+	getUpatedBodyFontVariantOptions();
 
 	const fontVariants = window.AstraBuilderCustomizerData.googleFonts;
 	let fontName = fontVal.split(','),
@@ -38,7 +46,7 @@ const FontVariantComponent = props => {
 	}
 
 	let labelHtml = label ? <span>{label}</span> : '',
-		descriptionHtml = description ? <span className="description customize-control-description">{description}</span> : null;
+		helpHtml = help ? <span className="description customize-control-variant-description">{help}</span> : null;
 
 	const prepareToSave = ( variants ) => {
 		let fontVariantVal = Object.entries( variants ).map( ( [ key, name ] ) => {
@@ -87,7 +95,6 @@ const FontVariantComponent = props => {
 	return <>
 		<label className="customize-control-title">
 			{labelHtml}
-			{descriptionHtml}
 		</label>
 		<div className='ast-customizer-font-varient-wrap'>
 			<Select
@@ -98,6 +105,7 @@ const FontVariantComponent = props => {
 				onChange = { ( value ) => updateValues( value )}
 				className = "ast-variant-select"
 			/>
+			{helpHtml}
 		</div>
 	</>;
 };

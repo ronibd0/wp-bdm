@@ -79,7 +79,9 @@ export const settingsGroupControl = wp.customize.astraControl.extend( {
 
 		/* Close popup when click outside anywhere outside of popup */
 		jQuery( '.wp-full-overlay-sidebar-content, .wp-picker-container' ).click( function( e ) {
-			if ( ! jQuery( e.target ).closest( '.ast-field-settings-modal' ).length ) {
+			let id = undefined !== e.target ? e.target.id : '',
+				ignoreCloseTrigger = id.indexOf( 'react-select-' ) != -1 ? true  : false;
+			if ( ! ignoreCloseTrigger && ! jQuery( e.target ).closest( '.ast-field-settings-modal' ).length ) {
 				jQuery( '.ast-adv-toggle-icon.open' ).trigger( 'click' );
 			}
 		});

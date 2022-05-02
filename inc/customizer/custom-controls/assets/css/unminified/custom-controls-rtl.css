@@ -4429,6 +4429,15 @@ span.select2-container.select2-container--default.select2-container--open li.sel
   box-shadow: none;
 }
 
+.ast-variant-select [CLASS*="-indicatorContainer"] {
+  padding: 2px;
+  display: contents;
+}
+
+.ast-variant-select [CLASS*="-multiValue"] > div:first-child {
+  padding: 0 6px 0 0;
+}
+
 .customize-control-ast-customizer-link .customizer-link {
   font-style: italic;
   text-decoration: none;
