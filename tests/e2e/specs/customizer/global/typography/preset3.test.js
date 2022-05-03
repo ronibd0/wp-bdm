@@ -77,30 +77,24 @@ describe( 'Global typography preset-3 style in the customizer', () => {
 			'headings-line-height': '40px',
 		};
 		await setCustomize( globalTypographyPreset3 );
-		let ppStatus = false;
-		while ( false === ppStatus ) {
-			await createNewPost( { postType: 'post', title: 'preset3' } );
-			await setPostContent( TPOGRAPHY_TEST_POST_CONTENT );
-			ppStatus = await publishPost();
-		}
 		await page.goto( createURL( 'preset3' ), {
 			waitUntil: 'networkidle0',
 		} );
-		await page.waitForSelector( 'h1, .entry-content h1' );
+		await page.waitForSelector( 'h1, h2, .entry-content h2, h3, .entry-content h3, h4, .entry-content h4, h5, .entry-content h5, h6, .entry-content h6' );
 		await expect( {
-			selector: 'h1, .entry-content h1',
+			selector: 'h1, h2, .entry-content h2, h3, .entry-content h3, h4, .entry-content h4, h5, .entry-content h5, h6, .entry-content h6',
 			property: 'font-family',
 		} ).cssValueToBe( `${ globalTypographyPreset3[ 'headings-font-family' ] }` );
 		await expect( {
-			selector: '.entry-content h1',
+			selector: 'h2, .entry-content h2, h3, .entry-content h3, h4, .entry-content h4, h5, .entry-content h5, h6, .entry-content h6',
 			property: 'font-weight',
 		} ).cssValueToBe( `${ globalTypographyPreset3[ 'headings-font-weight' ] }` );
 		await expect( {
-			selector: '.entry-content h1',
+			selector: 'h1, h2, .entry-content h2, h3, .entry-content h3, h4, .entry-content h4, h5, .entry-content h5, h6, .entry-content h6',
 			property: 'text-transform',
 		} ).cssValueToBe( `${ globalTypographyPreset3[ 'headings-text-transform' ] }` );
 		await expect( {
-			selector: '.entry-content h1',
+			selector: 'h2, .entry-content h2, h3, .entry-content h3, h4, .entry-content h4, h5, .entry-content h5, h6, .entry-content h6',
 			property: 'line-height',
 		} ).cssValueToBe( `${ globalTypographyPreset3[ 'headings-line-height' ] }` );
 	} );
