@@ -1,4 +1,4 @@
-v3.7.11
+v3.7.11 (Unreleased)
 - Fix: Gutenberg editor – Layout settings are not visible for Group block.
 - Fix: Elementor Pro – WooCommerce Checkout Form’s shipping details not look appropriate in editor mode as it looks on the frontend.
 - Fix: Search element not displaying in Mobile Offcanvas.
