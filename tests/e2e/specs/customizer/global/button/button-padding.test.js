@@ -28,6 +28,20 @@ describe( 'Global button setting under the Customizer', () => {
 				'tablet-unit': 'px',
 				'mobile-unit': 'px',
 			},
+			'header-desktop-items': {
+				above: {
+					above_left: {
+						0: 'button-1',
+					},
+				},
+			},
+			'header-mobile-items': {
+				above: {
+					above_left: {
+						0: 'button-1',
+					},
+				},
+			},
 		};
 		await setCustomize( buttonPadding );
 		let ppStatus = false;
@@ -43,21 +57,21 @@ describe( 'Global button setting under the Customizer', () => {
 		await page.goto( createURL( 'buttonPadding' ), {
 			waitUntil: 'networkidle0',
 		} );
-		await page.waitForSelector( '.wp-block-buttons .wp-block-button .wp-block-button__link' );
+		await page.waitForSelector( '.ast-custom-button, .wp-block-buttons .wp-block-button .wp-block-button__link' );
 		await expect( {
-			selector: '.wp-block-buttons .wp-block-button .wp-block-button__link',
+			selector: '.ast-custom-button, .wp-block-buttons .wp-block-button .wp-block-button__link',
 			property: 'padding-top',
 		} ).cssValueToBe( `${ buttonPadding[ 'theme-button-padding' ].desktop.top }${ buttonPadding[ 'theme-button-padding' ][ 'desktop-unit' ] }` );
 		await expect( {
-			selector: '.wp-block-buttons .wp-block-button .wp-block-button__link',
+			selector: '.ast-custom-button, .wp-block-buttons .wp-block-button .wp-block-button__link',
 			property: 'padding-right',
 		} ).cssValueToBe( `${ buttonPadding[ 'theme-button-padding' ].desktop.right }${ buttonPadding[ 'theme-button-padding' ][ 'desktop-unit' ] }` );
 		await expect( {
-			selector: '.wp-block-buttons .wp-block-button .wp-block-button__link',
+			selector: '.ast-custom-button, .wp-block-buttons .wp-block-button .wp-block-button__link',
 			property: 'padding-bottom',
 		} ).cssValueToBe( `${ buttonPadding[ 'theme-button-padding' ].desktop.bottom }${ buttonPadding[ 'theme-button-padding' ][ 'desktop-unit' ] }` );
 		await expect( {
-			selector: '.wp-block-buttons .wp-block-button .wp-block-button__link',
+			selector: '.ast-custom-button, .wp-block-buttons .wp-block-button .wp-block-button__link',
 			property: 'padding-left',
 		} ).cssValueToBe( `${ buttonPadding[ 'theme-button-padding' ].desktop.left }${ buttonPadding[ 'theme-button-padding' ][ 'desktop-unit' ] }` );
 
