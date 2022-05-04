@@ -3,7 +3,7 @@ import { setCustomize } from '../../../../../utils/customize';
 import { setBrowserViewport } from '../../../../../utils/set-browser-viewport';
 import { scrollToElement } from '../../../../../utils/scroll-to-element';
 import { createNewFooterMenu } from '../../../../../utils/create-footer-menu';
-describe( 'Footer builder footer menu option under the customizer', () => {
+describe( 'Footer builder footer menu option in the customizer', () => {
 	it( 'footer menu spacing should apply properly', async () => {
 		await createNewFooterMenu();
 		const footerMenuSpacing = {
