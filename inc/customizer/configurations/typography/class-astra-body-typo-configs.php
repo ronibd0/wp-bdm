@@ -31,6 +31,10 @@ if ( ! class_exists( 'Astra_Body_Typo_Configs' ) ) {
 		public function register_configuration( $configurations, $wp_customize ) {
 
 			$typo_section = astra_has_gcp_typo_preset_compatibility() ? 'section-typography' : 'section-body-typo';
+			$astra_typo_preset_options = Astra_Font_Families::astra_typo_preset_options();
+			$set_preset = astra_get_typography_presets();
+			$preset_body_font_family = isset( $astra_typo_preset_options[ $set_preset ][ 'body-font-family' ] ) ? $astra_typo_preset_options[ $set_preset ][ 'body-font-family' ] : '';
+			$preset_headings_font_family = isset( $astra_typo_preset_options[ $set_preset ][ 'headings-font-family' ] ) ? $astra_typo_preset_options[ $set_preset ][ 'headings-font-family' ] : '';
 
 			$_configs = array(
 
@@ -58,7 +62,7 @@ if ( ! class_exists( 'Astra_Body_Typo_Configs' ) ) {
 					'control'     => 'ast-font',
 					'font_type'   => 'ast-font-family',
 					'ast_inherit' => __( 'Default System Font', 'astra' ),
-					'default'     => astra_get_option( 'body-font-family' ),
+					'default'     => astra_get_option( 'body-font-family', $preset_body_font_family ),
 					'section'     => $typo_section,
 					'priority'    => 6,
 					'title'       => __( 'Font Family', 'astra' ),
@@ -200,7 +204,7 @@ if ( ! class_exists( 'Astra_Body_Typo_Configs' ) ) {
 					'control'   => 'ast-font',
 					'font_type' => 'ast-font-family',
 					'divider'   => array( 'ast_class' => 'ast-top-divider' ),
-					'default'   => astra_get_option( 'headings-font-family' ),
+					'default'   => astra_get_option( 'headings-font-family', $preset_headings_font_family ),
 					'title'     => __( 'Font Family', 'astra' ),
 					'section'   => $typo_section,
 					'priority'  => 26,
