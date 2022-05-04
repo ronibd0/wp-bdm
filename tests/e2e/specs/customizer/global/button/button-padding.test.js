@@ -34,7 +34,7 @@ describe( 'Global button setting under the Customizer', () => {
 						0: 'button-1',
 					},
 				},
-			}
+			},
 			'header-mobile-items': {
 				above: {
 					above_left: {
