@@ -7,9 +7,13 @@ export const createSecondaryMenu = async () => {
 	while ( false === ppStatus ) {
 		await createNewPost( { postType: 'page', title: 'Test Page 1' } );
 		ppStatus = await publishPost();
+
+		await createNewPost( { postType: 'page', title: 'Test Page 2' } );
+		ppStatus = await publishPost();
+
+		await createNewPost( { postType: 'page', title: 'Test Page 3' } );
+		ppStatus = await publishPost();
 	}
-	await createNewPost( { postType: 'page', title: 'Test Page 2' } );
-	ppStatus = await publishPost();
 	await page.goto( createURL( '/wp-admin/nav-menus.php' ), {
 		waitUntil: 'networkidle0',
 	} );
@@ -29,12 +33,20 @@ export const createSecondaryMenu = async () => {
 	await page.click( '#page-tab' );
 	await page.click( '#submit-posttype-page' );
 
-	await page.waitForSelector( '.menu-item-depth-0:nth-child(2) .menu-item-handle' );
+	// await page.waitForSelector( '.menu-item-depth-0:nth-child(2) .menu-item-handle' );
+	// const menuToSubMenu = await page.$( '.menu-item-depth-0:nth-child(2) .menu-item-handle' );
+	// const boundingBox = await menuToSubMenu.boundingBox();
+	// await page.mouse.move( boundingBox.x + ( boundingBox.width / 2 ), boundingBox.y + ( boundingBox.height / 2 ) );
+	// await page.mouse.down();
+	// await page.mouse.move( 126, 19 );
+	// await page.mouse.up();
 
-	const menuToSubMenu = await page.$( '.menu-item-depth-0:nth-child(2) .menu-item-handle' );
-	const boundingBox = await menuToSubMenu.boundingBox();
-
-	await page.mouse.move( boundingBox.x + ( boundingBox.width / 2 ), boundingBox.y + ( boundingBox.height / 2 ) );
+	await page.waitForSelector( '.menu-item-depth-0:nth-child(3) .menu-item-handle' );
+	const menuToSubMenu2 = await page.$( '.menu-item-depth-0:nth-child(3) .menu-item-handle' );
+	const boundingBox2 = await menuToSubMenu2.boundingBox();
+	await page.mouse.move( boundingBox2.x + ( boundingBox2.width / 2 ), boundingBox2.y + ( boundingBox2.height / 2 ) );
+	await setBrowserViewport( 'large' );
+	await scrollToElement( '#nav-menu-bulk-actions-bottom' );
 	await page.mouse.down();
 	await page.mouse.move( 126, 19 );
 	await page.mouse.up();
