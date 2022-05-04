@@ -14,7 +14,7 @@ describe( 'Footer builder footer menu option in the customizer', () => {
 					bottom: '70',
 					left: '70',
 				},
-				tablt: {
+				tablet: {
 					top: '50',
 					right: '50',
 					bottom: '50',
