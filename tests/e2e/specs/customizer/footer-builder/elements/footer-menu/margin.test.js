@@ -4,7 +4,7 @@ import { setBrowserViewport } from '../../../../../utils/set-browser-viewport';
 import { scrollToElement } from '../../../../../utils/scroll-to-element';
 import { createNewFooterMenu } from '../../../../../utils/create-footer-menu';
 describe( 'Footer builder footer menu option in the customizer', () => {
-	it( 'footer menu margin should apply properly', async () => {
+	it( 'footer menu margin should apply correctly', async () => {
 		await createNewFooterMenu();
 		const footerMenuMargin = {
 			'section-footer-menu-margin': {
