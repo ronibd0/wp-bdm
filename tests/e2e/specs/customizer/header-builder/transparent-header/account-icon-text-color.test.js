@@ -18,9 +18,9 @@ describe( 'Transparent header settings in the customizer', () => {
 		await page.goto( createURL( '/' ), {
 			waitUntil: 'networkidle0',
 		} );
-		await page.waitForSelector( '.ast-theme-transparent-header .ast-header-account-wrap .ast-header-account-type-icon .ahfb-svg-iconset svg circle' );
+		await page.waitForSelector( '.ast-theme-transparent-header .ast-header-account-wrap .ast-header-account-type-icon .ahfb-svg-iconset svg path:not(.ast-hf-account-unfill), .ast-theme-transparent-header .ast-header-account-wrap .ast-header-account-type-icon .ahfb-svg-iconset svg circle' );
 		await expect( {
-			selector: '.ast-theme-transparent-header .ast-header-account-wrap .ast-header-account-type-icon .ahfb-svg-iconset svg circle',
+			selector: '.ast-theme-transparent-header .ast-header-account-wrap .ast-header-account-type-icon .ahfb-svg-iconset svg path:not(.ast-hf-account-unfill), .ast-theme-transparent-header .ast-header-account-wrap .ast-header-account-type-icon .ahfb-svg-iconset svg circle',
 			property: 'fill',
 		} ).cssValueToBe( `${ accountIconColor[ 'transparent-account-icon-color' ] }` );
 	} );
