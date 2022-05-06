@@ -1,14 +1,13 @@
 import { createURL } from '@wordpress/e2e-test-utils';
-import { setCustomize } from '../../../utils/customize';
+import { setCustomize } from '../../../../../utils/customize';
 describe( 'Account icons in the customizer', () => {
-	it( 'account icon color for desktop should apply correctly', async () => {
+	it( 'account icon color should apply correctly', async () => {
 		const accountIconColor = {
 			'header-account-icon-color': 'rgb(120, 22, 162)',
 			'header-desktop-items': {
 				primary: {
 					primary_center: {
 						0: 'account',
-
 					},
 				},
 			},
@@ -18,13 +17,10 @@ describe( 'Account icons in the customizer', () => {
 		await page.goto( createURL( '/' ), {
 			waitUntil: 'networkidle0',
 		} );
-
 		await page.waitForSelector( '.ast-header-account-wrap .ast-header-account-type-icon .ahfb-svg-iconset svg path:not( .ast-hf-account-unfill )' );
-
 		await expect( {
 			selector: '.ast-header-account-wrap .ast-header-account-type-icon .ahfb-svg-iconset svg path:not( .ast-hf-account-unfill )',
 			property: 'fill',
-		} ).cssValueToBe( `${ accountIconColor[ 'header-account-icon-color' ] }`,
-		);
+		} ).cssValueToBe( `${ accountIconColor[ 'header-account-icon-color' ] }` );
 	} );
 } );
