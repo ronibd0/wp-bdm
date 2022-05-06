@@ -47,9 +47,9 @@ describe( 'Footer menu hide on devices setting in customizer', () => {
 		} );
 		await setBrowserViewport( 'medium' );
 		await scrollToElement( '#colophon' );
-		await page.waitForSelector( '.footer-widget-area[data-section="section-footer-menu"]' );
+		await page.waitForSelector( '.ast-header-break-point .footer-widget-area[data-section="section-footer-menu"]' );
 		await expect( {
-			selector: '.footer-widget-area[data-section="section-footer-menu"]',
+			selector: '.ast-header-break-point .footer-widget-area[data-section="section-footer-menu"]',
 			property: 'display',
 		} ).cssValueToBe( `none` );
 	} );
@@ -72,9 +72,9 @@ describe( 'Footer menu hide on devices setting in customizer', () => {
 		} );
 		await setBrowserViewport( 'small' );
 		await scrollToElement( '#colophon' );
-		await page.waitForSelector( '.footer-widget-area[data-section="section-footer-menu"]' );
+		await page.waitForSelector( '.ast-header-break-point .footer-widget-area[data-section="section-footer-menu"]' );
 		await expect( {
-			selector: '.footer-widget-area[data-section="section-footer-menu"]',
+			selector: '.ast-header-break-point .footer-widget-area[data-section="section-footer-menu"]',
 			property: 'display',
 		} ).cssValueToBe( `none` );
 	} );
