@@ -40,15 +40,38 @@ class Astra_Posts_Strctures_Configs extends Astra_Customizer_Config_Base {
 
 		if ( ! empty( $post_types ) ) {
 
+			$_configs = array(
+				array(
+					'name'     => 'section-posts-structure',
+					'type'     => 'section',
+					'priority' => 69,
+					'title'    => __( 'Custom Posts Types', 'astra' ),
+				),
+			);
+
 			/**
 			 * Individual post types main section.
 			 */
 			foreach ( $post_types as $index => $slug ) {
 				$post_type_object = get_post_type_object( $slug );
+				$parent_section   = 'section-posts-structure';
 
+				if ( 'download' === $slug ) {
+					$parent_section = 'section-edd-group';
+				}
+				
+				if ( 'llms_membership' === $slug ) {
+					$parent_section = 'section-lifterlms';
+				}
+
+				if ( 'groups' === $slug || 'sfwd-topic' === $slug || 'sfwd-lessons' === $slug || 'sfwd-courses' === $slug ) {
+					$parent_section = 'section-learndash';
+				}
+				
 				$_configs[] = array(
 					'name'     => 'section-posttype-' . $slug,
 					'type'     => 'section',
+					'section'  => $parent_section,
 					'title'    => isset( $post_type_object->labels->name ) ? $post_type_object->labels->name : ucfirst( $slug ),
 					'priority' => 69,
 				);

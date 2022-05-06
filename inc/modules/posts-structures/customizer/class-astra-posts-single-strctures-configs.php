@@ -133,6 +133,8 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 			} elseif ( 'post' === $post_type ) {
 				$taxonomies['category-tag'] = __( 'Category + Tag', 'astra' );
 				$parent_section             = 'section-blog-single';
+			} elseif ( 'page' === $post_type ) {
+				$parent_section = 'section-page-group';
 			} else {
 				$parent_section = 'section-posttype-' . $post_type;
 			}
@@ -1047,7 +1049,7 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 				),
 			);
 
-			if ( 'post' !== $post_type && 'product' !== $post_type ) {
+			if ( 'post' !== $post_type && 'product' !== $post_type && 'page' !== $post_type ) {
 				
 				/**
 				 * Archive Parent.
