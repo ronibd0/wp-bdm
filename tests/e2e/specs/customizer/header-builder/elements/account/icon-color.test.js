@@ -17,9 +17,9 @@ describe( 'Account icons in the customizer', () => {
 		await page.goto( createURL( '/' ), {
 			waitUntil: 'networkidle0',
 		} );
-		await page.waitForSelector( '.ast-header-account-wrap .ast-header-account-type-icon .ahfb-svg-iconset svg path:not( .ast-hf-account-unfill )' );
+		await page.waitForSelector( '.ast-header-account-wrap .ast-header-account-type-icon .ahfb-svg-iconset svg circle' );
 		await expect( {
-			selector: '.ast-header-account-wrap .ast-header-account-type-icon .ahfb-svg-iconset svg path:not( .ast-hf-account-unfill )',
+			selector: '.ast-header-account-wrap .ast-header-account-type-icon .ahfb-svg-iconset svg circle',
 			property: 'fill',
 		} ).cssValueToBe( `${ accountIconColor[ 'header-account-icon-color' ] }` );
 	} );
