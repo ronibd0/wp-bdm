@@ -357,7 +357,7 @@ h6{
 
 .edit-post-visual-editor__post-title-wrapper {
 	position: relative;
-    max-width: var(--wp--custom--ast-content-width-size);
+    max-width: calc(var(--wp--custom--ast-wide-width-size) + 20px);
     margin-left: auto !important;
     margin-right: auto !important;
 	&:hover {
@@ -374,27 +374,39 @@ h6{
 	.title-visibility {
 		cursor: pointer;
 		font-size: 18px;
-		width: 26px;
-		height: 22px;
-		background: var(--wp-admin-theme-color);
+		width: 36px;
+		height: 40px;
+		background: #ffffff;
 		text-align: center;
-		color: #fafafa;
+		color: #1e1e1e;
+		vertical-align: middle;
 		position: absolute;
-		right: 0;
-		top: 0;
+		left: 0px;
+		top: -41px;
+		bottom: 0;
 		opacity: 0;
 		margin: 0 !important;
 		padding: 0 !important;
+		outline: 1px solid #1e1e1e;
 		&:hover {
 			opacity: 1;
+			color: var(--wp-admin-theme-color);
+		}
+		&:before {
+			width: 100%;
+			height: 100%;
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
 		}
 	}
 	h1.editor-post-title__input {
 		padding: 10px;
 		&.is-selected {
-			outline: 1px solid var(--wp-admin-theme-color) !important;
+			outline: 1px solid #1e1e1e !important;
 			& + .title-visibility {
 				opacity: 1;
+				color: var(--wp-admin-theme-color);
 			}
 		}
 	}
