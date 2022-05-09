@@ -95,7 +95,6 @@ describe( 'Testing site background image and content background image setting un
 			await createNewPost( { postType: 'post', title: 'test', content: 'test background image' } );
 			ppStatus = await publishPost();
 		}
-		await publishPost();
 		await page.goto( createURL( '/' ), {
 			waitUntil: 'networkidle0',
 		} );
