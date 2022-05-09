@@ -236,7 +236,7 @@ html {
   height: 40px;
   background: #ffffff;
   text-align: center;
-  color: #1e1e1e;
+  color: var(--wp-admin-theme-color);
   vertical-align: middle;
   position: absolute;
   right: 0px;
@@ -245,7 +245,7 @@ html {
   opacity: 0;
   margin: 0 !important;
   padding: 0 !important;
-  outline: 1px solid #1e1e1e;
+  outline: 1px solid var(--wp-admin-theme-color);
 }
 
 .edit-post-visual-editor__post-title-wrapper .title-visibility:hover {
@@ -270,7 +270,7 @@ html {
 }
 
 .edit-post-visual-editor__post-title-wrapper h1.editor-post-title__input.is-selected {
-  outline: 1px solid #1a1a1a !important;
+  outline: 1px solid var(--wp-admin-theme-color) !important;
 }
 
 .edit-post-visual-editor__post-title-wrapper h1.editor-post-title__input.is-selected + .title-visibility {

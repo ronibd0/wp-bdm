@@ -180,13 +180,13 @@ function astra_block_editor_compatibility_css( $dynamic_css ) {
  * @since x.x.x
  */
 function astra_load_modern_block_editor_ui( $dynamic_css ) {
-	$dynamic_css      .= astra_get_block_editor_required_css();
-	$ltr_left          = is_rtl() ? 'right' : 'left';
-	$ltr_right         = is_rtl() ? 'left' : 'right';
-	$ast_content_width = apply_filters( 'astra_block_content_width', '910px' );
-	$ast_wide_width    = apply_filters( 'astra_block_wide_width', astra_get_option( 'site-content-width', 1200 ) . 'px' );
-
-	$blocks_spacings = astra_get_option( 'wp-blocks-global-padding' );
+	$dynamic_css             .= astra_get_block_editor_required_css();
+	$ltr_left                 = is_rtl() ? 'right' : 'left';
+	$ltr_right                = is_rtl() ? 'left' : 'right';
+	$astra_block_editor_v2_ui = astra_get_option( 'wp-blocks-v2-ui', true ) ? true : false;
+	$ast_content_width        = apply_filters( 'astra_block_content_width', $astra_block_editor_v2_ui ? astra_get_option( 'site-content-width', 1200 ) . 'px' : '910px' );
+	$ast_wide_width           = apply_filters( 'astra_block_wide_width', $astra_block_editor_v2_ui ? '1280px' : astra_get_option( 'site-content-width', 1200 ) . 'px' );
+	$blocks_spacings          = Astra_WP_Editor_CSS::astra_get_block_spacings();
 
 	/** @psalm-suppress InvalidCast */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 	$tablet_breakpoint = (string) astra_get_tablet_breakpoint();
@@ -200,25 +200,25 @@ function astra_load_modern_block_editor_ui( $dynamic_css ) {
 		html body {
 			--wp--custom--ast-content-width-size: ' . $ast_content_width . ';
 			--wp--custom--ast-wide-width-size: ' . $ast_wide_width . ';
-			--wp--custom--ast-default-block-top-padding: ' . astra_responsive_spacing( $blocks_spacings, 'top', 'desktop' ) . ';
-			--wp--custom--ast-default-block-right-padding: ' . astra_responsive_spacing( $blocks_spacings, 'right', 'desktop' ) . ';
-			--wp--custom--ast-default-block-bottom-padding: ' . astra_responsive_spacing( $blocks_spacings, 'bottom', 'desktop' ) . ';
-			--wp--custom--ast-default-block-left-padding: ' . astra_responsive_spacing( $blocks_spacings, 'left', 'desktop' ) . ';
+			--wp--custom--ast-default-block-top-padding: ' . $blocks_spacings['desktop']['top'] . ';
+			--wp--custom--ast-default-block-right-padding: ' . $blocks_spacings['desktop']['right'] . ';
+			--wp--custom--ast-default-block-bottom-padding: ' . $blocks_spacings['desktop']['bottom'] . ';
+			--wp--custom--ast-default-block-left-padding: ' . $blocks_spacings['desktop']['left'] . ';
 		}
 		@media(max-width: ' . $tablet_breakpoint . 'px) {
 			html body {
-				--wp--custom--ast-default-block-top-padding: ' . astra_responsive_spacing( $blocks_spacings, 'top', 'tablet' ) . ';
-				--wp--custom--ast-default-block-right-padding: ' . astra_responsive_spacing( $blocks_spacings, 'right', 'tablet' ) . ';
-				--wp--custom--ast-default-block-bottom-padding: ' . astra_responsive_spacing( $blocks_spacings, 'bottom', 'tablet' ) . ';
-				--wp--custom--ast-default-block-left-padding: ' . astra_responsive_spacing( $blocks_spacings, 'left', 'tablet' ) . ';
+				--wp--custom--ast-default-block-top-padding: ' . $blocks_spacings['tablet']['top'] . ';
+				--wp--custom--ast-default-block-right-padding: ' . $blocks_spacings['tablet']['right'] . ';
+				--wp--custom--ast-default-block-bottom-padding: ' . $blocks_spacings['tablet']['bottom'] . ';
+				--wp--custom--ast-default-block-left-padding: ' . $blocks_spacings['tablet']['left'] . ';
 			}
 		}
 		@media(max-width: ' . $mobile_breakpoint . 'px) {
 			html body {
-				--wp--custom--ast-default-block-top-padding: ' . astra_responsive_spacing( $blocks_spacings, 'top', 'mobile' ) . ';
-				--wp--custom--ast-default-block-right-padding: ' . astra_responsive_spacing( $blocks_spacings, 'right', 'mobile' ) . ';
-				--wp--custom--ast-default-block-bottom-padding: ' . astra_responsive_spacing( $blocks_spacings, 'bottom', 'mobile' ) . ';
-				--wp--custom--ast-default-block-left-padding: ' . astra_responsive_spacing( $blocks_spacings, 'left', 'mobile' ) . ';
+				--wp--custom--ast-default-block-top-padding: ' . $blocks_spacings['mobile']['top'] . ';
+				--wp--custom--ast-default-block-right-padding: ' . $blocks_spacings['mobile']['right'] . ';
+				--wp--custom--ast-default-block-bottom-padding: ' . $blocks_spacings['mobile']['bottom'] . ';
+				--wp--custom--ast-default-block-left-padding: ' . $blocks_spacings['mobile']['left'] . ';
 			}
 		}
 	';
@@ -340,6 +340,16 @@ function astra_load_modern_block_editor_ui( $dynamic_css ) {
 		font-size: 28px;
 	}
 	';
+
+	if ( $astra_block_editor_v2_ui ) {
+		$dynamic_css .= '
+			.entry-content[ast-blocks-layout] .alignwide {
+				max-width: calc(100% + var(--wp--custom--ast-default-block-left-padding) + var(--wp--custom--ast-default-block-right-padding));
+				margin-' . esc_attr( $ltr_left ) . ': calc(-1 * var(--wp--custom--ast-default-block-left-padding));
+				margin-' . esc_attr( $ltr_right ) . ': calc(-1 * var(--wp--custom--ast-default-block-right-padding));
+			}
+		';
+	}
 
 	$mobile_css = array(
 		'.wp-block-columns .wp-block-column:not(:last-child)' => array(

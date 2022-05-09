@@ -21,6 +21,96 @@ if ( ! defined( 'ABSPATH' ) ) {
 class Astra_WP_Editor_CSS {
 
 	/**
+	 * Astra block editor block editor - padding preset CSS.
+	 *
+	 * @return array Devices specific padding spacings.
+	 *
+	 * @since x.x.x
+	 */
+	public static function astra_get_block_spacings() {
+		$wp_block_spacing_type     = astra_get_option( 'wp-blocks-ui' );
+		$container_blocks_spacings = astra_get_option( 'wp-blocks-global-padding' );
+		switch ( $wp_block_spacing_type ) {
+			case 'compact':
+				$desktop_top_block_space    = '2em';
+				$desktop_right_block_space  = '2em';
+				$desktop_bottom_block_space = '2em';
+				$desktop_left_block_space   = '2em';
+				$tablet_top_block_space     = '2em';
+				$tablet_right_block_space   = '2em';
+				$tablet_bottom_block_space  = '2em';
+				$tablet_left_block_space    = '2em';
+				$mobile_top_block_space     = '2em';
+				$mobile_right_block_space   = '2em';
+				$mobile_bottom_block_space  = '2em';
+				$mobile_left_block_space    = '2em';
+				break;
+			case 'comfort':
+				$desktop_top_block_space    = '4em';
+				$desktop_right_block_space  = '4em';
+				$desktop_bottom_block_space = '4em';
+				$desktop_left_block_space   = '4em';
+				$tablet_top_block_space     = '4em';
+				$tablet_right_block_space   = '4em';
+				$tablet_bottom_block_space  = '4em';
+				$tablet_left_block_space    = '4em';
+				$mobile_top_block_space     = '4em';
+				$mobile_right_block_space   = '4em';
+				$mobile_bottom_block_space  = '4em';
+				$mobile_left_block_space    = '4em';
+				break;
+			case 'custom':
+				$desktop_top_block_space    = astra_responsive_spacing( $container_blocks_spacings, 'top', 'desktop' );
+				$desktop_right_block_space  = astra_responsive_spacing( $container_blocks_spacings, 'right', 'desktop' );
+				$desktop_bottom_block_space = astra_responsive_spacing( $container_blocks_spacings, 'bottom', 'desktop' );
+				$desktop_left_block_space   = astra_responsive_spacing( $container_blocks_spacings, 'left', 'desktop' );
+				$tablet_top_block_space     = astra_responsive_spacing( $container_blocks_spacings, 'top', 'tablet' );
+				$tablet_right_block_space   = astra_responsive_spacing( $container_blocks_spacings, 'right', 'tablet' );
+				$tablet_bottom_block_space  = astra_responsive_spacing( $container_blocks_spacings, 'bottom', 'tablet' );
+				$tablet_left_block_space    = astra_responsive_spacing( $container_blocks_spacings, 'left', 'tablet' );
+				$mobile_top_block_space     = astra_responsive_spacing( $container_blocks_spacings, 'top', 'mobile' );
+				$mobile_right_block_space   = astra_responsive_spacing( $container_blocks_spacings, 'right', 'mobile' );
+				$mobile_bottom_block_space  = astra_responsive_spacing( $container_blocks_spacings, 'bottom', 'mobile' );
+				$mobile_left_block_space    = astra_responsive_spacing( $container_blocks_spacings, 'left', 'mobile' );
+				break;
+			default:
+				$desktop_top_block_space    = '';
+				$desktop_right_block_space  = '';
+				$desktop_bottom_block_space = '';
+				$desktop_left_block_space   = '';
+				$tablet_top_block_space     = '';
+				$tablet_right_block_space   = '';
+				$tablet_bottom_block_space  = '';
+				$tablet_left_block_space    = '';
+				$mobile_top_block_space     = '';
+				$mobile_right_block_space   = '';
+				$mobile_bottom_block_space  = '';
+				$mobile_left_block_space    = '';
+				break;
+		}
+		return array(
+			'desktop' => array(
+				'top'    => $desktop_top_block_space,
+				'right'  => $desktop_right_block_space,
+				'bottom' => $desktop_bottom_block_space,
+				'left'   => $desktop_left_block_space,
+			),
+			'tablet'  => array(
+				'top'    => $tablet_top_block_space,
+				'right'  => $tablet_right_block_space,
+				'bottom' => $tablet_bottom_block_space,
+				'left'   => $tablet_left_block_space,
+			),
+			'mobile'  => array(
+				'top'    => $mobile_top_block_space,
+				'right'  => $mobile_right_block_space,
+				'bottom' => $mobile_bottom_block_space,
+				'left'   => $mobile_left_block_space,
+			),
+		);
+	}
+
+	/**
 	 * Get dynamic CSS  required for the block editor to make editing experience similar to how it looks on frontend.
 	 *
 	 * @return String CSS to be loaded in the editor interface.
@@ -232,18 +322,19 @@ class Astra_WP_Editor_CSS {
 		// check the selection color in-case of empty/no theme color.
 		$selection_text_color = ( 'transparent' === $highlight_theme_color ) ? '' : $highlight_theme_color;
 
-		$ast_content_width = apply_filters( 'astra_block_content_width', '910px' );
-		$ast_wide_width    = apply_filters( 'astra_block_wide_width', astra_get_option( 'site-content-width', 1200 ) . 'px' );
+		$astra_is_block_editor_v2_ui = astra_get_option( 'wp-blocks-v2-ui', true ) ? true : false;
+		$ast_content_width           = apply_filters( 'astra_block_content_width', $astra_is_block_editor_v2_ui ? astra_get_option( 'site-content-width', 1200 ) . 'px' : '910px' );
+		$ast_wide_width              = apply_filters( 'astra_block_wide_width', $astra_is_block_editor_v2_ui ? '1280px' : astra_get_option( 'site-content-width', 1200 ) . 'px' );
 
-		$blocks_spacings = astra_get_option( 'wp-blocks-global-padding' );
+		$blocks_spacings = self::astra_get_block_spacings();
 
 		$css = ':root, body .editor-styles-wrapper {
 			--wp--custom--ast-content-width-size: ' . $ast_content_width . ';
 			--wp--custom--ast-wide-width-size: ' . $ast_wide_width . ';
-			--wp--custom--ast-default-block-top-padding: ' . astra_responsive_spacing( $blocks_spacings, 'top', 'desktop' ) . ';
-			--wp--custom--ast-default-block-right-padding: ' . astra_responsive_spacing( $blocks_spacings, 'right', 'desktop' ) . ';
-			--wp--custom--ast-default-block-bottom-padding: ' . astra_responsive_spacing( $blocks_spacings, 'bottom', 'desktop' ) . ';
-			--wp--custom--ast-default-block-left-padding: ' . astra_responsive_spacing( $blocks_spacings, 'left', 'desktop' ) . ';
+			--wp--custom--ast-default-block-top-padding: ' . $blocks_spacings['desktop']['top'] . ';
+			--wp--custom--ast-default-block-right-padding: ' . $blocks_spacings['desktop']['right'] . ';
+			--wp--custom--ast-default-block-bottom-padding: ' . $blocks_spacings['desktop']['bottom'] . ';
+			--wp--custom--ast-default-block-left-padding: ' . $blocks_spacings['desktop']['left'] . ';
 		}';
 
 		/** @psalm-suppress InvalidScalarArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
@@ -393,12 +484,19 @@ class Astra_WP_Editor_CSS {
 			);
 		}
 
+		if ( astra_get_option( 'wp-blocks-v2-ui', true ) ) {
+			$desktop_css['.editor-styles-wrapper .block-editor-block-list__layout.is-root-container .alignwide'] = array(
+				'margin-left'  => 'calc(-1 * var(--wp--custom--ast-default-block-left-padding))',
+				'margin-right' => 'calc(-1 * var(--wp--custom--ast-default-block-right-padding))',
+			);
+		}
+
 		$tablet_css = array(
 			':root, body .editor-styles-wrapper' => array(
-				'--wp--custom--ast-default-block-top-padding' => astra_responsive_spacing( $blocks_spacings, 'top', 'tablet' ),
-				'--wp--custom--ast-default-block-right-padding' => astra_responsive_spacing( $blocks_spacings, 'right', 'tablet' ),
-				'--wp--custom--ast-default-block-bottom-padding' => astra_responsive_spacing( $blocks_spacings, 'bottom', 'tablet' ),
-				'--wp--custom--ast-default-block-left-padding' => astra_responsive_spacing( $blocks_spacings, 'left', 'tablet' ),
+				'--wp--custom--ast-default-block-top-padding' => $blocks_spacings['tablet']['top'],
+				'--wp--custom--ast-default-block-right-padding' => $blocks_spacings['tablet']['right'],
+				'--wp--custom--ast-default-block-bottom-padding' => $blocks_spacings['tablet']['bottom'],
+				'--wp--custom--ast-default-block-left-padding' => $blocks_spacings['tablet']['left'],
 			),
 			'.editor-styles-wrapper .editor-post-title__input' => array(
 				'font-size' => astra_responsive_font( $single_post_title_font_size, 'tablet', '30' ),
@@ -428,10 +526,10 @@ class Astra_WP_Editor_CSS {
 
 		$mobile_css = array(
 			':root, body .editor-styles-wrapper' => array(
-				'--wp--custom--ast-default-block-top-padding' => astra_responsive_spacing( $blocks_spacings, 'top', 'mobile' ),
-				'--wp--custom--ast-default-block-right-padding' => astra_responsive_spacing( $blocks_spacings, 'right', 'mobile' ),
-				'--wp--custom--ast-default-block-bottom-padding' => astra_responsive_spacing( $blocks_spacings, 'bottom', 'mobile' ),
-				'--wp--custom--ast-default-block-left-padding' => astra_responsive_spacing( $blocks_spacings, 'left', 'mobile' ),
+				'--wp--custom--ast-default-block-top-padding' => $blocks_spacings['mobile']['top'],
+				'--wp--custom--ast-default-block-right-padding' => $blocks_spacings['mobile']['right'],
+				'--wp--custom--ast-default-block-bottom-padding' => $blocks_spacings['mobile']['bottom'],
+				'--wp--custom--ast-default-block-left-padding' => $blocks_spacings['mobile']['left'],
 			),
 			'.editor-styles-wrapper .editor-post-title__input' => array(
 				'font-size' => astra_responsive_font( $single_post_title_font_size, 'mobile', '30' ),
