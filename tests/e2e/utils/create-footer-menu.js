@@ -22,8 +22,7 @@ export const createNewFooterMenu = async () => {
 	if ( await page.$( '.menu-delete' ) ) {
 		await page.click( '.menu-delete' );
 	}
-	const inputSelector = 'input[name="menu-name"]';
-	await page.click( inputSelector );
+	await page.click( '#nav-menu-header #menu-name' );
 	await page.type( '#menu-name', 'Footer-Menu' );
 	await page.focus( '#locations-footer_menu' );
 	await page.click( '#locations-footer_menu' );

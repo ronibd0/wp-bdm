@@ -18,9 +18,8 @@ export const createSecondaryMenu = async () => {
 	if ( await page.$( '.menu-delete' ) ) {
 		await page.click( '.menu-delete' );
 	}
-	const inputSelector = 'input[name="menu-name"]';
-	await page.click( inputSelector );
-	await page.type( '#menu-name', 'Menu 2' );
+	await page.click( '#nav-menu-header #menu-name' );
+	await page.type( '#menu-name', 'Secondary-Menu' );
 	await page.focus( '#locations-secondary_menu' );
 	await page.click( '#locations-secondary_menu' );
 	await page.focus( '#save_menu_footer' );
