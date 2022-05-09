@@ -1,8 +1,8 @@
 import { createURL } from '@wordpress/e2e-test-utils';
-import { setCustomize } from '../../../../utils/customize';
-import { setBrowserViewport } from '../../../../utils/set-browser-viewport';
-import { responsiveFontSize } from '../../../../utils/responsive-utils';
-import { scrollToElement } from '../../../../utils/scroll-to-element';
+import { setCustomize } from '../../../../../utils/customize';
+import { setBrowserViewport } from '../../../../../utils/set-browser-viewport';
+import { responsiveFontSize } from '../../../../../utils/responsive-utils';
+import { scrollToElement } from '../../../../../utils/scroll-to-element';
 describe( 'html2 block settings in the customizer', () => {
 	it( 'html2 font size for desktop should apply correctly', async () => {
 		const htmlfontSize = {
