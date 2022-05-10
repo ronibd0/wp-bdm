@@ -245,46 +245,23 @@ wp.customize( 'astra-settings[edd-archive-width]', function( value ) {
 } );
 
 // Global Typography Refresh - START
-// Body Font Family
-wp.customize( 'astra-settings[body-font-family]', function( value ) {
-    value.bind( function( value ) {
-		wp.customize.preview.send( 'refresh' );
-    } );
-} );
+const bodyFontFamily = [
+	'body-font-family',
+	'body-font-variant',
+	'font-size-body',
+	'body-font-weight',
+	'body-text-transform',
+	'body-line-height'
+];
 
-// Body Font Family - Font Variant
-wp.customize( 'astra-settings[body-font-variant]', function( value ) {
-    value.bind( function( value ) {
-		wp.customize.preview.send( 'refresh' );
-    } );
-} );
+bodyFontFamily.forEach(element => {
+	// Body Font Family
+	wp.customize( 'astra-settings['+element+']', function( value ) {
+		value.bind( function( value ) {
+			wp.customize.preview.send( 'refresh' );
+		} );
+	} );
 
-// Body Font Family - Font Size
-wp.customize( 'astra-settings[font-size-body]', function( value ) {
-    value.bind( function( value ) {
-		wp.customize.preview.send( 'refresh' );
-    } );
-} );
-
-// Body Font Family - Font Weight
-wp.customize( 'astra-settings[body-font-weight]', function( value ) {
-    value.bind( function( value ) {
-		wp.customize.preview.send( 'refresh' );
-    } );
-} );
-
-// Body Font Family - Text transform
-wp.customize( 'astra-settings[body-text-transform]', function( value ) {
-    value.bind( function( value ) {
-		wp.customize.preview.send( 'refresh' );
-    } );
-} );
-
-// Body Font Family - Line height
-wp.customize( 'astra-settings[body-line-height]', function( value ) {
-    value.bind( function( value ) {
-		wp.customize.preview.send( 'refresh' );
-    } );
-} );
+});
 
 // Global Typography Refresh - END
