@@ -539,7 +539,9 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		public function theme_defaults( $defaults ) {
 
 			// Container.
-			$defaults['woocommerce-content-layout'] = 'plain-container';
+			$defaults['woocommerce-content-layout']     = 'plain-container';
+			$defaults['archive-product-content-layout'] = 'default';
+			$defaults['single-product-content-layout']  = 'default';
 
 			// Sidebar.
 			$defaults['woocommerce-sidebar-layout']    = 'no-sidebar';
@@ -845,6 +847,20 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				if ( 'default' !== $woo_layout ) {
 
 					$layout = $woo_layout;
+				}
+
+				$global_page_specific_layout = 'default';
+
+				if ( is_shop() || is_product_taxonomy() ) {
+					$global_page_specific_layout = astra_get_option( 'archive-product-content-layout', 'default' );
+				} 
+
+				if ( is_product() ) {
+					$global_page_specific_layout = astra_get_option( 'single-product-content-layout', 'default' );
+				}
+
+				if ( 'default' !== $global_page_specific_layout ) {
+					$layout = $global_page_specific_layout;
 				}
 
 				if ( is_shop() ) {
