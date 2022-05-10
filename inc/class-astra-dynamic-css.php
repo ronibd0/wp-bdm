@@ -999,7 +999,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			 *
 			 * @since 2.6.1
 			 */
-			if ( self::gutenberg_media_text_block_css_compat() && is_singular() ) {
+			if ( false === astra_get_option( 'is-new-default-page-post-layout', true ) && self::gutenberg_media_text_block_css_compat() && is_singular() ) {
 				$remove_primary_padding_on_mobile_css = array(
 					'.ast-plain-container.ast-no-sidebar #primary' => array(
 						'padding' => 0,
@@ -1015,7 +1015,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			 *
 			 * @since 2.5.0
 			 */
-			if ( self::gtn_group_cover_css_comp() && is_singular() ) {
+			if ( false === astra_get_option( 'is-new-default-page-post-layout', true ) && self::gtn_group_cover_css_comp() && is_singular() ) {
 				$display_header = get_post_meta( get_the_ID(), 'ast-main-header-display', true );
 				if ( 'disabled' === $display_header && apply_filters( 'astra_content_margin_full_width_contained', true ) || ( Astra_Ext_Transparent_Header_Markup::is_transparent_header() ) || ( self::gutenberg_core_blocks_css_comp() ) ) {
 					$gtn_margin_top = array(

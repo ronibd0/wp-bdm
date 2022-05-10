@@ -3324,3 +3324,20 @@ function astra_apply_modern_block_editor_ui() {
 		update_option( 'astra-settings', $theme_options );
 	}
 }
+
+/**
+ * Set flag for existing users
+ *
+ * Starting supporting content-background color for Full Width Contained & Full Width Stretched layouts.
+ *
+ * @since x.x.x
+ * @return void
+ */
+function astra_no_sidebar_plain_container_spacing() {
+	$theme_options = get_option( 'astra-settings', array() );
+
+	if ( ! isset( $theme_options['is-new-default-page-post-layout'] ) ) {
+		$theme_options['is-new-default-page-post-layout'] = false;
+		update_option( 'astra-settings', $theme_options );
+	}
+}
