@@ -41,11 +41,11 @@ class Astra_Gutenberg {
 			$current_post = get_post( (int) $post_id, OBJECT );
 			/** @psalm-suppress UndefinedConstant */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 
-			/** @psalm-suppress PossiblyInvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			/** @psalm-suppress TooManyArguments */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+			/** @psalm-suppress PossiblyInvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			if ( has_blocks( $current_post ) && apply_filters( 'astra_disable_block_content_attr', true, $post_id ) ) {
-				/** @psalm-suppress TooManyArguments */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 				/** @psalm-suppress PossiblyInvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+				/** @psalm-suppress TooManyArguments */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 				add_filter( 'astra_attr_article-entry-content-single-layout', array( $this, 'add_ast_block_container' ) );
 				add_filter( 'astra_attr_article-entry-content', array( $this, 'add_ast_block_container' ) );
 				add_filter( 'astra_attr_article-entry-content-page', array( $this, 'add_ast_block_container' ) );

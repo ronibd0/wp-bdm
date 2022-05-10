@@ -90,7 +90,7 @@ if ( ! class_exists( 'Astra_Beaver_Builder' ) ) :
 			$page_builder_flag = get_post_meta( $id, '_astra_content_layout_flag', true );
 			if ( isset( $post ) && empty( $page_builder_flag ) && ( is_admin() || is_singular() ) ) {
 
-				if ( empty( $post->post_content ) && $do_render && FLBuilderModel::is_builder_enabled() ) {
+				if ( empty( $post->post_content ) && $do_render && is_callable( 'FLBuilderModel::is_builder_enabled' ) && FLBuilderModel::is_builder_enabled() ) {
 
 					update_post_meta( $id, '_astra_content_layout_flag', 'disabled' );
 					update_post_meta( $id, 'site-post-title', 'disabled' );
