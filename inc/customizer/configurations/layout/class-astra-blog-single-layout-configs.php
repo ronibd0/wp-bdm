@@ -126,7 +126,7 @@ if ( ! class_exists( 'Astra_Blog_Single_Layout_Configs' ) ) {
 					),
 					'priority'          => 25,
 					'divider'           => array( 'ast_class' => 'ast-top-divider ast-bottom-divider' ),
-					'context'           => ,
+					'context'           => $tab_config,
 				),
 
 			);
