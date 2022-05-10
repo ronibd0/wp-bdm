@@ -53,7 +53,7 @@ if ( ! class_exists( 'Astra_Beaver_Builder' ) ) :
 		 * Disable Astra's block editor attr which applied for further block layout CSS.
 		 *
 		 * @param bool $flag Flag to enable/disable entry content attr.
-		 * @param int $post_id Post ID.
+		 * @param int  $post_id Post ID.
 		 *
 		 * @since  x.x.x
 		 * @return bool true|false
