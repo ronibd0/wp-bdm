@@ -80,9 +80,9 @@ describe( 'Global button setting under the Customizer', () => {
 		await page.goto( createURL( 'buttonBorder' ), {
 			waitUntil: 'networkidle0',
 		} );
-		await page.waitForSelector( '.ast-custom-button, .wp-block-search__button, .wp-block-button .wp-block-button__link' );
+		await page.waitForSelector( '.ast-custom-button, .wp-block-button .wp-block-button__link' );
 		await expect( {
-			selector: '.ast-custom-button, .wp-block-search__button, .wp-block-button .wp-block-button__link',
+			selector: '.ast-custom-button, .wp-block-button .wp-block-button__link',
 			property: 'border-color',
 		} ).cssValueToBe( `${ borderColor[ 'theme-button-border-group-border-color' ] }` );
 	} );
@@ -109,9 +109,9 @@ describe( 'Global button setting under the Customizer', () => {
 		await page.goto( createURL( 'buttonBorder' ), {
 			waitUntil: 'networkidle0',
 		} );
-		await page.waitForSelector( '.ast-custom-button, .wp-block-button .wp-block-button__link, form[CLASS*="wp-block-search__"].wp-block-search .wp-block-search__inside-wrapper .wp-block-search__button' );
+		await page.waitForSelector( '.ast-custom-button, .wp-block-button .wp-block-button__link, form[CLASS*="wp-block-search__"].wp-block-search .wp-block-search__inside-wrapper .wp-block-search__button, button' );
 		await expect( {
-			selector: '.ast-custom-button, .wp-block-button .wp-block-button__link, form[CLASS*="wp-block-search__"].wp-block-search .wp-block-search__inside-wrapper .wp-block-search__button',
+			selector: '.ast-custom-button, .wp-block-button .wp-block-button__link, form[CLASS*="wp-block-search__"].wp-block-search .wp-block-search__inside-wrapper .wp-block-search__button, button',
 			property: 'border-radius',
 		} ).cssValueToBe( `${ borderRadius[ 'button-radius' ] + 'px' }` );
 		// await page.waitForSelector( 'button, form[CLASS*="wp-block-search__"].wp-block-search .wp-block-search__inside-wrapper .wp-block-search__button' );
