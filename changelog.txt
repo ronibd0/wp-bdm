@@ -1,3 +1,7 @@
+v3.8.2
+- Improvement: Default Single Post and Page Layout is improved.
+- Improvement: Moved Single Post and Page spacing option to theme from addon.
+
 v3.8.0
 - New: Enhanced block editor experience. ( https://wpastra.com/docs/improved-block-editor-experience/ )
 - Improvement: Font variant customizer control's HTML markup was loading from PHP, which is now moved to React JS for the better and optimized customizer performance.
