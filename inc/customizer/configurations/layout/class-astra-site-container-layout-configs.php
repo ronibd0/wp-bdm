@@ -48,7 +48,7 @@ if ( ! class_exists( 'Astra_Site_Container_Layout_Configs' ) ) {
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
 					'section'           => 'section-container-layout',
 					'default'           => astra_get_option( 'site-content-layout' ),
-					'priority'          => 50,
+					'priority'          => 9,
 					'title'             => __( 'Default Layout', 'astra' ),
 					'choices'           => array(
 						'default'                 => array(
