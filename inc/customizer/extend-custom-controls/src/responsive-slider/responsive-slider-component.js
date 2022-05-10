@@ -81,10 +81,49 @@ const ResponsiveSliderComponent = props => {
 		</div>;
 	};
 
+	const onUnitChange = (device, unitKey = '') => {
+		let updateState = {
+			...state
+		};
+		updateState[`${device}-unit`] = unitKey;
+		props.control.setting.set(updateState);
+		setState(updateState);
+	};
+
+	const unitChoices = ( device,  active = '') => {
+		let respHtml = null;
+
+		const {
+			unit_choices,
+		} = props.control.params;
+
+		if( unit_choices ) {
+			respHtml = 	Object.values(unit_choices).map(unitKey => {
+				let unitClass = '';
+
+				if (state[`${device}-unit`] === unitKey) {
+					unitClass = 'active';
+				}
+
+				let html = 	<li key={unitKey} className={`single-unit ${unitClass}`} onClick={() => onUnitChange(device, unitKey)} data-unit={unitKey}>
+								<span className="unit-text">{unitKey}</span>
+							</li>;
+							return html;
+			});
+
+			return 	<ul key={device}
+						className={`ast-responsive-units input-field-wrapper ast-spacing-${device}-responsive-units ${device} ${active}`}>
+			{respHtml}
+			</ul>;
+		}
+
+	};
+
 	const {
 		description,
 		label,
-		suffix
+		suffix,
+		unit_choices
 	} = props.control.params;
 
 	let labelHtml = null;
@@ -92,6 +131,7 @@ const ResponsiveSliderComponent = props => {
 	let suffixHtml = null;
 	let descriptionHtml = null;
 	let inputHtml = null;
+	let unitHtml = null;
 	let defaultVal = props.control.params.default;
 
 	if (label) {
@@ -119,7 +159,7 @@ const ResponsiveSliderComponent = props => {
 		descriptionHtml = <span className="description customize-control-description">{description}</span>;
 	}
 
-	if (suffix) {
+	if (suffix && ! unit_choices ) {
 		suffixHtml = <span className="ast-range-unit">{suffix}</span>;
 	}
 
@@ -129,16 +169,25 @@ const ResponsiveSliderComponent = props => {
 		{renderInputHtml('mobile')}
 	</>;
 
-	return <div>
+	if( unit_choices ) {
+		unitHtml = <>
+			{unitChoices('desktop', 'active')}
+			{unitChoices('tablet')}
+			{unitChoices('mobile')}
+		</>;
+	}
+
+	return <div className="ast-slider-wrap">
 		<label key={'customizer-text'}>
 			{labelHtml}
 		</label>
 		{responsiveHtml}
+		{unitHtml}
+		{suffixHtml}
 		{ renderOperationButtons( defaultVal ) }
 		{descriptionHtml}
 		<div className="wrapper">
 			{inputHtml}
-			{suffixHtml}
 		</div>
 	</div>;
 };

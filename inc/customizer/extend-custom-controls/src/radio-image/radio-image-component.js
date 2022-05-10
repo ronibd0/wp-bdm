@@ -21,13 +21,17 @@ const RadioImageComponent = props => {
 		inputAttrs,
 		choices_titles,
 		link,
-		labelStyle
+		labelStyle,
+		modern_layout
 	} = props.control.params;
 
 	let htmlLabel = null,
 		htmlDescription = null,
 		htmlRadio,
 		inp_array = [];
+
+	
+	let modernLayout = modern_layout ? 'modern-layout' : '';
 
 	
 	// Adds class to enable four column layout.
@@ -80,7 +84,7 @@ const RadioImageComponent = props => {
 			{htmlLabel}
 			{htmlDescription}
 		</label>
-		<div id={`input_${id}`} className={`image ${ hasUnicode }`}>
+		<div id={`input_${id}`} className={`image ${ hasUnicode } ${ modernLayout }`}>
 			{htmlRadio}
 		</div>
 	</Fragment>;
