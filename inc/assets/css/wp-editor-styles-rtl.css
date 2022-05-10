@@ -216,7 +216,7 @@ html {
  */
 .edit-post-visual-editor__post-title-wrapper {
   position: relative;
-  max-width: calc(var(--wp--custom--ast-wide-width-size) + 20px);
+  max-width: calc(var(--wp--custom--ast-content-width-size) + 20px);
   margin-right: auto !important;
   margin-left: auto !important;
 }

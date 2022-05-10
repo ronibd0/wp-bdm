@@ -271,7 +271,7 @@ function astra_load_modern_block_editor_ui( $dynamic_css ) {
 		margin-left: auto;
 		margin-right: auto;
 	}
-	.entry-content[ast-blocks-layout] > .alignwide, .entry-content[ast-blocks-layout] .wp-block-cover__inner-container, .entry-content[ast-blocks-layout] > p {
+	.entry-content[ast-blocks-layout] > .alignwide, .entry-content[ast-blocks-layout] .wp-block-cover__inner-container {
 		max-width: var(--wp--custom--ast-wide-width-size);
 	}
 	.entry-content[ast-blocks-layout] .alignfull {
@@ -343,7 +343,7 @@ function astra_load_modern_block_editor_ui( $dynamic_css ) {
 
 	if ( $astra_block_editor_v2_ui ) {
 		$dynamic_css .= '
-			.entry-content[ast-blocks-layout] .alignwide {
+			.entry-content[ast-blocks-layout] > .alignwide {
 				max-width: calc(100% + var(--wp--custom--ast-default-block-left-padding) + var(--wp--custom--ast-default-block-right-padding));
 				margin-' . esc_attr( $ltr_left ) . ': calc(-1 * var(--wp--custom--ast-default-block-left-padding));
 				margin-' . esc_attr( $ltr_right ) . ': calc(-1 * var(--wp--custom--ast-default-block-right-padding));

@@ -347,7 +347,7 @@ class Astra_WP_Editor_CSS {
 				'font-size' => $html_font_size,
 			),
 			'.editor-styles-wrapper .block-editor-block-list__layout.is-root-container > p, .editor-styles-wrapper .block-editor-block-list__layout.is-root-container .block-list-appender' => array(
-				'max-width' => 'var(--wp--custom--ast-wide-width-size)',
+				'max-width' => 'var(--wp--custom--ast-content-width-size)',
 				'margin'    => '0 auto',
 			),
 			'.editor-styles-wrapper a'         => array(

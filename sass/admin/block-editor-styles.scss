@@ -357,7 +357,7 @@ h6{
 
 .edit-post-visual-editor__post-title-wrapper {
 	position: relative;
-    max-width: calc(var(--wp--custom--ast-wide-width-size) + 20px);
+    max-width: calc(var(--wp--custom--ast-content-width-size) + 20px);
     margin-left: auto !important;
     margin-right: auto !important;
 	&:hover {
