@@ -251,7 +251,12 @@ const bodyFontFamily = [
 	'font-size-body',
 	'body-font-weight',
 	'body-text-transform',
-	'body-line-height'
+	'body-line-height',
+	'headings-font-family',
+	'headings-font-variant',
+	'headings-font-weight',
+	'headings-text-transform',
+	'headings-line-height'
 ];
 
 bodyFontFamily.forEach(element => {
