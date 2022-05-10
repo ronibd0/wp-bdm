@@ -1028,7 +1028,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				}
 			}
 
-			$single_post_outside_spacing  = astra_get_option( 'single-post-outside-spacing' );
+			$single_post_outside_spacing = astra_get_option( 'single-post-outside-spacing' );
 
 			$single_post_outside_spacing_css_desktop = array(
 				'.ast-separate-container.ast-single-post.ast-right-sidebar #primary, .ast-separate-container.ast-single-post.ast-left-sidebar #primary, .ast-separate-container.ast-single-post #primary, .ast-plain-container.ast-single-post #primary' => array(
