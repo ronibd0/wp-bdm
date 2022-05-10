@@ -184,8 +184,9 @@ function astra_load_modern_block_editor_ui( $dynamic_css ) {
 	$ltr_left                 = is_rtl() ? 'right' : 'left';
 	$ltr_right                = is_rtl() ? 'left' : 'right';
 	$astra_block_editor_v2_ui = astra_get_option( 'wp-blocks-v2-ui', true ) ? true : false;
-	$ast_content_width        = apply_filters( 'astra_block_content_width', $astra_block_editor_v2_ui ? astra_get_option( 'site-content-width', 1200 ) . 'px' : '910px' );
-	$ast_wide_width           = apply_filters( 'astra_block_wide_width', $astra_block_editor_v2_ui ? '1280px' : astra_get_option( 'site-content-width', 1200 ) . 'px' );
+	$ast_container_width = astra_get_option( 'site-content-width', 1200 ) . 'px';
+	$ast_content_width        = apply_filters( 'astra_block_content_width', $astra_block_editor_v2_ui ? $ast_container_width : '910px' );
+	$ast_wide_width           = apply_filters( 'astra_block_wide_width', $astra_block_editor_v2_ui ? '1280px' : $ast_container_width );
 	$blocks_spacings          = Astra_WP_Editor_CSS::astra_get_block_spacings();
 
 	/** @psalm-suppress InvalidCast */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
@@ -198,6 +199,7 @@ function astra_load_modern_block_editor_ui( $dynamic_css ) {
 
 	$dynamic_css .= '
 		html body {
+			--wp--custom--ast-container-width: ' . $ast_container_width . ';
 			--wp--custom--ast-content-width-size: ' . $ast_content_width . ';
 			--wp--custom--ast-wide-width-size: ' . $ast_wide_width . ';
 			--wp--custom--ast-default-block-top-padding: ' . $blocks_spacings['desktop']['top'] . ';
@@ -342,11 +344,12 @@ function astra_load_modern_block_editor_ui( $dynamic_css ) {
 	';
 
 	if ( $astra_block_editor_v2_ui ) {
+		$bigger_size = 'max(var(--wp--custom--ast-wide-width-size), var(--wp--custom--ast-container-width))';
+		$smaller_size = 'min(var(--wp--custom--ast-wide-width-size), var(--wp--custom--ast-container-width))';
 		$dynamic_css .= '
 			.entry-content[ast-blocks-layout] > .alignwide {
-				max-width: calc(100% + var(--wp--custom--ast-default-block-left-padding) + var(--wp--custom--ast-default-block-right-padding));
-				margin-' . esc_attr( $ltr_left ) . ': calc(-1 * var(--wp--custom--ast-default-block-left-padding));
-				margin-' . esc_attr( $ltr_right ) . ': calc(-1 * var(--wp--custom--ast-default-block-right-padding));
+				margin-' . esc_attr( $ltr_left ) . ': calc(-1 * calc((' . $bigger_size . ' - ' . $smaller_size . ') / 2 ));
+				margin-' . esc_attr( $ltr_right ) . ': calc(-1 * calc((' . $bigger_size . ' - ' . $smaller_size . ') / 2 ));
 			}
 		';
 	}
