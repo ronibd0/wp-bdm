@@ -26,6 +26,7 @@ describe( 'Primary menu submenu option under the customizer', () => {
 			waitUntil: 'networkidle0',
 		} );
 		await page.hover( '.menu-link' );
+		await page.waitForSelector( '.ast-builder-menu-1 .sub-menu' );
 		await expect( {
 			selector: '.ast-builder-menu-1 .sub-menu',
 			property: 'border-color',
