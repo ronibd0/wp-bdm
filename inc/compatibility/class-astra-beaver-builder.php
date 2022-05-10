@@ -46,6 +46,23 @@ if ( ! class_exists( 'Astra_Beaver_Builder' ) ) :
 			add_action( 'wp', array( $this, 'beaver_builder_default_setting' ), 20 );
 			add_action( 'do_meta_boxes', array( $this, 'beaver_builder_default_setting' ), 20 );
 			add_filter( 'astra_theme_assets', array( $this, 'add_styles' ) );
+			add_filter( 'astra_disable_block_content_attr', array( $this, 'remove_astra_block_editor_attr' ), 10, 2 );
+		}
+
+		/**
+		 * Disable Astra's block editor attr which applied for further block layout CSS.
+		 *
+		 * @since  x.x.x
+		 * @return bool true|false
+		 */
+		public function remove_astra_block_editor_attr( $flag, $post_id ) {
+			$post = get_post( $post_id );
+
+			if ( ! empty( $post->post_content ) && FLBuilderModel::is_builder_enabled() ) {
+				$flag = false;
+			}
+
+			return $flag;
 		}
 
 		/**
