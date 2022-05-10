@@ -94,20 +94,20 @@ if ( ! class_exists( 'Astra_Beaver_Builder' ) ) :
 				if ( empty( $post->post_content ) && $do_render && is_callable( 'FLBuilderModel::is_builder_enabled' ) && FLBuilderModel::is_builder_enabled() ) {
 					/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 
+					/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 					update_post_meta( $id, '_astra_content_layout_flag', 'disabled' );
 					update_post_meta( $id, 'site-post-title', 'disabled' );
 					update_post_meta( $id, 'ast-title-bar-display', 'disabled' );
 					update_post_meta( $id, 'ast-featured-img', 'disabled' );
-
 					$content_layout = get_post_meta( $id, 'site-content-layout', true );
 					if ( empty( $content_layout ) || 'default' == $content_layout ) {
 						update_post_meta( $id, 'site-content-layout', 'page-builder' );
 					}
-
 					$sidebar_layout = get_post_meta( $id, 'site-sidebar-layout', true );
 					if ( empty( $sidebar_layout ) || 'default' == $sidebar_layout ) {
 						update_post_meta( $id, 'site-sidebar-layout', 'no-sidebar' );
 					}
+					/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 				}
 			}
 		}
