@@ -52,13 +52,18 @@ if ( ! class_exists( 'Astra_Beaver_Builder' ) ) :
 		/**
 		 * Disable Astra's block editor attr which applied for further block layout CSS.
 		 *
+		 * @param bool $flag Flag to enable/disable entry content attr.
+		 * @param int $post_id Post ID.
+		 *
 		 * @since  x.x.x
 		 * @return bool true|false
 		 */
 		public function remove_astra_block_editor_attr( $flag, $post_id ) {
 			$post = get_post( $post_id );
 
-			if ( ! empty( $post->post_content ) && FLBuilderModel::is_builder_enabled() ) {
+			/** @psalm-suppress PossiblyInvalidPropertyFetch */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+			if ( ! empty( $post->post_content ) && is_callable( 'FLBuilderModel::is_builder_enabled' ) && FLBuilderModel::is_builder_enabled() ) {
+				/** @psalm-suppress PossiblyInvalidPropertyFetch */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 				$flag = false;
 			}
 
