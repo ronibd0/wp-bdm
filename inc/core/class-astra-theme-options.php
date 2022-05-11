@@ -386,7 +386,7 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 						),
 					),
 					// Entry Content.
-					'wp-blocks-ui'                         => astra_get_option( 'wp-blocks-v2-ui', true ) ? 'comfort' : 'custom',
+					'wp-blocks-ui'                         => 'comfort',
 					'wp-blocks-global-padding'             => array(
 						'desktop'      => array(
 							'top'    => '',
