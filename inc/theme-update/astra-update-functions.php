@@ -3334,10 +3334,17 @@ function astra_apply_modern_block_editor_ui() {
  * @return void
  */
 function astra_apply_modern_block_editor_v2_ui() {
-	$theme_options = get_option( 'astra-settings', array() );
-
+	$theme_options  = get_option( 'astra-settings', array() );
+	$option_updated = false;
 	if ( ! isset( $theme_options['wp-blocks-v2-ui'] ) ) {
 		$theme_options['wp-blocks-v2-ui'] = false;
+		$option_updated                   = true;
+	}
+	if ( ! isset( $theme_options['wp-blocks-ui'] ) ) {
+		$theme_options['wp-blocks-v2-ui'] = 'custom';
+		$option_updated                   = true;
+	}
+	if ( $option_updated ) {
 		update_option( 'astra-settings', $theme_options );
 	}
 }
