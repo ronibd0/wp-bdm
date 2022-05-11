@@ -1,4 +1,4 @@
-v3.8.2
+v3.8.1
 - Improvement: Default Single Post and Page Layout is improved.
 - Improvement: Moved Single Post and Page spacing option to theme from addon.
 
