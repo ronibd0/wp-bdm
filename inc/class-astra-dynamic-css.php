@@ -1098,20 +1098,20 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				$parse_css .= astra_parse_css( $remove_single_post_top_padding_container );
 			}
 			if ( isset( $single_post_outside_spacing['tablet']['top'] ) && '' != $single_post_outside_spacing['tablet']['top'] ) {
-				$parse_css .= astra_parse_css( $remove_single_post_top_padding_container, '', astra_addon_get_tablet_breakpoint() );
+				$parse_css .= astra_parse_css( $remove_single_post_top_padding_container, '', astra_get_tablet_breakpoint() );
 			}
 			if ( isset( $single_post_outside_spacing['mobile']['top'] ) && '' != $single_post_outside_spacing['mobile']['top'] ) {
-				$parse_css .= astra_parse_css( $remove_single_post_top_padding_container, '', astra_addon_get_mobile_breakpoint() );
+				$parse_css .= astra_parse_css( $remove_single_post_top_padding_container, '', astra_get_mobile_breakpoint() );
 			}
 
 			if ( isset( $single_post_outside_spacing['desktop']['top'] ) && '' != $single_post_outside_spacing['desktop']['top'] ) {
 				$parse_css .= astra_parse_css( $remove_single_post_bottom_padding_container );
 			}
 			if ( isset( $single_post_outside_spacing['tablet']['top'] ) && '' != $single_post_outside_spacing['tablet']['top'] ) {
-				$parse_css .= astra_parse_css( $remove_single_post_bottom_padding_container, '', astra_addon_get_tablet_breakpoint() );
+				$parse_css .= astra_parse_css( $remove_single_post_bottom_padding_container, '', astra_get_tablet_breakpoint() );
 			}
 			if ( isset( $single_post_outside_spacing['mobile']['top'] ) && '' != $single_post_outside_spacing['mobile']['top'] ) {
-				$parse_css .= astra_parse_css( $remove_single_post_bottom_padding_container, '', astra_addon_get_mobile_breakpoint() );
+				$parse_css .= astra_parse_css( $remove_single_post_bottom_padding_container, '', astra_get_mobile_breakpoint() );
 			}
 
 			if ( $block_editor_legacy_setup ) {
