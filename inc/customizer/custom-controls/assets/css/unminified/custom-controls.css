@@ -2548,7 +2548,6 @@ input[type="text"].select2-search__field {
   border: 1px solid #dddddd;
   background-color: #ffffff;
   border-radius: 3px 0 0 3px;
-  border-right-width: 0;
 }
 
 .customize-control-ast-responsive-spacing .ast-spacing-wrapper > li:nth-child(2) {
@@ -3338,7 +3337,7 @@ input[type="text"].select2-search__field {
   display: block;
   width: 35px;
   height: 14px;
-  background-color: #2D3748;
+  background-color: #ddd;
   color: transparent;
   border-radius: 50px;
   cursor: pointer;

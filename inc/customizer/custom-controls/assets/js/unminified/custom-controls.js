@@ -13289,16 +13289,14 @@ const RadioImageComponent = props => {
     inputAttrs,
     choices_titles,
     link,
-    labelStyle,
-    modern_layout
+    labelStyle
   } = props.control.params;
   let htmlLabel = null,
       htmlDescription = null,
       htmlRadio,
-      inp_array = [];
-  let modernLayout = modern_layout ? 'modern-layout' : ''; // Adds class to enable four column layout.
+      inp_array = []; // Adds class to enable four column layout.
 
-  const hasUnicode = alt_layout ? 'ast-divide-four' : '';
+  const altLayout = alt_layout ? 'ast-divide-four' : 'modern-layout';
 
   if (label) {
     htmlLabel = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("span", {
@@ -13364,7 +13362,7 @@ const RadioImageComponent = props => {
     className: "customizer-text"
   }, htmlLabel, htmlDescription), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
     id: `input_${id}`,
-    className: `image ${hasUnicode} ${modernLayout}`
+    className: `image ${altLayout}`
   }, htmlRadio));
 };
 

@@ -22,20 +22,15 @@ const RadioImageComponent = props => {
 		choices_titles,
 		link,
 		labelStyle,
-		modern_layout
 	} = props.control.params;
 
 	let htmlLabel = null,
 		htmlDescription = null,
 		htmlRadio,
 		inp_array = [];
-
-	
-	let modernLayout = modern_layout ? 'modern-layout' : '';
-
 	
 	// Adds class to enable four column layout.
-	const hasUnicode =  alt_layout ? 'ast-divide-four' : '';
+	const altLayout =  alt_layout ? 'ast-divide-four' : 'modern-layout';
 
 	if (label) {
 		htmlLabel = <span className="customize-control-title">{label}</span>;
@@ -84,7 +79,7 @@ const RadioImageComponent = props => {
 			{htmlLabel}
 			{htmlDescription}
 		</label>
-		<div id={`input_${id}`} className={`image ${ hasUnicode } ${ modernLayout }`}>
+		<div id={`input_${id}`} className={`image ${ altLayout }`}>
 			{htmlRadio}
 		</div>
 	</Fragment>;
