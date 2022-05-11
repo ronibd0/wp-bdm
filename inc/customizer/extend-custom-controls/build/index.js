@@ -2934,7 +2934,7 @@ const ColorGroupComponent = props => {
     className: "ast-toggle-desc-wrap"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", {
     className: "customizer-text"
-  }, htmlLabel, htmlHelp)), responsiveHtml, renderResetButton(), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+  }, htmlLabel, htmlHelp), responsiveHtml), renderResetButton(), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "ast-field-color-group-wrap"
   }, optionsHtml));
 };
@@ -6483,14 +6483,16 @@ const linkControl = wp.customize.astraControl.extend({
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_5__);
 /* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
 /* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _ast_toggle_toggle_control__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../ast-toggle/toggle-control */ "./src/ast-toggle/toggle-control.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_4__);
+
 
 
 
@@ -6500,8 +6502,8 @@ __webpack_require__.r(__webpack_exports__);
 
 const LinkComponent = props => {
   let prop_value = props.control.setting.get();
-  const [state, setState] = (0,react__WEBPACK_IMPORTED_MODULE_3__.useState)(prop_value);
-  (0,react__WEBPACK_IMPORTED_MODULE_3__.useEffect)(() => {
+  const [state, setState] = (0,react__WEBPACK_IMPORTED_MODULE_4__.useState)(prop_value);
+  (0,react__WEBPACK_IMPORTED_MODULE_4__.useEffect)(() => {
     // If settings are changed externally.
     if (state !== prop_value) {
       setState(prop_value);
@@ -6563,7 +6565,7 @@ const LinkComponent = props => {
     }
   })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "customize-control-content ast-link-open-in-new-tab-wrapper ast-togglecontrol-wrapper"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.ToggleControl, {
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_ast_toggle_toggle_control__WEBPACK_IMPORTED_MODULE_3__["default"], {
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Open in a New Tab', 'astra'),
     checked: new_tab,
     onChange: () => onCheckboxChange()
@@ -6588,7 +6590,7 @@ const LinkComponent = props => {
 };
 
 LinkComponent.propTypes = {
-  control: (prop_types__WEBPACK_IMPORTED_MODULE_4___default().object.isRequired)
+  control: (prop_types__WEBPACK_IMPORTED_MODULE_5___default().object.isRequired)
 };
 /* harmony default export */ __webpack_exports__["default"] = (LinkComponent);
 

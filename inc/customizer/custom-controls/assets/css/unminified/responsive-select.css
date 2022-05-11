@@ -6,11 +6,12 @@
   display: block;
 }
 
-.customize-control select, .ast-variant-select > div, .customize-control input {
+.customize-control select, .ast-variant-select > div, .customize-control input, .customize-control-content .components-text-control__input {
 	border-color: #ddd;
 	padding-top: 2px;
     padding-bottom: 2px;
 }
+
 .customize-control select:focus, .ast-variant-select > div, .customize-control input:focus {
 	border-color: var(--wp-admin-theme-color);
 	color: #0a4b78;

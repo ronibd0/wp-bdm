@@ -54,6 +54,10 @@
 .components-base-control {
 	.components-base-control__field {
     	margin-bottom: 0;
+
+        .components-input-control__backdrop {
+            border-color: #ddd;
+        }
 	}
 }
 

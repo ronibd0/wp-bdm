@@ -25,7 +25,7 @@
     text-decoration: none;
     text-shadow: none;
     outline: unset;
-    border: 1px solid #d2d2d2;
+    border: 1px solid #ddd;
     width: 100%;
     height: 100%;
     text-align: center;
@@ -77,8 +77,8 @@
     flex: 1 1 0;
 }
 .customize-control-ast-selector .ast-responsive-btns {
-    position: absolute;
-    left: 0;
+    position: relative;
+    right: 5px;
 }
 .customize-control-ast-selector .ast-alignment-inner-wrap .components-button:focus:not(:disabled) {
     box-shadow: none;
@@ -465,9 +465,8 @@
 }
 
 .customize-control.customize-control-ast-color-group .ast-responsive-btns {
-  position: absolute;
-  left: 100px;
-  top: 9px;
+  position: relative;
+  left: -5px;
 }
 
 .customize-control.customize-control-ast-color-group .ast-bg-img-remove.components-button.is-link {
@@ -492,10 +491,10 @@
 }
 
 .customize-control-ast-color-group .ast-color-multiple-group-reset.ast-color-group-reset {
-  left: 132px;
+  left: 110px;
 }
 
-.customize-control-ast-color-group .ast-responsive-btns.ast-multiple-colors-group, .customize-control-ast-color-group .ast-color-multiple-group-reset.ast-color-group-reset.ast-single-color-group-set {
+.customize-control-ast-color-group .ast-color-multiple-group-reset.ast-color-group-reset.ast-single-color-group-set {
   left: 112px;
 }
 
@@ -503,16 +502,8 @@
   left: 145px;
 }
 
-.ast-top-divider.customize-control-ast-color-group .ast-control-wrap .ast-responsive-btns {
-  top: 33px;
-}
-
 .ast-top-divider.customize-control-ast-color-group .ast-control-wrap .ast-color-btn-reset-wrap {
   top: 30px;
-}
-
-.ast-top-divider.customize-control-ast-color-group .ast-divider-title + .ast-control-wrap .ast-responsive-btns {
-  top: 78px;
 }
 
 .ast-top-divider.customize-control-ast-color-group .ast-divider-title + .ast-control-wrap .ast-color-btn-reset-wrap {
@@ -526,10 +517,6 @@
 
 .customize-control-ast-color-group .ast-divider-title + .ast-control-wrap .ast-color-group-reset {
   top: 47px;
-}
-
-.customize-control-ast-color-group .ast-divider-title + .ast-control-wrap .ast-responsive-btns {
-  top: 50px;
 }
 
 .customize-control-ast-color-group .ast-divider-title + .ast-control-wrap .astra-color-picker-wrap {
@@ -1307,7 +1294,7 @@
     text-decoration: none;
     text-shadow: none;
     outline: unset;
-    border: 1px solid #d2d2d2;
+    border: 1px solid #ddd;
     width: 100%;
     height: 100%;
     text-align: center;
@@ -1359,8 +1346,8 @@
     flex: 1 1 0;
 }
 .customize-control-ast-selector .ast-responsive-btns {
-    position: absolute;
-    left: 0;
+    position: relative;
+    right: 5px;
 }
 .customize-control-ast-selector .ast-alignment-inner-wrap .components-button:focus:not(:disabled) {
     box-shadow: none;
@@ -1747,9 +1734,8 @@
 }
 
 .customize-control.customize-control-ast-color-group .ast-responsive-btns {
-  position: absolute;
-  left: 100px;
-  top: 9px;
+  position: relative;
+  left: -5px;
 }
 
 .customize-control.customize-control-ast-color-group .ast-bg-img-remove.components-button.is-link {
@@ -1774,10 +1760,10 @@
 }
 
 .customize-control-ast-color-group .ast-color-multiple-group-reset.ast-color-group-reset {
-  left: 132px;
+  left: 110px;
 }
 
-.customize-control-ast-color-group .ast-responsive-btns.ast-multiple-colors-group, .customize-control-ast-color-group .ast-color-multiple-group-reset.ast-color-group-reset.ast-single-color-group-set {
+.customize-control-ast-color-group .ast-color-multiple-group-reset.ast-color-group-reset.ast-single-color-group-set {
   left: 112px;
 }
 
@@ -1785,16 +1771,8 @@
   left: 145px;
 }
 
-.ast-top-divider.customize-control-ast-color-group .ast-control-wrap .ast-responsive-btns {
-  top: 33px;
-}
-
 .ast-top-divider.customize-control-ast-color-group .ast-control-wrap .ast-color-btn-reset-wrap {
   top: 30px;
-}
-
-.ast-top-divider.customize-control-ast-color-group .ast-divider-title + .ast-control-wrap .ast-responsive-btns {
-  top: 78px;
 }
 
 .ast-top-divider.customize-control-ast-color-group .ast-divider-title + .ast-control-wrap .ast-color-btn-reset-wrap {
@@ -1808,10 +1786,6 @@
 
 .customize-control-ast-color-group .ast-divider-title + .ast-control-wrap .ast-color-group-reset {
   top: 47px;
-}
-
-.customize-control-ast-color-group .ast-divider-title + .ast-control-wrap .ast-responsive-btns {
-  top: 50px;
 }
 
 .customize-control-ast-color-group .ast-divider-title + .ast-control-wrap .astra-color-picker-wrap {
@@ -2626,6 +2600,10 @@
   margin-bottom: 0;
 }
 
+.components-base-control .components-base-control__field .components-input-control__backdrop {
+  border-color: #ddd;
+}
+
 .customize-control .customize-inside-control-row {
   padding-top: 0;
   padding-bottom: 0;
@@ -2848,10 +2826,6 @@ input[type="text"].select2-search__field {
     top: 25px;
 }
 
-.ast-top-divider .ast-control-wrap .ast-responsive-btns {
-    top: 28px;
-}
-
 .ast-top-divider .ast-control-wrap .astra-color-picker-wrap {
     top: 55px;
     background-color: transparent;
@@ -3025,6 +2999,8 @@ input[type="text"].select2-search__field {
     padding-left: 40px;
     max-height: 30px;
     min-height: 30px;
+    border-color: #ddd;
+
 }
 .ast-link-open-in-new-tab-wrapper {
   margin: 25px 0;
@@ -3421,8 +3397,8 @@ input[type="text"].select2-search__field {
 }
 .customize-control-ast-responsive-background .ast-responsive-btns,
 .customize-control-ast-responsive-color .ast-responsive-btns {
-  position: absolute;
-  left: 64px;
+  position: relative;
+  left: -5px;
   top: 3px;
 }
 .ast-field-settings-modal .customize-control-ast-responsive-background .ast-responsive-btns,
@@ -3509,11 +3485,12 @@ input[type="text"].select2-search__field {
   display: block;
 }
 
-.customize-control select, .ast-variant-select > div, .customize-control input {
+.customize-control select, .ast-variant-select > div, .customize-control input, .customize-control-content .components-text-control__input {
 	border-color: #ddd;
 	padding-top: 2px;
     padding-bottom: 2px;
 }
+
 .customize-control select:focus, .ast-variant-select > div, .customize-control input:focus {
 	border-color: var(--wp-admin-theme-color);
 	color: #0a4b78;
@@ -3900,7 +3877,7 @@ input[type="text"].select2-search__field {
 .ast-responsive-btns {
   display: inline-block;
   line-height: 1;
-  vertical-align: sub;
+  vertical-align: top;
 }
 
 .ast-responsive-btns > li {
@@ -4757,6 +4734,10 @@ span.select2-container.select2-container--default.select2-container--open li.sel
   margin-bottom: 0;
 }
 
+.components-base-control .components-base-control__field .components-input-control__backdrop {
+  border-color: #ddd;
+}
+
 .customize-control .customize-inside-control-row {
   padding-top: 0;
   padding-bottom: 0;
@@ -4979,10 +4960,6 @@ input[type="text"].select2-search__field {
     top: 25px;
 }
 
-.ast-top-divider .ast-control-wrap .ast-responsive-btns {
-    top: 28px;
-}
-
 .ast-top-divider .ast-control-wrap .astra-color-picker-wrap {
     top: 55px;
     background-color: transparent;
@@ -5156,6 +5133,8 @@ input[type="text"].select2-search__field {
     padding-left: 40px;
     max-height: 30px;
     min-height: 30px;
+    border-color: #ddd;
+
 }
 .ast-link-open-in-new-tab-wrapper {
   margin: 25px 0;
@@ -5552,8 +5531,8 @@ input[type="text"].select2-search__field {
 }
 .customize-control-ast-responsive-background .ast-responsive-btns,
 .customize-control-ast-responsive-color .ast-responsive-btns {
-  position: absolute;
-  left: 64px;
+  position: relative;
+  left: -5px;
   top: 3px;
 }
 .ast-field-settings-modal .customize-control-ast-responsive-background .ast-responsive-btns,
@@ -5635,7 +5614,7 @@ input[type="text"].select2-search__field {
 .ast-responsive-btns {
   display: inline-block;
   line-height: 1;
-  vertical-align: sub;
+  vertical-align: top;
 }
 
 .ast-responsive-btns > li {
@@ -5752,11 +5731,12 @@ input[type="text"].select2-search__field {
   display: block;
 }
 
-.customize-control select, .ast-variant-select > div, .customize-control input {
+.customize-control select, .ast-variant-select > div, .customize-control input, .customize-control-content .components-text-control__input {
 	border-color: #ddd;
 	padding-top: 2px;
     padding-bottom: 2px;
 }
+
 .customize-control select:focus, .ast-variant-select > div, .customize-control input:focus {
 	border-color: var(--wp-admin-theme-color);
 	color: #0a4b78;
