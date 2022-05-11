@@ -1,7 +1,7 @@
 import { createURL, createNewPost } from '@wordpress/e2e-test-utils';
 import { publishPost } from '../../../utils/publish-post';
 import { setCustomize } from '../../../utils/customize';
-describe( 'disable Header meta setting', () => {
+describe( 'Disable Header meta setting', () => {
 	it( 'disabling Header should work properly', async () => {
 		const astraMetaSetting = {
 			'ast-global-header-display': 'disabled',
