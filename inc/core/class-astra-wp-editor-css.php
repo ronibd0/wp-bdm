@@ -323,9 +323,10 @@ class Astra_WP_Editor_CSS {
 		$selection_text_color = ( 'transparent' === $highlight_theme_color ) ? '' : $highlight_theme_color;
 
 		$astra_is_block_editor_v2_ui = astra_get_option( 'wp-blocks-v2-ui', true ) ? true : false;
-		$ast_content_width           = apply_filters( 'astra_block_content_width', $astra_is_block_editor_v2_ui ? astra_get_option( 'site-content-width', 1200 ) . 'px' : '910px' );
-		$ast_wide_width              = apply_filters( 'astra_block_wide_width', $astra_is_block_editor_v2_ui ? 'calc(1200px + var(--wp--custom--ast-default-block-left-padding) + var(--wp--custom--ast-default-block-right-padding))' : astra_get_option( 'site-content-width', 1200 ) . 'px' );
-		$ast_wide_width              = apply_filters( 'astra_block_wide_width', $astra_is_block_editor_v2_ui ? '1280px' : astra_get_option( 'site-content-width', 1200 ) . 'px' );
+		$astra_container_width       = astra_get_option( 'site-content-width', 1200 ) . 'px';
+		$ast_content_width           = apply_filters( 'astra_block_content_width', $astra_is_block_editor_v2_ui ? $astra_container_width : '910px' );
+		$ast_wide_width              = apply_filters( 'astra_block_wide_width', $astra_is_block_editor_v2_ui ? '1280px' : $astra_container_width );
+		$block_appender_width        = $astra_is_block_editor_v2_ui ? 'var(--wp--custom--ast-content-width-size)' : 'var(--wp--custom--ast-wide-width-size)';
 
 		$blocks_spacings = self::astra_get_block_spacings();
 
@@ -347,8 +348,8 @@ class Astra_WP_Editor_CSS {
 			'html'                             => array(
 				'font-size' => $html_font_size,
 			),
-			'.editor-styles-wrapper .block-editor-block-list__layout.is-root-container > p, .editor-styles-wrapper .block-editor-block-list__layout.is-root-container .block-list-appender' => array(
-				'max-width' => 'var(--wp--custom--ast-content-width-size)',
+			'.editor-styles-wrapper .block-editor-block-list__layout.is-root-container .block-list-appender' => array(
+				'max-width' => esc_attr( $block_appender_width ),
 				'margin'    => '0 auto',
 			),
 			'.editor-styles-wrapper a'         => array(
