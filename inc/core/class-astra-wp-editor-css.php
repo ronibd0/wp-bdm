@@ -502,9 +502,26 @@ class Astra_WP_Editor_CSS {
 		}
 
 		if ( $astra_is_block_editor_v2_ui ) {
-			$desktop_css['.editor-styles-wrapper .block-editor-block-list__layout.is-root-container .alignwide'] = array(
-				'margin-left'  => '-40px',
-				'margin-right' => '-40px',
+			$single_post_continer_spacing = astra_get_option( 'single-post-inside-spacing' );
+			$astra_continer_left_spacing  = defined( 'ASTRA_EXT_VER' ) && astra_responsive_spacing( $single_post_continer_spacing, 'left', 'desktop' ) ? astra_responsive_spacing( $single_post_continer_spacing, 'left', 'desktop' ) : '6.67em';
+			$astra_continer_right_spacing = defined( 'ASTRA_EXT_VER' ) && astra_responsive_spacing( $single_post_continer_spacing, 'right', 'desktop', '6.67' ) ? astra_responsive_spacing( $single_post_continer_spacing, 'right', 'desktop', '6.67' ) : '6.67em';
+
+			$alignwide_left_negative_margin  = $astra_continer_left_spacing ? 'calc(-1 * min(' . $astra_continer_left_spacing . ', 40px))' : '-40px';
+			$alignwide_right_negative_margin = $astra_continer_right_spacing ? 'calc(-1 * min(' . $astra_continer_right_spacing . ', 40px))' : '-40px';
+
+			$desktop_css['.ast-separate-container .editor-styles-wrapper .block-editor-block-list__layout.is-root-container .alignwide, .ast-plain-container .editor-styles-wrapper .block-editor-block-list__layout.is-root-container .alignwide'] = array(
+				'margin-left'  => $alignwide_left_negative_margin,
+				'margin-right' => $alignwide_right_negative_margin,
+			);
+			$desktop_css['.ast-separate-container .editor-styles-wrapper .block-editor-block-list__layout.is-root-container .alignfull']                     = array(
+				'margin-left'  => $astra_continer_left_spacing,
+				'margin-right' => $astra_continer_right_spacing,
+			);
+			$desktop_css['.editor-styles-wrapper .block-editor-block-list__layout.is-root-container .alignwide > :where(:not(.alignleft):not(.alignright))'] = array(
+				'max-width' => 'calc( var(--wp--custom--ast-content-width-size) + 80px )',
+			);
+			$desktop_css['.ast-page-builder-template .editor-styles-wrapper .block-editor-block-list__layout.is-root-container > *.wp-block, .ast-page-builder-template .editor-styles-wrapper .block-editor-block-list__layout.is-root-container > .alignfull > :where(:not(.alignleft):not(.alignright))'] = array(
+				'max-width' => 'none',
 			);
 		}
 
