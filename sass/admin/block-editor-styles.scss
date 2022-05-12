@@ -380,7 +380,6 @@ h6{
 		color: var(--wp-admin-theme-color);
 		vertical-align: middle;
 		position: absolute;
-		left: 0px;
 		top: -41px;
 		bottom: 0;
 		opacity: 0;
@@ -409,6 +408,10 @@ h6{
 			}
 		}
 	}
+}
+.ast-page-builder-template .edit-post-visual-editor__post-title-wrapper {
+	max-width: none;
+	padding: 0 20px;
 }
 
 /**
