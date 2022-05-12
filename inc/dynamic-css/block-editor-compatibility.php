@@ -360,7 +360,7 @@ function astra_load_modern_block_editor_ui( $dynamic_css ) {
 
 	if ( $astra_block_editor_v2_ui ) {
 		$dynamic_css .= '
-			.entry-content[ast-blocks-layout] > .alignwide {
+			.ast-separate-container .entry-content[ast-blocks-layout] > .alignwide, .ast-plain-container .entry-content[ast-blocks-layout] > .alignwide {
 				margin-' . esc_attr( $ltr_left ) . ': -40px;
 				margin-' . esc_attr( $ltr_right ) . ': -40px;
 			}

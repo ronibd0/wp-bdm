@@ -21,7 +21,6 @@ html {
 	&.is-highlighted,
 	&:hover {
 		box-shadow: 0 0 0 var(--wp-admin-border-width-focus) var(--wp-admin-theme-color);
-		border-radius: 5px;
 	}
 	&.is-highlighted:after {
 		box-shadow: none;
@@ -357,7 +356,7 @@ h6{
 
 .edit-post-visual-editor__post-title-wrapper {
 	position: relative;
-    max-width: calc(var(--wp--custom--ast-content-width-size) + 20px);
+    max-width: var(--wp--custom--ast-content-width-size);
     margin-left: auto !important;
     margin-right: auto !important;
 	&:hover {
@@ -401,7 +400,7 @@ h6{
 		}
 	}
 	h1.editor-post-title__input {
-		padding: 10px;
+		padding: 10px 0;
 		&.is-selected {
 			outline: 1px solid var(--wp-admin-theme-color) !important;
 			& + .title-visibility {
