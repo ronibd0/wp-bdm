@@ -1,4 +1,6 @@
 v3.8.1 (Unreleased)
+- Improvement: Default Single Post and Page Layout is improved.
+- Improvement: Moved Single Post and Page spacing option to theme from addon.
 - Fix: Global Typography Body and Headings font family preview changes not appearing in the customizer.
 - Fix: Beaver Builder page content width not working properly with block editor CSS compatibility.
 

@@ -104,6 +104,10 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 			 */
 			$apply_new_default_values = astra_button_default_padding_updated();
 
+			$astra_settings        = get_option( 'astra-settings', true );
+			$is_new_default_layout = isset( $astra_settings['is-new-default-page-post-layout'] ) ? $astra_settings['is-new-default-page-post-layout'] : true;
+
+
 			// Defaults list of options.
 			self::$defaults = apply_filters(
 				'astra_theme_defaults',
@@ -412,8 +416,8 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 					),
 					// Container.
 					'site-content-layout'                  => 'content-boxed-container',
-					'single-page-content-layout'           => 'default',
-					'single-post-content-layout'           => 'default',
+					'single-page-content-layout'           => false === $is_new_default_layout ? 'default' : 'page-builder',
+					'single-post-content-layout'           => false === $is_new_default_layout ? 'default' : 'page-builder',
 					'archive-post-content-layout'          => 'default',
 					// Typography.
 					'body-font-family'                     => 'inherit',
@@ -456,6 +460,29 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 						'desktop'      => 30,
 						'tablet'       => '',
 						'mobile'       => '',
+						'desktop-unit' => 'px',
+						'tablet-unit'  => 'px',
+						'mobile-unit'  => 'px',
+					),
+					'single-post-outside-spacing'          => array(
+						'desktop'      => array(
+							'top'    => '',
+							'right'  => '',
+							'bottom' => '',
+							'left'   => '',
+						),
+						'tablet'       => array(
+							'top'    => '',
+							'right'  => '',
+							'bottom' => '',
+							'left'   => '',
+						),
+						'mobile'       => array(
+							'top'    => '',
+							'right'  => '',
+							'bottom' => '',
+							'left'   => '',
+						),
 						'desktop-unit' => 'px',
 						'tablet-unit'  => 'px',
 						'mobile-unit'  => 'px',
@@ -528,8 +555,8 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 					// Sidebar.
 					'site-sidebar-layout'                  => 'right-sidebar',
 					'site-sidebar-width'                   => 30,
-					'single-page-sidebar-layout'           => 'default',
-					'single-post-sidebar-layout'           => 'default',
+					'single-page-sidebar-layout'           => false === $is_new_default_layout ? 'default' : 'no-sidebar',
+					'single-post-sidebar-layout'           => false === $is_new_default_layout ? 'default' : 'no-sidebar',
 					'archive-post-sidebar-layout'          => 'default',
 
 					// Sidebar.

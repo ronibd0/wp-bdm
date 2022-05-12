@@ -3326,6 +3326,23 @@ function astra_apply_modern_block_editor_ui() {
 }
 
 /**
+ * Set flag for existing users
+ *
+ * Setting up "No Sidebar" & "Full Width Stretched" layout for Post & Pages.
+ *
+ * @since x.x.x
+ * @return void
+ */
+function astra_no_sidebar_plain_container_spacing() {
+	$theme_options = get_option( 'astra-settings', array() );
+
+	if ( ! isset( $theme_options['is-new-default-page-post-layout'] ) ) {
+		$theme_options['is-new-default-page-post-layout'] = false;
+		update_option( 'astra-settings', $theme_options );
+	}
+}
+
+/**
  * Set flag to avoid direct reflections on live site & to maintain backward compatibility for existing users.
  *
  * Backward flag purpose - To initiate maintain modern, updated v2 experience of block editor & frontend.

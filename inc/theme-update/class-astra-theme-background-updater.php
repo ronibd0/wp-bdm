@@ -125,6 +125,7 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 				'astra_apply_modern_block_editor_ui',
 			),
 			'3.8.1' => array(
+				'astra_no_sidebar_plain_container_spacing',
 				'astra_apply_modern_block_editor_v2_ui',
 			),
 		);
