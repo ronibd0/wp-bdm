@@ -104,8 +104,8 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 			 */
 			$apply_new_default_values = astra_button_default_padding_updated();
 
-			$astra_settings = get_option( 'astra-settings', true );
-			$is_new_default_layout =  isset( $astra_settings['is-new-default-page-post-layout'] ) ? $astra_settings['is-new-default-page-post-layout'] : true;
+			$astra_settings        = get_option( 'astra-settings', true );
+			$is_new_default_layout = isset( $astra_settings['is-new-default-page-post-layout'] ) ? $astra_settings['is-new-default-page-post-layout'] : true;
 
 
 			// Defaults list of options.
@@ -416,8 +416,8 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 					),
 					// Container.
 					'site-content-layout'                  => 'content-boxed-container',
-					'single-page-content-layout'           => false === $is_new_default_layout ? 'default' : 'plain-container',
-					'single-post-content-layout'           => false === $is_new_default_layout ? 'default' : 'plain-container',
+					'single-page-content-layout'           => false === $is_new_default_layout ? 'default' : 'page-builder',
+					'single-post-content-layout'           => false === $is_new_default_layout ? 'default' : 'page-builder',
 					'archive-post-content-layout'          => 'default',
 					// Typography.
 					'body-font-family'                     => 'inherit',
