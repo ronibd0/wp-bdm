@@ -13,6 +13,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
+ * Temporry feasibility.
+ */
+add_filter( 'astra_get_option_wp-blocks-v2-ui', '__return_true' );
+
+/**
  * Define Constants
  */
 define( 'ASTRA_THEME_VERSION', '3.8.1' );

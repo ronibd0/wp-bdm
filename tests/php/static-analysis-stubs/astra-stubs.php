@@ -6835,6 +6835,16 @@ namespace {
     class Astra_WP_Editor_CSS
     {
         /**
+         * Astra block editor block editor - padding preset CSS.
+         *
+         * @return array Devices specific padding spacings.
+         *
+         * @since x.x.x
+         */
+        public static function astra_get_block_spacings()
+        {
+        }
+        /**
          * Get dynamic CSS  required for the block editor to make editing experience similar to how it looks on frontend.
          *
          * @return String CSS to be loaded in the editor interface.
@@ -8170,6 +8180,15 @@ namespace {
         {
         }
         /**
+         * Variant labels.
+         *
+         * @since x.x.x
+         * @return array
+         */
+        public static function font_variant_labels()
+        {
+        }
+        /**
          * Google Fonts used in astra.
          * Array is generated from the google-fonts.json file.
          *
@@ -9440,91 +9459,6 @@ namespace {
         }
     }
     /**
-     * Variant control.
-     */
-    final class Astra_Control_Font_Variant extends \WP_Customize_Control
-    {
-        /**
-         * Used to connect controls to each other.
-         *
-         * @since 3.0.0
-         * @var bool $connect
-         */
-        public $connect = \false;
-        /**
-         * Option name.
-         *
-         * @since 3.0.0
-         * @var string $name
-         */
-        public $name = '';
-        /**
-         * Option label.
-         *
-         * @since 3.0.0
-         * @var string $label
-         */
-        public $label = '';
-        /**
-         * Option description.
-         *
-         * @since 3.0.0
-         * @var string $description
-         */
-        public $description = '';
-        /**
-         * Control type.
-         *
-         * @since 3.0.0
-         * @var string $type
-         */
-        public $type = 'ast-font-variant';
-        /**
-         * Used to connect variant controls to each other.
-         *
-         * @since 1.5.2
-         * @var bool $variant
-         */
-        public $variant = \false;
-        /**
-         * Used to set the default font options.
-         *
-         * @since 1.0.8
-         * @var string $ast_inherit
-         */
-        public $ast_inherit = '';
-        /**
-         * Set the default font options.
-         *
-         * @since 3.0.0
-         * @param WP_Customize_Manager $manager Customizer bootstrap instance.
-         * @param string               $id      Control ID.
-         * @param array                $args    Default parent's arguments.
-         */
-        public function __construct($manager, $id, $args = array())
-        {
-        }
-        /**
-         * Refresh the parameters passed to the JavaScript via JSON.
-         *
-         * @since 3.0.0
-         * @see WP_Customize_Control::to_json()
-         */
-        public function to_json()
-        {
-        }
-        /**
-         * COntent Template for the Control rendering.
-         *
-         * @see WP_Customize_Control::print_template()
-         * @since 3.0.0
-         * @access protected
-         */
-        protected function content_template()
-        {
-        }
-    }
-    /**
      * Typography control.
      */
     final class Astra_Control_Typography extends \WP_Customize_Control
@@ -10791,6 +10725,15 @@ namespace {
         {
         }
         /**
+         * Checking the page headers are available and have some posts with it.
+         *
+         * @since x.x.x
+         * @return bool true|false.
+         */
+        public function check_page_header_availability()
+        {
+        }
+        /**
          * Get page header Options.
          */
         public function get_page_header_options()
@@ -11689,7 +11632,7 @@ namespace {
          *
          * @var array
          */
-        private static $db_updates = array('2.1.3' => array('astra_submenu_below_header'), '2.2.0' => array('astra_page_builder_button_color_compatibility', 'astra_vertical_horizontal_padding_migration'), '2.3.0' => array('astra_header_button_new_options'), '2.3.3' => array('astra_elementor_default_color_typo_comp'), '2.3.4' => array('astra_breadcrumb_separator_fix'), '2.4.0' => array('astra_responsive_base_background_option', 'astra_update_theme_tablet_breakpoint'), '2.4.4' => array('astra_gtn_full_wide_image_group_css'), '2.5.0' => array('astra_global_button_woo_css', 'astra_gtn_full_wide_group_cover_css'), '2.5.2' => array('astra_footer_widget_bg'), '2.6.0' => array('astra_bg_control_migration', 'astra_bg_responsive_control_migration', 'astra_gutenberg_core_blocks_design_compatibility'), '2.6.1' => array('astra_gutenberg_media_text_block_css_compatibility'), '3.0.0' => array('astra_header_builder_compatibility'), '3.0.1' => array('astra_clear_assets_cache'), '3.3.0' => array('astra_gutenberg_pattern_compatibility', 'astra_icons_svg_compatibility', 'astra_check_flex_based_css'), '3.4.0' => array('astra_update_cart_style'), '3.5.0' => array('astra_update_related_posts_grid_layout', 'astra_site_title_tagline_responsive_control_migration'), '3.6.0' => array('astra_headings_font_support', 'astra_remove_logo_max_width', 'astra_transparent_header_default_value'), '3.6.3' => array('astra_button_default_values_updated'), '3.6.4' => array('astra_update_underline_link_setting'), '3.6.5' => array('astra_support_block_editor'), '3.6.7' => array('astra_fix_footer_widget_right_margin_case', 'astra_remove_elementor_toc_margin'), '3.6.8' => array('astra_set_removal_widget_design_options_flag'), '3.6.9' => array('astra_zero_font_size_comp', 'astra_unset_builder_elements_underline', 'astra_remove_responsive_account_menu_colors_support'), '3.7.0' => array('astra_global_color_compatibility'), '3.7.4' => array('astra_improve_gutenberg_editor_ui'), '3.7.9' => array('astra_set_default_breadcrumb_separator_option', 'astra_fullwidth_layouts_apply_content_background'), '3.8.0' => array('astra_apply_modern_block_editor_ui'));
+        private static $db_updates = array('2.1.3' => array('astra_submenu_below_header'), '2.2.0' => array('astra_page_builder_button_color_compatibility', 'astra_vertical_horizontal_padding_migration'), '2.3.0' => array('astra_header_button_new_options'), '2.3.3' => array('astra_elementor_default_color_typo_comp'), '2.3.4' => array('astra_breadcrumb_separator_fix'), '2.4.0' => array('astra_responsive_base_background_option', 'astra_update_theme_tablet_breakpoint'), '2.4.4' => array('astra_gtn_full_wide_image_group_css'), '2.5.0' => array('astra_global_button_woo_css', 'astra_gtn_full_wide_group_cover_css'), '2.5.2' => array('astra_footer_widget_bg'), '2.6.0' => array('astra_bg_control_migration', 'astra_bg_responsive_control_migration', 'astra_gutenberg_core_blocks_design_compatibility'), '2.6.1' => array('astra_gutenberg_media_text_block_css_compatibility'), '3.0.0' => array('astra_header_builder_compatibility'), '3.0.1' => array('astra_clear_assets_cache'), '3.3.0' => array('astra_gutenberg_pattern_compatibility', 'astra_icons_svg_compatibility', 'astra_check_flex_based_css'), '3.4.0' => array('astra_update_cart_style'), '3.5.0' => array('astra_update_related_posts_grid_layout', 'astra_site_title_tagline_responsive_control_migration'), '3.6.0' => array('astra_headings_font_support', 'astra_remove_logo_max_width', 'astra_transparent_header_default_value'), '3.6.3' => array('astra_button_default_values_updated'), '3.6.4' => array('astra_update_underline_link_setting'), '3.6.5' => array('astra_support_block_editor'), '3.6.7' => array('astra_fix_footer_widget_right_margin_case', 'astra_remove_elementor_toc_margin'), '3.6.8' => array('astra_set_removal_widget_design_options_flag'), '3.6.9' => array('astra_zero_font_size_comp', 'astra_unset_builder_elements_underline', 'astra_remove_responsive_account_menu_colors_support'), '3.7.0' => array('astra_global_color_compatibility'), '3.7.4' => array('astra_improve_gutenberg_editor_ui'), '3.7.9' => array('astra_set_default_breadcrumb_separator_option', 'astra_fullwidth_layouts_apply_content_background'), '3.8.0' => array('astra_apply_modern_block_editor_ui'), '3.8.1' => array('astra_apply_modern_block_editor_v2_ui'));
         /**
          *  Constructor
          */
@@ -12103,7 +12046,7 @@ namespace {
     /**
      * Define Constants
      */
-    \define('ASTRA_THEME_VERSION', '3.8.0');
+    \define('ASTRA_THEME_VERSION', '3.8.1');
     \define('ASTRA_THEME_SETTINGS', 'astra-settings');
     \define('ASTRA_THEME_DIR', \trailingslashit(\get_template_directory()));
     \define('ASTRA_THEME_URI', \trailingslashit(\esc_url(\get_template_directory_uri())));
@@ -14875,7 +14818,7 @@ namespace {
     }
     /**
      * Search Component static CSS.
-     * 
+     *
      * @return string
      * @since 3.5.0
      */
@@ -15944,6 +15887,17 @@ namespace {
      * @return void
      */
     function astra_apply_modern_block_editor_ui()
+    {
+    }
+    /**
+     * Set flag to avoid direct reflections on live site & to maintain backward compatibility for existing users.
+     *
+     * Backward flag purpose - To initiate maintain modern, updated v2 experience of block editor & frontend.
+     *
+     * @since x.x.x
+     * @return void
+     */
+    function astra_apply_modern_block_editor_v2_ui()
     {
     }
     /**
