@@ -193,7 +193,7 @@ if ( ! class_exists( 'Astra_Customizer_Register_Sections_Panels' ) ) {
 					),
 				),
 
-				// Should be removed
+				// Should be removed.
 				array(
 					'name'     => 'section-test-group',
 					'type'     => 'section',
@@ -259,8 +259,7 @@ if ( ! class_exists( 'Astra_Customizer_Register_Sections_Panels' ) ) {
 					'default'           => astra_get_option( 'ast-header-responsive-logo-width-test' ),
 					'priority'          => 7,
 					'title'             => __( 'Logo Width test', 'astra' ),
-					'suffix'            => 'px',
-					'unit_choices'      => array( 'px', 'em', '%' ),
+					'suffix'            => array( 'px', 'em', '%' ),
 					'input_attrs'       => array(
 						'min'  => 0,
 						'step' => 1,

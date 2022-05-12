@@ -79,6 +79,7 @@
 .customize-control-ast-selector .ast-responsive-btns {
     position: relative;
     right: 5px;
+    top: -2px;
 }
 .customize-control-ast-selector .ast-alignment-inner-wrap .components-button:focus:not(:disabled) {
     box-shadow: none;
@@ -1348,6 +1349,7 @@
 .customize-control-ast-selector .ast-responsive-btns {
     position: relative;
     right: 5px;
+    top: -2px;
 }
 .customize-control-ast-selector .ast-alignment-inner-wrap .components-button:focus:not(:disabled) {
     box-shadow: none;
@@ -3022,11 +3024,12 @@ input[type="text"].select2-search__field {
 
 .customize-control-ast-radio-image input:checked + label svg {
   background: #ffffff;
-  border-radius: 3px;
+  border-radius: 0;
   box-shadow: 0 0 3px 0px rgba(0, 133, 186, 0.67);
 }
 
-.customize-control-ast-radio-image .modern-layout input:checked + label svg {
+.customize-control-ast-radio-image .modern-layout input:checked + label svg,
+.components-button-group.ahfb-radio-container-control .active-radio.ast-radio-img-svg svg {
   background-color: #007cba;
   box-shadow: none;
 }
@@ -3046,14 +3049,14 @@ input[type="text"].select2-search__field {
   height: 100%;
 }
 
-.customize-control-ast-radio-image:not(#customize-control-astra-settings-header-trigger-icon) > .image, .components-button-group.ahfb-radio-container-control {
+.customize-control-ast-radio-image:not(#customize-control-astra-settings-header-trigger-icon) > .image {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-column-gap: 5px;
   grid-row-gap: 5px;
 }
 
-.customize-control-ast-radio-image:not(#customize-control-astra-settings-header-trigger-icon) > .modern-layout {
+.customize-control-ast-radio-image:not(#customize-control-astra-settings-header-trigger-icon) > .modern-layout, .components-button-group.ahfb-radio-container-control {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-column-gap: 23px;
@@ -3071,8 +3074,9 @@ input[type="text"].select2-search__field {
   height: 50px;
 }
 
-.customize-control-ast-radio-image .modern-layout .ast-radio-img-svg svg {
-  border-radius: 3px;
+.customize-control-ast-radio-image .modern-layout .ast-radio-img-svg svg,
+.components-button-group.ahfb-radio-container-control .ast-radio-img-svg svg {
+  border-radius: 3px; 
   cursor: pointer;
   margin: 0;
   width: 100%;
@@ -3399,7 +3403,7 @@ input[type="text"].select2-search__field {
 .customize-control-ast-responsive-color .ast-responsive-btns {
   position: relative;
   left: -5px;
-  top: 3px;
+  top: 2px;
 }
 .ast-field-settings-modal .customize-control-ast-responsive-background .ast-responsive-btns,
 .ast-field-settings-modal .customize-control-ast-responsive-color .ast-responsive-btns  {
@@ -3621,7 +3625,7 @@ input[type="text"].select2-search__field {
 .customize-control-ast-slider .ast-slider-wrap .ast-range-unit, .customize-control-ast-responsive-slider .ast-slider-wrap .ast-range-unit {
   position: absolute;
   left: 23px;
-  top: 0;
+  top: 4px;
   border-left: 1px solid #ddd;
   padding-left: 6px;
   font-size: 11px;
@@ -3649,7 +3653,7 @@ input[type="text"].select2-search__field {
 
 .customize-control-ast-responsive-slider .ast-resp-slider-reset-wrap, 
 .customize-control-ast-slider .ast-resp-slider-reset-wrap {
-	top: -2px;
+	top: 1px;
 }
 .customize-control-ast-responsive-spacing {
   /* Unit Screen wrap */
@@ -3688,6 +3692,8 @@ input[type="text"].select2-search__field {
 
 .customize-control-ast-responsive-spacing .ast-spacing-responsive-btns > li.active {
   display: inline-block;
+  position: relative;
+  top: -1px;
 }
 
 .customize-control-ast-responsive-spacing .ast-spacing-responsive-btns button[type="button"] {
@@ -4192,7 +4198,23 @@ input[type="text"].select2-search__field {
   margin-bottom: 10px;
   font-size: 13px;
   margin-top: 3px;
-  display: block;
+}
+
+.customize-control-ast-settings-group .ast-field-settings-modal .customize-control-ast-responsive-slider .ast-responsive-units,
+.customize-control-ast-settings-group .ast-field-settings-modal .customize-control-ast-responsive-slider .ast-range-unit,
+.customize-control-ast-settings-group .ast-field-settings-modal .customize-control-ast-slider .ast-range-unit,
+.customize-control-ast-settings-group .ast-field-settings-modal .customize-control-ast-slider .ast-range-unit {
+  top: 6px;
+}
+
+.customize-control-ast-settings-group .ast-field-settings-modal .customize-control-ast-responsive-slider .ast-resp-slider-reset-wrap,
+.customize-control-ast-settings-group .ast-field-settings-modal .customize-control-ast-slider .ast-resp-slider-reset-wrap {
+  top: 3px;
+}
+
+.customize-control-ast-settings-group .ast-field-settings-modal .customize-control-ast-responsive-slider .ast-responsive-slider-btns,
+.customize-control-ast-settings-group .ast-field-settings-modal .customize-control-ast-slider .ast-responsive-slider-btns {
+  top: 0;
 }
 
 .ast-field-settings-modal .customize-control {
@@ -4353,14 +4375,14 @@ input[type="text"].select2-search__field {
 
 .customize-control-ast-responsive-slider .ast-responsive-slider-btns {
   position: relative;
-  top: -5px;
+  top: -7px;
   left: -5px;
   display: inline-block;
 }
 
 .customize-control-ast-responsive-slider .ast-responsive-units {
   position: absolute;
-  top: 0;
+  top: 3px;
   left: 23px;
   font-size: 11px;
   line-height: normal;
@@ -5156,11 +5178,12 @@ input[type="text"].select2-search__field {
 
 .customize-control-ast-radio-image input:checked + label svg {
   background: #ffffff;
-  border-radius: 3px;
+  border-radius: 0;
   box-shadow: 0 0 3px 0px rgba(0, 133, 186, 0.67);
 }
 
-.customize-control-ast-radio-image .modern-layout input:checked + label svg {
+.customize-control-ast-radio-image .modern-layout input:checked + label svg,
+.components-button-group.ahfb-radio-container-control .active-radio.ast-radio-img-svg svg {
   background-color: #007cba;
   box-shadow: none;
 }
@@ -5180,14 +5203,14 @@ input[type="text"].select2-search__field {
   height: 100%;
 }
 
-.customize-control-ast-radio-image:not(#customize-control-astra-settings-header-trigger-icon) > .image, .components-button-group.ahfb-radio-container-control {
+.customize-control-ast-radio-image:not(#customize-control-astra-settings-header-trigger-icon) > .image {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-column-gap: 5px;
   grid-row-gap: 5px;
 }
 
-.customize-control-ast-radio-image:not(#customize-control-astra-settings-header-trigger-icon) > .modern-layout {
+.customize-control-ast-radio-image:not(#customize-control-astra-settings-header-trigger-icon) > .modern-layout, .components-button-group.ahfb-radio-container-control {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-column-gap: 23px;
@@ -5205,8 +5228,9 @@ input[type="text"].select2-search__field {
   height: 50px;
 }
 
-.customize-control-ast-radio-image .modern-layout .ast-radio-img-svg svg {
-  border-radius: 3px;
+.customize-control-ast-radio-image .modern-layout .ast-radio-img-svg svg,
+.components-button-group.ahfb-radio-container-control .ast-radio-img-svg svg {
+  border-radius: 3px; 
   cursor: pointer;
   margin: 0;
   width: 100%;
@@ -5533,7 +5557,7 @@ input[type="text"].select2-search__field {
 .customize-control-ast-responsive-color .ast-responsive-btns {
   position: relative;
   left: -5px;
-  top: 3px;
+  top: 2px;
 }
 .ast-field-settings-modal .customize-control-ast-responsive-background .ast-responsive-btns,
 .ast-field-settings-modal .customize-control-ast-responsive-color .ast-responsive-btns  {
@@ -5867,7 +5891,7 @@ input[type="text"].select2-search__field {
 .customize-control-ast-slider .ast-slider-wrap .ast-range-unit, .customize-control-ast-responsive-slider .ast-slider-wrap .ast-range-unit {
   position: absolute;
   left: 23px;
-  top: 0;
+  top: 4px;
   border-left: 1px solid #ddd;
   padding-left: 6px;
   font-size: 11px;
@@ -5895,7 +5919,7 @@ input[type="text"].select2-search__field {
 
 .customize-control-ast-responsive-slider .ast-resp-slider-reset-wrap, 
 .customize-control-ast-slider .ast-resp-slider-reset-wrap {
-	top: -2px;
+	top: 1px;
 }
 .customize-control-ast-responsive-spacing {
   /* Unit Screen wrap */
@@ -5934,6 +5958,8 @@ input[type="text"].select2-search__field {
 
 .customize-control-ast-responsive-spacing .ast-spacing-responsive-btns > li.active {
   display: inline-block;
+  position: relative;
+  top: -1px;
 }
 
 .customize-control-ast-responsive-spacing .ast-spacing-responsive-btns button[type="button"] {
@@ -6326,7 +6352,23 @@ input[type="text"].select2-search__field {
   margin-bottom: 10px;
   font-size: 13px;
   margin-top: 3px;
-  display: block;
+}
+
+.customize-control-ast-settings-group .ast-field-settings-modal .customize-control-ast-responsive-slider .ast-responsive-units,
+.customize-control-ast-settings-group .ast-field-settings-modal .customize-control-ast-responsive-slider .ast-range-unit,
+.customize-control-ast-settings-group .ast-field-settings-modal .customize-control-ast-slider .ast-range-unit,
+.customize-control-ast-settings-group .ast-field-settings-modal .customize-control-ast-slider .ast-range-unit {
+  top: 6px;
+}
+
+.customize-control-ast-settings-group .ast-field-settings-modal .customize-control-ast-responsive-slider .ast-resp-slider-reset-wrap,
+.customize-control-ast-settings-group .ast-field-settings-modal .customize-control-ast-slider .ast-resp-slider-reset-wrap {
+  top: 3px;
+}
+
+.customize-control-ast-settings-group .ast-field-settings-modal .customize-control-ast-responsive-slider .ast-responsive-slider-btns,
+.customize-control-ast-settings-group .ast-field-settings-modal .customize-control-ast-slider .ast-responsive-slider-btns {
+  top: 0;
 }
 
 .ast-field-settings-modal .customize-control {
@@ -6487,14 +6529,14 @@ input[type="text"].select2-search__field {
 
 .customize-control-ast-responsive-slider .ast-responsive-slider-btns {
   position: relative;
-  top: -5px;
+  top: -7px;
   left: -5px;
   display: inline-block;
 }
 
 .customize-control-ast-responsive-slider .ast-responsive-units {
   position: absolute;
-  top: 0;
+  top: 3px;
   left: 23px;
   font-size: 11px;
   line-height: normal;

@@ -123,7 +123,7 @@
 .customize-control-ast-slider .ast-slider-wrap .ast-range-unit, .customize-control-ast-responsive-slider .ast-slider-wrap .ast-range-unit {
   position: absolute;
   right: 23px;
-  top: 0;
+  top: 4px;
   border-right: 1px solid #ddd;
   padding-right: 6px;
   font-size: 11px;
@@ -151,5 +151,5 @@
 
 .customize-control-ast-responsive-slider .ast-resp-slider-reset-wrap, 
 .customize-control-ast-slider .ast-resp-slider-reset-wrap {
-	top: -2px;
+	top: 1px;
 }

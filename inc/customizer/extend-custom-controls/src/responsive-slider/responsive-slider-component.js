@@ -94,12 +94,14 @@ const ResponsiveSliderComponent = props => {
 		let respHtml = null;
 
 		const {
-			unit_choices,
+			suffix,
 		} = props.control.params;
 
-		if( unit_choices ) {
-			respHtml = 	Object.values(unit_choices).map(unitKey => {
+		if ( suffix && Array.isArray( suffix ) ) {
+
+			respHtml = 	Object.values( suffix ).map(unitKey => {
 				let unitClass = '';
+			
 
 				if (state[`${device}-unit`] === unitKey) {
 					unitClass = 'active';
@@ -123,7 +125,6 @@ const ResponsiveSliderComponent = props => {
 		description,
 		label,
 		suffix,
-		unit_choices
 	} = props.control.params;
 
 	let labelHtml = null;
@@ -159,7 +160,7 @@ const ResponsiveSliderComponent = props => {
 		descriptionHtml = <span className="description customize-control-description">{description}</span>;
 	}
 
-	if (suffix && ! unit_choices ) {
+	if ( suffix && ! Array.isArray( suffix ) ) {
 		suffixHtml = <span className="ast-range-unit">{suffix}</span>;
 	}
 
@@ -169,7 +170,7 @@ const ResponsiveSliderComponent = props => {
 		{renderInputHtml('mobile')}
 	</>;
 
-	if( unit_choices ) {
+	if ( suffix && Array.isArray( suffix ) ) {
 		unitHtml = <>
 			{unitChoices('desktop', 'active')}
 			{unitChoices('tablet')}

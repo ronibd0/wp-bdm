@@ -8022,11 +8022,11 @@ const ResponsiveSliderComponent = props => {
     let active = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
     let respHtml = null;
     const {
-      unit_choices
+      suffix
     } = props.control.params;
 
-    if (unit_choices) {
-      respHtml = Object.values(unit_choices).map(unitKey => {
+    if (suffix && Array.isArray(suffix)) {
+      respHtml = Object.values(suffix).map(unitKey => {
         let unitClass = '';
 
         if (state[`${device}-unit`] === unitKey) {
@@ -8053,8 +8053,7 @@ const ResponsiveSliderComponent = props => {
   const {
     description,
     label,
-    suffix,
-    unit_choices
+    suffix
   } = props.control.params;
   let labelHtml = null;
   let responsiveHtml = null;
@@ -8104,7 +8103,7 @@ const ResponsiveSliderComponent = props => {
     }, description);
   }
 
-  if (suffix && !unit_choices) {
+  if (suffix && !Array.isArray(suffix)) {
     suffixHtml = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
       className: "ast-range-unit"
     }, suffix);
@@ -8112,7 +8111,7 @@ const ResponsiveSliderComponent = props => {
 
   inputHtml = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, renderInputHtml('desktop', 'active'), renderInputHtml('tablet'), renderInputHtml('mobile'));
 
-  if (unit_choices) {
+  if (suffix && Array.isArray(suffix)) {
     unitHtml = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, unitChoices('desktop', 'active'), unitChoices('tablet'), unitChoices('mobile'));
   }
 
