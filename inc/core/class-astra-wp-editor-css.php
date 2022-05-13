@@ -517,7 +517,7 @@ class Astra_WP_Editor_CSS {
 				'margin-left'  => $astra_continer_left_spacing,
 				'margin-right' => $astra_continer_right_spacing,
 			);
-			$desktop_css['.editor-styles-wrapper .block-editor-block-list__layout.is-root-container .alignwide > :where(:not(.alignleft):not(.alignright))'] = array(
+			$desktop_css['.editor-styles-wrapper .block-editor-block-list__layout.is-root-container .wp-block-group.alignwide > :where(:not(.alignleft):not(.alignright))'] = array(
 				'max-width' => 'calc( var(--wp--custom--ast-content-width-size) + 80px )',
 			);
 			$desktop_css['.ast-page-builder-template .editor-styles-wrapper .block-editor-block-list__layout.is-root-container > *.wp-block, .ast-page-builder-template .editor-styles-wrapper .block-editor-block-list__layout.is-root-container > .alignfull > :where(:not(.alignleft):not(.alignright))'] = array(
