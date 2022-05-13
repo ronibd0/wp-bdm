@@ -1,5 +1,5 @@
 v3.8.1 (Unreleased)
-- Fix: Added correct version number for background updater.
+- Fix: Users updating from v3.7.8 in some edge cases facing resource allocation error.
 - Fix: Global Typography Body and Headings font family preview changes not appearing in the customizer.
 - Fix: Beaver Builder page content width not working properly with block editor CSS compatibility.
 - Fix: W3 validation - Role attribute is missing for Account element link.
