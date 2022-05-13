@@ -218,6 +218,7 @@ html {
   max-width: var(--wp--custom--ast-content-width-size);
   margin-left: auto !important;
   margin-right: auto !important;
+  margin-bottom: 1.5em;
 }
 
 .edit-post-visual-editor__post-title-wrapper:hover h1.editor-post-title__input {
