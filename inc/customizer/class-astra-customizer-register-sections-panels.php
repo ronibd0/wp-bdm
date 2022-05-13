@@ -261,9 +261,21 @@ if ( ! class_exists( 'Astra_Customizer_Register_Sections_Panels' ) ) {
 					'title'             => __( 'Logo Width test', 'astra' ),
 					'suffix'            => array( 'px', 'em', '%' ),
 					'input_attrs'       => array(
-						'min'  => 0,
-						'step' => 1,
-						'max'  => 600,
+						'px' => array(
+							'min'  => 0,
+							'step' => 1,
+							'max'  => 100,
+						),
+						'em' => array(
+							'min'  => 0,
+							'step' => 1,
+							'max'  => 20,
+						),
+						'%' => array(
+							'min'  => 0,
+							'step' => 1,
+							'max'  => 100,
+						),
 					),
 					'divider'           => array( 'ast_class' => 'ast-bottom-divider ast-top-divider' ),
 				),

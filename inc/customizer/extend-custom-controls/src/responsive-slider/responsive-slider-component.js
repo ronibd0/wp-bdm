@@ -56,10 +56,11 @@ const ResponsiveSliderComponent = props => {
 		} = props.control.params;
 		let defaultVal = props.control.params.default[device];
 
+		const input_attrs_selected = input_attrs && ( input_attrs.min || input_attrs.max || input_attrs.step ) ? input_attrs : input_attrs ? input_attrs[state[`${device}-unit`]] : '';
 		const defaults = { min: 0, max: 500, step: 1 };
 		const controlProps = {
 			...defaults,
-			...( input_attrs || {} ),
+			...( input_attrs_selected || {} ),
 		};
 		const { min, max, step } = controlProps;
 
@@ -82,10 +83,21 @@ const ResponsiveSliderComponent = props => {
 	};
 
 	const onUnitChange = (device, unitKey = '') => {
+		
+		const {
+			input_attrs,
+		} = props.control.params;
+
 		let updateState = {
 			...state
 		};
+
 		updateState[`${device}-unit`] = unitKey;
+
+		if( input_attrs && input_attrs[updateState[`${device}-unit`]] && input_attrs[updateState[`${device}-unit`]].max && updateState[`${device}`] > input_attrs[updateState[`${device}-unit`]].max ) {
+			updateState[`${device}`] = input_attrs[updateState[`${device}-unit`]].max;
+		}
+
 		props.control.setting.set(updateState);
 		setState(updateState);
 	};

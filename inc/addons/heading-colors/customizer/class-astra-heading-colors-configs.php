@@ -85,24 +85,6 @@ if ( ! class_exists( 'Astra_Heading_Colors_Configs' ) ) {
 				/**
 				 * Option: Button Font Size
 				 */
-				// array(
-				// 	'name'        => 'font-size-button',
-				// 	'transport'   => 'postMessage',
-				// 	'title'       => __( 'Size', 'astra' ),
-				// 	'type'        => 'sub-control',
-				// 	'parent'      => ASTRA_THEME_SETTINGS . '[button-text-typography]',
-				// 	'section'     => 'section-buttons',
-				// 	'control'     => 'ast-responsive',
-				// 	'priority'    => 2,
-				// 	'default'     => astra_get_option( 'font-size-button' ),
-				// 	'input_attrs' => array(
-				// 		'min' => 0,
-				// 	),
-				// 	'units'       => array(
-				// 		'px' => 'px',
-				// 		'em' => 'em',
-				// 	),
-				// ),
 
 				array(
 					'name'              => 'font-size-button',
@@ -114,11 +96,19 @@ if ( ! class_exists( 'Astra_Heading_Colors_Configs' ) ) {
 					'transport'         => 'postMessage',
 					'title'       		=> __( 'Size', 'astra' ),
 					'priority'    		=> 2,
-					'suffix'            => array( 'px', 'em', '%' ),
+					'default'     		=> astra_get_option( 'font-size-button' ),
+					'suffix'            => array( 'px', 'em' ),
 					'input_attrs'       => array(
-						'min'  => 0,
-						'step' => 1,
-						'max'  => 600,
+						'px' => array(
+							'min'  => 0,
+							'step' => 1,
+							'max'  => 100,
+						),
+						'em' => array(
+							'min'  => 0,
+							'step' => 1,
+							'max'  => 20,
+						),
 					),
 					'divider'           => array( 'ast_class' => 'ast-bottom-divider ast-top-divider' ),
 				),
