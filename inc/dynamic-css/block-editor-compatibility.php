@@ -360,30 +360,47 @@ function astra_load_modern_block_editor_ui( $dynamic_css ) {
 
 	if ( $astra_block_editor_v2_ui ) {
 		$single_post_continer_spacing = astra_get_option( 'single-post-inside-spacing' );
+
 		$astra_continer_left_spacing  = defined( 'ASTRA_EXT_VER' ) && astra_responsive_spacing( $single_post_continer_spacing, 'left', 'desktop' ) ? astra_responsive_spacing( $single_post_continer_spacing, 'left', 'desktop' ) : '6.67em';
 		$astra_continer_right_spacing = defined( 'ASTRA_EXT_VER' ) && astra_responsive_spacing( $single_post_continer_spacing, 'right', 'desktop', '6.67' ) ? astra_responsive_spacing( $single_post_continer_spacing, 'right', 'desktop', '6.67' ) : '6.67em';
+
+		$astra_1200_continer_left_spacing  = defined( 'ASTRA_EXT_VER' ) && astra_responsive_spacing( $single_post_continer_spacing, 'left', 'desktop' ) ? astra_responsive_spacing( $single_post_continer_spacing, 'left', 'desktop' ) : '2.4em';
+		$astra_1200_continer_right_spacing = defined( 'ASTRA_EXT_VER' ) && astra_responsive_spacing( $single_post_continer_spacing, 'right', 'desktop', '2.4' ) ? astra_responsive_spacing( $single_post_continer_spacing, 'right', 'desktop', '2.4' ) : '2.4em';
 
 		$alignwide_left_negative_margin  = $astra_continer_left_spacing ? 'calc(-1 * min(' . $astra_continer_left_spacing . ', 40px))' : '-40px';
 		$alignwide_right_negative_margin = $astra_continer_right_spacing ? 'calc(-1 * min(' . $astra_continer_right_spacing . ', 40px))' : '-40px';
 
+		$alignwide_1200_left_negative_margin  = $astra_continer_left_spacing ? 'calc(-1 * min(' . $astra_continer_left_spacing . ', 20px))' : '-20px';
+		$alignwide_1200_right_negative_margin = $astra_continer_right_spacing ? 'calc(-1 * min(' . $astra_continer_right_spacing . ', 20px))' : '-20px';
+
 		$dynamic_css .= '
-			.ast-separate-container .entry-content[ast-blocks-layout] > .alignwide, .ast-plain-container .entry-content[ast-blocks-layout] > .alignwide {
-				margin-left: ' . $alignwide_left_negative_margin . ' ;
-				margin-right: ' . $alignwide_right_negative_margin . ';
-			}
-			.ast-separate-container .entry-content .alignfull {
-				margin-left: -' . $astra_continer_left_spacing . ';
-				margin-right: -' . $astra_continer_right_spacing . ';
-			}
-			.entry-content .alignwide > :where(:not(.alignleft):not(.alignright)) {
-				max-width: calc( var(--wp--custom--ast-content-width-size) + 80px );
-			}
-			.ast-plain-container.ast-right-sidebar .entry-content[ast-blocks-layout] .alignfull, .ast-plain-container.ast-left-sidebar .entry-content[ast-blocks-layout] .alignfull {
-				margin-left: -60px;
-				margin-right: -60px;
-			}
 			.ast-page-builder-template .entry-content[ast-blocks-layout] > *, .ast-page-builder-template .entry-content .alignfull > :where(:not(.alignleft):not(.alignright)) {
 				max-width: none;
+			}
+			@media(max-width: 1200px) {
+				.ast-separate-container .entry-content .alignfull, .ast-separate-container .entry-content[ast-blocks-layout] > .alignwide, .ast-plain-container .entry-content[ast-blocks-layout] > .alignwide, .ast-plain-container .entry-content .alignfull {
+					margin-left: ' . $alignwide_1200_left_negative_margin . ' ;
+					margin-right: ' . $alignwide_1200_right_negative_margin . ';
+				}
+			}
+			@media(min-width: 1201px) {
+				.ast-separate-container .entry-content .alignfull {
+					margin-left: -' . $astra_continer_left_spacing . ';
+					margin-right: -' . $astra_continer_right_spacing . ';
+				}
+				.ast-separate-container .entry-content[ast-blocks-layout] > .alignwide, .ast-plain-container .entry-content[ast-blocks-layout] > .alignwide {
+					margin-left: ' . $alignwide_left_negative_margin . ' ;
+					margin-right: ' . $alignwide_right_negative_margin . ';
+				}
+			}
+			@media(min-width: ' . $tablet_breakpoint . 'px) {
+				.entry-content .alignwide > :where(:not(.alignleft):not(.alignright)) {
+					max-width: calc( var(--wp--custom--ast-content-width-size) + 80px );
+				}
+				.ast-plain-container.ast-right-sidebar .entry-content[ast-blocks-layout] .alignfull, .ast-plain-container.ast-left-sidebar .entry-content[ast-blocks-layout] .alignfull {
+					margin-left: -60px;
+					margin-right: -60px;
+				}
 			}
 		';
 	}
