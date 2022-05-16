@@ -20,7 +20,7 @@ add_filter( 'astra_get_option_wp-blocks-v2-ui', '__return_true' );
 /**
  * Define Constants
  */
-define( 'ASTRA_THEME_VERSION', '3.8.1' );
+define( 'ASTRA_THEME_VERSION', '3.8.2' );
 define( 'ASTRA_THEME_SETTINGS', 'astra-settings' );
 define( 'ASTRA_THEME_DIR', trailingslashit( get_template_directory() ) );
 define( 'ASTRA_THEME_URI', trailingslashit( esc_url( get_template_directory_uri() ) ) );
