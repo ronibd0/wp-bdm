@@ -65,6 +65,7 @@ wp.blocks.registerBlockVariation(
 			layout: {
 				inherit: true,
 			},
+			align: 'full'
 		},
 	}
 );
