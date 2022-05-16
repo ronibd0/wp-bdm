@@ -400,7 +400,7 @@ function astra_load_modern_block_editor_ui( $dynamic_css ) {
 				}
 			}
 			@media(min-width: ' . $tablet_breakpoint . 'px) {
-				.entry-content .wp-block-group.alignwide > :where(:not(.alignleft):not(.alignright)) {
+				.entry-content .wp-block-group.alignwide:not(.inherit-container-width) > :where(:not(.alignleft):not(.alignright)) {
 					max-width: calc( var(--wp--custom--ast-content-width-size) + 80px );
 				}
 				.ast-plain-container.ast-right-sidebar .entry-content[ast-blocks-layout] .alignfull, .ast-plain-container.ast-left-sidebar .entry-content[ast-blocks-layout] .alignfull {
