@@ -56,6 +56,8 @@ wp.hooks.addFilter(
 
 /**
  * Set "Inherit default layout" option enable by default for Group block.
+ *
+ * Also set "Full Width" layout by default on drag-drop for following blocks.
  */
 wp.blocks.registerBlockVariation(
 	'core/group',
@@ -65,6 +67,24 @@ wp.blocks.registerBlockVariation(
 			layout: {
 				inherit: true,
 			},
+			align: 'full'
+		},
+	}
+);
+wp.blocks.registerBlockVariation(
+	'core/cover',
+	{
+		isDefault: true,
+		attributes: {
+			align: 'full'
+		},
+	}
+);
+wp.blocks.registerBlockVariation(
+	'core/columns',
+	{
+		isDefault: true,
+		attributes: {
 			align: 'full'
 		},
 	}
