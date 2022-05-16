@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 v3.8.1
+=======
+v3.8.1 (Unreleased)
+>>>>>>> 972f290c8c44a919cf65077e31c706518ea1cedd
 - Fix: Users updating from v3.7.8 in some edge cases facing resource allocation error.
 - Fix: Global Typography Body and Headings font family preview changes not appearing in the customizer.
 - Fix: Beaver Builder page content width not working properly with block editor CSS compatibility.
