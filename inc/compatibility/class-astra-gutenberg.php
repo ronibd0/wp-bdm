@@ -116,7 +116,7 @@ class Astra_Gutenberg {
 		if (
 			isset( $block['blockName'] ) && 'core/group' === $block['blockName'] && isset( $block['attrs']['layout']['inherit'] ) && $block['attrs']['layout']['inherit']
 		) {
-			$class_name = 'inherit-container-width';
+			$class_name    = 'inherit-container-width';
 			$block_content = preg_replace(
 				'/' . preg_quote( 'class="', '/' ) . '/',
 				'class="' . esc_attr( $class_name ) . ' ',
