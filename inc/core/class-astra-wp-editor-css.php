@@ -324,8 +324,6 @@ class Astra_WP_Editor_CSS {
 
 		$astra_is_block_editor_v2_ui = astra_get_option( 'wp-blocks-v2-ui', true );
 		$astra_container_width       = astra_get_option( 'site-content-width', 1200 ) . 'px';
-		$ast_content_width           = apply_filters( 'astra_block_content_width', $astra_is_block_editor_v2_ui ? $astra_container_width : '910px' );
-		$ast_wide_width              = apply_filters( 'astra_block_wide_width', $astra_is_block_editor_v2_ui ? 'calc(' . esc_attr( $astra_container_width ) . ' + 80px)' : $astra_container_width );
 		$block_appender_width        = $astra_is_block_editor_v2_ui ? 'var(--wp--custom--ast-content-width-size)' : 'var(--wp--custom--ast-wide-width-size)';
 
 		$astra_wide_particular_selector = $astra_is_block_editor_v2_ui ? '.editor-styles-wrapper .block-editor-block-list__layout.is-root-container .block-list-appender' : '.editor-styles-wrapper .block-editor-block-list__layout.is-root-container > p, .editor-styles-wrapper .block-editor-block-list__layout.is-root-container .block-list-appender';
@@ -345,13 +343,16 @@ class Astra_WP_Editor_CSS {
 		$mobile_bottom_spacing  = isset( $blocks_spacings['mobile']['bottom'] ) ? $blocks_spacings['mobile']['bottom'] : '';
 		$mobile_left_spacing    = isset( $blocks_spacings['mobile']['left'] ) ? $blocks_spacings['mobile']['left'] : '';
 
+		$ast_content_width           = apply_filters( 'astra_block_content_width', $astra_is_block_editor_v2_ui ? $astra_container_width : '910px' );
+		$ast_wide_width           = apply_filters( 'astra_block_wide_width', $astra_is_block_editor_v2_ui ? 'calc(' . esc_attr( $astra_container_width ) . ' + var(--wp--custom--ast-default-block-left-padding) + var(--wp--custom--ast-default-block-right-padding))' : $ast_container_width );
+
 		$css = ':root, body .editor-styles-wrapper {
-			--wp--custom--ast-content-width-size: ' . $ast_content_width . ';
-			--wp--custom--ast-wide-width-size: ' . $ast_wide_width . ';
 			--wp--custom--ast-default-block-top-padding: ' . $desktop_top_spacing . ';
 			--wp--custom--ast-default-block-right-padding: ' . $desktop_right_spacing . ';
 			--wp--custom--ast-default-block-bottom-padding: ' . $desktop_bottom_spacing . ';
 			--wp--custom--ast-default-block-left-padding: ' . $desktop_left_spacing . ';
+			--wp--custom--ast-content-width-size: ' . $ast_content_width . ';
+			--wp--custom--ast-wide-width-size: ' . $ast_wide_width . ';
 		}';
 
 		/** @psalm-suppress InvalidScalarArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
@@ -517,10 +518,7 @@ class Astra_WP_Editor_CSS {
 				'margin-left'  => $astra_continer_left_spacing,
 				'margin-right' => $astra_continer_right_spacing,
 			);
-			$desktop_css['.editor-styles-wrapper .block-editor-block-list__layout.is-root-container .wp-block-group.alignwide:not(.inherit-container-width) > :where(:not(.alignleft):not(.alignright))'] = array(
-				'max-width' => 'calc( var(--wp--custom--ast-content-width-size) + 80px )',
-			);
-			$desktop_css['.ast-page-builder-template .editor-styles-wrapper .block-editor-block-list__layout.is-root-container > *.wp-block, .ast-page-builder-template .editor-styles-wrapper .block-editor-block-list__layout.is-root-container > .alignfull > :where(:not(.alignleft):not(.alignright))'] = array(
+			$desktop_css['.ast-page-builder-template .editor-styles-wrapper .block-editor-block-list__layout.is-root-container > *.wp-block'] = array(
 				'max-width' => 'none',
 			);
 		}

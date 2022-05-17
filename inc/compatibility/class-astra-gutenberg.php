@@ -23,7 +23,7 @@ class Astra_Gutenberg {
 			add_filter( 'render_block', array( $this, 'restore_group_inner_container' ), 10, 2 );
 		}
 
-		add_filter( 'render_block', array( $this, 'add_inherit_width_group_class' ), 5, 2 );
+		add_filter( 'render_block_core/group', array( $this, 'add_inherit_width_group_class' ), 99, 2 );
 	}
 
 	/**
@@ -114,7 +114,7 @@ class Astra_Gutenberg {
 	 */
 	public function add_inherit_width_group_class( $block_content, $block ) {
 		if (
-			isset( $block['blockName'] ) && 'core/group' === $block['blockName'] && isset( $block['attrs']['layout']['inherit'] ) && $block['attrs']['layout']['inherit']
+			isset( $block['blockName'] ) && isset( $block['attrs']['layout']['inherit'] ) && $block['attrs']['layout']['inherit']
 		) {
 			$class_name    = 'inherit-container-width';
 			$block_content = preg_replace(
