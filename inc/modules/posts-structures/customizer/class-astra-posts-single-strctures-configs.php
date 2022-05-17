@@ -36,8 +36,8 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 	 */
 	public function register_configuration( $configurations, $wp_customize ) {
 
-		$post_types            = Astra_Posts_Strctures_Loader::get_supported_post_types();
-		$responsive_bg_default = array(
+		$post_types                 = Astra_Posts_Strctures_Loader::get_supported_post_types();
+		$responsive_bg_default      = array(
 			'desktop' => array(
 				'background-color'      => '',
 				'background-image'      => '',
@@ -69,7 +69,7 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 				'background-media'      => '',
 			),
 		);
-		$spacing_default       = array(
+		$spacing_default            = array(
 			'desktop'      => array(
 				'top'    => '',
 				'right'  => '',
@@ -92,7 +92,7 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 			'tablet-unit'  => 'px',
 			'mobile-unit'  => 'px',
 		);
-		$font_size_defaults    = array(
+		$font_size_defaults         = array(
 			'desktop'      => '',
 			'tablet'       => '',
 			'mobile'       => '',
@@ -142,7 +142,7 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 				$to_clone = false;
 			}
 
-			$taxonomy_meta[$section . '-taxonomy'] = array(
+			$taxonomy_meta[ $section . '-taxonomy' ]   = array(
 				'clone'         => $to_clone,
 				'is_parent'     => true,
 				'main_index'    => $section . '-taxonomy',
@@ -150,7 +150,7 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 				'clone_tracker' => ASTRA_THEME_SETTINGS . '[' . $section . '-taxonomy-clone-tracker]',
 				'title'         => __( 'Taxonomy', 'astra' ),
 			);
-			$taxonomy_meta[$section . '-taxonomy-1'] = array(
+			$taxonomy_meta[ $section . '-taxonomy-1' ] = array(
 				'clone'         => $to_clone,
 				'is_parent'     => true,
 				'main_index'    => $section . '-taxonomy',
@@ -158,7 +158,7 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 				'clone_tracker' => ASTRA_THEME_SETTINGS . '[' . $section . '-taxonomy-clone-tracker]',
 				'title'         => __( 'Taxonomy', 'astra' ),
 			);
-			$taxonomy_meta[$section . '-taxonomy-2'] = array(
+			$taxonomy_meta[ $section . '-taxonomy-2' ] = array(
 				'clone'         => $to_clone,
 				'is_parent'     => true,
 				'main_index'    => $section . '-taxonomy',
@@ -340,7 +340,7 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 							'date'     => __( 'Publish Date', 'astra' ),
 						),
 						$taxonomy_meta
-					)
+					),
 				),
 
 				/**
@@ -484,14 +484,14 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 				 * Option: Container min height.
 				 */
 				array(
-					'name'        => ASTRA_THEME_SETTINGS . '[' . $section . '-banner-height]',
-					'type'        => 'control',
-					'control'     => 'ast-responsive-slider',
-					'section'     => $section,
-					'transport'   => 'postMessage',
+					'name'              => ASTRA_THEME_SETTINGS . '[' . $section . '-banner-height]',
+					'type'              => 'control',
+					'control'           => 'ast-responsive-slider',
+					'section'           => $section,
+					'transport'         => 'postMessage',
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
-					'default'     => astra_get_option( $section . '-banner-height', $responsive_slider_defaults ),
-					'context'    => array(
+					'default'           => astra_get_option( $section . '-banner-height', $responsive_slider_defaults ),
+					'context'           => array(
 						Astra_Builder_Helper::$design_tab_config,
 						'relation' => 'AND',
 						array(
@@ -500,15 +500,15 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 							'value'    => 'layout-2',
 						),
 					),
-					'priority'    => 1,
-					'title'       => __( 'Banner Min Height', 'astra' ),
-					'suffix'      => 'px',
-					'input_attrs' => array(
+					'priority'          => 1,
+					'title'             => __( 'Banner Min Height', 'astra' ),
+					'suffix'            => 'px',
+					'input_attrs'       => array(
 						'min'  => 0,
 						'step' => 1,
 						'max'  => 1000,
 					),
-					'divider'     => array( 'ast_class' => 'ast-bottom-divider' ),
+					'divider'           => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				/**
@@ -642,24 +642,31 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 				/**
 				 * Option: Text Font Size
 				 */
-				array(
-					'name'        => $section . '-text-font-size',
-					'parent'      => ASTRA_THEME_SETTINGS . '[' . $section . '-banner-text-typography-group]',
-					'section'     => $section,
-					'type'        => 'sub-control',
-					'control'     => 'ast-responsive',
-					'default'     => astra_get_option( $section . '-text-font-size', $font_size_defaults ),
-					'transport'   => 'postMessage',
-					'title'       => __( 'Size', 'astra' ),
-					'input_attrs' => array(
-						'min' => 0,
-					),
-					'units'       => array(
-						'px' => 'px',
-						'em' => 'em',
-					),
-				),
 
+				array(
+					'name'              => $section . '-text-font-size',
+					'parent'            => ASTRA_THEME_SETTINGS . '[' . $section . '-banner-text-typography-group]',
+					'section'           => $section,
+					'type'              => 'sub-control',
+					'control'           => 'ast-responsive-slider',
+					'default'           => astra_get_option( $section . '-text-font-size', $font_size_defaults ),
+					'transport'         => 'postMessage',
+					'title'             => __( 'Size', 'astra' ),
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
+					'suffix'            => array( 'px', 'em' ),
+					'input_attrs'       => array(
+						'px' => array(
+							'min'  => 0,
+							'step' => 1,
+							'max'  => 100,
+						),
+						'em' => array(
+							'min'  => 0,
+							'step' => 1,
+							'max'  => 20,
+						),
+					),
+				), 
 				/**
 				 * Option: Text Font Weight
 				 */
@@ -736,21 +743,29 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 				/**
 				 * Option: Title Font Size
 				 */
+
 				array(
-					'name'        => $section . '-title-font-size',
-					'parent'      => ASTRA_THEME_SETTINGS . '[' . $section . '-banner-title-typography-group]',
-					'section'     => $section,
-					'type'        => 'sub-control',
-					'control'     => 'ast-responsive',
-					'default'     => astra_get_option( $section . '-title-font-size', $font_size_defaults ),
-					'transport'   => 'postMessage',
-					'title'       => __( 'Size', 'astra' ),
-					'input_attrs' => array(
-						'min' => 0,
-					),
-					'units'       => array(
-						'px' => 'px',
-						'em' => 'em',
+					'name'              => $section . '-title-font-size',
+					'parent'            => ASTRA_THEME_SETTINGS . '[' . $section . '-banner-title-typography-group]',
+					'section'           => $section,
+					'type'              => 'sub-control',
+					'control'           => 'ast-responsive-slider',
+					'default'           => astra_get_option( $section . '-title-font-size', $font_size_defaults ),
+					'transport'         => 'postMessage',
+					'title'             => __( 'Size', 'astra' ),
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
+					'suffix'            => array( 'px', 'em' ),
+					'input_attrs'       => array(
+						'px' => array(
+							'min'  => 0,
+							'step' => 1,
+							'max'  => 100,
+						),
+						'em' => array(
+							'min'  => 0,
+							'step' => 1,
+							'max'  => 20,
+						),
 					),
 				),
 
@@ -849,24 +864,32 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 				/**
 				 * Option: Meta Font Size
 				 */
-				array(
-					'name'        => $section . '-meta-font-size',
-					'parent'      => ASTRA_THEME_SETTINGS . '[' . $section . '-banner-meta-typography-group]',
-					'section'     => $section,
-					'type'        => 'sub-control',
-					'control'     => 'ast-responsive',
-					'default'     => astra_get_option( $section . '-meta-font-size', $font_size_defaults ),
-					'transport'   => 'postMessage',
-					'title'       => __( 'Size', 'astra' ),
-					'input_attrs' => array(
-						'min' => 0,
-					),
-					'units'       => array(
-						'px' => 'px',
-						'em' => 'em',
-					),
-				),
+		
 
+				array(
+					'name'              => $section . '-meta-font-size',
+					'parent'            => ASTRA_THEME_SETTINGS . '[' . $section . '-banner-meta-typography-group]',
+					'section'           => $section,
+					'type'              => 'sub-control',
+					'control'           => 'ast-responsive-slider',
+					'default'           => astra_get_option( $section . '-meta-font-size', $font_size_defaults ),
+					'transport'         => 'postMessage',
+					'title'             => __( 'Size', 'astra' ),
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
+					'suffix'            => array( 'px', 'em' ),
+					'input_attrs'       => array(
+						'px' => array(
+							'min'  => 0,
+							'step' => 1,
+							'max'  => 100,
+						),
+						'em' => array(
+							'min'  => 0,
+							'step' => 1,
+							'max'  => 20,
+						),
+					),
+				), 
 				/**
 				 * Option: Meta Font Weight
 				 */
@@ -943,7 +966,7 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 						'bottom' => __( 'Bottom', 'astra' ),
 						'left'   => __( 'Left', 'astra' ),
 					),
-					'context'    => array(
+					'context'           => array(
 						Astra_Builder_Helper::$design_tab_config,
 						'relation' => 'AND',
 						array(
@@ -973,7 +996,7 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 						'bottom' => __( 'Bottom', 'astra' ),
 						'left'   => __( 'Left', 'astra' ),
 					),
-					'context'    => array(
+					'context'           => array(
 						Astra_Builder_Helper::$design_tab_config,
 						'relation' => 'AND',
 						array(

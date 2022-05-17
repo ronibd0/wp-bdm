@@ -133,22 +133,30 @@ final class Astra_Builder_Base_Configuration {
 				/**
 				 * Option: Font Size
 				 */
+
 				array(
-					'name'        => 'font-size-' . $section_id,
-					'type'        => 'sub-control',
-					'parent'      => $parent,
-					'section'     => $section_id,
-					'control'     => 'ast-responsive',
-					'default'     => astra_get_option( 'font-size-' . $section_id ),
-					'transport'   => 'postMessage',
-					'priority'    => 14,
-					'title'       => __( 'Size', 'astra' ),
-					'input_attrs' => array(
-						'min' => 0,
-					),
-					'units'       => array(
-						'px' => 'px',
-						'em' => 'em',
+					'name'              => 'font-size-' . $section_id,
+					'type'              => 'sub-control',
+					'parent'            => $parent,
+					'section'           => $section_id,
+					'control'           => 'ast-responsive-slider',
+					'default'           => astra_get_option( 'font-size-' . $section_id ),
+					'transport'         => 'postMessage',
+					'priority'          => 14,
+					'title'             => __( 'Size', 'astra' ),
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
+					'suffix'            => array( 'px', 'em' ),
+					'input_attrs'       => array(
+						'px' => array(
+							'min'  => 0,
+							'step' => 1,
+							'max'  => 100,
+						),
+						'em' => array(
+							'min'  => 0,
+							'step' => 1,
+							'max'  => 20,
+						),
 					),
 				),
 
@@ -160,24 +168,32 @@ final class Astra_Builder_Base_Configuration {
 				/**
 				 * Option: Font Size
 				 */
+
 				array(
-					'name'        => ASTRA_THEME_SETTINGS . '[font-size-' . $section_id . ']',
-					'type'        => 'control',
-					'section'     => $section_id,
-					'control'     => 'ast-responsive',
-					'default'     => astra_get_option( 'font-size-' . $section_id ),
-					'transport'   => 'postMessage',
-					'priority'    => 16,
-					'title'       => __( 'Font Size', 'astra' ),
-					'input_attrs' => array(
-						'min' => 0,
+					'name'              => ASTRA_THEME_SETTINGS . '[font-size-' . $section_id . ']',
+					'section'           => $section_id,
+					'default'           => astra_get_option( 'font-size-' . $section_id ),
+					'type'              => 'control',
+					'transport'         => 'postMessage',
+					'control'           => 'ast-responsive-slider',
+					'priority'          => 16,
+					'title'             => __( 'Font Size', 'astra' ),
+					'context'           => empty( $required_condition ) ? Astra_Builder_Helper::$design_tab : $required_condition,
+					'divider'           => array( 'ast_class' => 'ast-bottom-divider' ),
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
+					'suffix'            => array( 'px', 'em' ),
+					'input_attrs'       => array(
+						'px' => array(
+							'min'  => 0,
+							'step' => 1,
+							'max'  => 100,
+						),
+						'em' => array(
+							'min'  => 0,
+							'step' => 1,
+							'max'  => 20,
+						),
 					),
-					'divider'     => array( 'ast_class' => 'ast-bottom-divider' ),
-					'units'       => array(
-						'px' => 'px',
-						'em' => 'em',
-					),
-					'context'     => empty( $required_condition ) ? Astra_Builder_Helper::$design_tab : $required_condition,
 				),
 			);
 		}
