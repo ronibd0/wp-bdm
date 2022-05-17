@@ -337,16 +337,19 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 			AstraToggleSetup();
 		} else if ( 'dropdown' === mobileHeaderType ) {
 
-			var mobileDropdownContent = document.querySelector( '.ast-mobile-header-content' ) || false,
+			var mobileDropdownContent = document.querySelectorAll( '.ast-mobile-header-content' ) || false,
 			    desktopDropdownContent = document.querySelector( '.ast-desktop-header-content' ) || false;
 
 			// Close Popup on # link click inside Popup.
-			if( mobileDropdownContent ) {
-				var mobileLinks = mobileDropdownContent.getElementsByTagName('a');
-				for ( link = 0, len = mobileLinks.length; link < len; link++ ) {
-					if( null !== mobileLinks[link].getAttribute("href") && mobileLinks[link].getAttribute("href").startsWith('#') && ( !mobileLinks[link].parentElement.classList.contains('menu-item-has-children') || ( mobileLinks[link].parentElement.classList.contains('menu-item-has-children') && document.querySelector('header.site-header').classList.contains('ast-builder-menu-toggle-icon') ) ) ){
-						mobileLinks[link].addEventListener( 'click', triggerToggleClose, true );
-						mobileLinks[link].headerType = 'dropdown';
+			if (mobileDropdownContent.length > 0) {
+				for (let index = 0; index < mobileDropdownContent.length; index++) {
+
+					var mobileLinks = mobileDropdownContent[index].getElementsByTagName('a');
+					for ( link = 0, len = mobileLinks.length; link < len; link++ ) {
+						if( null !== mobileLinks[link].getAttribute("href") && mobileLinks[link].getAttribute("href").startsWith('#') && ( !mobileLinks[link].parentElement.classList.contains('menu-item-has-children') || ( mobileLinks[link].parentElement.classList.contains('menu-item-has-children') && document.querySelector('header.site-header').classList.contains('ast-builder-menu-toggle-icon') ) ) ){
+							mobileLinks[link].addEventListener( 'click', triggerToggleClose, true );
+							mobileLinks[link].headerType = 'dropdown';
+						}
 					}
 				}
 			}
