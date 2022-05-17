@@ -147,7 +147,6 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 	 * Updates the header type.
 	 */
 	function updateHeaderType( e ) {
-
 		mobileHeaderType = e.detail.type;
 		var popupTrigger = document.querySelectorAll( '.menu-toggle' );
 
@@ -209,7 +208,6 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 	 * Closes the Trigger when Popup is Closed.
 	 */
 	function updateTrigger(currentElement) {
-
 		mobileHeader = main_header_masthead.querySelector( "#ast-mobile-header" );
 		var parent_li_sibling = '';
 
@@ -344,7 +342,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 			if( mobileDropdownContent ) {
 				var mobileLinks = mobileDropdownContent.getElementsByTagName('a');
 				for ( link = 0, len = mobileLinks.length; link < len; link++ ) {
-					if( null !== mobileLinks[link].getAttribute("href") && mobileLinks[link].getAttribute("href").startsWith('#') && ( !mobileLinks[link].parentElement.classList.contains('menu-item-has-children') || ( mobileLinks[link].parentElement.classList.contains('menu-item-has-children') && document.querySelector('header.site-header').classList.contains('ast-builder-menu-toggle-icon') ) ) ){
+					if( null !== mobileLinks[link].getAttribute("href") && ( mobileLinks[link].getAttribute("href").startsWith('#') || -1 !==  mobileLinks[link].getAttribute("href").search("#") ) && ( !mobileLinks[link].parentElement.classList.contains('menu-item-has-children') || ( mobileLinks[link].parentElement.classList.contains('menu-item-has-children') && document.querySelector('header.site-header').classList.contains('ast-builder-menu-toggle-icon') ) ) ){
 						mobileLinks[link].addEventListener( 'click', triggerToggleClose, true );
 						mobileLinks[link].headerType = 'dropdown';
 					}
