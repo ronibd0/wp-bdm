@@ -1,3 +1,6 @@
+v3.8.2 (Unreleased)
+- Fix: Sticky header - Offcanvas menu do not close when header menu link is set to #target.
+
 v3.8.1
 - Fix: Users updating from v3.7.8 in some edge cases facing resource allocation error.
 - Fix: Global Typography Body and Headings font family preview changes not appearing in the customizer.
