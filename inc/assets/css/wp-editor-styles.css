@@ -367,6 +367,10 @@ html .edit-widgets-main-block-list :where(.wp-block) {
 /**
  * Modern Gutenberg editor improved UI/UX.
  */
+body .editor-styles-wrapper .edit-post-visual-editor__post-title-wrapper > * + *, body .editor-styles-wrapper .block-editor-block-list__layout.is-root-container > * + * {
+  margin-block-start: 0;
+}
+
 .wp-block-separator {
   height: 0;
 }
