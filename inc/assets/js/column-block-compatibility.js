@@ -80,12 +80,3 @@ wp.blocks.registerBlockVariation(
 		},
 	}
 );
-wp.blocks.registerBlockVariation(
-	'core/columns',
-	{
-		isDefault: true,
-		attributes: {
-			align: 'full'
-		},
-	}
-);

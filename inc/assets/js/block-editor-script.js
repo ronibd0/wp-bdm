@@ -121,6 +121,9 @@ function astra_onload_function() {
 			if( postBlocks && groupBlocks ) {
 				for ( let blockNum = 0; blockNum < postBlocks.length; blockNum++ ) {
 					if( 'core/group' === postBlocks[blockNum].name && undefined !== postBlocks[blockNum].attributes && undefined !== postBlocks[blockNum].attributes.layout && undefined !== postBlocks[blockNum].attributes.layout.inherit ) {
+						if( undefined === groupBlocks[blockNum] ) {
+							return;
+						}
 						if( ! postBlocks[blockNum].attributes.layout.inherit ) {
 							groupBlocks[blockNum].classList.remove( 'inherit-container-width' );
 						}

@@ -524,7 +524,7 @@ class Astra_WP_Editor_CSS {
 			$desktop_css['.ast-page-builder-template .is-root-container > .alignwide > :where(:not(.alignleft):not(.alignright))'] = array(
 				'max-width' => 'var(--wp--custom--ast-wide-width-size)',
 			);
-			$desktop_css['.ast-page-builder-template .is-root-container > .inherit-container-width > *, .ast-page-builder-template .is-root-container > * > :where(:not(.alignleft):not(.alignright))'] = array(
+			$desktop_css['.ast-page-builder-template .is-root-container > .inherit-container-width > *, .ast-page-builder-template .is-root-container > * > :where(:not(.alignleft):not(.alignright)), .is-root-container .wp-block-cover .wp-block-cover__inner-container'] = array(
 				'max-width'    => 'var(--wp--custom--ast-content-width-size)',
 				'margin-left'  => 'auto',
 				'margin-right' => 'auto',
