@@ -114,6 +114,23 @@ function astra_onload_function() {
 			} else {
 				document.body.classList.remove( 'responsive-enabled' );
 			}
+
+			// Adding 'inherit-container-width' width to Group block externally.
+			let postBlocks = ( null !== wp.data.select( 'core/editor' ) && undefined !== wp.data.select( 'core/editor' ).getCurrentPost() && undefined !== wp.data.select( 'core/editor' ).getBlocks() ) ? wp.data.select( 'core/editor' ).getBlocks() : false,
+				groupBlocks = document.querySelectorAll( '.block-editor-block-list__layout.is-root-container > .wp-block-group' );
+			if( postBlocks && groupBlocks ) {
+				for ( let blockNum = 0; blockNum < postBlocks.length; blockNum++ ) {
+					if( 'core/group' === postBlocks[blockNum].name && undefined !== postBlocks[blockNum].attributes && undefined !== postBlocks[blockNum].attributes.layout && undefined !== postBlocks[blockNum].attributes.layout.inherit ) {
+						if( ! postBlocks[blockNum].attributes.layout.inherit ) {
+							groupBlocks[blockNum].classList.remove( 'inherit-container-width' );
+						}
+						if( postBlocks[blockNum].attributes.layout.inherit && ! groupBlocks[blockNum].classList.contains( 'inherit-container-width' ) ) {
+							groupBlocks[blockNum].classList.add( 'inherit-container-width' );
+						}
+					}
+				}
+			}
+
 		}, 1 );
 	});
 }
