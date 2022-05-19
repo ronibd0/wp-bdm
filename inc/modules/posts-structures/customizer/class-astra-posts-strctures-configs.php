@@ -59,7 +59,7 @@ class Astra_Posts_Strctures_Configs extends Astra_Customizer_Config_Base {
 				if ( 'download' === $slug ) {
 					$parent_section = 'section-edd-group';
 				}
-				
+
 				if ( 'llms_membership' === $slug ) {
 					$parent_section = 'section-lifterlms';
 				}
@@ -67,7 +67,7 @@ class Astra_Posts_Strctures_Configs extends Astra_Customizer_Config_Base {
 				if ( 'groups' === $slug || 'sfwd-topic' === $slug || 'sfwd-lessons' === $slug || 'sfwd-courses' === $slug ) {
 					$parent_section = 'section-learndash';
 				}
-				
+
 				$_configs[] = array(
 					'name'     => 'section-posttype-' . $slug,
 					'type'     => 'section',
@@ -75,7 +75,7 @@ class Astra_Posts_Strctures_Configs extends Astra_Customizer_Config_Base {
 					'title'    => isset( $post_type_object->labels->name ) ? $post_type_object->labels->name : ucfirst( $slug ),
 					'priority' => 69,
 				);
-				
+
 			}
 
 			$configurations = array_merge( $configurations, $_configs );

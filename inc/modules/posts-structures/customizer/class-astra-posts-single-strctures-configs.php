@@ -175,8 +175,6 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 
 			$_configs = array(
 
-
-
 				array(
 					'name'              => ASTRA_THEME_SETTINGS . '[single-' . $post_type . '-content-layout]',
 					'type'              => 'control',
@@ -210,7 +208,7 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 					),
 					'divider'           => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
-			
+
 
 				array(
 					'name'              => ASTRA_THEME_SETTINGS . '[single-' . $post_type . '-sidebar-layout]',
@@ -1050,7 +1048,7 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 			);
 
 			if ( 'post' !== $post_type && 'product' !== $post_type && 'page' !== $post_type ) {
-				
+
 				/**
 				 * Archive Parent.
 				 */
@@ -1083,6 +1081,22 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 					'type'     => 'section',
 					'section'  => $parent_section,
 					'priority' => 5,
+				);
+
+				/**
+				 * Link to the Post type's Single Post structure.
+				 */
+				$_configs[] = array(
+					'name'           => ASTRA_THEME_SETTINGS . '[single-' . $post_type . '-section-link]',
+					'type'           => 'control',
+					'control'        => 'ast-customizer-link',
+					'section'        => $parent_section,
+					'priority'       => 2,
+					'link_type'      => 'section',
+					'is_button_link' => true,
+					'linked'         => $section,
+					'link_text'      => __( 'Title Section', 'astra' ),
+					'is_toggle'		 => true,
 				);
 			}
 
