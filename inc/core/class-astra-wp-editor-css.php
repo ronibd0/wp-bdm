@@ -344,7 +344,7 @@ class Astra_WP_Editor_CSS {
 		$mobile_left_spacing    = isset( $blocks_spacings['mobile']['left'] ) ? $blocks_spacings['mobile']['left'] : '';
 
 		$ast_content_width = apply_filters( 'astra_block_content_width', $astra_is_block_editor_v2_ui ? $astra_container_width : '910px' );
-		$ast_wide_width    = apply_filters( 'astra_block_wide_width', $astra_is_block_editor_v2_ui ? 'calc(' . esc_attr( $astra_container_width ) . ' + var(--wp--custom--ast-default-block-left-padding) + var(--wp--custom--ast-default-block-right-padding))' : $ast_container_width );
+		$ast_wide_width    = apply_filters( 'astra_block_wide_width', $astra_is_block_editor_v2_ui ? 'calc(' . esc_attr( $astra_container_width ) . ' + var(--wp--custom--ast-default-block-left-padding) + var(--wp--custom--ast-default-block-right-padding))' : $astra_container_width );
 
 		$css = ':root, body .editor-styles-wrapper {
 			--wp--custom--ast-default-block-top-padding: ' . $desktop_top_spacing . ';
@@ -455,6 +455,9 @@ class Astra_WP_Editor_CSS {
 				'font-weight'    => astra_get_css_value( $h6_font_weight, 'font' ),
 				'line-height'    => esc_attr( $h6_line_height ),
 				'text-transform' => esc_attr( $h6_text_transform ),
+			),
+			'.editor-styles-wrapper .block-editor-block-list__layout.is-root-container p' => array(
+				'margin-bottom' => astra_get_css_value( $para_margin_bottom, 'em' ),
 			),
 
 			// Gutenberg button compatibility for default styling.
