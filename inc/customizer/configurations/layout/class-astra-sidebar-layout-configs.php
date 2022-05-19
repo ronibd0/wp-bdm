@@ -60,7 +60,7 @@ if ( ! class_exists( 'Astra_Sidebar_Layout_Configs' ) ) {
 					'type'              => 'control',
 					'control'           => 'ast-radio-image',
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
-					'section'           => 'section-page-group',
+					'section'           => 'section-page-dynamic-group',
 					'default'           => astra_get_option( 'single-page-sidebar-layout' ),
 					'priority'          => 5,
 					'title'             => __( 'Sidebar Layout', 'astra' ),

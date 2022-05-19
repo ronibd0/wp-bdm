@@ -196,3 +196,24 @@ input[type="text"].select2-search__field {
 .preview-mobile #customize-control-astra-settings-woo-desktop-cart-flyout-direction {
   display: none;
 }
+
+/* Toggle Section Control */
+.ast-section-toggle {
+  display: grid;
+  grid-template-columns: 75% 1fr 1fr;
+}
+
+.ast-section-toggle label {
+  font-size: 14px;
+  line-height: 1;
+  font-weight: 600;
+}
+
+.ast-section-toggle-icon {
+  color: var(--wp-admin-theme-color);
+  cursor: pointer;
+}
+
+.ast-dynamic-posts-section-hide {
+  display: none !important;
+}

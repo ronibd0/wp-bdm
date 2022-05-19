@@ -134,7 +134,7 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 				$taxonomies['category-tag'] = __( 'Category + Tag', 'astra' );
 				$parent_section             = 'section-blog-single';
 			} elseif ( 'page' === $post_type ) {
-				$parent_section = 'section-page-group';
+				$parent_section = 'section-page-dynamic-group';
 			} else {
 				$parent_section = 'section-posttype-' . $post_type;
 			}
@@ -1087,16 +1087,14 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 				 * Link to the Post type's Single Post structure.
 				 */
 				$_configs[] = array(
-					'name'           => ASTRA_THEME_SETTINGS . '[single-' . $post_type . '-section-link]',
+					'name'           => ASTRA_THEME_SETTINGS . '[display-single-' . $post_type . '-title]',
 					'type'           => 'control',
-					'control'        => 'ast-customizer-link',
+					'default'        => astra_get_option( 'display-single-' . $post_type . '-title', false ),
+					'control'        => 'ast-section-toggle',
 					'section'        => $parent_section,
 					'priority'       => 2,
-					'link_type'      => 'section',
-					'is_button_link' => true,
 					'linked'         => $section,
-					'link_text'      => __( 'Title Section', 'astra' ),
-					'is_toggle'		 => true,
+					'linkText'      => __( 'Title Section', 'astra' )
 				);
 			}
 

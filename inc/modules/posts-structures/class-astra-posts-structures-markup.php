@@ -128,7 +128,7 @@ class Astra_Posts_Strctures_Markup {
 
 				do_action( 'astra_after_archive_' . $post_type . '_banner_content' );
 			}
-		} elseif ( 'archive' === $type ) {
+		} elseif ( 'archive' === $type && astra_get_option( 'display-single-' . $post_type . '-title', false ) ) {
 
 			do_action( 'astra_before_archive_' . $post_type . '_banner_content' );
 

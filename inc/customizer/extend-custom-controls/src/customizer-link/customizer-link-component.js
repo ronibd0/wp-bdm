@@ -7,8 +7,6 @@ const { Dashicon } = wp.components;
 
 const CustomizerLinkComponent = props => {
 
-	// console.log(isStateToggle);
-
 	const [ isStateToggle, setIsStateToggle ] = useState( false );
 
 	const onLinkClick = () => {
@@ -60,7 +58,6 @@ const CustomizerLinkComponent = props => {
 						<ToggleControl
 							checked={ isStateToggle }
 							onChange={ () => {
-								console.log(isStateToggle);
 								setIsStateToggle( ! isStateToggle );
 							} }
 						/>
