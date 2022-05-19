@@ -47,23 +47,97 @@ if ( ! class_exists( 'Astra_Woo_Shop_Container_Configs' ) ) {
 					'choices'           => array(
 						'default'                 => array(
 							'label' => __( 'Default', 'astra' ),
-							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'blog-layout-1', false ) : '',
+							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'tmp-angle', false ) : '',
 						),
 						'boxed-container'         => array(
 							'label' => __( 'Boxed', 'astra' ),
-							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'blog-layout-2', false ) : '',
+							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'tmp-angle', false ) : '',
 						),
 						'content-boxed-container' => array(
 							'label' => __( 'Content Boxed', 'astra' ),
-							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'blog-layout-3', false ) : '',
+							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'tmp-angle', false ) : '',
 						),
 						'plain-container'         => array(
 							'label' => __( 'Full Width / Contained', 'astra' ),
-							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'blog-layout-3', false ) : '',
+							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'tmp-angle', false ) : '',
 						),
 						'page-builder'            => array(
 							'label' => __( 'Full Width / Stretched', 'astra' ),
-							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'blog-layout-3', false ) : '',
+							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'tmp-angle', false ) : '',
+						),
+					),
+					'divider'           => array( 'ast_class' => 'ast-bottom-divider' ),
+				),
+
+				/**
+				 * Option: Container Layout.
+				 */
+				array(
+					'name'              => ASTRA_THEME_SETTINGS . '[archive-product-content-layout]',
+					'type'              => 'control',
+					'control'           => 'ast-radio-image',
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
+					'section'           => 'woocommerce_product_catalog',
+					'default'           => astra_get_option( 'archive-product-content-layout', 'default' ),
+					'priority'          => 5,
+					'title'             => __( 'Container Layout', 'astra' ),
+					'choices'           => array(
+						'default'                 => array(
+							'label' => __( 'Default', 'astra' ),
+							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'tmp-angle', false ) : '',
+						),
+						'boxed-container'         => array(
+							'label' => __( 'Boxed', 'astra' ),
+							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'tmp-angle', false ) : '',
+						),
+						'content-boxed-container' => array(
+							'label' => __( 'Content Boxed', 'astra' ),
+							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'tmp-angle', false ) : '',
+						),
+						'plain-container'         => array(
+							'label' => __( 'Full Width / Contained', 'astra' ),
+							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'tmp-angle', false ) : '',
+						),
+						'page-builder'            => array(
+							'label' => __( 'Full Width / Stretched', 'astra' ),
+							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'tmp-angle', false ) : '',
+						),
+					),
+					'divider'           => array( 'ast_class' => 'ast-bottom-divider' ),
+				),
+
+				/**
+				 * Option: Container Layout.
+				 */
+				array(
+					'name'              => ASTRA_THEME_SETTINGS . '[single-product-content-layout]',
+					'type'              => 'control',
+					'control'           => 'ast-radio-image',
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
+					'section'           => 'section-woo-shop-single',
+					'default'           => astra_get_option( 'single-product-content-layout', 'default' ),
+					'priority'          => 5,
+					'title'             => __( 'Container Layout', 'astra' ),
+					'choices'           => array(
+						'default'                 => array(
+							'label' => __( 'Default', 'astra' ),
+							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'tmp-angle', false ) : '',
+						),
+						'boxed-container'         => array(
+							'label' => __( 'Boxed', 'astra' ),
+							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'tmp-angle', false ) : '',
+						),
+						'content-boxed-container' => array(
+							'label' => __( 'Content Boxed', 'astra' ),
+							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'tmp-angle', false ) : '',
+						),
+						'plain-container'         => array(
+							'label' => __( 'Full Width / Contained', 'astra' ),
+							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'tmp-angle', false ) : '',
+						),
+						'page-builder'            => array(
+							'label' => __( 'Full Width / Stretched', 'astra' ),
+							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'tmp-angle', false ) : '',
 						),
 					),
 					'divider'           => array( 'ast_class' => 'ast-bottom-divider' ),

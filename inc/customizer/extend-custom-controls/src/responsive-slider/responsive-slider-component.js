@@ -56,10 +56,11 @@ const ResponsiveSliderComponent = props => {
 		} = props.control.params;
 		let defaultVal = props.control.params.default[device];
 
+		const input_attrs_selected = input_attrs && ( input_attrs.min || input_attrs.max || input_attrs.step ) ? input_attrs : input_attrs ? input_attrs[state[`${device}-unit`]] : '';
 		const defaults = { min: 0, max: 500, step: 1 };
 		const controlProps = {
 			...defaults,
-			...( input_attrs || {} ),
+			...( input_attrs_selected || {} ),
 		};
 		const { min, max, step } = controlProps;
 
@@ -81,10 +82,61 @@ const ResponsiveSliderComponent = props => {
 		</div>;
 	};
 
+	const onUnitChange = (device, unitKey = '') => {
+		
+		const {
+			input_attrs,
+		} = props.control.params;
+
+		let updateState = {
+			...state
+		};
+
+		updateState[`${device}-unit`] = unitKey;
+
+		if( input_attrs && input_attrs[updateState[`${device}-unit`]] && input_attrs[updateState[`${device}-unit`]].max && updateState[`${device}`] > input_attrs[updateState[`${device}-unit`]].max ) {
+			updateState[`${device}`] = input_attrs[updateState[`${device}-unit`]].max;
+		}
+
+		props.control.setting.set(updateState);
+		setState(updateState);
+	};
+
+	const unitChoices = ( device,  active = '') => {
+		let respHtml = null;
+
+		const {
+			suffix,
+		} = props.control.params;
+
+		if ( suffix && Array.isArray( suffix ) ) {
+
+			respHtml = 	Object.values( suffix ).map(unitKey => {
+				let unitClass = '';
+			
+
+				if (state[`${device}-unit`] === unitKey) {
+					unitClass = 'active';
+				}
+
+				let html = 	<li key={unitKey} className={`single-unit ${unitClass}`} onClick={() => onUnitChange(device, unitKey)} data-unit={unitKey}>
+								<span className="unit-text">{unitKey}</span>
+							</li>;
+							return html;
+			});
+
+			return 	<ul key={device}
+						className={`ast-responsive-units input-field-wrapper ast-spacing-${device}-responsive-units ${device} ${active}`}>
+			{respHtml}
+			</ul>;
+		}
+
+	};
+
 	const {
 		description,
 		label,
-		suffix
+		suffix,
 	} = props.control.params;
 
 	let labelHtml = null;
@@ -92,6 +144,7 @@ const ResponsiveSliderComponent = props => {
 	let suffixHtml = null;
 	let descriptionHtml = null;
 	let inputHtml = null;
+	let unitHtml = null;
 	let defaultVal = props.control.params.default;
 
 	if (label) {
@@ -119,7 +172,7 @@ const ResponsiveSliderComponent = props => {
 		descriptionHtml = <span className="description customize-control-description">{description}</span>;
 	}
 
-	if (suffix) {
+	if ( suffix && ! Array.isArray( suffix ) ) {
 		suffixHtml = <span className="ast-range-unit">{suffix}</span>;
 	}
 
@@ -129,16 +182,25 @@ const ResponsiveSliderComponent = props => {
 		{renderInputHtml('mobile')}
 	</>;
 
-	return <div>
+	if ( suffix && Array.isArray( suffix ) ) {
+		unitHtml = <>
+			{unitChoices('desktop', 'active')}
+			{unitChoices('tablet')}
+			{unitChoices('mobile')}
+		</>;
+	}
+
+	return <div className="ast-slider-wrap">
 		<label key={'customizer-text'}>
 			{labelHtml}
 		</label>
 		{responsiveHtml}
+		{unitHtml}
+		{suffixHtml}
 		{ renderOperationButtons( defaultVal ) }
 		{descriptionHtml}
 		<div className="wrapper">
 			{inputHtml}
-			{suffixHtml}
 		</div>
 	</div>;
 };

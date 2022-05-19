@@ -48,19 +48,19 @@ if ( ! class_exists( 'Astra_Learndash_Sidebar_Configs' ) ) {
 					'choices'           => array(
 						'default'       => array(
 							'label' => __( 'Default', 'astra' ),
-							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'blog-layout-1', false ) : '',
+							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'tmp-angle', false ) : '',
 						),
 						'no-sidebar'    => array(
 							'label' => __( 'No Sidebar', 'astra' ),
-							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'blog-layout-2', false ) : '',
+							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'tmp-angle', false ) : '',
 						),
 						'left-sidebar'  => array(
 							'label' => __( 'Left Sidebar', 'astra' ),
-							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'blog-layout-3', false ) : '',
+							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'tmp-angle', false ) : '',
 						),
 						'right-sidebar' => array(
 							'label' => __( 'Right Sidebar', 'astra' ),
-							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'blog-layout-3', false ) : '',
+							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'tmp-angle', false ) : '',
 						),
 					),
 					'divider'           => array( 'ast_class' => 'ast-bottom-divider' ),

@@ -301,9 +301,9 @@
 }
 .customize-control-ast-responsive-background .ast-responsive-btns,
 .customize-control-ast-responsive-color .ast-responsive-btns {
-  position: absolute;
-  left: 64px;
-  top: 3px;
+  position: relative;
+  left: -5px;
+  top: 2px;
 }
 .ast-field-settings-modal .customize-control-ast-responsive-background .ast-responsive-btns,
 .ast-field-settings-modal .customize-control-ast-responsive-color .ast-responsive-btns  {

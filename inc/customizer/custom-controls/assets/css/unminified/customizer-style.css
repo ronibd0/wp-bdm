@@ -54,6 +54,10 @@
   margin-bottom: 0;
 }
 
+.components-base-control .components-base-control__field .components-input-control__backdrop {
+  border-color: #ddd;
+}
+
 .customize-control .customize-inside-control-row {
   padding-top: 0;
   padding-bottom: 0;

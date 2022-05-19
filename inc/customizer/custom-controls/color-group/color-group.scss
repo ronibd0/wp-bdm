@@ -57,9 +57,8 @@
             display: flex;
         }
 		.ast-responsive-btns {
-			position: absolute;
-			right: 100px;
-			top: 9px;
+			position: relative;
+			right: -5px;
 		}
         .ast-bg-img-remove.components-button.is-link {
             width: 100%;
@@ -84,9 +83,9 @@
 }
 .customize-control-ast-color-group {
 	.ast-color-multiple-group-reset.ast-color-group-reset {
-		right: 132px;
+		right: 110px;
 	}
-	.ast-responsive-btns.ast-multiple-colors-group, .ast-color-multiple-group-reset.ast-color-group-reset.ast-single-color-group-set {
+	.ast-color-multiple-group-reset.ast-color-group-reset.ast-single-color-group-set {
 		right: 112px;
 	}
 }
@@ -97,17 +96,11 @@
 }
 .ast-top-divider.customize-control-ast-color-group {
 	.ast-control-wrap {
-		.ast-responsive-btns {
-			top: 33px;
-		}
 		.ast-color-btn-reset-wrap {
 			top: 30px;
 		}
 	}
 	.ast-divider-title + .ast-control-wrap {
-		.ast-responsive-btns {
-			top: 78px;
-		}
 		.ast-color-btn-reset-wrap {
 			top: 75px;
 		}
@@ -123,9 +116,6 @@
 			.ast-control-wrap {
 				.ast-color-group-reset {
 					top: 47px;
-				}
-				.ast-responsive-btns {
-					top: 50px;
 				}
 				.astra-color-picker-wrap {
 					top: 73px;
