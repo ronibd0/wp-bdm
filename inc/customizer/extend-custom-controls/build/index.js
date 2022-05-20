@@ -5837,12 +5837,14 @@ const DividerComponent = props => {
     caption,
     separator,
     label,
-    description
+    description,
+    suffix
   } = props.control.params;
   let separatorHtml = null;
   let captionHtml = null;
   let labelHtml = null;
   let descriptionHtml = null;
+  let suffixHtml = null;
 
   if (false !== separator) {
     separatorHtml = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("hr", null);
@@ -5867,9 +5869,15 @@ const DividerComponent = props => {
     }, description);
   }
 
+  if (suffix) {
+    suffixHtml = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+      class: "suffix customize-control-suffix"
+    }, suffix);
+  }
+
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, captionHtml, separatorHtml, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", {
-    className: "customizer-text"
-  }, labelHtml, descriptionHtml));
+    className: "customizer-text sadsad"
+  }, labelHtml, suffixHtml, descriptionHtml));
 };
 
 DividerComponent.propTypes = {
