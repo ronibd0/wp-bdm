@@ -3391,7 +3391,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 							'transform'  => $transform_svg_style,
 						),
 						'.ast-mobile-popup-content .ast-submenu-expanded > .ast-menu-toggle' => array(
-							'transform' => 'rotateX(180deg)',
+							'transform'  => 'rotateX(180deg)',
 							'overflow-y' => 'auto',
 						),
 					);
