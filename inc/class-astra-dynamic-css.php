@@ -3392,6 +3392,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						),
 						'.ast-mobile-popup-content .ast-submenu-expanded > .ast-menu-toggle' => array(
 							'transform' => 'rotateX(180deg)',
+							'overflow-y' => 'auto',
 						),
 					);
 				}
