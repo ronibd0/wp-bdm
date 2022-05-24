@@ -435,6 +435,7 @@
 .customize-control.customize-control-ast-color-group .ast-field-color-group-wrap {
   justify-content: flex-end;
   display: flex;
+  max-height: 28px;
 }
 
 .customize-control.customize-control-ast-color-group .color-button-wrap {

@@ -130,6 +130,19 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		}
 
 		/**
+		 * Encode SVG
+		 * 
+		 * @since x.x.x
+		 *
+		 * @param  string $svg Svg icon.
+		 * @return string
+		 */
+		public function svg_encode( $svg ) {
+			$encoded_svg = base64_encode( $svg ); // phpcs:ignore WordPress.PHP.DiscouragedPHPFunctions.obfuscation_base64_encode
+			return 'url( "data:image/svg+xml;base64,' . $encoded_svg . '" );';
+		}
+
+		/**
 		 * Dynamic Store widgets.
 		 */
 		public function store_widgets_dynamic() {
@@ -1027,12 +1040,14 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			/**
 			 * - Variable Declaration
 			 */
-			$is_site_rtl      = is_rtl();
-			$theme_color      = astra_get_option( 'theme-color' );
-			$link_color       = astra_get_option( 'link-color', $theme_color );
-			$text_color       = astra_get_option( 'text-color' );
-			$link_h_color     = astra_get_option( 'link-h-color' );
-			$if_free_shipping = astra_get_option( 'single-product-enable-shipping' );
+			$is_site_rtl                             = is_rtl();
+			$theme_color                             = astra_get_option( 'theme-color' );
+			$link_color                              = astra_get_option( 'link-color', $theme_color );
+			$text_color                              = astra_get_option( 'text-color' );
+			$link_h_color                            = astra_get_option( 'link-h-color' );
+			$if_free_shipping                        = astra_get_option( 'single-product-enable-shipping' );
+			$single_product_heading_tab_active_color = astra_get_option( 'single-product-heading-tab-active-color' );
+			$global_palette                          = astra_get_option( 'global-color-palette' );
 
 			$btn_color = astra_get_option( 'button-color' );
 			if ( empty( $btn_color ) ) {
@@ -1135,11 +1150,12 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 					'padding-left'   => astra_responsive_spacing( $theme_btn_padding, 'left', 'desktop' ),
 				),
 				'.woocommerce .star-rating, .woocommerce .comment-form-rating .stars a, .woocommerce .star-rating::before' => array(
-					'color' => '#777',
+					'color' => 'var(--ast-global-color-3)',
 				),
-				'.woocommerce div.product .woocommerce-tabs ul.tabs li.active:before' => array(
-					'background' => $link_color,
+				'.woocommerce div.product .woocommerce-tabs ul.tabs li.active:before,  .woocommerce div.ast-product-tabs-layout-vertical .woocommerce-tabs ul.tabs li:hover::before' => array(
+					'background' => $single_product_heading_tab_active_color ? $single_product_heading_tab_active_color : $link_color,
 				),
+
 				'.woocommerce a.remove:hover'             => array(
 					'color'            => esc_attr( $link_color ),
 					'border-color'     => esc_attr( $link_color ),
@@ -1858,6 +1874,25 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 
 			/**
+			 * Select arrow styling
+			 */
+
+			$arrow_svg = '<svg class="ast-arrow-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" width="26px" height="16.043px" viewBox="57 35.171 26 16.043" enable-background="new 57 35.171 26 16.043" xml:space="preserve" fill="' . $global_palette['palette'][3] . '"><path d="M57.5,38.193l12.5,12.5l12.5-12.5l-2.5-2.5l-10,10l-10-10L57.5,38.193z"></path></svg>';
+
+			$css_output_woo_select_default = array(
+				'select, .select2-container .select2-selection--single' => array(
+					'background'            => self::svg_encode( $arrow_svg ),
+					'background-size'       => '.8em',
+					'background-repeat'     => 'no-repeat',
+					'background-position'   => 'center right',
+					'background-position-x' => 'calc( 100% - 10px )',
+				),
+			);
+
+			$css_output .= astra_parse_css( $css_output_woo_select_default );
+
+
+			/**
 			 * Single page variation tab layout.
 			 */
 
@@ -1865,13 +1900,19 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 			if ( 'horizontal' === $woo_variation_layout ) {
 				$css_output_woo_variation_layout = array(
-					'.woocommerce div.product form.cart .variations td' => array(
-						'display'     => 'table-cell',
-						'padding-top' => '8px',
+					'.woocommerce div.product form.cart .variations tr' => array(
+						'display'       => 'flex',
+						'flex-wrap'     => 'wrap',
+						'margin-bottom' => '1em',
 					),
+
+					'.woocommerce div.product form.cart .variations td' => array(
+						'width' => 'calc( 100% - 70px )',
+					),
+					
 					'.woocommerce div.product form.cart .variations td.label, .woocommerce div.product form.cart .variations th.label'  => array(
-						'vertical-align' => 'top',
-						'padding-top'    => '12px',
+						'width'         => '70px',
+						'padding-right' => '1em',
 					),
 				);
 
