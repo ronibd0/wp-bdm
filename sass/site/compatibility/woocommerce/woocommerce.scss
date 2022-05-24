@@ -1866,7 +1866,7 @@ p.demo_store,
 		tfoot td,
 		tfoot th,
 		tbody th {
-			font-weight: 700;
+			font-weight: 500;
 			border-top: 1px solid rgba(0, 0, 0, 0.1);
 		}
 	}
@@ -3285,7 +3285,21 @@ button.pswp__button--zoom:hover {
 		}
 		.woocommerce-Price-amount,
 		td.product-name{
-			font-weight: 700;
+			font-weight: 500;
+		}
+
+		.woocommerce-Price-amount {
+			font-weight: 400;
+		}
+
+		dl {
+			dt {
+				font-weight: 500;
+			}
+
+			dd {
+				font-weight: 400;
+			}
 		}
 	}
 
@@ -3314,6 +3328,7 @@ button.pswp__button--zoom:hover {
     			margin: 0 -20px 20px;
     			background-color: #fbfbfb;
 				border-bottom: 1px solid #ebebeb;
+				font-weight: 700;
 			}
 		}
 	}

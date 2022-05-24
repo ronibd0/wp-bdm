@@ -1078,6 +1078,14 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 			$css_output = '';
 
+			$theme_color = astra_get_option( 'theme-color' );
+			$btn_color   = astra_get_option( 'button-color' );
+
+			if ( empty( $btn_color ) ) {
+	
+				$btn_color = astra_get_foreground_color( $theme_color );
+			}
+
 			$css_desktop_output = array(
 				'#customer_details h3:not(.elementor-widget-woocommerce-checkout-page h3)' => array(
 					'font-size'     => '1.2rem',
@@ -1150,6 +1158,11 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 					'padding-bottom' => astra_responsive_spacing( $theme_btn_padding, 'bottom', 'desktop' ),
 					'padding-left'   => astra_responsive_spacing( $theme_btn_padding, 'left', 'desktop' ),
 				),
+
+				'.woocommerce .woocommerce-cart-form button[name="update_cart"]:disabled' => array(
+					'color' => esc_attr( $btn_color ),
+				),
+				
 				'.woocommerce .star-rating, .woocommerce .comment-form-rating .stars a, .woocommerce .star-rating::before' => array(
 					'color' => 'var(--ast-global-color-3)',
 				),

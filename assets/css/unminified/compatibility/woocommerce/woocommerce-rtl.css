@@ -2142,7 +2142,7 @@ p.demo_store[data-position="bottom"],
 .woocommerce table.shop_table tfoot td,
 .woocommerce table.shop_table tfoot th,
 .woocommerce table.shop_table tbody th {
-  font-weight: 700;
+  font-weight: 500;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 
@@ -4014,7 +4014,19 @@ button.pswp__button--zoom:hover {
 
 .woocommerce-cart table.shop_table .woocommerce-Price-amount,
 .woocommerce-cart table.shop_table td.product-name {
-  font-weight: 700;
+  font-weight: 500;
+}
+
+.woocommerce-cart table.shop_table .woocommerce-Price-amount {
+  font-weight: 400;
+}
+
+.woocommerce-cart table.shop_table dl dt {
+  font-weight: 500;
+}
+
+.woocommerce-cart table.shop_table dl dd {
+  font-weight: 400;
 }
 
 .woocommerce-cart .cart-collaterals .cross-sells li.product {
@@ -4044,6 +4056,7 @@ button.pswp__button--zoom:hover {
   margin: 0 -20px 20px;
   background-color: #fbfbfb;
   border-bottom: 1px solid #ebebeb;
+  font-weight: 700;
 }
 
 .woocommerce-cart .hentry,
