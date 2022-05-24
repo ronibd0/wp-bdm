@@ -42,7 +42,7 @@ export const sortableControl = wp.customize.astraControl.extend( {
 
 		// Init sortable.
 		control.sortableContainer.sortable({
-
+			cancel: ".ast-sortable-item.show",
 			// Update value when we stop sorting.
 			stop: function() {
 				control.updateValue();
@@ -115,7 +115,7 @@ export const sortableControl = wp.customize.astraControl.extend( {
 			}
 		}
 
-		jQuery( instance ).toggleClass( 'dashicons-arrow-up-alt2' ).closest( '.ast-sortable-item' ).toggleClass( 'show' );
+		jQuery( instance ).closest( '.ast-sortable-item' ).toggleClass( 'show' );
 
 		control.updateValue();
 	},

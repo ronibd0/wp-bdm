@@ -2937,7 +2937,7 @@ input[type="text"].select2-search__field {
   font-weight: 600;
   letter-spacing: 1px;
   line-height: 1;
-  text-transform: uppercase;
+  text-transform: uppercase !important;
 }
 
 .customize-control-ast-heading .customize-control-caption {
@@ -4453,9 +4453,29 @@ input[type="text"].select2-search__field {
 /**
  * ast-list-icons inside sortable compatibility CSS.
  */
+.ast-sortable-item.show i.ast-accordion {
+	transform: rotate(-180deg);
+	border-right: none;border-left: 1px solid #ddd;
+}
 .ast-sortable-subfields-wrap .customize-control-ast-list-icons .components-button {
     padding: 6px 8px;
 	height: 38px;
+	background: white;
+}
+
+.ast-sortable-subfields-wrap .customize-control-ast-list-icons .components-button:focus {
+    box-shadow: none;
+}
+
+.customize-control-ast-list-icons .ahfb-sorter-item-panel-header .ahfb-sorter-title {
+	padding-left: 20px;
+    max-width: 100%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.customize-control-ast-list-icons span.feature-label {
+    max-width: 100px;
+    text-overflow: ellipsis;
 }
 .ast-sortable-subfields-wrap .customize-control-ast-list-icons .dashicons-admin-page {
     color: #556068;
@@ -4464,6 +4484,7 @@ input[type="text"].select2-search__field {
     border: 1px solid #ddd;
 	border-right: 0;
     border-bottom: 0;
+	overflow: hidden;
 }
 .ast-sortable-subfields-wrap .customize-control-ast-list-icons .ahfb-sorter-visiblity svg {
     height: 14px;
@@ -4987,7 +5008,7 @@ input[type="text"].select2-search__field {
   font-weight: 600;
   letter-spacing: 1px;
   line-height: 1;
-  text-transform: uppercase;
+  text-transform: uppercase !important;
 }
 
 .customize-control-ast-heading .customize-control-caption {
@@ -6503,9 +6524,29 @@ input[type="text"].select2-search__field {
 /**
  * ast-list-icons inside sortable compatibility CSS.
  */
+.ast-sortable-item.show i.ast-accordion {
+	transform: rotate(-180deg);
+	border-right: none;border-left: 1px solid #ddd;
+}
 .ast-sortable-subfields-wrap .customize-control-ast-list-icons .components-button {
     padding: 6px 8px;
 	height: 38px;
+	background: white;
+}
+
+.ast-sortable-subfields-wrap .customize-control-ast-list-icons .components-button:focus {
+    box-shadow: none;
+}
+
+.customize-control-ast-list-icons .ahfb-sorter-item-panel-header .ahfb-sorter-title {
+	padding-left: 20px;
+    max-width: 100%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.customize-control-ast-list-icons span.feature-label {
+    max-width: 100px;
+    text-overflow: ellipsis;
 }
 .ast-sortable-subfields-wrap .customize-control-ast-list-icons .dashicons-admin-page {
     color: #556068;
@@ -6514,6 +6555,7 @@ input[type="text"].select2-search__field {
     border: 1px solid #ddd;
 	border-right: 0;
     border-bottom: 0;
+	overflow: hidden;
 }
 .ast-sortable-subfields-wrap .customize-control-ast-list-icons .ahfb-sorter-visiblity svg {
     height: 14px;

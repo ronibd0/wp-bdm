@@ -35,7 +35,7 @@ const ListIconsComponent = props => {
 	} : defaultValue;
 
 	let defaultParams = {
-		'group': 'social_item_group',
+		'group': 'list_item_group',
 		'options': [
 			{value: 'facebook', label: __('Facebook', 'astra')},
 			{value: 'twitter', label: __('Twitter', 'astra')},
@@ -124,12 +124,6 @@ const ListIconsComponent = props => {
 			value: updateState
 		}));
 		updateValues(updateState);
-	};
-
-	const toggleEnableItem = (value, itemIndex) => {
-		saveArrayUpdate({
-			enabled: value
-		}, itemIndex);
 	};
 
 	const onChangeLabel = (value, itemIndex) => {
@@ -261,7 +255,6 @@ const ListIconsComponent = props => {
 						   setList={newState => onDragEnd(newState)}>
 				{currentList.length > 0 && currentList.map((item, index) => {
 					return <ItemComponent removeItem={remove => removeItem(remove)}
-										  toggleEnabled={(enable, itemIndex) => toggleEnableItem(enable, itemIndex)}
 										  cloneItem={() => addItem(item)}
 										  onChangeLabel={(label, itemIndex) => onChangeLabel(label, itemIndex)}
 										  onChangeIcon={( icon, index ) => onChangeIcon( icon, index ) }

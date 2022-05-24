@@ -607,7 +607,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 
 	AstraToggleSetup = function () {
 
-		if( typeof astraAddon != 'undefined' ) {
+		if( typeof astraAddon != 'undefined' && typeof astraToggleSetupPro === "function" ) {
 			astraToggleSetupPro( mobileHeaderType, body, menu_click_listeners );
 		} else {
 
