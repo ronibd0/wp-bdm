@@ -2021,6 +2021,12 @@ p.demo_store,
 		padding: 3px;
 		margin: 0 0 6px;
 
+		&.place-order {
+			.input-checkbox {
+				cursor: pointer;
+			}
+		}
+
 		[placeholder]:focus::-webkit-input-placeholder {
 			transition: opacity 0.5s 0.5s ease;
 			opacity: 0;
@@ -2611,7 +2617,7 @@ p.demo_store,
 			border-top: 1px solid #ebebeb;
 		}
 		.woocommerce-Price-amount{
-			font-weight: 700;
+			font-weight: 400;
 		}
 	}
 
@@ -3083,6 +3089,7 @@ button.pswp__button--zoom:hover {
 				font-weight: normal;
 
 				input {
+					cursor: pointer;
 					margin: 0 1em 0 0;
 				}
 
@@ -3384,7 +3391,6 @@ button.pswp__button--zoom:hover {
 			td{
 				padding: 10px 10px 10px 0;
 				border-color: #ebebeb;
-				opacity: 0.8;
 			}
 			tfoot td{
 				opacity: 1;
@@ -3405,6 +3411,17 @@ button.pswp__button--zoom:hover {
 				    border-right:0;
 				    padding-left:0;
 				    border-color: #ebebeb;
+				}
+
+				td.product-name {
+					font-weight: 700;
+					.product-quantity {
+						font-weight: 400;
+					}
+				}
+
+				th:nth-last-child(1), td:nth-last-child(1) {
+					text-align: right;
 				}
 			}
 

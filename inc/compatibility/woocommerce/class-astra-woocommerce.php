@@ -1092,6 +1092,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 					'padding'       => '20px 0 14px',
 					'margin'        => '0 0 20px',
 					'border-bottom' => '1px solid #ebebeb',
+					'font-weight'   => '700',
 				),
 				'form #order_review_heading:not(.elementor-widget-woocommerce-checkout-page #order_review_heading)' => array(
 					'border-width' => '2px 2px 0 2px',
@@ -1100,6 +1101,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 					'margin'       => '0',
 					'padding'      => '1.5em 1.5em 1em',
 					'border-color' => '#ebebeb',
+					'font-weight'  => '700',
 				),
 				'form #order_review:not(.elementor-widget-woocommerce-checkout-page #order_review)' => array(
 					'padding'      => '0 2em',
