@@ -268,3 +268,30 @@ wp.customize( 'astra-settings[store-notice-position]', function( setting ) {
 		}
     } );
 } );
+
+// Global Typography Refresh - START
+const bodyFontFamily = [
+	'body-font-family',
+	'body-font-variant',
+	'font-size-body',
+	'body-font-weight',
+	'body-text-transform',
+	'body-line-height',
+	'headings-font-family',
+	'headings-font-variant',
+	'headings-font-weight',
+	'headings-text-transform',
+	'headings-line-height'
+];
+
+bodyFontFamily.forEach(element => {
+	// Body Font Family
+	wp.customize( 'astra-settings['+element+']', function( value ) {
+		value.bind( function( value ) {
+			wp.customize.preview.send( 'refresh' );
+		} );
+	} );
+
+});
+
+// Global Typography Refresh - END

@@ -1,4 +1,4 @@
-v3.8.0 (woocommerce-improvements) (Unreleased)
+3.9.0 (woocommerce-improvements) (Unreleased)
 - New: Builder - WooCommerce cart - Option for enabling desktop offcanvas cart flyout.
 - New: Builder - WooCommerce cart - Option to update offcanvas flyout direction.
 - New: Builder - WooCommerce cart - Option to change offcanvas flyout width.
@@ -13,6 +13,27 @@ v3.8.0 (woocommerce-improvements) (Unreleased)
 - New: WooCommerce - Added show/hide cart total badge option.
 - Improvement: WooCommerce - Modify the Cart label section via Shortcodes. (Needs Doc)
 - Fix: WooCommerce - Margin issue for single shop page with the Full width & Contained Layout.
+
+v3.8.1
+- Fix: Users updating from v3.7.8 in some edge cases facing resource allocation error.
+- Fix: Global Typography Body and Headings font family preview changes not appearing in the customizer.
+- Fix: Beaver Builder page content width not working properly with block editor CSS compatibility.
+- Fix: W3 validation - Role attribute is missing for Account element link.
+
+v3.8.0
+- New: Enhanced block editor experience. ( https://wpastra.com/docs/improved-block-editor-experience/ )
+- Improvement: Font variant customizer control's HTML markup was loading from PHP, which is now moved to React JS for the better and optimized customizer performance.
+- Fix: Customizer's typography section loading slowly.
+- Fix: Block editor - Layout settings are not visible for Group block.
+- Fix: Elementor Pro - WooCommerce Checkout Form's shipping details not look appropriate in editor mode as it looks on the frontend.
+- Fix: Search element not displaying in Mobile Offcanvas.
+- Fix: Offcanvas Shopping cart closes automatically on mobile when scrolled.
+
+v3.7.10
+- Fix: WooCommerce - Grid layout not working properly with Products Archive shortcode.
+- Fix: Toggle menu not collapsible on below IOS 13 version.
+- Fix: Compatibility with WordPress 5.9.2 - Customizer block editor color More Settings getting oval shape around palette.
+>>>>>>> 1ac370d04ebf0c113f5d9b9dc5184aa25788b185
 
 v3.7.9
 - Fix: Added correct version number for background updater.

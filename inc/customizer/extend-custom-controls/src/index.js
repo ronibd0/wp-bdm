@@ -40,8 +40,7 @@ import { colorPaletteControl } from './color-palette/control.js';
 import { boxShadowControl }  from './box-shadow/control.js';
 import { responsiveToggleControl } from './responsive-toggle-control/control';
 import { inputWithDropdown } from './ast-input-with-dropdown/control';
-
-
+import { astFontVariantControl } from './ast-font-variant/control';
 
 window.svgIcons = svgIcons;
 wp.customize.controlConstructor['ast-heading'] = headingControl;
@@ -83,6 +82,8 @@ wp.customize.controlConstructor['ast-typography-presets'] = typographyPresetCont
 wp.customize.controlConstructor['ast-color-palette'] = colorPaletteControl;
 wp.customize.controlConstructor['ast-responsive-toggle-control'] = responsiveToggleControl;
 wp.customize.controlConstructor['ast-input-with-dropdown'] = inputWithDropdown;
+wp.customize.controlConstructor['ast-font-variant'] =
+astFontVariantControl;
 
 wp.customize.controlConstructor['ast-box-shadow'] = boxShadowControl;
 import { Base } from './customizer';

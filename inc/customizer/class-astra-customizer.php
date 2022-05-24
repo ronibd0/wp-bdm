@@ -249,9 +249,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			}
 
 			return $partial_args;
-
 		}
-
 
 		/**
 		 * Add dynamic control settings.
@@ -588,6 +586,10 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 
 					break;
 
+				case 'ast-font-variant':
+					$configuration['value'] = $val;
+					break;
+
 			} // Switch End.
 
 			if ( isset( $configuration['id'] ) ) {
@@ -639,8 +641,6 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 
 			$section_name = astra_get_prop( $config, 'name' );
 
-
-
 			unset( $config['type'] );
 			$config['type']            = isset( $config['ast_type'] ) ? $config['ast_type'] : 'ast_section';
 			$config['active']          = true;
@@ -659,8 +659,6 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			} else {
 				self::$js_configs['sections'][ $section_name ] = $config;
 			}
-
-
 		}
 
 		/**
@@ -698,6 +696,8 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 				'suffix'            => astra_get_prop( $config, 'suffix' ),
 				'control_type'      => astra_get_prop( $config, 'control' ),
 				'linked'            => astra_get_prop( $config, 'linked' ),
+				'variant'           => astra_get_prop( $config, 'variant' ),
+				'help'              => astra_get_prop( $config, 'help' ),
 			);
 
 			self::$dynamic_options['settings'][ astra_get_prop( $new_config, 'name' ) ] = array(
@@ -1035,6 +1035,8 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 					'initialFlushText'        => __( 'Flush Local Font Files', 'astra' ),
 					'successFlushed'          => __( 'Successfully Flushed', 'astra' ),
 					'failedFlushed'           => __( 'Failed, Please try again later.', 'astra' ),
+					'googleFonts'             => Astra_Font_Families::get_google_fonts(),
+					'variantLabels'           => Astra_Font_Families::font_variant_labels(),
 				)
 			);
 
@@ -1139,7 +1141,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			require ASTRA_THEME_DIR . 'inc/customizer/configurations/colors-background/class-astra-body-colors-configs.php';
 			require ASTRA_THEME_DIR . 'inc/customizer/configurations/typography/class-astra-archive-typo-configs.php';
 			require ASTRA_THEME_DIR . 'inc/customizer/configurations/typography/class-astra-body-typo-configs.php';
-
+			require ASTRA_THEME_DIR . 'inc/customizer/configurations/block-editor/class-astra-block-editor-configs.php';
 
 			if( astra_has_gcp_typo_preset_compatibility() ) {
 				require ASTRA_THEME_DIR . 'inc/customizer/configurations/typography/class-astra-headings-typo-configs.php';
@@ -1204,14 +1206,6 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 				'ast-font',
 				array(
 					'callback'          => 'Astra_Control_Typography',
-					'sanitize_callback' => 'sanitize_text_field',
-				)
-			);
-
-			Astra_Customizer_Control_Base::add_control(
-				'ast-font-variant',
-				array(
-					'callback'          => 'Astra_Control_Font_Variant',
 					'sanitize_callback' => 'sanitize_text_field',
 				)
 			);

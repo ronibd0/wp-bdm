@@ -3301,21 +3301,6 @@ function astra_display_cart_total_title_compatibility() {
 }
 
 /**
- * Set flag to avoid woocommerce product single margin fix to be added for old users.
- *
- * @since x.x.x
- * @return void
- */
-function astra_woocommerce_product_single_margin() {
-	$theme_options = get_option( 'astra-settings', array() );
-
-	if ( ! isset( $theme_options['apply-woo-product-single-margin'] ) ) {
-		$theme_options['apply-woo-product-single-margin'] = true;
-		update_option( 'astra-settings', $theme_options );
-	}
-}
-
-/**
  * Set flag to avoid direct reflections on live site & to maintain backward compatibility for existing users.
  *
  * Starting supporting content-background color for Full Width Contained & Full Width Stretched layouts.
@@ -3358,6 +3343,23 @@ function astra_update_woocommerce_cart_icons() {
 
 	if ( ! isset( $theme_options['astra-woocommerce-cart-icons-flag'] ) ) {
 		$theme_options['astra-woocommerce-cart-icons-flag'] = false;
+	}
+}
+
+/*
+ * Set flag to avoid direct reflections on live site & to maintain backward compatibility for existing users.
+ *
+ * Backward flag purpose - To initiate modern & updated UI of block editor & frontend.
+ *
+ * @since 3.8.0
+ * @return void
+ */
+function astra_apply_modern_block_editor_ui() {
+	$theme_options = get_option( 'astra-settings', array() );
+
+	if ( ! isset( $theme_options['wp-blocks-ui'] ) && ! version_compare( $theme_options['theme-auto-version'], '3.8.0', '==' ) ) {
+		$theme_options['blocks-legacy-setup'] = true;
+		$theme_options['wp-blocks-ui']        = 'legacy';
 		update_option( 'astra-settings', $theme_options );
 	}
 }
