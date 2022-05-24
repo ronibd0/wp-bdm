@@ -123,6 +123,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			
 			// Register Dynamic Sidebars.
 			if ( is_customize_preview() ) {
+				add_action( 'widgets_init', array( $this, 'store_widgets_dynamic' ), 15 );
 				add_action( 'wp', array( $this, 'store_widgets_dynamic' ), 15 );
 			} else {
 				add_action( 'widgets_init', array( $this, 'store_widgets_dynamic' ), 15 );
@@ -155,13 +156,13 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			);
 
 			if ( defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'woocommerce' ) && astra_get_option( 'shop-filter-accordion' ) ) {
-				$shop_filter_array['before_title']   = '<h3 class="widget-title">';
-				$shop_filter_array['after_title']    = Astra_Builder_UI_Controller::fetch_svg_icon( 'angle-down', false ) . '</h3>';
+				$shop_filter_array['before_title']   = '<h2 class="widget-title">';
+				$shop_filter_array['after_title']    = Astra_Builder_UI_Controller::fetch_svg_icon( 'angle-down', false ) . '</h2>';
 				$shop_filter_array['before_sidebar'] = '<div class="ast-accordion-layout ast-filter-wrap">';
 				$shop_filter_array['after_sidebar']  = '</div>';
 			} else {
-				$shop_filter_array['before_title']   = '<h3 class="widget-title">';
-				$shop_filter_array['after_title']    = '</h3>';
+				$shop_filter_array['before_title']   = '<h2 class="widget-title">';
+				$shop_filter_array['after_title']    = '</h2>';
 				$shop_filter_array['before_sidebar'] = '<div class="ast-filter-wrap">';
 				$shop_filter_array['after_sidebar']  = '</div>';
 			}

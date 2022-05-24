@@ -1278,11 +1278,11 @@ p.demo_store,
 	}
 
 	.woocommerce-result-count {
-		margin: 0 0 1em;
+		margin: 0.6em 0 1em;
 	}
 
 	.woocommerce-ordering {
-		margin: 0 0 2.5em;
+		margin: 0 0 1.5em;
 
 		select {
 			vertical-align: top;
@@ -3766,7 +3766,7 @@ button.pswp__button--zoom:hover {
 	margin-right: .5em;
 	background: rgba(245, 245, 245, .75);
 	border-radius: 20px;
-	font-size: .8em;
+	font-size: 1em;
 
 	&:hover {
 		background-color:rgba(245, 245, 245, 1)
@@ -4018,5 +4018,121 @@ button.pswp__button--zoom:hover {
  .wc-block-product-categories-list {
 	li {
 		padding-left: 15px;
+	}
+}
+
+.woocommerce-page {
+
+	.widget {
+		.widget-title-common {
+			font-size: 1.2em;
+			font-weight: 500;
+			margin-bottom: 1rem;
+			color: var(--ast-global-color-3);
+		}
+	
+		> div h3 {
+			@extend .widget-title-common;
+		}
+
+		.widget-title {
+			@extend .widget-title-common;
+		}
+
+		.wc-block-price-slider {
+			padding-top: 0.15em;
+
+			.wc-block-components-price-slider__range-input-progress {
+				--range-color: var(--ast-global-color-0);
+				top: -1px;
+			}
+
+			@-moz-document url-prefix() {
+				.wc-block-components-price-slider__range-input-progress {
+					top: 1px;
+				}
+			}
+
+			.wc-block-components-price-slider__range-input-wrapper {
+				box-shadow: none;
+				background-color: #ededed;
+			}
+
+			.wc-block-components-price-slider__range-input-wrapper, 
+			.wc-block-components-price-slider__range-input-progress {
+				height: 3px;
+			}
+
+			.wc-block-price-filter__controls {
+				border-color: var(--ast-global-color-6);
+			}
+
+			.wc-block-price-filter__range-text {
+				line-height: 2.4;
+				font-size: 0.8751em;
+
+				.wc-block-components-formatted-money-amount {
+					font-weight: 700;
+				}
+			}
+
+			.wc-block-components-price-slider__controls {
+				justify-content: end;
+			}
+			
+
+			input[type=range] {
+				margin: 0;
+
+				&::-webkit-slider-runnable-track {
+					height: 3px;
+					box-shadow: none;
+					background-color: transparent;
+				}
+
+				&::-moz-range-track {
+					height: 3px;
+					box-shadow: none;
+					background-color: transparent;
+				}
+
+				&.wc-block-price-filter__range-input::-webkit-slider-thumb {
+					-webkit-appearance: none;
+					border: 0;
+					width: 15px;
+					height: 15px;
+				}
+
+				&::-moz-range-thumb {
+					height: 15px;
+					border: 0;
+					width: 15px;
+				}
+			}
+			
+			
+		}
+
+		.wc-block-checkbox-list {
+			li {
+				input[type='checkbox'] {
+					margin: 0 0.5rem 0 0;
+					position: relative;
+					top: 1px;
+				}
+
+				.wc-filter-element-label-list-count {
+					opacity: 1;
+				}
+			}
+		}
+
+		.wc-layered-nav-rating {
+			line-height: 1;
+
+			.star-rating {
+				margin: 0;
+			}
+		}
 	}
 }
