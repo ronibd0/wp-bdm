@@ -73,10 +73,10 @@ function astra_onload_function() {
 			if( null === titleVisibility && null !== titleBlock ) {
 				var titleVisibilityTrigger = '';
 				if( 'disabled' === wp.data.select( 'core/editor' ).getEditedPostAttribute( 'meta' )['site-post-title'] ) {
-					titleVisibilityTrigger = '<span class="dashicons dashicons-hidden title-visibility"></span>';
+					titleVisibilityTrigger = '<span class="dashicons dashicons-hidden title-visibility" title="Enable Title"></span>';
 					titleBlock.classList.toggle( 'invisible' );
 				} else {
-					titleVisibilityTrigger = '<span class="dashicons dashicons-visibility title-visibility"></span>';
+					titleVisibilityTrigger = '<span class="dashicons dashicons-visibility title-visibility" title="Disable Title"></span>';
 				}
 
 				titleBlock.insertAdjacentHTML( 'beforeend', titleVisibilityTrigger );
@@ -87,6 +87,7 @@ function astra_onload_function() {
 					if( this.classList.contains( 'dashicons-hidden' ) ) {
 						this.classList.add( 'dashicons-visibility' );
 						this.classList.remove( 'dashicons-hidden' );
+						this.title = 'Disable Title';
 						wp.data.dispatch( 'core/editor' ).editPost(
 							{
 								meta: {
@@ -97,6 +98,7 @@ function astra_onload_function() {
 					} else {
 						this.classList.add( 'dashicons-hidden' );
 						this.classList.remove( 'dashicons-visibility' );
+						this.title = 'Enable Title';
 						wp.data.dispatch( 'core/editor' ).editPost(
 							{
 								meta: {
