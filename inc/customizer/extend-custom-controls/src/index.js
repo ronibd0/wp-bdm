@@ -82,8 +82,7 @@ wp.customize.controlConstructor['ast-typography-presets'] = typographyPresetCont
 wp.customize.controlConstructor['ast-color-palette'] = colorPaletteControl;
 wp.customize.controlConstructor['ast-responsive-toggle-control'] = responsiveToggleControl;
 wp.customize.controlConstructor['ast-input-with-dropdown'] = inputWithDropdown;
-wp.customize.controlConstructor['ast-font-variant'] =
-astFontVariantControl;
+wp.customize.controlConstructor['ast-font-variant'] = astFontVariantControl;
 
 wp.customize.controlConstructor['ast-box-shadow'] = boxShadowControl;
 import { Base } from './customizer';
