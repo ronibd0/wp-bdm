@@ -287,17 +287,19 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 			$css_output_desktop['.ast-desktop .astra-cart-drawer.open-right.active'] = array(
 				'left' => astra_get_css_value( $desktop_flyout_cart_width, 'px' ),
 			);
-		}
-	} else {
+		}   
+	} 
+
+	if ( 'flyout' !== astra_get_option( 'woo-header-cart-click-action' ) || is_customize_preview() ) {
 		if ( is_rtl() ) {
-			$css_output_desktop['.woocommerce .widget_shopping_cart .woocommerce-mini-cart__buttons a'] = array(
+			$css_output_desktop['.woocommerce-js .widget_shopping_cart .woocommerce-mini-cart__buttons a'] = array(
 				'display'     => 'inline-block',
 				'width'       => 'calc( 50% - 5px)',
 				'margin-left' => '5px',
 				'text-align'  => 'center',
 			);
 		} else {
-			$css_output_desktop['.woocommerce .widget_shopping_cart .woocommerce-mini-cart__buttons a'] = array(
+			$css_output_desktop['.woocommerce-js .widget_shopping_cart .woocommerce-mini-cart__buttons a'] = array(
 				'display'      => 'inline-block',
 				'width'        => 'calc( 50% - 5px)',
 				'margin-right' => '5px',
@@ -467,7 +469,7 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 			),
 
 			// Label/Fill icon hover Color.
-			'.ast-menu-cart-outline .ast-site-header-cart-li:hover .ast-cart-menu-wrap .count, .ast-site-header-cart-li:hover .ast-woo-header-cart-info-wrap,' . $selector . ' .ast-site-header-cart-li:hover .ast-addon-cart-wrap, .ast-menu-cart-outline .ast-site-header-cart-li:hover .ast-addon-cart-wrap .astra-icon' => array(
+			'.ast-site-header-cart-li:hover .ast-woo-header-cart-info-wrap,' . $selector . ' .ast-site-header-cart-li:hover .ast-addon-cart-wrap, .ast-menu-cart-outline .ast-site-header-cart-li:hover .ast-addon-cart-wrap .astra-icon' => array(
 				'color' => $icon_hover_color,
 			),
 
@@ -653,7 +655,7 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 	$css_output      .= astra_parse_css( $angle_transition );
 
 
-	$css_output .= Astra_Builder_Base_Dynamic_CSS::prepare_advanced_margin_padding_css( 'section-header-woo-cart', '.woocommerce .ast-header-woo-cart .ast-site-header-cart, .ast-header-woo-cart .ast-site-header-cart' );
+	$css_output .= Astra_Builder_Base_Dynamic_CSS::prepare_advanced_margin_padding_css( 'section-header-woo-cart', '.woocommerce .ast-header-woo-cart .ast-site-header-cart .ast-addon-cart-wrap, .ast-header-woo-cart .ast-site-header-cart .ast-addon-cart-wrap' );
 	$css_output .= Astra_Builder_Base_Dynamic_CSS::prepare_visibility_css( 'section-header-woo-cart', '.ast-header-woo-cart' );
 
 	$dynamic_css .= $css_output;

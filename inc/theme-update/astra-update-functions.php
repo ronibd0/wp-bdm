@@ -3346,3 +3346,18 @@ function astra_set_default_breadcrumb_separator_option() {
 		update_option( 'astra-settings', $theme_options );
 	}
 }
+
+/**
+ * If old user then it keeps then default cart icon.
+ *
+ * @since x.x.x
+ * @return void
+ */
+function astra_update_woocommerce_cart_icons() {
+	$theme_options = get_option( 'astra-settings', array() );
+
+	if ( ! isset( $theme_options['astra-woocommerce-cart-icons-flag'] ) ) {
+		$theme_options['astra-woocommerce-cart-icons-flag'] = false;
+		update_option( 'astra-settings', $theme_options );
+	}
+}

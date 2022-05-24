@@ -122,7 +122,7 @@ p.demo_store,
 		.widget_shopping_cart_content > ul {
 			text-align: left;
 			width: auto;
-			position: static;
+			position: relative;
 			left: auto;
 			top: auto;
 			border-top: 0;
@@ -134,7 +134,7 @@ p.demo_store,
 
 	/* Cart container in header. */
     .widget_shopping_cart {
-    	background-color: #fff;
+    	background-color: var(--ast-global-color-5);
         position: absolute;
         top: 100%;
         width: 280px;
@@ -145,7 +145,7 @@ p.demo_store,
         line-height: 1.618;
         box-shadow: 0px 2px 8px 1px rgba(0, 0, 0, 0.07);
         transition: all 0.3s ease;
-        border: 2px solid #E6E6E6;
+        border: 1px solid var(--ast-global-color-6);
         opacity: 0;
         visibility: hidden;
 
@@ -242,7 +242,6 @@ p.demo_store,
 		.cart_list{
 			a {
 				padding:0;
-				border-width: 0;
 				&.remove{
 					border-width: 1px;
 				}
@@ -278,8 +277,17 @@ p.demo_store,
 	.ast-site-header-cart {
 		.widget_shopping_cart {
 			.cart_list{
+
+				.quantity, .variation  {
+					margin-bottom: .4em;
+				}
+
 				a.remove {
-					color: #ccc;
+					color: var(--ast-global-color-3);
+
+					&:hover {
+						color: var(--ast-global-color-3);
+					}
 				}
 			}
 		}
@@ -492,18 +500,52 @@ p.demo_store,
 	}
 
 	a.remove {
+		position: relative;
 		display: block;
 		font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif;
 		font-weight: 400;
 		font-size: 18px;
-		width: 24px;
-		height: 24px;
+		width: 20px;
+		height: 20px;
 		text-align: center;
 		line-height: 21px;
 		border-radius: 100%;
-		color: #ccc;
+		color: var(--ast-global-color-3);
 		text-decoration: none;
-		border: 1px solid #ccc;
+		opacity: .5;
+
+		.ahfb-svg-iconset {
+			transform: scale(.7);
+			transition: none;
+
+			.ast-close-svg {
+				width: 100%;
+				height: 100%;
+			}
+		}
+
+		&:before {
+			content: '';
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			right: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			border: 1px solid var(--ast-global-color-3);
+			border-radius: 100%;
+			transition: all 0.2s linear;
+		}
+
+		&:hover {
+			color: var(--ast-global-color-3);
+			opacity: 1;
+
+			&:before {
+				border-color: var(--ast-global-color-3);
+			}
+		}
 	}
 
 	small.note {
@@ -2018,6 +2060,7 @@ p.demo_store,
 			strong {
 				min-width: 40px;
 				display: inline-block;
+				color: var(--ast-global-color-2);
 			}
 		}
 
@@ -3791,12 +3834,18 @@ button.pswp__button--zoom:hover {
 .woocommerce .widget_shopping_cart .cart_list li,
 .woocommerce.widget_shopping_cart .cart_list li {
 
-	padding: .5em 1.8em 1em 5em;
+	padding: 1.2em 1.8em 1.2em 5em;
 	a.remove {
 		position: absolute;
 		left: auto;
 		right: 0;
 		top: .5em;
+
+		color: var(--ast-global-color-3);
+
+		&:hover {
+			color: var(--ast-global-color-3);
+		}
 	}
 }
 

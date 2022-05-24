@@ -946,9 +946,9 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 		'mobile'  => 'left',
 	);
 	$defaults['header-woo-cart-icon-size']                 = array(
-		'desktop' => '',
-		'tablet'  => '',
-		'mobile'  => '',
+		'desktop' => 15,
+		'tablet'  => 15,
+		'mobile'  => 15,
 	);
 	$defaults['woo-header-cart-icon-style']                = 'outline';
 	$defaults['woo-desktop-cart-flyout-direction']         = 'right';
@@ -958,7 +958,7 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	$defaults['woo-header-cart-icon-radius']               = 3;
 	$defaults['woo-header-cart-badge-display']             = true;
 	// Woo Cart - Dynamic label default value.
-	$defaults['woo-header-cart-label-display'] = __( 'Cart', 'astra' ) . '/{cart_total_currency_symbol}';
+	$defaults['woo-header-cart-label-display'] = __( 'Cart', 'astra' ) . ' / {cart_total_currency_symbol}';
 
 	// Cart tray > General Color styles.
 	$defaults['header-woo-cart-text-color']             = '';

@@ -3735,26 +3735,23 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				overflow: auto;
 				-webkit-overflow-scrolling: touch;
 				z-index: 9999;
-				background-color: #fff;
+				background-color: var(--ast-global-color-5);
 				transform: translate3d(0, 0, 0);
 				opacity: 0;
 				will-change: transform;
 				transition: 0.25s ease;
 			}
 
-			.astra-cart-drawer.active.ajax-mini-cart-qty-loading .widget_shopping_cart .woocommerce-mini-cart,
-			.astra-cart-drawer.active.ajax-mini-cart-qty-loading .widget_shopping_cart {
+			.woocommerce-mini-cart {
 				position: relative;
 			}
 
-			.astra-cart-drawer.active .widget_shopping_cart .woocommerce-mini-cart::before,
-			.astra-cart-drawer.active .widget_shopping_cart::before {
+			.woocommerce-mini-cart::before {
 				content: "";
 				transition: .3s;
 			}
 			
-			.astra-cart-drawer.active.ajax-mini-cart-qty-loading .widget_shopping_cart .woocommerce-mini-cart::before,
-			.astra-cart-drawer.active.ajax-mini-cart-qty-loading .widget_shopping_cart::before {
+			.woocommerce-mini-cart.ajax-mini-cart-qty-loading::before {
 				position: absolute;
 				top: 0;
 				left: 0;
@@ -3762,11 +3759,8 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				width: 100%;
 				height: 100%;
 				z-index: 1;
-			}
-
-			.astra-cart-drawer.active.ajax-mini-cart-qty-loading .widget_shopping_cart .woocommerce-mini-cart::before {
-				opacity: .5;
 				background-color: var(--ast-global-color-5);
+				opacity: .5;
 			}
 
 			.astra-cart-drawer.open-right {
@@ -3857,7 +3851,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			}
 
 			.astra-cart-drawer .astra-cart-drawer-content .woocommerce-mini-cart {
-				padding: 1.34em;
+				padding: 1.3em;
 				flex: 1;
 				overflow: auto;
 			}
@@ -3990,6 +3984,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				.ast-site-header-cart i.astra-icon:after {
 					content: attr(data-cart-total);
 					position: absolute;
+					font-family: ' . astra_get_font_family( astra_body_font_family() ) . ';
 					font-style: normal;
 					top: -10px;
 					left: -12px;
@@ -4016,7 +4011,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					left: 0;
 					margin: 0;
 					padding: .6em 1em .4em;
-					color: #ababab;
+					color: var(--ast-global-color-2);
 					background-color: transparent;
 				}
 				.astra-mobile-cart-overlay {
@@ -4078,6 +4073,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				.ast-site-header-cart i.astra-icon:after {
 					content: attr(data-cart-total);
 					position: absolute;
+					font-family: ' . astra_get_font_family( astra_body_font_family() ) . ';
 					font-style: normal;
 					top: -10px;
 					right: -12px;
@@ -4104,7 +4100,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					right: 0;
 					margin: 0;
 					padding: .6em 1em .4em;
-					color: #ababab;
+					color: var(--ast-global-color-2);
 					background-color: transparent;
 				}
 				.astra-mobile-cart-overlay {

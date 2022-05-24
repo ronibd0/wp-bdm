@@ -39,18 +39,6 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 
 		$_configs = array(
 
-			/**
-			 * Notice for Display Cart label.
-			 */
-			array(
-				'name'     => ASTRA_THEME_SETTINGS . '[woo-header-cart-label-display-notice]',
-				'type'     => 'control',
-				'control'  => 'ast-description',
-				'section'  => $_section,
-				'priority' => 50,
-				'context'  => Astra_Builder_Helper::$general_tab,
-				'help'     => '<p>' . __( 'Note: The Cart Label on the page will be displayed by using the shortcodes. For more information, please refer to the article ', 'astra' ) . '<a href="#">' . __( 'here', 'astra' ) . '</a>.</p>',
-			),
 
 			/**
 			 * Option: Cart Label
@@ -77,6 +65,19 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 					'{cart_total_currency_symbol}' => __( 'Total + Currency symbol', 'astra' ),
 				),
 				'context'           => Astra_Builder_Helper::$general_tab,
+			),
+
+			/**
+			 * Notice for Display Cart label.
+			 */
+			array(
+				'name'     => ASTRA_THEME_SETTINGS . '[woo-header-cart-label-display-notice]',
+				'type'     => 'control',
+				'control'  => 'ast-description',
+				'section'  => $_section,
+				'priority' => 50,
+				'context'  => Astra_Builder_Helper::$general_tab,
+				'help'     => '<p>' . __( 'Note: The Cart Label on the header will be displayed by using shortcodes. Click on the plus icon above to add your desired shortcode', 'astra' ) . '</p>',
 			),
 
 			/**
@@ -370,12 +371,11 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 					'name'              => ASTRA_THEME_SETTINGS . '[header-woo-cart-icon-size]',
 					'section'           => $_section,
 					'transport'         => 'postMessage',
-					'default'           => astra_get_option( 'header-woo-cart-icon-size' ),
+					'default'           => astra_get_option( 'header-woo-cart-icon-size', 15 ),
 					'title'             => __( 'Icon Size', 'astra' ),
 					'type'              => 'control',
 					'suffix'            => 'px',
 					'control'           => 'ast-responsive-slider',
-					'divider'           => array( 'ast_class' => 'ast-bottom-divider' ),
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
 					'priority'          => 48,
 					'input_attrs'       => array(
