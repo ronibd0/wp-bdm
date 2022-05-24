@@ -123,10 +123,12 @@ document.body.addEventListener('mousedown', function () {
 
 	var blockCss = document.getElementById('astra-block-editor-styles-css');
 	var inlineCss = document.getElementById('astra-block-editor-styles-inline-css');
+	var fontCss = document.getElementById('astra-google-fonts-css');
 
 
 	var blockFixCss = blockCss.cloneNode(true);
 	var blockInlineCss = inlineCss.cloneNode(true);
+	var blockfontCss = fontCss.cloneNode(true);
 
 	setTimeout( function() {
 
@@ -136,6 +138,7 @@ document.body.addEventListener('mousedown', function () {
 		if (0 !== tabletPreview.length || 0 !== mobilePreview.length) {
 			var styleTagId = 'astra-block-editor-styles-inline-css';
 			var styleTagBlockId = 'astra-block-editor-styles-css';
+			var googleFontId = 'astra-google-fonts-css';
 			let preview = tabletPreview[0] || mobilePreview[0];
 
 				let iframe = preview.getElementsByTagName('iframe')[0];
@@ -147,11 +150,22 @@ document.body.addEventListener('mousedown', function () {
 				let elementBlock = iframeDocument.getElementById(
 					styleTagBlockId
 				);
-				if ( (null === element || undefined === element)&& (null === elementBlock || undefined === elementBlock )) {
+				let elementGoogleFont = iframeDocument.getElementById(
+					googleFontId
+				);
+				if ( (null === element || undefined === element)) {
 
-						iframeDocument.head.appendChild( blockFixCss );
 						iframeDocument.head.appendChild( blockInlineCss );
 				}
+				if ( (null === elementBlock || undefined === elementBlock )) {
+
+					iframeDocument.head.appendChild( blockFixCss );
+				}
+				if ( (null === elementGoogleFont || undefined === elementGoogleFont )) {
+
+					iframeDocument.head.appendChild( blockfontCss );
+				}
+
 		}
 	}, 1000);
 
