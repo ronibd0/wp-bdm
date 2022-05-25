@@ -53,6 +53,21 @@ function astra_onload_function() {
 					bodyClass.classList.add('ast-page-builder-template');
 					bodyClass.classList.remove('ast-two-container' , 'ast-plain-container' , 'ast-separate-container');
 				break;
+				case 'default':
+					if( bodyClass.classList.contains( 'ast-default-layout-boxed-container' ) ) {
+						bodyClass.classList.add('ast-separate-container' , 'ast-two-container');
+						bodyClass.classList.remove('ast-page-builder-template' , 'ast-plain-container');
+					} else if( bodyClass.classList.contains( 'ast-default-layout-content-boxed-container' ) ) {
+						bodyClass.classList.add('ast-separate-container');
+						bodyClass.classList.remove('ast-two-container' , 'ast-page-builder-template' , 'ast-plain-container');
+					} else if( bodyClass.classList.contains( 'ast-default-layout-page-builder' ) ) {
+						bodyClass.classList.add('ast-page-builder-template');
+						bodyClass.classList.remove('ast-two-container' , 'ast-plain-container' , 'ast-separate-container');
+					} else {
+						bodyClass.classList.add('ast-plain-container');
+						bodyClass.classList.remove('ast-two-container' , 'ast-page-builder-template' , 'ast-separate-container');
+					}
+				break;
 			}
 
 			/**
@@ -73,10 +88,10 @@ function astra_onload_function() {
 			if( null === titleVisibility && null !== titleBlock ) {
 				var titleVisibilityTrigger = '';
 				if( 'disabled' === wp.data.select( 'core/editor' ).getEditedPostAttribute( 'meta' )['site-post-title'] ) {
-					titleVisibilityTrigger = '<span class="dashicons dashicons-hidden title-visibility" title="Enable Title"></span>';
+					titleVisibilityTrigger = '<span class="dashicons dashicons-hidden title-visibility" data-tooltip="Enable Title"></span>';
 					titleBlock.classList.toggle( 'invisible' );
 				} else {
-					titleVisibilityTrigger = '<span class="dashicons dashicons-visibility title-visibility" title="Disable Title"></span>';
+					titleVisibilityTrigger = '<span class="dashicons dashicons-visibility title-visibility" data-tooltip="Disable Title"></span>';
 				}
 
 				titleBlock.insertAdjacentHTML( 'beforeend', titleVisibilityTrigger );
@@ -87,7 +102,7 @@ function astra_onload_function() {
 					if( this.classList.contains( 'dashicons-hidden' ) ) {
 						this.classList.add( 'dashicons-visibility' );
 						this.classList.remove( 'dashicons-hidden' );
-						this.title = 'Disable Title';
+						this.dataset.tooltip = 'Disable Title';
 						wp.data.dispatch( 'core/editor' ).editPost(
 							{
 								meta: {
@@ -98,7 +113,7 @@ function astra_onload_function() {
 					} else {
 						this.classList.add( 'dashicons-hidden' );
 						this.classList.remove( 'dashicons-visibility' );
-						this.title = 'Enable Title';
+						this.dataset.tooltip = 'Enable Title';
 						wp.data.dispatch( 'core/editor' ).editPost(
 							{
 								meta: {

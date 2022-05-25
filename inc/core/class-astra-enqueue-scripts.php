@@ -111,12 +111,16 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 
 			if ( 'content-boxed-container' == $content_layout ) {
 				$classes .= ' ast-separate-container';
+				$classes .= ' ast-default-layout-content-boxed-container';
 			} elseif ( 'boxed-container' == $content_layout ) {
 				$classes .= ' ast-separate-container ast-two-container';
+				$classes .= ' ast-default-layout-boxed-container';
 			} elseif ( 'page-builder' == $content_layout ) {
 				$classes .= ' ast-page-builder-template';
+				$classes .= ' ast-default-layout-page-builder';
 			} elseif ( 'plain-container' == $content_layout ) {
 				$classes .= ' ast-plain-container';
+				$classes .= ' ast-default-layout-plain-container';
 			}
 
 			$site_layout = astra_get_option( 'site-layout' );

@@ -51,13 +51,13 @@ class Astra_WP_Editor_CSS {
 				$desktop_bottom_block_space = '4em';
 				$desktop_left_block_space   = '4em';
 				$tablet_top_block_space     = '4em';
-				$tablet_right_block_space   = '4em';
+				$tablet_right_block_space   = '2em';
 				$tablet_bottom_block_space  = '4em';
-				$tablet_left_block_space    = '4em';
-				$mobile_top_block_space     = '4em';
-				$mobile_right_block_space   = '4em';
-				$mobile_bottom_block_space  = '4em';
-				$mobile_left_block_space    = '4em';
+				$tablet_left_block_space    = '2em';
+				$mobile_top_block_space     = '3em';
+				$mobile_right_block_space   = '1.5em';
+				$mobile_bottom_block_space  = '3em';
+				$mobile_left_block_space    = '1.5em';
 				break;
 			case 'custom':
 				$desktop_top_block_space    = astra_responsive_spacing( $container_blocks_spacings, 'top', 'desktop' );
@@ -521,16 +521,25 @@ class Astra_WP_Editor_CSS {
 				'margin-left'  => $astra_continer_left_spacing,
 				'margin-right' => $astra_continer_right_spacing,
 			);
-			$desktop_css['.ast-page-builder-template .editor-styles-wrapper .block-editor-block-list__layout.is-root-container > *.wp-block, .ast-page-builder-template .is-root-container > .alignfull > :where(:not(.alignleft):not(.alignright))'] = array(
+			$desktop_css['.ast-page-builder-template .editor-styles-wrapper .block-editor-block-list__layout.is-root-container > *.wp-block, .ast-page-builder-template .is-root-container > .alignfull > :where(:not(.alignleft):not(.alignright)), .editor-styles-wrapper .is-root-container > .wp-block-cover.alignfull .wp-block-cover__image-background'] = array(
 				'max-width' => 'none',
 			);
-			$desktop_css['.ast-page-builder-template .is-root-container > .alignwide > :where(:not(.alignleft):not(.alignright))'] = array(
+			$desktop_css['.ast-page-builder-template .is-root-container > .alignwide > :where(:not(.alignleft):not(.alignright)), .editor-styles-wrapper .is-root-container > .wp-block-cover.alignwide .wp-block-cover__image-background'] = array(
 				'max-width' => 'var(--wp--custom--ast-wide-width-size)',
 			);
-			$desktop_css['.ast-page-builder-template .is-root-container > .inherit-container-width > *, .ast-page-builder-template .is-root-container > * > :where(:not(.alignleft):not(.alignright)), .is-root-container .wp-block-cover .wp-block-cover__inner-container'] = array(
+			$desktop_css['.ast-page-builder-template .is-root-container > .inherit-container-width > *, .ast-page-builder-template .is-root-container > * > :where(:not(.alignleft):not(.alignright)), .is-root-container .wp-block-cover .wp-block-cover__inner-container, .editor-styles-wrapper .is-root-container > .wp-block-cover .wp-block-cover__inner-container,
+			.is-root-container > .wp-block-cover .wp-block-cover__image-background'] = array(
 				'max-width'    => 'var(--wp--custom--ast-content-width-size)',
 				'margin-left'  => 'auto',
 				'margin-right' => 'auto',
+			);
+			$desktop_css['.is-root-container h1, .is-root-container h2, .is-root-container h3, .is-root-container h4, .is-root-container h5, .is-root-container h6'] = array(
+				'margin-top' => '0',
+			);
+			$desktop_css['.is-root-container .wp-block-separator'] = array(
+				'padding' => '0',
+				'margin-top' => '0',
+				'margin-bottom' => '0',
 			);
 		}
 
