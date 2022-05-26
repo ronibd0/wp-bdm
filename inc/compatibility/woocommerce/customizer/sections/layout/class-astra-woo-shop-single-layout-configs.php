@@ -33,6 +33,33 @@ if ( ! class_exists( 'Astra_Woo_Shop_Single_Layout_Configs' ) ) {
 
 			$_configs = array(
 
+				
+				/**
+				* Option: Disable Breadcrumb
+				*/
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[single-product-breadcrumb-disable]',
+					'section'  => 'section-woo-shop-single',
+					'type'     => 'control',
+					'control'  => 'ast-toggle-control',
+					'default'  => astra_get_option( 'single-product-breadcrumb-disable' ),
+					'title'    => __( 'Disable Breadcrumb', 'astra' ),
+					'priority' => 16,
+				),
+
+				/**
+				 * Option: Enable free shipping
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[single-product-enable-shipping]',
+					'default'  => astra_get_option( 'single-product-enable-shipping' ),
+					'type'     => 'control',
+					'section'  => 'section-woo-shop-single',
+					'title'    => __( 'Enable Shipping Text', 'astra' ),
+					'control'  => 'ast-toggle-control',
+					'priority' => 16,
+				),
+
 				/**
 				* Option: button width option
 				*/
@@ -46,27 +73,25 @@ if ( ! class_exists( 'Astra_Woo_Shop_Single_Layout_Configs' ) ) {
 					'section'     => 'section-woo-shop-single',
 					'title'       => __( 'Button Width', 'astra-addon' ),
 					'suffix'      => '%',
-					'priority'    => 16,
+					'priority'    => 26,
 					'input_attrs' => array(
-						'min'     => 46,
-						'step'    => 1,
-						'max'     => 100,
-						'divider' => array( 'ast_class' => 'ast-bottom-divider' ),
+						'min'  => 46,
+						'step' => 1,
+						'max'  => 100,
 					),
 					'context'     => array(
+						Astra_Builder_Helper::$general_tab_config,
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[single-product-structure]',
 							'operator' => 'contains',
 							'value'    => 'add_cart',
 						),
 					),
-					
 				),
 
 				/**
 				* Option: Single page variation tab layout.
 				*/
-
 				array(
 					'name'       => ASTRA_THEME_SETTINGS . '[single-product-variation-tabs-layout]',
 					'default'    => astra_get_option( 'single-product-variation-tabs-layout' ),
@@ -77,28 +102,16 @@ if ( ! class_exists( 'Astra_Woo_Shop_Single_Layout_Configs' ) ) {
 						Astra_Builder_Helper::$general_tab_config,
 					),
 					'control'    => 'ast-selector',
-					'priority'   => 25,
+					'priority'   => 17,
 					'choices'    => array(
 						'horizontal' => __( 'Inline', 'astra-addon' ),
 						'vertical'   => __( 'Stack', 'astra-addon' ),
 					),
 					'renderAs'   => 'text',
 					'responsive' => false,
+					'divider'    => array( 'ast_class' => 'ast-top-divider' ),
 				),
 
-				/**
-				* Option: Disable Breadcrumb
-				*/
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[single-product-breadcrumb-disable]',
-					'section'  => 'section-woo-shop-single',
-					'type'     => 'control',
-					'control'  => 'ast-toggle-control',
-					'default'  => astra_get_option( 'single-product-breadcrumb-disable' ),
-					'title'    => __( 'Disable Breadcrumb', 'astra' ),
-					'priority' => 16,
-					'divider'  => array( 'ast_class' => 'ast-bottom-divider' ),
-				),
 
 				/**
 				 * Option: Disable Transparent Header on WooCommerce Product pages
@@ -119,20 +132,6 @@ if ( ! class_exists( 'Astra_Woo_Shop_Single_Layout_Configs' ) ) {
 					),
 					'priority' => 26,
 					'control'  => 'ast-toggle-control',
-					'divider'  => array( 'ast_class' => 'ast-bottom-divider' ),
-				),
-
-				/**
-				 * Option: Enable free shipping
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[single-product-enable-shipping]',
-					'default'  => astra_get_option( 'single-product-enable-shipping' ),
-					'type'     => 'control',
-					'section'  => 'section-woo-shop-single',
-					'title'    => __( 'Enable Shipping Text', 'astra' ),
-					'control'  => 'ast-toggle-control',
-					'priority' => 16,
 					'divider'  => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
