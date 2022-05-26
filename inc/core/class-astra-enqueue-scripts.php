@@ -109,18 +109,26 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 				$content_layout = astra_get_option( 'site-content-layout' );
 			}
 
+			$post_type = get_post_type();
+			if ( 'post' === $post_type || 'page' === $post_type ) {
+				$editor_default_content_layout = astra_get_option( 'single-' . $post_type . '-content-layout' );
+				$classes .= ' ast-default-layout-' . $editor_default_content_layout;
+			}
+			if ( 'default' === $editor_default_content_layout || empty( $editor_default_content_layout ) ) {
+				// Get the GLOBAL content layout value.
+				// NOTE: Here not used `true` in the below function call.
+				$editor_default_content_layout = astra_get_option( 'site-content-layout', 'full-width' );
+				$classes .= ' ast-default-layout-' . $editor_default_content_layout;
+			}
+
 			if ( 'content-boxed-container' == $content_layout ) {
 				$classes .= ' ast-separate-container';
-				$classes .= ' ast-default-layout-content-boxed-container';
 			} elseif ( 'boxed-container' == $content_layout ) {
 				$classes .= ' ast-separate-container ast-two-container';
-				$classes .= ' ast-default-layout-boxed-container';
 			} elseif ( 'page-builder' == $content_layout ) {
 				$classes .= ' ast-page-builder-template';
-				$classes .= ' ast-default-layout-page-builder';
 			} elseif ( 'plain-container' == $content_layout ) {
 				$classes .= ' ast-plain-container';
-				$classes .= ' ast-default-layout-plain-container';
 			}
 
 			$site_layout = astra_get_option( 'site-layout' );

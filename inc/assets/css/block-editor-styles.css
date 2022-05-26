@@ -789,12 +789,12 @@ h6 {
   color: var(--wp-admin-theme-color);
 }
 
-.ast-page-builder-template .edit-post-visual-editor__post-title-wrapper {
+.ast-page-builder-template .edit-post-visual-editor__post-title-wrapper, .ast-stacked-title-visibility .edit-post-visual-editor__post-title-wrapper {
   max-width: none;
   padding: 0 20px;
 }
 
-.ast-page-builder-template .edit-post-visual-editor__post-title-wrapper .title-visibility {
+.ast-page-builder-template .edit-post-visual-editor__post-title-wrapper .title-visibility, .ast-stacked-title-visibility .edit-post-visual-editor__post-title-wrapper .title-visibility {
   left: unset;
   top: -41px;
   height: 40px;

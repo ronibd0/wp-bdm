@@ -70,6 +70,18 @@ function astra_onload_function() {
 				break;
 			}
 
+			const editorStylesWrapper = document.querySelector( '.editor-styles-wrapper' );
+
+			if( null !== editorStylesWrapper ) {
+				const editorStylesWrapperWidth = parseInt( editorStylesWrapper.offsetWidth )
+				if( editorStylesWrapperWidth < 1250 ) {
+					editorStylesWrapper.classList.remove( 'ast-stacked-title-visibility' );
+					editorStylesWrapper.classList.add( 'ast-stacked-title-visibility' );
+				} else {
+					editorStylesWrapper.classList.remove( 'ast-stacked-title-visibility' );
+				}
+			}
+
 			/**
 			 * In WP-5.9 block editor comes up with color palette showing color-code canvas, but with theme var() CSS its appearing directly as it is. So updated them on wp.data event.
 			 */
