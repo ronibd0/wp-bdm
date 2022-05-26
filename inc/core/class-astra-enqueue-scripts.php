@@ -110,6 +110,7 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 			}
 
 			$post_type = get_post_type();
+			$editor_default_content_layout = '';
 			if ( 'post' === $post_type || 'page' === $post_type ) {
 				$editor_default_content_layout = astra_get_option( 'single-' . $post_type . '-content-layout' );
 				$classes .= ' ast-default-layout-' . $editor_default_content_layout;
