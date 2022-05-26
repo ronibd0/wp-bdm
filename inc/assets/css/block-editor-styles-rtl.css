@@ -767,12 +767,37 @@ h6 {
   color: var(--wp-admin-theme-color);
 }
 
+.edit-post-visual-editor__post-title-wrapper .title-visibility:hover:after {
+  opacity: 1;
+  visibility: visible;
+}
+
 .edit-post-visual-editor__post-title-wrapper .title-visibility:before {
   width: 100%;
   height: 100%;
   display: inline-flex;
   align-items: center;
   justify-content: center;
+}
+
+.edit-post-visual-editor__post-title-wrapper .title-visibility:after {
+  content: attr(data-tooltip);
+  white-space: nowrap;
+  border-radius: 2px;
+  pointer-events: none;
+  color: #fff;
+  background: #1e1e1e;
+  opacity: 0;
+  visibility: hidden;
+  width: max-content;
+  line-height: 26px;
+  margin-right: -1px;
+  display: flex;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  align-items: flex-start;
+  padding: 0 6px;
+  font-size: 12px;
+  transition: all 0.2s;
 }
 
 .edit-post-visual-editor__post-title-wrapper h1.editor-post-title__input {
