@@ -527,12 +527,14 @@ class Astra_WP_Editor_CSS {
 			$desktop_css['.ast-page-builder-template .is-root-container > .alignwide > :where(:not(.alignleft):not(.alignright)), .editor-styles-wrapper .is-root-container > .wp-block-cover.alignwide .wp-block-cover__image-background'] = array(
 				'max-width' => 'var(--wp--custom--ast-wide-width-size)',
 			);
+
 			$desktop_css['.ast-page-builder-template .is-root-container > .inherit-container-width > *, .ast-page-builder-template .is-root-container > * > :where(:not(.alignleft):not(.alignright)), .is-root-container .wp-block-cover .wp-block-cover__inner-container, .editor-styles-wrapper .is-root-container > .wp-block-cover .wp-block-cover__inner-container,
 			.is-root-container > .wp-block-cover .wp-block-cover__image-background'] = array(
 				'max-width'    => 'var(--wp--custom--ast-content-width-size)',
-				'margin-left'  => 'auto',
 				'margin-right' => 'auto',
+				'margin-left'  => 'auto',
 			);
+
 			$desktop_css['.is-root-container h1, .is-root-container h2, .is-root-container h3, .is-root-container h4, .is-root-container h5, .is-root-container h6'] = array(
 				'margin-top' => '0',
 			);
