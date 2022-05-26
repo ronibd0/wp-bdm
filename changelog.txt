@@ -1,3 +1,6 @@
+v3.8.2 (Unreleased)
+- Fix: Line height decimal not appearing in the Global typography section.
+
 v3.8.1
 - Fix: Users updating from v3.7.8 in some edge cases facing resource allocation error.
 - Fix: Global Typography Body and Headings font family preview changes not appearing in the customizer.
