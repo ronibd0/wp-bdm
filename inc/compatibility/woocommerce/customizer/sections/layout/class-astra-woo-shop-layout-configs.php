@@ -112,6 +112,19 @@ if ( ! class_exists( 'Astra_Woo_Shop_Layout_Configs' ) ) {
 				),
 
 				/**
+				 * Option: Divider.
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[woo-shop-layout-divider]',
+					'section'  => 'woocommerce_product_catalog',
+					'title'    => __( 'Shop Layout', 'astra' ),
+					'type'     => 'control',
+					'control'  => 'ast-heading',
+					'priority' => 10,
+					'settings' => array(),
+				),
+
+				/**
 				 * Option: Shop Archive Content Width
 				 */
 				array(

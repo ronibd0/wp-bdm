@@ -93,23 +93,23 @@ if ( ! class_exists( 'Astra_Woo_Shop_Single_Layout_Configs' ) ) {
 				* Option: Single page variation tab layout.
 				*/
 				array(
-					'name'       => ASTRA_THEME_SETTINGS . '[single-product-variation-tabs-layout]',
-					'default'    => astra_get_option( 'single-product-variation-tabs-layout' ),
-					'type'       => 'control',
-					'section'    => 'section-woo-shop-single',
-					'title'      => __( 'Product Variation Layout', 'astra-addon' ),
-					'context'    => array(
+					'name'        => ASTRA_THEME_SETTINGS . '[single-product-variation-tabs-layout]',
+					'default'     => astra_get_option( 'single-product-variation-tabs-layout' ),
+					'type'        => 'control',
+					'section'     => 'section-woo-shop-single',
+					'title'       => __( 'Product Variation Layout', 'astra-addon' ),
+					'description' => 'Changes single product variation layout to be displayed inline or stacked',
+					'context'     => array(
 						Astra_Builder_Helper::$general_tab_config,
 					),
-					'control'    => 'ast-selector',
-					'priority'   => 17,
-					'choices'    => array(
+					'control'     => 'ast-selector',
+					'priority'    => 17,
+					'choices'     => array(
 						'horizontal' => __( 'Inline', 'astra-addon' ),
 						'vertical'   => __( 'Stack', 'astra-addon' ),
 					),
-					'renderAs'   => 'text',
-					'responsive' => false,
-					'divider'    => array( 'ast_class' => 'ast-top-divider' ),
+					'renderAs'    => 'text',
+					'responsive'  => false,
 				),
 
 
