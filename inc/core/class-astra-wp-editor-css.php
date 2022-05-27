@@ -534,15 +534,6 @@ class Astra_WP_Editor_CSS {
 				'margin-right' => 'auto',
 				'margin-left'  => 'auto',
 			);
-
-			$desktop_css['.is-root-container h1, .is-root-container h2, .is-root-container h3, .is-root-container h4, .is-root-container h5, .is-root-container h6'] = array(
-				'margin-top' => '0',
-			);
-			$desktop_css['.is-root-container .wp-block-separator'] = array(
-				'padding' => '0',
-				'margin-top' => '0',
-				'margin-bottom' => '0',
-			);
 		}
 
 		$tablet_css = array(

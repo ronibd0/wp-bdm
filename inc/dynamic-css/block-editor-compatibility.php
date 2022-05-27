@@ -255,19 +255,8 @@ function astra_load_modern_block_editor_ui( $dynamic_css ) {
 		max-width: 100vw;
 		width: 100vw;
 	}
-	.ast-plain-container.ast-no-sidebar .entry-content .alignfull .alignfull, .ast-page-builder-template.ast-no-sidebar .entry-content .alignfull .alignfull,
-	.ast-plain-container.ast-no-sidebar .entry-content .alignfull .alignwide, .ast-page-builder-template.ast-no-sidebar .entry-content .alignfull .alignwide {
-		width: 100%;
-		margin-left: auto;
-		margin-right: auto;
-	}
-	.ast-plain-container.ast-no-sidebar .entry-content .alignwide .alignfull, .ast-page-builder-template.ast-no-sidebar .entry-content .alignwide .alignfull,
-	.ast-plain-container.ast-no-sidebar .entry-content .alignwide .alignwide, .ast-page-builder-template.ast-no-sidebar .entry-content .alignwide .alignwide {
-		width: 100%;
-		margin-left: auto;
-		margin-right: auto;
-	}
-	.ast-plain-container.ast-no-sidebar .entry-content .wp-block-column .alignfull, .ast-page-builder-template.ast-no-sidebar .entry-content .wp-block-column .alignfull,
+	.ast-plain-container.ast-no-sidebar .entry-content .alignfull .alignfull, .ast-page-builder-template.ast-no-sidebar .entry-content .alignfull .alignfull, .ast-plain-container.ast-no-sidebar .entry-content .alignfull .alignwide, .ast-page-builder-template.ast-no-sidebar .entry-content .alignfull .alignwide, .ast-plain-container.ast-no-sidebar .entry-content .alignwide .alignfull, .ast-page-builder-template.ast-no-sidebar .entry-content .alignwide .alignfull,
+	.ast-plain-container.ast-no-sidebar .entry-content .alignwide .alignwide, .ast-page-builder-template.ast-no-sidebar .entry-content .alignwide .alignwide, .ast-plain-container.ast-no-sidebar .entry-content .wp-block-column .alignfull, .ast-page-builder-template.ast-no-sidebar .entry-content .wp-block-column .alignfull,
 	.ast-plain-container.ast-no-sidebar .entry-content .wp-block-column .alignwide, .ast-page-builder-template.ast-no-sidebar .entry-content .wp-block-column .alignwide {
 		margin-left: auto;
 		margin-right: auto;
@@ -277,7 +266,7 @@ function astra_load_modern_block_editor_ui( $dynamic_css ) {
 		height: 0;
 	}
 	[ast-blocks-layout] .wp-block-separator {
-		margin: 0 auto;
+		margin: 20px auto;
 	}
 	[ast-blocks-layout] .wp-block-separator:not(.is-style-wide):not(.is-style-dots) {
 		max-width: 100px;
