@@ -124,6 +124,13 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 				$classes .= ' ast-max-width-layout';
 			}
 
+			// block CSS class.
+			if ( astra_block_based_legacy_setup() ) {
+				$classes .= ' ast-legacy';
+			} else {
+				$classes .= ' ast-custom';
+			}
+
 			$classes .= ' ast-' . astra_page_layout();
 
 			return $classes;
