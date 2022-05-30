@@ -281,7 +281,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 					</div>
 					<?php endif; ?>
 
-					<?php if ( $show_meta_field && true === Astra_Builder_Helper::$is_header_footer_builder_active & Astra_Builder_Helper::is_row_empty( 'below', 'header', 'desktop' ) ) : ?>
+					<?php if ( $show_meta_field && true === Astra_Builder_Helper::$is_header_footer_builder_active && Astra_Builder_Helper::is_row_empty( 'below', 'header', 'desktop' ) ) : ?>
 					<div class="ast-hfb-below-header-display-option-wrap">
 						<input type="checkbox" id="ast-hfb-below-header-display" name="ast-hfb-below-header-display" value="disabled" <?php checked( $below_header, 'disabled' ); ?> />
 						<label for="ast-hfb-below-header-display"><?php esc_html_e( 'Disable Below Header', 'astra' ); ?></label> <br />
