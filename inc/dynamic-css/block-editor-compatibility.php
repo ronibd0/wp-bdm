@@ -292,6 +292,9 @@ function astra_load_modern_block_editor_ui( $dynamic_css ) {
 		margin: 1.5em;
 		border: none;
 	}
+	.wp-block-quote:not(.has-text-align-right):not(.has-text-align-center) {
+		border-' . esc_attr( $ltr_left ) . ': 5px solid rgba(0, 0, 0, 0.05);
+	}
 	.has-text-align-right > blockquote, blockquote.has-text-align-right {
 		border-' . esc_attr( $ltr_right ) . ': 5px solid rgba(0, 0, 0, 0.05);
 	}

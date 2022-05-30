@@ -119,6 +119,8 @@ class Astra_WP_Editor_CSS {
 
 		$post_id     = astra_get_post_id();
 		$is_site_rtl = is_rtl();
+		$ltr_left = $is_site_rtl ? 'right' : 'left';
+		$ltr_right = $is_site_rtl ? 'left' : 'right';
 
 		$site_content_width          = astra_get_option( 'site-content-width', 1200 );
 		$headings_font_family        = astra_get_option( 'headings-font-family' );
@@ -458,6 +460,9 @@ class Astra_WP_Editor_CSS {
 			),
 			'.editor-styles-wrapper .block-editor-block-list__layout.is-root-container p' => array(
 				'margin-bottom' => astra_get_css_value( $para_margin_bottom, 'em' ),
+			),
+			'.editor-styles-wrapper .wp-block-quote:not(.has-text-align-right):not(.has-text-align-center)' => array(
+				'border-' . esc_attr( $ltr_left ) => '5px solid rgba(0, 0, 0, 0.05)',
 			),
 
 			// Gutenberg button compatibility for default styling.
