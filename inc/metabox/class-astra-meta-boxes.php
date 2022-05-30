@@ -280,7 +280,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 						</label>
 					</div>
 					<?php endif; 
-					/** @psalm-suppress TooManyArguments */ ?>
+					/** @psalm-suppress DocblockTypeContradiction */ ?>
 					
 					<?php if ( $show_meta_field && true === Astra_Builder_Helper::$is_header_footer_builder_active && Astra_Builder_Helper::is_row_empty( 'below', 'header', 'desktop' ) ) : ?>
 					<div class="ast-hfb-below-header-display-option-wrap">
@@ -289,7 +289,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 					</div>
 					<?php endif; ?>
 					<?php if ( $show_meta_field && true === Astra_Builder_Helper::$is_header_footer_builder_active && ( Astra_Builder_Helper::is_row_empty( 'primary', 'header', 'mobile' ) || Astra_Builder_Helper::is_row_empty( 'above', 'header', 'mobile' ) || Astra_Builder_Helper::is_row_empty( 'below', 'header', 'mobile' ) ) ) : 
-					/** @psalm-suppress TooManyArguments */?>
+					/** @psalm-suppress DocblockTypeContradiction */?>
 					
 					<div class="ast-hfb-mobile-header-display-option-wrap">
 						<input type="checkbox" id="ast-hfb-mobile-header-display" name="ast-hfb-mobile-header-display" value="disabled" <?php checked( $mobile_header, 'disabled' ); ?> />
