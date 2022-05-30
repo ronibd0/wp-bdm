@@ -1,5 +1,8 @@
 v3.8.2 (unreleased)
-- Fix: W3 validator - Parse error for background-color CSS property.
+- Fix: W3 validation - Parse error for background-color CSS property.
+- Fix: Line height decimal not appearing in the Global typography section.
+- Fix: Gutenberg editor - Layout settings is not visble for Group block.
+- Fix: Off-Canvas - button type is missing for close button inside Flyout header type.
 
 v3.8.1
 - Fix: Users updating from v3.7.8 in some edge cases facing resource allocation error.
