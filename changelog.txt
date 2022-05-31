@@ -1,3 +1,6 @@
+v3.8.3 (Unreleased)
+- Fix: PHP Notice - Array to string conversion on widget.php page.
+
 v3.8.2 (Unreleased)
 - Fix: Header - Account - Login popup not opening on mobile/tablet.
 - Fix: Line height decimal not appearing in the Global typography section.
