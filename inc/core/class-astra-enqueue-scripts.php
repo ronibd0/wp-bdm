@@ -126,9 +126,9 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 
 			// block CSS class.
 			if ( astra_block_based_legacy_setup() ) {
-				$classes .= ' ast-legacy';
+				$classes .= ' ast-block-legacy';
 			} else {
-				$classes .= ' ast-custom';
+				$classes .= ' ast-block-custom';
 			}
 
 			$classes .= ' ast-' . astra_page_layout();
