@@ -1,4 +1,8 @@
-v3.8.2(Unrelease)
+v3.8.2 (Unreleased)
+- Fix: Header - Account - Login popup not opening on mobile/tablet.
+- Fix: Line height decimal not appearing in the Global typography section.
+- Fix: Gutenberg editor - Layout settings is not visble for Group block.
+- Fix: Off-Canvas - button type is missing for close button inside Flyout header type.
 - Fix: Theme's responsive styles not loading with the responsive preview option in the block editor.
 
 v3.8.1
