@@ -5031,3 +5031,11 @@ i.fipicon-angle-left:before {
 .ahfb-builder-item > .ahfb-builder-item-icon.ahfb-setting-icon {
     margin-left: -12px;
 }
+
+li#accordion-section-section-woo-shop-skin {
+    display: none !important;
+}
+li#customize-control-astra-settings-shop-skin-section-link {
+    border-top: 1px solid #ddd;
+    padding-top: 25px;
+}
