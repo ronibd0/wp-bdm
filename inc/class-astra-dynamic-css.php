@@ -1229,10 +1229,10 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 							'margin' => '0 auto',
 						),
 					);
-					if ( astra_wp_version_compare( '6.0', '>=' ) ){
+					if ( astra_wp_version_compare( '6.0', '>=' ) ) {
 						// Image block align center CSS.
 						$desktop_screen_gb_css['.wp-block-image.aligncenter'] = array(
-							'margin-left' => 'auto',
+							'margin-left'  => 'auto',
 							'margin-right' => 'auto',
 						);
 					}
