@@ -1,8 +1,10 @@
 v3.8.2 (Unreleased)
+- Fix: Header - Account - Login popup not opening on mobile/tablet.
 - Fix: Line height decimal not appearing in the Global typography section.
 - Fix: Gutenberg editor - Layout settings is not visble for Group block.
 - Fix: Off-Canvas - button type is missing for close button inside Flyout header type.
 - Fix: Compatibility with WordPress 6.0 - Image block not aligned center when Legacy option set from the Block Editor.
+- Fix: Theme's responsive styles not loading with the responsive preview option in the block editor.
 
 v3.8.1
 - Fix: Users updating from v3.7.8 in some edge cases facing resource allocation error.
