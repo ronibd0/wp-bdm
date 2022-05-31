@@ -1060,7 +1060,16 @@ p.demo_store[data-position="bottom"],
   margin: 0 0 1em;
   overflow: hidden;
   position: relative;
-  border-top: 1px solid var(--ast-global-color-6);
+}
+
+.woocommerce div.product .woocommerce-tabs ul.tabs:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 1px;
+  background-color: var(--ast-global-color-6);
 }
 
 .woocommerce div.product .woocommerce-tabs ul.tabs li {
@@ -4589,25 +4598,29 @@ button.pswp__button--zoom:hover {
   border-bottom-right-radius: 0;
 }
 
-.widget_layered_nav_filters ul li.chosen {
+.widget_layered_nav_filters ul li.chosen,
+#secondary .widget_layered_nav_filters ul li.chosen {
   padding: 0 .5em;
   margin-left: .5em;
+  margin-bottom: .5em;
   background: rgba(245, 245, 245, 0.75);
   border-radius: 20px;
   font-size: 1em;
 }
 
-.widget_layered_nav_filters ul li.chosen:hover {
+.widget_layered_nav_filters ul li.chosen:hover,
+#secondary .widget_layered_nav_filters ul li.chosen:hover {
   background-color: whitesmoke;
 }
 
-.widget_layered_nav_filters ul li.chosen a {
+.widget_layered_nav_filters ul li.chosen a,
+#secondary .widget_layered_nav_filters ul li.chosen a {
   display: block;
 }
 
-.widget_layered_nav_filters ul li.chosen a::before {
+.widget_layered_nav_filters ul li.chosen a::before,
+#secondary .widget_layered_nav_filters ul li.chosen a::before {
   margin-left: .5em;
-  color: #ff1111;
 }
 
 .woocommerce-terms-and-conditions {
