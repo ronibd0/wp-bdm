@@ -69,7 +69,7 @@ if ( ! class_exists( 'Astra_Customizer_Register_Woo_Section' ) ) {
 					'type'     => 'section',
 					'title'    => __( 'Shop Skin Layout', 'astra' ),
 					'priority' => 12,
-					'section'    => 'woocommerce_product_catalog',
+					'panel'    => 'woocommerce',
 				),
 			);
 
