@@ -1159,7 +1159,7 @@ if ( ! function_exists( 'astra_get_pro_url' ) ) :
 		}
 
 		$astra_pro_url = esc_url( apply_filters( 'astra_get_pro_url', $astra_pro_url, $url ) );
-		$astra_pro_url = remove_query_arg( 'bsf', $astra_pro_url );
+		$astra_pro_url = esc_url_raw( remove_query_arg( 'bsf', $astra_pro_url ) );
 
 		$ref = get_option( 'astra_partner_url_param', '' );
 		if ( ! empty( $ref ) ) {
