@@ -1,4 +1,5 @@
-v3.8.2 (Unreleased)
+v3.8.2 (unreleased)
+- Fix: W3 validation - Parse error for background-color CSS property.
 - Fix: Header - Account - Login popup not opening on mobile/tablet.
 - Fix: Line height decimal not appearing in the Global typography section.
 - Fix: Gutenberg editor - Layout settings is not visble for Group block.
