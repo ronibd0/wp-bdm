@@ -6,6 +6,7 @@ import {ToggleControl} from '@wordpress/components';
 const AstToggleControl = props => {
 
   let htmlTitle = null;
+  let htmlDescription = null;
 
   const [props_value, setPropsValue] = useState(props.control.setting.get());
 
@@ -13,18 +14,24 @@ const AstToggleControl = props => {
     htmlTitle = <span className="toggle-control-label">{props.control.params.title}</span>;
   }
 
+  if (props.control.params.description) {
+		htmlDescription =
+			<span className="description customize-control-description">{props.control.params.description}</span>;
+	}
+
   const updateValues = () => {
 		setPropsValue( ! props_value );
 		props.control.setting.set( ! props_value );
 	};
 
   return <Fragment>
-				<div className="ast-togglecontrol-wrapper">
+				<div className={`ast-togglecontrol-wrapper ${ props.control.params.description ? 'ast-description-enabled' : '' }`}>
             <ToggleControl
             label={htmlTitle}
             checked={props_value}
             onChange={() => updateValues()}
             />
+          {htmlDescription}
         </div>
 			</Fragment>;
 };

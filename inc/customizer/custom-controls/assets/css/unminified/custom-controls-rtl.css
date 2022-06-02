@@ -2646,6 +2646,17 @@
   left: 0;
 }
 
+.customize-control.customize-control-ast-toggle-control .ast-control-tooltip {
+  position: absolute;
+  top: 50%;
+  left: 40px;
+  transform: translateY(-50%);
+}
+
+.customize-control-ast-toggle-control .ast-description-enabled .components-form-toggle {
+  margin-right: 25px;
+}
+
 .customize-control.customize-control-ast-divider .ast-control-tooltip {
   position: absolute;
   top: auto;
@@ -4734,6 +4745,17 @@ span.select2-container.select2-container--default.select2-container--open li.sel
   position: absolute;
   top: 0;
   left: 0;
+}
+
+.customize-control.customize-control-ast-toggle-control .ast-control-tooltip {
+  position: absolute;
+  top: 50%;
+  left: 40px;
+  transform: translateY(-50%);
+}
+
+.customize-control.customize-control-ast-toggle-control .ast-description-enabled .components-form-toggle {
+  margin-right: 25px;
 }
 
 .customize-control.customize-control-ast-divider .ast-control-tooltip {

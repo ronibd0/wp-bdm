@@ -51,13 +51,14 @@ if ( ! class_exists( 'Astra_Woo_Shop_Single_Layout_Configs' ) ) {
 				 * Option: Enable free shipping
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[single-product-enable-shipping]',
-					'default'  => astra_get_option( 'single-product-enable-shipping' ),
-					'type'     => 'control',
-					'section'  => 'section-woo-shop-single',
-					'title'    => __( 'Enable Shipping Text', 'astra' ),
-					'control'  => 'ast-toggle-control',
-					'priority' => 16,
+					'name'        => ASTRA_THEME_SETTINGS . '[single-product-enable-shipping]',
+					'default'     => astra_get_option( 'single-product-enable-shipping' ),
+					'type'        => 'control',
+					'section'     => 'section-woo-shop-single',
+					'title'       => __( 'Enable Shipping Text', 'astra' ),
+					'description' => 'Adds shipping text next to the product price',
+					'control'     => 'ast-toggle-control',
+					'priority'    => 16,
 				),
 
 				/**

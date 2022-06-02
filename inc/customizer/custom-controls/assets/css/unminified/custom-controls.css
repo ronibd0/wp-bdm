@@ -1365,6 +1365,17 @@
   right: 0;
 }
 
+.customize-control.customize-control-ast-toggle-control .ast-control-tooltip {
+  position: absolute;
+  top: 50%;
+  right: 40px;
+  transform: translateY(-50%);
+}
+
+.customize-control.customize-control-ast-toggle-control .ast-description-enabled .components-form-toggle {
+  margin-left: 25px;
+}
+
 .customize-control.customize-control-ast-divider .ast-control-tooltip {
   position: absolute;
   top: auto;
