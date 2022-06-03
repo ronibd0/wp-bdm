@@ -131,6 +131,10 @@ if ( ! class_exists( 'Astra_Woo_Shop_Single_Layout_Configs' ) ) {
 				),
 			);
 
+			/**
+			* Option: button width option
+			*/
+
 			if ( defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'woocommerce' ) ) {
 				$_configs[] = array(
 					'name'        => 'single-product-cart-button-width',
