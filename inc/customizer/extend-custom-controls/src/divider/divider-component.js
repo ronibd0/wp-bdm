@@ -36,7 +36,7 @@ const DividerComponent = props => {
 	}
 
 	if(suffix) {
-		suffixHtml = <span class="suffix customize-control-suffix">{suffix}</span>
+		suffixHtml = <span className="suffix customize-control-suffix">{suffix}</span>
 	}
 
 	return <Fragment>
