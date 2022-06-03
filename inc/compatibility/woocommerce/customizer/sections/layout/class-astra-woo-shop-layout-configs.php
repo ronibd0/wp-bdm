@@ -33,21 +33,6 @@ if ( ! class_exists( 'Astra_Woo_Shop_Layout_Configs' ) ) {
 			$_configs = array(
 
 				/**
-				 * Link to the Shop banner stcrure.
-				 */
-				array(
-					'name'           => ASTRA_THEME_SETTINGS . '[wc-shop-banner-section-link]',
-					'type'           => 'control',
-					'control'        => 'ast-customizer-link',
-					'section'        => 'woocommerce_product_catalog',
-					'priority'       => 1,
-					'link_type'      => 'section',
-					'is_button_link' => true,
-					'linked'         => 'ast-archive-product',
-					'link_text'      => __( 'Archive Title Section', 'astra' ),
-				),
-
-				/**
 				 * Option: Shop Columns
 				 */
 				array(
