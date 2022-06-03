@@ -31,8 +31,9 @@ if ( ! class_exists( 'Astra_Woo_Shop_Single_Layout_Configs' ) ) {
 		 */
 		public function register_configuration( $configurations, $wp_customize ) {
 
-			$_configs = array(
 
+
+			$_configs = array(
 				
 				/**
 				* Option: Disable Breadcrumb
@@ -61,34 +62,6 @@ if ( ! class_exists( 'Astra_Woo_Shop_Single_Layout_Configs' ) ) {
 					'priority'    => 16,
 				),
 
-				/**
-				* Option: button width option
-				*/
-				array(
-					'name'        => ASTRA_THEME_SETTINGS . '[single-product-cart-button-width]',
-					'default'     => astra_get_option( 'single-product-cart-button-width' ),
-					'type'        => 'control',
-					'transport'   => 'postMessage',
-					'responsive'  => true,
-					'control'     => 'ast-responsive-slider',
-					'section'     => 'section-woo-shop-single',
-					'title'       => __( 'Button Width', 'astra-addon' ),
-					'suffix'      => '%',
-					'priority'    => 26,
-					'input_attrs' => array(
-						'min'  => 46,
-						'step' => 1,
-						'max'  => 100,
-					),
-					'context'     => array(
-						Astra_Builder_Helper::$general_tab_config,
-						array(
-							'setting'  => ASTRA_THEME_SETTINGS . '[single-product-structure]',
-							'operator' => 'contains',
-							'value'    => 'add_cart',
-						),
-					),
-				),
 
 				/**
 				* Option: Single page variation tab layout.
@@ -157,6 +130,47 @@ if ( ! class_exists( 'Astra_Woo_Shop_Single_Layout_Configs' ) ) {
 					'priority' => 16,
 				),
 			);
+
+			if ( defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'woocommerce' ) ) {
+				$_configs[] = array(
+					'name'        => 'single-product-cart-button-width',
+					'parent'      => ASTRA_THEME_SETTINGS . '[single-product-structure]',
+					'default'     => astra_get_option( 'single-product-cart-button-width' ),
+					'linked'      => 'add_cart',
+					'type'        => 'sub-control',
+					'control'     => 'ast-responsive-slider',
+					'responsive'  => true,
+					'section'     => 'section-woo-shop-single',
+					'priority'    => 11,
+					'title'       => __( 'Button Width', 'astra-addon' ),
+					'transport'   => 'postMessage',
+					'suffix'      => '%',
+					'input_attrs' => array(
+						'min'  => 46,
+						'step' => 1,
+						'max'  => 100,
+					),
+				);
+
+			} else {
+				$_configs[] = array(
+					'name'        => ASTRA_THEME_SETTINGS . '[single-product-cart-button-width]',
+					'default'     => astra_get_option( 'single-product-cart-button-width' ),
+					'type'        => 'control',
+					'transport'   => 'postMessage',
+					'responsive'  => true,
+					'control'     => 'ast-responsive-slider',
+					'section'     => 'section-woo-shop-single',
+					'title'       => __( 'Button Width', 'astra-addon' ),
+					'suffix'      => '%',
+					'priority'    => 26,
+					'input_attrs' => array(
+						'min'  => 46,
+						'step' => 1,
+						'max'  => 100,
+					),
+				);
+			}
 
 			return array_merge( $configurations, $_configs );
 
