@@ -5035,10 +5035,15 @@ i.fipicon-angle-left:before {
     margin-right: -12px;
 }
 
+li#customize-control-astra-settings-shop-skin-section-link {
+    border-top: 1px solid #ddd;
+    padding-top: 25px;
+}
 /**
  * Added CSS for hiding section from WP-Customizer panel.
  */
 li#accordion-section-ast-single-post, li#accordion-section-ast-single-product,
-li#accordion-section-ast-archive-post, li#accordion-section-ast-archive-product {
+li#accordion-section-ast-archive-post, li#accordion-section-ast-archive-product,
+li#accordion-section-section-woo-shop-skin {
     display: none !important;
 }

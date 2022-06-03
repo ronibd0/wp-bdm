@@ -61,6 +61,7 @@
   border: none;
   opacity: .75;
   outline: none;
+  line-height: 1;
 }
 
 .ast-responsive-slider-btns button[type="button"] > i {
@@ -149,7 +150,7 @@
   left: 0;
 }
 
-.customize-control-ast-responsive-slider .ast-resp-slider-reset-wrap, 
+.customize-control-ast-responsive-slider .ast-resp-slider-reset-wrap,
 .customize-control-ast-slider .ast-resp-slider-reset-wrap {
 	top: 1px;
 }

@@ -120,7 +120,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 			// Changes Woocommerce template directory path.
 			add_action( 'wp', array( $this, 'woocommerce_template_directory_path_change' ), 1 );
-			
+
 			// Register Dynamic Sidebars.
 			if ( is_customize_preview() ) {
 				add_action( 'widgets_init', array( $this, 'store_widgets_dynamic' ), 15 );
@@ -132,14 +132,13 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			add_filter( 'woocommerce_cart_item_remove_link', array( $this, 'change_cart_close_icon' ), 10, 2 );
 		}
 
-
 		/**
 		 * Change cart close icon.
 		 *
 		 * @since x.x.x
 		 *
 		 * @param  string $string Close button html.
-		 * 
+		 *
 		 * @return string $string Close button html.
 		 */
 		public function change_cart_close_icon( $string ) {
@@ -149,7 +148,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 		/**
 		 * Encode SVG
-		 * 
+		 *
 		 * @since x.x.x
 		 *
 		 * @param  string $svg Svg icon.
@@ -395,11 +394,11 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				// Cart Total or Cart Title enable then only add markup.
 				if ( '' !== $cart_label_markup ) {
 					echo $cart_info_markup; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-				}           
+				}
 			} else {
 				self::svg_cart_icon( $cart_total_label_position, $cart_label_markup, $cart_info_markup, $cart_icon );
 			}
-		
+
 		}
 
 		/**
@@ -1157,7 +1156,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			$btn_color   = astra_get_option( 'button-color' );
 
 			if ( empty( $btn_color ) ) {
-	
+
 				$btn_color = astra_get_foreground_color( $theme_color );
 			}
 
@@ -1239,7 +1238,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				'.woocommerce .woocommerce-cart-form button[name="update_cart"]:disabled' => array(
 					'color' => esc_attr( $btn_color ),
 				),
-				
+
 				'.woocommerce .star-rating, .woocommerce .comment-form-rating .stars a, .woocommerce .star-rating::before' => array(
 					'color' => 'var(--ast-global-color-3)',
 				),
@@ -1630,7 +1629,6 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				'.woocommerce .woocommerce-ordering, .woocommerce-page .woocommerce-ordering' => array(
 					'float'         => 'none',
 					'margin-bottom' => '2em',
-					'width'         => '100%',
 				),
 				'.woocommerce ul.products a.button, .woocommerce-page ul.products a.button' => array(
 					'padding' => '0.5em 0.75em',
@@ -1991,7 +1989,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 					'.woocommerce div.product form.cart .variations td' => array(
 						'width' => 'calc( 100% - 70px )',
 					),
-					
+
 					'.woocommerce div.product form.cart .variations td.label, .woocommerce div.product form.cart .variations th.label'  => array(
 						'width'         => '70px',
 						'padding-right' => '1em',

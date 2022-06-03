@@ -36,7 +36,7 @@
 .customize-control-ast-responsive-spacing .ast-spacing-responsive-btns > li.active {
   display: inline-block;
   position: relative;
-  top: -1px;
+  top: 2px;
 }
 
 .customize-control-ast-responsive-spacing .ast-spacing-responsive-btns button[type="button"] {

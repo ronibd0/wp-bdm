@@ -514,7 +514,20 @@ export const sortableControl = wp.customize.astraControl.extend( {
 		'use strict';
 
 		let control = this,
-		newValue = [];
+			newValue = [];
+
+		if( undefined !== control.params.consider_hidden && control.params.consider_hidden ) {
+			let withHiddenSet = {};
+			wp.customize.control( control.params.hidden_dataset ).setting.set( withHiddenSet );
+			this.sortableContainer.find( '.ast-sortable-item' ).each( function() {
+				if( jQuery( this ).hasClass( 'invisible' ) ) {
+					withHiddenSet[ jQuery( this ).data( 'value' ) ] = false;
+				} else {
+					withHiddenSet[ jQuery( this ).data( 'value' ) ] = true;
+				}
+			});
+			wp.customize.control( control.params.hidden_dataset ).setting.set( withHiddenSet );
+		}
 
 		this.sortableContainer.find( '.ast-sortable-item:not(.invisible)' ).each( function() {
 			newValue.push( jQuery( this ).data( 'value' ) );
