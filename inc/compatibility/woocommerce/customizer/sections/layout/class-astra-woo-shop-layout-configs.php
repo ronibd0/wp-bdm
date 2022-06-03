@@ -136,12 +136,13 @@ if ( ! class_exists( 'Astra_Woo_Shop_Layout_Configs' ) ) {
 					'control'  => 'ast-select',
 					'section'  => 'section-woo-shop-skin',
 					'default'  => astra_get_option( 'shop-archive-width' ),
-					'priority' => 11,
+					'priority' => 10,
 					'title'    => __( 'Shop Archive Content Width', 'astra' ),
 					'choices'  => array(
 						'default' => __( 'Default', 'astra' ),
 						'custom'  => __( 'Custom', 'astra' ),
 					),
+					'divider'  => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				/**

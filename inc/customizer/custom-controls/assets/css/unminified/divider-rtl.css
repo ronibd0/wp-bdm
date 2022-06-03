@@ -9,6 +9,17 @@
   margin: 1em 0 0.2em;
 }
 
+.customize-control-ast-divider .customize-control-suffix {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    font-weight: 600;
+    color: #0073aa;
+    display: inline-block;
+    font-size: 11px;
+    text-transform: uppercase;
+  }
+
 .customize-control-ast-divider .customizer-text {
     margin-top: -10px;
     display: block;
@@ -61,10 +72,6 @@
 
 .ast-top-divider .ast-control-wrap .ast-color-btn-reset-wrap {
     top: 25px;
-}
-
-.ast-top-divider .ast-control-wrap .ast-responsive-btns {
-    top: 28px;
 }
 
 .ast-top-divider .ast-control-wrap .astra-color-picker-wrap {

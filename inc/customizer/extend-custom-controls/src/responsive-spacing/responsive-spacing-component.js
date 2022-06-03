@@ -199,12 +199,12 @@ const ResponsiveSpacingComponent = props => {
 	return <label key={'ast-spacing-responsive'} className='ast-spacing-responsive' htmlFor="ast-spacing">
 		{htmlLabel}
 		{htmlDescription}
+		<div className="ast-spacing-responsive-units-screen-wrap">
+			{responsiveHtml}
+		</div>
 		<div className="ast-spacing-responsive-outer-wrapper">
 			<div className="input-wrapper ast-spacing-responsive-wrapper">
 				{inputHtml}
-			</div>
-			<div className="ast-spacing-responsive-units-screen-wrap">
-				{responsiveHtml}
 			</div>
 		</div>
 	</label>;

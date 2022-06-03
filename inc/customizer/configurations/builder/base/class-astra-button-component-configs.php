@@ -341,23 +341,31 @@ class Astra_Button_Component_Configs {
 				/**
 				 * Option: Primary Header Button Font Size
 				 */
+
 				array(
-					'name'        => $builder_type . '-' . $_prefix . '-font-size',
-					'default'     => astra_get_option( $builder_type . '-' . $_prefix . '-font-size' ),
-					'parent'      => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-' . $_prefix . '-text-typography]',
-					'transport'   => 'postMessage',
-					'title'       => __( 'Size', 'astra' ),
-					'type'        => 'sub-control',
-					'section'     => $_section,
-					'control'     => 'ast-responsive',
-					'input_attrs' => array(
-						'min' => 0,
-					),
-					'priority'    => 2,
-					'context'     => Astra_Builder_Helper::$general_tab,
-					'units'       => array(
-						'px' => 'px',
-						'em' => 'em',
+					'name'              => $builder_type . '-' . $_prefix . '-font-size',
+					'default'           => astra_get_option( $builder_type . '-' . $_prefix . '-font-size' ),
+					'parent'            => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-' . $_prefix . '-text-typography]',
+					'transport'         => 'postMessage',
+					'title'             => __( 'Size', 'astra' ),
+					'type'              => 'sub-control',
+					'section'           => $_section,
+					'control'           => 'ast-responsive-slider',
+					'priority'          => 2,
+					'context'           => Astra_Builder_Helper::$general_tab,
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
+					'suffix'            => array( 'px', 'em' ),
+					'input_attrs'       => array(
+						'px' => array(
+							'min'  => 0,
+							'step' => 1,
+							'max'  => 100,
+						),
+						'em' => array(
+							'min'  => 0,
+							'step' => 1,
+							'max'  => 20,
+						),
 					),
 				),
 

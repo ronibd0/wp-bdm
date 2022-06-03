@@ -103,13 +103,13 @@ function astra_responsive_font_size( control, selector ) {
 				jQuery( 'style#' + control + '-' + css_property ).remove();
 
 				if ( '' != value.desktop ) {
-					fontSize = 'font-size: ' + value.desktop + value['desktop-unit'];
+					fontSize = 'font-size: ' + value.desktop + ( undefined == value['desktop-unit'] ? 'px' : value['desktop-unit'] );
 				}
 				if ( '' != value.tablet ) {
-					tabletFontSize = 'font-size: ' + value.tablet + value['tablet-unit'];
+					tabletFontSize = 'font-size: ' + value.tablet + ( undefined == value['tablet-unit'] ? 'px' : value['tablet-unit'] );
 				}
 				if ( '' != value.mobile ) {
-					mobileFontSize = 'font-size: ' + value.mobile + value['mobile-unit'];
+					mobileFontSize = 'font-size: ' + value.mobile + ( undefined == value['mobile-unit'] ? 'px' : value['mobile-unit'] );
 				}
 
 				if( value['desktop-unit'] == 'px' ) {

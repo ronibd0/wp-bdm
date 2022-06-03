@@ -64,22 +64,25 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 				/**
 				 * Option: Column count
 				 */
+
 				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[hb-footer-column]',
-					'default'   => astra_get_option( 'hb-footer-column' ),
-					'type'      => 'control',
-					'control'   => 'ast-select',
-					'section'   => $_section,
-					'priority'  => 2,
-					'title'     => __( 'Column', 'astra' ),
-					'choices'   => $column_count,
-					'context'   => Astra_Builder_Helper::$general_tab,
-					'transport' => 'postMessage',
-					'partial'   => array(
+					'name'       => ASTRA_THEME_SETTINGS . '[hb-footer-column]',
+					'default'    => astra_get_option( 'hb-footer-column' ),
+					'type'       => 'control',
+					'control'    => 'ast-selector',
+					'section'    => $_section,
+					'priority'   => 2,
+					'title'      => __( 'Column', 'astra' ),
+					'choices'    => $column_count,
+					'context'    => Astra_Builder_Helper::$general_tab,
+					'transport'  => 'postMessage',
+					'partial'    => array(
 						'selector'            => '.site-primary-footer-wrap',
 						'container_inclusive' => false,
 						'render_callback'     => array( Astra_Builder_Footer::get_instance(), 'primary_footer' ),
 					),
+					'renderAs'   => 'text',
+					'responsive' => false,
 				),
 
 				/**

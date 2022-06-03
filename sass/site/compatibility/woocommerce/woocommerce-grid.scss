@@ -867,7 +867,16 @@ p.demo_store,
 				margin: 0 0 1em;
 				overflow: hidden;
 				position: relative;
-				border-top: 1px solid var(--ast-global-color-6);
+
+				&:before {
+					content: '';
+					position: absolute;
+					top: 0;
+					left: 0;
+					width: 100%;
+					height: 1px;
+					background-color: var(--ast-global-color-6);
+				}
 
 				li {
 					border: 0;
@@ -3848,12 +3857,15 @@ button.pswp__button--zoom:hover {
 	}
 }
 
-.widget_layered_nav_filters ul li.chosen {
+.widget_layered_nav_filters ul li.chosen, 
+#secondary .widget_layered_nav_filters ul li.chosen {
 	padding: 0 .5em;
 	margin-right: .5em;
+	margin-bottom: .5em;
 	background: rgba(245, 245, 245, .75);
 	border-radius: 20px;
 	font-size: 1em;
+
 
 	&:hover {
 		background-color:rgba(245, 245, 245, 1)
@@ -3863,7 +3875,6 @@ button.pswp__button--zoom:hover {
 
 		&::before {
 			margin-right: .5em;
-			color: #ff1111;
 		}
 	}
 }

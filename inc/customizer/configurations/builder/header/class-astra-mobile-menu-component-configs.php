@@ -354,24 +354,31 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 
 				// Option: Menu Font Size.
 				array(
-					'name'        => 'header-mobile-menu-font-size',
-					'default'     => astra_get_option( 'header-mobile-menu-font-size' ),
-					'parent'      => ASTRA_THEME_SETTINGS . '[header-mobile-menu-header-menu-typography]',
-					'section'     => $_section,
-					'type'        => 'sub-control',
-					'priority'    => 23,
-					'title'       => __( 'Size', 'astra' ),
-					'control'     => 'ast-responsive',
-					'transport'   => 'postMessage',
-					'input_attrs' => array(
-						'min' => 0,
+					'name'              => 'header-mobile-menu-font-size',
+					'default'           => astra_get_option( 'header-mobile-menu-font-size' ),
+					'parent'            => ASTRA_THEME_SETTINGS . '[header-mobile-menu-header-menu-typography]',
+					'section'           => $_section,
+					'type'              => 'sub-control',
+					'priority'          => 23,
+					'title'             => __( 'Size', 'astra' ),
+					'control'           => 'ast-responsive-slider',
+					'transport'         => 'postMessage',
+					'context'           => Astra_Builder_Helper::$general_tab,
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
+					'suffix'            => array( 'px', 'em' ),
+					'input_attrs'       => array(
+						'px' => array(
+							'min'  => 0,
+							'step' => 1,
+							'max'  => 100,
+						),
+						'em' => array(
+							'min'  => 0,
+							'step' => 1,
+							'max'  => 20,
+						),
 					),
-					'units'       => array(
-						'px' => 'px',
-						'em' => 'em',
-					),
-					'context'     => Astra_Builder_Helper::$general_tab,
-				),
+				), 
 
 				// Option: Menu Line Height.
 				array(

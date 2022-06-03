@@ -58,7 +58,7 @@ if ( ! class_exists( 'Astra_Lifter_General_Configs' ) ) {
 						)
 					),
 					'title'             => __( 'Course Columns', 'astra' ),
-					'priority'          => 0,
+					'priority'          => 1,
 					'input_attrs'       => array(
 						'step' => 1,
 						'min'  => 1,
@@ -85,7 +85,7 @@ if ( ! class_exists( 'Astra_Lifter_General_Configs' ) ) {
 						)
 					),
 					'title'             => __( 'Membership Columns', 'astra' ),
-					'priority'          => 0,
+					'priority'          => 1,
 					'input_attrs'       => array(
 						'step' => 1,
 						'min'  => 1,

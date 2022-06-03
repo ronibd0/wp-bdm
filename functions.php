@@ -155,6 +155,7 @@ require_once ASTRA_THEME_DIR . 'inc/addons/transparent-header/class-astra-ext-tr
 require_once ASTRA_THEME_DIR . 'inc/addons/breadcrumbs/class-astra-breadcrumbs.php';
 require_once ASTRA_THEME_DIR . 'inc/addons/heading-colors/class-astra-heading-colors.php';
 require_once ASTRA_THEME_DIR . 'inc/builder/class-astra-builder-loader.php';
+// require_once ASTRA_THEME_DIR . 'inc/modules/posts-structures/class-astra-posts-strctures.php';
 
 // Elementor Compatibility requires PHP 5.4 for namespaces.
 if ( version_compare( PHP_VERSION, '5.4', '>=' ) ) {
@@ -176,3 +177,8 @@ require_once ASTRA_THEME_DIR . 'inc/core/markup/class-astra-markup.php';
 require_once ASTRA_THEME_DIR . 'inc/core/deprecated/deprecated-filters.php';
 require_once ASTRA_THEME_DIR . 'inc/core/deprecated/deprecated-hooks.php';
 require_once ASTRA_THEME_DIR . 'inc/core/deprecated/deprecated-functions.php';
+
+/**
+ * Remove this filter after designers review & finalization.
+ */
+add_filter( 'astra_get_option_post-structure-migration-succeed', '__return_true' );
