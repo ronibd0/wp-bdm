@@ -133,7 +133,9 @@ if ( ! class_exists( 'Astra_Woo_Shop_Layout_Configs' ) ) {
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[shop-archive-width]',
 					'type'     => 'control',
-					'control'  => 'ast-select',
+					'control'  => 'ast-selector',
+					'renderAs'   => 'text',
+					'responsive' => false,
 					'section'  => 'section-woo-shop-skin',
 					'default'  => astra_get_option( 'shop-archive-width' ),
 					'priority' => 10,

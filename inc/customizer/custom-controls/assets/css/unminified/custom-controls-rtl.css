@@ -3513,7 +3513,7 @@ input[type="text"].select2-search__field {
     padding-bottom: 2px;
 }
 
-.customize-control select:focus, .ast-variant-select > div, .customize-control input:focus {
+.customize-control select:focus, .ast-variant-select > div:focus, .customize-control input:focus {
 	border-color: var(--wp-admin-theme-color);
 	color: #0a4b78;
 	box-shadow: 0 0 0 1px var(--wp-admin-theme-color);
@@ -3583,6 +3583,7 @@ input[type="text"].select2-search__field {
   border: none;
   opacity: .75;
   outline: none;
+  line-height: 1;
 }
 
 .ast-responsive-slider-btns button[type="button"] > i {
@@ -3671,10 +3672,11 @@ input[type="text"].select2-search__field {
   left: 0;
 }
 
-.customize-control-ast-responsive-slider .ast-resp-slider-reset-wrap, 
+.customize-control-ast-responsive-slider .ast-resp-slider-reset-wrap,
 .customize-control-ast-slider .ast-resp-slider-reset-wrap {
 	top: 1px;
 }
+
 .customize-control-ast-responsive-spacing {
   /* Unit Screen wrap */
 }
@@ -5844,7 +5846,7 @@ input[type="text"].select2-search__field {
     padding-bottom: 2px;
 }
 
-.customize-control select:focus, .ast-variant-select > div, .customize-control input:focus {
+.customize-control select:focus, .ast-variant-select > div:focus, .customize-control input:focus {
 	border-color: var(--wp-admin-theme-color);
 	color: #0a4b78;
 	box-shadow: 0 0 0 1px var(--wp-admin-theme-color);
@@ -5914,6 +5916,7 @@ input[type="text"].select2-search__field {
   border: none;
   opacity: .75;
   outline: none;
+  line-height: 1;
 }
 
 .ast-responsive-slider-btns button[type="button"] > i {
@@ -6002,10 +6005,11 @@ input[type="text"].select2-search__field {
   left: 0;
 }
 
-.customize-control-ast-responsive-slider .ast-resp-slider-reset-wrap, 
+.customize-control-ast-responsive-slider .ast-resp-slider-reset-wrap,
 .customize-control-ast-slider .ast-resp-slider-reset-wrap {
 	top: 1px;
 }
+
 .customize-control-ast-responsive-spacing {
   /* Unit Screen wrap */
 }
@@ -6044,7 +6048,7 @@ input[type="text"].select2-search__field {
 .customize-control-ast-responsive-spacing .ast-spacing-responsive-btns > li.active {
   display: inline-block;
   position: relative;
-  top: -1px;
+  top: 2px;
 }
 
 .customize-control-ast-responsive-spacing .ast-spacing-responsive-btns button[type="button"] {

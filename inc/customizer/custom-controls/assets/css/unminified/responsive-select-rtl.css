@@ -16,7 +16,7 @@
     padding-bottom: 2px;
 }
 
-.customize-control select:focus, .ast-variant-select > div, .customize-control input:focus {
+.customize-control select:focus, .ast-variant-select > div:focus, .customize-control input:focus {
 	border-color: var(--wp-admin-theme-color);
 	color: #0a4b78;
 	box-shadow: 0 0 0 1px var(--wp-admin-theme-color);
