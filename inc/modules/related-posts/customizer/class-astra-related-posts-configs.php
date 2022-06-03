@@ -694,21 +694,29 @@ class Astra_Related_Posts_Configs extends Astra_Customizer_Config_Base {
 			/**
 			 * Option: Related Posts Title Font Size
 			 */
+	
 			array(
-				'name'        => 'related-posts-title-font-size',
-				'parent'      => ASTRA_THEME_SETTINGS . '[related-posts-title-typography-group]',
-				'section'     => 'section-blog-single',
-				'type'        => 'sub-control',
-				'control'     => 'ast-responsive',
-				'default'     => astra_get_option( 'related-posts-title-font-size' ),
-				'transport'   => 'postMessage',
-				'title'       => __( 'Size', 'astra' ),
-				'input_attrs' => array(
-					'min' => 0,
-				),
-				'units'       => array(
-					'px' => 'px',
-					'em' => 'em',
+				'name'              => 'related-posts-title-font-size',
+				'parent'            => ASTRA_THEME_SETTINGS . '[related-posts-title-typography-group]',
+				'section'           => 'section-blog-single',
+				'type'              => 'sub-control',
+				'control'           => 'ast-responsive-slider',
+				'default'           => astra_get_option( 'related-posts-title-font-size' ),
+				'transport'         => 'postMessage',
+				'title'             => __( 'Size', 'astra' ),
+				'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
+				'suffix'            => array( 'px', 'em' ),
+				'input_attrs'       => array(
+					'px' => array(
+						'min'  => 0,
+						'step' => 1,
+						'max'  => 100,
+					),
+					'em' => array(
+						'min'  => 0,
+						'step' => 1,
+						'max'  => 20,
+					),
 				),
 			),
 
@@ -788,21 +796,29 @@ class Astra_Related_Posts_Configs extends Astra_Customizer_Config_Base {
 			/**
 			 * Option: Related Posts Title Font Size
 			 */
+
 			array(
-				'name'        => 'related-posts-section-title-font-size',
-				'parent'      => ASTRA_THEME_SETTINGS . '[related-posts-section-title-typography-group]',
-				'section'     => 'section-blog-single',
-				'type'        => 'sub-control',
-				'control'     => 'ast-responsive',
-				'default'     => astra_get_option( 'related-posts-section-title-font-size' ),
-				'transport'   => 'postMessage',
-				'title'       => __( 'Size', 'astra' ),
-				'input_attrs' => array(
-					'min' => 0,
-				),
-				'units'       => array(
-					'px' => 'px',
-					'em' => 'em',
+				'name'              => 'related-posts-section-title-font-size',
+				'parent'            => ASTRA_THEME_SETTINGS . '[related-posts-section-title-typography-group]',
+				'section'           => 'section-blog-single',
+				'type'              => 'sub-control',
+				'control'           => 'ast-responsive-slider',
+				'default'           => astra_get_option( 'related-posts-section-title-font-size' ),
+				'transport'         => 'postMessage',
+				'title'             => __( 'Size', 'astra' ),
+				'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
+				'suffix'            => array( 'px', 'em' ),
+				'input_attrs'       => array(
+					'px' => array(
+						'min'  => 0,
+						'step' => 1,
+						'max'  => 100,
+					),
+					'em' => array(
+						'min'  => 0,
+						'step' => 1,
+						'max'  => 20,
+					),
 				),
 			),
 
@@ -882,21 +898,29 @@ class Astra_Related_Posts_Configs extends Astra_Customizer_Config_Base {
 			/**
 			 * Option: Related Posts Meta Font Size
 			 */
+
 			array(
-				'name'        => 'related-posts-meta-font-size',
-				'parent'      => ASTRA_THEME_SETTINGS . '[related-posts-meta-typography-group]',
-				'section'     => 'section-blog-single',
-				'type'        => 'sub-control',
-				'control'     => 'ast-responsive',
-				'default'     => astra_get_option( 'related-posts-meta-font-size' ),
-				'transport'   => 'postMessage',
-				'title'       => __( 'Size', 'astra' ),
-				'input_attrs' => array(
-					'min' => 0,
-				),
-				'units'       => array(
-					'px' => 'px',
-					'em' => 'em',
+				'name'              => 'related-posts-meta-font-size',
+				'parent'            => ASTRA_THEME_SETTINGS . '[related-posts-meta-typography-group]',
+				'section'           => 'section-blog-single',
+				'type'              => 'sub-control',
+				'control'           => 'ast-responsive-slider',
+				'default'           => astra_get_option( 'related-posts-meta-font-size' ),
+				'transport'         => 'postMessage',
+				'title'             => __( 'Size', 'astra' ),
+				'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
+				'suffix'            => array( 'px', 'em' ),
+				'input_attrs'       => array(
+					'px' => array(
+						'min'  => 0,
+						'step' => 1,
+						'max'  => 100,
+					),
+					'em' => array(
+						'min'  => 0,
+						'step' => 1,
+						'max'  => 20,
+					),
 				),
 			),
 
@@ -976,23 +1000,31 @@ class Astra_Related_Posts_Configs extends Astra_Customizer_Config_Base {
 			/**
 			 * Option: Related Posts Content Font Size
 			 */
+
 			array(
-				'name'        => 'related-posts-content-font-size',
-				'parent'      => ASTRA_THEME_SETTINGS . '[related-posts-content-typography-group]',
-				'section'     => 'section-blog-single',
-				'type'        => 'sub-control',
-				'control'     => 'ast-responsive',
-				'default'     => astra_get_option( 'related-posts-content-font-size' ),
-				'transport'   => 'postMessage',
-				'title'       => __( 'Size', 'astra' ),
-				'input_attrs' => array(
-					'min' => 0,
+				'name'              => 'related-posts-content-font-size',
+				'parent'            => ASTRA_THEME_SETTINGS . '[related-posts-content-typography-group]',
+				'section'           => 'section-blog-single',
+				'type'              => 'sub-control',
+				'control'           => 'ast-responsive-slider',
+				'default'           => astra_get_option( 'related-posts-content-font-size' ),
+				'transport'         => 'postMessage',
+				'title'             => __( 'Size', 'astra' ),
+				'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
+				'suffix'            => array( 'px', 'em' ),
+				'input_attrs'       => array(
+					'px' => array(
+						'min'  => 0,
+						'step' => 1,
+						'max'  => 100,
+					),
+					'em' => array(
+						'min'  => 0,
+						'step' => 1,
+						'max'  => 20,
+					),
 				),
-				'units'       => array(
-					'px' => 'px',
-					'em' => 'em',
-				),
-			),
+			), 
 
 			/**
 			 * Option: Related Posts Content Font Weight

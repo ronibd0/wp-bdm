@@ -310,24 +310,31 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					),
 
 					// Option: Menu Font Size.
+
 					array(
-						'name'        => 'footer-menu-font-size',
-						'default'     => astra_get_option( 'footer-menu-font-size' ),
-						'parent'      => ASTRA_THEME_SETTINGS . '[footer-menu-typography]',
-						'section'     => $_section,
-						'type'        => 'sub-control',
-						'priority'    => 23,
-						'title'       => __( 'Size', 'astra' ),
-						'control'     => 'ast-responsive',
-						'transport'   => 'postMessage',
-						'input_attrs' => array(
-							'min' => 0,
+						'name'              => 'footer-menu-font-size',
+						'default'           => astra_get_option( 'footer-menu-font-size' ),
+						'parent'            => ASTRA_THEME_SETTINGS . '[footer-menu-typography]',
+						'section'           => $_section,
+						'type'              => 'sub-control',
+						'priority'          => 23,
+						'title'             => __( 'Size', 'astra' ),
+						'transport'         => 'postMessage',
+						'control'           => 'ast-responsive-slider',
+						'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
+						'suffix'            => array( 'px', 'em' ),
+						'input_attrs'       => array(
+							'px' => array(
+								'min'  => 0,
+								'step' => 1,
+								'max'  => 100,
+							),
+							'em' => array(
+								'min'  => 0,
+								'step' => 1,
+								'max'  => 20,
+							),
 						),
-						'units'       => array(
-							'px' => 'px',
-							'em' => 'em',
-						),
-						'context'     => Astra_Builder_Helper::$general_tab,
 					),
 				);
 			} else {
@@ -335,23 +342,31 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 				$new_configs = array(
 
 					// Option: Menu Font Size.
+
 					array(
-						'name'        => ASTRA_THEME_SETTINGS . '[footer-menu-font-size]',
-						'default'     => astra_get_option( 'footer-menu-font-size' ),
-						'section'     => $_section,
-						'type'        => 'control',
-						'priority'    => 120,
-						'title'       => __( 'Menu Font Size', 'astra' ),
-						'control'     => 'ast-responsive',
-						'transport'   => 'postMessage',
-						'input_attrs' => array(
-							'min' => 0,
+						'name'              => ASTRA_THEME_SETTINGS . '[footer-menu-font-size]',
+						'default'           => astra_get_option( 'footer-menu-font-size' ),
+						'section'           => $_section,
+						'control'           => 'ast-responsive-slider',
+						'context'           => Astra_Builder_Helper::$design_tab,
+						'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
+						'type'              => 'control',
+						'transport'         => 'postMessage',
+						'title'             => __( 'Menu Font Size', 'astra' ),
+						'priority'          => 120,
+						'suffix'            => array( 'px', 'em' ),
+						'input_attrs'       => array(
+							'px' => array(
+								'min'  => 0,
+								'step' => 1,
+								'max'  => 100,
+							),
+							'em' => array(
+								'min'  => 0,
+								'step' => 1,
+								'max'  => 20,
+							),
 						),
-						'units'       => array(
-							'px' => 'px',
-							'em' => 'em',
-						),
-						'context'     => Astra_Builder_Helper::$design_tab,
 					),
 				);
 			}

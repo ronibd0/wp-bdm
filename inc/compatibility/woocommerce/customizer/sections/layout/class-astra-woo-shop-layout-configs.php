@@ -33,6 +33,21 @@ if ( ! class_exists( 'Astra_Woo_Shop_Layout_Configs' ) ) {
 			$_configs = array(
 
 				/**
+				 * Link to the Shop banner stcrure.
+				 */
+				array(
+					'name'           => ASTRA_THEME_SETTINGS . '[wc-shop-banner-section-link]',
+					'type'           => 'control',
+					'control'        => 'ast-customizer-link',
+					'section'        => 'woocommerce_product_catalog',
+					'priority'       => 1,
+					'link_type'      => 'section',
+					'is_button_link' => true,
+					'linked'         => 'ast-archive-product',
+					'link_text'      => __( 'Archive Title Section', 'astra' ),
+				),
+
+				/**
 				 * Option: Shop Columns
 				 */
 				array(
@@ -47,7 +62,7 @@ if ( ! class_exists( 'Astra_Woo_Shop_Layout_Configs' ) ) {
 							'desktop' => 4,
 							'tablet'  => 3,
 							'mobile'  => 2,
-						) 
+						)
 					),
 					'priority'          => 11,
 					'title'             => __( 'Shop Columns', 'astra' ),
@@ -133,12 +148,13 @@ if ( ! class_exists( 'Astra_Woo_Shop_Layout_Configs' ) ) {
 					'control'  => 'ast-select',
 					'section'  => 'woocommerce_product_catalog',
 					'default'  => astra_get_option( 'shop-archive-width' ),
-					'priority' => 11,
+					'priority' => 10,
 					'title'    => __( 'Shop Archive Content Width', 'astra' ),
 					'choices'  => array(
 						'default' => __( 'Default', 'astra' ),
 						'custom'  => __( 'Custom', 'astra' ),
 					),
+					'divider'  => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				/**

@@ -86,22 +86,30 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Typo_Configs' ) ) {
 				/**
 				 * Option: Font Size
 				 */
+
 				array(
-					'name'        => 'breadcrumb-font-size',
-					'control'     => 'ast-responsive',
-					'type'        => 'sub-control',
-					'parent'      => ASTRA_THEME_SETTINGS . '[section-breadcrumb-typo]',
-					'section'     => 'section-breadcrumb',
-					'default'     => astra_get_option( 'breadcrumb-font-size' ),
-					'transport'   => 'postMessage',
-					'title'       => __( 'Size', 'astra' ),
-					'priority'    => 10,
-					'input_attrs' => array(
-						'min' => 0,
-					),
-					'units'       => array(
-						'px' => 'px',
-						'em' => 'em',
+					'name'              => 'breadcrumb-font-size',
+					'parent'            => ASTRA_THEME_SETTINGS . '[section-breadcrumb-typo]',
+					'type'              => 'sub-control',
+					'control'           => 'ast-responsive-slider',
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
+					'section'           => 'section-breadcrumb',
+					'transport'         => 'postMessage',
+					'title'             => __( 'Size', 'astra' ),
+					'priority'          => 10,
+					'default'           => astra_get_option( 'breadcrumb-font-size' ),
+					'suffix'            => array( 'px', 'em' ),
+					'input_attrs'       => array(
+						'px' => array(
+							'min'  => 0,
+							'step' => 1,
+							'max'  => 100,
+						),
+						'em' => array(
+							'min'  => 0,
+							'step' => 1,
+							'max'  => 20,
+						),
 					),
 				),
 

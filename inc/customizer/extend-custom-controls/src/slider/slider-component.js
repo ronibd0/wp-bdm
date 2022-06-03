@@ -86,6 +86,7 @@ const SliderComponent = props => {
 
 		{labelHtml}
 		{descriptionHtml}
+		{ suffixHtml }
 		{ renderOperationButtons() }
 		<div className="wrapper">
 			<RangeControl
@@ -96,7 +97,6 @@ const SliderComponent = props => {
 				max={ max || 500 }
 				step={ step || 1 }
 			/>
-			{ suffixHtml }
 		</div>
 	</div>;
 };

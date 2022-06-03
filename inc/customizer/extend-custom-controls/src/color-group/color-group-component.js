@@ -379,8 +379,8 @@ const ColorGroupComponent = props => {
 				{htmlLabel}
 				{htmlHelp}
 			</label>
-		</div>
 			{ responsiveHtml }
+		</div>
 			{ renderResetButton() }
 		<div className="ast-field-color-group-wrap">
 			{optionsHtml}

@@ -84,6 +84,7 @@
 	float: left;
 	margin-left: 12px;
 	position: relative;
+	box-shadow: 0 0 0 1px #ddd;
 }
 
 #customize-control-astra-color-palettes .ast-color-palette-wrapper {
@@ -117,9 +118,6 @@
 	}
 }
 
-#customize-control-astra-color-palettes .ast-color-palette-wrap:hover{
-    box-shadow: 0 0 0 2px #eeeeee;
-}
 #customize-control-astra-color-palettes .ast-color-palette-wrap.active{
     outline: none;
     box-shadow: 0 0 0 2px #0574bd;
