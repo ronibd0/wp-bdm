@@ -117,13 +117,14 @@ if ( ! class_exists( 'Astra_Woo_Shop_Layout_Configs' ) ) {
 					'name'           => ASTRA_THEME_SETTINGS . '[shop-skin-section-link]',
 					'type'           => 'control',
 					'control'        => 'ast-customizer-link',
-					'section'  => 'woocommerce_product_catalog',
+					'section'        => 'woocommerce_product_catalog',
+					'panel'          => 'woocommerce',
 					'priority'       => 10,
 					'is_button_link' => true,
-					'link_type' => 'section',
-					'linked'    => 'section-woo-shop-skin',
+					'link_type'      => 'section',
+					'linked'         => 'section-woo-shop-skin',
 					'link_text'      => __( 'Shop Skin Layout', 'astra' ),
-					'divider'           => array( 'ast_class' => 'ast-top-divider' ),
+					'divider'        => array( 'ast_class' => 'ast-top-divider' ),
 				),
 
 				/**
