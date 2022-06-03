@@ -131,20 +131,21 @@ if ( ! class_exists( 'Astra_Woo_Shop_Layout_Configs' ) ) {
 				 * Option: Shop Archive Content Width
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[shop-archive-width]',
-					'type'     => 'control',
-					'control'  => 'ast-selector',
-					'renderAs'   => 'text',
-					'responsive' => false,
-					'section'  => 'section-woo-shop-skin',
-					'default'  => astra_get_option( 'shop-archive-width' ),
-					'priority' => 10,
-					'title'    => __( 'Shop Archive Content Width', 'astra' ),
-					'choices'  => array(
+					'name'       => ASTRA_THEME_SETTINGS . '[shop-archive-width]',
+					'type'       => 'control',
+					'control'    => 'ast-selector',
+					'section'    => 'section-woo-shop-skin',
+					'default'    => astra_get_option( 'shop-archive-width' ),
+					'priority'   => 10,
+					'title'      => __( 'Shop Archive Content Width', 'astra' ),
+					'choices'    => array(
 						'default' => __( 'Default', 'astra' ),
 						'custom'  => __( 'Custom', 'astra' ),
 					),
-					'divider'  => array( 'ast_class' => 'ast-bottom-divider' ),
+					'transport'  => 'refresh',
+					'renderAs'   => 'text',
+					'responsive' => false,
+					'divider'    => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				/**

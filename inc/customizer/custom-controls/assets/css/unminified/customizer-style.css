@@ -27,7 +27,7 @@
 .customize-control:not(.customize-control-nav_menu_item) {
   position: relative;
   margin-bottom: 0;
-  margin-top: 16px;
+  margin-top: 20px;
 }
 
 [ID*="-builder-layout-ast-context-tabs"] {
@@ -78,6 +78,7 @@
   position: absolute;
   top: 0;
   right: 0;
+  color: #787c82;
 }
 
 .customize-control.customize-control-ast-toggle-control .ast-control-tooltip {
@@ -85,6 +86,14 @@
   top: 50%;
   right: 40px;
   transform: translateY(-50%);
+}
+
+.customize-control.customize-control-ast-toggle-control.ast-top-divider .ast-control-tooltip {
+  top: calc(50% + 15px);
+}
+
+.customize-control.customize-control-ast-toggle-control.ast-bottom-divider .ast-control-tooltip {
+  top: calc(50% - 11px);
 }
 
 .customize-control.customize-control-ast-toggle-control .ast-description-enabled .components-form-toggle {

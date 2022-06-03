@@ -2571,7 +2571,7 @@
 .customize-control:not(.customize-control-nav_menu_item) {
   position: relative;
   margin-bottom: 0;
-  margin-top: 16px;
+  margin-top: 20px;
 }
 
 [ID*="-builder-layout-ast-context-tabs"] {
@@ -2622,6 +2622,7 @@
   position: absolute;
   top: 0;
   left: 0;
+  color: #787c82;
 }
 
 .customize-control.customize-control-ast-toggle-control .ast-control-tooltip {
@@ -2629,6 +2630,14 @@
   top: 50%;
   left: 40px;
   transform: translateY(-50%);
+}
+
+.customize-control.customize-control-ast-toggle-control.ast-top-divider .ast-control-tooltip {
+  top: calc(50% + 15px);
+}
+
+.customize-control.customize-control-ast-toggle-control.ast-bottom-divider .ast-control-tooltip {
+  top: calc(50% - 11px);
 }
 
 .customize-control.customize-control-ast-toggle-control .ast-description-enabled .components-form-toggle {
@@ -3715,7 +3724,7 @@ input[type="text"].select2-search__field {
 .customize-control-ast-responsive-spacing .ast-spacing-responsive-btns > li.active {
   display: inline-block;
   position: relative;
-  top: -1px;
+  top: 2px;
 }
 
 .customize-control-ast-responsive-spacing .ast-spacing-responsive-btns button[type="button"] {
@@ -4344,13 +4353,14 @@ input[type="text"].select2-search__field {
 .ast-top-divider.customize-control-ast-settings-group .ast-toggle-desc-wrap .ast-adv-toggle-icon {
     top: 23px;
 }
+
 /**
  * Responsive slider control inside settings-group, case: body-font, headings-font.
  */
-.ast-fields-wrap .customize-control-ast-responsive-slider .ast-responsive-slider-btns {
-	top: 0;
-	left: 42px;
+ .ast-fields-wrap .customize-control-ast-responsive-slider .ast-slider-wrap > label {
+    display: inline-block;
 }
+
 
 .customize-control-ast-slider .wrapper {
   display: flex;
@@ -4599,7 +4609,7 @@ input[type="text"].select2-search__field {
     top: 0;
 }
 .customize-control-ast-sortable .ast-sortable-subfields-wrap .customize-control-title {
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     font-size: 13px;
     margin-top: 3px;
     display: block;
@@ -4792,7 +4802,7 @@ span.select2-container.select2-container--default.select2-container--open li.sel
 .customize-control:not(.customize-control-nav_menu_item) {
   position: relative;
   margin-bottom: 0;
-  margin-top: 16px;
+  margin-top: 20px;
 }
 
 [ID*="-builder-layout-ast-context-tabs"] {
@@ -4843,6 +4853,7 @@ span.select2-container.select2-container--default.select2-container--open li.sel
   position: absolute;
   top: 0;
   left: 0;
+  color: #787c82;
 }
 
 .customize-control.customize-control-ast-toggle-control .ast-control-tooltip {
@@ -4850,6 +4861,14 @@ span.select2-container.select2-container--default.select2-container--open li.sel
   top: 50%;
   left: 40px;
   transform: translateY(-50%);
+}
+
+.customize-control.customize-control-ast-toggle-control.ast-top-divider .ast-control-tooltip {
+  top: calc(50% + 15px);
+}
+
+.customize-control.customize-control-ast-toggle-control.ast-bottom-divider .ast-control-tooltip {
+  top: calc(50% - 11px);
 }
 
 .customize-control.customize-control-ast-toggle-control .ast-description-enabled .components-form-toggle {
@@ -6565,13 +6584,14 @@ input[type="text"].select2-search__field {
 .ast-top-divider.customize-control-ast-settings-group .ast-toggle-desc-wrap .ast-adv-toggle-icon {
     top: 23px;
 }
+
 /**
  * Responsive slider control inside settings-group, case: body-font, headings-font.
  */
-.ast-fields-wrap .customize-control-ast-responsive-slider .ast-responsive-slider-btns {
-	top: 0;
-	left: 42px;
+ .ast-fields-wrap .customize-control-ast-responsive-slider .ast-slider-wrap > label {
+    display: inline-block;
 }
+
 
 .customize-control-ast-slider .wrapper {
   display: flex;
@@ -6820,7 +6840,7 @@ input[type="text"].select2-search__field {
     top: 0;
 }
 .customize-control-ast-sortable .ast-sortable-subfields-wrap .customize-control-title {
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     font-size: 13px;
     margin-top: 3px;
     display: block;
