@@ -145,7 +145,6 @@ if ( ! class_exists( 'Astra_Woo_Shop_Layout_Configs' ) ) {
 					'transport'  => 'refresh',
 					'renderAs'   => 'text',
 					'responsive' => false,
-					'divider'    => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				/**
@@ -157,7 +156,7 @@ if ( ! class_exists( 'Astra_Woo_Shop_Layout_Configs' ) ) {
 					'control'     => 'ast-slider',
 					'section'     => 'section-woo-shop-skin',
 					'default'     => astra_get_option( 'shop-archive-max-width' ),
-					'priority'    => 11,
+					'priority'    => 10,
 					'title'       => __( 'Custom Width', 'astra' ),
 					'transport'   => 'postMessage',
 					'suffix'      => 'px',

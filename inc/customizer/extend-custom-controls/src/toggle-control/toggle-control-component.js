@@ -8,8 +8,6 @@ const AstToggleControl = props => {
   let htmlTitle = null;
   let htmlDescription = null;
 
-  console.log(props.control.params);
-
   const [props_value, setPropsValue] = useState(props.control.setting.get());
 
   if (props.control.params.title) {
