@@ -903,3 +903,27 @@ function astra_update_customizer_layout_defaults() {
 		update_option( 'astra-settings', $theme_options );
 	}
 }
+
+/**
+ * Set flag to avoid direct reflections on live site & to maintain backward compatibility for existing users.
+ *
+ * Backward flag purpose - To initiate maintain modern, updated v2 experience of block editor & frontend.
+ *
+ * @since x.x.x
+ * @return void
+ */
+function astra_apply_modern_block_editor_v2_ui() {
+	$theme_options  = get_option( 'astra-settings', array() );
+	$option_updated = false;
+	if ( ! isset( $theme_options['wp-blocks-v2-ui'] ) ) {
+		$theme_options['wp-blocks-v2-ui'] = false;
+		$option_updated                   = true;
+	}
+	if ( ! isset( $theme_options['wp-blocks-ui'] ) ) {
+		$theme_options['wp-blocks-ui'] = 'custom';
+		$option_updated                = true;
+	}
+	if ( $option_updated ) {
+		update_option( 'astra-settings', $theme_options );
+	}
+}
