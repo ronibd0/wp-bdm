@@ -119,8 +119,8 @@ class Astra_WP_Editor_CSS {
 
 		$post_id     = astra_get_post_id();
 		$is_site_rtl = is_rtl();
-		$ltr_left = $is_site_rtl ? 'right' : 'left';
-		$ltr_right = $is_site_rtl ? 'left' : 'right';
+		$ltr_left    = $is_site_rtl ? 'right' : 'left';
+		$ltr_right   = $is_site_rtl ? 'left' : 'right';
 
 		$site_content_width          = astra_get_option( 'site-content-width', 1200 );
 		$headings_font_family        = astra_get_option( 'headings-font-family' );
