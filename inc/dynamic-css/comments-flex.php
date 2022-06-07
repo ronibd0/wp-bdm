@@ -193,7 +193,7 @@ function astra_comments_css( $dynamic_css ) {
           }';
 
 		$update_customizer_strctural_defaults = astra_get_option( 'customizer-default-layout-update', true );
-		if( false === $update_customizer_strctural_defaults ) {
+		if ( false === $update_customizer_strctural_defaults ) {
 			$single_post_comment_css .= '.ast-separate-container .ast-comment-list li.depth-1 {
 					padding: 4em 6.67em;
 					margin-bottom: 2em;
@@ -395,7 +395,7 @@ function astra_comments_css( $dynamic_css ) {
 			),
 		);
 
-		if( false === $update_customizer_strctural_defaults ) {
+		if ( false === $update_customizer_strctural_defaults ) {
 			$global_button_comment_tablet['.ast-separate-container .comments-title'] = array(
 				'padding' => '1.43em 1.48em',
 			);

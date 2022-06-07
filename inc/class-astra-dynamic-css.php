@@ -1572,7 +1572,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				'.ast-separate-container #primary, .ast-separate-container #secondary' => array(
 					'padding' => '1.5em 0',
 				),
-				'#primary, #secondary'       => array(
+				'#primary, #secondary' => array(
 					'padding' => '1.5em 0',
 					'margin'  => 0,
 				),
@@ -1584,26 +1584,26 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			);
 
 			$update_customizer_strctural_defaults = astra_get_option( 'customizer-default-layout-update', true );
-			if( true === $update_customizer_strctural_defaults ) {
+			if ( true === $update_customizer_strctural_defaults ) {
 				$default_layout_update_css = array(
-					'#page' => array(
-						'display' => 'flex',
+					'#page'                         => array(
+						'display'        => 'flex',
 						'flex-direction' => 'column',
-						'min-height' => '100vh',
+						'min-height'     => '100vh',
 					),
-					'#page .site-content' => array(
+					'#page .site-content'           => array(
 						'flex-grow' => '1',
 					),
-					'.widget' => array(
+					'.widget'                       => array(
 						'margin-bottom' => '3.5em',
 					),
-					'#secondary li' => array(
+					'#secondary li'                 => array(
 						'line-height' => '1.5em',
 					),
 					'#secondary .wp-block-group h2' => array(
 						'margin-bottom' => '0.7em',
 					),
-					'#secondary h2' => array(
+					'#secondary h2'                 => array(
 						'font-size' => '1.7rem',
 					),
 					'.ast-separate-container .ast-article-post, .ast-separate-container .ast-article-single, .ast-separate-container .ast-comment-list li.depth-1, .ast-separate-container .comment-respond' => array(
@@ -1611,32 +1611,32 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					),
 					'.ast-separate-container .ast-archive-description, .ast-separate-container .ast-author-box' => array(
 						'background-color' => 'var(--ast-global-color-5)',
-						'border-bottom' => '1px solid var(--ast-global-color-6)',
+						'border-bottom'    => '1px solid var(--ast-global-color-6)',
 					),
 					'.ast-separate-container .comments-title' => array(
 						'padding' => '2em 2em 0 2em',
 					),
-					'.entry-title' => array(
+					'.entry-title'                  => array(
 						'margin-bottom' => '0.5em',
 					),
 				);
 				/* Parse CSS from array() -> Desktop CSS */
 				$parse_css .= astra_parse_css( $default_layout_update_css );
 
-				if( is_user_logged_in() ) {
+				if ( is_user_logged_in() ) {
 					$admin_bar_specific_page_css = array(
 						'.admin-bar #page' => array(
 							'min-height' => 'calc(100vh - 32px)',
 						),
 					);
-					$parse_css .= astra_parse_css( $admin_bar_specific_page_css );
+					$parse_css                  .= astra_parse_css( $admin_bar_specific_page_css );
 
 					$admin_bar_responsive_page_css = array(
 						'.admin-bar #page' => array(
 							'min-height' => 'calc(100vh - 46px)',
 						),
 					);
-					$parse_css .= astra_parse_css( $admin_bar_responsive_page_css, '', '782' );
+					$parse_css                    .= astra_parse_css( $admin_bar_responsive_page_css, '', '782' );
 				}
 
 				$default_medium_layout_css = array(
@@ -1655,15 +1655,15 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						),
 					);
 					/* Parse CSS from array() -> Desktop CSS */
-					$parse_css .= astra_parse_css( $default_author_css );
+					$parse_css                    .= astra_parse_css( $default_author_css );
 					$default_tablet_min_author_css = array(
 						'.ast-author-box img.avatar' => array(
-							'width' => '100px',
+							'width'  => '100px',
 							'height' => '100px',
 						),
 					);
 					/* Parse CSS from array() -> min-width: (tablet-breakpoint) CSS */
-					$parse_css .= astra_parse_css( $default_tablet_min_author_css, astra_get_tablet_breakpoint() );
+					$parse_css                             .= astra_parse_css( $default_tablet_min_author_css, astra_get_tablet_breakpoint() );
 					$default_tablet_min_extra_px_author_css = array(
 						'.ast-author-box' => array(
 							'align-items' => 'center',

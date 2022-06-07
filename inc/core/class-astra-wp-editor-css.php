@@ -516,7 +516,7 @@ class Astra_WP_Editor_CSS {
 
 			$desktop_css['.editor-styles-wrapper .wp-block-latest-posts > li > a'] = array(
 				'text-decoration' => 'none',
-				'font-size' => '1.25rem',
+				'font-size'       => '1.25rem',
 			);
 			$desktop_css['.ast-separate-container .editor-styles-wrapper .block-editor-block-list__layout.is-root-container .alignwide, .ast-plain-container .editor-styles-wrapper .block-editor-block-list__layout.is-root-container .alignwide'] = array(
 				'margin-left'  => $alignwide_left_negative_margin,
@@ -540,7 +540,7 @@ class Astra_WP_Editor_CSS {
 				'margin-left'  => 'auto', // phpcs:ignore WordPress.Arrays.ArrayIndentation.ItemNotAligned
 			); // phpcs:ignore WordPress.Arrays.ArrayIndentation.CloseBraceNotAligned
 		} else {
-			$desktop_css[ '.editor-styles-wrapper .wp-block-latest-posts > li > a' ] = array(
+			$desktop_css['.editor-styles-wrapper .wp-block-latest-posts > li > a'] = array(
 				'text-decoration' => 'none',
 				'color'           => esc_attr( $heading_base_color ),
 			);

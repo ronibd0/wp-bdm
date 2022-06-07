@@ -102,7 +102,7 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 			 *
 			 * @since 3.6.3
 			 */
-			$apply_new_default_values = astra_button_default_padding_updated();
+			$apply_new_default_values  = astra_button_default_padding_updated();
 			$is_new_strctural_defaults = astra_get_option( 'customizer-default-layout-update', true );
 
 			// Defaults list of options.
