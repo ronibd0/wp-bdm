@@ -119,8 +119,8 @@ class Astra_WP_Editor_CSS {
 
 		$post_id     = astra_get_post_id();
 		$is_site_rtl = is_rtl();
-		$ltr_left = $is_site_rtl ? 'right' : 'left';
-		$ltr_right = $is_site_rtl ? 'left' : 'right';
+		$ltr_left    = $is_site_rtl ? 'right' : 'left';
+		$ltr_right   = $is_site_rtl ? 'left' : 'right';
 
 		$site_content_width          = astra_get_option( 'site-content-width', 1200 );
 		$headings_font_family        = astra_get_option( 'headings-font-family' );
@@ -536,10 +536,10 @@ class Astra_WP_Editor_CSS {
 
 			$desktop_css['.ast-page-builder-template .is-root-container > .inherit-container-width > *, .ast-page-builder-template .is-root-container > * > :where(:not(.alignleft):not(.alignright)), .is-root-container .wp-block-cover .wp-block-cover__inner-container, .editor-styles-wrapper .is-root-container > .wp-block-cover .wp-block-cover__inner-container,
 			.is-root-container > .wp-block-cover .wp-block-cover__image-background'] = array(
-				'max-width'    => 'var(--wp--custom--ast-content-width-size)',
-				'margin-right' => 'auto',
-				'margin-left'  => 'auto',
-			);
+				'max-width'    => 'var(--wp--custom--ast-content-width-size)', // phpcs:ignore WordPress.Arrays.ArrayIndentation.ItemNotAligned
+				'margin-right' => 'auto', // phpcs:ignore WordPress.Arrays.ArrayIndentation.ItemNotAligned
+				'margin-left'  => 'auto', // phpcs:ignore WordPress.Arrays.ArrayIndentation.ItemNotAligned
+			); // phpcs:ignore WordPress.Arrays.ArrayIndentation.CloseBraceNotAligned
 		} else {
 			$desktop_css[ '.editor-styles-wrapper .wp-block-latest-posts > li > a' ] = array(
 				'text-decoration' => 'none',
