@@ -538,7 +538,7 @@ class Astra_WP_Editor_CSS {
 				'max-width'    => 'var(--wp--custom--ast-content-width-size)', // phpcs:ignore WordPress.Arrays.ArrayIndentation.ItemNotAligned
 				'margin-right' => 'auto', // phpcs:ignore WordPress.Arrays.ArrayIndentation.ItemNotAligned
 				'margin-left'  => 'auto', // phpcs:ignore WordPress.Arrays.ArrayIndentation.ItemNotAligned
-			); // phpcs:ignore WordPress.Arrays.ArrayIndentation.ItemNotAligned
+			); // phpcs:ignore WordPress.Arrays.ArrayIndentation.CloseBraceNotAligned
 		}
 
 		$tablet_css = array(
