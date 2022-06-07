@@ -190,17 +190,6 @@ function astra_comments_css( $dynamic_css ) {
       background-color: #fff;
       }
 
-      .ast-separate-container .ast-comment-list li.depth-1 {
-      padding: 4em 6.67em;
-      margin-bottom: 2em;
-      }
-
-      @media (max-width: 1200px) {
-      .ast-separate-container .ast-comment-list li.depth-1 {
-        padding: 3em 3.34em;
-      }
-      }
-
       .ast-separate-container .ast-comment-list li.depth-1 .children li {
       padding-bottom: 0;
       padding-top: 0;
@@ -252,11 +241,24 @@ function astra_comments_css( $dynamic_css ) {
       .comment-content a {
         word-wrap: break-word;
       }
-      
+
       .comment-form-legend {
         margin-bottom: unset;
         padding: 0 0.5em;
       }';
+
+	  if( false === Astra_Dynamic_CSS::update_customizer_strctural_layouts() ) {
+		$single_post_comment_css .= '.ast-separate-container .ast-comment-list li.depth-1 {
+			padding: 4em 6.67em;
+			margin-bottom: 2em;
+			}
+
+			@media (max-width: 1200px) {
+			.ast-separate-container .ast-comment-list li.depth-1 {
+			  padding: 3em 3.34em;
+			}
+			}';
+	  }
 
 		if ( $is_site_rtl ) {
 			$single_post_comment_css .= '

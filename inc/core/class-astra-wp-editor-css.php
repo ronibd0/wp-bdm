@@ -410,10 +410,6 @@ class Astra_WP_Editor_CSS {
 				'line-height'    => esc_attr( $headings_line_height ),
 				'color'          => esc_attr( $heading_base_color ),
 			),
-			'.editor-styles-wrapper .wp-block-latest-posts > li > a' => array(
-				'text-decoration' => 'none',
-				'color'           => esc_attr( $heading_base_color ),
-			),
 
 			// Headings H1 - H6 typography.
 			'.editor-styles-wrapper h1'        => array(
@@ -518,6 +514,11 @@ class Astra_WP_Editor_CSS {
 			$alignwide_left_negative_margin  = $astra_continer_left_spacing ? 'calc(-1 * min(' . $astra_continer_left_spacing . ', 40px))' : '-40px';
 			$alignwide_right_negative_margin = $astra_continer_right_spacing ? 'calc(-1 * min(' . $astra_continer_right_spacing . ', 40px))' : '-40px';
 
+			$desktop_css['.editor-styles-wrapper .wp-block-latest-posts > li > a'] = array(
+				'text-decoration' => 'none',
+				'font-size' => 'inherit',
+				'color'           => esc_attr( $link_color ),
+			);
 			$desktop_css['.ast-separate-container .editor-styles-wrapper .block-editor-block-list__layout.is-root-container .alignwide, .ast-plain-container .editor-styles-wrapper .block-editor-block-list__layout.is-root-container .alignwide'] = array(
 				'margin-left'  => $alignwide_left_negative_margin,
 				'margin-right' => $alignwide_right_negative_margin,
@@ -538,6 +539,11 @@ class Astra_WP_Editor_CSS {
 				'max-width'    => 'var(--wp--custom--ast-content-width-size)',
 				'margin-right' => 'auto',
 				'margin-left'  => 'auto',
+			);
+		} else {
+			$desktop_css[ '.editor-styles-wrapper .wp-block-latest-posts > li > a' ] = array(
+				'text-decoration' => 'none',
+				'color'           => esc_attr( $heading_base_color ),
 			);
 		}
 

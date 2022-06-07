@@ -103,10 +103,7 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 			 * @since 3.6.3
 			 */
 			$apply_new_default_values = astra_button_default_padding_updated();
-
-			$astra_settings        = get_option( 'astra-settings', true );
-			$is_new_default_layout = isset( $astra_settings['customizer-default-layout-update'] ) ? $astra_settings['customizer-default-layout-update'] : true;
-
+			$is_new_strctural_defaults = Astra_Dynamic_CSS::update_customizer_strctural_layouts();
 
 			// Defaults list of options.
 			self::$defaults = apply_filters(
@@ -416,7 +413,7 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 					),
 					// Container.
 					'site-content-layout'                  => 'content-boxed-container',
-					'single-page-content-layout'           => false === $is_new_default_layout ? 'default' : 'plain-container',
+					'single-page-content-layout'           => false === $is_new_strctural_defaults ? 'default' : 'plain-container',
 					'single-post-content-layout'           => 'default',
 					'archive-post-content-layout'          => 'default',
 					// Typography.
@@ -555,8 +552,8 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 					// Sidebar.
 					'site-sidebar-layout'                  => 'right-sidebar',
 					'site-sidebar-width'                   => 30,
-					'single-page-sidebar-layout'           => false === $is_new_default_layout ? 'default' : 'no-sidebar',
-					'single-post-sidebar-layout'           => false === $is_new_default_layout ? 'default' : 'no-sidebar',
+					'single-page-sidebar-layout'           => false === $is_new_strctural_defaults ? 'default' : 'no-sidebar',
+					'single-post-sidebar-layout'           => false === $is_new_strctural_defaults ? 'default' : 'no-sidebar',
 					'archive-post-sidebar-layout'          => 'default',
 
 					// Sidebar.

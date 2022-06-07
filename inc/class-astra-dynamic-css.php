@@ -1569,9 +1569,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			}
 
 			$static_layout_css = array(
-				'.ast-separate-container .ast-article-post, .ast-separate-container .ast-article-single' => array(
-					'padding' => '1.5em 2.14em',
-				),
 				'.ast-separate-container #primary, .ast-separate-container #secondary' => array(
 					'padding' => '1.5em 0',
 				),
@@ -1584,15 +1581,93 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'flex-direction' => 'column-reverse',
 					'width'          => '100%',
 				),
-				'.ast-author-box img.avatar' => array(
-					'margin' => '20px 0 0 0',
-				),
 			);
+
+			if( self::update_customizer_strctural_layouts() ) {
+				$default_layout_update_css = array(
+					'#page' => array(
+						'display' => 'flex',
+						'flex-direction' => 'column',
+						'min-height' => '100vh',
+					),
+					'#page .site-content' => array(
+						'flex-grow' => '1',
+					),
+					'.ast-separate-container .ast-article-post, .ast-separate-container .ast-article-single, .ast-separate-container .ast-comment-list li.depth-1, .ast-separate-container .comment-respond' => array(
+						'padding' => '3em',
+					),
+					'.ast-separate-container .comments-title' => array(
+						'padding' => '2em 2em 0 2em',
+					),
+					'.entry-title' => array(
+						'margin-bottom' => '0.5em',
+					),
+				);
+				/* Parse CSS from array() -> Desktop CSS */
+				$parse_css .= astra_parse_css( $default_layout_update_css );
+
+				if( is_user_logged_in() ) {
+					$admin_bar_specific_page_css = array(
+						'.admin-bar #page' => array(
+							'min-height' => 'calc(100vh - 32px)',
+						),
+					);
+					$parse_css .= astra_parse_css( $admin_bar_specific_page_css );
+
+					$admin_bar_responsive_page_css = array(
+						'.admin-bar #page' => array(
+							'min-height' => 'calc(100vh - 46px)',
+						),
+					);
+					$parse_css .= astra_parse_css( $admin_bar_responsive_page_css, '', '782' );
+				}
+
+				$default_medium_layout_css = array(
+					'.ast-separate-container .ast-article-post, .ast-separate-container .ast-article-single, .ast-separate-container .ast-archive-description, .ast-separate-container .ast-author-box' => array(
+						'padding' => '3em',
+					),
+				);
+
+				/* Parse CSS from array() -> min-width: 1201px CSS */
+				$parse_css .= astra_parse_css( $default_medium_layout_css, '1201' );
+
+				if ( is_author() ) {
+					$default_author_css = array(
+						'.ast-author-box img.avatar' => array(
+							'margin' => '0',
+						),
+					);
+					/* Parse CSS from array() -> Desktop CSS */
+					$parse_css .= astra_parse_css( $default_author_css );
+					$default_tablet_min_author_css = array(
+						'.ast-author-box img.avatar' => array(
+							'width' => '100px',
+							'height' => '100px',
+						),
+					);
+					/* Parse CSS from array() -> min-width: (tablet-breakpoint) CSS */
+					$parse_css .= astra_parse_css( $default_tablet_min_author_css, astra_get_tablet_breakpoint() );
+					$default_tablet_min_extra_px_author_css = array(
+						'.ast-author-box' => array(
+							'align-items' => 'center',
+						),
+					);
+					/* Parse CSS from array() -> min-width: (tablet-breakpoint + 1) CSS */
+					$parse_css .= astra_parse_css( $default_tablet_min_extra_px_author_css, astra_get_tablet_breakpoint( '', 1 ) );
+				}
+			} else {
+				$static_layout_css['.ast-separate-container .ast-article-post, .ast-separate-container .ast-article-single'] = array(
+					'padding' => '1.5em 2.14em',
+				);
+				$static_layout_css['.ast-author-box img.avatar'] = array(
+					'margin' => '20px 0 0 0',
+				);
+			}
 
 			/* Parse CSS from array() -> max-width: (tablet-breakpoint)px CSS */
 			$parse_css .= astra_parse_css( $static_layout_css, '', astra_get_tablet_breakpoint() );
 
-			if ( is_author() ) {
+			if ( is_author() && false === self::update_customizer_strctural_layouts() ) {
 				$parse_css .= astra_parse_css(
 					array(
 						'.ast-author-box img.avatar' => array(
@@ -3768,6 +3843,16 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$astra_settings                   = get_option( ASTRA_THEME_SETTINGS );
 			$unset_builder_elements_underline = isset( $astra_settings['unset-builder-elements-underline'] ) ? false : true;
 			return apply_filters( 'astra_unset_builder_elements_underline', $unset_builder_elements_underline );
+		}
+
+		/**
+		 * Check if preventing customizer new strctural defaults flag is set or not.
+		 *
+		 * @since x.x.x
+		 */
+		public static function update_customizer_strctural_layouts() {
+			$astra_settings                   = get_option( ASTRA_THEME_SETTINGS );
+			return isset( $astra_settings['customizer-default-layout-update'] ) ? false : true;
 		}
 
 		/**
