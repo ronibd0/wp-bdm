@@ -222,18 +222,6 @@ function astra_comments_css( $dynamic_css ) {
       padding: 0 0 0 2em;
       }
 
-      .ast-separate-container .comment-respond {
-      background-color: #fff;
-      padding: 4em 6.67em;
-      border-bottom: 0;
-      }
-
-     @media (max-width: 1200px) {
-       .ast-separate-container .comment-respond {
-         padding: 3em 2.34em;
-       }
-     }
-
       .ast-separate-container .comment-reply-title {
         padding-top: 0;
       }
@@ -247,17 +235,27 @@ function astra_comments_css( $dynamic_css ) {
         padding: 0 0.5em;
       }';
 
-	  if( false === Astra_Dynamic_CSS::update_customizer_strctural_layouts() ) {
+	  if( false === astra_get_option( 'customizer-default-layout-update', true ) ) {
 		$single_post_comment_css .= '.ast-separate-container .ast-comment-list li.depth-1 {
-			padding: 4em 6.67em;
-			margin-bottom: 2em;
+				padding: 4em 6.67em;
+				margin-bottom: 2em;
 			}
-
 			@media (max-width: 1200px) {
-			.ast-separate-container .ast-comment-list li.depth-1 {
-			  padding: 3em 3.34em;
+				.ast-separate-container .ast-comment-list li.depth-1 {
+				padding: 3em 3.34em;
+				}
 			}
-			}';
+			.ast-separate-container .comment-respond {
+				background-color: #fff;
+				padding: 4em 6.67em;
+				border-bottom: 0;
+			}
+			@media (max-width: 1200px) {
+				.ast-separate-container .comment-respond {
+					padding: 3em 2.34em;
+				}
+			}
+			';
 	  }
 
 		if ( $is_site_rtl ) {

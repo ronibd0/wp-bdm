@@ -1583,7 +1583,8 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				),
 			);
 
-			if( self::update_customizer_strctural_layouts() ) {
+			$update_customizer_strctural_defaults = astra_get_option( 'customizer-default-layout-update', true );
+			if( true === $update_customizer_strctural_defaults ) {
 				$default_layout_update_css = array(
 					'#page' => array(
 						'display' => 'flex',
@@ -1593,8 +1594,24 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'#page .site-content' => array(
 						'flex-grow' => '1',
 					),
+					'.widget' => array(
+						'margin-bottom' => '3.5em',
+					),
+					'#secondary li' => array(
+						'line-height' => '1.5em',
+					),
+					'#secondary .wp-block-group h2' => array(
+						'margin-bottom' => '0.7em',
+					),
+					'#secondary h2' => array(
+						'font-size' => '1.7rem',
+					),
 					'.ast-separate-container .ast-article-post, .ast-separate-container .ast-article-single, .ast-separate-container .ast-comment-list li.depth-1, .ast-separate-container .comment-respond' => array(
 						'padding' => '3em',
+					),
+					'.ast-separate-container .ast-archive-description, .ast-separate-container .ast-author-box' => array(
+						'background-color' => 'var(--ast-global-color-5)',
+						'border-bottom' => '1px solid var(--ast-global-color-6)',
 					),
 					'.ast-separate-container .comments-title' => array(
 						'padding' => '2em 2em 0 2em',
@@ -1667,7 +1684,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			/* Parse CSS from array() -> max-width: (tablet-breakpoint)px CSS */
 			$parse_css .= astra_parse_css( $static_layout_css, '', astra_get_tablet_breakpoint() );
 
-			if ( is_author() && false === self::update_customizer_strctural_layouts() ) {
+			if ( is_author() && false === $update_customizer_strctural_defaults ) {
 				$parse_css .= astra_parse_css(
 					array(
 						'.ast-author-box img.avatar' => array(
@@ -3843,16 +3860,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$astra_settings                   = get_option( ASTRA_THEME_SETTINGS );
 			$unset_builder_elements_underline = isset( $astra_settings['unset-builder-elements-underline'] ) ? false : true;
 			return apply_filters( 'astra_unset_builder_elements_underline', $unset_builder_elements_underline );
-		}
-
-		/**
-		 * Check if preventing customizer new strctural defaults flag is set or not.
-		 *
-		 * @since x.x.x
-		 */
-		public static function update_customizer_strctural_layouts() {
-			$astra_settings                   = get_option( ASTRA_THEME_SETTINGS );
-			return isset( $astra_settings['customizer-default-layout-update'] ) ? false : true;
 		}
 
 		/**

@@ -516,8 +516,7 @@ class Astra_WP_Editor_CSS {
 
 			$desktop_css['.editor-styles-wrapper .wp-block-latest-posts > li > a'] = array(
 				'text-decoration' => 'none',
-				'font-size' => 'inherit',
-				'color'           => esc_attr( $link_color ),
+				'font-size' => '1.25rem',
 			);
 			$desktop_css['.ast-separate-container .editor-styles-wrapper .block-editor-block-list__layout.is-root-container .alignwide, .ast-plain-container .editor-styles-wrapper .block-editor-block-list__layout.is-root-container .alignwide'] = array(
 				'margin-left'  => $alignwide_left_negative_margin,

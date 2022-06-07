@@ -337,15 +337,8 @@ function astra_load_modern_block_editor_ui( $dynamic_css ) {
 	.wp-block-latest-posts > li > *:first-child, .wp-block-latest-posts:not(.is-grid) > li:first-child {
 		margin-top: 0;
 	}
-	.wp-block-latest-posts > li > *, .wp-block-latest-posts:not(.is-grid) > li {
-		margin-top: 15px;
-		margin-bottom: 15px;
-	}
 	.wp-block-latest-posts > li > *:last-child, .wp-block-latest-posts:not(.is-grid) > li:last-child {
 		margin-bottom: 0;
-	}
-	.wp-block-latest-posts .wp-block-latest-posts__post-date, .wp-block-latest-posts .wp-block-latest-posts__post-author {
-		font-size: 15px;
 	}
 	';
 
@@ -362,9 +355,21 @@ function astra_load_modern_block_editor_ui( $dynamic_css ) {
 		$alignwide_1200_right_negative_margin = $astra_continer_right_spacing ? 'calc(-1 * min(' . $astra_continer_right_spacing . ', 20px))' : '-20px';
 
 		$dynamic_css .= '
-			.wp-block-latest-posts > li > a{
-				font-size: inherit;
-				color: var(--ast-global-color-0);
+			input[type=search]{
+				padding: 0 10px;
+				color: var(--ast-global-color-3);
+				background: var(--ast-global-color-5);
+				border-color: #e5e5e5;
+			}
+			.wp-block-latest-posts .wp-block-latest-posts__post-title {
+				font-size: 1.25rem;
+			}
+			.wp-block-latest-posts .wp-block-latest-posts__post-date, .wp-block-latest-posts .wp-block-latest-posts__post-author {
+				font-size: 1rem;
+			}
+			.wp-block-latest-posts > li > *, .wp-block-latest-posts:not(.is-grid) > li {
+				margin-top: 12px;
+				margin-bottom: 12px;
 			}
 			.ast-page-builder-template .entry-content[ast-blocks-layout] > *, .ast-page-builder-template .entry-content[ast-blocks-layout] > .alignfull > * {
 				max-width: none;
@@ -410,6 +415,13 @@ function astra_load_modern_block_editor_ui( $dynamic_css ) {
 		$dynamic_css .= '
 			.wp-block-latest-posts > li > a {
 				font-size: 28px;
+			}
+			.wp-block-latest-posts > li > *, .wp-block-latest-posts:not(.is-grid) > li {
+				margin-top: 15px;
+				margin-bottom: 15px;
+			}
+			.wp-block-latest-posts .wp-block-latest-posts__post-date, .wp-block-latest-posts .wp-block-latest-posts__post-author {
+				font-size: 15px;
 			}
 		';
 	}
