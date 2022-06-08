@@ -90,9 +90,8 @@ class Astra_Gutenberg {
 			return $block_content;
 		}
 
-		if ( 'core/group' === $block['blockName'] && !empty($block['attrs']) && isset($block['attrs']['layout']) && isset($block['attrs']['layout']['type']) && 'flex' === $block['attrs']['layout']['type'] )
-		{
-   			 return $block_content;
+		if ( 'core/group' === $block['blockName'] && ! empty( $block['attrs'] ) && isset( $block['attrs']['layout'] ) && isset( $block['attrs']['layout']['type'] ) && 'flex' === $block['attrs']['layout']['type'] ) {
+			 return $block_content;
 		}
 
 
