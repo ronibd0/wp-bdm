@@ -1,5 +1,5 @@
 v3.8.3 (Unreleased)
-- Fix: Compatibility with WordPress 6.0 - Image block not aligned center for old users when Legacy option set from the Block Editor.
+- Fix: Fix: Image block not aligned centrally for Legacy block editor setup.
 
 v3.8.2
 - Fix: Improvements as per WordPress coding standards.
