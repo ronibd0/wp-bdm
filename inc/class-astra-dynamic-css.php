@@ -1586,25 +1586,32 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$update_customizer_strctural_defaults = astra_get_option( 'customizer-default-layout-update', true );
 			if ( true === $update_customizer_strctural_defaults ) {
 				$default_layout_update_css = array(
-					'#page'                         => array(
+					'#page'                               => array(
 						'display'        => 'flex',
 						'flex-direction' => 'column',
 						'min-height'     => '100vh',
 					),
-					'#page .site-content'           => array(
+					'.error404 .ast-container .error-404' => array(
+						'transform' => 'translateY(50%)',
+					),
+					'#page .site-content'                 => array(
 						'flex-grow' => '1',
 					),
-					'.widget'                       => array(
+					'.widget'                             => array(
 						'margin-bottom' => '3.5em',
 					),
-					'#secondary li'                 => array(
+					'#secondary li'                       => array(
 						'line-height' => '1.5em',
 					),
-					'#secondary .wp-block-group h2' => array(
+					'#secondary .wp-block-group h2'       => array(
 						'margin-bottom' => '0.7em',
 					),
-					'#secondary h2'                 => array(
+					'#secondary h2'                       => array(
 						'font-size' => '1.7rem',
+					),
+					'.ast-separate-container .post-navigation, .post-navigation a' => array(
+						'padding-left'  => '0',
+						'padding-right' => '0',
 					),
 					'.ast-separate-container .ast-article-post, .ast-separate-container .ast-article-single, .ast-separate-container .ast-comment-list li.depth-1, .ast-separate-container .comment-respond' => array(
 						'padding' => '3em',
@@ -1619,7 +1626,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'.ast-separate-container .comments-title' => array(
 						'padding' => '2em 2em 0 2em',
 					),
-					'.entry-title'                  => array(
+					'.entry-title'                        => array(
 						'margin-bottom' => '0.5em',
 					),
 				);
@@ -1645,6 +1652,9 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				$default_medium_layout_css = array(
 					'.ast-separate-container .ast-article-post, .ast-separate-container .ast-article-single, .ast-separate-container .ast-archive-description, .ast-separate-container .ast-author-box' => array(
 						'padding' => '3em',
+					),
+					'.error404 .ast-container .error-404' => array(
+						'transform' => 'translateY(25%)',
 					),
 				);
 

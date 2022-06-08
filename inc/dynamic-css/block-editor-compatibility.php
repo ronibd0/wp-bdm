@@ -364,6 +364,9 @@ function astra_load_modern_block_editor_ui( $dynamic_css ) {
 			.wp-block-latest-posts .wp-block-latest-posts__post-title {
 				font-size: 1.25rem;
 			}
+			#content .wp-block-latest-posts li:not(:last-child) {
+				margin-bottom: 1.5em;
+			}
 			.wp-block-latest-posts .wp-block-latest-posts__post-date, .wp-block-latest-posts .wp-block-latest-posts__post-author {
 				font-size: 1rem;
 			}
