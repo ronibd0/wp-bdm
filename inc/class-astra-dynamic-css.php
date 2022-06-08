@@ -1305,7 +1305,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					$parse_css .= astra_parse_css( $mobile_screen_max_gb_css, '', astra_get_mobile_breakpoint() );
 				}
 
-				$is_legacy_setup = ( 'legacy' === astra_get_option( 'wp-blocks-ui', 'custom' ) || true === astra_get_option( 'blocks-legacy-setup', false ) ) ? true : false;
+				$is_legacy_setup = ( 'legacy' === astra_get_option( 'wp-blocks-ui' ) ) ? true : false;
 				if ( $is_legacy_setup && astra_wp_version_compare( '6.0', '>=' ) ) {
 					// Image block align center CSS.
 					$image_block_center_align = array(
