@@ -1,5 +1,5 @@
 v3.8.3
-- Fix: Block editor -Content is not properly align in Row block.
+- Fix: Block editor and frontend layout mismatch for Row block.
 
 v3.8.2
 - Fix: Improvements as per WordPress coding standards.
