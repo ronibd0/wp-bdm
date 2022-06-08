@@ -1,3 +1,6 @@
+v3.8.3
+- Fix: Block editor -Content is not properly align in Row block.
+
 v3.8.2
 - Fix: Improvements as per WordPress coding standards.
 - Fix: Compatibility with WordPress 6.0 - Image block not aligned center when Legacy option set from the Block Editor.
