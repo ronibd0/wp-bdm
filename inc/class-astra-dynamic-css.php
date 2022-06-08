@@ -1609,10 +1609,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'#secondary h2'                       => array(
 						'font-size' => '1.7rem',
 					),
-					'.ast-separate-container .post-navigation, .post-navigation a' => array(
-						'padding-left'  => '0',
-						'padding-right' => '0',
-					),
 					'.ast-separate-container .ast-article-post, .ast-separate-container .ast-article-single, .ast-separate-container .ast-comment-list li.depth-1, .ast-separate-container .comment-respond' => array(
 						'padding' => '3em',
 					),
