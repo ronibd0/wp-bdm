@@ -1609,6 +1609,9 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'.ast-separate-container .ast-article-post, .ast-separate-container .ast-article-single, .ast-separate-container .ast-comment-list li.depth-1, .ast-separate-container .comment-respond' => array(
 						'padding' => '3em',
 					),
+					'.ast-separate-container .ast-comment-list li.depth-1' => array(
+						'margin-bottom' => '2em',
+					),
 					'.ast-separate-container .ast-archive-description, .ast-separate-container .ast-author-box' => array(
 						'background-color' => 'var(--ast-global-color-5)',
 						'border-bottom'    => '1px solid var(--ast-global-color-6)',
