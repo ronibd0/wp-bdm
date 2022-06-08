@@ -1312,9 +1312,9 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'.wp-block-image.aligncenter' => array(
 							'margin-left'  => 'auto',
 							'margin-right' => 'auto',
-						)
+						),
 					);
-					$parse_css .= astra_parse_css( $image_block_center_align );
+					$parse_css               .= astra_parse_css( $image_block_center_align );
 				}
 
 
