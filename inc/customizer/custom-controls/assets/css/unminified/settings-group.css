@@ -5,15 +5,15 @@
   width: 18px;
   height: 18px;
   font-size: 18px;
-  border: 1px solid #ddd;
+  border: 1px solid var(--ast-customizer-color-7);
   border-radius: 2px;
   padding: 4px;
-  color: #0073aa;
-  background: #fff;
+  color: var(--ast-customizer-color-8);
+  background: var(--ast-customizer-color-9)
 }
 
 .ast-adv-toggle-icon:hover {
-  color: #099fd6;
+  color: var(--ast-customizer-color-1);
 }
 
 .ast-adv-toggle-icon:before {

@@ -113,8 +113,8 @@
     margin-right: -24px;
     padding: 0;
     margin-bottom: 0;
-    border: 1px solid #dddddd;
-    background: #ffffff;
+    border: 1px solid var(--ast-customizer-color-7);
+    background: var(--ast-customizer-color-9);
     margin-bottom: 0;
 }
 
@@ -127,9 +127,9 @@
     align-items: center;
     -webkit-box-pack: center;
     justify-content: center;
-    font-size: 11.5px;
+    font-size: 12px;
     font-weight: 500;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
     font-style: normal;
     text-transform: uppercase;
     height: 40px;
@@ -139,8 +139,9 @@
     cursor: pointer;
     border: 0;
     background: transparent;
-    border-top: 2px solid transparent;
+    border-bottom: 3px solid transparent;
     border-radius: 0;
+	color: var(--ast-customizer-color-6);
 }
 
 .ahfb-compontent-tabs .ahfb-compontent-tabs-button:not(:first-child) {
@@ -152,14 +153,13 @@
 }
 
 .ahfb-compontent-tabs .ahfb-compontent-tabs-button:not(.nav-tab-active):hover {
-	background: #ffffff;
-    color: #0072aa;
+	background: var(--ast-customizer-color-9);
+    color: var(--ast-customizer-color-8);
 }
 
 .ahfb-compontent-tabs .ahfb-compontent-tabs-button.nav-tab-active {
-	border-top-color: #0071a1;
-    color: #0073aa;
-    background-image: linear-gradient( 180deg, #f3f5f6, #ffffff);
+	border-bottom-color: var(--ast-customizer-color-1);
+    color: var(--ast-customizer-color-8);
 }
 
 .ahfb-compontent-tabs .ahfb-compontent-tabs-button.nav-tab-active:focus {
@@ -443,7 +443,6 @@
 }
 
 .ahfb-build-tabs .nav-tab.nav-tab-active {
-    background: #eeeeee;
     color: #191e23;
     box-shadow: none;
     border-bottom: 4px solid #191e23;
@@ -1753,7 +1752,7 @@ button.components-button.ahfb-sorter-item-expand {
 }
 
 #customize-theme-controls .accordion-section-content {
-    color: #2D3748;
+    color: var(--ast-customizer-color-4);
 }
 
 .ahfb-popover-social-list .components-button-group.ahfb-radio-container-control {

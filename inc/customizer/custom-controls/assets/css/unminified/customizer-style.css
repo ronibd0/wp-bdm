@@ -27,7 +27,7 @@
 .customize-control:not(.customize-control-nav_menu_item) {
   position: relative;
   margin-bottom: 0;
-  margin-top: 20px;
+  margin-top: 16px;
 }
 
 [ID*="-builder-layout-ast-context-tabs"] {
@@ -65,7 +65,7 @@
 
 .customize-control-title {
   display: inline-block;
-  margin-bottom: 20px;
+  margin-bottom: 17px;
   vertical-align: middle;
 }
 
@@ -131,7 +131,7 @@ input[type="text"].select2-search__field {
 /* CSS to show popups without scroll */
 #customize-theme-controls .control-section.open {
   height: 100%;
-  padding: 12px 20px 25px 20px;
+  padding: 12px 24px 25px 24px;
 }
 
 /* Safari Browser specific CSS */

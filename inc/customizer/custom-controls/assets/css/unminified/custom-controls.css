@@ -1266,6 +1266,23 @@
     width: 100%;
 }
 
+/* Global customizer color palette */
+
+:root {
+    --ast-customizer-color-1:#0284c7; /* active color */
+    --ast-customizer-color-2:#0ea5e9; /* active focus color */
+    --ast-customizer-color-3:#2271b1; /* active color border */
+    --ast-customizer-color-4:#1e293b; /* title / heading */
+    --ast-customizer-color-5:#334155; /* input text color */
+    --ast-customizer-color-6:#9CA3AF;  /* Sub text color */
+    --ast-customizer-color-7:#D1D5DB;  /* border color / outline / grey background*/
+    --ast-customizer-color-8:#4B5563;  /* icon color / Toggle color*/
+    --ast-customizer-color-9:#fff;  /* background color */
+}
+
+input[type="text"], input[type="password"], input[type="color"], input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="email"], input[type="month"], input[type="number"], input[type="search"], input[type="tel"], input[type="time"], input[type="url"], input[type="week"], select, textarea {
+    color: var(--ast-customizer-color-5);
+}
 .customize-control-ast-customizer-link .customizer-link {
   font-style: italic;
   text-decoration: none;
@@ -1303,7 +1320,7 @@
 .customize-control:not(.customize-control-nav_menu_item) {
   position: relative;
   margin-bottom: 0;
-  margin-top: 20px;
+  margin-top: 16px;
 }
 
 [ID*="-builder-layout-ast-context-tabs"] {
@@ -1341,7 +1358,7 @@
 
 .customize-control-title {
   display: inline-block;
-  margin-bottom: 20px;
+  margin-bottom: 17px;
   vertical-align: middle;
 }
 
@@ -1407,7 +1424,7 @@ input[type="text"].select2-search__field {
 /* CSS to show popups without scroll */
 #customize-theme-controls .control-section.open {
   height: 100%;
-  padding: 12px 20px 25px 20px;
+  padding: 12px 24px 25px 24px;
 }
 
 /* Safari Browser specific CSS */
@@ -1601,6 +1618,80 @@ input[type="text"].select2-search__field {
     margin-bottom: 25px;
 }
 
+
+/*
+* CSS for ast-spacing attribute started.
+*/
+
+.customize-control.ast-bottom-spacing {
+	margin-bottom: 16px;
+}
+
+.customize-control.ast-top-spacing {
+	margin-top: 16px;
+}
+
+/*
+* CSS for ast-divider attribute started.
+*/
+
+.customize-control.ast-top-dotted-divider {
+    margin-top: 24px;
+    padding-top: 24px;
+    border-top: 1px dashed var(--ast-customizer-color-7);
+}
+
+.customize-control.ast-top-dotted-divider .ast-adv-toggle-icon {
+    top: 25px;
+}
+
+.customize-control.ast-bottom-dotted-divider {
+    margin-bottom: 8px;
+    padding-bottom: 24px;
+    border-bottom: 1px dashed var(--ast-customizer-color-7);
+}
+
+.customize-control.ast-bottom-dotted-divider .ast-adv-toggle-icon {
+    bottom: 25px;
+}
+
+
+/*
+* CSS for ast-section-divider attribute started.
+*/
+
+.customize-control.ast-top-section-divider,
+.customize-control.ast-bottom-section-divider {
+    position: relative; 
+}
+
+.customize-control.ast-top-section-divider {
+    padding-top: 32px;
+    margin-top: 32px;
+}
+
+.customize-control.ast-bottom-section-divider {
+    padding-bottom: 32px;
+    margin-bottom: 16px;
+}
+
+.customize-control.ast-top-section-divider::before,
+.customize-control.ast-bottom-section-divider::before {
+    content: '';
+    position: absolute;
+    left: -100%;
+    background-color: var(--ast-customizer-color-7);
+    width: 500%;
+    height: 1px;
+}
+
+.customize-control.ast-top-section-divider::before {
+    top: 0;
+}
+
+.customize-control.ast-bottom-section-divider::before {
+    bottom: 0;
+}
 .ast-typo-presets {
     display: flex;
     align-items: center;
@@ -1661,20 +1752,21 @@ input[type="text"].select2-search__field {
 }
 
 .customize-control-ast-heading .ast-heading-wrapper {
-  margin: 0 -20px;
+  margin: 0 -24px;
 }
 
 .customize-control-ast-heading .customize-control-title {
   display: block;
-  padding: 13px 20px;
+  padding: 16px 24px;
   margin: 0;
   border-width: 1px 0;
   border-style: solid;
-  border-color: #dddddd;
-  background-color: #fff;
-  font-size: 11.5px;
+  border-color: var(--ast-customizer-color-7);
+  background-color: var(--ast-customizer-color-9);
+  color: var(--ast-customizer-color-4);
+  font-size: 12px;
   font-weight: 600;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
   line-height: 1;
   text-transform: uppercase !important;
 }
@@ -2367,7 +2459,7 @@ input[type="text"].select2-search__field {
   border-radius: 2px 0 0 2px;
   box-shadow: none;
   transition: all 0.3s;
-  border: 1px solid #ddd;
+  border: 1px solid var(--ast-customizer-color-7);
 }
 .customize-control-ast-slider input.components-input-control__input:hover,
 .customize-control-ast-slider input.components-input-control__input:focus,
@@ -2375,7 +2467,7 @@ input[type="text"].select2-search__field {
 .customize-control-ast-responsive-slider input.components-input-control__input:hover,
 .customize-control-ast-responsive-slider input.components-input-control__input:focus,
 .customize-control-ast-responsive-slider input.components-input-control__input:active {
-  border-color: #1e8cbe;
+  border-color: var(--ast-customizer-color-2);
   border-radius: 2px;
   outline: none;
 }
@@ -2388,13 +2480,13 @@ input[type="text"].select2-search__field {
   position: absolute;
   right: 23px;
   top: 4px;
-  border-right: 1px solid #ddd;
+  border-right: 1px solid var(--ast-customizer-color-7);
   padding-right: 6px;
   font-size: 11px;
   font-weight: 600;
   line-height: normal;
   text-transform: uppercase;
-  color: #0073aa;
+  color: var(--ast-customizer-color-1);
 }
 
 .customize-control-ast-slider .components-input-control__container, .customize-control-ast-responsive-slider .components-input-control__container {
@@ -2481,9 +2573,11 @@ input[type="text"].select2-search__field {
 
 .customize-control-ast-responsive-spacing .ast-spacing-responsive-units {
   position: absolute;
-  font-size: 11px;
+  font-size: 12px;
+  line-height: 16px;
   text-transform: uppercase;
-  top: -35px;
+  font-weight: 500;
+  top: -33px;
   right: 0;
 }
 
@@ -2498,8 +2592,7 @@ input[type="text"].select2-search__field {
 
 .customize-control-ast-responsive-spacing .ast-spacing-responsive-units li.single-unit.active {
   opacity: 1;
-  font-weight: 600;
-  color: #0073aa;
+  color: var(--ast-customizer-color-1);
 }
 
 .customize-control-ast-responsive-spacing .input-wrapper .ast-spacing-wrapper {
@@ -2521,7 +2614,7 @@ input[type="text"].select2-search__field {
   padding: 15px 0;
   width: 100%;
   height: 28px;
-  border: 1px solid #dddddd;
+  border: 1px solid var(--ast-customizer-color-7);
   border-radius: 3px;
   box-shadow: none;
   transition: all 0.3s;
@@ -2543,6 +2636,7 @@ input[type="text"].select2-search__field {
   text-transform: uppercase;
   font-size: 10px;
   opacity: .75;
+  color: var(--ast-customizer-color-4);
 }
 
 .customize-control-ast-responsive-spacing .input-wrapper .ast-spacing-wrapper .ast-spacing-input-item-link {
@@ -2569,12 +2663,10 @@ input[type="text"].select2-search__field {
 }
 
 .customize-control-ast-responsive-spacing .input-wrapper .ast-spacing-wrapper .ast-spacing-input-item-link span {
-  width: 35px;
-  height: 26px;
+  width: 20px;
+  height: 32px;
   line-height: 28px;
   font-size: 14px;
-  border: 1px solid #dddddd;
-  background-color: #ffffff;
   border-radius: 3px 0 0 3px;
 }
 
@@ -2768,15 +2860,15 @@ input[type="text"].select2-search__field {
   width: 18px;
   height: 18px;
   font-size: 18px;
-  border: 1px solid #ddd;
+  border: 1px solid var(--ast-customizer-color-7);
   border-radius: 2px;
   padding: 4px;
-  color: #0073aa;
-  background: #fff;
+  color: var(--ast-customizer-color-8);
+  background: var(--ast-customizer-color-9)
 }
 
 .ast-adv-toggle-icon:hover {
-  color: #099fd6;
+  color: var(--ast-customizer-color-1);
 }
 
 .ast-adv-toggle-icon:before {
@@ -3406,6 +3498,11 @@ input[type="text"].select2-search__field {
   margin: 20px 0;
 }
 
+.ast-togglecontrol-wrapper .toggle-control-label {
+  font-size: 14px;
+  font-weight: 600;
+}
+
 .customize-control-ast-toggle-control .components-toggle-control .components-toggle-control__label, .ast-togglecontrol-wrapper label {
   display: flex;
   flex: 1 1 auto;
@@ -3416,7 +3513,7 @@ input[type="text"].select2-search__field {
   display: block;
   width: 35px;
   height: 14px;
-  background-color: #ddd;
+  background-color: var(--ast-customizer-color-7);
   color: transparent;
   border-radius: 50px;
   cursor: pointer;
@@ -3431,16 +3528,16 @@ input[type="text"].select2-search__field {
   width: 20px;
   height: 20px;
   border-radius: 50px;
-  background: #fff;
+  background: var(--ast-customizer-color-9);
   box-shadow: 0 2px 4px 0 rgba(72, 72, 72, 0.50);
   transition: all 0.2s ease-in;
 }
 .ast-switch:checked ~ label {
-  background: #007CBA;
+  background: var(--ast-customizer-color-1);
 }
 .ast-switch:checked ~ label:after {
   transform: translateX(16px);
-  background: #fff;
+  background: var(--ast-customizer-color-9);
 }
 .ast-switch:disabled ~ label {
   background: #f0f0f0;

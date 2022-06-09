@@ -91,3 +91,78 @@
 .ast-top-divider.customize-control-ast-select .ast-divider-title {
     margin-bottom: 25px;
 }
+
+
+/*
+* CSS for ast-spacing attribute started.
+*/
+
+.customize-control.ast-bottom-spacing {
+	margin-bottom: 16px;
+}
+
+.customize-control.ast-top-spacing {
+	margin-top: 16px;
+}
+
+/*
+* CSS for ast-divider attribute started.
+*/
+
+.customize-control.ast-top-dotted-divider {
+    margin-top: 24px;
+    padding-top: 24px;
+    border-top: 1px dashed var(--ast-customizer-color-7);
+}
+
+.customize-control.ast-top-dotted-divider .ast-adv-toggle-icon {
+    top: 25px;
+}
+
+.customize-control.ast-bottom-dotted-divider {
+    margin-bottom: 8px;
+    padding-bottom: 24px;
+    border-bottom: 1px dashed var(--ast-customizer-color-7);
+}
+
+.customize-control.ast-bottom-dotted-divider .ast-adv-toggle-icon {
+    bottom: 25px;
+}
+
+
+/*
+* CSS for ast-section-divider attribute started.
+*/
+
+.customize-control.ast-top-section-divider,
+.customize-control.ast-bottom-section-divider {
+    position: relative; 
+}
+
+.customize-control.ast-top-section-divider {
+    padding-top: 32px;
+    margin-top: 32px;
+}
+
+.customize-control.ast-bottom-section-divider {
+    padding-bottom: 32px;
+    margin-bottom: 16px;
+}
+
+.customize-control.ast-top-section-divider::before,
+.customize-control.ast-bottom-section-divider::before {
+    content: '';
+    position: absolute;
+    right: -100%;
+    background-color: var(--ast-customizer-color-7);
+    width: 500%;
+    height: 1px;
+}
+
+.customize-control.ast-top-section-divider::before {
+    top: 0;
+}
+
+.customize-control.ast-bottom-section-divider::before {
+    bottom: 0;
+}
