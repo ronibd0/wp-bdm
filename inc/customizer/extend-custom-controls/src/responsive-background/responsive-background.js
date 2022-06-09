@@ -194,6 +194,8 @@ const ResponsiveBackground = props => {
 		descriptionHtml = <span className="description customize-control-description">{description}</span>;
 	}
 
+	const skipResponsiveTriggers = ( undefined !== props.control.params.input_attrs && undefined !== props.control.params.input_attrs.ignore_responsive_btns && props.control.params.input_attrs.ignore_responsive_btns ) ? true : false;
+
 	responsiveHtml = <ul className="ast-responsive-btns">
 		<li className="desktop active">
 			<button type="button" className="preview-desktop" data-device="desktop">
@@ -229,7 +231,9 @@ const ResponsiveBackground = props => {
 			{labelHtml}
 			{descriptionHtml}
 		</label>
-		{responsiveHtml}
+		{ ( ! skipResponsiveTriggers ) &&
+			responsiveHtml
+		}
 		{renderReset()}
 		<div className="customize-control-content">
 			{inputHtml}
