@@ -146,6 +146,8 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$is_widget_title_support_font_weight = self::support_font_css_to_widget_and_in_editor();
 			$font_weight_prop                    = ( $is_widget_title_support_font_weight ) ? 'inherit' : 'normal';
 
+			$update_customizer_strctural_defaults = astra_get_option( 'customizer-default-layout-update', true );
+
 			// Fallback for H1 - headings typography.
 			if ( 'inherit' == $h1_font_family ) {
 				$h1_font_family = $headings_font_family;
@@ -673,7 +675,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				);
 			}
 
-			if ( ! $block_editor_legacy_setup ) {
+			if ( ! $block_editor_legacy_setup && false === $update_customizer_strctural_defaults ) {
 				$css_output['.wp-block-latest-posts > li > a'] = array(
 					'color' => esc_attr( $heading_base_color ),
 				);
@@ -1583,7 +1585,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				),
 			);
 
-			$update_customizer_strctural_defaults = astra_get_option( 'customizer-default-layout-update', true );
 			if ( true === $update_customizer_strctural_defaults ) {
 				$default_layout_update_css = array(
 					'#page'                               => array(
@@ -1591,8 +1592,15 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'flex-direction' => 'column',
 						'min-height'     => '100vh',
 					),
-					'.error404 .ast-container .error-404' => array(
-						'transform' => 'translateY(50%)',
+					'.ast-404-layout-1 h1.page-title'                 => array(
+						'color' => 'var(--ast-global-color-2)',
+					),
+					'.error-404 .page-sub-title'                 => array(
+						'font-size' => '1.5rem',
+						'font-weight' => 'inherit',
+					),
+					'.search .site-content .content-area .search-form' => array(
+						'margin-bottom' => '0',
 					),
 					'#page .site-content'                 => array(
 						'flex-grow' => '1',
@@ -1646,11 +1654,8 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				}
 
 				$default_medium_layout_css = array(
-					'.ast-separate-container .ast-article-post, .ast-separate-container .ast-article-single, .ast-separate-container .ast-archive-description, .ast-separate-container .ast-author-box' => array(
+					'.ast-separate-container .ast-article-post, .ast-separate-container .ast-article-single, .ast-separate-container .ast-archive-description, .ast-separate-container .ast-author-box, .ast-separate-container .ast-404-layout-1, .ast-separate-container .no-results' => array(
 						'padding' => '3em',
-					),
-					'.error404 .ast-container .error-404' => array(
-						'transform' => 'translateY(25%)',
 					),
 				);
 
@@ -1901,12 +1906,13 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 				$file_block_button_selector       = ( ! $block_editor_legacy_setup || $improve_gb_ui ) ? ', body .wp-block-file .wp-block-file__button' : '';
 				$file_block_button_hover_selector = ( ! $block_editor_legacy_setup || $improve_gb_ui ) ? ', body .wp-block-file .wp-block-file__button:hover, body .wp-block-file .wp-block-file__button:focus' : '';
+				$search_page_btn_selector = ( true === $update_customizer_strctural_defaults ) ? ', .search .search-submit' : '';
 
 				/**
 				 * Global button CSS - Desktop.
 				 */
 				$global_button_desktop = array(
-					'.menu-toggle, button, .ast-button, .ast-custom-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"]' . $search_button_selector . $file_block_button_selector => array(
+					'.menu-toggle, button, .ast-button, .ast-custom-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"]' . $search_button_selector . $file_block_button_selector . $search_page_btn_selector => array(
 						'border-style'        => 'solid',
 						'border-top-width'    => ( isset( $global_custom_button_border_size['top'] ) && '' !== $global_custom_button_border_size['top'] ) ? astra_get_css_value( $global_custom_button_border_size['top'], 'px' ) : '0',
 						'border-right-width'  => ( isset( $global_custom_button_border_size['right'] ) && '' !== $global_custom_button_border_size['right'] ) ? astra_get_css_value( $global_custom_button_border_size['right'], 'px' ) : '0',

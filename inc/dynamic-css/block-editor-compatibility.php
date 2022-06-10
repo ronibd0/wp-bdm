@@ -355,14 +355,11 @@ function astra_load_modern_block_editor_ui( $dynamic_css ) {
 		$alignwide_1200_right_negative_margin = $astra_continer_right_spacing ? 'calc(-1 * min(' . $astra_continer_right_spacing . ', 20px))' : '-20px';
 
 		$dynamic_css .= '
-			input[type=search]{
+			.wp-block-search__inside-wrapper .wp-block-search__input {
 				padding: 0 10px;
 				color: var(--ast-global-color-3);
 				background: var(--ast-global-color-5);
 				border-color: #e5e5e5;
-			}
-			.wp-block-latest-posts .wp-block-latest-posts__post-title {
-				font-size: 1.25rem;
 			}
 			#content .wp-block-latest-posts li:not(:last-child) {
 				margin-bottom: 1.5em;
