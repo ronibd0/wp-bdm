@@ -1,6 +1,8 @@
 import PropTypes from 'prop-types';
 import {RangeControl, Dashicon} from '@wordpress/components';
 import {useEffect, useState} from 'react';
+import parse from 'html-react-parser';
+import svgIcons from '../../../../../assets/svg/svgs.json';
 
 const ResponsiveSliderComponent = props => {
 
@@ -148,21 +150,25 @@ const ResponsiveSliderComponent = props => {
 	let defaultVal = props.control.params.default;
 
 	if (label) {
+		const responsiveDesktop = parse( svgIcons['desktop-responsive'] );
+		const responsiveTablet = parse( svgIcons['tablet-responsive'] );
+		const responsiveMobile = parse( svgIcons['mobile-responsive'] );
+
 		labelHtml = <span className="customize-control-title slider-control-label">{label}</span>;
 		responsiveHtml = <ul key={'ast-resp-ul'} className="ast-responsive-slider-btns">
 			<li className="desktop active">
 				<button type="button" className="preview-desktop active" data-device="desktop">
-					<i className="dashicons dashicons-desktop"></i>
+					{responsiveDesktop}
 				</button>
 			</li>
 			<li className="tablet">
 				<button type="button" className="preview-tablet" data-device="tablet">
-					<i className="dashicons dashicons-tablet"></i>
+					{responsiveTablet}
 				</button>
 			</li>
 			<li className="mobile">
 				<button type="button" className="preview-mobile" data-device="mobile">
-					<i className="dashicons dashicons-smartphone"></i>
+					{responsiveMobile}
 				</button>
 			</li>
 		</ul>;

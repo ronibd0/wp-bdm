@@ -1,7 +1,3 @@
-.customize-control-ast-responsive-spacing {
-  /* Unit Screen wrap */
-}
-
 .customize-control-ast-responsive-spacing .customize-control-title {
   display: inline-block;
 }
@@ -25,7 +21,7 @@
 .customize-control-ast-responsive-spacing .ast-spacing-responsive-units-screen-wrap {
   position: relative;
   top: -7px;
-  right: -1px;
+  right: -12px;
   display: inline-block;
 }
 
@@ -44,7 +40,6 @@
   cursor: pointer;
   background: none;
   border: none;
-  opacity: .75;
   outline: none;
   width: 100%;
   height: 100%;
@@ -123,13 +118,13 @@
 .customize-control-ast-responsive-spacing .input-wrapper .ast-spacing-wrapper span.ast-spacing-title {
   text-transform: uppercase;
   font-size: 10px;
-  opacity: .75;
-  color: var(--ast-customizer-color-4);
+  color: var(--ast-customizer-color-6);
 }
 
 .customize-control-ast-responsive-spacing .input-wrapper .ast-spacing-wrapper .ast-spacing-input-item-link {
   order: 2;
   margin-left: 2px;
+  margin-top: 4px;
 }
 
 .customize-control-ast-responsive-spacing .input-wrapper .ast-spacing-wrapper .ast-spacing-input-item-link .dashicons {
@@ -151,11 +146,16 @@
 }
 
 .customize-control-ast-responsive-spacing .input-wrapper .ast-spacing-wrapper .ast-spacing-input-item-link span {
-  width: 20px;
+  width: 100%;
   height: 32px;
   line-height: 28px;
   font-size: 14px;
   border-radius: 3px 0 0 3px;
+  background-color: transparent;
+}
+
+.customize-control-ast-responsive-spacing .input-wrapper .ast-spacing-wrapper .ast-spacing-input-item-link svg {  
+  pointer-events: none;
 }
 
 .customize-control-ast-responsive-spacing .ast-spacing-wrapper > li:nth-child(2) {

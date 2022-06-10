@@ -21,7 +21,9 @@
 }
 
 .customize-control-ast-responsive-toggle-control .ast-responsive-toggle-control-wrapper .ast-responsive-toggle-control.active {
-    width: 90%;
+    position: relative;
+    top: 2px;
+    width: 91%;
     display: inline-block;
     vertical-align: middle;
 }
@@ -49,7 +51,6 @@
     cursor: pointer;
     background: none;
     border: none;
-    opacity: .75;
     outline: none;
 }
 
