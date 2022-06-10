@@ -1,5 +1,5 @@
 v3.8.3 (Unreleased)
-- Fix: Fix: Image block not aligned centrally for Legacy block editor setup.
+- Fix: Image block not aligned centrally for Legacy block editor setup.
 
 v3.8.2
 - Fix: Improvements as per WordPress coding standards.
