@@ -305,6 +305,11 @@ p.demo_store[data-position="bottom"],
   border-bottom: 1px solid var(--ast-global-color-6);
 }
 
+.woocommerce .ast-site-header-cart .widget_shopping_cart .product_list_widget li .remove,
+.ast-site-header-cart .widget_shopping_cart .product_list_widget li .remove {
+  top: 0.4em;
+}
+
 .woocommerce .ast-site-header-cart .widget_shopping_cart .product_list_widget li:last-child,
 .ast-site-header-cart .widget_shopping_cart .product_list_widget li:last-child {
   border-bottom: 0;

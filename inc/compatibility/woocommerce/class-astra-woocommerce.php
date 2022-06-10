@@ -1386,6 +1386,20 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 					}
 				';
 			}
+			
+			if ( ! ( defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'woocommerce' ) ) ) {
+				$css_output .= '
+					.woocommerce .woocommerce-result-count, .woocommerce-page .woocommerce-result-count {
+						float: left;
+					}
+
+					.woocommerce .woocommerce-ordering {
+						float: right;
+						margin-bottom: 2.5em;
+					}
+				';
+			}
+
 
 			/* Parse WooCommerce General CSS from array() */
 			$css_output .= astra_parse_css( $css_desktop_output );
