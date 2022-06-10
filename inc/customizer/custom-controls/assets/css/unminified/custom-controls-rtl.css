@@ -285,7 +285,7 @@
   padding: 15px 0;
   width: 100%;
   height: 28px;
-  border: 1px solid #dddddd;
+  border: 1px solid var(--ast-customizer-color-7);
   border-radius: 3px;
   box-shadow: none;
   transition: all 0.3s;
@@ -307,7 +307,7 @@
 .customize-control-ast-border .input-wrapper .ast-border-wrapper span.ast-border-title {
   text-transform: uppercase;
   font-size: 10px;
-  opacity: .75;
+  color: var(--ast-customizer-color-6);
 }
 
 .customize-control-ast-border .input-wrapper .ast-border-wrapper .ast-border-input-item-link .ast-border-connected {
@@ -323,40 +323,30 @@
 }
 
 .customize-control-ast-border .input-wrapper .ast-border-wrapper .ast-border-input-item-link span {
-  width: 35px;
+  width: 100%;
   height: 26px;
   line-height: 26px;
   font-size: 14px;
-  border: 1px solid #dddddd;
-  background-color: #ffffff;
+  background-color: transparent;
   border-radius: 3px;
 }
 
-.customize-control-ast-border .input-wrapper .ast-border-wrapper .ast-border-input-item-link .ast-border-connected {
-  background-color: #1e8cbe;
+.customize-control-ast-border .input-wrapper .ast-border-wrapper .ast-border-input-item-link span svg {
+  pointer-events: none;
 }
-.customize-control-ast-border .input-wrapper .ast-border-wrapper .ast-border-input-item-link .ast-border-connected,
-.customize-control-ast-border .input-wrapper .ast-border-wrapper .ast-border-input-item-link .ast-border-disconnected {
-  padding: 2px 0;
-  font-size: 12px;
-  line-height: 28px;
-  background-color: #ffffff
+
+.customize-control-ast-border .input-wrapper .ast-border-wrapper .ast-border-input-item-link {
+  margin-top: 4px;
 }
 .customize-control-ast-border .input-wrapper .ast-border-wrapper li input.ast-border-input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
 .customize-control-ast-border .input-wrapper .ast-border-wrapper li input.ast-border-input:hover, .customize-control-ast-border .input-wrapper .ast-border-wrapper li input.ast-border-input:focus {
-  border-color: #1e8cbe;
+  border-color: var(--ast-customizer-color-2);
 }
 .customize-control-ast-border .input-wrapper .ast-border-wrapper li input.ast-border-input:focus {
   outline: none;
-}
-.customize-control-ast-border .input-wrapper .ast-border-wrapper .ast-border-input-item-link .ast-border-connected {
-  color: #1e8cbe;
-}
-.customize-control-ast-border .input-wrapper .ast-border-wrapper .ast-border-input-item-link .ast-border-disconnected {
-  color: #2D3748;
 }
 .customize-control-ast-border .input-wrapper.ast-border-wrapper {
   margin-bottom: 8px;
@@ -1573,7 +1563,7 @@
   padding: 15px 0;
   width: 100%;
   height: 28px;
-  border: 1px solid #dddddd;
+  border: 1px solid var(--ast-customizer-color-7);
   border-radius: 3px;
   box-shadow: none;
   transition: all 0.3s;
@@ -1595,7 +1585,7 @@
 .customize-control-ast-border .input-wrapper .ast-border-wrapper span.ast-border-title {
   text-transform: uppercase;
   font-size: 10px;
-  opacity: .75;
+  color: var(--ast-customizer-color-6);
 }
 
 .customize-control-ast-border .input-wrapper .ast-border-wrapper .ast-border-input-item-link .ast-border-connected {
@@ -1611,40 +1601,30 @@
 }
 
 .customize-control-ast-border .input-wrapper .ast-border-wrapper .ast-border-input-item-link span {
-  width: 35px;
+  width: 100%;
   height: 26px;
   line-height: 26px;
   font-size: 14px;
-  border: 1px solid #dddddd;
-  background-color: #ffffff;
+  background-color: transparent;
   border-radius: 3px;
 }
 
-.customize-control-ast-border .input-wrapper .ast-border-wrapper .ast-border-input-item-link .ast-border-connected {
-  background-color: #1e8cbe;
+.customize-control-ast-border .input-wrapper .ast-border-wrapper .ast-border-input-item-link span svg {
+  pointer-events: none;
 }
-.customize-control-ast-border .input-wrapper .ast-border-wrapper .ast-border-input-item-link .ast-border-connected,
-.customize-control-ast-border .input-wrapper .ast-border-wrapper .ast-border-input-item-link .ast-border-disconnected {
-  padding: 2px 0;
-  font-size: 12px;
-  line-height: 28px;
-  background-color: #ffffff
+
+.customize-control-ast-border .input-wrapper .ast-border-wrapper .ast-border-input-item-link {
+  margin-top: 4px;
 }
 .customize-control-ast-border .input-wrapper .ast-border-wrapper li input.ast-border-input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
 .customize-control-ast-border .input-wrapper .ast-border-wrapper li input.ast-border-input:hover, .customize-control-ast-border .input-wrapper .ast-border-wrapper li input.ast-border-input:focus {
-  border-color: #1e8cbe;
+  border-color: var(--ast-customizer-color-2);
 }
 .customize-control-ast-border .input-wrapper .ast-border-wrapper li input.ast-border-input:focus {
   outline: none;
-}
-.customize-control-ast-border .input-wrapper .ast-border-wrapper .ast-border-input-item-link .ast-border-connected {
-  color: #1e8cbe;
-}
-.customize-control-ast-border .input-wrapper .ast-border-wrapper .ast-border-input-item-link .ast-border-disconnected {
-  color: #2D3748;
 }
 .customize-control-ast-border .input-wrapper.ast-border-wrapper {
   margin-bottom: 8px;
@@ -2630,12 +2610,16 @@ input[type="text"], input[type="password"], input[type="color"], input[type="dat
   margin-top: 16px;
 }
 
+.customize-control:not(.customize-control-nav_menu_item).customize-control-ast-toggle-control {
+  margin-top: 24px;
+}
+
 [ID*="-builder-layout-ast-context-tabs"] {
   margin-top: 10px;
 }
 
 .customize-section-title {
-  margin: -12px -20px 0 -20px;
+  margin: -12px -24px 0 -24px;
 }
 
 .customize-section-description-container, #customize-controls .customize-info.section-meta, #customize-controls .customize-info {
@@ -2678,7 +2662,7 @@ input[type="text"], input[type="password"], input[type="color"], input[type="dat
   position: absolute;
   top: 0;
   left: 0;
-  color: #787c82;
+  color: var(--ast-customizer-color-6);
 }
 
 .customize-control.customize-control-ast-toggle-control .ast-control-tooltip {
@@ -2847,7 +2831,7 @@ input[type="text"].select2-search__field {
     left: 0;
     bottom: 0;
     font-weight: 600;
-    color: #0073aa;
+    color: var(--ast-customizer-color-1);
     display: inline-block;
     font-size: 11px;
     text-transform: uppercase;
@@ -2886,12 +2870,12 @@ input[type="text"].select2-search__field {
  * CSS for ast-divider attribute started.
  */
 .ast-bottom-divider {
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid var(--ast-customizer-color-7);
 	padding-bottom: 25px;
 }
 
 .ast-top-divider {
-    border-top: 1px solid #ddd;
+    border-top: 1px solid var(--ast-customizer-color-7);
 	padding-top: 25px;
 }
 
@@ -3184,8 +3168,10 @@ input[type="text"].select2-search__field {
 
 .customize-control-ast-radio-image .modern-layout input:checked + label svg,
 .components-button-group.ahfb-radio-container-control .active-radio.ast-radio-img-svg svg {
-  background-color: #007cba;
-  box-shadow: none;
+  background-color: var(--ast-customizer-color-1);
+  border-color: transparent;
+  box-shadow: 0px 12px 20px -8px rgba(30, 41, 59, 0.16);
+  border-bottom: 0;
 }
 
 .ast-divide-four input:checked + label svg {
@@ -3230,12 +3216,13 @@ input[type="text"].select2-search__field {
 
 .customize-control-ast-radio-image .modern-layout .ast-radio-img-svg svg,
 .components-button-group.ahfb-radio-container-control .ast-radio-img-svg svg {
-  border-radius: 3px; 
-  cursor: pointer;
   margin: 0;
   width: 100%;
   height: auto;
   background-color: rgba(221,224,226,0.7);
+  border: 1px solid var(--ast-customizer-color-7);
+  border-radius: 4px; 
+  cursor: pointer;
   transition: background 0.15s ease, box-shadow 0.15s ease;
 }
 
@@ -3721,7 +3708,6 @@ input[type="text"].select2-search__field {
   cursor: pointer;
   background: none;
   border: none;
-  opacity: .75;
   outline: none;
   line-height: 1;
 }
@@ -3817,10 +3803,6 @@ input[type="text"].select2-search__field {
 	top: 1px;
 }
 
-.customize-control-ast-responsive-spacing {
-  /* Unit Screen wrap */
-}
-
 .customize-control-ast-responsive-spacing .customize-control-title {
   display: inline-block;
 }
@@ -3844,7 +3826,7 @@ input[type="text"].select2-search__field {
 .customize-control-ast-responsive-spacing .ast-spacing-responsive-units-screen-wrap {
   position: relative;
   top: -7px;
-  left: -1px;
+  left: -12px;
   display: inline-block;
 }
 
@@ -3863,7 +3845,6 @@ input[type="text"].select2-search__field {
   cursor: pointer;
   background: none;
   border: none;
-  opacity: .75;
   outline: none;
   width: 100%;
   height: 100%;
@@ -3942,13 +3923,13 @@ input[type="text"].select2-search__field {
 .customize-control-ast-responsive-spacing .input-wrapper .ast-spacing-wrapper span.ast-spacing-title {
   text-transform: uppercase;
   font-size: 10px;
-  opacity: .75;
-  color: var(--ast-customizer-color-4);
+  color: var(--ast-customizer-color-6);
 }
 
 .customize-control-ast-responsive-spacing .input-wrapper .ast-spacing-wrapper .ast-spacing-input-item-link {
   order: 2;
   margin-right: 2px;
+  margin-top: 4px;
 }
 
 .customize-control-ast-responsive-spacing .input-wrapper .ast-spacing-wrapper .ast-spacing-input-item-link .dashicons {
@@ -3970,11 +3951,16 @@ input[type="text"].select2-search__field {
 }
 
 .customize-control-ast-responsive-spacing .input-wrapper .ast-spacing-wrapper .ast-spacing-input-item-link span {
-  width: 20px;
+  width: 100%;
   height: 32px;
   line-height: 28px;
   font-size: 14px;
   border-radius: 0 3px 3px 0;
+  background-color: transparent;
+}
+
+.customize-control-ast-responsive-spacing .input-wrapper .ast-spacing-wrapper .ast-spacing-input-item-link svg {  
+  pointer-events: none;
 }
 
 .customize-control-ast-responsive-spacing .ast-spacing-wrapper > li:nth-child(2) {
@@ -4004,7 +3990,9 @@ input[type="text"].select2-search__field {
 }
 
 .customize-control-ast-responsive-toggle-control .ast-responsive-toggle-control-wrapper .ast-responsive-toggle-control.active {
-    width: 90%;
+    position: relative;
+    top: 2px;
+    width: 91%;
     display: inline-block;
     vertical-align: middle;
 }
@@ -4032,7 +4020,6 @@ input[type="text"].select2-search__field {
     cursor: pointer;
     background: none;
     border: none;
-    opacity: .75;
     outline: none;
 }
 
@@ -4068,7 +4055,6 @@ input[type="text"].select2-search__field {
   cursor: pointer;
   background: none;
   border: none;
-  opacity: .75;
   outline: none;
 }
 
@@ -4167,7 +4153,6 @@ input[type="text"].select2-search__field {
   width: 18px;
   height: 18px;
   font-size: 18px;
-  border: 1px solid var(--ast-customizer-color-7);
   border-radius: 2px;
   padding: 4px;
   color: var(--ast-customizer-color-8);
@@ -4807,7 +4792,6 @@ input[type="text"].select2-search__field {
 
 .ast-togglecontrol-wrapper .toggle-control-label {
   font-size: 14px;
-  font-weight: 600;
 }
 
 .customize-control-ast-toggle-control .components-toggle-control .components-toggle-control__label, .ast-togglecontrol-wrapper label {
@@ -4924,6 +4908,7 @@ span.select2-container.select2-container--default.select2-container--open li.sel
 input[type="text"], input[type="password"], input[type="color"], input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="email"], input[type="month"], input[type="number"], input[type="search"], input[type="tel"], input[type="time"], input[type="url"], input[type="week"], select, textarea {
     color: var(--ast-customizer-color-5);
 }
+
 .customize-control-ast-customizer-link .customizer-link {
   font-style: italic;
   text-decoration: none;
@@ -4964,12 +4949,16 @@ input[type="text"], input[type="password"], input[type="color"], input[type="dat
   margin-top: 16px;
 }
 
+.customize-control:not(.customize-control-nav_menu_item).customize-control-ast-toggle-control {
+  margin-top: 24px;
+}
+
 [ID*="-builder-layout-ast-context-tabs"] {
   margin-top: 10px;
 }
 
 .customize-section-title {
-  margin: -12px -20px 0 -20px;
+  margin: -12px -24px 0 -24px;
 }
 
 .customize-section-description-container, #customize-controls .customize-info.section-meta, #customize-controls .customize-info {
@@ -5012,7 +5001,7 @@ input[type="text"], input[type="password"], input[type="color"], input[type="dat
   position: absolute;
   top: 0;
   left: 0;
-  color: #787c82;
+  color: var(--ast-customizer-color-6);
 }
 
 .customize-control.customize-control-ast-toggle-control .ast-control-tooltip {
@@ -5181,7 +5170,7 @@ input[type="text"].select2-search__field {
     left: 0;
     bottom: 0;
     font-weight: 600;
-    color: #0073aa;
+    color: var(--ast-customizer-color-1);
     display: inline-block;
     font-size: 11px;
     text-transform: uppercase;
@@ -5220,12 +5209,12 @@ input[type="text"].select2-search__field {
  * CSS for ast-divider attribute started.
  */
 .ast-bottom-divider {
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid var(--ast-customizer-color-7);
 	padding-bottom: 25px;
 }
 
 .ast-top-divider {
-    border-top: 1px solid #ddd;
+    border-top: 1px solid var(--ast-customizer-color-7);
 	padding-top: 25px;
 }
 
@@ -5518,8 +5507,10 @@ input[type="text"].select2-search__field {
 
 .customize-control-ast-radio-image .modern-layout input:checked + label svg,
 .components-button-group.ahfb-radio-container-control .active-radio.ast-radio-img-svg svg {
-  background-color: #007cba;
-  box-shadow: none;
+  background-color: var(--ast-customizer-color-1);
+  border-color: transparent;
+  box-shadow: 0px 12px 20px -8px rgba(30, 41, 59, 0.16);
+  border-bottom: 0;
 }
 
 .ast-divide-four input:checked + label svg {
@@ -5564,12 +5555,13 @@ input[type="text"].select2-search__field {
 
 .customize-control-ast-radio-image .modern-layout .ast-radio-img-svg svg,
 .components-button-group.ahfb-radio-container-control .ast-radio-img-svg svg {
-  border-radius: 3px; 
-  cursor: pointer;
   margin: 0;
   width: 100%;
   height: auto;
   background-color: rgba(221,224,226,0.7);
+  border: 1px solid var(--ast-customizer-color-7);
+  border-radius: 4px; 
+  cursor: pointer;
   transition: background 0.15s ease, box-shadow 0.15s ease;
 }
 
@@ -5995,7 +5987,6 @@ input[type="text"].select2-search__field {
   cursor: pointer;
   background: none;
   border: none;
-  opacity: .75;
   outline: none;
 }
 
@@ -6173,7 +6164,6 @@ input[type="text"].select2-search__field {
   cursor: pointer;
   background: none;
   border: none;
-  opacity: .75;
   outline: none;
   line-height: 1;
 }
@@ -6269,10 +6259,6 @@ input[type="text"].select2-search__field {
 	top: 1px;
 }
 
-.customize-control-ast-responsive-spacing {
-  /* Unit Screen wrap */
-}
-
 .customize-control-ast-responsive-spacing .customize-control-title {
   display: inline-block;
 }
@@ -6296,7 +6282,7 @@ input[type="text"].select2-search__field {
 .customize-control-ast-responsive-spacing .ast-spacing-responsive-units-screen-wrap {
   position: relative;
   top: -7px;
-  left: -1px;
+  left: -12px;
   display: inline-block;
 }
 
@@ -6315,7 +6301,6 @@ input[type="text"].select2-search__field {
   cursor: pointer;
   background: none;
   border: none;
-  opacity: .75;
   outline: none;
   width: 100%;
   height: 100%;
@@ -6394,13 +6379,13 @@ input[type="text"].select2-search__field {
 .customize-control-ast-responsive-spacing .input-wrapper .ast-spacing-wrapper span.ast-spacing-title {
   text-transform: uppercase;
   font-size: 10px;
-  opacity: .75;
-  color: var(--ast-customizer-color-4);
+  color: var(--ast-customizer-color-6);
 }
 
 .customize-control-ast-responsive-spacing .input-wrapper .ast-spacing-wrapper .ast-spacing-input-item-link {
   order: 2;
   margin-right: 2px;
+  margin-top: 4px;
 }
 
 .customize-control-ast-responsive-spacing .input-wrapper .ast-spacing-wrapper .ast-spacing-input-item-link .dashicons {
@@ -6422,11 +6407,16 @@ input[type="text"].select2-search__field {
 }
 
 .customize-control-ast-responsive-spacing .input-wrapper .ast-spacing-wrapper .ast-spacing-input-item-link span {
-  width: 20px;
+  width: 100%;
   height: 32px;
   line-height: 28px;
   font-size: 14px;
   border-radius: 0 3px 3px 0;
+  background-color: transparent;
+}
+
+.customize-control-ast-responsive-spacing .input-wrapper .ast-spacing-wrapper .ast-spacing-input-item-link svg {  
+  pointer-events: none;
 }
 
 .customize-control-ast-responsive-spacing .ast-spacing-wrapper > li:nth-child(2) {
@@ -6456,7 +6446,9 @@ input[type="text"].select2-search__field {
 }
 
 .customize-control-ast-responsive-toggle-control .ast-responsive-toggle-control-wrapper .ast-responsive-toggle-control.active {
-    width: 90%;
+    position: relative;
+    top: 2px;
+    width: 91%;
     display: inline-block;
     vertical-align: middle;
 }
@@ -6484,7 +6476,6 @@ input[type="text"].select2-search__field {
     cursor: pointer;
     background: none;
     border: none;
-    opacity: .75;
     outline: none;
 }
 
@@ -6501,7 +6492,6 @@ input[type="text"].select2-search__field {
   width: 18px;
   height: 18px;
   font-size: 18px;
-  border: 1px solid var(--ast-customizer-color-7);
   border-radius: 2px;
   padding: 4px;
   color: var(--ast-customizer-color-8);
@@ -7141,7 +7131,6 @@ input[type="text"].select2-search__field {
 
 .ast-togglecontrol-wrapper .toggle-control-label {
   font-size: 14px;
-  font-weight: 600;
 }
 
 .customize-control-ast-toggle-control .components-toggle-control .components-toggle-control__label, .ast-togglecontrol-wrapper label {

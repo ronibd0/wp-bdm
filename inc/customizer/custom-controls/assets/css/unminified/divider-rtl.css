@@ -14,7 +14,7 @@
     left: 0;
     bottom: 0;
     font-weight: 600;
-    color: #0073aa;
+    color: var(--ast-customizer-color-1);
     display: inline-block;
     font-size: 11px;
     text-transform: uppercase;
@@ -53,12 +53,12 @@
  * CSS for ast-divider attribute started.
  */
 .ast-bottom-divider {
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid var(--ast-customizer-color-7);
 	padding-bottom: 25px;
 }
 
 .ast-top-divider {
-    border-top: 1px solid #ddd;
+    border-top: 1px solid var(--ast-customizer-color-7);
 	padding-top: 25px;
 }
 

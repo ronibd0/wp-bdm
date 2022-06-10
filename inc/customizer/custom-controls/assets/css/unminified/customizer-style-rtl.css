@@ -30,12 +30,16 @@
   margin-top: 16px;
 }
 
+.customize-control:not(.customize-control-nav_menu_item).customize-control-ast-toggle-control {
+  margin-top: 24px;
+}
+
 [ID*="-builder-layout-ast-context-tabs"] {
   margin-top: 10px;
 }
 
 .customize-section-title {
-  margin: -12px -20px 0 -20px;
+  margin: -12px -24px 0 -24px;
 }
 
 .customize-section-description-container, #customize-controls .customize-info.section-meta, #customize-controls .customize-info {
@@ -78,7 +82,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  color: #787c82;
+  color: var(--ast-customizer-color-6);
 }
 
 .customize-control.customize-control-ast-toggle-control .ast-control-tooltip {
