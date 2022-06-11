@@ -18,7 +18,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 function astra_container_layout_css() {
 	$container_layout = astra_get_content_layout();
 
-	$page_container_css = '';
+	$page_container_css        = '';
+	$page_title_header_padding = ( true === astra_get_option( 'customizer-default-layout-update', true ) ) ? '2em' : '4em';
 
 	if ( 'page-builder' === $container_layout ) {
 
@@ -64,14 +65,14 @@ function astra_container_layout_css() {
 
 			$page_container_css .= '
             .ast-page-builder-template .entry-header {
-                margin-top: 4em;
+                margin-top: ' . esc_attr( $page_title_header_padding ) . ';
                 margin-right: auto;
                 margin-left: auto;
                 padding-right: 20px;
                 padding-left: 20px;
             }
             .ast-page-builder-template .ast-archive-description {
-                margin-top: 4em;
+                margin-top: ' . esc_attr( $page_title_header_padding ) . ';
                 margin-right: auto;
                 margin-left: auto;
                 padding-right: 20px;
@@ -85,14 +86,14 @@ function astra_container_layout_css() {
 		} else {
 			$page_container_css .= '
             .ast-page-builder-template .entry-header {
-                margin-top: 4em;
+                margin-top: ' . esc_attr( $page_title_header_padding ) . ';
                 margin-left: auto;
                 margin-right: auto;
                 padding-left: 20px;
                 padding-right: 20px;
             }
             .ast-page-builder-template .ast-archive-description {
-                margin-top: 4em;
+                margin-top: ' . esc_attr( $page_title_header_padding ) . ';
                 margin-left: auto;
                 margin-right: auto;
                 padding-left: 20px;
@@ -102,6 +103,13 @@ function astra_container_layout_css() {
                 padding-left: 20px;
                 padding-right: 20px;
             }';
+		}
+
+		if ( true === astra_get_option( 'customizer-default-layout-update', true ) ) {
+			$page_container_css .= '.single.ast-page-builder-template .entry-content {
+				padding-left: 20px;
+				padding-right: 20px;
+			}';
 		}
 
 		/** @psalm-suppress InvalidScalarArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort

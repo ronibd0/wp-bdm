@@ -463,13 +463,15 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				$h6_properties = array_merge( $h6_properties, $h6_font_properties );
 			}
 
+			$link_selector = ( true === $update_customizer_strctural_defaults ) ? 'a' : 'a, .page-title';
+
 			$css_output = array(
 
 				// HTML.
 				'html'                                   => array(
 					'font-size' => astra_get_font_css_value( (int) $body_font_size_desktop * 6.25, '%' ),
 				),
-				'a, .page-title'                         => array(
+				$link_selector                           => array(
 					'color' => esc_attr( $link_color ),
 				),
 				'a:hover, a:focus'                       => array(
@@ -1587,34 +1589,38 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 			if ( true === $update_customizer_strctural_defaults ) {
 				$default_layout_update_css = array(
-					'#page'                               => array(
+					'#page'                           => array(
 						'display'        => 'flex',
 						'flex-direction' => 'column',
 						'min-height'     => '100vh',
 					),
-					'.ast-404-layout-1 h1.page-title'                 => array(
+					'.ast-404-layout-1 h1.page-title' => array(
 						'color' => 'var(--ast-global-color-2)',
 					),
-					'.error-404 .page-sub-title'                 => array(
-						'font-size' => '1.5rem',
+					'.single .post-navigation a'      => array(
+						'line-height' => '1em',
+						'height'      => 'inherit',
+					),
+					'.error-404 .page-sub-title'      => array(
+						'font-size'   => '1.5rem',
 						'font-weight' => 'inherit',
 					),
 					'.search .site-content .content-area .search-form' => array(
 						'margin-bottom' => '0',
 					),
-					'#page .site-content'                 => array(
+					'#page .site-content'             => array(
 						'flex-grow' => '1',
 					),
-					'.widget'                             => array(
+					'.widget'                         => array(
 						'margin-bottom' => '3.5em',
 					),
-					'#secondary li'                       => array(
+					'#secondary li'                   => array(
 						'line-height' => '1.5em',
 					),
-					'#secondary .wp-block-group h2'       => array(
+					'#secondary .wp-block-group h2'   => array(
 						'margin-bottom' => '0.7em',
 					),
-					'#secondary h2'                       => array(
+					'#secondary h2'                   => array(
 						'font-size' => '1.7rem',
 					),
 					'.ast-separate-container .ast-article-post, .ast-separate-container .ast-article-single, .ast-separate-container .ast-comment-list li.depth-1, .ast-separate-container .comment-respond' => array(
@@ -1630,12 +1636,24 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'.ast-separate-container .comments-title' => array(
 						'padding' => '2em 2em 0 2em',
 					),
-					'.entry-title'                        => array(
+					'.entry-title'                    => array(
 						'margin-bottom' => '0.5em',
 					),
 				);
 				/* Parse CSS from array() -> Desktop CSS */
 				$parse_css .= astra_parse_css( $default_layout_update_css );
+
+				$default_tablet_layout_css = array(
+					'.ast-right-sidebar.ast-page-builder-template #secondary, .archive.ast-left-sidebar.ast-page-builder-template .site-main' => array(
+						'padding-right' => '20px',
+					),
+					'.ast-left-sidebar.ast-page-builder-template #secondary, .archive.ast-right-sidebar.ast-page-builder-template .site-main' => array(
+						'padding-left' => '20px',
+					),
+				);
+
+				/* Parse CSS from array() -> min-width: tablet-breakpoint CSS */
+				$parse_css .= astra_parse_css( $default_tablet_layout_css, astra_get_tablet_breakpoint() );
 
 				if ( is_user_logged_in() ) {
 					$admin_bar_specific_page_css = array(
@@ -1906,7 +1924,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 				$file_block_button_selector       = ( ! $block_editor_legacy_setup || $improve_gb_ui ) ? ', body .wp-block-file .wp-block-file__button' : '';
 				$file_block_button_hover_selector = ( ! $block_editor_legacy_setup || $improve_gb_ui ) ? ', body .wp-block-file .wp-block-file__button:hover, body .wp-block-file .wp-block-file__button:focus' : '';
-				$search_page_btn_selector = ( true === $update_customizer_strctural_defaults ) ? ', .search .search-submit' : '';
+				$search_page_btn_selector         = ( true === $update_customizer_strctural_defaults ) ? ', .search .search-submit' : '';
 
 				/**
 				 * Global button CSS - Desktop.

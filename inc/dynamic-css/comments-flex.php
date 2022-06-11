@@ -51,8 +51,13 @@ function astra_comments_css( $dynamic_css ) {
 		);
 		$dynamic_css .= astra_parse_css( $desktop_comment_global );
 
+		$update_customizer_strctural_defaults = ( true === astra_get_option( 'customizer-default-layout-update', true ) );
+		$padding_comment_title                = $update_customizer_strctural_defaults ? '1em 0 0' : '2em 0';
+		$padding_ast_comment                  = $update_customizer_strctural_defaults ? '0' : '1em 0';
+		$padding_ast_comment_list             = $update_customizer_strctural_defaults ? '0' : '0.5em';
+
 		$single_post_comment_css = '.comments-title {
-            padding: 2em 0;
+            padding: ' . esc_attr( $padding_comment_title ) . ';
           }
 
           .comments-title {
@@ -63,7 +68,7 @@ function astra_comments_css( $dynamic_css ) {
           .ast-comment-list {
             margin: 0;
             word-wrap: break-word;
-            padding-bottom: 0.5em;
+            padding-bottom: ' . esc_attr( $padding_ast_comment_list ) . ';
             list-style: none;
           }
 
@@ -86,7 +91,7 @@ function astra_comments_css( $dynamic_css ) {
           }
 
           .ast-comment {
-            padding: 1em 0;
+            padding: ' . esc_attr( $padding_ast_comment ) . ' ;
           }
           .ast-comment-info img {
             border-radius: 50%;
@@ -192,7 +197,6 @@ function astra_comments_css( $dynamic_css ) {
             padding: 0 0.5em;
           }';
 
-		$update_customizer_strctural_defaults = astra_get_option( 'customizer-default-layout-update', true );
 		if ( false === $update_customizer_strctural_defaults ) {
 			$single_post_comment_css .= '.ast-separate-container .ast-comment-list li.depth-1 {
 					padding: 4em 6.67em;
@@ -217,6 +221,12 @@ function astra_comments_css( $dynamic_css ) {
 				.ast-separate-container .comments-title {
 					background-color: #fff;
 					padding: 1.2em 3.99em 0;
+				}
+			';
+		} else {
+			$single_post_comment_css .= '
+				.ast-plain-container .ast-comment, .ast-page-builder-template .ast-comment {
+					padding: 2em 0;
 				}
 			';
 		}
