@@ -19,7 +19,8 @@ function astra_container_layout_css() {
 	$container_layout = astra_get_content_layout();
 
 	$page_container_css        = '';
-	$page_title_header_padding = ( true === astra_get_option( 'customizer-default-layout-update', true ) ) ? '2em' : '4em';
+	$customizer_default_update = astra_get_option( 'customizer-default-layout-update', true );
+	$page_title_header_padding = ( true === $customizer_default_update ) ? '2em' : '4em';
 
 	if ( 'page-builder' === $container_layout ) {
 
@@ -63,53 +64,89 @@ function astra_container_layout_css() {
 
 		if ( is_rtl() ) {
 
+			if ( true === $customizer_default_update ) {
+				$page_container_css .= '
+					.ast-page-builder-template .entry-header {
+						margin-top: ' . esc_attr( $page_title_header_padding ) . ';
+						margin-right: auto;
+						margin-left: auto;
+					}
+					.ast-single-post.ast-page-builder-template article {
+						padding-right: 20px;
+						padding-left: 20px;
+					}
+				';
+			} else {
+				$page_container_css .= '
+					.ast-page-builder-template .entry-header {
+						margin-top: ' . esc_attr( $page_title_header_padding ) . ';
+						margin-right: auto;
+						margin-left: auto;
+						padding-right: 20px;
+						padding-left: 20px;
+					}
+					.single.ast-page-builder-template .entry-header {
+						padding-right: 20px;
+						padding-left: 20px;
+					}
+				';
+			}
+
 			$page_container_css .= '
-            .ast-page-builder-template .entry-header {
-                margin-top: ' . esc_attr( $page_title_header_padding ) . ';
-                margin-right: auto;
-                margin-left: auto;
-                padding-right: 20px;
-                padding-left: 20px;
-            }
             .ast-page-builder-template .ast-archive-description {
                 margin-top: ' . esc_attr( $page_title_header_padding ) . ';
                 margin-right: auto;
                 margin-left: auto;
-                padding-right: 20px;
-                padding-left: 20px;
-            }
-            .single.ast-page-builder-template .entry-header {
                 padding-right: 20px;
                 padding-left: 20px;
             }';
 
 		} else {
+			if ( true === $customizer_default_update ) {
+				$page_container_css .= '
+					.ast-page-builder-template .entry-header {
+						margin-top: ' . esc_attr( $page_title_header_padding ) . ';
+						margin-left: auto;
+						margin-right: auto;
+					}
+					.ast-single-post.ast-page-builder-template article {
+						padding-left: 20px;
+						padding-right: 20px;
+					}
+				';
+			} else {
+				$page_container_css .= '
+					.ast-page-builder-template .entry-header {
+						margin-top: ' . esc_attr( $page_title_header_padding ) . ';
+						margin-left: auto;
+						margin-right: auto;
+						padding-left: 20px;
+						padding-right: 20px;
+					}
+					.single.ast-page-builder-template .entry-header {
+						padding-left: 20px;
+						padding-right: 20px;
+					}
+				';
+			}
+
 			$page_container_css .= '
-            .ast-page-builder-template .entry-header {
-                margin-top: ' . esc_attr( $page_title_header_padding ) . ';
-                margin-left: auto;
-                margin-right: auto;
-                padding-left: 20px;
-                padding-right: 20px;
-            }
             .ast-page-builder-template .ast-archive-description {
                 margin-top: ' . esc_attr( $page_title_header_padding ) . ';
                 margin-left: auto;
                 margin-right: auto;
                 padding-left: 20px;
                 padding-right: 20px;
-            }
-            .single.ast-page-builder-template .entry-header {
-                padding-left: 20px;
-                padding-right: 20px;
             }';
 		}
 
-		if ( true === astra_get_option( 'customizer-default-layout-update', true ) ) {
-			$page_container_css .= '.single.ast-page-builder-template .entry-content {
-				padding-left: 20px;
-				padding-right: 20px;
-			}';
+		if ( true === $customizer_default_update ) {
+			$page_container_css .= '
+				.ast-page-builder-template .ast-row {
+					margin-left: 0;
+					margin-right: 0;
+				}
+			';
 		}
 
 		/** @psalm-suppress InvalidScalarArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort

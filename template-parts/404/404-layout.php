@@ -8,7 +8,8 @@
  * @link        https://wpastra.com/
  * @since       Astra 1.0.0
  */
-$subtitle_tag = ( true === astra_get_option( 'customizer-default-layout-update', true ) ) ? 'h3' : 'div';
+
+$astra_404_subtitle_tag = ( true === astra_get_option( 'customizer-default-layout-update', true ) ) ? 'h3' : 'div';
 
 ?>
 <div <?php echo astra_attr( '404_page', array( 'class' => 'ast-404-layout-1' ) ); ?> >
@@ -17,9 +18,9 @@ $subtitle_tag = ( true === astra_get_option( 'customizer-default-layout-update',
 
 	<div class="page-content">
 
-		<<?php echo esc_attr( $subtitle_tag ); ?> class="page-sub-title">
+		<<?php echo esc_attr( $astra_404_subtitle_tag ); ?> class="page-sub-title">
 			<?php echo esc_html( astra_default_strings( 'string-404-sub-title', false ) ); ?>
-		</<?php echo esc_attr( $subtitle_tag ); ?>>
+		</<?php echo esc_attr( $astra_404_subtitle_tag ); ?>>
 
 		<div class="ast-404-search">
 			<?php the_widget( 'WP_Widget_Search' ); ?>

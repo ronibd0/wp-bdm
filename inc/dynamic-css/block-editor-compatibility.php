@@ -337,9 +337,6 @@ function astra_load_modern_block_editor_ui( $dynamic_css ) {
 	.wp-block-latest-posts > li > *:first-child, .wp-block-latest-posts:not(.is-grid) > li:first-child {
 		margin-top: 0;
 	}
-	.wp-block-latest-posts > li > *:last-child, .wp-block-latest-posts:not(.is-grid) > li:last-child {
-		margin-bottom: 0;
-	}
 	';
 
 	if ( $astra_block_editor_v2_ui ) {

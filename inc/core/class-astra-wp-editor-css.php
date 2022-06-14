@@ -357,6 +357,10 @@ class Astra_WP_Editor_CSS {
 			--wp--custom--ast-wide-width-size: ' . $ast_wide_width . ';
 		}';
 
+		if ( is_customize_preview() ) {
+			$css = '';
+		}
+
 		/** @psalm-suppress InvalidScalarArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 		$html_font_size = astra_get_font_css_value( (int) $body_font_size_desktop * 6.25, '%' );
 		/** @psalm-suppress InvalidScalarArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
@@ -393,7 +397,7 @@ class Astra_WP_Editor_CSS {
 			'#editor .edit-post-visual-editor' => $background_style_data,
 			'.edit-post-visual-editor .editor-styles-wrapper' => astra_get_responsive_background_obj( $content_background, 'desktop' ),
 
-			'.editor-styles-wrapper'           => array(
+			'.editor-styles-wrapper, #customize-controls .editor-styles-wrapper' => array(
 				'font-family'    => astra_get_font_family( $body_font_family ),
 				'font-weight'    => esc_attr( $body_font_weight ),
 				'font-size'      => astra_responsive_font( $body_font_size, 'desktop' ),
@@ -426,7 +430,7 @@ class Astra_WP_Editor_CSS {
 				'line-height'    => esc_attr( $h2_line_height ),
 				'text-transform' => esc_attr( $h2_text_transform ),
 			),
-			'.editor-styles-wrapper h3'        => array(
+			'.editor-styles-wrapper h3, #customize-controls .editor-styles-wrapper h3' => array(
 				'font-size'      => astra_responsive_font( $heading_h3_font_size, 'desktop' ),
 				'font-family'    => astra_get_css_value( $h3_font_family, 'font' ),
 				'font-weight'    => astra_get_css_value( $h3_font_weight, 'font' ),
