@@ -174,7 +174,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'transport'  => 'postMessage',
 						'responsive' => false,
 						'renderAs'   => 'text',
-						'divider'    => array( 'ast_class' => 'ast-bottom-divider' ),
+						'divider'    => array( 'ast_class' => 'ast-bottom-section-divider' ),
 					),
 
 					// Option: Submenu Container Divider.
@@ -255,6 +255,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 							'step' => 1,
 							'max'  => 200,
 						),
+						'divider'   => array( 'ast_class' => 'ast-bottom-section-divider' ),
 					),
 
 					// Option: Sub-Menu Border.
@@ -275,6 +276,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 							'bottom' => __( 'Bottom', 'astra' ),
 							'left'   => __( 'Left', 'astra' ),
 						),
+						'divider'   => array( 'ast_class' => 'ast-bottom-dotted-divider' ),
 					),
 
 					// Option: Submenu Container Border Color.
@@ -290,6 +292,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'section'           => $_section,
 						'priority'          => 23,
 						'context'           => Astra_Builder_Helper::$design_tab,
+						'divider'   => array( 'ast_class' => 'ast-bottom-dotted-divider' ),
 					),
 
 					/**
@@ -312,6 +315,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 							'step' => 1,
 							'max'  => 200,
 						),
+						'divider'   => array( 'ast_class' => 'ast-bottom-section-divider' ),
 					),
 
 					// Option: Submenu Divider Checkbox.
@@ -377,7 +381,6 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'context'    => Astra_Builder_Helper::$design_tab,
 						'responsive' => true,
 						'divider'    => array(
-							'ast_class' => 'ast-top-divider',
 							'ast_title' => __( 'Menu Color', 'astra' ),
 						),
 					),
@@ -630,7 +633,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 							'left'   => __( 'Left', 'astra' ),
 						),
 						'context'           => Astra_Builder_Helper::$design_tab,
-						'divider'           => array( 'ast_class' => 'ast-bottom-divider' ),
+						'divider'           => array( 'ast_class' => 'ast-bottom-section-divider' ),
 					),
 				);
 

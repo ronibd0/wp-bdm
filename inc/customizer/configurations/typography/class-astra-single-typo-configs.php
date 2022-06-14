@@ -54,6 +54,17 @@ if ( ! class_exists( 'Astra_Single_Typo_Configs' ) ) {
 						'divider'  => array( 'ast_class' => 'ast-bottom-divider' ),
 					),
 
+					array(
+						'name'     => ASTRA_THEME_SETTINGS . '[blog-single-post-ast-button-link]',
+						'type'     => 'control',
+						'control'  => 'ast-button-link',
+						'section'  => 'section-blog-single',
+						'priority' => 999,
+						'title'    =>  __( 'View Astra Pro Features', 'astra' ),
+						'url'      => 'https://wpastra.com/pro',
+						'settings' => array(),
+					)
+
 				);
 			}
 
@@ -67,7 +78,7 @@ if ( ! class_exists( 'Astra_Single_Typo_Configs' ) ) {
 						'priority'  => Astra_Builder_Helper::$is_header_footer_builder_active ?
 						13 : 20,
 						'control'   => 'ast-settings-group',
-						'title'     => __( 'Post / Page Title Font', 'astra' ),
+						'title'     => __( 'Title Font', 'astra' ),
 						'section'   => 'section-blog-single',
 						'transport' => 'postMessage',
 						'context'   => Astra_Builder_Helper::$is_header_footer_builder_active ?
