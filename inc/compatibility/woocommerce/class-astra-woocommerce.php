@@ -622,7 +622,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			$defaults['shop-hover-style']       = '';
 
 			/* Single */
-			$defaults['single-product-breadcrumb-disable'] = false;
+			$defaults['single-product-breadcrumb-disable'] = true;
 			$defaults['single-product-cart-button-width']  = array(
 				'desktop' => '',
 				'tablet'  => '',
@@ -1051,7 +1051,8 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 			// Breadcrumb.
 			remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20, 0 );
-			if ( ! astra_get_option( 'single-product-breadcrumb-disable' ) ) {
+			
+			if ( astra_get_option( 'single-product-breadcrumb-disable' ) ) {
 				add_action( 'woocommerce_single_product_summary', 'woocommerce_breadcrumb', 2 );
 			}
 		}

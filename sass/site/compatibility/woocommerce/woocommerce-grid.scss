@@ -219,26 +219,6 @@ p.demo_store,
 					width: 100%;
 					margin-left: 0;
 				}
-			
-				&:not(.checkout) {
-					border: 2px solid var(--ast-global-color-0);
-					background-color: transparent;
-					color: var(--ast-global-color-0);
-
-					&:hover {
-						border-color: var(--ast-global-color-1);
-						color: var(--ast-global-color-1);
-					}
-				}
-
-				&.checkout {
-					border: 2px solid var(--ast-global-color-0);
-
-					&:hover {
-						border-color: var(--ast-global-color-1);
-					}
-				}
-				
 			}
 		}
 

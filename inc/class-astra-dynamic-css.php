@@ -3783,6 +3783,16 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		 */
 		public static function load_cart_static_css() {
 
+			$theme_color        = astra_get_option( 'theme-color' );   
+			$btn_border_color   = astra_get_option( 'theme-button-border-group-border-color' );
+			$btn_bg_color       = astra_get_option( 'button-bg-color', $theme_color );
+			$btn_border_h_color = astra_get_option( 'theme-button-border-group-border-h-color' );
+			$link_h_color       = astra_get_option( 'link-h-color' );
+			$btn_bg_h_color     = astra_get_option( 'button-bg-h-color', '', $link_h_color );
+
+			$normal_border_color = $btn_border_color ? $btn_border_color : $btn_bg_color;
+			$hover_border_color  = $btn_border_h_color ? $btn_border_h_color : $btn_bg_h_color;
+
 			$cart_static_css = '
 			.ast-site-header-cart .cart-container,
 			.ast-edd-site-header-cart .ast-edd-cart-container {
@@ -4218,24 +4228,33 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 				.woocommerce-js .astra-cart-drawer .astra-cart-drawer-content .woocommerce-mini-cart__buttons .button:not(.checkout) {
 					margin-right: 10px;
-					background-color: transparent;
-					border: 2px solid var( --ast-global-color-0 );
-					color: var( --ast-global-color-0 );
 				}
 
-				.woocommerce-js .astra-cart-drawer .astra-cart-drawer-content .woocommerce-mini-cart__buttons .button:not(.checkout):hover {
-					border-color: var( --ast-global-color-1 );
-					color: var( --ast-global-color-1 );
+				.woocommerce-js .astra-cart-drawer .astra-cart-drawer-content .woocommerce-mini-cart__buttons .button:not(.checkout), 
+				.ast-site-header-cart .widget_shopping_cart .buttons .button:not(.checkout) {
+					background-color: transparent;
+					border-style: solid;
+					border-width: 2px;
+					border-color: ' . $normal_border_color . '; 
+					color: ' . esc_attr( $btn_bg_color ) . ';
+				}
+
+				.woocommerce-js .astra-cart-drawer .astra-cart-drawer-content .woocommerce-mini-cart__buttons .button:not(.checkout):hover,
+				.ast-site-header-cart .widget_shopping_cart .buttons .button:not(.checkout):hover {
+					border-color: ' . $hover_border_color . ';
+					color: ' . esc_attr( $btn_bg_color ) . ';
 				}
 
 				.woocommerce-js .astra-cart-drawer .astra-cart-drawer-content .woocommerce-mini-cart__buttons a.checkout {
 					margin-left: 0;
 					margin-top: 10px;
-					border: 2px solid var(--ast-global-color-0);
+					border-style: solid;
+					border-width: 2px;
+					border-color: ' . $normal_border_color . '; 
 				}
 
 				.woocommerce-js .astra-cart-drawer .astra-cart-drawer-content .woocommerce-mini-cart__buttons a.checkout:hover {
-					border-color: var(--ast-global-color-1);
+					border-color: ' . $hover_border_color . ';
 				}
 
 				.woocommerce-js .astra-cart-drawer .astra-cart-drawer-content .woocommerce-mini-cart__total strong{
