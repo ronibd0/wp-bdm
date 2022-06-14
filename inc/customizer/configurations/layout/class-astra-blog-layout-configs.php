@@ -181,7 +181,7 @@ if ( ! class_exists( 'Astra_Blog_Layout_Configs' ) ) {
 					),
 					'responsive' => false,
 					'renderAs'   => 'text',
-					'divider'  => array( 'ast_class' => 'ast-top-spacing ast-bottom-spacing ast-bottom-section-divider' ),
+					'divider'    => array( 'ast_class' => 'ast-top-spacing ast-bottom-spacing ast-bottom-section-divider' ),
 				),
 
 				/**
@@ -252,14 +252,14 @@ if ( ! class_exists( 'Astra_Blog_Layout_Configs' ) ) {
 			if ( ! defined( 'ASTRA_EXT_VER' ) ) {
 
 				$_configs[] = array(
-						'name'     => ASTRA_THEME_SETTINGS . '[ast-button-link]',
-						'type'     => 'control',
-						'control'  => 'ast-button-link',
-						'section'  => 'section-blog',
-						'priority' => 5,
-						'title'    =>  __( 'View Astra Pro Features', 'astra' ),
-						'url'      => 'https://wpastra.com/pro',
-						'settings' => array(),
+					'name'     => ASTRA_THEME_SETTINGS . '[ast-button-link]',
+					'type'     => 'control',
+					'control'  => 'ast-button-link',
+					'section'  => 'section-blog',
+					'priority' => 5,
+					'title'    => __( 'View Astra Pro Features', 'astra' ),
+					'url'      => 'https://wpastra.com/pro',
+					'settings' => array(),
 				);
 			}
 

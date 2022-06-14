@@ -60,10 +60,10 @@ if ( ! class_exists( 'Astra_Single_Typo_Configs' ) ) {
 						'control'  => 'ast-button-link',
 						'section'  => 'section-blog-single',
 						'priority' => 999,
-						'title'    =>  __( 'View Astra Pro Features', 'astra' ),
+						'title'    => __( 'View Astra Pro Features', 'astra' ),
 						'url'      => 'https://wpastra.com/pro',
 						'settings' => array(),
-					)
+					),
 
 				);
 			}

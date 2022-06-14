@@ -127,7 +127,7 @@ if ( ! class_exists( 'Astra_Sidebar_Layout_Configs' ) ) {
 					'priority' => 15,
 					'title'    => '',
 					'help'     => __( 'Sidebar width will apply only when one of the above sidebar is set.', 'astra' ),
-					'divider'           => array( 'ast_class' => 'ast-bottom-section-divider' ),
+					'divider'  => array( 'ast_class' => 'ast-bottom-section-divider' ),
 					'settings' => array(),
 				),
 			);
@@ -136,14 +136,14 @@ if ( ! class_exists( 'Astra_Sidebar_Layout_Configs' ) ) {
 			if ( ! defined( 'ASTRA_EXT_VER' ) ) {
 
 				$_configs[] = array(
-						'name'     => ASTRA_THEME_SETTINGS . '[section-sidebars-ast-button-link]',
-						'type'     => 'control',
-						'control'  => 'ast-button-link',
-						'section'  => 'section-sidebars',
-						'priority' => 999,
-						'title'    =>  __( 'View Astra Pro Features', 'astra' ),
-						'url'      => 'https://wpastra.com/pro',
-						'settings' => array(),
+					'name'     => ASTRA_THEME_SETTINGS . '[section-sidebars-ast-button-link]',
+					'type'     => 'control',
+					'control'  => 'ast-button-link',
+					'section'  => 'section-sidebars',
+					'priority' => 999,
+					'title'    => __( 'View Astra Pro Features', 'astra' ),
+					'url'      => 'https://wpastra.com/pro',
+					'settings' => array(),
 				);
 			}
 

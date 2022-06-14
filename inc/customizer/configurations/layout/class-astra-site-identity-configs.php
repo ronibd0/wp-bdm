@@ -247,7 +247,7 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 						'container_inclusive' => false,
 						'render_callback'     => 'Astra_Builder_Header::site_identity',
 					),
-					'divider'           => array( 'ast_class' => 'ast-top-section-divider' ),
+					'divider'   => array( 'ast_class' => 'ast-top-section-divider' ),
 				),
 
 				/**

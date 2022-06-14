@@ -255,7 +255,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 							'step' => 1,
 							'max'  => 200,
 						),
-						'divider'   => array( 'ast_class' => 'ast-bottom-section-divider' ),
+						'divider'     => array( 'ast_class' => 'ast-bottom-section-divider' ),
 					),
 
 					// Option: Sub-Menu Border.
@@ -276,7 +276,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 							'bottom' => __( 'Bottom', 'astra' ),
 							'left'   => __( 'Left', 'astra' ),
 						),
-						'divider'   => array( 'ast_class' => 'ast-bottom-dotted-divider' ),
+						'divider'        => array( 'ast_class' => 'ast-bottom-dotted-divider' ),
 					),
 
 					// Option: Submenu Container Border Color.
@@ -292,7 +292,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'section'           => $_section,
 						'priority'          => 23,
 						'context'           => Astra_Builder_Helper::$design_tab,
-						'divider'   => array( 'ast_class' => 'ast-bottom-dotted-divider' ),
+						'divider'           => array( 'ast_class' => 'ast-bottom-dotted-divider' ),
 					),
 
 					/**
@@ -315,7 +315,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 							'step' => 1,
 							'max'  => 200,
 						),
-						'divider'   => array( 'ast_class' => 'ast-bottom-section-divider' ),
+						'divider'     => array( 'ast_class' => 'ast-bottom-section-divider' ),
 					),
 
 					// Option: Submenu Divider Checkbox.

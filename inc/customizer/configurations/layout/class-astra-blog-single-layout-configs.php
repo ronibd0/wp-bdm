@@ -211,9 +211,7 @@ if ( ! class_exists( 'Astra_Blog_Single_Layout_Configs' ) ) {
 							'tag'      => __( 'Tag', 'astra' ),
 						),
 					);
-				}
-
-
+				}           
 			}
 
 			if ( true === Astra_Builder_Helper::$is_header_footer_builder_active ) {
