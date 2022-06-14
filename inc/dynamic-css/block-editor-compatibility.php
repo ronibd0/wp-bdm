@@ -407,6 +407,14 @@ function astra_load_modern_block_editor_ui( $dynamic_css ) {
 					margin-right: -60px;
 				}
 			}
+			@media(min-width: ' . $mobile_breakpoint . 'px) {
+				.entry-content > .alignleft {
+					margin-' . esc_attr( $ltr_right ) . ': 20px;
+				}
+				.entry-content > .alignright {
+					margin-' . esc_attr( $ltr_left ) . ': 20px;
+				}
+			}
 		';
 	} else {
 		$dynamic_css .= '
