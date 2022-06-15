@@ -2283,6 +2283,15 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				);
 			}
 
+			if ( true === $update_customizer_strctural_defaults ) {
+				$global_button_desktop['form[CLASS*="wp-block-search__"].wp-block-search .wp-block-search__inside-wrapper .wp-block-search__button.has-icon'] = array(
+					'padding-top'    => 'calc(' . astra_responsive_spacing( $theme_btn_padding, 'top', 'desktop' ) . ' - 3px)',
+					'padding-right'  => 'calc(' . astra_responsive_spacing( $theme_btn_padding, 'right', 'desktop' ) . ' - 3px)',
+					'padding-bottom' => 'calc(' . astra_responsive_spacing( $theme_btn_padding, 'bottom', 'desktop' ) . ' - 3px)',
+					'padding-left'   => 'calc(' . astra_responsive_spacing( $theme_btn_padding, 'left', 'desktop' ) . ' - 3px)',
+				);
+			}
+
 			/* Parse CSS from array() */
 			$parse_css .= astra_parse_css( $global_button_desktop );
 
@@ -3940,7 +3949,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		public static function load_sidebar_static_css() {
 
 			$update_customizer_strctural_defaults = astra_get_option( 'customizer-default-layout-update', true );
-			$secondary_li_bottom_spacing          = ( true === $update_customizer_strctural_defaults ) ? '0.5em' : '0.25em';
+			$secondary_li_bottom_spacing          = ( true === $update_customizer_strctural_defaults ) ? '0.75em' : '0.25em';
 			$is_site_rtl                          = is_rtl() ? true : false;
 			$ltr_left                             = $is_site_rtl ? esc_attr( 'right' ) : esc_attr( 'left' );
 			$ltr_right                            = $is_site_rtl ? esc_attr( 'left' ) : esc_attr( 'right' );

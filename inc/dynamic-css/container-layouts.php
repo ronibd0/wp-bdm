@@ -146,6 +146,13 @@ function astra_container_layout_css() {
 					margin-left: 0;
 					margin-right: 0;
 				}
+				.ast-page-builder-template.archive.ast-right-sidebar .ast-row article, .ast-page-builder-template.archive.ast-left-sidebar .ast-row article {
+					padding-left: 0;
+					padding-right: 0;
+				}
+				.ast-page-builder-template .entry-header + .entry-content {
+					margin-bottom: 2em;
+				}
 			';
 		}
 

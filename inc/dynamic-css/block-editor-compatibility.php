@@ -358,8 +358,9 @@ function astra_load_modern_block_editor_ui( $dynamic_css ) {
 				background: var(--ast-global-color-5);
 				border-color: #e5e5e5;
 			}
-			#content .wp-block-latest-posts li:not(:last-child) {
-				margin-bottom: 1.5em;
+			.wp-block-search__no-button .wp-block-search__inside-wrapper .wp-block-search__input {
+				padding-top: 5px;
+				padding-bottom: 5px;
 			}
 			.wp-block-latest-posts .wp-block-latest-posts__post-date, .wp-block-latest-posts .wp-block-latest-posts__post-author {
 				font-size: 1rem;
