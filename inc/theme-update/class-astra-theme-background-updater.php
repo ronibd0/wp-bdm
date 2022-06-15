@@ -129,6 +129,9 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 				'astra_update_woocommerce_cart_icons',
 				// 'astra_post_strctures_meta_migration',
 			),
+			'3.9.0' => array(
+				'astra_legacy_customizer_maintenance',
+			),
 		);
 
 		/**

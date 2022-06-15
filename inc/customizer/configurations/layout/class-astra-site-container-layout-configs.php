@@ -113,6 +113,27 @@ if ( ! class_exists( 'Astra_Site_Container_Layout_Configs' ) ) {
 				),
 
 				/**
+				 * Option: Theme color heading
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[surface-colors-title]',
+					'section'   => $_section,
+					'title'    => __( 'Surface Color', 'astra-addon' ),
+					'type'     => 'control',
+					'control'  => 'ast-group-title',
+					'priority' => 25,
+					'responsive' => true,
+					'settings' => array(),
+					'divider'  => array( 'ast_class' => 'ast-top-divider' ),
+					'input_attrs'       => array(
+						'reset_linked_controls'  => array(
+							'site-layout-outside-bg-obj-responsive',
+							'content-bg-obj-responsive',
+						)
+					),
+				),
+
+				/**
 				 * Option: Body Background
 				 */
 				array(
@@ -123,6 +144,9 @@ if ( ! class_exists( 'Astra_Site_Container_Layout_Configs' ) ) {
 					'section'   => $_section,
 					'transport' => 'postMessage',
 					'priority'  => 25,
+					'input_attrs'       => array(
+						'ignore_responsive_btns'  => true,
+					),
 					'title'     => __( 'Site Background', 'astra' ),
 				),
 			);
@@ -139,6 +163,9 @@ if ( ! class_exists( 'Astra_Site_Container_Layout_Configs' ) ) {
 					'section'   => $_section,
 					'title'     => __( 'Content Background', 'astra' ),
 					'transport' => 'postMessage',
+					'input_attrs'       => array(
+						'ignore_responsive_btns'  => true,
+					),
 					'priority'  => 25,
 					'divider'   => defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'colors-and-background' ) ? array( 'ast_class' => 'ast-bottom-divider' ) : array(),
 				);
