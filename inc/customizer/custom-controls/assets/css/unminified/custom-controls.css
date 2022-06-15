@@ -1334,7 +1334,8 @@ input[type="text"], input[type="password"], input[type="color"], input[type="dat
   margin-top: 16px;
 }
 
-.customize-control:not(.customize-control-nav_menu_item).customize-control-ast-toggle-control {
+.customize-control.customize-control-ast-toggle-control,
+.customize-control.customize-control-ast-color {
   margin-top: 24px;
 }
 
@@ -1691,7 +1692,7 @@ input[type="text"].select2-search__field {
 }
 
 .customize-control.ast-top-section-divider::before,
-.customize-control.ast-bottom-section-divider::before {
+.customize-control.ast-bottom-section-divider::after {
     content: '';
     position: absolute;
     left: -100%;
@@ -1700,12 +1701,22 @@ input[type="text"].select2-search__field {
     height: 1px;
 }
 
+
 .customize-control.ast-top-section-divider::before {
     top: 0;
 }
 
-.customize-control.ast-bottom-section-divider::before {
+.customize-control.ast-bottom-section-divider::after {
     bottom: 0;
+}
+
+
+/*
+* CSS for ast-first-control-spacing attribute started.
+*/
+
+.customize-control.ast-section-spacing{
+    margin-top: 32px;
 }
 .ast-typo-presets {
     display: flex;
@@ -1755,10 +1766,6 @@ input[type="text"].select2-search__field {
 
 .ast-field-settings-wrap .customize-control-ast-heading {
   margin: 0px 0 15px 0;
-}
-
-.customize-control-ast-responsive-background + .customize-control-ast-heading, .customize-control-ast-color + .customize-control-ast-heading {
-    margin-top: 30px;
 }
 
 .customize-control-ast-heading {

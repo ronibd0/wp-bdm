@@ -30,7 +30,8 @@
   margin-top: 16px;
 }
 
-.customize-control:not(.customize-control-nav_menu_item).customize-control-ast-toggle-control {
+.customize-control.customize-control-ast-toggle-control,
+.customize-control.customize-control-ast-color {
   margin-top: 24px;
 }
 
