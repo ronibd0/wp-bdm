@@ -149,36 +149,18 @@ if ( ! function_exists( 'astra_number_pagination' ) ) {
 			return;
 		}
 
-		$paginate_links = paginate_links(
+		ob_start();
+		echo "<div class='ast-pagination'>";
+		the_posts_pagination(
 			array(
-				'prev_next'    => false,
 				'prev_text'    => astra_default_strings( 'string-blog-navigation-previous', false ),
 				'next_text'    => astra_default_strings( 'string-blog-navigation-next', false ),
 				'taxonomy'     => 'category',
 				'in_same_term' => true,
-			) 
+			)
 		);
-
-		$class     = 'pagination';
-		$prev_link = get_previous_posts_link( astra_default_strings( 'string-blog-navigation-previous', false ) );
-		$next_link = get_next_posts_link( astra_default_strings( 'string-blog-navigation-next', false ) );
-
-		$template = apply_filters(
-			'astra_post_navigation_markup_template',
-			'<div class="ast-pagination">
-				<nav class="navigation %1$s" role="navigation" aria-label="Posts">
-					<span class="screen-reader-text"> %2$s </span>
-					<div class="nav-links"> %3$s <div class="ast-paginate-numbers-wrap"> %4$s </div> %5$s </div>
-				</nav>
-			</div>',
-			$paginate_links,
-			$class
-		);
-
-		$prev_link = str_replace( 'href=', 'class="prev page-numbers" href=', $prev_link );
-		$next_link = str_replace( 'href=', 'class="next page-numbers" href=', $next_link );
-
-		$output = sprintf( $template, $class, __( 'Posts navigation', 'astra' ), $prev_link, $paginate_links, $next_link );
+		echo '</div>';
+		$output = ob_get_clean();
 		echo apply_filters( 'astra_pagination_markup', $output ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	}
 }

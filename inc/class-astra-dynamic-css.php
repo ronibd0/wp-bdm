@@ -1588,6 +1588,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			);
 
 			if ( true === $update_customizer_strctural_defaults ) {
+				$ltr_left                  = is_rtl() ? 'right' : 'left';
 				$default_layout_update_css = array(
 					'#page'                           => array(
 						'display'        => 'flex',
@@ -1654,7 +1655,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 				$default_tablet_layout_css = array(
 					'.ast-left-sidebar.ast-page-builder-template #secondary, .archive.ast-right-sidebar.ast-page-builder-template .site-main' => array(
-						'padding-left' => '20px',
+						'padding-' . esc_attr( $ltr_left ) => '20px',
 					),
 				);
 
@@ -3920,6 +3921,9 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 			$update_customizer_strctural_defaults = astra_get_option( 'customizer-default-layout-update', true );
 			$secondary_li_bottom_spacing          = ( true === $update_customizer_strctural_defaults ) ? '0.5em' : '0.25em';
+			$is_site_rtl                          = is_rtl() ? true : false;
+			$ltr_left                             = $is_site_rtl ? esc_attr( 'right' ) : esc_attr( 'left' );
+			$ltr_right                            = $is_site_rtl ? esc_attr( 'left' ) : esc_attr( 'right' );
 
 			$sidebar_static_css = '
 			#secondary {
@@ -3944,90 +3948,46 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				margin-bottom: 2em;
 			}
 			';
-			if ( is_rtl() ) {
-				$sidebar_static_css .= '
+
+			$sidebar_static_css .= '
 				@media (min-width: 993px) {
 					.ast-left-sidebar #secondary {
-						padding-left: 60px;
+						padding-' . $ltr_right . ': 60px;
 					}
-
 					.ast-right-sidebar #secondary {
-						padding-right: 60px;
+						padding-' . $ltr_left . ': 60px;
 					}
 				}
 				@media (max-width: 993px) {
 					.ast-right-sidebar #secondary {
-						padding-right: 30px;
+						padding-' . $ltr_left . ': 30px;
 					}
 					.ast-left-sidebar #secondary {
-						padding-left: 30px;
-					}
-
-				}';
-			} else {
-				$sidebar_static_css .= '
-				@media (min-width: 993px) {
-					.ast-left-sidebar #secondary {
-						padding-right: 60px;
-					}
-
-					.ast-right-sidebar #secondary {
-						padding-left: 60px;
+						padding-' . $ltr_right . ': 30px;
 					}
 				}
-				@media (max-width: 993px) {
-					.ast-right-sidebar #secondary {
-						padding-left: 30px;
-					}
-					.ast-left-sidebar #secondary {
-						padding-right: 30px;
-					}
-
-				}';
-			}
+			';
 
 			if ( $update_customizer_strctural_defaults ) {
-				if ( is_rtl() ) {
-					$sidebar_static_css .= '
-						@media (min-width: 993px) {
-							.ast-page-builder-template.ast-left-sidebar #secondary {
-								padding-right: 60px;
-							}
-							.ast-page-builder-template.ast-right-sidebar #secondary {
-								padding-left: 60px;
-							}
+				$sidebar_static_css .= '
+					@media (min-width: 993px) {
+						.ast-page-builder-template.ast-left-sidebar #secondary {
+							padding-' . $ltr_left . ': 60px;
 						}
-						@media (max-width: 993px) {
-							.ast-page-builder-template.ast-right-sidebar #secondary {
-								padding-left: 30px;
-							}
-							.ast-page-builder-template.ast-left-sidebar #secondary {
-								padding-right: 30px;
-							}
+						.ast-page-builder-template.ast-right-sidebar #secondary {
+							padding-' . $ltr_right . ': 60px;
+						}
+					}
+					@media (max-width: 993px) {
+						.ast-page-builder-template.ast-right-sidebar #secondary {
+							padding-' . $ltr_right . ': 30px;
+						}
+						.ast-page-builder-template.ast-left-sidebar #secondary {
+							padding-' . $ltr_left . ': 30px;
+						}
 
-						}
-					';
-				} else {
-					$sidebar_static_css .= '
-						@media (min-width: 993px) {
-							.ast-page-builder-template.ast-left-sidebar #secondary {
-								padding-left: 60px;
-							}
-							.ast-page-builder-template.ast-right-sidebar #secondary {
-								padding-right: 60px;
-							}
-						}
-						@media (max-width: 993px) {
-							.ast-page-builder-template.ast-right-sidebar #secondary {
-								padding-right: 30px;
-							}
-							.ast-page-builder-template.ast-left-sidebar #secondary {
-								padding-left: 30px;
-							}
-
-						}
-					';
-				}
+					}
+				';
 			}
 
 			return $sidebar_static_css;

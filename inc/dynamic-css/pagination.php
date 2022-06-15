@@ -49,9 +49,6 @@ function astra_pagination_css( $dynamic_css ) {
                 height: 2.33333em;
                 line-height: calc(2.33333em - 3px);
             }
-			.ast-paginate-numbers-wrap {
-				display: inline-block;
-			}
             .ast-pagination {
                 display: inline-block;
                 width: 100%;
