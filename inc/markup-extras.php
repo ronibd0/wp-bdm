@@ -191,9 +191,11 @@ if ( ! function_exists( 'astra_logo' ) ) {
 
 		$html            = '';
 		$has_custom_logo = apply_filters( 'astra_has_custom_logo', has_custom_logo() );
+		$trans_logo      = astra_get_option( 'transparent-header-logo' );
+		$diff_trans_logo = astra_get_option( 'different-transparent-logo' );
 
 		// Site logo.
-		if ( $has_custom_logo && ! empty( $ast_custom_logo_id ) ) {
+		if ( ( $has_custom_logo && ! empty( $ast_custom_logo_id ) ) || ( true === $diff_trans_logo && ! empty( $trans_logo ) ) ) {
 
 			if ( apply_filters( 'astra_replace_logo_width', true ) ) {
 				add_filter( 'wp_get_attachment_image_src', 'astra_replace_header_logo', 10, 4 );
