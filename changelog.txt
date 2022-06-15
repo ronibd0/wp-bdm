@@ -1,4 +1,5 @@
 v3.8.3 (Unreleased)
+- Fix: Primary submenus not expandable on mobile when toggle button element is not added.
 - Fix: PHP Notice - Array to string conversion on widget.php page.
 
 v3.8.2
