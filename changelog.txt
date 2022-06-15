@@ -1,5 +1,6 @@
 v3.8.3 (Unreleased)
 - Fix: Image block not aligned centrally for Legacy block editor setup.
+- Fix: Block editor and frontend layout mismatch for Row block.
 - Fix: Primary submenus not expandable on mobile when toggle button element is not added.
 - Fix: PHP Notice - Array to string conversion on widget.php page.
 
