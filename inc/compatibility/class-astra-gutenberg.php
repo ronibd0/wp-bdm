@@ -90,7 +90,7 @@ class Astra_Gutenberg {
 			return $block_content;
 		}
 		/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-		if ( (isset( $block['blockName']) && 'core/group' === $block['blockName']) && ! empty( $block['attrs'] ) && isset( $block['attrs']['layout'] ) && isset( $block['attrs']['layout']['type'] ) && 'flex' === $block['attrs']['layout']['type'] ) {
+		if ( ( isset( $block['blockName'] ) && 'core/group' === $block['blockName'] ) && ! empty( $block['attrs'] ) && isset( $block['attrs']['layout'] ) && isset( $block['attrs']['layout']['type'] ) && 'flex' === $block['attrs']['layout']['type'] ) {
 			return $block_content;
 		}
 
