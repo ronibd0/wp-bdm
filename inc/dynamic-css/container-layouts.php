@@ -71,7 +71,7 @@ function astra_container_layout_css() {
 						margin-right: auto;
 						margin-left: auto;
 					}
-					.ast-single-post.ast-page-builder-template article {
+					.ast-single-post.ast-page-builder-template .site-main > article {
 						padding-right: 20px;
 						padding-left: 20px;
 					}
@@ -109,7 +109,7 @@ function astra_container_layout_css() {
 						margin-left: auto;
 						margin-right: auto;
 					}
-					.ast-single-post.ast-page-builder-template article {
+					.ast-single-post.ast-page-builder-template .site-main > article {
 						padding-left: 20px;
 						padding-right: 20px;
 					}
