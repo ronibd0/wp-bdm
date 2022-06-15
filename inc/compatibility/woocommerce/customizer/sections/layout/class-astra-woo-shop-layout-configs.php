@@ -82,11 +82,12 @@ if ( ! class_exists( 'Astra_Woo_Shop_Layout_Configs' ) ) {
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[woo-shop-structure-divider]',
 					'section'  => 'woocommerce_product_catalog',
-					'title'    => __( 'Shop Skin Structure', 'astra-addon' ),
+					'title'    => __( 'Shop Skin Structure', 'astra' ),
 					'type'     => 'control',
 					'control'  => 'ast-heading',
 					'priority' => 15,
 					'settings' => array(),
+					'divider'  => array( 'ast_class' => 'ast-section-spacing' ),
 				),
 
 				/**
@@ -108,7 +109,24 @@ if ( ! class_exists( 'Astra_Woo_Shop_Layout_Configs' ) ) {
 						'add_cart'   => __( 'Add To Cart', 'astra' ),
 						'category'   => __( 'Category', 'astra' ),
 					),
+					'divider'           => array( 'ast_class' => 'ast-section-spacing' ),
 				),
+
+
+				/**
+				 * Option: Divider
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[woo-shop-skin-divider]',
+					'section'  => 'woocommerce_product_catalog',
+					'title'    => __( 'Shop Skin Layout', 'astra' ),
+					'type'     => 'control',
+					'control'  => 'ast-heading',
+					'priority' => 10,
+					'settings' => array(),
+					'divider'  => array( 'ast_class' => 'ast-section-spacing ast-bottom-spacing' ),
+				),
+				
 
 				/**
 				 * Link to the shop skin layout.
@@ -124,7 +142,6 @@ if ( ! class_exists( 'Astra_Woo_Shop_Layout_Configs' ) ) {
 					'link_type'      => 'section',
 					'linked'         => 'section-woo-shop-skin',
 					'link_text'      => __( 'Shop Skin Layout', 'astra' ),
-					'divider'        => array( 'ast_class' => 'ast-top-divider' ),
 				),
 
 				/**

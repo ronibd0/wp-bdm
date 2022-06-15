@@ -91,7 +91,20 @@ if ( ! class_exists( 'Astra_Woo_Shop_Sidebar_Configs' ) ) {
 							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'tmp-angle', false ) : '',
 						),
 					),
-					'divider'           => array( 'ast_class' => 'ast-bottom-divider' ),
+				),
+
+				/**
+				 * Option: Divider
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[shop-display-options-divider]',
+					'section'  => 'woocommerce_product_catalog',
+					'title'    => __( 'Shop Display Options', 'astra' ),
+					'type'     => 'control',
+					'control'  => 'ast-heading',
+					'priority' => 5,
+					'settings' => array(),
+					'divider'  => array( 'ast_class' => 'ast-section-spacing ast-bottom-spacing' ),
 				),
 
 				array(
@@ -121,9 +134,7 @@ if ( ! class_exists( 'Astra_Woo_Shop_Sidebar_Configs' ) ) {
 							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'tmp-angle', false ) : '',
 						),
 					),
-					'divider'           => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
-
 			);
 
 			return array_merge( $configurations, $_configs );
