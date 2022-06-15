@@ -1627,7 +1627,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'.ast-separate-container .ast-article-post, .ast-separate-container .ast-article-single, .ast-separate-container .ast-comment-list li.depth-1, .ast-separate-container .comment-respond' => array(
 						'padding' => '3em',
 					),
-					'.ast-separate-container .ast-comment-list li.depth-1' => array(
+					'.ast-separate-container .ast-comment-list li.depth-1, .hentry' => array(
 						'margin-bottom' => '2em',
 					),
 					'.ast-separate-container .ast-archive-description, .ast-separate-container .ast-author-box' => array(
@@ -1636,6 +1636,17 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					),
 					'.ast-separate-container .comments-title' => array(
 						'padding' => '2em 2em 0 2em',
+					),
+					'.ast-page-builder-template .comment-form-textarea, .ast-comment-formwrap .ast-grid-common-col' => array(
+						'padding' => '0',
+					),
+					'.ast-comment-formwrap'           => array(
+						'padding'    => '0 20px',
+						'display'    => 'inline-flex',
+						'column-gap' => '20px',
+					),
+					'.ast-page-builder-template .ast-comment-formwrap' => array(
+						'width' => '100%',
 					),
 					'.entry-title'                    => array(
 						'margin-bottom' => '0.5em',
@@ -1661,6 +1672,15 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 				/* Parse CSS from array() -> min-width: tablet-breakpoint CSS */
 				$parse_css .= astra_parse_css( $default_tablet_layout_css, astra_get_tablet_breakpoint() );
+
+				$default_mobile_layout_css = array(
+					'.ast-comment-formwrap.ast-row' => array(
+						'column-gap' => '10px',
+					),
+				);
+
+				/* Parse CSS from array() -> max-width: mobile-breakpoint CSS */
+				$parse_css .= astra_parse_css( $default_mobile_layout_css, '', astra_get_mobile_breakpoint() );
 
 				if ( is_user_logged_in() ) {
 					$admin_bar_specific_page_css = array(
