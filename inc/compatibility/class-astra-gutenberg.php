@@ -89,6 +89,11 @@ class Astra_Gutenberg {
 		) {
 			return $block_content;
 		}
+		/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+		if ( ( isset( $block['blockName'] ) && 'core/group' === $block['blockName'] ) && ! empty( $block['attrs'] ) && isset( $block['attrs']['layout'] ) && isset( $block['attrs']['layout']['type'] ) && 'flex' === $block['attrs']['layout']['type'] ) {
+			return $block_content;
+		}
+
 
 		$replace_regex   = '/(^\s*<div\b[^>]*wp-block-group[^>]*>)(.*)(<\/div>\s*$)/ms';
 		$updated_content = preg_replace_callback(
