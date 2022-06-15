@@ -35,22 +35,41 @@ function astra_header_builder_migration() {
 		'widget_options' => $widget_options,
 	);
 
+	/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 	$options = astra_primary_header_builder_migration( $options['theme_options'], $options['used_elements'], $options['widget_options'] );
+	/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 
+	/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 	$options = astra_below_header_builder_migration( $options['theme_options'], $options['used_elements'], $options['widget_options'] );
+	/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 
+	/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 	$options = astra_above_header_builder_migration( $options['theme_options'], $options['used_elements'], $options['widget_options'] );
+	/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 
+	/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 	$options = astra_footer_builder_migration( $options['theme_options'], $options['used_elements'], $options['widget_options'] );
+	/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 
+	/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 	$options = astra_footer_widgets_migration( $options['theme_options'], $options['used_elements'], $options['widget_options'] );
+	/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 
+	/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 	$options = astra_primary_menu_builder_migration( $options['theme_options'], $options['used_elements'], $options['widget_options'] );
+	/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 
+	/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 	$options = astra_sticky_header_builder_migration( $options['theme_options'], $options['used_elements'], $options['widget_options'] );
+	/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 
+	/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 	$theme_options  = $options['theme_options'];
+	/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+
+	/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 	$widget_options = $options['widget_options'];
+	/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 
 	$theme_options['v3-option-migration'] = true;
 
@@ -2330,17 +2349,21 @@ function astra_sticky_header_builder_migration( $theme_options, $used_elements, 
 		$theme_options['sticky-header-builder-site-tagline-color'] = $theme_options['sticky-header-color-site-tagline-responsive']['desktop'];
 	}
 
-
 	// Sticky Above/Below Header HTML.
 	$is_html_in_above = false;
 	$is_html_in_below = false;
 
+	/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 	foreach ( $theme_options['header-desktop-items']['above'] as $zone ) {
+		/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 		if ( false !== array_search( 'html-3', $zone ) ) {
 			$is_html_in_above = true;
 		}
 	}
+
+	/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 	foreach ( $theme_options['header-desktop-items']['below'] as $zone ) {
+		/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 		if ( false !== array_search( 'html-2', $zone ) ) {
 			$is_html_in_below = true;
 		}
@@ -2363,12 +2386,17 @@ function astra_sticky_header_builder_migration( $theme_options, $used_elements, 
 	$is_search_in_above = false;
 	$is_search_in_below = false;
 
+	/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 	foreach ( $theme_options['header-desktop-items']['above'] as $zone ) {
+		/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 		if ( false !== array_search( 'search', $zone ) ) {
 			$is_search_in_above = true;
 		}
 	}
+
+	/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 	foreach ( $theme_options['header-desktop-items']['below'] as $zone ) {
+		/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 		if ( false !== array_search( 'search', $zone ) ) {
 			$is_search_in_below = true;
 		}
@@ -2391,12 +2419,16 @@ function astra_sticky_header_builder_migration( $theme_options, $used_elements, 
 	$is_widget_in_above = false;
 	$is_widget_in_below = false;
 
+	/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 	foreach ( $theme_options['header-desktop-items']['above'] as $zone ) {
+		/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 		if ( false !== array_search( 'widget-3', $zone ) ) {
 			$is_widget_in_above = true;
 		}
 	}
+	/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 	foreach ( $theme_options['header-desktop-items']['below'] as $zone ) {
+		/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 		if ( false !== array_search( 'widget-2', $zone ) ) {
 			$is_widget_in_below = true;
 		}
