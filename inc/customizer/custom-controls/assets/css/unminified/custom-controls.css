@@ -1937,7 +1937,7 @@ span.customize-control-title.ast-group-section-title {
   background-color: var(--ast-customizer-color-1);
   border-color: transparent;
   box-shadow: 0px 12px 20px -8px rgba(30, 41, 59, 0.16);
-  border-bottom: 0;
+  border-bottom-color: #f0f0f1;
 }
 
 .ast-divide-four input:checked + label svg {
