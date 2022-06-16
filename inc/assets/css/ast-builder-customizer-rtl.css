@@ -388,6 +388,10 @@
     display: flex;
 }
 
+.ahfb-builder-item-start:nth-last-child(1){
+	margin-bottom: 0;
+}
+
 .ahfb-builder-item-start .ahfb-builder-item {
     flex: 1;
     display: flex;

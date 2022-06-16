@@ -374,7 +374,7 @@
 	border: none;
 }
 .astra-color-clear-button.components-button.is-secondary:disabled, .ast-reset-btn.components-button.is-secondary:disabled span {
-    color: #c5c5c5;
+    color: var(--ast-customizer-color-6);
 }
 /** Inside Setting group popup - Colors */
 .ast-field-settings-modal .color-button-wrap {

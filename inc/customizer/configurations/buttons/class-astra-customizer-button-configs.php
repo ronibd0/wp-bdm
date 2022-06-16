@@ -264,7 +264,7 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 					),
 					'priority'  => 18,
 					'transport' => 'postMessage',
-					'divider'   => array( 'ast_class' => 'ast-bottom-dotted-divider' ),
+					'divider'   => array( 'ast_class' => 'ast-section-spacing ast-bottom-dotted-divider' ),
 				),
 
 				/**

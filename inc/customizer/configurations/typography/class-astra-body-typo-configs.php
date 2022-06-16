@@ -45,7 +45,7 @@ if ( ! class_exists( 'Astra_Body_Typo_Configs' ) ) {
 					'control'  => 'ast-heading',
 					'priority' => 6,
 					'settings' => array(),
-					'divider'  => array( 'ast_class' => 'ast-bottom-spacing' ),
+					'divider'  => array( 'ast_class' => 'ast-section-spacing' ),
 				),
 
 				/**
@@ -60,6 +60,7 @@ if ( ! class_exists( 'Astra_Body_Typo_Configs' ) ) {
 					'section'   => $typo_section,
 					'transport' => 'postMessage',
 					'priority'  => 6,
+					'divider'   => array( 'ast_class' => 'ast-section-spacing' ),
 				),
 
 				/**
