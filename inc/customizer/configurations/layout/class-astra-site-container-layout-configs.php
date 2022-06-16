@@ -109,7 +109,7 @@ if ( ! class_exists( 'Astra_Site_Container_Layout_Configs' ) ) {
 							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'tmp-angle', false ) : '',
 						),
 					),
-					'divider'           => array( 'ast_class' => 'ast-bottom-divider' ),
+					'divider'           => array( 'ast_class' => 'ast-section-spacing ast-bottom-section-divider' ),
 				),
 
 				/**

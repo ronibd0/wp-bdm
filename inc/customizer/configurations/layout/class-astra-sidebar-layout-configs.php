@@ -62,7 +62,7 @@ if ( ! class_exists( 'Astra_Sidebar_Layout_Configs' ) ) {
 							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'tmp-angle', false ) : '',
 						),
 					),
-					'divider'           => array( 'ast_class' => 'ast-bottom-section-divider ast-top-spacing' ),
+					'divider'           => array( 'ast_class' => 'ast-bottom-section-divider ast-section-spacing' ),
 				),
 
 				/**
@@ -142,8 +142,9 @@ if ( ! class_exists( 'Astra_Sidebar_Layout_Configs' ) ) {
 					'section'  => 'section-sidebars',
 					'priority' => 999,
 					'title'    => __( 'View Astra Pro Features', 'astra' ),
-					'url'      => 'https://wpastra.com/pro',
+					'url'      => astra_get_pro_url( 'https://wpastra.com/pro/', 'customizer', 'learn-more', 'upgrade-to-pro' ),
 					'settings' => array(),
+					'divider'  => array( 'ast_class' => 'ast-top-section-divider' ),
 				);
 			}
 

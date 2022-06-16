@@ -258,7 +258,7 @@ if ( ! class_exists( 'Astra_Blog_Layout_Configs' ) ) {
 					'type'     => 'control',
 					'control'  => 'ast-button-link',
 					'section'  => 'section-blog',
-					'priority' => 5,
+					'priority' => 999,
 					'title'    => __( 'View Astra Pro Features', 'astra' ),
 					'url'      => 'https://wpastra.com/pro',
 					'settings' => array(),
