@@ -38,8 +38,7 @@
     background: var(--ast-customizer-color-1);
 }
 .customize-control-ast-selector .ast-alignment-wrapper .ast-alignment-inner-wrap.active .components-button:not(.is-primary):hover {
-    color: #000 !important;
-    background: rgba(255,255,255,0);
+    color: var(--ast-customizer-color-5) !important;
 }
 
 .customize-control-ast-selector .components-button .ahfb-icon-set svg {
@@ -1289,6 +1288,10 @@
 
 input[type="text"], input[type="password"], input[type="color"], input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="email"], input[type="month"], input[type="number"], input[type="search"], input[type="tel"], input[type="time"], input[type="url"], input[type="week"], select, textarea {
     color: var(--ast-customizer-color-5);
+}
+
+.customize-control .ast-spacing-responsive-btns li svg {
+    max-width: 13px;
 }
 
 .customize-control-ast-customizer-link .customizer-link {

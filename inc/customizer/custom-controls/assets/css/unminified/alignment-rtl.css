@@ -38,8 +38,7 @@
     background: var(--ast-customizer-color-1);
 }
 .customize-control-ast-selector .ast-alignment-wrapper .ast-alignment-inner-wrap.active .components-button:not(.is-primary):hover {
-    color: #000 !important;
-    background: rgba(255,255,255,0);
+    color: var(--ast-customizer-color-5) !important;
 }
 
 .customize-control-ast-selector .components-button .ahfb-icon-set svg {

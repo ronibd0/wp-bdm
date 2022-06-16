@@ -56,6 +56,7 @@ if ( ! class_exists( 'Astra_Woo_Shop_Layout_Configs' ) ) {
 						'min'  => 1,
 						'max'  => 6,
 					),
+					'divider'           => array( 'ast_class' => 'ast-top-section-divider ast-bottom-section-divider' ),
 				),
 
 				/**
@@ -162,6 +163,7 @@ if ( ! class_exists( 'Astra_Woo_Shop_Layout_Configs' ) ) {
 					'transport'  => 'refresh',
 					'renderAs'   => 'text',
 					'responsive' => false,
+					'divider'    => array( 'ast_class' => 'ast-section-spacing' ),
 				),
 
 				/**
@@ -190,6 +192,7 @@ if ( ! class_exists( 'Astra_Woo_Shop_Layout_Configs' ) ) {
 							'value'    => 'custom',
 						),
 					),
+					'divider'     => array( 'ast_class' => 'ast-top-dotted-divider' ),
 				),
 			);
 

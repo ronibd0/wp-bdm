@@ -275,7 +275,7 @@
     height: auto;
     min-width: 90px;
     background: #f1f1f1;
-    color: #444444;
+    color: var(--ast-customizer-color-5);
     position: relative;
     white-space: nowrap;
     cursor: grab;
@@ -386,10 +386,6 @@
     margin-bottom: 10px;
     min-height: 34px;
     display: flex;
-}
-
-.ahfb-builder-item-start:nth-last-child(1){
-	margin-bottom: 0;
 }
 
 .ahfb-builder-item-start .ahfb-builder-item {
