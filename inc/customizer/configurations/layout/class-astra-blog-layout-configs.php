@@ -113,7 +113,7 @@ if ( ! class_exists( 'Astra_Blog_Layout_Configs' ) ) {
 							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'tmp-angle', false ) : '',
 						),
 					),
-					'divider'           => array( 'ast_class' => 'ast-bottom-section-divider' ),
+					'divider'           => array( 'ast_class' => '' ),
 				),
 
 				/**
@@ -134,6 +134,7 @@ if ( ! class_exists( 'Astra_Blog_Layout_Configs' ) ) {
 					),
 					'responsive' => false,
 					'renderAs'   => 'text',
+					'divider'    => array( 'ast_class' => 'ast-top-section-divider' ),
 				),
 
 				/**
@@ -162,6 +163,7 @@ if ( ! class_exists( 'Astra_Blog_Layout_Configs' ) ) {
 						'step' => 1,
 						'max'  => 1920,
 					),
+					'divider'     => array( 'ast_class' => 'ast-top-dotted-divider' ),
 				),
 
 				/**
@@ -181,6 +183,21 @@ if ( ! class_exists( 'Astra_Blog_Layout_Configs' ) ) {
 					),
 					'responsive' => false,
 					'renderAs'   => 'text',
+					'divider'    => array( 'ast_class' => 'ast-top-spacing ast-bottom-spacing' ),
+				),
+
+				/**
+				 * Option: Divider
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[archive-post-content-structure-divider]',
+					'section'  => 'section-blog',
+					'title'    => __( 'Structure', 'astra' ),
+					'type'     => 'control',
+					'control'  => 'ast-heading',
+					'priority' => 50,
+					'settings' => array(),
+					'divider'  => array( 'ast_class' => 'ast-section-spacing ast-bottom-spacing' ),
 				),
 
 				/**
@@ -195,7 +212,7 @@ if ( ! class_exists( 'Astra_Blog_Layout_Configs' ) ) {
 					'section'           => 'section-blog',
 					'priority'          => 50,
 					'title'             => __( 'Post Structure', 'astra' ),
-					'divider'           => array( 'ast_class' => 'ast-top-divider' ),
+					'divider'           => array( 'ast_class' => 'ast-top-spacing ast-bottom-section-divider' ),
 					'choices'           => array(
 						'image'      => __( 'Featured Image', 'astra' ),
 						'title-meta' => __( 'Title & Blog Meta', 'astra' ),
@@ -229,6 +246,22 @@ if ( ! class_exists( 'Astra_Blog_Layout_Configs' ) ) {
 						'date'     => __( 'Publish Date', 'astra' ),
 						'tag'      => __( 'Tag', 'astra' ),
 					),
+					'divider'           => array( 'ast_class' => 'ast-bottom-spacing ast-bottom-section-divider' ),
+				);
+			}
+
+			// Learn More link if Astra Pro is not activated.
+			if ( ! defined( 'ASTRA_EXT_VER' ) ) {
+
+				$_configs[] = array(
+					'name'     => ASTRA_THEME_SETTINGS . '[ast-button-link]',
+					'type'     => 'control',
+					'control'  => 'ast-button-link',
+					'section'  => 'section-blog',
+					'priority' => 999,
+					'title'    => __( 'View Astra Pro Features', 'astra' ),
+					'url'      => 'https://wpastra.com/pro',
+					'settings' => array(),
 				);
 			}
 
@@ -245,7 +278,9 @@ if ( ! class_exists( 'Astra_Blog_Layout_Configs' ) ) {
 
 			}
 
+
 			$configurations = array_merge( $configurations, $_configs );
+
 
 			return $configurations;
 

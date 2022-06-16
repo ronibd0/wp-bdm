@@ -41,17 +41,19 @@ if ( ! class_exists( 'Astra_Archive_Typo_Configs' ) ) {
 					 * Option: Learn More about Contant Typography
 					 */
 					array(
-						'name'     => ASTRA_THEME_SETTINGS . '[ast-blog-typography-more-feature-description]',
+						'name'     => ASTRA_THEME_SETTINGS . '[ast-blog-button-link]',
 						'type'     => 'control',
-						'control'  => 'ast-description',
+						'control'  => 'ast-button-link',
 						'section'  => 'section-blog',
 						'priority' => 999,
-						'title'    => '',
-						'help'     => '<p>' . __( 'More Options Available in Astra Pro!', 'astra' ) . '</p><a href="' . astra_get_pro_url( 'https://wpastra.com/pro/', 'customizer', 'learn-more', 'upgrade-to-pro' ) . '" class="button button-secondary"  target="_blank" rel="noopener">' . __( 'Learn More', 'astra' ) . '</a>',
+						'title'    => __( 'View Astra Pro Features', 'astra' ),
+						'url'      => astra_get_pro_url( 'https://wpastra.com/pro', 'customizer', 'learn-more', 'upgrade-to-pro' ),
 						'settings' => array(),
-						'divider'  => array( 'ast_class' => 'ast-bottom-divider' ),
+						'divider'  => array( 'ast_class' => 'ast-top-section-divider' ),
 					),
+
 				);
+
 			}
 
 			if ( defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'typography' ) ) {
@@ -70,7 +72,7 @@ if ( ! class_exists( 'Astra_Archive_Typo_Configs' ) ) {
 						'section'   => 'section-blog',
 						'transport' => 'postMessage',
 						'priority'  => 140,
-						'divider'   => array( 'ast_class' => 'ast-bottom-divider' ),
+						'divider'   => array( 'ast_class' => '' ),
 						'context'   => ( true === Astra_Builder_Helper::$is_header_footer_builder_active ) ?
 							Astra_Builder_Helper::$design_tab : Astra_Builder_Helper::$general_tab,
 					),
@@ -115,7 +117,7 @@ if ( ! class_exists( 'Astra_Archive_Typo_Configs' ) ) {
 						'section'   => 'section-blog',
 						'transport' => 'postMessage',
 						'priority'  => 140,
-						'divider'   => array( 'ast_class' => 'ast-bottom-divider' ),
+						'divider'   => array( 'ast_class' => '' ),
 						'context'   => ( true === Astra_Builder_Helper::$is_header_footer_builder_active ) ?
 							Astra_Builder_Helper::$design_tab : Astra_Builder_Helper::$general_tab,
 					),
