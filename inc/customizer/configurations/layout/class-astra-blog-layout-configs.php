@@ -79,7 +79,7 @@ if ( ! class_exists( 'Astra_Blog_Layout_Configs' ) ) {
 							'label' => __( 'Full Width / Stretched', 'astra' ),
 							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'container-full-width-stretched', false ) : '',
 						),
-					),					
+					),
 					'divider'           => array( 'ast_class' => 'ast-bottom-section-divider' ),
 				),
 
