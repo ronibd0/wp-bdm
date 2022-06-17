@@ -158,6 +158,22 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					),
 				),
 
+				/**
+				 * Option: Divider
+				 * Option: WOO Off Canvas Menu Color Section divider
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[header-mobile-menu-link-color-divider]',
+					'type'     => 'control',
+					'control'  => 'ast-heading',
+					'section'  => $_section,
+					'title'    => __( 'Menu Color', 'astra' ),
+					'priority' => 90,
+					'settings' => array(),
+					'context'  => Astra_Builder_Helper::$design_tab,
+				),
+
+
 				// Option Group: Menu Color.
 				array(
 					'name'       => ASTRA_THEME_SETTINGS . '[header-mobile-menu-link-colors]',
@@ -171,6 +187,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'responsive' => true,
 					'divider'    => array(
 						'ast_title' => __( 'Menu Color', 'astra' ),
+						'ast_class' => 'ast-section-spacing',
 					),
 				),
 				array(
@@ -285,6 +302,24 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'context'    => Astra_Builder_Helper::$general_tab,
 				),
 
+				/**
+				 * Option: Divider
+				 * Option: WOO Off Canvas Menu Submenu Color Section divider
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[header-mobile-menu-header-typo-divider]',
+					'type'     => 'control',
+					'control'  => 'ast-heading',
+					'section'  => $_section,
+					'title'    => __( 'Font', 'astra' ),
+					'priority' => 120,
+					'settings' => array(),
+					'context'  => Astra_Builder_Helper::$design_tab,
+					'divider'  => array(
+						'ast_class' => 'ast-section-spacing',
+					),
+				),
+
 				// Option Group: Menu Typography.
 				array(
 					'name'      => ASTRA_THEME_SETTINGS . '[header-mobile-menu-header-menu-typography]',
@@ -296,6 +331,9 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'transport' => 'postMessage',
 					'priority'  => 120,
 					'context'   => Astra_Builder_Helper::$design_tab,
+					'divider'   => array(
+						'ast_class' => 'ast-section-spacing',
+					),
 				),
 
 				// Option: Menu Font Family.
@@ -378,7 +416,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 							'max'  => 20,
 						),
 					),
-				), 
+				),
 
 				// Option: Menu Line Height.
 				array(
@@ -422,7 +460,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'left'   => __( 'Left', 'astra' ),
 					),
 					'context'           => Astra_Builder_Helper::$design_tab,
-					'divider'           => array( 'ast_class' => 'ast-bottom-divider' ),
+					'divider'           => array( 'ast_class' => 'ast-bottom-section-divider' ),
 				),
 
 				/**

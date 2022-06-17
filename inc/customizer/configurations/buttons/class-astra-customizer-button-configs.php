@@ -706,6 +706,25 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 
 			}
 
+			// Learn More link if Astra Pro is not activated.
+			if ( ! defined( 'ASTRA_EXT_VER' ) ) {
+
+				$_configs[] = array(
+
+					'name'     => ASTRA_THEME_SETTINGS . '[section-buttons-presets-ast-button-link]',
+					'type'     => 'control',
+					'control'  => 'ast-button-link',
+					'section'  => 'section-buttons',
+					'priority' => 999,
+					'title'    => __( 'View Astra Pro Features', 'astra' ),
+					'url'      => astra_get_pro_url( 'https://wpastra.com/pro', 'customizer', 'learn-more', 'upgrade-to-pro' ),
+					'settings' => array(),
+					'divider'  => array( 'ast_class' => 'ast-top-section-divider' ),
+				);
+
+			}
+
+
 			return array_merge( $configurations, $_configs );
 		}
 	}
