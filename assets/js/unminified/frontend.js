@@ -325,8 +325,8 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 			});
 
 			// Close Popup on # link click inside Popup.
-			for ( link = 0, len = popupLinks.length; link < len; link++ ) {
-				if( null !== popupLinks[link].getAttribute("href") && popupLinks[link].getAttribute("href").startsWith('#') && ( ! popupLinks[link].parentElement.classList.contains('menu-item-has-children') || ( popupLinks[link].parentElement.classList.contains('menu-item-has-children') && document.querySelector('header.site-header').classList.contains('ast-builder-menu-toggle-icon') ) ) ){
+			for ( let link = 0, len = popupLinks.length; link < len; link++ ) {
+				if( null !== popupLinks[link].getAttribute("href") && ( popupLinks[link].getAttribute("href").startsWith('#') || -1 !== popupLinks[link].getAttribute("href").search("#") ) && ( ! popupLinks[link].parentElement.classList.contains('menu-item-has-children') || ( popupLinks[link].parentElement.classList.contains('menu-item-has-children') && document.querySelector('header.site-header').classList.contains('ast-builder-menu-toggle-icon') ) ) ){
 					popupLinks[link].addEventListener( 'click', triggerToggleClose, true );
 					popupLinks[link].headerType = 'off-canvas';
 				}
