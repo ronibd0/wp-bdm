@@ -218,6 +218,7 @@ class Astra_Customizer_Footer_Builder_Configs extends Astra_Customizer_Config_Ba
 				'priority'  => 70,
 				'title'     => __( 'Background Color & Image', 'astra' ),
 				'context'   => Astra_Builder_Helper::$design_tab,
+				'divider'   => array( 'ast_class' => 'ast-section-spacing' ),
 			),
 
 			// Footer Background Color notice.

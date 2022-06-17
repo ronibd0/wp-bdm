@@ -74,7 +74,7 @@ final class Astra_Builder_Base_Configuration {
 					'left'   => __( 'Left', 'astra' ),
 				),
 				'context'           => Astra_Builder_Helper::$design_tab,
-				'divider'           => array( 'ast_class' => 'ast-bottom-divider ast-top-divider' ),
+				'divider'           => array( 'ast_class' => 'ast-top-section-divider ast-bottom-section-divider' ),
 			),
 
 			/**
@@ -257,7 +257,7 @@ final class Astra_Builder_Base_Configuration {
 				'title'     => __( 'Hide on Desktop', 'astra' ),
 				'transport' => 'postMessage',
 				'context'   => Astra_Builder_Helper::$desktop_general_tab,
-				'divider'   => array( 'ast_class' => 'ast-top-divider' ),
+				'divider'   => array( 'ast_class' => 'ast-top-section-divider' ),
 			);
 		}
 

@@ -8,7 +8,8 @@
   border-radius: 2px;
   padding: 4px;
   color: var(--ast-customizer-color-8);
-  background: var(--ast-customizer-color-9)
+  background: var(--ast-customizer-color-9);
+  cursor: pointer;
 }
 
 .ast-adv-toggle-icon:hover {

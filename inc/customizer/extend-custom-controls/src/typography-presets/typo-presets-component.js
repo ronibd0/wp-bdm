@@ -139,14 +139,17 @@ const TypoPresetControl = ( props ) => {
 				key={props.uniqueKey}
 				text={ generateToolTipText(props.preset ) }
 			>
-			<li
-				className={
-					"ast-typo-preset-item " +
-					(propsValue === props.preset ? "active" : "")
-				}
-				key={props.preset}
-				onClick={() => onPresetClick(props.preset)}
-			>{parse(window.svgIcons[props.preset])}</li></Tooltip>
+				<li
+					className={
+						"ast-typo-preset-item " +
+						(propsValue === props.preset ? "active" : "")
+					}
+					key={props.preset}
+					onClick={() => onPresetClick(props.preset)}
+				>
+					{parse(window.svgIcons[props.preset])}
+				</li>
+			</Tooltip>
 		);
 	};
 

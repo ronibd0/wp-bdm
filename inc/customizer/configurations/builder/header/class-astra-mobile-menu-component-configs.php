@@ -72,7 +72,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'linked'    => 'menu_locations',
 					'link_text' => __( 'Configure Menu from Here.', 'astra' ),
 					'context'   => Astra_Builder_Helper::$general_tab,
-					'divider'   => array( 'ast_class' => 'ast-bottom-divider' ),
+					'divider'   => array( 'ast_class' => 'ast-section-spacing ast-bottom-section-divider' ),
 				),
 
 

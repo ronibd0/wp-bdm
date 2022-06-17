@@ -36,6 +36,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 			$html_config = array();
 
 			$component_limit = defined( 'ASTRA_EXT_VER' ) ? Astra_Builder_Helper::$component_limit : Astra_Builder_Helper::$num_of_header_menu;
+			$all_menus = get_nav_menu_locations();
 
 			for ( $index = 1; $index <= $component_limit; $index++ ) {
 
@@ -45,13 +46,16 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 				switch ( $index ) {
 					case 1:
 						$edit_menu_title = __( 'Primary Menu', 'astra' );
+						$menu_location = 'primary';
 						break;
 					case 2:
 						$edit_menu_title = __( 'Secondary Menu', 'astra' );
+						$menu_location = 'secondary_menu';
 						break;
 					default:
 						$edit_menu_title = __( 'Menu ', 'astra' ) . $index;
-						break;
+						$menu_location = 'menu_' . $index;
+					break;
 				}
 
 				$_configs = array(
@@ -80,19 +84,17 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					),
 
 					/**
-					* Option: Theme Menu create link
-					*/
+					 * Option: Menu selection.
+					 */
 					array(
-						'name'      => ASTRA_THEME_SETTINGS . '[header-' . $_prefix . '-create-menu-link]',
-						'default'   => astra_get_option( 'header-' . $_prefix . '-create-menu-link' ),
-						'type'      => 'control',
-						'control'   => 'ast-customizer-link',
-						'section'   => $_section,
-						'priority'  => 30,
-						'link_type' => 'section',
-						'linked'    => 'menu_locations',
-						'link_text' => __( 'Configure Menu from Here.', 'astra' ),
-						'context'   => Astra_Builder_Helper::$general_tab,
+						'name'       => 'nav_menu_locations-' . $menu_location,
+						'default'    => isset( $all_menus[ $menu_location ] ) ? $all_menus[ $menu_location ] : '',
+						'type'       => 'control',
+						'control'    => 'ast-menu-select',
+						'section'    => $_section,
+						'priority'   => 10,
+						'title'      => __( 'Menu', 'astra' ),
+						'context'    => Astra_Builder_Helper::$general_tab,
 					),
 
 					/**

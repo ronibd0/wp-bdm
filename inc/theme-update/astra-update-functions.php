@@ -3437,3 +3437,17 @@ function astra_apply_modern_block_editor_ui() {
 		update_option( 'astra-settings', $theme_options );
 	}
 }
+
+/**
+ * Set flag to new customizer UI maintainer flag, to avoid direct reflections on live site & to maintain backward compatibility for existing users.
+ *
+ * @since x.x.x
+ * @return void
+ */
+function astra_legacy_customizer_maintenance() {
+	$theme_options = get_option( 'astra-settings', array() );
+	if ( ! isset( $theme_options['legacy-customizer-ui-maintainer'] ) ) {
+		$theme_options['legacy-customizer-ui-maintainer'] = true;
+		update_option( 'astra-settings', $theme_options );
+	}
+}
