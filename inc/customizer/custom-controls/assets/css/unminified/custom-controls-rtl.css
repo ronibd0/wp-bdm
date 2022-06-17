@@ -91,7 +91,7 @@
 }
 
 .ast-alignment-inner-wrap.active button.components-button.is-primary {
-    border-color: #007cba;
+    border-color: var(--ast-customizer-color-3);
 }
 
 #customize-controls .customize-control-notifications-container {
@@ -1384,7 +1384,7 @@
 }
 
 .ast-alignment-inner-wrap.active button.components-button.is-primary {
-    border-color: #007cba;
+    border-color: var(--ast-customizer-color-3);
 }
 
 #customize-controls .customize-control-notifications-container {

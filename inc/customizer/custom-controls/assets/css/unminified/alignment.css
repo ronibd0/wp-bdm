@@ -91,5 +91,5 @@
 }
 
 .ast-alignment-inner-wrap.active button.components-button.is-primary {
-    border-color: #007cba;
+    border-color: var(--ast-customizer-color-3);
 }

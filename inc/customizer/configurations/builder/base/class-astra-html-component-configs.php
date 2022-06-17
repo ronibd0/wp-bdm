@@ -95,6 +95,7 @@ class Astra_Html_Component_Configs {
 						'fallback_refresh' => false,
 					),
 					'context'     => Astra_Builder_Helper::$general_tab,
+					'divider'     => array( 'ast_class' => 'ast-section-spacing' ),
 				),
 
 				/**
@@ -113,6 +114,7 @@ class Astra_Html_Component_Configs {
 					'rgba'       => true,
 					'title'      => __( 'Text Color', 'astra' ),
 					'context'    => Astra_Builder_Helper::$design_tab,
+					'divider'    => array( 'ast_class' => 'ast-section-spacing' ),
 				),
 				array(
 					'name'       => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-html-' . $index . '-link-group]',
@@ -125,7 +127,7 @@ class Astra_Html_Component_Configs {
 					'priority'   => 8,
 					'context'    => Astra_Builder_Helper::$design_tab,
 					'responsive' => true,
-					'divider'    => array( 'ast_class' => 'ast-bottom-divider' ),
+					'divider'    => array( 'ast_class' => 'ast-bottom-section-divider' ),
 				),
 
 				/**
@@ -144,6 +146,7 @@ class Astra_Html_Component_Configs {
 					'parent'     => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-html-' . $index . '-link-group]',
 					'title'      => __( 'Normal', 'astra' ),
 					'context'    => Astra_Builder_Helper::$design_tab,
+					'divider'    => array( 'ast_class' => 'ast-bottom-section-divider' ),
 				),
 
 				/**
@@ -177,7 +180,7 @@ class Astra_Html_Component_Configs {
 					'section'           => $_section,
 					'priority'          => 220,
 					'title'             => __( 'Margin', 'astra' ),
-					'divider'           => array( 'ast_class' => 'ast-top-divider' ),
+					'divider'           => array( 'ast_class' => 'ast-top-section-divider' ),
 					'linked_choices'    => true,
 					'unit_choices'      => array( 'px', 'em', '%' ),
 					'choices'           => array(
@@ -206,7 +209,7 @@ class Astra_Html_Component_Configs {
 						'center' => 'align-center',
 						'right'  => 'align-right',
 					),
-					'divider'   => array( 'ast_class' => 'ast-top-divider' ),
+					'divider'   => array( 'ast_class' => 'ast-top-section-divider' ),
 				);
 			}
 
