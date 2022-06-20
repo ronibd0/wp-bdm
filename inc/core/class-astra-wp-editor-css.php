@@ -46,13 +46,13 @@ class Astra_WP_Editor_CSS {
 				$mobile_left_block_space    = '2em';
 				break;
 			case 'comfort':
-				$desktop_top_block_space    = '4em';
-				$desktop_right_block_space  = '4em';
-				$desktop_bottom_block_space = '4em';
-				$desktop_left_block_space   = '4em';
-				$tablet_top_block_space     = '4em';
+				$desktop_top_block_space    = '3em';
+				$desktop_right_block_space  = '3em';
+				$desktop_bottom_block_space = '3em';
+				$desktop_left_block_space   = '3em';
+				$tablet_top_block_space     = '3em';
 				$tablet_right_block_space   = '2em';
-				$tablet_bottom_block_space  = '4em';
+				$tablet_bottom_block_space  = '3em';
 				$tablet_left_block_space    = '2em';
 				$mobile_top_block_space     = '3em';
 				$mobile_right_block_space   = '1.5em';

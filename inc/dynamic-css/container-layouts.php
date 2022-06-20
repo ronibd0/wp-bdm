@@ -22,6 +22,10 @@ function astra_container_layout_css() {
 	$customizer_default_update = astra_get_option( 'customizer-default-layout-update', true );
 	$page_title_header_padding = ( true === $customizer_default_update ) ? '2em' : '4em';
 
+	/** @psalm-suppress InvalidCast */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+	$tablet_breakpoint = (string) astra_get_tablet_breakpoint();
+	/** @psalm-suppress InvalidCast */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+
 	if ( 'page-builder' === $container_layout ) {
 
 		$page_container_css = '
@@ -106,12 +110,14 @@ function astra_container_layout_css() {
 					margin-left: 0;
 					margin-right: 0;
 				}
-				.ast-page-builder-template.archive.ast-right-sidebar .ast-row article, .ast-page-builder-template.archive.ast-left-sidebar .ast-row article {
-					padding-left: 0;
-					padding-right: 0;
-				}
 				.ast-page-builder-template .entry-header + .entry-content {
 					margin-bottom: 2em;
+				}
+				@media(min-width: ' . $tablet_breakpoint . 'px) {
+					.ast-page-builder-template.archive.ast-right-sidebar .ast-row article, .ast-page-builder-template.archive.ast-left-sidebar .ast-row article {
+						padding-left: 0;
+						padding-right: 0;
+					}
 				}
 			';
 		}

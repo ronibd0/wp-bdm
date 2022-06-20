@@ -68,7 +68,7 @@ function astra_related_posts_static_css( $dynamic_css ) {
 				.ast-single-related-posts-container {
 					padding-top: 2em;
 				}
-				.ast-related-posts-title-section {
+				.ast-related-posts-title-section, .single .site-main .ast-author-meta .about-author-title-wrapper {
 					padding-bottom: 2em;
 				}
 				.ast-page-builder-template .ast-single-related-posts-container {
@@ -83,7 +83,7 @@ function astra_related_posts_static_css( $dynamic_css ) {
 					.ast-separate-container .ast-single-related-posts-container {
 						padding: 1.5em 1em;
 					}
-					.ast-related-posts-title-section {
+					.ast-related-posts-title-section, .single .site-main .ast-author-meta .about-author-title-wrapper {
 						padding-bottom: 1.5em;
 					}
 				}

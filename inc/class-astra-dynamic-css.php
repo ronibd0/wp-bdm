@@ -467,6 +467,16 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 			$css_output = array(
 
+				':root'                                  => array(
+					'--ast-container-default-lg-padding'   => ( true === $update_customizer_strctural_defaults ) ? '3em' : '6.67em',
+					'--ast-container-default-m-lg-padding' => ( true === $update_customizer_strctural_defaults ) ? '3em' : '5.67em',
+					'--ast-container-default-s-lg-padding' => ( true === $update_customizer_strctural_defaults ) ? '2em' : '4.34em',
+					'--ast-container-default-md-padding'   => ( true === $update_customizer_strctural_defaults ) ? '3em' : '3.34em',
+					'--ast-container-default-sm-padding'   => ( true === $update_customizer_strctural_defaults ) ? '3em' : '6.67em',
+					'--ast-container-default-xs-padding'   => ( true === $update_customizer_strctural_defaults ) ? '2.4em' : '2.4em',
+					'--ast-container-default-xxs-padding'  => ( true === $update_customizer_strctural_defaults ) ? '1.8em' : '1.4em',
+				),
+
 				// HTML.
 				'html'                                   => array(
 					'font-size' => astra_get_font_css_value( (int) $body_font_size_desktop * 6.25, '%' ),
