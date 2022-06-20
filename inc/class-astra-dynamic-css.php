@@ -1315,7 +1315,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 							'margin-right' => 'auto',
 						),
 					);
-					$parse_css               .= astra_parse_css( $table_block_center_align );
+					$parse_css               .= astra_parse_css( $image_block_center_align );
 				}
 
 				if ( $is_legacy_setup ) {
@@ -1323,7 +1323,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					$table_block_center_align = array(
 						'.wp-block-table.aligncenter' => array(
 
-					$parse_css               .= astra_parse_css( $image_block_center_align );
+					$parse_css               .= astra_parse_css( $table_block_center_align );
 				}
 
 				if ( self::gutenberg_media_text_block_css_compat() ) {
