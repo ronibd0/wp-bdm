@@ -1322,7 +1322,10 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					// Table block align center CSS.
 					$table_block_center_align = array(
 						'.wp-block-table.aligncenter' => array(
-
+							'margin-left'  => 'auto',
+							'margin-right' => 'auto',
+						),
+					);
 					$parse_css               .= astra_parse_css( $table_block_center_align );
 				}
 
