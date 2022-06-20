@@ -63,7 +63,7 @@ function astra_related_posts_static_css( $dynamic_css ) {
 			$dynamic_css .= '
 				.ast-single-related-posts-container {
 					border-top: 1px solid var(--ast-global-color-6);
-					margin: 2em 0;
+					margin: 2em 0 0;
 				}
 				.ast-single-related-posts-container {
 					padding-top: 2em;
