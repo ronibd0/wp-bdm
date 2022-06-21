@@ -1306,6 +1306,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				}
 
 				$is_legacy_setup = ( 'legacy' === astra_get_option( 'wp-blocks-ui' ) ) ? true : false;
+
 				if ( $is_legacy_setup && astra_wp_version_compare( '6.0', '>=' ) ) {
 					// Image block align center CSS.
 					$image_block_center_align = array(
@@ -1317,6 +1318,16 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					$parse_css               .= astra_parse_css( $image_block_center_align );
 				}
 
+				if ( $is_legacy_setup ) {
+					// Table block align center CSS.
+					$table_block_center_align = array(
+						'.wp-block-table.aligncenter' => array(
+							'margin-left'  => 'auto',
+							'margin-right' => 'auto',
+						),
+					);
+					$parse_css               .= astra_parse_css( $table_block_center_align );
+				}
 
 				if ( self::gutenberg_media_text_block_css_compat() ) {
 					$media_text_block_padding_css = array(
