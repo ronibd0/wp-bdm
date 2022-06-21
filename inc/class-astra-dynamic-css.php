@@ -468,13 +468,13 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$css_output = array(
 
 				':root'                                  => array(
-					'--ast-container-default-lg-padding'   => ( true === $update_customizer_strctural_defaults ) ? '3em' : '6.67em',
-					'--ast-container-default-m-lg-padding' => ( true === $update_customizer_strctural_defaults ) ? '3em' : '5.67em',
-					'--ast-container-default-s-lg-padding' => ( true === $update_customizer_strctural_defaults ) ? '2em' : '4.34em',
-					'--ast-container-default-md-padding'   => ( true === $update_customizer_strctural_defaults ) ? '3em' : '3.34em',
-					'--ast-container-default-sm-padding'   => ( true === $update_customizer_strctural_defaults ) ? '3em' : '6.67em',
-					'--ast-container-default-xs-padding'   => ( true === $update_customizer_strctural_defaults ) ? '2.4em' : '2.4em',
-					'--ast-container-default-xxs-padding'  => ( true === $update_customizer_strctural_defaults ) ? '1.8em' : '1.4em',
+					'--ast-container-default-xlg-padding' => ( true === $update_customizer_strctural_defaults ) ? '3em' : '6.67em',
+					'--ast-container-default-lg-padding'  => ( true === $update_customizer_strctural_defaults ) ? '3em' : '5.67em',
+					'--ast-container-default-slg-padding' => ( true === $update_customizer_strctural_defaults ) ? '2em' : '4.34em',
+					'--ast-container-default-md-padding'  => ( true === $update_customizer_strctural_defaults ) ? '3em' : '3.34em',
+					'--ast-container-default-sm-padding'  => ( true === $update_customizer_strctural_defaults ) ? '3em' : '6.67em',
+					'--ast-container-default-xs-padding'  => ( true === $update_customizer_strctural_defaults ) ? '2.4em' : '2.4em',
+					'--ast-container-default-xxs-padding' => ( true === $update_customizer_strctural_defaults ) ? '1.8em' : '1.4em',
 				),
 
 				// HTML.
@@ -1598,7 +1598,9 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			);
 
 			if ( true === $update_customizer_strctural_defaults ) {
-				$ltr_left                  = is_rtl() ? 'right' : 'left';
+				$is_site_rtl               = is_rtl() ? true : false;
+				$ltr_left                  = $is_site_rtl ? esc_attr( 'right' ) : esc_attr( 'left' );
+				$ltr_right                 = $is_site_rtl ? esc_attr( 'left' ) : esc_attr( 'right' );
 				$default_layout_update_css = array(
 					'#page'                           => array(
 						'display'        => 'flex',
@@ -1655,6 +1657,9 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'display'    => 'inline-flex',
 						'column-gap' => '20px',
 					),
+					'.ast-page-builder-template .ast-archive-description' => array(
+						'margin-bottom' => '0',
+					),
 					'.ast-page-builder-template .ast-comment-formwrap' => array(
 						'width' => '100%',
 					),
@@ -1676,7 +1681,8 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 				$default_tablet_layout_css = array(
 					'.ast-left-sidebar.ast-page-builder-template #secondary, .archive.ast-right-sidebar.ast-page-builder-template .site-main' => array(
-						'padding-' . esc_attr( $ltr_left ) => '20px',
+						'padding-' . $ltr_left  => '20px',
+						'padding-' . $ltr_right => '20px',
 					),
 				);
 
