@@ -165,6 +165,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 				),
 				'responsive' => false,
 				'renderAs'   => 'text',
+				'divider'    => array( 'ast_class' => 'ast-bottom-dotted-divider' ),
 			),
 
 			/**
@@ -208,7 +209,6 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 				'priority'          => 6,
 				'transport'         => 'postMessage',
 				'context'           => $login_link_context,
-				'divider'           => array( 'ast_class' => 'ast-top-divider' ),
 				'partial'           => array(
 					'selector'        => '.ast-header-account',
 					'render_callback' => array( 'Astra_Builder_UI_Controller', 'render_account' ),
@@ -226,6 +226,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 				'title'    => __( 'Logged Out View', 'astra' ),
 				'priority' => 200,
 				'settings' => array(),
+				'divider'  => array( 'ast_class' => 'ast-section-spacing' ),
 			),
 
 			/**
@@ -251,6 +252,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 				),
 				'responsive' => false,
 				'renderAs'   => 'text',
+				'divider'    => array( 'ast_class' => 'ast-section-spacing' ),
 			),
 
 
@@ -276,6 +278,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 					'selector'        => '.ast-header-account',
 					'render_callback' => array( 'Astra_Builder_UI_Controller', 'render_account' ),
 				),
+				'divider'   => array( 'ast_class' => 'ast-top-dotted-divider' ),
 			),
 
 			/**
@@ -317,7 +320,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 				'title'             => __( 'Login URL', 'astra' ),
 				'priority'          => 205,
 				'transport'         => 'postMessage',
-				'divider'           => array( 'ast_class' => 'ast-bottom-divider' ),
+				'divider'           => array( 'ast_class' => 'ast-top-dotted-divider' ),
 				'context'           => array(
 					array(
 						'setting'  => ASTRA_THEME_SETTINGS . '[header-account-logout-style]',
@@ -436,7 +439,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 				'default'           => astra_get_option( 'header-account-type-text-color' ),
 				'type'              => 'control',
 				'section'           => $_section,
-				'priority'          => 16,
+				'priority'          => 32,
 				'transport'         => 'postMessage',
 				'control'           => 'ast-color',
 				'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_alpha_color' ),

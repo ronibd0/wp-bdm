@@ -82,6 +82,7 @@ class Astra_Customizer_Copyright_Configs extends Astra_Customizer_Config_Base {
 					'render_callback'     => array( Astra_Builder_Footer::get_instance(), 'footer_copyright' ),
 				),
 				'context'     => Astra_Builder_Helper::$general_tab,
+				'divider'     => array( 'ast_class' => 'ast-section-spacing' ),
 			),
 
 			/**
@@ -102,7 +103,7 @@ class Astra_Customizer_Copyright_Configs extends Astra_Customizer_Config_Base {
 					'center' => 'align-center',
 					'right'  => 'align-right',
 				),
-				'divider'   => array( 'ast_class' => 'ast-top-divider' ),
+				'divider'   => array( 'ast_class' => 'ast-top-section-divider' ),
 			),
 
 			/**
@@ -119,7 +120,7 @@ class Astra_Customizer_Copyright_Configs extends Astra_Customizer_Config_Base {
 				'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_alpha_color' ),
 				'title'             => __( 'Text Color', 'astra' ),
 				'context'           => Astra_Builder_Helper::$design_tab,
-				'divider'           => array( 'ast_class' => 'ast-bottom-divider' ),
+				'divider'           => array( 'ast_class' => 'ast-bottom-section-divider' ),
 
 			),
 
@@ -146,6 +147,7 @@ class Astra_Customizer_Copyright_Configs extends Astra_Customizer_Config_Base {
 					'left'   => __( 'Left', 'astra' ),
 				),
 				'context'           => Astra_Builder_Helper::$design_tab,
+				'divider'           => array( 'ast_class' => 'ast-top-section-divider' ),
 			),
 		);
 

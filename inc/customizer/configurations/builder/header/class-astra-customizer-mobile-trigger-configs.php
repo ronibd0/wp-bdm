@@ -96,7 +96,7 @@ class Astra_Customizer_Mobile_Trigger_Configs extends Astra_Customizer_Config_Ba
 				),
 				'priority'          => 10,
 				'context'           => Astra_Builder_Helper::$general_tab,
-				'divider'           => array( 'ast_class' => 'ast-bottom-divider' ),
+				'divider'           => array( 'ast_class' => 'ast-bottom-section-divider' ),
 				'alt_layout'        => true,
 			),
 
@@ -123,6 +123,7 @@ class Astra_Customizer_Mobile_Trigger_Configs extends Astra_Customizer_Config_Ba
 					'render_callback' => array( 'Astra_Builder_UI_Controller', 'render_mobile_trigger' ),
 				),
 				'responsive' => false,
+				'divider'    => array( 'ast_class' => 'ast-bottom-section-divider' ),
 				'renderAs'   => 'text',
 			),
 
@@ -147,28 +148,6 @@ class Astra_Customizer_Mobile_Trigger_Configs extends Astra_Customizer_Config_Ba
 			),
 
 			/**
-			 * Option: Icon Size
-			 */
-			array(
-				'name'        => ASTRA_THEME_SETTINGS . '[mobile-header-toggle-icon-size]',
-				'default'     => astra_get_option( 'mobile-header-toggle-icon-size' ),
-				'type'        => 'control',
-				'control'     => 'ast-slider',
-				'section'     => $_section,
-				'title'       => __( 'Icon Size', 'astra' ),
-				'priority'    => 40,
-				'suffix'      => 'px',
-				'transport'   => 'postMessage',
-				'input_attrs' => array(
-					'min'  => 0,
-					'step' => 1,
-					'max'  => 100,
-				),
-				'context'     => Astra_Builder_Helper::$design_tab,
-				'divider'     => array( 'ast_class' => 'ast-bottom-divider' ),
-			),
-
-			/**
 			 * Option: Toggle Button Color
 			 */
 			array(
@@ -180,9 +159,35 @@ class Astra_Customizer_Mobile_Trigger_Configs extends Astra_Customizer_Config_Ba
 				'title'             => __( 'Icon Color', 'astra' ),
 				'section'           => $_section,
 				'transport'         => 'postMessage',
-				'priority'          => 50,
+				'priority'          => 40,
 				'context'           => Astra_Builder_Helper::$design_tab,
+				'divider'           => array( 'ast_class' => 'ast-section-spacing' ),
+
 			),
+
+			/**
+			 * Option: Icon Size
+			 */
+			array(
+				'name'        => ASTRA_THEME_SETTINGS . '[mobile-header-toggle-icon-size]',
+				'default'     => astra_get_option( 'mobile-header-toggle-icon-size' ),
+				'type'        => 'control',
+				'control'     => 'ast-slider',
+				'section'     => $_section,
+				'title'       => __( 'Icon Size', 'astra' ),
+				'priority'    => 50,
+				'suffix'      => 'px',
+				'transport'   => 'postMessage',
+				'input_attrs' => array(
+					'min'  => 0,
+					'step' => 1,
+					'max'  => 100,
+				),
+				'context'     => Astra_Builder_Helper::$design_tab,
+				'divider'     => array( 'ast_class' => 'ast-top-section-divider' ),
+			),
+
+
 
 			/**
 			 * Option: Toggle Button Bg Color
@@ -308,7 +313,7 @@ class Astra_Customizer_Mobile_Trigger_Configs extends Astra_Customizer_Config_Ba
 					'bottom' => __( 'Bottom', 'astra' ),
 					'left'   => __( 'Left', 'astra' ),
 				),
-				'divider'           => array( 'ast_class' => 'ast-top-divider' ),
+				'divider'           => array( 'ast_class' => 'ast-top-section-divider' ),
 				'context'           => Astra_Builder_Helper::$design_tab,
 			),
 		);
