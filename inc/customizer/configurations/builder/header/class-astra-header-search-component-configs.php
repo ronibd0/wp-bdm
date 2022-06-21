@@ -78,6 +78,7 @@ class Astra_Header_Search_Component_Configs extends Astra_Customizer_Config_Base
 				'rgba'       => true,
 				'title'      => __( 'Icon Color', 'astra' ),
 				'context'    => Astra_Builder_Helper::$design_tab,
+				'divider'    => array( 'ast_class' => 'ast-section-spacing' ),
 			),
 
 			/**
@@ -86,7 +87,7 @@ class Astra_Header_Search_Component_Configs extends Astra_Customizer_Config_Base
 			array(
 				'name'              => ASTRA_THEME_SETTINGS . '[header-search-icon-space]',
 				'section'           => $_section,
-				'priority'          => 4,
+				'priority'          => 3,
 				'transport'         => 'postMessage',
 				'default'           => astra_get_option( 'header-search-icon-space' ),
 				'title'             => __( 'Icon Size', 'astra' ),
@@ -94,7 +95,7 @@ class Astra_Header_Search_Component_Configs extends Astra_Customizer_Config_Base
 				'type'              => 'control',
 				'control'           => 'ast-responsive-slider',
 				'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
-				'divider'           => array( 'ast_class' => 'ast-top-divider' ),
+				'divider'           => array( 'ast_class' => 'ast-top-section-divider ast-bottom-section-divider' ),
 				'input_attrs'       => array(
 					'min'  => 0,
 					'step' => 1,
