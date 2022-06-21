@@ -3028,9 +3028,14 @@ input[type="text"].select2-search__field {
 * CSS for ast-first-control-spacing attribute started.
 */
 
-.customize-control.ast-section-spacing{
+.customize-control.ast-section-spacing,
+#customize-control-astra-settings-footer-create-menu-link,
+#customize-control-astra-settings-header-button1-text,
+#customize-control-astra-settings-header-language-switcher-options,
+#customize-control-astra-settings-header-button2-text {
     margin-top: 32px;
 }
+
 .ast-typo-presets {
 	width: 100%;
     display: flex;
@@ -5395,9 +5400,15 @@ input[type="text"].select2-search__field {
 * CSS for ast-first-control-spacing attribute started.
 */
 
-.customize-control.ast-section-spacing{
+.customize-control.ast-section-spacing,
+#customize-control-astra-settings-footer-create-menu-link,
+#customize-control-astra-settings-header-button1-text,
+#customize-control-astra-settings-header-language-switcher-options,
+#customize-control-astra-settings-footer-language-switcher-options,
+#customize-control-astra-settings-header-button2-text {
     margin-top: 32px;
 }
+
 .ast-typo-presets {
 	width: 100%;
     display: flex;

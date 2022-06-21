@@ -53,6 +53,21 @@ final class Astra_Builder_Base_Configuration {
 		return array(
 
 			/**
+			 * Option: Divider
+			 */
+			array(
+				'name'     => ASTRA_THEME_SETTINGS . '[' . $section_id . '-divider]',
+				'section'  => $section_id,
+				'title'    => __( 'Button Structure options', 'astra-addon' ),
+				'type'     => 'control',
+				'control'  => 'ast-heading',
+				'priority' => 210,
+				'settings' => array(),
+				'context'  => Astra_Builder_Helper::$design_tab,
+				'divider'  => array( 'ast_class' => 'ast-section-spacing' ),
+			),
+
+			/**
 			 * Option: Padded Layout Custom Width
 			 */
 			array(
@@ -74,7 +89,7 @@ final class Astra_Builder_Base_Configuration {
 					'left'   => __( 'Left', 'astra' ),
 				),
 				'context'           => Astra_Builder_Helper::$design_tab,
-				'divider'           => array( 'ast_class' => 'ast-top-section-divider ast-bottom-section-divider' ),
+				'divider'           => array( 'ast_class' => 'ast-section-spacing ast-bottom-section-divider' ),
 			),
 
 			/**
@@ -179,7 +194,6 @@ final class Astra_Builder_Base_Configuration {
 					'priority'          => 16,
 					'title'             => __( 'Font Size', 'astra' ),
 					'context'           => empty( $required_condition ) ? Astra_Builder_Helper::$design_tab : $required_condition,
-					'divider'           => array( 'ast_class' => 'ast-bottom-divider' ),
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
 					'suffix'            => array( 'px', 'em' ),
 					'input_attrs'       => array(
@@ -390,7 +404,7 @@ final class Astra_Builder_Base_Configuration {
 						'transport'  => 'postMessage',
 						'priority'   => 7,
 						'responsive' => true,
-						'divider'    => array( 'ast_class' => 'ast-bottom-divider' ),
+						'divider'    => array( 'ast_class' => 'ast-bottom-section-divider ast-section-spacing' ),
 					),
 
 					/**

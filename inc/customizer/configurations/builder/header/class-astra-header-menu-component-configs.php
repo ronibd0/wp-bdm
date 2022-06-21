@@ -36,7 +36,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 			$html_config = array();
 
 			$component_limit = defined( 'ASTRA_EXT_VER' ) ? Astra_Builder_Helper::$component_limit : Astra_Builder_Helper::$num_of_header_menu;
-			$all_menus = get_nav_menu_locations();
+			$all_menus       = get_nav_menu_locations();
 
 			for ( $index = 1; $index <= $component_limit; $index++ ) {
 
@@ -46,16 +46,16 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 				switch ( $index ) {
 					case 1:
 						$edit_menu_title = __( 'Primary Menu', 'astra' );
-						$menu_location = 'primary';
+						$menu_location   = 'primary';
 						break;
 					case 2:
 						$edit_menu_title = __( 'Secondary Menu', 'astra' );
-						$menu_location = 'secondary_menu';
+						$menu_location   = 'secondary_menu';
 						break;
 					default:
 						$edit_menu_title = __( 'Menu ', 'astra' ) . $index;
-						$menu_location = 'menu_' . $index;
-					break;
+						$menu_location   = 'menu_' . $index;
+						break;
 				}
 
 				$_configs = array(
@@ -87,14 +87,15 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					 * Option: Menu selection.
 					 */
 					array(
-						'name'       => 'nav_menu_locations-' . $menu_location,
-						'default'    => isset( $all_menus[ $menu_location ] ) ? $all_menus[ $menu_location ] : '',
-						'type'       => 'control',
-						'control'    => 'ast-menu-select',
-						'section'    => $_section,
-						'priority'   => 10,
-						'title'      => __( 'Menu', 'astra' ),
-						'context'    => Astra_Builder_Helper::$general_tab,
+						'name'     => 'nav_menu_locations-' . $menu_location,
+						'default'  => isset( $all_menus[ $menu_location ] ) ? $all_menus[ $menu_location ] : '',
+						'type'     => 'control',
+						'control'  => 'ast-menu-select',
+						'section'  => $_section,
+						'priority' => 10,
+						'title'    => __( 'Menu', 'astra' ),
+						'context'  => Astra_Builder_Helper::$general_tab,
+						'divider'  => array( 'ast_class' => 'ast-section-spacing' ),
 					),
 
 					/**
@@ -118,6 +119,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'transport'  => 'postMessage',
 						'responsive' => false,
 						'renderAs'   => 'text',
+						'divider'    => array( 'ast_class' => 'ast-section-spacing' ),
 					),
 
 					/**
@@ -132,6 +134,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'settings' => array(),
 						'priority' => 30,
 						'context'  => Astra_Builder_Helper::$general_tab,
+						'divider'  => array( 'ast_class' => 'ast-section-spacing' ),
 					),
 
 					/**
@@ -153,6 +156,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 							'max'  => 1920,
 						),
 						'transport'   => 'postMessage',
+						'divider'     => array( 'ast_class' => 'ast-section-spacing ast-bottom-section-divider' ),
 					),
 
 					/**
@@ -189,6 +193,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'priority' => 20,
 						'settings' => array(),
 						'context'  => Astra_Builder_Helper::$design_tab,
+						'divider'  => array( 'ast_class' => 'ast-section-spacing' ),
 					),
 
 					// Option: Submenu Divider Size.
@@ -331,7 +336,6 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'title'     => __( 'Item Divider', 'astra' ),
 						'context'   => Astra_Builder_Helper::$general_tab,
 						'transport' => 'postMessage',
-						'divider'   => array( 'ast_class' => 'ast-bottom-divider' ),
 					),
 
 					// Option: Menu Stack on Mobile Checkbox.
