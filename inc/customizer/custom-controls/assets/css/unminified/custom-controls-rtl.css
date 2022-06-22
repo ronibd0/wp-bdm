@@ -3721,6 +3721,13 @@ span.customize-control-title.ast-group-section-title {
     padding-bottom: 2px;
 }
 
+.customize-control select:focus, .ast-variant-select > div:focus, .customize-control input:focus {
+	border-color: var(--wp-admin-theme-color);
+	color: #0a4b78;
+	box-shadow: 0 0 0 1px var(--wp-admin-theme-color);
+}
+
+
 
 
 .customize-control-ast-responsive-slider .wrapper, .customize-control-ast-slider .wrapper {
@@ -3843,6 +3850,14 @@ span.customize-control-title.ast-group-section-title {
 
 .customize-control-ast-slider .ast-slider-wrap, .customize-control-ast-responsive-slider .ast-slider-wrap {
   position: relative;
+}
+
+.components-range-control__wrapper .components-range-control__track {
+  color: var(--ast-customizer-color-1);
+}
+
+.components-range-control__wrapper span span {
+  background-color: var(--ast-customizer-color-1);
 }
 
 .customize-control-ast-slider .ast-slider-wrap .ast-range-unit, .customize-control-ast-responsive-slider .ast-slider-wrap .ast-range-unit {
@@ -4613,8 +4628,8 @@ span.customize-control-title.ast-group-section-title {
 
 .customize-control-ast-responsive-slider .ast-responsive-slider-btns {
   position: relative;
-  top: -7px;
-  left: -5px;
+  top: -5px;
+  left: -10px;
   display: inline-block;
 }
 
@@ -6337,6 +6352,14 @@ span.customize-control-title.ast-group-section-title {
   position: relative;
 }
 
+.components-range-control__wrapper .components-range-control__track {
+  color: var(--ast-customizer-color-1);
+}
+
+.components-range-control__wrapper span span {
+  background-color: var(--ast-customizer-color-1);
+}
+
 .customize-control-ast-slider .ast-slider-wrap .ast-range-unit, .customize-control-ast-responsive-slider .ast-slider-wrap .ast-range-unit {
   position: absolute;
   left: 23px;
@@ -6566,8 +6589,9 @@ span.customize-control-title.ast-group-section-title {
 }
 
 .customize-control-ast-responsive-toggle-control .ast-responsive-toggle-control-wrapper .ast-responsive-toggle-btns {
-    position: unset;
+    position: relative;
     float: left;
+    top: 2px;
 }
 
 .customize-control-ast-responsive-toggle-control .ast-responsive-toggle-control-wrapper .ast-responsive-toggle-btns > li.active{
@@ -6988,8 +7012,8 @@ span.customize-control-title.ast-group-section-title {
 
 .customize-control-ast-responsive-slider .ast-responsive-slider-btns {
   position: relative;
-  top: -7px;
-  left: -5px;
+  top: -5px;
+  left: -10px;
   display: inline-block;
 }
 

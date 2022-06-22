@@ -120,6 +120,14 @@
   position: relative;
 }
 
+.components-range-control__wrapper .components-range-control__track {
+  color: var(--ast-customizer-color-1);
+}
+
+.components-range-control__wrapper span span {
+  background-color: var(--ast-customizer-color-1);
+}
+
 .customize-control-ast-slider .ast-slider-wrap .ast-range-unit, .customize-control-ast-responsive-slider .ast-slider-wrap .ast-range-unit {
   position: absolute;
   right: 23px;

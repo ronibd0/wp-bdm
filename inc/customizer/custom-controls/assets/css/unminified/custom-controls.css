@@ -2551,6 +2551,14 @@ span.customize-control-title.ast-group-section-title {
   position: relative;
 }
 
+.components-range-control__wrapper .components-range-control__track {
+  color: var(--ast-customizer-color-1);
+}
+
+.components-range-control__wrapper span span {
+  background-color: var(--ast-customizer-color-1);
+}
+
 .customize-control-ast-slider .ast-slider-wrap .ast-range-unit, .customize-control-ast-responsive-slider .ast-slider-wrap .ast-range-unit {
   position: absolute;
   right: 23px;
@@ -2780,8 +2788,9 @@ span.customize-control-title.ast-group-section-title {
 }
 
 .customize-control-ast-responsive-toggle-control .ast-responsive-toggle-control-wrapper .ast-responsive-toggle-btns {
-    position: unset;
+    position: relative;
     float: right;
+    top: 2px;
 }
 
 .customize-control-ast-responsive-toggle-control .ast-responsive-toggle-control-wrapper .ast-responsive-toggle-btns > li.active{
@@ -3319,8 +3328,8 @@ span.customize-control-title.ast-group-section-title {
 
 .customize-control-ast-responsive-slider .ast-responsive-slider-btns {
   position: relative;
-  top: -7px;
-  right: -5px;
+  top: -5px;
+  right: -10px;
   display: inline-block;
 }
 

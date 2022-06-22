@@ -29,8 +29,9 @@
 }
 
 .customize-control-ast-responsive-toggle-control .ast-responsive-toggle-control-wrapper .ast-responsive-toggle-btns {
-    position: unset;
+    position: relative;
     float: right;
+    top: 2px;
 }
 
 .customize-control-ast-responsive-toggle-control .ast-responsive-toggle-control-wrapper .ast-responsive-toggle-btns > li.active{
