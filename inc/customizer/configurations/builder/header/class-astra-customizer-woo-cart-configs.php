@@ -39,6 +39,22 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 
 		$_configs = array(
 
+			/**
+				 * Option: Divider
+				 * Option: WOO cart General Section divider
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[section-woo-cart-label-divider]',
+					'type'     => 'control',
+					'control'  => 'ast-heading',
+					'section'  => $_section,
+					'title'    => __( 'Cart', 'astra' ),
+					'priority' => 2,
+					'settings' => array(),
+					'context'  => Astra_Builder_Helper::$general_tab,
+					'divider'  => array( 'ast_class' => 'ast-bottom-spacing' ),
+				),
+
 
 			/**
 			 * Option: Cart Label
@@ -65,6 +81,7 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 					'{cart_total_currency_symbol}' => __( 'Total + Currency symbol', 'astra' ),
 				),
 				'context'           => Astra_Builder_Helper::$general_tab,
+				'divider'           => array( 'ast_class' => 'ast-top-spacing' ),
 			),
 
 			/**
@@ -93,7 +110,24 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 				'transport' => 'postMessage',
 				'control'   => 'ast-toggle-control',
 				'context'   => Astra_Builder_Helper::$general_tab,
+				'divider'   => array( 'ast_class' => 'ast-top-section-divider' ),
 			),
+
+			/**
+				 * Option: Divider
+				 * Option: WOO cart tray Section divider
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[section-woo-cart-click-divider]',
+					'type'     => 'control',
+					'control'  => 'ast-heading',
+					'section'  => $_section,
+					'title'    => __( 'Cart Click', 'astra' ),
+					'priority' => 60,
+					'settings' => array(),
+					'context'  => Astra_Builder_Helper::$general_tab,
+					'divider'  => array( 'ast_class' => 'ast-section-spacing' ),
+				),
 
 			/**
 			 * Option: Cart icon click action.
@@ -113,7 +147,7 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 				'responsive' => false,
 				'renderAs'   => 'text',
 				'context'    => Astra_Builder_Helper::$desktop_general_tab,
-				'divider'    => array( 'ast_class' => 'ast-top-divider' ),
+				'divider'    => array( 'ast_class' => 'ast-section-spacing' ),
 			),
 
 			/**
@@ -141,6 +175,7 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 				),
 				'renderAs'   => 'text',
 				'responsive' => false,
+				'divider'    => array( 'ast_class' => 'ast-top-dotted-divider' ),
 			),
 
 			/**
@@ -169,7 +204,25 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 					'step' => 1,
 					'max'  => 1920,
 				),
+				'divider'     => array( 'ast_class' => 'ast-top-dotted-divider' ),
 			),
+
+			/**
+				 * Option: Divider
+				 * Option: WOO cart Icon Design Section divider
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[section-woo-cart-icon-style-divider]',
+					'type'     => 'control',
+					'control'  => 'ast-heading',
+					'section'  => $_section,
+					'title'    => __( 'Cart Icon', 'astra' ),
+					'priority' => 45,
+					'settings' => array(),
+					'context'  => Astra_Builder_Helper::$design_tab,
+				),
+
+
 
 			/**
 			 * Option: Icon Style
@@ -190,6 +243,7 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 				'responsive' => false,
 				'renderAs'   => 'text',
 				'context'    => Astra_Builder_Helper::$design_tab,
+				'divider'    => array( 'ast_class' => 'ast-section-spacing ast-bottom-section-divider' ),
 			),
 
 			/**
@@ -213,6 +267,7 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 					),
 				),
 				'responsive' => false,
+				'divider'    => array( 'ast_class' => 'ast-bottom-section-divider' ),
 			),
 
 			/**
@@ -277,6 +332,7 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 					'step' => 1,
 					'max'  => 200,
 				),
+				'divider'     => array( 'ast_class' => 'ast-bottom-section-divider' ),
 			),
 
 			/**
@@ -300,6 +356,7 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 				'responsive' => true,
 				'renderAs'   => 'text',
 				'context'    => Astra_Builder_Helper::$design_tab,
+				'divider'    => array( 'ast_class' => 'ast-bottom-section-divider' ),
 			),
 
 			/**
@@ -414,6 +471,7 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 					'priority' => 60,
 					'settings' => array(),
 					'context'  => Astra_Builder_Helper::$design_tab,
+					'divider'  => array( 'ast_class' => 'ast-section-spacing' ),
 				),
 
 
@@ -444,6 +502,7 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 					'priority'   => 65,
 					'context'    => Astra_Builder_Helper::$design_tab,
 					'responsive' => true,
+					'divider'    => array( 'ast_class' => 'ast-section-spacing' ),
 				),
 				// Option: Cart Background Color.
 				array(
@@ -537,6 +596,22 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 					'context'    => Astra_Builder_Helper::$design_tab,
 				),
 
+				/**
+				 * Option: Divider
+				 * Option: WOO cart button Section divider
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[section-woo-cart-button-color-divider]',
+					'type'     => 'control',
+					'control'  => 'ast-heading',
+					'section'  => $_section,
+					'title'    => __( 'Cart Button', 'astra' ),
+					'priority' => 70,
+					'settings' => array(),
+					'context'  => Astra_Builder_Helper::$design_tab,
+					'divider'  => array( 'ast_class' => 'ast-section-spacing' ),
+				),
+
 				array(
 					'name'       => ASTRA_THEME_SETTINGS . '[header-woo-cart-button-text-colors]',
 					'default'    => astra_get_option( 'header-woo-cart-button-text-colors' ),
@@ -549,8 +624,7 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 					'context'    => Astra_Builder_Helper::$design_tab,
 					'responsive' => true,
 					'divider'    => array(
-						'ast_class' => 'ast-top-divider',
-						'ast_title' => __( 'Cart Button', 'astra' ),
+						'ast_class' => 'ast-section-spacing',
 					),
 				),
 				array(
@@ -630,6 +704,22 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 					'context'    => Astra_Builder_Helper::$design_tab,
 				),
 
+				/**
+				 * Option: Divider
+				 * Option: WOO cart button Section divider
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[section-woo-checkout-button-color-divider]',
+					'type'     => 'control',
+					'control'  => 'ast-heading',
+					'section'  => $_section,
+					'title'    => __( 'Checkout Button', 'astra' ),
+					'priority' => 75,
+					'settings' => array(),
+					'context'  => Astra_Builder_Helper::$design_tab,
+					'divider'  => array( 'ast_class' => 'ast-section-spacing' ),
+				),
+
 				array(
 					'name'       => ASTRA_THEME_SETTINGS . '[header-woo-checkout-button-text-colors]',
 					'default'    => astra_get_option( 'header-woo-checkout-button-text-colors' ),
@@ -642,8 +732,7 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 					'context'    => Astra_Builder_Helper::$design_tab,
 					'responsive' => true,
 					'divider'    => array(
-						'ast_class' => 'ast-top-divider',
-						'ast_title' => __( 'Checkout Button', 'astra' ),
+						'ast_class' => 'ast-section-spacing',
 					),
 				),
 				array(
@@ -725,6 +814,44 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 			);
 
 			$_configs = array_merge( $_configs, Astra_Builder_Base_Configuration::prepare_visibility_tab( $_section ) );
+
+		}
+
+		// Learn More link if Astra Pro is not activated.
+		if ( ! defined( 'ASTRA_EXT_VER' ) ) {
+
+			$_configs[] = array(
+
+				'name'     => ASTRA_THEME_SETTINGS . '[ast-woo-cart-button-link]',
+				'type'     => 'control',
+				'control'  => 'ast-button-link',
+				'section'  => $_section,
+				'priority' => 999,
+				'title'    => __( 'View Astra Pro Features', 'astra' ),
+				'url'      => astra_get_pro_url( 'https://wpastra.com/pro', 'customizer', 'learn-more', 'upgrade-to-pro' ),
+				'settings' => array(),
+				'divider'  => array( 'ast_class' => 'ast-top-section-divider' ),
+				'context'  => Astra_Builder_Helper::$general_tab,
+			);
+
+		}
+
+		// Learn More link if Astra Pro is not activated.
+		if ( ! defined( 'ASTRA_EXT_VER' ) ) {
+
+			$_configs[] = array(
+
+				'name'     => ASTRA_THEME_SETTINGS . '[ast-woo-cart-design-button-link]',
+				'type'     => 'control',
+				'control'  => 'ast-button-link',
+				'section'  => $_section,
+				'priority' => 999,
+				'title'    => __( 'View Astra Pro Features', 'astra' ),
+				'url'      => astra_get_pro_url( 'https://wpastra.com/pro', 'customizer', 'learn-more', 'upgrade-to-pro' ),
+				'settings' => array(),
+				'divider'  => array( 'ast_class' => 'ast-top-section-divider' ),
+				'context'  => Astra_Builder_Helper::$design_tab,
+			);
 
 		}
 

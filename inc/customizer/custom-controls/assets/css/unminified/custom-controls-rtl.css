@@ -3059,6 +3059,7 @@ input[type="text"].select2-search__field {
     align-items: center;
     flex-wrap: wrap;
     row-gap: 8px;
+	column-gap: 8px;
     justify-content: space-between;
 }
 .ast-typo-presets .ast-typo-preset-item {
@@ -3068,6 +3069,7 @@ input[type="text"].select2-search__field {
     border: 1px solid var(--ast-customizer-color-7);
     height: 64px;
     text-align: center;
+	width: 47.5%;
 }
 .ast-typo-presets .ast-typo-preset-item:hover{
 	border: 1px solid var(--ast-customizer-color-1);
@@ -4089,8 +4091,9 @@ span.customize-control-title.ast-group-section-title {
 }
 
 .customize-control-ast-responsive-toggle-control .ast-responsive-toggle-control-wrapper .ast-responsive-toggle-btns {
-    position: unset;
+    position: relative;
     float: left;
+    top: 2px;
 }
 
 .customize-control-ast-responsive-toggle-control .ast-responsive-toggle-control-wrapper .ast-responsive-toggle-btns > li.active{
@@ -5442,6 +5445,7 @@ input[type="text"].select2-search__field {
     align-items: center;
     flex-wrap: wrap;
     row-gap: 8px;
+	column-gap: 8px;
     justify-content: space-between;
 }
 .ast-typo-presets .ast-typo-preset-item {
@@ -5451,6 +5455,7 @@ input[type="text"].select2-search__field {
     border: 1px solid var(--ast-customizer-color-7);
     height: 64px;
     text-align: center;
+	width: 47.5%;
 }
 .ast-typo-presets .ast-typo-preset-item:hover{
 	border: 1px solid var(--ast-customizer-color-1);

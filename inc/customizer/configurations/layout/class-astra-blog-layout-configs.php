@@ -250,21 +250,6 @@ if ( ! class_exists( 'Astra_Blog_Layout_Configs' ) ) {
 				);
 			}
 
-			// Learn More link if Astra Pro is not activated.
-			if ( ! defined( 'ASTRA_EXT_VER' ) ) {
-
-				$_configs[] = array(
-					'name'     => ASTRA_THEME_SETTINGS . '[ast-button-link]',
-					'type'     => 'control',
-					'control'  => 'ast-button-link',
-					'section'  => 'section-blog',
-					'priority' => 999,
-					'title'    => __( 'View Astra Pro Features', 'astra' ),
-					'url'      => 'https://wpastra.com/pro',
-					'settings' => array(),
-				);
-			}
-
 			if ( true === Astra_Builder_Helper::$is_header_footer_builder_active ) {
 
 				$_configs[] = array(
