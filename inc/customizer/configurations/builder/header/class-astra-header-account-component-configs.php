@@ -124,6 +124,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 				'control'     => 'ast-builder-header-control',
 				'priority'    => 0,
 				'description' => '',
+				'divider'     => array( 'ast_class' => 'ast-bottom-spacing' ),
 			),
 
 			/**
@@ -374,7 +375,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 				'type'              => 'control',
 				'suffix'            => 'px',
 				'control'           => 'ast-responsive-slider',
-				'divider'           => array( 'ast_class' => 'ast-bottom-divider' ),
+				'divider'           => array( 'ast_class' => 'ast-bottom-section-divider' ),
 				'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
 				'input_attrs'       => array(
 					'min'  => 0,
@@ -428,6 +429,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 						),
 					),
 				),
+				'divider'           => array( 'ast_class' => 'ast-bottom-dotted-divider' ),
 			),
 
 
@@ -473,7 +475,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 				'control'           => 'ast-responsive-spacing',
 				'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_spacing' ),
 				'section'           => $_section,
-				'priority'          => 520,
+				'priority'          => 119,
 				'title'             => __( 'Margin', 'astra' ),
 				'linked_choices'    => true,
 				'unit_choices'      => array( 'px', 'em', '%' ),
@@ -484,6 +486,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 					'left'   => __( 'Left', 'astra' ),
 				),
 				'context'           => Astra_Builder_Helper::$design_tab,
+				'divider'           => array( 'ast_class' => 'ast-top-section-divider' ),
 			),
 		);
 

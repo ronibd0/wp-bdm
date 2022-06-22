@@ -178,7 +178,7 @@ class Astra_Html_Component_Configs {
 					'control'           => 'ast-responsive-spacing',
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_spacing' ),
 					'section'           => $_section,
-					'priority'          => 220,
+					'priority'          => 109,
 					'title'             => __( 'Margin', 'astra' ),
 					'divider'           => array( 'ast_class' => 'ast-top-section-divider' ),
 					'linked_choices'    => true,

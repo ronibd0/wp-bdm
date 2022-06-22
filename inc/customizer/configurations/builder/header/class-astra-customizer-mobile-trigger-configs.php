@@ -201,7 +201,7 @@ class Astra_Customizer_Mobile_Trigger_Configs extends Astra_Customizer_Config_Ba
 				'title'             => __( 'Background Color', 'astra' ),
 				'section'           => $_section,
 				'transport'         => 'postMessage',
-				'priority'          => 50,
+				'priority'          => 40,
 				'context'           => array(
 					Astra_Builder_Helper::$design_tab_config,
 					array(
@@ -239,6 +239,7 @@ class Astra_Customizer_Mobile_Trigger_Configs extends Astra_Customizer_Config_Ba
 						'value'    => 'outline',
 					),
 				),
+				'divider'        => array( 'ast_class' => 'ast-top-section-divider' ),
 			),
 
 			/**
@@ -253,7 +254,7 @@ class Astra_Customizer_Mobile_Trigger_Configs extends Astra_Customizer_Config_Ba
 				'title'             => __( 'Border Color', 'astra' ),
 				'section'           => $_section,
 				'transport'         => 'postMessage',
-				'priority'          => 65,
+				'priority'          => 40,
 				'context'           => array(
 					Astra_Builder_Helper::$design_tab_config,
 					array(
@@ -274,7 +275,7 @@ class Astra_Customizer_Mobile_Trigger_Configs extends Astra_Customizer_Config_Ba
 				'control'     => 'ast-slider',
 				'section'     => $_section,
 				'title'       => __( 'Border Radius', 'astra' ),
-				'priority'    => 70,
+				'priority'    => 50,
 				'suffix'      => 'px',
 				'transport'   => 'postMessage',
 				'input_attrs' => array(
@@ -290,6 +291,7 @@ class Astra_Customizer_Mobile_Trigger_Configs extends Astra_Customizer_Config_Ba
 						'value'    => 'minimal',
 					),
 				),
+				'divider'     => array( 'ast_class' => 'ast-top-section-divider' ),
 			),
 
 			/**
@@ -303,7 +305,7 @@ class Astra_Customizer_Mobile_Trigger_Configs extends Astra_Customizer_Config_Ba
 				'control'           => 'ast-responsive-spacing',
 				'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_spacing' ),
 				'section'           => $_section,
-				'priority'          => 220,
+				'priority'          => 99,
 				'title'             => __( 'Margin', 'astra' ),
 				'linked_choices'    => true,
 				'unit_choices'      => array( 'px', 'em', '%' ),

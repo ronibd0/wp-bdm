@@ -323,6 +323,7 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 				),
 				'section'           => 'section-transparent-header',
 				'priority'          => 85,
+				'divider'           => array( 'ast_class' => 'ast-top-dotted-divider' ),
 			),
 		);
 

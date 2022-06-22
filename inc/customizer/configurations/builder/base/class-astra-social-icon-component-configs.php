@@ -417,7 +417,7 @@ class Astra_Social_Icon_Component_Configs {
 					'control'           => 'ast-responsive-spacing',
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_spacing' ),
 					'section'           => $_section,
-					'priority'          => 220,
+					'priority'          => 49,
 					'title'             => __( 'Margin', 'astra' ),
 					'linked_choices'    => true,
 					'unit_choices'      => array( 'px', 'em', '%' ),

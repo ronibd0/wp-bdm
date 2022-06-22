@@ -522,6 +522,14 @@
   top: 75px;
 }
 
+.ast-top-dotted-divider.customize-control-ast-color-group .ast-control-wrap .ast-color-btn-reset-wrap {
+  top: 30px;
+}
+
+.ast-top-dotted-divider.customize-control-ast-color-group .ast-divider-title + .ast-control-wrap .ast-color-btn-reset-wrap {
+  top: 75px;
+}
+
 .customize-control-ast-color-group .ast-control-wrap {
   display: inline-flex;
   width: 100%;
@@ -1815,6 +1823,14 @@
   top: 75px;
 }
 
+.ast-top-dotted-divider.customize-control-ast-color-group .ast-control-wrap .ast-color-btn-reset-wrap {
+  top: 30px;
+}
+
+.ast-top-dotted-divider.customize-control-ast-color-group .ast-divider-title + .ast-control-wrap .ast-color-btn-reset-wrap {
+  top: 75px;
+}
+
 .customize-control-ast-color-group .ast-control-wrap {
   display: inline-flex;
   width: 100%;
@@ -2597,6 +2613,7 @@
     --ast-customizer-color-8:#4B5563;  /* icon color / Toggle color*/
     --ast-customizer-color-9:#fff;  /* background color */
     --ast-customizer-color-10: #fff; /* text invert*/
+    --ast-customizer-color-11: #F5F5F5; /* alt background*/
 }
 
 input[type="text"], input[type="password"], input[type="color"], input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="email"], input[type="month"], input[type="number"], input[type="search"], input[type="tel"], input[type="time"], input[type="url"], input[type="week"], select, textarea {
@@ -3031,7 +3048,7 @@ input[type="text"].select2-search__field {
 .customize-control.ast-section-spacing,
 #customize-control-astra-settings-footer-create-menu-link,
 #customize-control-astra-settings-header-button1-text,
-#customize-control-astra-settings-header-language-switcher-options,
+#customize-control-astra-settings-footer-language-switcher-options,
 #customize-control-astra-settings-header-button2-text {
     margin-top: 32px;
 }
@@ -3097,7 +3114,7 @@ span.customize-control-title.ast-group-section-title {
 
 .customize-control-ast-heading .customize-control-title {
   display: block;
-  padding: 16px 24px;
+  padding: 15px 24px;
   margin: 0;
   border-width: 1px 0;
   border-style: solid;
@@ -3699,16 +3716,11 @@ span.customize-control-title.ast-group-section-title {
 }
 
 .customize-control select, .ast-variant-select > div, .customize-control input, .customize-control-content .components-text-control__input {
-	border-color: #ddd;
+	border-color: var(--ast-customizer-color-7);
 	padding-top: 2px;
     padding-bottom: 2px;
 }
 
-.customize-control select:focus, .ast-variant-select > div:focus, .customize-control input:focus {
-	border-color: var(--wp-admin-theme-color);
-	color: #0a4b78;
-	box-shadow: 0 0 0 1px var(--wp-admin-theme-color);
-}
 
 
 .customize-control-ast-responsive-slider .wrapper, .customize-control-ast-slider .wrapper {
@@ -4969,6 +4981,7 @@ span.select2-container.select2-container--default.select2-container--open li.sel
     --ast-customizer-color-8:#4B5563;  /* icon color / Toggle color*/
     --ast-customizer-color-9:#fff;  /* background color */
     --ast-customizer-color-10: #fff; /* text invert*/
+    --ast-customizer-color-11: #F5F5F5; /* alt background*/
 }
 
 input[type="text"], input[type="password"], input[type="color"], input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="email"], input[type="month"], input[type="number"], input[type="search"], input[type="tel"], input[type="time"], input[type="url"], input[type="week"], select, textarea {
@@ -5403,7 +5416,6 @@ input[type="text"].select2-search__field {
 .customize-control.ast-section-spacing,
 #customize-control-astra-settings-footer-create-menu-link,
 #customize-control-astra-settings-header-button1-text,
-#customize-control-astra-settings-header-language-switcher-options,
 #customize-control-astra-settings-footer-language-switcher-options,
 #customize-control-astra-settings-header-button2-text {
     margin-top: 32px;
@@ -5470,7 +5482,7 @@ span.customize-control-title.ast-group-section-title {
 
 .customize-control-ast-heading .customize-control-title {
   display: block;
-  padding: 16px 24px;
+  padding: 15px 24px;
   margin: 0;
   border-width: 1px 0;
   border-style: solid;
@@ -6189,7 +6201,7 @@ span.customize-control-title.ast-group-section-title {
 }
 
 .customize-control select, .ast-variant-select > div, .customize-control input, .customize-control-content .components-text-control__input {
-	border-color: #ddd;
+	border-color: var(--ast-customizer-color-7);
 	padding-top: 2px;
     padding-bottom: 2px;
 }
@@ -6199,6 +6211,8 @@ span.customize-control-title.ast-group-section-title {
 	color: #0a4b78;
 	box-shadow: 0 0 0 1px var(--wp-admin-theme-color);
 }
+
+
 
 
 .customize-control-ast-responsive-slider .wrapper, .customize-control-ast-slider .wrapper {
