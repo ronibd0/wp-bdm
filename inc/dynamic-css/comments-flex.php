@@ -212,7 +212,6 @@ function astra_comments_css( $dynamic_css ) {
 					padding: 4em 6.67em;
 					border-bottom: 0;
 				}
-
 				@media (max-width: 1200px) {
 					.ast-separate-container .comment-respond {
 						padding: 3em 2.34em;

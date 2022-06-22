@@ -357,6 +357,7 @@ class Astra_WP_Editor_CSS {
 			--wp--custom--ast-wide-width-size: ' . $ast_wide_width . ';
 		}';
 
+		// Overriding the previous CSS vars in customizer because there is block editor in customizer widget, where if any container block is used in sidebar widgets then as customizer widget editor is already small (left panel) the blocks does not looks good.
 		if ( is_customize_preview() ) {
 			$css = '';
 		}
