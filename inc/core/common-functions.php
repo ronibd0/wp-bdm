@@ -927,7 +927,7 @@ if ( ! function_exists( 'astra_archive_page_info' ) ) {
 			// Author.
 			if ( is_author() ) {
 				$author_name      = get_the_author() ? get_the_author() : '';
-				$author_name_html = ( true === astra_get_option( 'customizer-default-layout-update', true ) && $author_name ) ? __( 'Author name: ' ) . $author_name : $author_name;
+				$author_name_html = ( true === astra_get_option( 'customizer-default-layout-update', true ) && $author_name ) ? __( 'Author name: ', 'astra' ) . $author_name : $author_name;
 				?>
 
 				<section class="ast-author-box ast-archive-description">
