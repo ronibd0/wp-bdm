@@ -60,6 +60,10 @@ function astra_related_posts_static_css( $dynamic_css ) {
 		';
 
 		if ( true === astra_get_option( 'customizer-default-layout-update', true ) ) {
+			/** @psalm-suppress InvalidOperand */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+			$astra_mobile_breakpoint = astra_get_mobile_breakpoint();
+			/** @psalm-suppress InvalidOperand */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+
 			$dynamic_css .= '
 				.ast-single-related-posts-container {
 					border-top: 1px solid var(--ast-global-color-6);
@@ -79,7 +83,7 @@ function astra_related_posts_static_css( $dynamic_css ) {
 				.ast-separate-container .ast-single-related-posts-container {
 					padding: 3em;
 				}
-				@media (max-width: ' . astra_get_mobile_breakpoint() . 'px) {
+				@media (max-width: ' . $astra_mobile_breakpoint . 'px) {
 					.ast-separate-container .ast-single-related-posts-container {
 						padding: 1.5em 1em;
 					}

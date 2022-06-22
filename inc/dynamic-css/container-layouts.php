@@ -23,8 +23,9 @@ function astra_check_any_page_builder_is_active( $post_id ) {
 	$post = get_post( $post_id );
 
 	if ( class_exists( '\Elementor\Plugin' ) ) {
-		if ( ( version_compare( ELEMENTOR_VERSION, '1.5.0', '<' ) &&
-			'builder' === Elementor\Plugin::$instance->db->get_edit_mode( $post_id ) ) || Elementor\Plugin::$instance->db->is_built_with_elementor( $post_id ) ) { // phpcs:ignore PHPCompatibility.LanguageConstructs.NewLanguageConstructs.t_ns_separatorFound
+		/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+		if ( ( defined( 'ELEMENTOR_VERSION' ) && version_compare( ELEMENTOR_VERSION, '1.5.0', '<' ) && 'builder' === Elementor\Plugin::$instance->db->get_edit_mode( $post_id ) ) || Elementor\Plugin::$instance->db->is_built_with_elementor( $post_id ) ) { // phpcs:ignore PHPCompatibility.LanguageConstructs.NewLanguageConstructs.t_ns_separatorFound
+			/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			return true;
 		}
 	}
