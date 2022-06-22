@@ -102,11 +102,8 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 			 *
 			 * @since 3.6.3
 			 */
-			$apply_new_default_values = astra_button_default_padding_updated();
-
-			$astra_settings        = get_option( 'astra-settings', true );
-			$is_new_default_layout = isset( $astra_settings['is-new-default-page-post-layout'] ) ? $astra_settings['is-new-default-page-post-layout'] : true;
-
+			$apply_new_default_values  = astra_button_default_padding_updated();
+			$is_new_strctural_defaults = astra_get_option( 'customizer-default-layout-update', true );
 
 			// Defaults list of options.
 			self::$defaults = apply_filters(
@@ -416,7 +413,7 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 					),
 					// Container.
 					'site-content-layout'                  => 'content-boxed-container',
-					'single-page-content-layout'           => false === $is_new_default_layout ? 'default' : 'plain-container',
+					'single-page-content-layout'           => false === $is_new_strctural_defaults ? 'default' : 'plain-container',
 					'single-post-content-layout'           => 'default',
 					'archive-post-content-layout'          => 'default',
 					// Typography.
@@ -466,9 +463,9 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 					),
 					'single-post-outside-spacing'          => array(
 						'desktop'      => array(
-							'top'    => '',
+							'top'    => $is_new_strctural_defaults ? 60 : '',
 							'right'  => '',
-							'bottom' => '',
+							'bottom' => $is_new_strctural_defaults ? 60 : '',
 							'left'   => '',
 						),
 						'tablet'       => array(
@@ -555,8 +552,8 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 					// Sidebar.
 					'site-sidebar-layout'                  => 'right-sidebar',
 					'site-sidebar-width'                   => 30,
-					'single-page-sidebar-layout'           => false === $is_new_default_layout ? 'default' : 'no-sidebar',
-					'single-post-sidebar-layout'           => false === $is_new_default_layout ? 'default' : 'no-sidebar',
+					'single-page-sidebar-layout'           => false === $is_new_strctural_defaults ? 'default' : 'no-sidebar',
+					'single-post-sidebar-layout'           => 'default',
 					'archive-post-sidebar-layout'          => 'default',
 
 					// Sidebar.

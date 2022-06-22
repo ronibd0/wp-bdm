@@ -46,13 +46,13 @@ class Astra_WP_Editor_CSS {
 				$mobile_left_block_space    = '2em';
 				break;
 			case 'comfort':
-				$desktop_top_block_space    = '4em';
-				$desktop_right_block_space  = '4em';
-				$desktop_bottom_block_space = '4em';
-				$desktop_left_block_space   = '4em';
-				$tablet_top_block_space     = '4em';
+				$desktop_top_block_space    = '3em';
+				$desktop_right_block_space  = '3em';
+				$desktop_bottom_block_space = '3em';
+				$desktop_left_block_space   = '3em';
+				$tablet_top_block_space     = '3em';
 				$tablet_right_block_space   = '2em';
-				$tablet_bottom_block_space  = '4em';
+				$tablet_bottom_block_space  = '3em';
 				$tablet_left_block_space    = '2em';
 				$mobile_top_block_space     = '3em';
 				$mobile_right_block_space   = '1.5em';
@@ -357,6 +357,11 @@ class Astra_WP_Editor_CSS {
 			--wp--custom--ast-wide-width-size: ' . $ast_wide_width . ';
 		}';
 
+		// Overriding the previous CSS vars in customizer because there is block editor in customizer widget, where if any container block is used in sidebar widgets then as customizer widget editor is already small (left panel) the blocks does not looks good.
+		if ( is_customize_preview() ) {
+			$css = '';
+		}
+
 		/** @psalm-suppress InvalidScalarArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 		$html_font_size = astra_get_font_css_value( (int) $body_font_size_desktop * 6.25, '%' );
 		/** @psalm-suppress InvalidScalarArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
@@ -393,7 +398,7 @@ class Astra_WP_Editor_CSS {
 			'#editor .edit-post-visual-editor' => $background_style_data,
 			'.edit-post-visual-editor .editor-styles-wrapper' => astra_get_responsive_background_obj( $content_background, 'desktop' ),
 
-			'.editor-styles-wrapper'           => array(
+			'.editor-styles-wrapper, #customize-controls .editor-styles-wrapper' => array(
 				'font-family'    => astra_get_font_family( $body_font_family ),
 				'font-weight'    => esc_attr( $body_font_weight ),
 				'font-size'      => astra_responsive_font( $body_font_size, 'desktop' ),
@@ -409,10 +414,6 @@ class Astra_WP_Editor_CSS {
 				'text-transform' => esc_attr( $headings_text_transform ),
 				'line-height'    => esc_attr( $headings_line_height ),
 				'color'          => esc_attr( $heading_base_color ),
-			),
-			'.editor-styles-wrapper .wp-block-latest-posts > li > a' => array(
-				'text-decoration' => 'none',
-				'color'           => esc_attr( $heading_base_color ),
 			),
 
 			// Headings H1 - H6 typography.
@@ -430,7 +431,7 @@ class Astra_WP_Editor_CSS {
 				'line-height'    => esc_attr( $h2_line_height ),
 				'text-transform' => esc_attr( $h2_text_transform ),
 			),
-			'.editor-styles-wrapper h3'        => array(
+			'.editor-styles-wrapper h3, #customize-controls .editor-styles-wrapper h3' => array(
 				'font-size'      => astra_responsive_font( $heading_h3_font_size, 'desktop' ),
 				'font-family'    => astra_get_css_value( $h3_font_family, 'font' ),
 				'font-weight'    => astra_get_css_value( $h3_font_weight, 'font' ),
@@ -518,6 +519,10 @@ class Astra_WP_Editor_CSS {
 			$alignwide_left_negative_margin  = $astra_continer_left_spacing ? 'calc(-1 * min(' . $astra_continer_left_spacing . ', 40px))' : '-40px';
 			$alignwide_right_negative_margin = $astra_continer_right_spacing ? 'calc(-1 * min(' . $astra_continer_right_spacing . ', 40px))' : '-40px';
 
+			$desktop_css['.editor-styles-wrapper .wp-block-latest-posts > li > a'] = array(
+				'text-decoration' => 'none',
+				'font-size'       => '1.25rem',
+			);
 			$desktop_css['.ast-separate-container .editor-styles-wrapper .block-editor-block-list__layout.is-root-container .alignwide, .ast-plain-container .editor-styles-wrapper .block-editor-block-list__layout.is-root-container .alignwide'] = array(
 				'margin-left'  => $alignwide_left_negative_margin,
 				'margin-right' => $alignwide_right_negative_margin,
@@ -539,6 +544,11 @@ class Astra_WP_Editor_CSS {
 				'margin-right' => 'auto', // phpcs:ignore WordPress.Arrays.ArrayIndentation.ItemNotAligned
 				'margin-left'  => 'auto', // phpcs:ignore WordPress.Arrays.ArrayIndentation.ItemNotAligned
 			); // phpcs:ignore WordPress.Arrays.ArrayIndentation.CloseBraceNotAligned
+		} else {
+			$desktop_css['.editor-styles-wrapper .wp-block-latest-posts > li > a'] = array(
+				'text-decoration' => 'none',
+				'color'           => esc_attr( $heading_base_color ),
+			);
 		}
 
 		$tablet_css = array(

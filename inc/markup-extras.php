@@ -129,7 +129,6 @@ if ( ! function_exists( 'astra_body_classes' ) ) {
 
 add_filter( 'body_class', 'astra_body_classes' );
 
-
 /**
  * Astra Pagination
  */
@@ -150,19 +149,19 @@ if ( ! function_exists( 'astra_number_pagination' ) ) {
 			return;
 		}
 
-			ob_start();
-			echo "<div class='ast-pagination'>";
-			the_posts_pagination(
-				array(
-					'prev_text'    => astra_default_strings( 'string-blog-navigation-previous', false ),
-					'next_text'    => astra_default_strings( 'string-blog-navigation-next', false ),
-					'taxonomy'     => 'category',
-					'in_same_term' => true,
-				)
-			);
-			echo '</div>';
-			$output = ob_get_clean();
-			echo apply_filters( 'astra_pagination_markup', $output ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		ob_start();
+		echo "<div class='ast-pagination'>";
+		the_posts_pagination(
+			array(
+				'prev_text'    => astra_default_strings( 'string-blog-navigation-previous', false ),
+				'next_text'    => astra_default_strings( 'string-blog-navigation-next', false ),
+				'taxonomy'     => 'category',
+				'in_same_term' => true,
+			)
+		);
+		echo '</div>';
+		$output = ob_get_clean();
+		echo apply_filters( 'astra_pagination_markup', $output ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	}
 }
 
