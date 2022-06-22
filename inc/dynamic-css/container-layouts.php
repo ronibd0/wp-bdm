@@ -126,7 +126,9 @@ function astra_container_layout_css() {
 					margin-right: auto;
 				}
 			';
+			/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			if ( false === astra_check_any_page_builder_is_active( astra_get_post_id() ) ) {
+				/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 				$page_container_css .= '
 					.ast-single-post.ast-page-builder-template .site-main > article {
 						padding-top: 2em;
