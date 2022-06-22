@@ -362,7 +362,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'control'           => 'ast-responsive-spacing',
 						'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_spacing' ),
 						'section'           => $_section,
-						'priority'          => 220,
+						'priority'          => 101,
 						'title'             => __( 'Margin', 'astra' ),
 						'linked_choices'    => true,
 						'unit_choices'      => array( 'px', 'em', '%' ),
@@ -373,6 +373,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 							'left'   => __( 'Left', 'astra' ),
 						),
 						'context'           => Astra_Builder_Helper::$design_tab,
+						'divider'           => array( 'ast_class' => '' ),
 					),
 
 					// Option Group: Menu Color.
@@ -502,6 +503,19 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'rgba'       => true,
 						'priority'   => 33,
 						'context'    => Astra_Builder_Helper::$general_tab,
+					),
+
+					// Font Divider.
+					array(
+						'name'     => ASTRA_THEME_SETTINGS . '[header-' . $index . '-font-divider]',
+						'type'     => 'control',
+						'control'  => 'ast-heading',
+						'section'  => $_section,
+						'title'    => __( 'Font', 'astra' ),
+						'settings' => array(),
+						'priority' => 120,
+						'context'  => Astra_Builder_Helper::$design_tab,
+						'divider'  => array( 'ast_class' => 'ast-section-spacing' ),
 					),
 
 					// Option Group: Menu Typography.
@@ -656,7 +670,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 							'left'   => __( 'Left', 'astra' ),
 						),
 						'context'           => Astra_Builder_Helper::$design_tab,
-						'divider'           => array( 'ast_class' => 'ast-section-spacing ast-bottom-section-divider' ),
+						'divider'           => array( 'ast_class' => 'ast-section-spacing' ),
 					),
 				);
 

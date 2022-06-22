@@ -3032,6 +3032,7 @@ input[type="text"].select2-search__field {
 #customize-control-astra-settings-footer-create-menu-link,
 #customize-control-astra-settings-header-button1-text,
 #customize-control-astra-settings-header-language-switcher-options,
+#customize-control-astra-settings-footer-language-switcher-options,
 #customize-control-astra-settings-header-button2-text {
     margin-top: 32px;
 }
@@ -5415,6 +5416,7 @@ input[type="text"].select2-search__field {
     align-items: center;
     flex-wrap: wrap;
     row-gap: 8px;
+	column-gap: 8px;
     justify-content: space-between;
 }
 .ast-typo-presets .ast-typo-preset-item {
@@ -5424,6 +5426,7 @@ input[type="text"].select2-search__field {
     border: 1px solid var(--ast-customizer-color-7);
     height: 64px;
     text-align: center;
+	width: 47.5%;
 }
 .ast-typo-presets .ast-typo-preset-item:hover{
 	border: 1px solid var(--ast-customizer-color-1);
