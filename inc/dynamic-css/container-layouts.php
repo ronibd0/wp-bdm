@@ -11,6 +11,57 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
+ * Init fire to add required compatibility for divi page bulder.
+ *
+ * Case: In customizer-defaults update case Astra v3.8.3 we introduced some padding for stretched layout, that should not load for page builder layouts, that is why this compatibility added here.
+ *
+ * @param int $post_id Current post ID.
+ *
+ * @since x.x.x
+ */
+function astra_check_any_page_builder_is_active( $post_id ) {
+	$post = get_post( $post_id );
+
+	if ( class_exists( '\Elementor\Plugin' ) ) {
+		if ( ( version_compare( ELEMENTOR_VERSION, '1.5.0', '<' ) &&
+			'builder' === Elementor\Plugin::$instance->db->get_edit_mode( $post_id ) ) || Elementor\Plugin::$instance->db->is_built_with_elementor( $post_id ) ) { // phpcs:ignore PHPCompatibility.LanguageConstructs.NewLanguageConstructs.t_ns_separatorFound
+			return true;
+		}
+	}
+
+	if ( defined( 'TVE_VERSION' ) && get_post_meta( $post_id, 'tcb_editor_enabled', true ) ) {
+		return true;
+	}
+
+	if ( class_exists( 'FLBuilderModel' ) && apply_filters( 'fl_builder_do_render_content', true, FLBuilderModel::get_post_id() ) && get_post_meta( $post_id, '_fl_builder_enabled', true ) ) { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
+		return true;
+	}
+
+	$vc_active = get_post_meta( $post_id, '_wpb_vc_js_status', true );
+	if ( class_exists( 'Vc_Manager' ) && ( 'true' == $vc_active || has_shortcode( $post->post_content, 'vc_row' ) ) ) {
+		return true;
+	}
+
+	if ( function_exists( 'et_pb_is_pagebuilder_used' ) && et_pb_is_pagebuilder_used( $post_id ) ) {
+		return true;
+	}
+
+	if ( class_exists( 'Brizy_Editor_Post' ) ) {
+		try {
+			$post = Brizy_Editor_Post::get( $post_id );
+
+			if ( $post ) {
+				return true;
+			}
+		} catch ( Exception $exception ) { // phpcs:ignore Generic.CodeAnalysis.EmptyStatement.DetectedCatch
+			// The post type is not supported by Brizy hence Brizy should not be used render the post.
+		}
+	}
+
+	return false;
+}
+
+/**
  * Container Layout - Dynamic CSS.
  *
  * @since 3.3.0
@@ -73,11 +124,16 @@ function astra_container_layout_css() {
 					margin-left: auto;
 					margin-right: auto;
 				}
-				.ast-single-post.ast-page-builder-template .site-main > article {
-					padding-left: 20px;
-					padding-right: 20px;
-				}
 			';
+			if ( false === astra_check_any_page_builder_is_active( astra_get_post_id() ) ) {
+				$page_container_css .= '
+					.ast-single-post.ast-page-builder-template .site-main > article {
+						padding-top: 2em;
+						padding-left: 20px;
+						padding-right: 20px;
+					}
+				';
+			}
 		} else {
 			$page_container_css .= '
 				.single.ast-page-builder-template .entry-header {
