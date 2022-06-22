@@ -1674,8 +1674,8 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'display'    => 'inline-flex',
 						'column-gap' => '20px',
 					),
-					'.ast-page-builder-template .ast-archive-description' => array(
-						'margin-bottom' => '0',
+					'.archive.ast-page-builder-template .entry-header' => array(
+						'margin-top' => '2em',
 					),
 					'.ast-page-builder-template .ast-comment-formwrap' => array(
 						'width' => '100%',

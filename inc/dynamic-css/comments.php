@@ -240,7 +240,7 @@ function astra_comments_css( $dynamic_css ) {
         padding: 0 0.5em;
       }';
 
-		if ( false === astra_get_option( 'customizer-default-layout-update', true ) ) {
+		if ( false === $update_customizer_defaults ) {
 			$single_post_comment_css .= '.ast-separate-container .ast-comment-list li.depth-1 {
 				padding: 4em 6.67em;
 				margin-bottom: 2em;
@@ -260,6 +260,12 @@ function astra_comments_css( $dynamic_css ) {
 					padding: 3em 2.34em;
 				}
 			}
+			';
+		} else {
+			$single_post_comment_css .= '
+				.page.ast-page-builder-template .comments-area {
+					margin-top: 2em;
+				}
 			';
 		}
 

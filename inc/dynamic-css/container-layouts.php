@@ -68,7 +68,7 @@ function astra_container_layout_css() {
 
 		if ( true === $customizer_default_update ) {
 			$page_container_css .= '
-				.ast-page-builder-template .entry-header {
+				.single.ast-page-builder-template .entry-header {
 					margin-top: ' . esc_attr( $page_title_header_padding ) . ';
 					margin-left: auto;
 					margin-right: auto;
@@ -80,7 +80,7 @@ function astra_container_layout_css() {
 			';
 		} else {
 			$page_container_css .= '
-				.ast-page-builder-template .entry-header {
+				.single.ast-page-builder-template .entry-header {
 					margin-top: ' . esc_attr( $page_title_header_padding ) . ';
 					margin-left: auto;
 					margin-right: auto;
@@ -96,9 +96,7 @@ function astra_container_layout_css() {
 
 		$page_container_css .= '
 			.ast-page-builder-template .ast-archive-description {
-				margin-top: ' . esc_attr( $page_title_header_padding ) . ';
-				margin-left: auto;
-				margin-right: auto;
+				margin: ' . esc_attr( $page_title_header_padding ) . ' auto 0;
 				padding-left: 20px;
 				padding-right: 20px;
 			}

@@ -228,6 +228,9 @@ function astra_comments_css( $dynamic_css ) {
 				.ast-plain-container .ast-comment, .ast-page-builder-template .ast-comment {
 					padding: 2em 0;
 				}
+				.page.ast-page-builder-template .comments-area {
+					margin-top: 2em;
+				}
 			';
 		}
 		if ( 'page-builder' == astra_get_content_layout() || 'plain-container' == astra_get_content_layout() ) {
