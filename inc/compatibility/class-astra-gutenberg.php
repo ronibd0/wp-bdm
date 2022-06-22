@@ -22,6 +22,8 @@ class Astra_Gutenberg {
 		} else {
 			add_filter( 'render_block', array( $this, 'restore_group_inner_container' ), 10, 2 );
 		}
+
+		add_filter( 'render_block_core/group', array( $this, 'add_inherit_width_group_class' ), 10, 2 );
 	}
 
 	/**
@@ -102,6 +104,35 @@ class Astra_Gutenberg {
 			$block_content
 		);
 		return $updated_content;
+	}
+
+	/**
+	 * Add Group block custom class when "Inherit default layout" toggle enabled.
+	 *
+	 * @since x.x.x
+	 * @access public
+	 *
+	 * @param string $block_content Rendered block content.
+	 * @param array  $block         Block object.
+	 *
+	 * @return string Filtered block content.
+	 */
+	public function add_inherit_width_group_class( $block_content, $block ) {
+		if (
+			isset( $block['blockName'] ) && isset( $block['attrs']['layout']['inherit'] ) && $block['attrs']['layout']['inherit']
+		) {
+			$block_classgroups    = isset( $block['attrs']['className'] ) ? $block['attrs']['className'] : '';
+			$processed_classnmaes = $block_classgroups . ' inherit-container-width';
+
+			$block_content = preg_replace(
+				'/' . preg_quote( 'class="', '/' ) . '/',
+				'class="inherit-container-width ',
+				$block_content,
+				1
+			);
+		}
+
+		return $block_content;
 	}
 
 	/**
