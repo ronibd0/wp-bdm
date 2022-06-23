@@ -1025,33 +1025,32 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			}
 
 			/**
-			 * Re-add margin top when FullWidth Contained layout is set.
+			 * Remove margin top when Primary Header is not set and No Sidebar is added in Full-Width / Contained Layout.
 			 *
-			 * @since 3.8.3
+			 * @since 2.5.0
 			 */
-			if ( true === $update_customizer_strctural_defaults ) {
-				if ( ! Astra_Ext_Transparent_Header_Markup::is_transparent_header() ) {
+			if ( self::gtn_group_cover_css_comp() && is_singular() ) {
+				$display_header = get_post_meta( get_the_ID(), 'ast-main-header-display', true );
+				if ( 'disabled' === $display_header && apply_filters( 'astra_content_margin_full_width_contained', true ) || ( Astra_Ext_Transparent_Header_Markup::is_transparent_header() ) || ( self::gutenberg_core_blocks_css_comp() ) ) {
 					$gtn_margin_top = array(
 						'.ast-plain-container.ast-no-sidebar #primary' => array(
-							'margin-top'    => '60px',
-							'margin-bottom' => '60px',
+							'margin-top'    => '0',
+							'margin-bottom' => '0',
 						),
 					);
 					$parse_css     .= astra_parse_css( $gtn_margin_top );
 				}
-			} else {
 				/**
-				 * Remove margin top when Primary Header is not set and No Sidebar is added in Full-Width / Contained Layout.
+				 * Re-add margin top when FullWidth Contained layout is set.
 				 *
-				 * @since 2.5.0
+				 * @since 3.8.3
 				 */
-				if ( self::gtn_group_cover_css_comp() && is_singular() ) {
-					$display_header = get_post_meta( get_the_ID(), 'ast-main-header-display', true );
-					if ( 'disabled' === $display_header && apply_filters( 'astra_content_margin_full_width_contained', true ) || ( Astra_Ext_Transparent_Header_Markup::is_transparent_header() ) || ( self::gutenberg_core_blocks_css_comp() ) ) {
+				if ( true === $update_customizer_strctural_defaults ) {
+					if ( ! Astra_Ext_Transparent_Header_Markup::is_transparent_header() ) {
 						$gtn_margin_top = array(
 							'.ast-plain-container.ast-no-sidebar #primary' => array(
-								'margin-top'    => '0',
-								'margin-bottom' => '0',
+								'margin-top'    => '60px',
+								'margin-bottom' => '60px',
 							),
 						);
 						$parse_css     .= astra_parse_css( $gtn_margin_top );
