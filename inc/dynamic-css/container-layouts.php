@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @param int $post_id Current post ID.
  *
- * @since x.x.x
+ * @since 3.8.3
  */
 function astra_check_any_page_builder_is_active( $post_id ) {
 	$post = get_post( $post_id );

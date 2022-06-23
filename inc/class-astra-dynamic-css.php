@@ -1027,7 +1027,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			/**
 			 * Re-add margin top when FullWidth Contained layout is set.
 			 *
-			 * @since x.x.x
+			 * @since 3.8.3
 			 */
 			if ( true === $update_customizer_strctural_defaults ) {
 				if ( ! Astra_Ext_Transparent_Header_Markup::is_transparent_header() ) {

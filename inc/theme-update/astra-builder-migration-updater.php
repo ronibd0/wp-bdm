@@ -5,7 +5,7 @@
  * Functions for updating data while old-new builder migration.
  *
  * @package Astra
- * @version x.x.x
+ * @version 3.8.3
  */
 
 defined( 'ABSPATH' ) || exit;

@@ -25,7 +25,7 @@ class Astra_WP_Editor_CSS {
 	 *
 	 * @return array Devices specific padding spacings.
 	 *
-	 * @since x.x.x
+	 * @since 3.8.3
 	 */
 	public static function astra_get_block_spacings() {
 		$wp_block_spacing_type     = astra_get_option( 'wp-blocks-ui' );

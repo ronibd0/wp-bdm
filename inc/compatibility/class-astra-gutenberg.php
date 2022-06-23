@@ -109,7 +109,7 @@ class Astra_Gutenberg {
 	/**
 	 * Add Group block custom class when "Inherit default layout" toggle enabled.
 	 *
-	 * @since x.x.x
+	 * @since 3.8.3
 	 * @access public
 	 *
 	 * @param string $block_content Rendered block content.
