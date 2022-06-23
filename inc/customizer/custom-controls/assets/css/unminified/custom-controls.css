@@ -53,10 +53,10 @@
 }
 
 .customize-control-ast-selector .ast-alignment-inner-wrap:first-child .components-button {
-    border-radius: 2px 0px 0px 2px;
+    border-radius: 3px 0px 0px 3px;
 }
 .customize-control-ast-selector .ast-alignment-inner-wrap:last-child .components-button {
-    border-radius: 0px 2px 2px 0px;
+    border-radius: 0px 3px 3px 0px;
 }
 .ast-alignment-wrapper .ast-alignment-inner-wrap:not(:first-child) .components-button {
     margin-left: -1px;
@@ -69,7 +69,7 @@
 .customize-control-ast-selector .ast-alignment-inner-wrap .components-button {
     border-radius: unset;
     font-size: 12px;
-    padding: 8px 12px;
+    padding: 9px 12px;
 }
 .customize-control-ast-selector .ast-selector-responsive-wrap.active {
     display: flex;
@@ -720,6 +720,9 @@
     transform: scale(1.5);
 }
 
+#customize-control-astra-color-palettes .ast-adv-toggle-icon {
+	top: -5px;
+}
  /** Remove Button Color */
 
 .astra-control-field.astra-color-control {
@@ -843,7 +846,7 @@
     bottom: -1px;
     right: -1px;
     border-radius: 50%;
-    box-shadow: inset 0 0 0 1px rgb(0 0 0 / 20%);
+    box-shadow: inset 0 0 0 1px var(--ast-customizer-color-7);
     border: 1px solid transparent;
 }
 .components-button.astra-background-icon-indicate {
@@ -1403,7 +1406,7 @@ input[type="text"], input[type="password"], input[type="color"], input[type="dat
 
 .customize-control-title {
   display: inline-block;
-  margin-bottom: 17px;
+  margin-bottom: 16px;
   vertical-align: middle;
 }
 
@@ -1680,7 +1683,8 @@ input[type="text"].select2-search__field {
 * CSS for ast-divider attribute started.
 */
 
-.customize-control.ast-top-dotted-divider {
+.customize-control.ast-top-dotted-divider,
+#customize-control-astra-settings-edd-archive-variable-button-text {
     margin-top: 24px;
     padding-top: 24px;
     border-top: 1px dashed var(--ast-customizer-color-7);
@@ -1943,9 +1947,13 @@ span.customize-control-title.ast-group-section-title {
 }
 
 .customize-control-ast-radio-image input:checked + label svg {
-  background: #ffffff;
+  background: var(--ast-customizer-color-1);
   border-radius: 0;
   box-shadow: 0 0 3px 0px rgba(0, 133, 186, 0.67);
+}
+
+.customize-control-ast-radio-image input:checked + label svg path  {
+  color: var(--ast-customizer-color-10);
 }
 
 .customize-control-ast-radio-image .modern-layout input:checked + label svg,
@@ -1958,7 +1966,7 @@ span.customize-control-title.ast-group-section-title {
 
 .ast-divide-four input:checked + label svg {
 	box-shadow: none;
-	color: var(--wp-admin-theme-color);
+	color: var(--ast-customizer-color-3);
 }
 
 .customize-control-ast-radio-image input + label .image-clickable {
@@ -1987,7 +1995,7 @@ span.customize-control-title.ast-group-section-title {
 
 .customize-control-ast-radio-image:not(#customize-control-astra-settings-header-trigger-icon) > .ast-divide-four {
 	grid-template-columns: repeat(4, 1fr);
-	grid-column-gap: 20px;
+	grid-column-gap: 14px;
 	grid-row-gap: 10px;
 }
 
@@ -2001,7 +2009,7 @@ span.customize-control-title.ast-group-section-title {
   margin: 0;
   width: 100%;
   height: auto;
-  background-color: rgba(221,224,226,0.7);
+  background-color: rgba(221,224,226,0.5);
   border: 1px solid var(--ast-customizer-color-7);
   border-radius: 4px; 
   cursor: pointer;
@@ -2009,9 +2017,13 @@ span.customize-control-title.ast-group-section-title {
 }
 
 .ast-divide-four .ast-radio-img-svg svg {
-	color: #A0AEC0;
+	color: var(--ast-customizer-color-7);
 	width: 100%;
 	height: 93%;
+}
+
+.ast-divide-four .ast-radio-img-svg svg path {
+  color: var(--ast-customizer-color-6);
 }
 
 #customize-control-astra-settings-above-header-menu-align .ast-radio-img-svg svg,
@@ -2418,8 +2430,9 @@ span.customize-control-title.ast-group-section-title {
 
 .customize-control select, .ast-variant-select > div, .customize-control input, .customize-control-content .components-text-control__input {
 	border-color: var(--ast-customizer-color-7);
-	padding-top: 2px;
-    padding-bottom: 2px;
+	color: var(--ast-customizer-color-5);
+	padding-top: 1px;
+    padding-bottom: 1px;
 }
 
 .customize-control select:focus, .ast-variant-select > div:focus, .customize-control input:focus {
@@ -2618,7 +2631,7 @@ span.customize-control-title.ast-group-section-title {
 .customize-control-ast-responsive-spacing .ast-spacing-responsive-units-screen-wrap {
   position: relative;
   top: -7px;
-  right: -12px;
+  right: -10px;
   display: inline-block;
 }
 
@@ -2628,8 +2641,6 @@ span.customize-control-title.ast-group-section-title {
 
 .customize-control-ast-responsive-spacing .ast-spacing-responsive-btns > li.active {
   display: inline-block;
-  position: relative;
-  top: 2px;
 }
 
 .customize-control-ast-responsive-spacing .ast-spacing-responsive-btns button[type="button"] {

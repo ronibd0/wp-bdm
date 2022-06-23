@@ -571,6 +571,7 @@ class Astra_Related_Posts_Configs extends Astra_Customizer_Config_Base {
 					),
 				),
 				'priority' => 14,
+				'divider'  => array( 'ast_class' => 'ast-section-spacing' ),
 			),
 
 			/**
@@ -625,6 +626,7 @@ class Astra_Related_Posts_Configs extends Astra_Customizer_Config_Base {
 					),
 				),
 				'title'             => __( 'Section Background', 'astra' ),
+				'divider'           => array( 'ast_class' => 'ast-bottom-section-divider' ),
 			),
 
 			/**

@@ -109,7 +109,8 @@
 * CSS for ast-divider attribute started.
 */
 
-.customize-control.ast-top-dotted-divider {
+.customize-control.ast-top-dotted-divider,
+#customize-control-astra-settings-edd-archive-variable-button-text {
     margin-top: 24px;
     padding-top: 24px;
     border-top: 1px dashed var(--ast-customizer-color-7);

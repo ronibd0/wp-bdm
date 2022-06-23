@@ -298,6 +298,7 @@ class Astra_Customizer_Footer_Builder_Configs extends Astra_Customizer_Config_Ba
 					'zones' => array( 'above', 'primary', 'below' ),
 				),
 				'context'     => Astra_Builder_Helper::$general_tab,
+				'divider'     => array( 'ast_class' => 'ast-section-spacing' ),
 			),
 		);
 

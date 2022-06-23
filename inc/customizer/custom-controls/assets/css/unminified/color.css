@@ -121,7 +121,7 @@
     bottom: -1px;
     right: -1px;
     border-radius: 50%;
-    box-shadow: inset 0 0 0 1px rgb(0 0 0 / 20%);
+    box-shadow: inset 0 0 0 1px var(--ast-customizer-color-7);
     border: 1px solid transparent;
 }
 .components-button.astra-background-icon-indicate {

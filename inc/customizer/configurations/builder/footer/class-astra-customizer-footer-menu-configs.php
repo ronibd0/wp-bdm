@@ -243,6 +243,21 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'priority'   => 33,
 				),
 
+				/**
+				 * Option: Divider
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[footer-main-menu-divider]',
+					'section'  => $_section,
+					'title'    => __( 'Spacing', 'astra' ),
+					'type'     => 'control',
+					'control'  => 'ast-heading',
+					'priority' => 210,
+					'settings' => array(),
+					'context'  => astra_addon_builder_helper()->design_tab,
+					'divider'  => array( 'ast_class' => 'ast-section-spacing' ),
+				),
+
 				// Option - Menu Space.
 				array(
 					'name'              => ASTRA_THEME_SETTINGS . '[footer-main-menu-spacing]',
@@ -263,7 +278,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'bottom' => __( 'Bottom', 'astra' ),
 						'left'   => __( 'Left', 'astra' ),
 					),
-					'divider'           => array( 'ast_class' => 'ast-bottom-section-divider' ),
+					'divider'           => array( 'ast_class' => 'ast-bottom-section-divider ast-section-spacing' ),
 				),
 
 
@@ -307,7 +322,6 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'context'   => Astra_Builder_Helper::$design_tab,
 						'transport' => 'postMessage',
 						'priority'  => 120,
-						'divider'   => array( 'ast_class' => 'ast-bottom-section-divider' ),
 					),
 
 					// Option: Menu Font Size.
