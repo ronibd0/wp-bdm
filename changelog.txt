@@ -1,5 +1,5 @@
 v3.8.3
-- New: Block editor - Padding presets for container blocks.
+- New: Block editor - Padding presets for container blocks. ( https://wpastra.com/docs/improved-block-editor-experience/ )
 - Improvement: Default sidebar layout is improved.
 - Improvement: Moved Single Post and Page spacing option to theme from addon.
 - Fix: Block editor - Bottom margin is not set as per customizer setting for Paragraph block.
