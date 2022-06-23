@@ -12,8 +12,9 @@
 
 .customize-control select, .ast-variant-select > div, .customize-control input, .customize-control-content .components-text-control__input {
 	border-color: var(--ast-customizer-color-7);
-	padding-top: 2px;
-    padding-bottom: 2px;
+	color: var(--ast-customizer-color-5);
+	padding-top: 1px;
+    padding-bottom: 1px;
 }
 
 .customize-control select:focus, .ast-variant-select > div:focus, .customize-control input:focus {

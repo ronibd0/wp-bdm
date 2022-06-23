@@ -333,7 +333,7 @@ class Astra_Social_Icon_Component_Configs {
 						'step' => 1,
 						'max'  => 50,
 					),
-					'divider'           => array( 'ast_class' => 'ast-bottom-section-divider' ),
+					'divider'           => array( 'ast_class' => 'ast-bottom-dotted-divider' ),
 					'context'           => Astra_Builder_Helper::$design_tab,
 				),
 
@@ -357,7 +357,7 @@ class Astra_Social_Icon_Component_Configs {
 						'max'  => 50,
 					),
 					'context'     => Astra_Builder_Helper::$design_tab,
-					'divider'     => array( 'ast_class' => 'ast-bottom-section-divider' ),
+					'divider'     => array( 'ast_class' => 'ast-bottom-dotted-divider' ),
 				),
 
 
@@ -380,7 +380,7 @@ class Astra_Social_Icon_Component_Configs {
 						'step' => 1,
 						'max'  => 50,
 					),
-					'divider'           => array( 'ast_class' => 'ast-bottom-section-divider' ),
+					'divider'           => array( 'ast_class' => 'ast-bottom-dotted-divider' ),
 					'context'           => Astra_Builder_Helper::$design_tab,
 				),
 
@@ -402,8 +402,22 @@ class Astra_Social_Icon_Component_Configs {
 						'step' => 1,
 						'max'  => 50,
 					),
-					'divider'     => array( 'ast_class' => 'ast-bottom-section-divider' ),
 					'context'     => Astra_Builder_Helper::$design_tab,
+				),
+
+				/**
+				 * Option: Divider
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[' . $_section . '-margin-divider]',
+					'section'  => $_section,
+					'title'    => __( 'Spacing', 'astra' ),
+					'type'     => 'control',
+					'control'  => 'ast-heading',
+					'priority' => 49,
+					'settings' => array(),
+					'context'  => astra_addon_builder_helper()->design_tab,
+					'divider'  => array( 'ast_class' => 'ast-section-spacing' ),
 				),
 
 				/**
@@ -428,7 +442,7 @@ class Astra_Social_Icon_Component_Configs {
 						'left'   => __( 'Left', 'astra' ),
 					),
 					'context'           => Astra_Builder_Helper::$design_tab,
-					'divider'           => array( 'ast_class' => 'ast-top-section-divider' ),
+					'divider'           => array( 'ast_class' => 'ast-section-spacing' ),
 				),
 			);
 

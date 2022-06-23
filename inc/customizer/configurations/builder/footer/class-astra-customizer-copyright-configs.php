@@ -124,6 +124,21 @@ class Astra_Customizer_Copyright_Configs extends Astra_Customizer_Config_Base {
 
 			),
 
+			/**
+			 * Option: Divider
+			 */
+			array(
+				'name'     => ASTRA_THEME_SETTINGS . '[' . $_section . '-margin-divider]',
+				'section'  => $_section,
+				'title'    => __( 'Spacing', 'astra' ),
+				'type'     => 'control',
+				'control'  => 'ast-heading',
+				'priority' => 99,
+				'settings' => array(),
+				'context'  => astra_addon_builder_helper()->design_tab,
+				'divider'  => array( 'ast_class' => 'ast-section-spacing' ),
+			),
+
 
 			/**
 			 * Option: Margin Space
@@ -147,7 +162,7 @@ class Astra_Customizer_Copyright_Configs extends Astra_Customizer_Config_Base {
 					'left'   => __( 'Left', 'astra' ),
 				),
 				'context'           => Astra_Builder_Helper::$design_tab,
-				'divider'           => array( 'ast_class' => 'ast-top-section-divider' ),
+				'divider'           => array( 'ast_class' => 'ast-section-spacing' ),
 			),
 		);
 

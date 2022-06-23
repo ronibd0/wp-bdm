@@ -170,3 +170,7 @@
     height: 10px;
     transform: scale(1.5);
 }
+
+#customize-control-astra-color-palettes .ast-adv-toggle-icon {
+	top: -5px;
+}

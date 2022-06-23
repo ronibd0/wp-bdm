@@ -168,6 +168,21 @@ class Astra_Html_Component_Configs {
 				),
 
 				/**
+				 * Option: Divider
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[' . $_section . '-margin-divider]',
+					'section'  => $_section,
+					'title'    => __( 'Spacing', 'astra' ),
+					'type'     => 'control',
+					'control'  => 'ast-heading',
+					'priority' => 109,
+					'settings' => array(),
+					'context'  => astra_addon_builder_helper()->design_tab,
+					'divider'  => array( 'ast_class' => 'ast-section-spacing' ),
+				),
+
+				/**
 				 * Option: Margin Space
 				 */
 				array(
@@ -180,7 +195,7 @@ class Astra_Html_Component_Configs {
 					'section'           => $_section,
 					'priority'          => 109,
 					'title'             => __( 'Margin', 'astra' ),
-					'divider'           => array( 'ast_class' => 'ast-top-section-divider' ),
+					'divider'           => array( 'ast_class' => 'ast-section-spacing' ),
 					'linked_choices'    => true,
 					'unit_choices'      => array( 'px', 'em', '%' ),
 					'choices'           => array(

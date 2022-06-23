@@ -182,7 +182,6 @@ if ( ! class_exists( 'Astra_Blog_Layout_Configs' ) ) {
 					),
 					'responsive' => false,
 					'renderAs'   => 'text',
-					'divider'    => array( 'ast_class' => 'ast-top-spacing ast-bottom-spacing' ),
 				),
 
 				/**

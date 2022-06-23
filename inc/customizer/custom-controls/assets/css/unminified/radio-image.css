@@ -13,9 +13,13 @@
 }
 
 .customize-control-ast-radio-image input:checked + label svg {
-  background: #ffffff;
+  background: var(--ast-customizer-color-1);
   border-radius: 0;
   box-shadow: 0 0 3px 0px rgba(0, 133, 186, 0.67);
+}
+
+.customize-control-ast-radio-image input:checked + label svg path  {
+  color: var(--ast-customizer-color-10);
 }
 
 .customize-control-ast-radio-image .modern-layout input:checked + label svg,
@@ -28,7 +32,7 @@
 
 .ast-divide-four input:checked + label svg {
 	box-shadow: none;
-	color: var(--wp-admin-theme-color);
+	color: var(--ast-customizer-color-3);
 }
 
 .customize-control-ast-radio-image input + label .image-clickable {
@@ -57,7 +61,7 @@
 
 .customize-control-ast-radio-image:not(#customize-control-astra-settings-header-trigger-icon) > .ast-divide-four {
 	grid-template-columns: repeat(4, 1fr);
-	grid-column-gap: 20px;
+	grid-column-gap: 14px;
 	grid-row-gap: 10px;
 }
 
@@ -71,7 +75,7 @@
   margin: 0;
   width: 100%;
   height: auto;
-  background-color: rgba(221,224,226,0.7);
+  background-color: rgba(221,224,226,0.5);
   border: 1px solid var(--ast-customizer-color-7);
   border-radius: 4px; 
   cursor: pointer;
@@ -79,9 +83,13 @@
 }
 
 .ast-divide-four .ast-radio-img-svg svg {
-	color: #A0AEC0;
+	color: var(--ast-customizer-color-7);
 	width: 100%;
 	height: 93%;
+}
+
+.ast-divide-four .ast-radio-img-svg svg path {
+  color: var(--ast-customizer-color-6);
 }
 
 #customize-control-astra-settings-above-header-menu-align .ast-radio-img-svg svg,

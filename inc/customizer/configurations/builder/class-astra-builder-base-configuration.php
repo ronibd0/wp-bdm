@@ -58,7 +58,7 @@ final class Astra_Builder_Base_Configuration {
 			array(
 				'name'     => ASTRA_THEME_SETTINGS . '[' . $section_id . '-divider]',
 				'section'  => $section_id,
-				'title'    => __( 'Spacing', 'astra-addon' ),
+				'title'    => __( 'Spacing', 'astra' ),
 				'type'     => 'control',
 				'control'  => 'ast-heading',
 				'priority' => 210,

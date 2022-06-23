@@ -53,10 +53,10 @@
 }
 
 .customize-control-ast-selector .ast-alignment-inner-wrap:first-child .components-button {
-    border-radius: 2px 0px 0px 2px;
+    border-radius: 3px 0px 0px 3px;
 }
 .customize-control-ast-selector .ast-alignment-inner-wrap:last-child .components-button {
-    border-radius: 0px 2px 2px 0px;
+    border-radius: 0px 3px 3px 0px;
 }
 .ast-alignment-wrapper .ast-alignment-inner-wrap:not(:first-child) .components-button {
     margin-left: -1px;
@@ -69,7 +69,7 @@
 .customize-control-ast-selector .ast-alignment-inner-wrap .components-button {
     border-radius: unset;
     font-size: 12px;
-    padding: 8px 12px;
+    padding: 9px 12px;
 }
 .customize-control-ast-selector .ast-selector-responsive-wrap.active {
     display: flex;

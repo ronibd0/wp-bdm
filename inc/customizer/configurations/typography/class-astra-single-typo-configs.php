@@ -72,7 +72,6 @@ if ( ! class_exists( 'Astra_Single_Typo_Configs' ) ) {
 						'transport' => 'postMessage',
 						'context'   => Astra_Builder_Helper::$is_header_footer_builder_active ?
 							Astra_Builder_Helper::$design_tab : Astra_Builder_Helper::$general_tab,
-						'divider'   => array( 'ast_class' => 'ast-bottom-spacing' ),
 					),
 
 					/**
