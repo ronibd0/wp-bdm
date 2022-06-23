@@ -463,9 +463,9 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 					),
 					'single-post-outside-spacing'          => array(
 						'desktop'      => array(
-							'top'    => $is_new_strctural_defaults ? 60 : '',
+							'top'    => '',
 							'right'  => '',
-							'bottom' => $is_new_strctural_defaults ? 60 : '',
+							'bottom' => '',
 							'left'   => '',
 						),
 						'tablet'       => array(
