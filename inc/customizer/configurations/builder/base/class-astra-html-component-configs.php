@@ -178,7 +178,7 @@ class Astra_Html_Component_Configs {
 					'control'  => 'ast-heading',
 					'priority' => 109,
 					'settings' => array(),
-					'context'  => astra_addon_builder_helper()->design_tab,
+					'context'  => Astra_Builder_Helper::$design_tab,
 					'divider'  => array( 'ast_class' => 'ast-section-spacing' ),
 				),
 

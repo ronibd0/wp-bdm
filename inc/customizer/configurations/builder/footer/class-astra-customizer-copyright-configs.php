@@ -135,7 +135,7 @@ class Astra_Customizer_Copyright_Configs extends Astra_Customizer_Config_Base {
 				'control'  => 'ast-heading',
 				'priority' => 99,
 				'settings' => array(),
-				'context'  => astra_addon_builder_helper()->design_tab,
+				'context'  => Astra_Builder_Helper::$design_tab,
 				'divider'  => array( 'ast_class' => 'ast-section-spacing' ),
 			),
 
