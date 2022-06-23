@@ -113,7 +113,6 @@ if ( ! class_exists( 'Astra_Blog_Layout_Configs' ) ) {
 							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'right-sidebar', false ) : '',
 						),
 					),
-					'divider'           => array( 'ast_class' => '' ),
 				),
 
 				/**

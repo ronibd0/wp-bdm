@@ -275,7 +275,6 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 					'priority'  => 11,
 					'title'     => __( 'Display Site Tagline', 'astra' ),
 					'transport' => 'postMessage',
-					'divider'   => array( 'ast_class' => '' ),
 					'partial'   => array(
 
 						'selector'            => '.site-branding',
