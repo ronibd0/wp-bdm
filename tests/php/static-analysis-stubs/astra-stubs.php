@@ -6839,7 +6839,7 @@ namespace {
          *
          * @return array Devices specific padding spacings.
          *
-         * @since x.x.x
+         * @since 3.8.3
          */
         public static function astra_get_block_spacings()
         {
@@ -8182,7 +8182,7 @@ namespace {
         /**
          * Variant labels.
          *
-         * @since x.x.x
+         * @since 3.8.3
          * @return array
          */
         public static function font_variant_labels()
@@ -10727,7 +10727,7 @@ namespace {
         /**
          * Checking the page headers are available and have some posts with it.
          *
-         * @since x.x.x
+         * @since 3.8.3
          * @return bool true|false.
          */
         public function check_page_header_availability()
@@ -15894,7 +15894,7 @@ namespace {
      *
      * Backward flag purpose - To initiate maintain modern, updated v2 experience of block editor & frontend.
      *
-     * @since x.x.x
+     * @since 3.8.3
      * @return void
      */
     function astra_apply_modern_block_editor_v2_ui()

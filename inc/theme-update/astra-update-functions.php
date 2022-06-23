@@ -892,7 +892,7 @@ function astra_apply_modern_block_editor_ui() {
  *
  * Backward flag purpose - To keep strctural defaults updation by filter.
  *
- * @since x.x.x
+ * @since 3.8.3
  * @return void
  */
 function astra_update_customizer_layout_defaults() {
@@ -909,7 +909,7 @@ function astra_update_customizer_layout_defaults() {
  *
  * Backward flag purpose - To initiate maintain modern, updated v2 experience of block editor & frontend.
  *
- * @since x.x.x
+ * @since 3.8.3
  * @return void
  */
 function astra_apply_modern_block_editor_v2_ui() {
