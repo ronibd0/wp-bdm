@@ -189,6 +189,10 @@ p.demo_store,
 				padding: .5em 2em .5em 5em;
 				border-bottom: 1px solid var(--ast-global-color-6);
 
+				.remove  {
+					top: 0.4em;
+				}
+
 				&:last-child{
 					border-bottom: 0;
 				}
@@ -215,26 +219,6 @@ p.demo_store,
 					width: 100%;
 					margin-left: 0;
 				}
-			
-				&:not(.checkout) {
-					border: 2px solid var(--ast-global-color-0);
-					background-color: transparent;
-					color: var(--ast-global-color-0);
-
-					&:hover {
-						border-color: var(--ast-global-color-1);
-						color: var(--ast-global-color-1);
-					}
-				}
-
-				&.checkout {
-					border: 2px solid var(--ast-global-color-0);
-
-					&:hover {
-						border-color: var(--ast-global-color-1);
-					}
-				}
-				
 			}
 		}
 
@@ -3826,12 +3810,12 @@ button.pswp__button--zoom:hover {
 .woocommerce .widget_shopping_cart .cart_list li,
 .woocommerce.widget_shopping_cart .cart_list li {
 
-	padding: 1.2em 1.8em 1.2em 5em;
+	padding: 1.2em 0 1.2em 5em;
 	a.remove {
 		position: absolute;
 		left: auto;
 		right: 0;
-		top: .5em;
+		top: 1.1em;
 		color: var(--ast-global-color-3);
 
 		&:hover {

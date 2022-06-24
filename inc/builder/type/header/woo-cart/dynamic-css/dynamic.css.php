@@ -290,23 +290,6 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 		}   
 	} 
 
-	if ( 'flyout' !== astra_get_option( 'woo-header-cart-click-action' ) || is_customize_preview() ) {
-		if ( is_rtl() ) {
-			$css_output_desktop['.woocommerce-js .widget_shopping_cart .woocommerce-mini-cart__buttons a'] = array(
-				'display'     => 'inline-block',
-				'width'       => 'calc( 50% - 5px)',
-				'margin-left' => '5px',
-				'text-align'  => 'center',
-			);
-		} else {
-			$css_output_desktop['.woocommerce-js .widget_shopping_cart .woocommerce-mini-cart__buttons a'] = array(
-				'display'      => 'inline-block',
-				'width'        => 'calc( 50% - 5px)',
-				'margin-right' => '5px',
-				'text-align'   => 'center',
-			);
-		}
-	}
 
 	/* Parse CSS from array() */
 	$css_output          = astra_parse_css( $css_output_desktop );

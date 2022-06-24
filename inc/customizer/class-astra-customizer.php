@@ -590,6 +590,10 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 					$configuration['value'] = $val;
 					break;
 
+				case 'ast-font-variant':
+					$configuration['value'] = $val;
+					break;
+
 			} // Switch End.
 
 			if ( isset( $configuration['id'] ) ) {
@@ -698,6 +702,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 				'linked'            => astra_get_prop( $config, 'linked' ),
 				'variant'           => astra_get_prop( $config, 'variant' ),
 				'help'              => astra_get_prop( $config, 'help' ),
+				'input_attrs'       => astra_get_prop( $config, 'input_attrs' ),
 			);
 
 			self::$dynamic_options['settings'][ astra_get_prop( $new_config, 'name' ) ] = array(

@@ -44,7 +44,7 @@ if ( ! class_exists( 'Astra_Woo_Shop_Single_Layout_Configs' ) ) {
 					'type'     => 'control',
 					'control'  => 'ast-toggle-control',
 					'default'  => astra_get_option( 'single-product-breadcrumb-disable' ),
-					'title'    => __( 'Disable Breadcrumb', 'astra' ),
+					'title'    => __( 'Enable Breadcrumb', 'astra' ),
 					'priority' => 16,
 					'divider'  => array( 'ast_class' => 'ast-section-spacing' ),
 				),
@@ -151,7 +151,7 @@ if ( ! class_exists( 'Astra_Woo_Shop_Single_Layout_Configs' ) ) {
 					'transport'   => 'postMessage',
 					'suffix'      => '%',
 					'input_attrs' => array(
-						'min'  => 46,
+						'min'  => 1,
 						'step' => 1,
 						'max'  => 100,
 					),
@@ -170,7 +170,7 @@ if ( ! class_exists( 'Astra_Woo_Shop_Single_Layout_Configs' ) ) {
 					'suffix'      => '%',
 					'priority'    => 26,
 					'input_attrs' => array(
-						'min'  => 46,
+						'min'  => 1,
 						'step' => 1,
 						'max'  => 100,
 					),

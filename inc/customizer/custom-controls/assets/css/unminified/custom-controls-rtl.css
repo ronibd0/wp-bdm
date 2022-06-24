@@ -1160,13 +1160,6 @@
     width: 100%;
 }
 /** Modal Color Picker - Group Param */
-.ast-field-settings-modal .astra-popover-color .ast-color-palette {
-	padding: 8px 13px 0px 0px;
-	margin-bottom: -8px;
-}
-.ast-field-settings-modal .astra-popover-color .ast-color-palette .components-circular-option-picker__option-wrapper {
-    margin-left: 5px;
-}
 .ast-field-settings-modal .components-circular-option-picker__option-wrapper .components-circular-option-picker__option:focus::after {
 	width: 24px;
     height: 24px;
@@ -2464,13 +2457,6 @@
     width: 100%;
 }
 /** Modal Color Picker - Group Param */
-.ast-field-settings-modal .astra-popover-color .ast-color-palette {
-	padding: 8px 13px 0px 0px;
-	margin-bottom: -8px;
-}
-.ast-field-settings-modal .astra-popover-color .ast-color-palette .components-circular-option-picker__option-wrapper {
-    margin-left: 5px;
-}
 .ast-field-settings-modal .components-circular-option-picker__option-wrapper .components-circular-option-picker__option:focus::after {
 	width: 24px;
     height: 24px;
@@ -4897,7 +4883,7 @@ span.customize-control-title.ast-group-section-title {
   margin: 0;
 }
 
-.customize-control-ast-toggle-control .components-toggle-control .components-form-toggle, .customize-control-ast-link .ast-togglecontrol-wrapper .components-form-toggle {
+.customize-control-ast-toggle-control .components-toggle-control .components-form-toggle, .customize-control-ast-link .ast-togglecontrol-wrapper .components-form-toggle, .customize-control-ast-toggle .components-toggle-control .components-form-toggle {
   margin: 0;
   order: 2;
 }
@@ -7298,7 +7284,7 @@ span.customize-control-title.ast-group-section-title {
   margin: 0;
 }
 
-.customize-control-ast-toggle-control .components-toggle-control .components-form-toggle, .customize-control-ast-link .ast-togglecontrol-wrapper .components-form-toggle {
+.customize-control-ast-toggle-control .components-toggle-control .components-form-toggle, .customize-control-ast-link .ast-togglecontrol-wrapper .components-form-toggle, .customize-control-ast-toggle .components-toggle-control .components-form-toggle {
   margin: 0;
   order: 2;
 }
