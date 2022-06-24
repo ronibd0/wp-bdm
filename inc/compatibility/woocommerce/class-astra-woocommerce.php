@@ -877,7 +877,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 				if ( is_shop() || is_product_taxonomy() ) {
 					$global_page_specific_layout = astra_get_option( 'archive-product-sidebar-layout', 'default' );
-				} 
+				}
 
 				if ( is_product() ) {
 					$global_page_specific_layout = astra_get_option( 'single-product-sidebar-layout', 'default' );
@@ -925,7 +925,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 				if ( is_shop() || is_product_taxonomy() ) {
 					$global_page_specific_layout = astra_get_option( 'archive-product-content-layout', 'default' );
-				} 
+				}
 
 				if ( is_product() ) {
 					$global_page_specific_layout = astra_get_option( 'single-product-content-layout', 'default' );
@@ -1051,7 +1051,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 			// Breadcrumb.
 			remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20, 0 );
-			
+
 			if ( astra_get_option( 'single-product-breadcrumb-disable' ) ) {
 				add_action( 'woocommerce_single_product_summary', 'woocommerce_breadcrumb', 2 );
 			}
@@ -1387,7 +1387,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 					}
 				';
 			}
-			
+
 			if ( ! ( defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'woocommerce' ) ) ) {
 				$css_output .= '
 					.woocommerce .woocommerce-result-count, .woocommerce-page .woocommerce-result-count {
@@ -1401,9 +1401,8 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				';
 			}
 
-
-			if ( true === astra_get_option( 'customizer-default-layout-update', true ) ) {
-				$css_output['.ast-separate-container .ast-woocommerce-container'] = array(
+			if ( true === astra_check_is_structural_setup() ) {
+				$css_desktop_output['.ast-separate-container .ast-woocommerce-container'] = array(
 					'padding' => '3em',
 				);
 			}
