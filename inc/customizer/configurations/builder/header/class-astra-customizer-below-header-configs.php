@@ -90,6 +90,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'title'     => __( 'Background', 'astra' ),
 					'priority'  => 40,
 					'context'   => Astra_Builder_Helper::$design_tab,
+					'divider'   => array( 'ast_class' => 'ast-section-spacing' ),
 				),
 
 				// Section: Below Header Border Color.

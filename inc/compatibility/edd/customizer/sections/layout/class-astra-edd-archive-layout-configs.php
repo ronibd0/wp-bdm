@@ -143,7 +143,7 @@ if ( ! class_exists( 'Astra_Edd_Archive_Layout_Configs' ) ) {
 					'section'    => 'section-edd-archive',
 					'type'       => 'control',
 					'control'    => 'ast-selector',
-					'title'      => __( 'Variable Product Button', 'astra-addon' ),
+					'title'      => __( 'Variable Product Button', 'astra' ),
 					'priority'   => 31,
 					'choices'    => array(
 						'button'  => __( 'Button', 'astra' ),
@@ -160,7 +160,7 @@ if ( ! class_exists( 'Astra_Edd_Archive_Layout_Configs' ) ) {
 							'value'    => 'add_cart',
 						),
 					),
-					'divider'    => array( 'ast_class' => 'ast-top-section-divider' ),
+					'divider'    => array( 'ast_class' => 'ast-top-section-divider ast-bottom-dotted-divider' ),
 				),
 
 				/**
@@ -194,7 +194,7 @@ if ( ! class_exists( 'Astra_Edd_Archive_Layout_Configs' ) ) {
 					'section'    => 'section-edd-archive',
 					'type'       => 'control',
 					'control'    => 'ast-selector',
-					'title'      => __( 'Archive Content Width', 'astra-addon' ),
+					'title'      => __( 'Archive Content Width', 'astra' ),
 					'divider'    => array( 'ast_class' => 'ast-top-section-divider' ),
 					'priority'   => 220,
 					'choices'    => array(

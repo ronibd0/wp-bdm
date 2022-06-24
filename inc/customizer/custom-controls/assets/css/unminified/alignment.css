@@ -44,12 +44,12 @@
 .customize-control-ast-selector .components-button .ahfb-icon-set svg {
     width: 16px;
     height: 16px;
-    fill: black;
+    fill: var(--ast-customizer-color-6);
 }
 .customize-control-ast-selector .components-button.is-primary .ahfb-icon-set svg,
 .customize-control-ast-selector .components-button.is-primary .ahfb-icon-set svg circle,
 .customize-control-ast-selector .components-button.is-primary .ahfb-icon-set svg path:not(.ast-hf-account-unfill) {
-    fill: #ffffff;
+    fill: var(--ast-customizer-color-10);
 }
 
 .customize-control-ast-selector .ast-alignment-inner-wrap:first-child .components-button {

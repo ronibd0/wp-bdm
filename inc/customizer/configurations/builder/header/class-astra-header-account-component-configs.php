@@ -342,7 +342,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 				'priority'          => 2,
 				'transport'         => 'postMessage',
 				'default'           => astra_get_option( 'header-account-image-width' ),
-				'title'             => __( 'Image Width', 'astra' ),
+				'title'             => __( 'Avatar Width', 'astra' ),
 				'type'              => 'control',
 				'control'           => 'ast-responsive-slider',
 				'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
@@ -375,7 +375,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 				'type'              => 'control',
 				'suffix'            => 'px',
 				'control'           => 'ast-responsive-slider',
-				'divider'           => array( 'ast_class' => 'ast-bottom-section-divider' ),
+				'divider'           => array( 'ast_class' => 'ast-bottom-dotted-divider' ),
 				'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
 				'input_attrs'       => array(
 					'min'  => 0,
@@ -429,9 +429,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 						),
 					),
 				),
-				'divider'           => array( 'ast_class' => 'ast-bottom-dotted-divider' ),
 			),
-
 
 			/**
 			* Option: account Color.
@@ -441,7 +439,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 				'default'           => astra_get_option( 'header-account-type-text-color' ),
 				'type'              => 'control',
 				'section'           => $_section,
-				'priority'          => 32,
+				'priority'          => 18,
 				'transport'         => 'postMessage',
 				'control'           => 'ast-color',
 				'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_alpha_color' ),
@@ -475,7 +473,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 				'control'           => 'ast-responsive-spacing',
 				'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_spacing' ),
 				'section'           => $_section,
-				'priority'          => 119,
+				'priority'          => 511,
 				'title'             => __( 'Margin', 'astra' ),
 				'linked_choices'    => true,
 				'unit_choices'      => array( 'px', 'em', '%' ),
@@ -486,7 +484,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 					'left'   => __( 'Left', 'astra' ),
 				),
 				'context'           => Astra_Builder_Helper::$design_tab,
-				'divider'           => array( 'ast_class' => 'ast-top-section-divider' ),
+				'divider'           => array( 'ast_class' => 'ast-section-spacing' ),
 			),
 		);
 

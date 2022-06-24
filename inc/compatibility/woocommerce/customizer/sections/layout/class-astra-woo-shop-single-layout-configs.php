@@ -72,7 +72,7 @@ if ( ! class_exists( 'Astra_Woo_Shop_Single_Layout_Configs' ) ) {
 					'default'     => astra_get_option( 'single-product-variation-tabs-layout' ),
 					'type'        => 'control',
 					'section'     => 'section-woo-shop-single',
-					'title'       => __( 'Product Variation Layout', 'astra-addon' ),
+					'title'       => __( 'Product Variation Layout', 'astra' ),
 					'description' => __( 'Changes single product variation layout to be displayed inline or stacked' ),
 					'context'     => array(
 						Astra_Builder_Helper::$general_tab_config,
@@ -80,8 +80,8 @@ if ( ! class_exists( 'Astra_Woo_Shop_Single_Layout_Configs' ) ) {
 					'control'     => 'ast-selector',
 					'priority'    => 17,
 					'choices'     => array(
-						'horizontal' => __( 'Inline', 'astra-addon' ),
-						'vertical'   => __( 'Stack', 'astra-addon' ),
+						'horizontal' => __( 'Inline', 'astra' ),
+						'vertical'   => __( 'Stack', 'astra' ),
 					),
 					'renderAs'    => 'text',
 					'responsive'  => false,
@@ -147,7 +147,7 @@ if ( ! class_exists( 'Astra_Woo_Shop_Single_Layout_Configs' ) ) {
 					'responsive'  => true,
 					'section'     => 'section-woo-shop-single',
 					'priority'    => 11,
-					'title'       => __( 'Button Width', 'astra-addon' ),
+					'title'       => __( 'Button Width', 'astra' ),
 					'transport'   => 'postMessage',
 					'suffix'      => '%',
 					'input_attrs' => array(
@@ -166,7 +166,7 @@ if ( ! class_exists( 'Astra_Woo_Shop_Single_Layout_Configs' ) ) {
 					'responsive'  => true,
 					'control'     => 'ast-responsive-slider',
 					'section'     => 'section-woo-shop-single',
-					'title'       => __( 'Button Width', 'astra-addon' ),
+					'title'       => __( 'Button Width', 'astra' ),
 					'suffix'      => '%',
 					'priority'    => 26,
 					'input_attrs' => array(

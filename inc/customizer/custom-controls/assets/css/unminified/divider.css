@@ -110,7 +110,11 @@
 */
 
 .customize-control.ast-top-dotted-divider,
-#customize-control-astra-settings-edd-archive-variable-button-text {
+#customize-control-astra-settings-edd-archive-variable-button-text,
+#customize-control-astra-settings-header-account-logged-out-text,
+#customize-control-blogname,
+#customize-control-blogdescription,
+#customize-control-astra-settings-sticky-header-retina-logo {
     margin-top: 24px;
     padding-top: 24px;
     border-top: 1px dashed var(--ast-customizer-color-7);
@@ -120,7 +124,8 @@
     top: 25px;
 }
 
-.customize-control.ast-bottom-dotted-divider {
+.customize-control.ast-bottom-dotted-divider,
+#customize-control-astra-settings-header-account-logged-in-text {
     margin-bottom: 8px;
     padding-bottom: 24px;
     border-bottom: 1px dashed var(--ast-customizer-color-7);
@@ -178,6 +183,9 @@
 #customize-control-astra-settings-footer-create-menu-link,
 #customize-control-astra-settings-header-button1-text,
 #customize-control-astra-settings-footer-language-switcher-options,
+#customize-control-astra-settings-header-mobile-menu-create-menu-link,
+#customize-control-astra-settings-header-language-switcher-options,
+#customize-control-astra-settings-site-icon-link,
 #customize-control-astra-settings-header-button2-text {
     margin-top: 32px;
 }

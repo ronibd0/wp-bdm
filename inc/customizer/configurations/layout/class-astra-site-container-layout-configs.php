@@ -118,7 +118,7 @@ if ( ! class_exists( 'Astra_Site_Container_Layout_Configs' ) ) {
 				array(
 					'name'        => ASTRA_THEME_SETTINGS . '[surface-colors-title]',
 					'section'     => $_section,
-					'title'       => __( 'Surface Color', 'astra-addon' ),
+					'title'       => __( 'Surface Color', 'astra' ),
 					'type'        => 'control',
 					'control'     => 'ast-group-title',
 					'priority'    => 25,
