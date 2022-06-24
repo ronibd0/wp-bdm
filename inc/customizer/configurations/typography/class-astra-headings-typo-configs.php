@@ -348,6 +348,47 @@ class Astra_Headings_Typo_Configs extends Astra_Customizer_Config_Base {
 			),
 
 			/**
+			 * Option: Heading <H3> Font Weight
+			 */
+			array(
+				'name'              => 'font-weight-h3',
+				'parent'            => ASTRA_THEME_SETTINGS . '[ast-heading-h3-typo]',
+				'type'              => 'sub-control',
+				'control'           => 'ast-font',
+				'font_type'         => 'ast-font-weight',
+				'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_font_weight' ),
+				'default'           => astra_get_option( 'font-weight-h3' ),
+				'title'             => __( 'Weight', 'astra' ),
+				'section'           => $section,
+				'priority'          => 28,
+				'connect'           => 'font-family-h3',
+				'transport'         => 'postMessage',
+			),
+
+			/**
+			 * Option: Heading <H3> Text Transform
+			 */
+			array(
+				'name'      => 'text-transform-h3',
+				'parent'    => ASTRA_THEME_SETTINGS . '[ast-heading-h3-typo]',
+				'type'      => 'sub-control',
+				'section'   => $section,
+				'lazy'      => true,
+				'title'     => __( 'Text Transform', 'astra' ),
+				'default'   => astra_get_option( 'text-transform-h3' ),
+				'transport' => 'postMessage',
+				'control'   => 'ast-select',
+				'priority'  => 28,
+				'choices'   => array(
+					''           => __( 'Inherit', 'astra' ),
+					'none'       => __( 'None', 'astra' ),
+					'capitalize' => __( 'Capitalize', 'astra' ),
+					'uppercase'  => __( 'Uppercase', 'astra' ),
+					'lowercase'  => __( 'Lowercase', 'astra' ),
+				),
+			),
+
+			/**
 			 * Option: Heading <H3> Line Height
 			 */
 			array(
@@ -416,6 +457,7 @@ class Astra_Headings_Typo_Configs extends Astra_Customizer_Config_Base {
 					),
 				),
 			), 
+
 			/**
 			 * Option: Heading <H4> Font Weight
 			 */

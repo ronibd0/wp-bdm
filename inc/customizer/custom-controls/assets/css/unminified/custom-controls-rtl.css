@@ -1131,13 +1131,6 @@
     width: 100%;
 }
 /** Modal Color Picker - Group Param */
-.ast-field-settings-modal .astra-popover-color .ast-color-palette {
-	padding: 8px 13px 0px 0px;
-	margin-bottom: -8px;
-}
-.ast-field-settings-modal .astra-popover-color .ast-color-palette .components-circular-option-picker__option-wrapper {
-    margin-left: 5px;
-}
 .ast-field-settings-modal .components-circular-option-picker__option-wrapper .components-circular-option-picker__option:focus::after {
 	width: 24px;
     height: 24px;
@@ -1357,6 +1350,9 @@
 }
 .customize-control-ast-selector {
     margin-bottom: 1px;
+}
+.ast-alignment-inner-wrap.active button.components-button.is-primary {
+    border-color: #007cba;
 }
 
 .ast-alignment-inner-wrap.active button.components-button.is-primary {
@@ -2399,13 +2395,6 @@
     width: 100%;
 }
 /** Modal Color Picker - Group Param */
-.ast-field-settings-modal .astra-popover-color .ast-color-palette {
-	padding: 8px 13px 0px 0px;
-	margin-bottom: -8px;
-}
-.ast-field-settings-modal .astra-popover-color .ast-color-palette .components-circular-option-picker__option-wrapper {
-    margin-left: 5px;
-}
 .ast-field-settings-modal .components-circular-option-picker__option-wrapper .components-circular-option-picker__option:focus::after {
 	width: 24px;
     height: 24px;
@@ -3511,6 +3500,9 @@ input[type="text"].select2-search__field {
 .ast-responsive-select-container.active {
   display: block;
 }
+.ast-variant-select > div {
+  border-color: #dddddd;
+}
 
 .ast-variant-select > div {
   border-color: #dddddd;
@@ -4358,6 +4350,13 @@ input[type="text"].select2-search__field {
  */
 .ast-top-divider.customize-control-ast-settings-group .ast-toggle-desc-wrap .ast-adv-toggle-icon {
     top: 23px;
+}
+/**
+ * Responsive slider control inside settings-group, case: body-font, headings-font.
+ */
+.ast-fields-wrap .customize-control-ast-responsive-slider .ast-responsive-slider-btns {
+	top: 0;
+	left: 42px;
 }
 
 /**
