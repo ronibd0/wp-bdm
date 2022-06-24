@@ -167,6 +167,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'context'           => Astra_Builder_Helper::$design_tab,
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_background_obj' ),
 					'default'           => astra_get_option( 'off-canvas-background' ),
+					'divider'           => array( 'ast_class' => 'ast-section-spacing' ),
 				),
 
 				// Option: Off-Canvas Close Icon Color.

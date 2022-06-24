@@ -66,7 +66,7 @@ if ( ! class_exists( 'Astra_Body_Colors_Configs' ) ) {
 				array(
 					'name'        => ASTRA_THEME_SETTINGS . '[theme-color-divider-reset]',
 					'section'     => $_section,
-					'title'       => __( 'Theme Color', 'astra-addon' ),
+					'title'       => __( 'Theme Color', 'astra' ),
 					'type'        => 'control',
 					'control'     => 'ast-group-title',
 					'priority'    => 5,

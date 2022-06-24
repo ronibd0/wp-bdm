@@ -83,10 +83,11 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'type'      => 'control',
 					'control'   => 'ast-toggle-control',
 					'section'   => $_section,
-					'priority'  => 35,
+					'priority'  => 150,
 					'title'     => __( 'Item Divider', 'astra' ),
 					'context'   => Astra_Builder_Helper::$general_tab,
 					'transport' => 'postMessage',
+					'divider'   => array( 'ast_class' => 'ast-top-section-divider' ),
 				),
 
 				// Option: Menu Color Divider.
@@ -96,7 +97,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'type'     => 'control',
 					'control'  => 'ast-heading',
 					'title'    => __( 'Item Divider', 'astra' ),
-					'priority' => 70,
+					'priority' => 150,
 					'settings' => array(),
 					'context'  => array(
 						Astra_Builder_Helper::$design_tab_config,
@@ -115,7 +116,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'control'     => 'ast-slider',
 					'default'     => astra_get_option( 'header-mobile-menu-submenu-item-b-size' ),
 					'section'     => $_section,
-					'priority'    => 72,
+					'priority'    => 150,
 					'transport'   => 'postMessage',
 					'title'       => __( 'Divider Size', 'astra' ),
 					'context'     => array(
@@ -132,6 +133,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'step' => 1,
 						'max'  => 10,
 					),
+					'divider'     => array( 'ast_class' => 'ast-bottom-dotted-divider' ),
 				),
 
 				// Option: Submenu item Border Color.
@@ -144,7 +146,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_alpha_color' ),
 					'title'             => __( 'Divider Color', 'astra' ),
 					'section'           => $_section,
-					'priority'          => 75,
+					'priority'          => 150,
 					'context'           => array(
 						Astra_Builder_Helper::$design_tab_config,
 						array(
@@ -153,24 +155,6 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 							'value'    => true,
 						),
 					),
-					'divider'           => array(
-						'ast_class' => 'ast-bottom-divider',
-					),
-				),
-
-				/**
-				 * Option: Divider
-				 * Option: WOO Off Canvas Menu Color Section divider
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[header-mobile-menu-link-color-divider]',
-					'type'     => 'control',
-					'control'  => 'ast-heading',
-					'section'  => $_section,
-					'title'    => __( 'Menu Color', 'astra' ),
-					'priority' => 90,
-					'settings' => array(),
-					'context'  => Astra_Builder_Helper::$design_tab,
 				),
 
 
@@ -187,7 +171,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'responsive' => true,
 					'divider'    => array(
 						'ast_title' => __( 'Menu Color', 'astra' ),
-						'ast_class' => 'ast-section-spacing',
+						'ast_class' => 'ast-section-spacing ast-bottom-dotted-divider',
 					),
 				),
 				array(
@@ -200,6 +184,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'priority'   => 90,
 					'context'    => Astra_Builder_Helper::$design_tab,
 					'responsive' => true,
+					'divider'    => array( 'ast_class' => 'ast-bottom-dotted-divider' ),
 				),
 				// Option: Menu Color.
 				array(
@@ -440,6 +425,22 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 				),
 
 
+				/**
+				 * Option: Divider
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[header-mobile-menu-menu-spacing-divider]',
+					'section'  => $_section,
+					'title'    => __( 'Spacing', 'astra' ),
+					'type'     => 'control',
+					'control'  => 'ast-heading',
+					'priority' => 150,
+					'settings' => array(),
+					'context'  => Astra_Builder_Helper::$design_tab,
+					'divider'  => array( 'ast_class' => 'ast-section-spacing' ),
+				),
+				
+
 				// Option - Menu Space.
 				array(
 					'name'              => ASTRA_THEME_SETTINGS . '[header-mobile-menu-menu-spacing]',
@@ -460,7 +461,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'left'   => __( 'Left', 'astra' ),
 					),
 					'context'           => Astra_Builder_Helper::$design_tab,
-					'divider'           => array( 'ast_class' => 'ast-bottom-section-divider' ),
+					'divider'           => array( 'ast_class' => 'ast-bottom-section-divider ast-section-spacing' ),
 				),
 
 				/**

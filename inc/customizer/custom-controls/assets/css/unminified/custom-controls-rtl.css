@@ -44,12 +44,12 @@
 .customize-control-ast-selector .components-button .ahfb-icon-set svg {
     width: 16px;
     height: 16px;
-    fill: black;
+    fill: var(--ast-customizer-color-6);
 }
 .customize-control-ast-selector .components-button.is-primary .ahfb-icon-set svg,
 .customize-control-ast-selector .components-button.is-primary .ahfb-icon-set svg circle,
 .customize-control-ast-selector .components-button.is-primary .ahfb-icon-set svg path:not(.ast-hf-account-unfill) {
-    fill: #ffffff;
+    fill: var(--ast-customizer-color-10);
 }
 
 .customize-control-ast-selector .ast-alignment-inner-wrap:first-child .components-button {
@@ -1348,12 +1348,12 @@
 .customize-control-ast-selector .components-button .ahfb-icon-set svg {
     width: 16px;
     height: 16px;
-    fill: black;
+    fill: var(--ast-customizer-color-6);
 }
 .customize-control-ast-selector .components-button.is-primary .ahfb-icon-set svg,
 .customize-control-ast-selector .components-button.is-primary .ahfb-icon-set svg circle,
 .customize-control-ast-selector .components-button.is-primary .ahfb-icon-set svg path:not(.ast-hf-account-unfill) {
-    fill: #ffffff;
+    fill: var(--ast-customizer-color-10);
 }
 
 .customize-control-ast-selector .ast-alignment-inner-wrap:first-child .components-button {
@@ -2618,7 +2618,7 @@
     --ast-customizer-color-7:#D1D5DB;  /* border color / outline / grey background*/
     --ast-customizer-color-8:#4B5563;  /* icon color / Toggle color*/
     --ast-customizer-color-9:#fff;  /* background color */
-    --ast-customizer-color-10: #fff; /* text invert*/
+    --ast-customizer-color-10: #fff; /* text invert / Icon invert */
     --ast-customizer-color-11: #F5F5F5; /* alt background*/
 }
 
@@ -2988,7 +2988,11 @@ input[type="text"].select2-search__field {
 */
 
 .customize-control.ast-top-dotted-divider,
-#customize-control-astra-settings-edd-archive-variable-button-text {
+#customize-control-astra-settings-edd-archive-variable-button-text,
+#customize-control-astra-settings-header-account-logged-out-text,
+#customize-control-blogname,
+#customize-control-blogdescription,
+#customize-control-astra-settings-sticky-header-retina-logo {
     margin-top: 24px;
     padding-top: 24px;
     border-top: 1px dashed var(--ast-customizer-color-7);
@@ -2998,7 +3002,8 @@ input[type="text"].select2-search__field {
     top: 25px;
 }
 
-.customize-control.ast-bottom-dotted-divider {
+.customize-control.ast-bottom-dotted-divider,
+#customize-control-astra-settings-header-account-logged-in-text {
     margin-bottom: 8px;
     padding-bottom: 24px;
     border-bottom: 1px dashed var(--ast-customizer-color-7);
@@ -3056,6 +3061,9 @@ input[type="text"].select2-search__field {
 #customize-control-astra-settings-footer-create-menu-link,
 #customize-control-astra-settings-header-button1-text,
 #customize-control-astra-settings-footer-language-switcher-options,
+#customize-control-astra-settings-header-mobile-menu-create-menu-link,
+#customize-control-astra-settings-header-language-switcher-options,
+#customize-control-astra-settings-site-icon-link,
 #customize-control-astra-settings-header-button2-text {
     margin-top: 32px;
 }
@@ -3740,9 +3748,9 @@ span.customize-control-title.ast-group-section-title {
 }
 
 .customize-control select:focus, .ast-variant-select > div:focus, .customize-control input:focus {
-	border-color: var(--wp-admin-theme-color);
+	border-color: var(--ast-customizer-color-1);
 	color: #0a4b78;
-	box-shadow: 0 0 0 1px var(--wp-admin-theme-color);
+	box-shadow: 0 0 0 1px var(--ast-customizer-color-1);
 }
 
 
@@ -4256,7 +4264,6 @@ span.customize-control-title.ast-group-section-title {
 
 .ast-adv-toggle-icon {
   left: 2px;
-  top: 0;
   position: absolute;
   width: 18px;
   height: 18px;
@@ -5012,7 +5019,7 @@ span.select2-container.select2-container--default.select2-container--open li.sel
     --ast-customizer-color-7:#D1D5DB;  /* border color / outline / grey background*/
     --ast-customizer-color-8:#4B5563;  /* icon color / Toggle color*/
     --ast-customizer-color-9:#fff;  /* background color */
-    --ast-customizer-color-10: #fff; /* text invert*/
+    --ast-customizer-color-10: #fff; /* text invert / Icon invert */
     --ast-customizer-color-11: #F5F5F5; /* alt background*/
 }
 
@@ -5382,7 +5389,11 @@ input[type="text"].select2-search__field {
 */
 
 .customize-control.ast-top-dotted-divider,
-#customize-control-astra-settings-edd-archive-variable-button-text {
+#customize-control-astra-settings-edd-archive-variable-button-text,
+#customize-control-astra-settings-header-account-logged-out-text,
+#customize-control-blogname,
+#customize-control-blogdescription,
+#customize-control-astra-settings-sticky-header-retina-logo {
     margin-top: 24px;
     padding-top: 24px;
     border-top: 1px dashed var(--ast-customizer-color-7);
@@ -5392,7 +5403,8 @@ input[type="text"].select2-search__field {
     top: 25px;
 }
 
-.customize-control.ast-bottom-dotted-divider {
+.customize-control.ast-bottom-dotted-divider,
+#customize-control-astra-settings-header-account-logged-in-text {
     margin-bottom: 8px;
     padding-bottom: 24px;
     border-bottom: 1px dashed var(--ast-customizer-color-7);
@@ -5450,6 +5462,9 @@ input[type="text"].select2-search__field {
 #customize-control-astra-settings-footer-create-menu-link,
 #customize-control-astra-settings-header-button1-text,
 #customize-control-astra-settings-footer-language-switcher-options,
+#customize-control-astra-settings-header-mobile-menu-create-menu-link,
+#customize-control-astra-settings-header-language-switcher-options,
+#customize-control-astra-settings-site-icon-link,
 #customize-control-astra-settings-header-button2-text {
     margin-top: 32px;
 }
@@ -6251,9 +6266,9 @@ span.customize-control-title.ast-group-section-title {
 }
 
 .customize-control select:focus, .ast-variant-select > div:focus, .customize-control input:focus {
-	border-color: var(--wp-admin-theme-color);
+	border-color: var(--ast-customizer-color-1);
 	color: #0a4b78;
-	box-shadow: 0 0 0 1px var(--wp-admin-theme-color);
+	box-shadow: 0 0 0 1px var(--ast-customizer-color-1);
 }
 
 
@@ -6650,7 +6665,6 @@ span.customize-control-title.ast-group-section-title {
 }
 .ast-adv-toggle-icon {
   left: 2px;
-  top: 0;
   position: absolute;
   width: 18px;
   height: 18px;

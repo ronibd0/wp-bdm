@@ -294,6 +294,22 @@ class Astra_Customizer_Mobile_Trigger_Configs extends Astra_Customizer_Config_Ba
 				'divider'     => array( 'ast_class' => 'ast-top-section-divider' ),
 			),
 
+
+			/**
+			 * Option: Divider
+			 */
+			array(
+				'name'     => ASTRA_THEME_SETTINGS . '[' . $_section . '-margin-divider]',
+				'section'  => $_section,
+				'title'    => __( 'Spacing', 'astra' ),
+				'type'     => 'control',
+				'control'  => 'ast-heading',
+				'priority' => 130,
+				'settings' => array(),
+				'context'  => Astra_Builder_Helper::$design_tab,
+				'divider'  => array( 'ast_class' => 'ast-section-spacing' ),
+			),
+
 			/**
 			 * Option: Margin Space
 			 */
@@ -305,7 +321,7 @@ class Astra_Customizer_Mobile_Trigger_Configs extends Astra_Customizer_Config_Ba
 				'control'           => 'ast-responsive-spacing',
 				'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_spacing' ),
 				'section'           => $_section,
-				'priority'          => 99,
+				'priority'          => 130,
 				'title'             => __( 'Margin', 'astra' ),
 				'linked_choices'    => true,
 				'unit_choices'      => array( 'px', 'em', '%' ),
@@ -315,7 +331,7 @@ class Astra_Customizer_Mobile_Trigger_Configs extends Astra_Customizer_Config_Ba
 					'bottom' => __( 'Bottom', 'astra' ),
 					'left'   => __( 'Left', 'astra' ),
 				),
-				'divider'           => array( 'ast_class' => 'ast-top-section-divider' ),
+				'divider'           => array( 'ast_class' => 'ast-section-spacing' ),
 				'context'           => Astra_Builder_Helper::$design_tab,
 			),
 		);

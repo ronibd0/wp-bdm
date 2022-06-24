@@ -105,6 +105,21 @@ class Astra_Header_Search_Component_Configs extends Astra_Customizer_Config_Base
 			),
 
 			/**
+			 * Option: Divider
+			 */
+			array(
+				'name'     => ASTRA_THEME_SETTINGS . '[' . $_section . '-margin-divider]',
+				'section'  => $_section,
+				'title'    => __( 'Spacing', 'astra' ),
+				'type'     => 'control',
+				'control'  => 'ast-heading',
+				'priority' => 220,
+				'settings' => array(),
+				'context'  => Astra_Builder_Helper::$design_tab,
+				'divider'  => array( 'ast_class' => 'ast-section-spacing' ),
+			),
+
+			/**
 			 * Option: Margin Space
 			 */
 			array(
@@ -126,6 +141,7 @@ class Astra_Header_Search_Component_Configs extends Astra_Customizer_Config_Base
 					'left'   => __( 'Left', 'astra' ),
 				),
 				'context'           => Astra_Builder_Helper::$design_tab,
+				'divider'           => array( 'ast_class' => 'ast-section-spacing' ),
 			),
 
 		);

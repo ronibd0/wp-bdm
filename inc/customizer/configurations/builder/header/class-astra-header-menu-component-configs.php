@@ -220,6 +220,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 							'step' => 1,
 							'max'  => 10,
 						),
+						'divider'     => array( 'ast_class' => 'ast-top-dotted-divider' ),
 					),
 
 					// Option: Submenu item Border Color.
@@ -241,6 +242,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 								'value'    => true,
 							),
 						),
+						'divider'           => array( 'ast_class' => 'ast-bottom-dotted-divider' ),
 					),
 
 					/**
@@ -362,7 +364,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'control'           => 'ast-responsive-spacing',
 						'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_spacing' ),
 						'section'           => $_section,
-						'priority'          => 101,
+						'priority'          => 151,
 						'title'             => __( 'Margin', 'astra' ),
 						'linked_choices'    => true,
 						'unit_choices'      => array( 'px', 'em', '%' ),
@@ -373,7 +375,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 							'left'   => __( 'Left', 'astra' ),
 						),
 						'context'           => Astra_Builder_Helper::$design_tab,
-						'divider'           => array( 'ast_class' => '' ),
+						'divider'           => array( 'ast_class' => 'ast-top-section-divider' ),
 					),
 
 					// Option Group: Menu Color.

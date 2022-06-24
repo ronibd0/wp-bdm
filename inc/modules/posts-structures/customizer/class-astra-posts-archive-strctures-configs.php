@@ -164,14 +164,14 @@ class Astra_Posts_Archive_Strctures_Configs extends Astra_Customizer_Config_Base
 					'default'           => astra_get_option( $section . '-layout', 'layout-1' ),
 					'priority'          => 5,
 					'context'           => Astra_Builder_Helper::$general_tab,
-					'title'             => __( 'Title Layout', 'astra-addon' ),
+					'title'             => __( 'Title Layout', 'astra' ),
 					'choices'           => array(
 						'layout-1' => array(
 							'label' => __( 'Layout 1', 'astra' ),
 							'path'  => Astra_Builder_UI_Controller::fetch_svg_icon( 'post-banner' ),
 						),
 						'layout-2' => array(
-							'label' => __( 'Layout 2', 'astra-addon' ),
+							'label' => __( 'Layout 2', 'astra' ),
 							'path'  => Astra_Builder_UI_Controller::fetch_svg_icon( 'post-banner', false ),
 						),
 					),

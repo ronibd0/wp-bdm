@@ -18,9 +18,9 @@
 }
 
 .customize-control select:focus, .ast-variant-select > div:focus, .customize-control input:focus {
-	border-color: var(--wp-admin-theme-color);
+	border-color: var(--ast-customizer-color-1);
 	color: #0a4b78;
-	box-shadow: 0 0 0 1px var(--wp-admin-theme-color);
+	box-shadow: 0 0 0 1px var(--ast-customizer-color-1);
 }
 
 

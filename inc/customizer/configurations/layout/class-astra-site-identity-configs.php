@@ -250,18 +250,6 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 					'divider'   => array( 'ast_class' => 'ast-top-section-divider' ),
 				),
 
-				/**
-				 * Option: Divider
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[ast-site-title-tagline-divider]',
-					'type'     => 'control',
-					'section'  => $_section,
-					'control'  => 'ast-divider',
-					'priority' => 13,
-					'settings' => array(),
-					'context'  => array( Astra_Builder_Helper::$general_tab_config ),
-				),
 
 				/**
 				 * Option: Display Tagline

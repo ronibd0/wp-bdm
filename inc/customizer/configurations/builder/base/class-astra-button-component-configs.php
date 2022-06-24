@@ -292,7 +292,7 @@ class Astra_Button_Component_Configs {
 					'control'        => 'ast-border',
 					'transport'      => 'postMessage',
 					'linked_choices' => true,
-					'priority'       => 210,
+					'priority'       => 99,
 					'title'          => __( 'Border Width', 'astra' ),
 					'context'        => Astra_Builder_Helper::$design_tab,
 					'choices'        => array(
@@ -315,7 +315,7 @@ class Astra_Button_Component_Configs {
 					'section'     => $_section,
 					'control'     => 'ast-slider',
 					'transport'   => 'postMessage',
-					'priority'    => 210,
+					'priority'    => 99,
 					'context'     => Astra_Builder_Helper::$design_tab,
 					'title'       => __( 'Border Radius', 'astra' ),
 					'suffix'      => 'px',

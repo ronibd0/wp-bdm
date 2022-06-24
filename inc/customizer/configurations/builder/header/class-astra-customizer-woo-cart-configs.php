@@ -243,7 +243,7 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 				'responsive' => false,
 				'renderAs'   => 'text',
 				'context'    => Astra_Builder_Helper::$design_tab,
-				'divider'    => array( 'ast_class' => 'ast-section-spacing ast-bottom-section-divider' ),
+				'divider'    => array( 'ast_class' => 'ast-section-spacing ast-bottom-dotted-divider' ),
 			),
 
 			/**
@@ -267,7 +267,6 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 					),
 				),
 				'responsive' => false,
-				'divider'    => array( 'ast_class' => 'ast-bottom-section-divider' ),
 			),
 
 			/**

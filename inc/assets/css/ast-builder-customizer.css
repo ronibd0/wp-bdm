@@ -1697,11 +1697,15 @@ button.components-button.ahfb-sorter-item-expand {
 
 .ahfb-icon-set svg,
 #customize-control-astra-settings-header-trigger-icon span.ahfb-svg-iconset.svg-baseline svg path, span.ahfb-svg-iconset.svg-baseline svg circle {
-    fill: rgb(160 174 192);
+    fill: var(--ast-customizer-color-7);
 }
 
 .active-radio .ahfb-icon-set svg, .active-radio .ahfb-icon-set svg, #customize-control-astra-settings-header-trigger-icon input:checked + .ast-radio-img-svg svg path, #customize-control-astra-settings-header-trigger-icon input:checked + .ast-radio-img-svg svg circle {
-    fill: #007cba;
+    fill: var(--ast-customizer-color-10);
+}
+
+#customize-control-astra-settings-header-trigger-icon input:checked + .ast-radio-img-svg svg > path {
+	fill: var(--ast-customizer-color-1);
 }
 
 .ahfb-icon-set-control.ahfb-three-col-short .components-button-group.ahfb-radio-container-control {
@@ -5038,6 +5042,7 @@ li#accordion-section-section-woo-shop-skin {
 
 
 #customize-control-astra-settings-shop-skin-section-link .ahfb-builder-item-start,
-#customize-control-astra-settings-footer-create-menu-link .ahfb-builder-item-start{
+#customize-control-astra-settings-footer-create-menu-link .ahfb-builder-item-start,
+#customize-control-astra-settings-header-mobile-menu-create-menu-link .ahfb-builder-item-start {
 	margin-bottom: 0;
 }

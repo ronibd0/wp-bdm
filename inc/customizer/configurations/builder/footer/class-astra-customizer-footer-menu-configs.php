@@ -254,7 +254,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'control'  => 'ast-heading',
 					'priority' => 210,
 					'settings' => array(),
-					'context'  => astra_addon_builder_helper()->design_tab,
+					'context'  => Astra_Builder_Helper::$design_tab,
 					'divider'  => array( 'ast_class' => 'ast-section-spacing' ),
 				),
 
