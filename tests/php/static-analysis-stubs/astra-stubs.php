@@ -13571,6 +13571,14 @@ namespace {
     {
     }
     /**
+     * Check is new strctural things are updated.
+     *
+     * @return bool true|false.
+     */
+    function astra_check_is_structural_setup()
+    {
+    }
+    /**
      * Astra Color Palettes
      *
      * @since 1.0.23
@@ -16000,7 +16008,7 @@ namespace {
      * @link        https://wpastra.com/
      * @since       Astra 1.0.0
      */
-    $astra_404_subtitle_tag = \true === \astra_get_option('customizer-default-layout-update', \true) ? 'h3' : 'div';
+    $astra_404_subtitle_tag = \true === \astra_check_is_structural_setup() ? 'h3' : 'div';
     /**
      * Template part for displaying the footer component.
      *
