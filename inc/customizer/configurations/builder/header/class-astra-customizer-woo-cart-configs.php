@@ -40,20 +40,19 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 		$_configs = array(
 
 			/**
-				 * Option: Divider
-				 * Option: WOO cart General Section divider
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[section-woo-cart-label-divider]',
-					'type'     => 'control',
-					'control'  => 'ast-heading',
-					'section'  => $_section,
-					'title'    => __( 'Cart', 'astra' ),
-					'priority' => 2,
-					'settings' => array(),
-					'context'  => Astra_Builder_Helper::$general_tab,
-					'divider'  => array( 'ast_class' => 'ast-bottom-spacing' ),
-				),
+			 * Option: WOO cart General Section divider
+			 */
+			array(
+				'name'     => ASTRA_THEME_SETTINGS . '[section-woo-cart-label-divider]',
+				'type'     => 'control',
+				'control'  => 'ast-heading',
+				'section'  => $_section,
+				'title'    => __( 'Cart', 'astra' ),
+				'priority' => 2,
+				'settings' => array(),
+				'context'  => Astra_Builder_Helper::$general_tab,
+				'divider'  => array( 'ast_class' => 'ast-bottom-spacing' ),
+			),
 
 
 			/**
@@ -114,20 +113,19 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 			),
 
 			/**
-				 * Option: Divider
-				 * Option: WOO cart tray Section divider
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[section-woo-cart-click-divider]',
-					'type'     => 'control',
-					'control'  => 'ast-heading',
-					'section'  => $_section,
-					'title'    => __( 'Cart Click', 'astra' ),
-					'priority' => 60,
-					'settings' => array(),
-					'context'  => Astra_Builder_Helper::$general_tab,
-					'divider'  => array( 'ast_class' => 'ast-section-spacing' ),
-				),
+			 * Option: WOO cart tray Section divider
+			 */
+			array(
+				'name'     => ASTRA_THEME_SETTINGS . '[section-woo-cart-click-divider]',
+				'type'     => 'control',
+				'control'  => 'ast-heading',
+				'section'  => $_section,
+				'title'    => __( 'Cart Click', 'astra' ),
+				'priority' => 60,
+				'settings' => array(),
+				'context'  => Astra_Builder_Helper::$general_tab,
+				'divider'  => array( 'ast_class' => 'ast-section-spacing' ),
+			),
 
 			/**
 			 * Option: Cart icon click action.
@@ -208,21 +206,18 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 			),
 
 			/**
-				 * Option: Divider
-				 * Option: WOO cart Icon Design Section divider
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[section-woo-cart-icon-style-divider]',
-					'type'     => 'control',
-					'control'  => 'ast-heading',
-					'section'  => $_section,
-					'title'    => __( 'Cart Icon', 'astra' ),
-					'priority' => 45,
-					'settings' => array(),
-					'context'  => Astra_Builder_Helper::$design_tab,
-				),
-
-
+			 * Option: WOO cart Icon Design Section divider
+			 */
+			array(
+				'name'     => ASTRA_THEME_SETTINGS . '[section-woo-cart-icon-style-divider]',
+				'type'     => 'control',
+				'control'  => 'ast-heading',
+				'section'  => $_section,
+				'title'    => __( 'Cart Icon', 'astra' ),
+				'priority' => 45,
+				'settings' => array(),
+				'context'  => Astra_Builder_Helper::$design_tab,
+			),
 
 			/**
 			 * Option: Icon Style
@@ -458,7 +453,6 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 				),
 
 				/**
-				 * Option: Divider
 				 * Option: WOO cart tray Section divider
 				 */
 				array(
@@ -472,7 +466,6 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 					'context'  => Astra_Builder_Helper::$design_tab,
 					'divider'  => array( 'ast_class' => 'ast-section-spacing' ),
 				),
-
 
 				// Option: Cart Link / Text Color.
 				array(
@@ -596,7 +589,6 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 				),
 
 				/**
-				 * Option: Divider
 				 * Option: WOO cart button Section divider
 				 */
 				array(
@@ -704,7 +696,6 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 				),
 
 				/**
-				 * Option: Divider
 				 * Option: WOO cart button Section divider
 				 */
 				array(

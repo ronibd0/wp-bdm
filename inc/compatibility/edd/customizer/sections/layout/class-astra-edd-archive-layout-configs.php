@@ -56,7 +56,6 @@ if ( ! class_exists( 'Astra_Edd_Archive_Layout_Configs' ) ) {
 						'min'  => 1,
 						'max'  => 6,
 					),
-					'divider'           => array( 'ast_class' => '' ),
 					'transport'         => 'postMessage',
 				),
 

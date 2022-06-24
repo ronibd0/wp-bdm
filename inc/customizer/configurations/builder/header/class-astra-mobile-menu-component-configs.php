@@ -288,7 +288,6 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 				),
 
 				/**
-				 * Option: Divider
 				 * Option: WOO Off Canvas Menu Submenu Color Section divider
 				 */
 				array(
