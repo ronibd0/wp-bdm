@@ -838,31 +838,6 @@ function astra_improve_gutenberg_editor_ui() {
 }
 
 /**
- * Display Cart Total and Title compatibility.
- *
- * @since x.x.x
- * @return void
- */
-function astra_display_cart_total_title_compatibility() {
-	$theme_options = get_option( 'astra-settings', array() );
-
-	if ( isset( $theme_options['woo-header-cart-label-display'] ) ) {
-		return;
-	}
-
-	// Set the Display Cart Label toggle values with shortcodes.
-	if ( ( isset( $theme_options['woo-header-cart-total-display'] ) && true === $theme_options['woo-header-cart-total-display'] ) && ( isset( $theme_options['woo-header-cart-title-display'] ) && true === $theme_options['woo-header-cart-title-display'] ) ) {
-		$theme_options['woo-header-cart-label-display'] = __( 'Cart', 'astra' ) . '/{cart_total_currency_symbol}';
-	} elseif ( isset( $theme_options['woo-header-cart-total-display'] ) && true === $theme_options['woo-header-cart-total-display'] ) {
-		$theme_options['woo-header-cart-label-display'] = '{cart_total_currency_symbol}';
-	} elseif ( isset( $theme_options['woo-header-cart-title-display'] ) && true === $theme_options['woo-header-cart-title-display'] ) {
-		$theme_options['woo-header-cart-label-display'] = __( 'Cart', 'astra' );
-	}
-
-	update_option( 'astra-settings', $theme_options );
-}
-
-/**
  * Set flag to avoid direct reflections on live site & to maintain backward compatibility for existing users.
  *
  * Starting supporting content-background color for Full Width Contained & Full Width Stretched layouts.
@@ -877,80 +852,6 @@ function astra_fullwidth_layouts_apply_content_background() {
 		$theme_options['apply-content-background-fullwidth-layouts'] = false;
 		update_option( 'astra-settings', $theme_options );
 	}
-}
-
-/**
- * Migrating Post Structure & Meta options in title area meta parts.
- *
- * @since x.x.x
- *
- * @return void
- */
-function astra_post_strctures_meta_migration() {
-	$theme_options                                     = get_option( 'astra-settings', array() );
-	$theme_options['post-structure-migration-succeed'] = false;
-
-	// Single post strcture.
-	if ( ! empty( $theme_options['ast-single-post-structure'] ) ) {
-		$single_post_strcture   = isset( $theme_options['blog-single-post-structure'] ) ? $theme_options['blog-single-post-structure'] : array();
-		$migrated_post_strcture = array();
-
-		if ( ! empty( $single_post_strcture ) ) {
-
-			foreach ( $single_post_strcture as $key ) {
-				if ( 'single-title-meta' === $key ) {
-					$migrated_post_strcture[] = 'ast-single-post-title';
-					$migrated_post_strcture[] = 'ast-single-post-meta';
-				}
-				if ( 'single-image' === $key ) {
-					$migrated_post_strcture[] = 'ast-single-post-image';
-				}
-			}
-
-			$theme_options['ast-single-post-structure']        = $migrated_post_strcture;
-			$theme_options['post-structure-migration-succeed'] = true;
-		}
-	}
-
-	// Single post meta.
-	if ( ! empty( $theme_options['ast-single-post-metadata'] ) ) {
-		$single_post_meta       = isset( $theme_options['blog-single-meta'] ) ? $theme_options['blog-single-meta'] : array();
-		$migrated_post_metadata = array();
-
-		if ( ! empty( $single_post_meta ) ) {
-			if ( in_array( 'author', $single_post_meta ) ) {
-				$migrated_post_metadata[] = 'author';
-			}
-
-			if ( in_array( 'date', $single_post_meta ) ) {
-				$migrated_post_metadata[] = 'date';
-			}
-
-			$assigned_tax = false;
-			if ( in_array( 'category', $single_post_meta ) && in_array( 'tag', $single_post_meta ) ) {
-				$migrated_post_metadata[]                  = 'taxonomy';
-				$theme_options['ast-single-post-taxonomy'] = 'category-tag';
-				$assigned_tax                              = true;
-			}
-			if ( false === $assigned_tax && in_array( 'category', $single_post_meta ) ) {
-				$migrated_post_metadata[]                  = 'taxonomy';
-				$theme_options['ast-single-post-taxonomy'] = 'category';
-			}
-			if ( false === $assigned_tax && in_array( 'tag', $single_post_meta ) ) {
-				$migrated_post_metadata[]                  = 'taxonomy';
-				$theme_options['ast-single-post-taxonomy'] = 'post_tag';
-			}
-
-			if ( in_array( 'comments', $single_post_meta ) ) {
-				$migrated_post_metadata[] = 'comments';
-			}
-
-			$theme_options['ast-single-post-metadata']         = $migrated_post_metadata;
-			$theme_options['post-structure-migration-succeed'] = true;
-		}
-	}
-
-	update_option( 'astra-settings', $theme_options );
 }
 
 /**
@@ -969,20 +870,6 @@ function astra_set_default_breadcrumb_separator_option() {
 }
 
 /**
- * If old user then it keeps then default cart icon.
- *
- * @since x.x.x
- * @return void
- */
-function astra_update_woocommerce_cart_icons() {
-	$theme_options = get_option( 'astra-settings', array() );
-
-	if ( ! isset( $theme_options['astra-woocommerce-cart-icons-flag'] ) ) {
-		$theme_options['astra-woocommerce-cart-icons-flag'] = false;
-	}
-}
-
-/**
  * Set flag to avoid direct reflections on live site & to maintain backward compatibility for existing users.
  *
  * Backward flag purpose - To initiate modern & updated UI of block editor & frontend.
@@ -996,20 +883,6 @@ function astra_apply_modern_block_editor_ui() {
 	if ( ! isset( $theme_options['wp-blocks-ui'] ) && ! version_compare( $theme_options['theme-auto-version'], '3.8.0', '==' ) ) {
 		$theme_options['blocks-legacy-setup'] = true;
 		$theme_options['wp-blocks-ui']        = 'legacy';
-		update_option( 'astra-settings', $theme_options );
-	}
-}
-
-/**
- * Set flag to new customizer UI maintainer flag, to avoid direct reflections on live site & to maintain backward compatibility for existing users.
- *
- * @since x.x.x
- * @return void
- */
-function astra_legacy_customizer_maintenance() {
-	$theme_options = get_option( 'astra-settings', array() );
-	if ( ! isset( $theme_options['legacy-customizer-ui-maintainer'] ) ) {
-		$theme_options['legacy-customizer-ui-maintainer'] = true;
 		update_option( 'astra-settings', $theme_options );
 	}
 }
@@ -1051,6 +924,59 @@ function astra_apply_modern_block_editor_v2_ui() {
 		$option_updated                = true;
 	}
 	if ( $option_updated ) {
+		update_option( 'astra-settings', $theme_options );
+	}
+}
+
+/**
+ * Display Cart Total and Title compatibility.
+ *
+ * @since x.x.x
+ * @return void
+ */
+function astra_display_cart_total_title_compatibility() {
+	$theme_options = get_option( 'astra-settings', array() );
+
+	if ( isset( $theme_options['woo-header-cart-label-display'] ) ) {
+		return;
+	}
+
+	// Set the Display Cart Label toggle values with shortcodes.
+	if ( ( isset( $theme_options['woo-header-cart-total-display'] ) && true === $theme_options['woo-header-cart-total-display'] ) && ( isset( $theme_options['woo-header-cart-title-display'] ) && true === $theme_options['woo-header-cart-title-display'] ) ) {
+		$theme_options['woo-header-cart-label-display'] = __( 'Cart', 'astra' ) . '/{cart_total_currency_symbol}';
+	} elseif ( isset( $theme_options['woo-header-cart-total-display'] ) && true === $theme_options['woo-header-cart-total-display'] ) {
+		$theme_options['woo-header-cart-label-display'] = '{cart_total_currency_symbol}';
+	} elseif ( isset( $theme_options['woo-header-cart-title-display'] ) && true === $theme_options['woo-header-cart-title-display'] ) {
+		$theme_options['woo-header-cart-label-display'] = __( 'Cart', 'astra' );
+	}
+
+	update_option( 'astra-settings', $theme_options );
+}
+
+/**
+ * If old user then it keeps then default cart icon.
+ *
+ * @since x.x.x
+ * @return void
+ */
+function astra_update_woocommerce_cart_icons() {
+	$theme_options = get_option( 'astra-settings', array() );
+
+	if ( ! isset( $theme_options['astra-woocommerce-cart-icons-flag'] ) ) {
+		$theme_options['astra-woocommerce-cart-icons-flag'] = false;
+	}
+}
+
+/**
+ * Set flag to new customizer UI maintainer flag, to avoid direct reflections on live site & to maintain backward compatibility for existing users.
+ *
+ * @since x.x.x
+ * @return void
+ */
+function astra_legacy_customizer_maintenance() {
+	$theme_options = get_option( 'astra-settings', array() );
+	if ( ! isset( $theme_options['legacy-customizer-ui-maintainer'] ) ) {
+		$theme_options['legacy-customizer-ui-maintainer'] = true;
 		update_option( 'astra-settings', $theme_options );
 	}
 }
