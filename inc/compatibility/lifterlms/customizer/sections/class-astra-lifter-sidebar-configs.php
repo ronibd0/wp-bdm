@@ -32,6 +32,7 @@ if ( ! class_exists( 'Astra_Lifter_Sidebar_Configs' ) ) {
 			$common_title   = __( 'Sidebar Layout', 'astra' );
 			$common_section = 'section-lifterlms';
 
+			/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			if ( defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'lifterlms' ) ) {
 				$section_general          = 'section-lifterlms-general';
 				$section_courses          = 'section-lifterlms-course-lesson';

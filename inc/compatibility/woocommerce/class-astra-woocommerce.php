@@ -171,6 +171,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				'after_widget'  => '</div>',
 			);
 
+			/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			if ( defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'woocommerce' ) && astra_get_option( 'shop-filter-accordion' ) ) {
 				$shop_filter_array['before_title']   = '<h2 class="widget-title">';
 				$shop_filter_array['after_title']    = Astra_Builder_UI_Controller::fetch_svg_icon( 'angle-down', false ) . '</h2>';
