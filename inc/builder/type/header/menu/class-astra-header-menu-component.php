@@ -38,6 +38,21 @@ class Astra_Header_Menu_Component {
 	}
 
 	/**
+	 * Get menu by location
+	 *
+	 * @since x.x.x
+	 *
+	 * @param string $theme_location.
+	 * @return object.
+	 */
+	public static function get_menu_by_location( $theme_location ) {
+		// Get all locations.
+		$locations = get_nav_menu_locations();
+		// Return menu.
+		return isset( $locations[ $theme_location ] ) ? $locations[ $theme_location ] : '';
+	}
+
+	/**
 	 * Secondary navigation markup
 	 *
 	 * @param int $index index.
@@ -55,6 +70,8 @@ class Astra_Header_Menu_Component {
 				$theme_location = 'menu_' . $index;
 				break;
 		}
+
+		$menu_id = astra_get_option( 'nav_menu_locations-' . $theme_location, self::get_menu_by_location( $theme_location ) );
 
 		$_prefix = 'menu' . $index;
 
@@ -126,7 +143,7 @@ class Astra_Header_Menu_Component {
 					'container'       => 'div',
 					'container_class' => 'main-header-bar-navigation',
 					'items_wrap'      => $items_wrap,
-					'theme_location'  => $theme_location,
+					'menu'            => $menu_id,
 				)
 			);
 		} else {

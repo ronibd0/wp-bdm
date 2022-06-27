@@ -36,7 +36,9 @@ if ( ! function_exists( 'astra_get_post_meta' ) ) {
 			switch ( $meta_value ) {
 
 				case 'author':
+					/** @psalm-suppress InvalidScalarArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 					if ( ! empty( get_the_author_meta( 'display_name', isset( get_queried_object()->post_author ) ) ) ) {
+						/** @psalm-suppress InvalidScalarArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 						$output_str .= ( 1 != $loop_count && '' != $output_str ) ? ' ' . $separator . ' ' : '';
 						$output_str .= esc_html( astra_default_strings( 'string-blog-meta-author-by', false ) ) . astra_post_author();
 					}
@@ -74,19 +76,25 @@ if ( ! function_exists( 'astra_get_post_meta' ) ) {
 				case 'taxonomy':
 					$tax_name = '';
 					if ( is_single() ) {
+						/** @psalm-suppress PossiblyFalseOperand */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 						$tax_name = astra_get_option( 'ast-single-' . get_post_type() . '-taxonomy' );
+						/** @psalm-suppress PossiblyFalseOperand */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 					}
 					if ( '' !== $tax_name ) {
 						if ( 'category-tag' === $tax_name ) {
 							$category = astra_post_categories();
 							if ( '' != $category ) {
 								$output_str .= ( 1 != $loop_count && '' != $output_str ) ? ' ' . $separator . ' ' : '';
+								/** @psalm-suppress InvalidOperand */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 								$output_str .= $category;
+								/** @psalm-suppress InvalidOperand */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 							}
 							$tags = astra_post_tags();
 							if ( '' != $tags ) {
 								$output_str .= ( 1 != $loop_count && '' != $output_str ) ? ' ' . $separator . ' ' : '';
+								/** @psalm-suppress InvalidOperand */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 								$output_str .= $tags;
+								/** @psalm-suppress InvalidOperand */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 							}
 						} else {
 							$taxonomies = astra_custom_post_taxonomies( array( 'taxonomy' => $tax_name ) );
@@ -512,12 +520,20 @@ function astra_custom_post_taxonomies( $args = array() ) {
 		)
 	);
 
+	/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 	if ( null === $args['post_id'] ) {
+		/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+
+		/** @psalm-suppress InvalidGlobal */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 		global $post;
+		/** @psalm-suppress InvalidGlobal */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+
 		$args['post_id'] = $post->ID;
 	}
 
+	/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 	$terms = get_the_terms( $args['post_id'], $args['taxonomy'] );
+	/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 
 	if ( is_wp_error( $terms ) ) {
 		return $output;
@@ -525,10 +541,14 @@ function astra_custom_post_taxonomies( $args = array() ) {
 
 	if ( ! empty( $terms ) ) {
 		$loop_count = 1;
+		/** @psalm-suppress PossibleRawObjectIteration */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 		foreach ( $terms as $index => $term ) {
+			/** @psalm-suppress PossibleRawObjectIteration */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			$term_link = get_term_link( $term );
 			$output   .= ( 1 !== $loop_count && '' !== $output ) ? ', ' : '';
-			$output   .= '<span class="cat-links"> <a href="' . esc_url( $term_link ) . '">' . $term->name . '</a> </span>';
+			/** @psalm-suppress PossiblyInvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+			$output .= '<span class="cat-links"> <a href="' . esc_url( $term_link ) . '">' . $term->name . '</a> </span>';
+			/** @psalm-suppress PossiblyInvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			$loop_count ++;
 		}
 	}

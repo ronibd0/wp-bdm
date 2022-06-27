@@ -86,7 +86,7 @@ if ( ! class_exists( 'Astra_Block_Editor_Configs' ) ) {
 							'value'    => 'custom',
 						),
 					),
-					'divider'          => array( 'ast_class' => 'ast-section-spacing' ),
+					'divider'           => array( 'ast_class' => 'ast-section-spacing' ),
 				),
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[wp-blocks-ui-description]',

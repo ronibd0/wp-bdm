@@ -87,15 +87,14 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					 * Option: Menu selection.
 					 */
 					array(
-						'name'     => 'nav_menu_locations-' . $menu_location,
-						'default'  => isset( $all_menus[ $menu_location ] ) ? $all_menus[ $menu_location ] : '',
+						'name'     => ASTRA_THEME_SETTINGS . '[nav_menu_locations-' . $menu_location . ']',
+						'default'  => astra_get_option( 'nav_menu_locations-' . $menu_location, isset( $all_menus[ $menu_location ] ) ? $all_menus[ $menu_location ] : '' ),
 						'type'     => 'control',
 						'control'  => 'ast-menu-select',
 						'section'  => $_section,
 						'priority' => 10,
 						'title'    => __( 'Menu', 'astra' ),
 						'context'  => Astra_Builder_Helper::$general_tab,
-						'divider'  => array( 'ast_class' => 'ast-section-spacing' ),
 					),
 
 					/**

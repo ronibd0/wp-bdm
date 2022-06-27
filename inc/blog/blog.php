@@ -399,7 +399,7 @@ if ( ! function_exists( 'astra_get_video_from_post' ) ) {
  * Get last word of string to get metakey of custom post structure.
  *
  * @since x.x.x
- * @param string $string.
+ * @param string $string - String from which last word needs to find.
  * @return string $last_word.
  */
 function ast_get_last_meta_word( $string ) {
@@ -412,7 +412,7 @@ function ast_get_last_meta_word( $string ) {
  * Custom single post Title & Meta order display.
  *
  * @since x.x.x
- * @param array $structure.
+ * @param array $structure - Post strcture.
  * @return mixed
  */
 function astra_banner_elements_order( $structure = array() ) {
@@ -475,7 +475,9 @@ function astra_banner_elements_order( $structure = array() ) {
 				if ( ! empty( $post_meta ) ) {
 					$output_str = astra_get_post_meta( $post_meta );
 					if ( ! empty( $output_str ) ) {
+						/** @psalm-suppress TooManyArguments */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 						$output = apply_filters( 'astra_single_banner_post_meta', '<div class="entry-meta">' . $output_str . '</div>', $output_str ); // WPCS: XSS OK.
+						/** @psalm-suppress TooManyArguments */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 					}
 				}
 				echo $output; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped

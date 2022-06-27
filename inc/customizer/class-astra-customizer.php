@@ -590,10 +590,6 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 					$configuration['value'] = $val;
 					break;
 
-				case 'ast-font-variant':
-					$configuration['value'] = $val;
-					break;
-
 			} // Switch End.
 
 			if ( isset( $configuration['id'] ) ) {
@@ -1030,7 +1026,9 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 
 			if ( is_array( $all_menus ) && count( $all_menus ) ) {
 				foreach ( $all_menus as $row ) {
+					/** @psalm-suppress PossiblyInvalidPropertyFetch */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 					$sorted_menus[ $row->term_id ] = $row->name;
+					/** @psalm-suppress PossiblyInvalidPropertyFetch */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 				}
 			}
 

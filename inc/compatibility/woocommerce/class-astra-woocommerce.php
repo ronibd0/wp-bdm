@@ -1389,7 +1389,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				';
 			}
 
-			if ( ! ( defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'woocommerce' ) ) ) {
+			if ( ! ( defined( 'ASTRA_EXT_VER' ) && class_exists( 'Astra_Ext_Extension' ) && Astra_Ext_Extension::is_active( 'woocommerce' ) ) ) {
 				$css_output .= '
 					.woocommerce .woocommerce-result-count, .woocommerce-page .woocommerce-result-count {
 						float: left;
