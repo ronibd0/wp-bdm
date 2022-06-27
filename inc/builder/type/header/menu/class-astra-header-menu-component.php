@@ -43,7 +43,7 @@ class Astra_Header_Menu_Component {
 	 * @since x.x.x
 	 *
 	 * @param string $theme_location.
-	 * @return object.
+	 * @return string If menu location set.
 	 */
 	public static function astra_get_menu_by_location( $theme_location ) {
 		// Get all locations.
