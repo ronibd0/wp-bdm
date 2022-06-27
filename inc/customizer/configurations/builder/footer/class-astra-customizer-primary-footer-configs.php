@@ -83,6 +83,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					),
 					'renderAs'   => 'text',
 					'responsive' => false,
+					'divider'    => array( 'ast_class' => 'ast-section-spacing ast-bottom-dotted-divider' ),
 				),
 
 				/**
@@ -102,7 +103,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'footer'     => 'primary',
 						'layout'     => Astra_Builder_Helper::$footer_row_layouts,
 					),
-					'divider'     => array( 'ast_class' => 'ast-bottom-divider' ),
+					'divider'     => array( 'ast_class' => 'ast-bottom-section-divider' ),
 					'transport'   => 'postMessage',
 				),
 
@@ -125,7 +126,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'transport'  => 'postMessage',
 					'renderAs'   => 'text',
 					'responsive' => false,
-					'divider'    => array( 'ast_class' => 'ast-bottom-divider' ),
+					'divider'    => array( 'ast_class' => 'ast-bottom-section-divider' ),
 				),
 
 
@@ -171,7 +172,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'render_callback'     => array( Astra_Builder_Footer::get_instance(), 'primary_footer' ),
 					),
 					'renderAs'  => 'text',
-					'divider'   => array( 'ast_class' => 'ast-bottom-divider' ),
+					'divider'   => array( 'ast_class' => 'ast-bottom-section-divider' ),
 				),
 
 				// Option: Footer Separator.
@@ -191,6 +192,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'max'  => 600,
 					),
 					'context'     => Astra_Builder_Helper::$design_tab,
+					'divider'     => array( 'ast_class' => 'ast-section-spacing ast-bottom-dotted-divider' ),
 				),
 
 				// Option: Footer Top Boder Color.
@@ -212,7 +214,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 							'value'    => 1,
 						),
 					),
-					'divider'           => array( 'ast_class' => 'ast-bottom-divider' ),
+					'divider'           => array( 'ast_class' => 'ast-bottom-section-divider' ),
 				),
 
 				// Sub Option: Footer Background.
@@ -229,7 +231,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'default'    => astra_get_option( 'hb-footer-bg-obj-responsive' ),
 					'title'      => __( 'Background', 'astra' ),
 					'context'    => Astra_Builder_Helper::$design_tab,
-					'divider'    => array( 'ast_class' => 'ast-bottom-divider' ),
+					'divider'    => array( 'ast_class' => 'ast-bottom-section-divider' ),
 				),
 
 				/**

@@ -86,6 +86,7 @@ if ( ! class_exists( 'Astra_Block_Editor_Configs' ) ) {
 							'value'    => 'custom',
 						),
 					),
+					'divider'           => array( 'ast_class' => 'ast-section-spacing' ),
 				),
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[wp-blocks-ui-description]',
@@ -97,6 +98,24 @@ if ( ! class_exists( 'Astra_Block_Editor_Configs' ) ) {
 					'settings' => array(),
 				),
 			);
+
+			// Learn More link if Astra Pro is not activated.
+			if ( ! defined( 'ASTRA_EXT_VER' ) ) {
+
+				$_configs[] = array(
+
+					'name'     => ASTRA_THEME_SETTINGS . '[section-block-editor-ast-button-link]',
+					'type'     => 'control',
+					'control'  => 'ast-button-link',
+					'section'  => 'section-block-editor',
+					'priority' => 999,
+					'title'    => __( 'View Astra Pro Features', 'astra' ),
+					'url'      => astra_get_pro_url( 'https://wpastra.com/pro', 'customizer', 'learn-more', 'upgrade-to-pro' ),
+					'settings' => array(),
+					'divider'  => array( 'ast_class' => 'ast-top-section-divider' ),
+				);
+
+			}
 
 			return array_merge( $configurations, $_configs );
 		}

@@ -28,7 +28,12 @@
 .customize-control:not(.customize-control-nav_menu_item) {
 	position: relative;
 	margin-bottom: 0;
-	margin-top: 20px;
+	margin-top: 16px;
+}
+
+.customize-control.customize-control-ast-toggle-control,
+.customize-control.customize-control-ast-color {
+    margin-top: 24px;
 }
 
 [ID*="-builder-layout-ast-context-tabs"] {
@@ -36,7 +41,7 @@
 }
 
 .customize-section-title {
-	margin: -12px -20px 0 -20px;
+	margin: -12px -24px 0 -24px;
 }
 
 .customize-section-description-container, #customize-controls .customize-info.section-meta, #customize-controls .customize-info {
@@ -68,7 +73,7 @@
 
 .customize-control-title {
 	display: inline-block;
-	margin-bottom: 20px;
+	margin-bottom: 16px;
     vertical-align: middle;
 }
 
@@ -81,7 +86,7 @@
     position: absolute;
     top: 0;
     right: 0;
-    color: #787c82;
+    color: var(--ast-customizer-color-6);
 }
 
 .customize-control.customize-control-ast-toggle-control .ast-control-tooltip {
@@ -145,7 +150,7 @@ input[type="text"] {
 /* CSS to show popups without scroll */
 #customize-theme-controls .control-section.open {
     height: 100%;
-    padding: 12px 20px 25px 20px;
+    padding: 12px 24px 25px 24px;
 }
 
 /* Safari Browser specific CSS */

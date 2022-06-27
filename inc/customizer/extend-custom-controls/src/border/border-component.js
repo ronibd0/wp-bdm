@@ -1,6 +1,8 @@
 import PropTypes from 'prop-types';
 import {__} from '@wordpress/i18n';
 import {useState,useEffect} from 'react';
+import parse from 'html-react-parser';
+import svgIcons from '../../../../../assets/svg/svgs.json';
 
 const BorderComponent = props => {
 
@@ -85,15 +87,24 @@ const BorderComponent = props => {
 
 	let itemLinkDesc = __('Link Values Together', 'astra');
 
+
+
 	if (linked_choices) {
+		const linkActive = parse( svgIcons['hyper-link-enable'] );
+		const linkDeactivated = parse( svgIcons['hyper-link-disable'] );
+
 		htmlLinkedChoices = <li key={id} className="ast-border-input-item-link disconnected">
-					<span className="dashicons dashicons-admin-links ast-border-connected wp-ui-highlight"
+					<span className="ast-border-connected wp-ui-highlight"
 						  onClick={() => {
 							  onConnectedClick();
-						  }} data-element-connect={id} title={itemLinkDesc}></span>
-			<span className="dashicons dashicons-editor-unlink ast-border-disconnected" onClick={() => {
+						  }} data-element-connect={id} title={itemLinkDesc}>
+							  {linkActive}
+						  </span>
+			<span className="ast-border-disconnected" onClick={() => {
 				onDisconnectedClick();
-			}} data-element-connect={id} title={itemLinkDesc}></span>
+			}} data-element-connect={id} title={itemLinkDesc}>
+				{linkDeactivated}
+			</span>
 		</li>;
 	}
 

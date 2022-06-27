@@ -41,6 +41,9 @@ import { boxShadowControl }  from './box-shadow/control.js';
 import { responsiveToggleControl } from './responsive-toggle-control/control';
 import { inputWithDropdown } from './ast-input-with-dropdown/control';
 import { astFontVariantControl } from './ast-font-variant/control';
+import { astGroupTitleControl } from './ast-group-title/control';
+import { astMenuSelect } from './ast-menu-select/control';
+import { astButtonLinkControl } from './ast-button-link/control';
 
 window.svgIcons = svgIcons;
 wp.customize.controlConstructor['ast-heading'] = headingControl;
@@ -83,6 +86,9 @@ wp.customize.controlConstructor['ast-color-palette'] = colorPaletteControl;
 wp.customize.controlConstructor['ast-responsive-toggle-control'] = responsiveToggleControl;
 wp.customize.controlConstructor['ast-input-with-dropdown'] = inputWithDropdown;
 wp.customize.controlConstructor['ast-font-variant'] = astFontVariantControl;
+wp.customize.controlConstructor['ast-group-title'] = astGroupTitleControl;
+wp.customize.controlConstructor['ast-menu-select'] = astMenuSelect;
+wp.customize.controlConstructor["ast-button-link"] = astButtonLinkControl;
 
 wp.customize.controlConstructor['ast-box-shadow'] = boxShadowControl;
 import { Base } from './customizer';

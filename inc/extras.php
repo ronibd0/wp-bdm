@@ -964,7 +964,7 @@ function astra_search_static_css() {
  * Getting current author ID.
  *
  * @since x.x.x
- * @return int
+ * @return mixed
  */
 function astra_get_author_id() {
 	$author_id = get_queried_object_id();
@@ -974,8 +974,10 @@ function astra_get_author_id() {
 	}
 
 	if ( ! $author_id ) {
-		$author    = get_user_by( 'slug', get_query_var( 'author_name' ) );
+		$author = get_user_by( 'slug', get_query_var( 'author_name' ) );
+		/** @psalm-suppress PossiblyInvalidPropertyFetch */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 		$author_id = $author->ID;
+		/** @psalm-suppress PossiblyInvalidPropertyFetch */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 	}
 
 	return $author_id;

@@ -107,6 +107,20 @@
 		}
 	}
 }
+
+.ast-top-dotted-divider.customize-control-ast-color-group {
+	.ast-control-wrap {
+		.ast-color-btn-reset-wrap {
+			top: 30px;
+		}
+	}
+	.ast-divider-title + .ast-control-wrap {
+		.ast-color-btn-reset-wrap {
+			top: 75px;
+		}
+	}
+}
+
 .customize-control-ast-color-group {
 	.ast-control-wrap {
 		display: inline-flex;

@@ -38,6 +38,21 @@ class Astra_Header_Menu_Component {
 	}
 
 	/**
+	 * Get menu by location
+	 *
+	 * @since x.x.x
+	 *
+	 * @param string $theme_location Registered theme location.
+	 * @return mixed If menu location set.
+	 */
+	public static function astra_get_menu_by_location( $theme_location ) {
+		// Get all locations.
+		$locations = get_nav_menu_locations();
+		// Return menu.
+		return isset( $locations[ $theme_location ] ) ? $locations[ $theme_location ] : '';
+	}
+
+	/**
 	 * Secondary navigation markup
 	 *
 	 * @param int $index index.
@@ -55,6 +70,8 @@ class Astra_Header_Menu_Component {
 				$theme_location = 'menu_' . $index;
 				break;
 		}
+
+		$menu_id = astra_get_option( 'nav_menu_locations-' . $theme_location, self::astra_get_menu_by_location( $theme_location ) );
 
 		$_prefix = 'menu' . $index;
 
@@ -119,16 +136,18 @@ class Astra_Header_Menu_Component {
 			Astra_Builder_UI_Controller::render_customizer_edit_button();
 		}
 		if ( has_nav_menu( $theme_location ) ) {
+			/** @psalm-suppress ArgumentTypeCoercion */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			wp_nav_menu(
 				array(
+					'menu'            => $menu_id,
 					'menu_id'         => 'ast-hf-menu-' . $index,
 					'menu_class'      => esc_attr( implode( ' ', $menu_classes ) ),
 					'container'       => 'div',
 					'container_class' => 'main-header-bar-navigation',
 					'items_wrap'      => $items_wrap,
-					'theme_location'  => $theme_location,
 				)
 			);
+				/** @psalm-suppress ArgumentTypeCoercion */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 		} else {
 				echo '<div class="main-header-bar-navigation ast-flex-1">';
 					echo '<nav ';

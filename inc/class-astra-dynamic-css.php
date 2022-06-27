@@ -146,7 +146,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$is_widget_title_support_font_weight = self::support_font_css_to_widget_and_in_editor();
 			$font_weight_prop                    = ( $is_widget_title_support_font_weight ) ? 'inherit' : 'normal';
 
-			$update_customizer_strctural_defaults = astra_get_option( 'customizer-default-layout-update', true );
+			$update_customizer_strctural_defaults = astra_check_is_structural_setup();
 
 			// Fallback for H1 - headings typography.
 			if ( 'inherit' == $h1_font_family ) {
@@ -1074,7 +1074,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 							),
 						);
 						/* Parse CSS from array() -> min-width: (1200)px CSS */
-						$parse_css .= astra_parse_css( $middle_screen_min_gb_css, '1200' );
+						$parse_css .= astra_parse_css( $gtn_margin_top, '1200' );
 					}
 				}
 			}
@@ -4018,7 +4018,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		 */
 		public static function load_sidebar_static_css() {
 
-			$update_customizer_strctural_defaults = astra_get_option( 'customizer-default-layout-update', true );
+			$update_customizer_strctural_defaults = astra_check_is_structural_setup();
 			$secondary_li_bottom_spacing          = ( true === $update_customizer_strctural_defaults ) ? '0.75em' : '0.25em';
 			$is_site_rtl                          = is_rtl() ? true : false;
 			$ltr_left                             = $is_site_rtl ? esc_attr( 'right' ) : esc_attr( 'left' );
@@ -4100,7 +4100,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		 */
 		public static function load_cart_static_css() {
 
-			$theme_color        = astra_get_option( 'theme-color' );   
+			$theme_color        = astra_get_option( 'theme-color' );
 			$btn_border_color   = astra_get_option( 'theme-button-border-group-border-color' );
 			$btn_bg_color       = astra_get_option( 'button-bg-color', $theme_color );
 			$btn_border_h_color = astra_get_option( 'theme-button-border-group-border-h-color' );
@@ -4547,12 +4547,12 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					margin-right: 10px;
 				}
 
-				.woocommerce-js .astra-cart-drawer .astra-cart-drawer-content .woocommerce-mini-cart__buttons .button:not(.checkout), 
+				.woocommerce-js .astra-cart-drawer .astra-cart-drawer-content .woocommerce-mini-cart__buttons .button:not(.checkout),
 				.ast-site-header-cart .widget_shopping_cart .buttons .button:not(.checkout) {
 					background-color: transparent;
 					border-style: solid;
 					border-width: 2px;
-					border-color: ' . $normal_border_color . '; 
+					border-color: ' . $normal_border_color . ';
 					color: ' . esc_attr( $btn_bg_color ) . ';
 				}
 
@@ -4567,7 +4567,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					margin-top: 10px;
 					border-style: solid;
 					border-width: 2px;
-					border-color: ' . $normal_border_color . '; 
+					border-color: ' . $normal_border_color . ';
 				}
 
 				.woocommerce-js .astra-cart-drawer .astra-cart-drawer-content .woocommerce-mini-cart__buttons a.checkout:hover {

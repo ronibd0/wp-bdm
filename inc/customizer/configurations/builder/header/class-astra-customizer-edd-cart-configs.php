@@ -67,6 +67,7 @@ class Astra_Customizer_Edd_Cart_Configs extends Astra_Customizer_Config_Base {
 					'container_inclusive' => false,
 					'render_callback'     => array( 'Astra_Builder_Header', 'header_edd_cart' ),
 				),
+				'divider'   => array( 'ast_class' => 'ast-top-section-divider' ),
 				'control'   => 'ast-toggle-control',
 				'context'   => Astra_Builder_Helper::$general_tab,
 			),
@@ -106,6 +107,7 @@ class Astra_Customizer_Edd_Cart_Configs extends Astra_Customizer_Config_Base {
 					'outline' => __( 'Outline', 'astra' ),
 					'fill'    => __( 'Fill', 'astra' ),
 				),
+				'divider'    => array( 'ast_class' => 'ast-bottom-dotted-divider' ),
 				'responsive' => false,
 				'renderAs'   => 'text',
 				'context'    => Astra_Builder_Helper::$design_tab,
@@ -155,6 +157,7 @@ class Astra_Customizer_Edd_Cart_Configs extends Astra_Customizer_Config_Base {
 				'suffix'      => 'px',
 				'control'     => 'ast-slider',
 				'priority'    => 47,
+				'divider'     => array( 'ast_class' => 'ast-top-section-divider' ),
 				'input_attrs' => array(
 					'min'  => 0,
 					'step' => 1,
@@ -198,7 +201,6 @@ class Astra_Customizer_Edd_Cart_Configs extends Astra_Customizer_Config_Base {
 				),
 
 				/**
-				 * Option: Divider
 				 * Option: EDD cart tray Section divider
 				 */
 				array(
@@ -210,6 +212,7 @@ class Astra_Customizer_Edd_Cart_Configs extends Astra_Customizer_Config_Base {
 					'priority' => 60,
 					'settings' => array(),
 					'context'  => Astra_Builder_Helper::$design_tab,
+					'divider'  => array( 'ast_class' => 'ast-section-spacing' ),
 				),
 
 				// Option: Cart Link / Text Color.
@@ -256,6 +259,7 @@ class Astra_Customizer_Edd_Cart_Configs extends Astra_Customizer_Config_Base {
 					'responsive' => true,
 					'rgba'       => true,
 					'priority'   => 65,
+					'divider'    => array( 'ast_class' => 'ast-section-spacing' ),
 					'context'    => Astra_Builder_Helper::$design_tab,
 				),
 
@@ -287,7 +291,7 @@ class Astra_Customizer_Edd_Cart_Configs extends Astra_Customizer_Config_Base {
 					'context'    => Astra_Builder_Helper::$design_tab,
 					'responsive' => true,
 					'divider'    => array(
-						'ast_class' => 'ast-top-divider',
+						'ast_class' => 'ast-top-dotted-divider',
 						'ast_title' => __( 'Checkout', 'astra' ),
 					),
 				),
