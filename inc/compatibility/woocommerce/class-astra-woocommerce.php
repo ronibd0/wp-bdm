@@ -1389,7 +1389,9 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				';
 			}
 
+			/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			if ( ! ( defined( 'ASTRA_EXT_VER' ) && class_exists( 'Astra_Ext_Extension' ) && Astra_Ext_Extension::is_active( 'woocommerce' ) ) ) {
+				/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 				$css_output .= '
 					.woocommerce .woocommerce-result-count, .woocommerce-page .woocommerce-result-count {
 						float: left;

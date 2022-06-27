@@ -37,8 +37,9 @@ if ( ! function_exists( 'astra_get_post_meta' ) ) {
 
 				case 'author':
 					/** @psalm-suppress InvalidScalarArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-					if ( ! empty( get_the_author_meta( 'display_name', isset( get_queried_object()->post_author ) ) ) ) {
-						/** @psalm-suppress InvalidScalarArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+					$author_name = get_the_author_meta( 'display_name', isset( get_queried_object()->post_author ) );
+					/** @psalm-suppress InvalidScalarArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+					if ( ! empty( $author_name ) ) {
 						$output_str .= ( 1 != $loop_count && '' != $output_str ) ? ' ' . $separator . ' ' : '';
 						$output_str .= esc_html( astra_default_strings( 'string-blog-meta-author-by', false ) ) . astra_post_author();
 					}
@@ -191,15 +192,18 @@ if ( ! function_exists( 'astra_post_author' ) ) {
 				?>
 				>
 				<span
-				<?php
-					echo astra_attr(
-						'author-name',
-						array(
-							'class' => 'author-name',
-						)
-					);
-				?>
-				><?php echo esc_html( get_the_author_meta( 'display_name', isset( get_queried_object()->post_author ) ) ); ?></span>
+					<?php
+						echo astra_attr(
+							'author-name',
+							array(
+								'class' => 'author-name',
+							)
+						);
+						/** @psalm-suppress InvalidScalarArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+						echo esc_html( get_the_author_meta( 'display_name', isset( get_queried_object()->post_author ) ) );
+						/** @psalm-suppress InvalidScalarArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+					?>
+				</span>
 			</a>
 		</span>
 

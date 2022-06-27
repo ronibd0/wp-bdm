@@ -402,7 +402,7 @@ if ( ! function_exists( 'astra_get_video_from_post' ) ) {
  * @param string $string - String from which last word needs to find.
  * @return string $last_word.
  */
-function ast_get_last_meta_word( $string ) {
+function astra_get_last_meta_word( $string ) {
 	$string    = explode( '-', $string );
 	$last_word = array_pop( $string );
 	return $last_word;
@@ -438,7 +438,7 @@ function astra_banner_elements_order( $structure = array() ) {
 	}
 
 	foreach ( $structure as $metaval ) {
-		$meta_key = $prefix . '-' . ast_get_last_meta_word( $metaval );
+		$meta_key = $prefix . '-' . astra_get_last_meta_word( $metaval );
 
 		switch ( $meta_key ) {
 			case 'single-breadcrumb':
@@ -508,12 +508,14 @@ function astra_banner_elements_order( $structure = array() ) {
 			case 'archive-description':
 				do_action( 'astra_blog_archive_description_before' );
 				if ( ! is_search() ) {
-					$description = '';
-					if ( ! empty( get_the_archive_description() ) ) {
-						$description = get_the_archive_description();
+					$description         = '';
+					$archive_description = get_the_archive_description();
+					if ( ! empty( $archive_description ) ) {
+						$description = $archive_description;
 					}
 					if ( is_author() ) {
-						if ( ! empty( trim( get_the_author_meta( 'description', astra_get_author_id() ) ) ) ) {
+						$trimmed_author_name = trim( get_the_author_meta( 'description', astra_get_author_id() ) );
+						if ( ! empty( $trimmed_author_name ) ) {
 							$description = wp_kses_post( get_the_author_meta( 'description', astra_get_author_id() ) );
 						}
 					}
