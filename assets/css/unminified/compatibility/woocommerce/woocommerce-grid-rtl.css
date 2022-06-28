@@ -3119,7 +3119,7 @@ p.demo_store[data-position="bottom"],
 .woocommerce-page textarea,
 .woocommerce-page form .form-row textarea {
   border-color: var(--ast-global-color-6);
-  background-color: transparent;
+  background-color: #fff;
   box-shadow: none;
   border-radius: 0px;
 }
@@ -3152,7 +3152,7 @@ p.demo_store[data-position="bottom"],
   line-height: normal;
   padding-left: 2em;
   appearance: none;
-  background-color: transparent;
+  background-color: #fff;
   border-color: var(--ast-global-color-6);
   border-radius: 3px;
   box-shadow: none;
@@ -3172,6 +3172,7 @@ p.demo_store[data-position="bottom"],
 
 .woocommerce .woocommerce-ordering select,
 .woocommerce-page .woocommerce-ordering select {
+  background-color: transparent;
   border: transparent;
   border-radius: 0;
 }
