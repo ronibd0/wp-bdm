@@ -44,7 +44,7 @@
 .customize-control-ast-selector .components-button .ahfb-icon-set svg {
     width: 16px;
     height: 16px;
-    fill: var(--ast-customizer-color-6);
+    fill: var(--ast-customizer-color-8);
 }
 .customize-control-ast-selector .components-button.is-primary .ahfb-icon-set svg,
 .customize-control-ast-selector .components-button.is-primary .ahfb-icon-set svg circle,
@@ -77,8 +77,8 @@
 }
 .customize-control-ast-selector .ast-responsive-btns {
     position: relative;
-    right: 5px;
-    top: -2px;
+    right: 6px;
+    top: -1px;
 }
 .customize-control-ast-selector .ast-alignment-inner-wrap .components-button:focus:not(:disabled) {
     box-shadow: none;
@@ -1341,7 +1341,7 @@
 .customize-control-ast-selector .components-button .ahfb-icon-set svg {
     width: 16px;
     height: 16px;
-    fill: var(--ast-customizer-color-6);
+    fill: var(--ast-customizer-color-8);
 }
 .customize-control-ast-selector .components-button.is-primary .ahfb-icon-set svg,
 .customize-control-ast-selector .components-button.is-primary .ahfb-icon-set svg circle,
@@ -1374,8 +1374,8 @@
 }
 .customize-control-ast-selector .ast-responsive-btns {
     position: relative;
-    right: 5px;
-    top: -2px;
+    right: 6px;
+    top: -1px;
 }
 .customize-control-ast-selector .ast-alignment-inner-wrap .components-button:focus:not(:disabled) {
     box-shadow: none;
@@ -3100,6 +3100,8 @@ span.customize-control-title.ast-group-section-title {
 }
 .customize-control-ast-group-title .ast-responsive-btns {
 	margin-right: 5px;
+    position: relative;
+    top: 2px;
 }
 
 .ast-field-settings-wrap .customize-control-ast-heading {
@@ -3230,6 +3232,11 @@ span.customize-control-title.ast-group-section-title {
 	cursor: pointer;
 }
 
+.customize-control-ast-row-layout .ast-responsive-btns {
+  position: relative;
+  top: 1px;
+}
+
 .customize-control-ast-radio-image label {
   position: relative;
   display: inline-block;
@@ -3321,7 +3328,7 @@ span.customize-control-title.ast-group-section-title {
 }
 
 .ast-divide-four .ast-radio-img-svg svg path {
-  color: var(--ast-customizer-color-6);
+  color: var(--ast-customizer-color-8);
 }
 
 #customize-control-astra-settings-above-header-menu-align .ast-radio-img-svg svg,
@@ -3636,7 +3643,7 @@ span.customize-control-title.ast-group-section-title {
 .customize-control-ast-responsive-color .ast-responsive-btns {
   position: relative;
   left: -5px;
-  top: 2px;
+  top: 3px;
 }
 .ast-field-settings-modal .customize-control-ast-responsive-background .ast-responsive-btns,
 .ast-field-settings-modal .customize-control-ast-responsive-color .ast-responsive-btns  {
@@ -3928,7 +3935,7 @@ span.customize-control-title.ast-group-section-title {
 
 .customize-control-ast-responsive-spacing .ast-spacing-responsive-units-screen-wrap {
   position: relative;
-  top: -7px;
+  top: -5px;
   left: -10px;
   display: inline-block;
 }
@@ -4469,7 +4476,7 @@ span.customize-control-title.ast-group-section-title {
 
 .customize-control-ast-settings-group .ast-field-settings-modal .customize-control-ast-responsive-slider .ast-responsive-slider-btns,
 .customize-control-ast-settings-group .ast-field-settings-modal .customize-control-ast-slider .ast-responsive-slider-btns {
-  top: 0;
+  top: 1px;
 }
 
 .ast-field-settings-modal .customize-control {
@@ -4638,7 +4645,7 @@ span.customize-control-title.ast-group-section-title {
 
 .customize-control-ast-responsive-slider .ast-responsive-slider-btns {
   position: relative;
-  top: -5px;
+  top: -4px;
   left: -10px;
   display: inline-block;
 }
@@ -5501,6 +5508,8 @@ span.customize-control-title.ast-group-section-title {
 }
 .customize-control-ast-group-title .ast-responsive-btns {
 	margin-right: 5px;
+    position: relative;
+    top: 2px;
 }
 
 .ast-field-settings-wrap .customize-control-ast-heading {
@@ -5631,6 +5640,11 @@ span.customize-control-title.ast-group-section-title {
 	cursor: pointer;
 }
 
+.customize-control-ast-row-layout .ast-responsive-btns {
+  position: relative;
+  top: 1px;
+}
+
 .customize-control-ast-radio-image label {
   position: relative;
   display: inline-block;
@@ -5722,7 +5736,7 @@ span.customize-control-title.ast-group-section-title {
 }
 
 .ast-divide-four .ast-radio-img-svg svg path {
-  color: var(--ast-customizer-color-6);
+  color: var(--ast-customizer-color-8);
 }
 
 #customize-control-astra-settings-above-header-menu-align .ast-radio-img-svg svg,
@@ -6037,7 +6051,7 @@ span.customize-control-title.ast-group-section-title {
 .customize-control-ast-responsive-color .ast-responsive-btns {
   position: relative;
   left: -5px;
-  top: 2px;
+  top: 3px;
 }
 .ast-field-settings-modal .customize-control-ast-responsive-background .ast-responsive-btns,
 .ast-field-settings-modal .customize-control-ast-responsive-color .ast-responsive-btns  {
@@ -6446,7 +6460,7 @@ span.customize-control-title.ast-group-section-title {
 
 .customize-control-ast-responsive-spacing .ast-spacing-responsive-units-screen-wrap {
   position: relative;
-  top: -7px;
+  top: -5px;
   left: -10px;
   display: inline-block;
 }
@@ -6870,7 +6884,7 @@ span.customize-control-title.ast-group-section-title {
 
 .customize-control-ast-settings-group .ast-field-settings-modal .customize-control-ast-responsive-slider .ast-responsive-slider-btns,
 .customize-control-ast-settings-group .ast-field-settings-modal .customize-control-ast-slider .ast-responsive-slider-btns {
-  top: 0;
+  top: 1px;
 }
 
 .ast-field-settings-modal .customize-control {
@@ -7039,7 +7053,7 @@ span.customize-control-title.ast-group-section-title {
 
 .customize-control-ast-responsive-slider .ast-responsive-slider-btns {
   position: relative;
-  top: -5px;
+  top: -4px;
   left: -10px;
   display: inline-block;
 }

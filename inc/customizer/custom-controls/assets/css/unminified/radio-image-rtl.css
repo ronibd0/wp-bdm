@@ -1,3 +1,8 @@
+.customize-control-ast-row-layout .ast-responsive-btns {
+  position: relative;
+  top: 1px;
+}
+
 .customize-control-ast-radio-image label {
   position: relative;
   display: inline-block;
@@ -89,7 +94,7 @@
 }
 
 .ast-divide-four .ast-radio-img-svg svg path {
-  color: var(--ast-customizer-color-6);
+  color: var(--ast-customizer-color-8);
 }
 
 #customize-control-astra-settings-above-header-menu-align .ast-radio-img-svg svg,
