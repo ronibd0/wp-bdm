@@ -3148,7 +3148,7 @@ p.demo_store[data-position="bottom"],
 .woocommerce select, .woocommerce .select2-container .select2-selection--single,
 .woocommerce-page select,
 .woocommerce-page .select2-container .select2-selection--single {
-  padding: 0.75em;
+  padding: 0.80em;
   line-height: normal;
   padding-left: 2em;
   appearance: none;
