@@ -54,6 +54,7 @@ class Astra_Customizer_Edd_Cart_Configs extends Astra_Customizer_Config_Base {
 			/**
 			 * Option: Header cart total
 			 */
+			/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			array(
 				'name'      => ASTRA_THEME_SETTINGS . '[edd-header-cart-total-display]',
 				'default'   => astra_get_option( 'edd-header-cart-total-display' ),
