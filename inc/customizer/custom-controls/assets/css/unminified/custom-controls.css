@@ -58,9 +58,6 @@
 .customize-control-ast-selector .ast-alignment-inner-wrap:last-child .components-button {
     border-radius: 0px 3px 3px 0px;
 }
-.ast-alignment-wrapper .ast-alignment-inner-wrap:not(:first-child) .components-button {
-    margin-left: -1px;
-}
 
 .ast-alignment-wrapper .ast-alignment-inner-wrap:not(:first-child):not(:last-child) .components-button{
     border-right: none;
