@@ -31,7 +31,7 @@
     justify-content: center;
     border-radius: unset;
     transition: none;
-    font-weight: 600;
+    font-weight: normal;
 }
 .ast-alignment-inner-wrap.active .components-button.is-primary {
     color: var(--ast-customizer-color-10);
