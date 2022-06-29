@@ -166,7 +166,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 				),
 				'responsive' => false,
 				'renderAs'   => 'text',
-				'divider'    => array( 'ast_class' => 'ast-bottom-dotted-divider' ),
+				'divider'    => array( 'ast_class' => ( defined( 'ASTRA_EXT_VER' ) ) ? 'ast-bottom-dotted-divider' : 'ast-section-spacing ast-bottom-dotted-divider' ),
 			),
 
 			/**
@@ -460,6 +460,21 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 						),
 					),
 				),
+			),
+
+			/**
+			 * Option: Divider
+			 */
+			array(
+				'name'     => ASTRA_THEME_SETTINGS . '[header-account-spacing-divider]',
+				'section'  => 'section-header-account',
+				'title'    => __( 'Spacing', 'astra-addon' ),
+				'type'     => 'control',
+				'control'  => 'ast-heading',
+				'priority' => 510,
+				'settings' => array(),
+				'context'  => Astra_Builder_Helper::$design_tab,
+				'divider'  => array( 'ast_class' => 'ast-section-spacing' ),
 			),
 
 			/**

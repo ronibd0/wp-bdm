@@ -67,7 +67,7 @@ class Astra_Customizer_Edd_Cart_Configs extends Astra_Customizer_Config_Base {
 					'container_inclusive' => false,
 					'render_callback'     => array( 'Astra_Builder_Header', 'header_edd_cart' ),
 				),
-				'divider'   => array( 'ast_class' => 'ast-top-section-divider' ),
+				'divider'   => array( 'ast_class' => ( defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'edd' ) ) ? 'ast-top-section-divider' : 'ast-section-spacing' ),
 				'control'   => 'ast-toggle-control',
 				'context'   => Astra_Builder_Helper::$general_tab,
 			),

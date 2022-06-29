@@ -169,12 +169,13 @@ if ( ! class_exists( 'Astra_Woo_Shop_Single_Layout_Configs' ) ) {
 					'section'     => 'section-woo-shop-single',
 					'title'       => __( 'Button Width', 'astra' ),
 					'suffix'      => '%',
-					'priority'    => 26,
+					'priority'    => 16,
 					'input_attrs' => array(
 						'min'  => 1,
 						'step' => 1,
 						'max'  => 100,
 					),
+					'divider'     => array( 'ast_class' => 'ast-top-section-divider ast-bottom-section-divider' ),
 				);
 			}
 

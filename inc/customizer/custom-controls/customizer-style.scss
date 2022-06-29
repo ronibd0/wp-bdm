@@ -243,3 +243,7 @@ input[type="text"] {
 	}
 }
 
+#customize-theme-controls .accordion-section-title, #customize-outer-theme-controls .accordion-section-title,
+#customize-controls .control-section.control-section-ast_section .accordion-section-title {
+    border-bottom: 1px solid var(--ast-customizer-color-7);
+}

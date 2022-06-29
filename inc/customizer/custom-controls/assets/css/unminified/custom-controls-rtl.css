@@ -2848,6 +2848,11 @@ input[type="text"].select2-search__field {
   display: none;
 }
 
+#customize-theme-controls .accordion-section-title, #customize-outer-theme-controls .accordion-section-title,
+#customize-controls .control-section.control-section-ast_section .accordion-section-title {
+  border-bottom: 1px solid var(--ast-customizer-color-7);
+}
+
 .customize-control-ast-description .ast-description {
   font-style: italic;
 }
@@ -5254,6 +5259,11 @@ input[type="text"].select2-search__field {
 
 .preview-mobile #customize-control-astra-settings-woo-desktop-cart-flyout-direction {
   display: none;
+}
+
+#customize-theme-controls .accordion-section-title, #customize-outer-theme-controls .accordion-section-title,
+#customize-controls .control-section.control-section-ast_section .accordion-section-title {
+  border-bottom: 1px solid var(--ast-customizer-color-7);
 }
 
 .customize-control-ast-description .ast-description {

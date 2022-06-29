@@ -95,6 +95,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'priority' => 10,
 						'title'    => __( 'Menu', 'astra' ),
 						'context'  => Astra_Builder_Helper::$general_tab,
+						'divider'  => array( 'ast_class' => 'ast-section-spacing' ),
 					),
 
 					/**
@@ -402,7 +403,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'priority'   => 90,
 						'context'    => Astra_Builder_Helper::$design_tab,
 						'responsive' => true,
-						'divider'    => array( 'ast_class' => 'ast-bottom-section-divider' ),
+						'divider'    => array( 'ast_class' => ( defined( 'ASTRA_EXT_VER' ) ) ? 'ast-bottom-section-divider' : '' ),
 					),
 
 					// Option: Menu Color.

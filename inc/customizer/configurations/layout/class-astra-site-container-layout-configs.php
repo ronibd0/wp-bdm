@@ -178,27 +178,6 @@ if ( ! class_exists( 'Astra_Site_Container_Layout_Configs' ) ) {
 				$config = array(
 
 					array(
-						'name'     => ASTRA_THEME_SETTINGS . '[ast-container-more-feature-description]',
-						'type'     => 'control',
-						'control'  => 'ast-description',
-						'section'  => 'section-container-layout',
-						'priority' => 999,
-						'title'    => '',
-						'help'     => '<p>' . __( 'More Options Available in Astra Pro!!!', 'astra' ) . '</p><a href="' . astra_get_pro_url( 'https://wpastra.com/pro/', 'customizer', 'learn-more', 'upgrade-to-pro' ) . '" class="button button-secondary"  target="_blank" rel="noopener">' . __( 'Learn More', 'astra' ) . '</a>',
-						'settings' => array(),
-						'divider'  => array( 'ast_class' => 'ast-bottom-divider' ),
-					),
-				);
-
-				$configurations = array_merge( $configurations, $config );
-			}
-
-			// Learn More link if Astra Pro is not activated.
-			if ( ! defined( 'ASTRA_EXT_VER' ) ) {
-
-				$config = array(
-
-					array(
 						'name'     => ASTRA_THEME_SETTINGS . '[ast-site-layout-button-link]',
 						'type'     => 'control',
 						'control'  => 'ast-button-link',

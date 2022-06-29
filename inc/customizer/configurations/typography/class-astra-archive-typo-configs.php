@@ -38,7 +38,7 @@ if ( ! class_exists( 'Astra_Archive_Typo_Configs' ) ) {
 				$_configs = array(
 
 					/**
-					 * Option: Learn More about Contant Typography
+					 * Option: Learn More about content typography
 					 */
 					array(
 						'name'     => ASTRA_THEME_SETTINGS . '[ast-blog-button-link]',
@@ -196,6 +196,7 @@ if ( ! class_exists( 'Astra_Archive_Typo_Configs' ) ) {
 						),
 						'context'           => ( true === Astra_Builder_Helper::$is_header_footer_builder_active ) ?
 							Astra_Builder_Helper::$design_tab : Astra_Builder_Helper::$general_tab,
+						'divider'           => array( 'ast_class' => 'ast-section-spacing ast-bottom-section-divider' ),
 					),
 
 					/**
