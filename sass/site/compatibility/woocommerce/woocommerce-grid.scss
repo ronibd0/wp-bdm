@@ -2747,7 +2747,7 @@ p.demo_store,
 .woocommerce-page{
 	input[type=text], input[type=email], input[type=url], input[type=password], input[type=number], input[type=search], input[type=reset], input[type=tel], textarea, form .form-row textarea {
 		border-color: var(--ast-global-color-6);
-		background: var(--ast-global-color-5);
+		background-color: #fff;
 		box-shadow: none;
 		border-radius: 0px;
 
@@ -2768,7 +2768,7 @@ p.demo_store,
 		line-height: normal;
 		padding-right: 2em;
 		appearance: none;
-		background-color: var(--ast-global-color-5);
+		background-color: #fff;
 		border-color: var(--ast-global-color-6);
 		border-radius: 3px;
 		box-shadow: none;
@@ -2780,6 +2780,12 @@ p.demo_store,
 		b {
 			display: none;
 		}
+	}
+
+	.woocommerce-ordering select {
+		background-color: transparent;
+		border: transparent;
+		border-radius: 0;
 	}
 }
 
