@@ -1325,7 +1325,7 @@
     justify-content: center;
     border-radius: unset;
     transition: none;
-    font-weight: 600;
+    font-weight: normal;
 }
 .ast-alignment-inner-wrap.active .components-button.is-primary {
     color: var(--ast-customizer-color-10);
@@ -1351,9 +1351,6 @@
 }
 .customize-control-ast-selector .ast-alignment-inner-wrap:last-child .components-button {
     border-radius: 3px 0px 0px 3px;
-}
-.ast-alignment-wrapper .ast-alignment-inner-wrap:not(:first-child) .components-button {
-    margin-right: -1px;
 }
 
 .ast-alignment-wrapper .ast-alignment-inner-wrap:not(:first-child):not(:last-child) .components-button{
