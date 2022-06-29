@@ -1,4 +1,4 @@
-v3.8.5 (Unreleased)
+v3.8.5
 - Fix: Getting top spacing for entry-header in case of page builder template.
 
 v3.8.4
