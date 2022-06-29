@@ -160,7 +160,7 @@ if ( ! class_exists( 'Astra_Edd_Archive_Layout_Configs' ) ) {
 							'value'    => 'add_cart',
 						),
 					),
-					'divider'    => array( 'ast_class' => 'ast-top-section-divider ast-bottom-dotted-divider' ),
+					'divider'    => array( 'ast_class' => 'ast-top-section-divider' ),
 				),
 
 				/**
