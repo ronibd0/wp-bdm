@@ -937,18 +937,17 @@ function astra_apply_modern_block_editor_v2_ui() {
 function astra_display_cart_total_title_compatibility() {
 	$theme_options = get_option( 'astra-settings', array() );
 
-	error_log( 'Running theme batch...' );
-
 	if ( ! isset( $theme_options['woo-header-cart-label-display'] ) ) {
+		error_log( 'in cart update isset - ' );
 
 		// Set the Display Cart Label toggle values with shortcodes.
-		if ( ( isset( $theme_options['woo-header-cart-total-display'] ) && false !== $theme_options['woo-header-cart-total-display'] ) && ( isset( $theme_options['woo-header-cart-title-display'] ) && false !== $theme_options['woo-header-cart-title-display'] ) ) {
+		if ( ( isset( $theme_options['woo-header-cart-total-display'] ) && false != $theme_options['woo-header-cart-total-display'] ) && ( isset( $theme_options['woo-header-cart-title-display'] ) && false != $theme_options['woo-header-cart-title-display'] ) ) {
 			$theme_options['woo-header-cart-label-display'] = __( 'Cart', 'astra' ) . '/{cart_total_currency_symbol}';
 			error_log( 'First - ' . $theme_options['woo-header-cart-label-display'] );
-		} elseif ( isset( $theme_options['woo-header-cart-total-display'] ) && false !== $theme_options['woo-header-cart-total-display'] ) {
+		} elseif ( isset( $theme_options['woo-header-cart-total-display'] ) && false != $theme_options['woo-header-cart-total-display'] ) {
 			$theme_options['woo-header-cart-label-display'] = '{cart_total_currency_symbol}';
 			error_log( 'Second - ' . $theme_options['woo-header-cart-label-display'] );
-		} elseif ( isset( $theme_options['woo-header-cart-title-display'] ) && false !== $theme_options['woo-header-cart-title-display'] ) {
+		} elseif ( isset( $theme_options['woo-header-cart-title-display'] ) && false != $theme_options['woo-header-cart-title-display'] ) {
 			$theme_options['woo-header-cart-label-display'] = __( 'Cart', 'astra' );
 			error_log( 'Third - ' . $theme_options['woo-header-cart-label-display'] );
 		}
