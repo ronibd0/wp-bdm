@@ -216,7 +216,7 @@ class Astra_Customizer_Footer_Builder_Configs extends Astra_Customizer_Config_Ba
 				'section'   => 'section-footer-builder-layout',
 				'transport' => 'postMessage',
 				'priority'  => 70,
-				'title'     => __( 'Background Color & Image', 'astra' ),
+				'title'     => __( 'Background Color-Image', 'astra' ),
 				'context'   => Astra_Builder_Helper::$design_tab,
 				'divider'   => array( 'ast_class' => 'ast-section-spacing' ),
 			),

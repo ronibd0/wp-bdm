@@ -938,19 +938,19 @@ function astra_display_cart_total_title_compatibility() {
 	$theme_options = get_option( 'astra-settings', array() );
 
 	if ( ! isset( $theme_options['woo-header-cart-label-display'] ) ) {
-
 		// Set the Display Cart Label toggle values with shortcodes.
-		if ( ( isset( $theme_options['woo-header-cart-total-display'] ) && false !== $theme_options['woo-header-cart-total-display'] ) && ( isset( $theme_options['woo-header-cart-title-display'] ) && false !== $theme_options['woo-header-cart-title-display'] ) ) {
+		if ( ( isset( $theme_options['woo-header-cart-total-display'] ) && true === $theme_options['woo-header-cart-total-display'] ) && ( isset( $theme_options['woo-header-cart-title-display'] ) && true === $theme_options['woo-header-cart-title-display'] ) ) {
 			$theme_options['woo-header-cart-label-display'] = __( 'Cart', 'astra' ) . '/{cart_total_currency_symbol}';
-		} elseif ( isset( $theme_options['woo-header-cart-total-display'] ) && false !== $theme_options['woo-header-cart-total-display'] ) {
+		} elseif ( isset( $theme_options['woo-header-cart-total-display'] ) && true === $theme_options['woo-header-cart-total-display'] ) {
 			$theme_options['woo-header-cart-label-display'] = '{cart_total_currency_symbol}';
-		} elseif ( isset( $theme_options['woo-header-cart-title-display'] ) && false !== $theme_options['woo-header-cart-title-display'] ) {
+		} elseif ( isset( $theme_options['woo-header-cart-title-display'] ) && true === $theme_options['woo-header-cart-title-display'] ) {
 			$theme_options['woo-header-cart-label-display'] = __( 'Cart', 'astra' );
+		} else {
+			$theme_options['woo-header-cart-label-display'] = __( 'Cart', 'astra' ) . '/{cart_total_currency_symbol}';
 		}
 
 		update_option( 'astra-settings', $theme_options );
 	}
-
 }
 
 /**
@@ -977,6 +977,22 @@ function astra_legacy_customizer_maintenance() {
 	$theme_options = get_option( 'astra-settings', array() );
 	if ( ! isset( $theme_options['legacy-customizer-ui-maintainer'] ) ) {
 		$theme_options['legacy-customizer-ui-maintainer'] = true;
+		update_option( 'astra-settings', $theme_options );
+	}
+}
+
+/**
+ * Set flag to new customizer UI maintainer flag, to avoid direct reflections on live site & to maintain backward compatibility for existing users.
+ *
+ * Case: In older versions of Astra WooCommerce > Single Product sidebar layout synced with Default sidebar layout (not with WooCommerce sidebar option).
+ *
+ * @since x.x.x
+ * @return void
+ */
+function astra_update_single_product_sidebar_layout() {
+	$theme_options = get_option( 'astra-settings', array() );
+	if ( ! isset( $theme_options['woocommerce-single-product-fallback-default'] ) ) {
+		$theme_options['woocommerce-single-product-fallback-default'] = true;
 		update_option( 'astra-settings', $theme_options );
 	}
 }

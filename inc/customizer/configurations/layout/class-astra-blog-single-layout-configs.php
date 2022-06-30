@@ -183,7 +183,6 @@ if ( ! class_exists( 'Astra_Blog_Single_Layout_Configs' ) ) {
 					'divider'  => array( 'ast_class' => 'ast-section-spacing' ),
 				),
 
-				
 				/**
 				 * Option: Single Post Spacing
 				 */

@@ -68,6 +68,7 @@
 .customize-control.customize-control-ast-color-group .ast-responsive-btns {
   position: relative;
   left: -5px;
+  top: 3px;
 }
 
 .customize-control.customize-control-ast-color-group .ast-bg-img-remove.components-button.is-link {

@@ -75,7 +75,7 @@
 .customize-control-ast-selector .ast-responsive-btns {
     position: relative;
     left: 6px;
-    top: -1px;
+    top: 0px;
 }
 .customize-control-ast-selector .ast-alignment-inner-wrap .components-button:focus:not(:disabled) {
     box-shadow: none;
@@ -476,6 +476,7 @@
 .customize-control.customize-control-ast-color-group .ast-responsive-btns {
   position: relative;
   right: -5px;
+  top: 3px;
 }
 
 .customize-control.customize-control-ast-color-group .ast-bg-img-remove.components-button.is-link {
@@ -1823,7 +1824,7 @@ span.customize-control-title.ast-group-section-title {
 .customize-control-ast-group-title .ast-responsive-btns {
 	margin-left: 5px;
     position: relative;
-    top: 2px;
+    top: 3px;
 }
 
 .ast-field-settings-wrap .customize-control-ast-heading {
@@ -2729,7 +2730,10 @@ span.customize-control-title.ast-group-section-title {
   right: -10px;
   display: inline-block;
 }
-
+.customize-control-ast-responsive-spacing .ast-spacing-responsive-btns {
+    position: relative;
+    top: 2px;
+}
 .customize-control-ast-responsive-spacing .ast-spacing-responsive-btns > li {
   display: none;
 }
@@ -3266,7 +3270,7 @@ span.customize-control-title.ast-group-section-title {
 
 .customize-control-ast-settings-group .ast-field-settings-modal .customize-control-ast-responsive-slider .ast-responsive-slider-btns,
 .customize-control-ast-settings-group .ast-field-settings-modal .customize-control-ast-slider .ast-responsive-slider-btns {
-  top: 1px;
+  top: 2px;
 }
 
 .ast-field-settings-modal .customize-control {
@@ -3435,7 +3439,7 @@ span.customize-control-title.ast-group-section-title {
 
 .customize-control-ast-responsive-slider .ast-responsive-slider-btns {
   position: relative;
-  top: -4px;
+  top: -3px;
   right: -10px;
   display: inline-block;
 }

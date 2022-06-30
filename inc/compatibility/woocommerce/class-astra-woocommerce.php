@@ -881,7 +881,9 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				}
 
 				if ( is_product() ) {
-					$global_page_specific_layout = astra_get_option( 'single-product-sidebar-layout', 'default' );
+					$single_product_fallback_sidebar_layout = ( true === astra_get_option( 'woocommerce-single-product-fallback-default', false ) ) ? astra_get_option( 'site-sidebar-layout' ) : astra_get_option( 'woocommerce-sidebar-layout' );
+					$single_product_sidebar                 = astra_get_option( 'single-product-sidebar-layout', 'default' );
+					$global_page_specific_layout            = 'default' === $single_product_sidebar ? $single_product_fallback_sidebar_layout : $single_product_sidebar;
 				}
 
 				if ( 'default' !== $global_page_specific_layout ) {
@@ -918,7 +920,6 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				$woo_layout = astra_get_option( 'woocommerce-content-layout' );
 
 				if ( 'default' !== $woo_layout ) {
-
 					$layout = $woo_layout;
 				}
 

@@ -75,7 +75,7 @@
 .customize-control-ast-selector .ast-responsive-btns {
     position: relative;
     right: 6px;
-    top: -1px;
+    top: 0px;
 }
 .customize-control-ast-selector .ast-alignment-inner-wrap .components-button:focus:not(:disabled) {
     box-shadow: none;
@@ -476,6 +476,7 @@
 .customize-control.customize-control-ast-color-group .ast-responsive-btns {
   position: relative;
   left: -5px;
+  top: 3px;
 }
 
 .customize-control.customize-control-ast-color-group .ast-bg-img-remove.components-button.is-link {
@@ -1368,7 +1369,7 @@
 .customize-control-ast-selector .ast-responsive-btns {
     position: relative;
     right: 6px;
-    top: -1px;
+    top: 0px;
 }
 .customize-control-ast-selector .ast-alignment-inner-wrap .components-button:focus:not(:disabled) {
     box-shadow: none;
@@ -1769,6 +1770,7 @@
 .customize-control.customize-control-ast-color-group .ast-responsive-btns {
   position: relative;
   left: -5px;
+  top: 3px;
 }
 
 .customize-control.customize-control-ast-color-group .ast-bg-img-remove.components-button.is-link {
@@ -3116,7 +3118,7 @@ span.customize-control-title.ast-group-section-title {
 .customize-control-ast-group-title .ast-responsive-btns {
 	margin-right: 5px;
     position: relative;
-    top: 2px;
+    top: 3px;
 }
 
 .ast-field-settings-wrap .customize-control-ast-heading {
@@ -3353,7 +3355,7 @@ span.customize-control-title.ast-group-section-title {
   height: 49px;
 }
 
-/* Applies to all tooltips */
+/* Image tooltip */
 .image-clickable[data-title]::before,
 .image-clickable[data-title]::after {
   text-transform: none; 
@@ -3367,6 +3369,7 @@ span.customize-control-title.ast-group-section-title {
   right: 50%;
   transform: translate(50%, -.5em);
 }
+
 .image-clickable[data-title]::before {
   content: '';
   border: 5px solid transparent;
@@ -3374,7 +3377,9 @@ span.customize-control-title.ast-group-section-title {
   bottom: 100%;
   border-bottom-width: 0;
   border-top-color: var(--ast-customizer-color-12);
+  animation: tooltips-vert 300ms ease-out forwards;
 }
+
 .image-clickable[data-title]::after {
   content: attr(data-title); 
   min-width: 3em;
@@ -3390,7 +3395,6 @@ span.customize-control-title.ast-group-section-title {
   z-index: 1000;
   bottom: calc(100% + 5px);
   animation: tooltips-vert 300ms ease-out forwards;
-
 }
 
 /* Make the tooltips respond to hover */
@@ -4020,7 +4024,10 @@ span.customize-control-title.ast-group-section-title {
   left: -10px;
   display: inline-block;
 }
-
+.customize-control-ast-responsive-spacing .ast-spacing-responsive-btns {
+    position: relative;
+    top: 2px;
+}
 .customize-control-ast-responsive-spacing .ast-spacing-responsive-btns > li {
   display: none;
 }
@@ -4557,7 +4564,7 @@ span.customize-control-title.ast-group-section-title {
 
 .customize-control-ast-settings-group .ast-field-settings-modal .customize-control-ast-responsive-slider .ast-responsive-slider-btns,
 .customize-control-ast-settings-group .ast-field-settings-modal .customize-control-ast-slider .ast-responsive-slider-btns {
-  top: 1px;
+  top: 2px;
 }
 
 .ast-field-settings-modal .customize-control {
@@ -4726,7 +4733,7 @@ span.customize-control-title.ast-group-section-title {
 
 .customize-control-ast-responsive-slider .ast-responsive-slider-btns {
   position: relative;
-  top: -4px;
+  top: -3px;
   left: -10px;
   display: inline-block;
 }
@@ -5613,7 +5620,7 @@ span.customize-control-title.ast-group-section-title {
 .customize-control-ast-group-title .ast-responsive-btns {
 	margin-right: 5px;
     position: relative;
-    top: 2px;
+    top: 3px;
 }
 
 .ast-field-settings-wrap .customize-control-ast-heading {
@@ -6636,7 +6643,10 @@ span.customize-control-title.ast-group-section-title {
   left: -10px;
   display: inline-block;
 }
-
+.customize-control-ast-responsive-spacing .ast-spacing-responsive-btns {
+    position: relative;
+    top: 2px;
+}
 .customize-control-ast-responsive-spacing .ast-spacing-responsive-btns > li {
   display: none;
 }
@@ -7056,7 +7066,7 @@ span.customize-control-title.ast-group-section-title {
 
 .customize-control-ast-settings-group .ast-field-settings-modal .customize-control-ast-responsive-slider .ast-responsive-slider-btns,
 .customize-control-ast-settings-group .ast-field-settings-modal .customize-control-ast-slider .ast-responsive-slider-btns {
-  top: 1px;
+  top: 2px;
 }
 
 .ast-field-settings-modal .customize-control {
@@ -7225,7 +7235,7 @@ span.customize-control-title.ast-group-section-title {
 
 .customize-control-ast-responsive-slider .ast-responsive-slider-btns {
   position: relative;
-  top: -4px;
+  top: -3px;
   left: -10px;
   display: inline-block;
 }
