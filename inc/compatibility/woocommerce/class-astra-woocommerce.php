@@ -918,7 +918,6 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				$woo_layout = astra_get_option( 'woocommerce-content-layout' );
 
 				if ( 'default' !== $woo_layout ) {
-
 					$layout = $woo_layout;
 				}
 
