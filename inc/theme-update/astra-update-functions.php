@@ -980,3 +980,19 @@ function astra_legacy_customizer_maintenance() {
 		update_option( 'astra-settings', $theme_options );
 	}
 }
+
+/**
+ * Set flag to new customizer UI maintainer flag, to avoid direct reflections on live site & to maintain backward compatibility for existing users.
+ *
+ * Case: In older versions of Astra WooCommerce > Single Product sidebar layout synced with Default sidebar layout (not with WooCommerce sidebar option).
+ *
+ * @since x.x.x
+ * @return void
+ */
+function astra_update_single_product_sidebar_layout() {
+	$theme_options = get_option( 'astra-settings', array() );
+	if ( ! isset( $theme_options['woocommerce-single-product-fallback-default'] ) ) {
+		$theme_options['woocommerce-single-product-fallback-default'] = true;
+		update_option( 'astra-settings', $theme_options );
+	}
+}
