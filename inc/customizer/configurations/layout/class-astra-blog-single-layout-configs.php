@@ -175,7 +175,7 @@ if ( ! class_exists( 'Astra_Blog_Single_Layout_Configs' ) ) {
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[section-blog-single-spacing-divider]',
 					'section'  => 'section-blog-single',
-					'title'    => __( 'Post Spacing', 'astra-addon' ),
+					'title'    => __( 'Post Spacing', 'astra' ),
 					'type'     => 'control',
 					'control'  => 'ast-heading',
 					'priority' => 24,
