@@ -950,6 +950,9 @@ function astra_display_cart_total_title_compatibility() {
 		} elseif ( isset( $theme_options['woo-header-cart-title-display'] ) && true === $theme_options['woo-header-cart-title-display'] ) {
 			$theme_options['woo-header-cart-label-display'] = __( 'Cart', 'astra' );
 			error_log( 'Third - ' . $theme_options['woo-header-cart-label-display'] );
+		} else {
+			$theme_options['woo-header-cart-label-display'] = __( 'Cart', 'astra' ) . '/{cart_total_currency_symbol}';
+			error_log( 'Else - ' . $theme_options['woo-header-cart-label-display'] );
 		}
 
 		update_option( 'astra-settings', $theme_options );
