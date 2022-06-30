@@ -93,7 +93,7 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 				'section'  => $_section,
 				'priority' => 50,
 				'context'  => Astra_Builder_Helper::$general_tab,
-				'description' => '<p>' . __( 'Note: The Cart Label on the header will be displayed by using shortcodes. Click on the plus icon above to add your desired shortcode.', 'astra' ) . '</p>',
+				'help' => '<p>' . __( 'Note: The Cart Label on the header will be displayed by using shortcodes. Click on the plus icon above to add your desired shortcode.', 'astra' ) . '</p>',
 			),
 
 			/**
