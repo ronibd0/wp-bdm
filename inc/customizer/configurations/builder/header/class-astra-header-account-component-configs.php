@@ -214,6 +214,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 					'selector'        => '.ast-header-account',
 					'render_callback' => array( 'Astra_Builder_UI_Controller', 'render_account' ),
 				),
+				'divider'           => array( 'ast_class' => 'ast-top-dotted-divider' ),
 			),
 
 			/**
