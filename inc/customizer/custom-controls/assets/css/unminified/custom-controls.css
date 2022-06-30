@@ -1305,6 +1305,7 @@
     --ast-customizer-color-9:#fff;  /* background color */
     --ast-customizer-color-10: #fff; /* text invert / Icon invert */
     --ast-customizer-color-11: #F5F5F5; /* alt background*/
+    --ast-customizer-color-12: #1e293b; /* alt background 2*/
 }
 
 input[type="text"], input[type="password"], input[type="color"], input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="email"], input[type="month"], input[type="number"], input[type="search"], input[type="tel"], input[type="time"], input[type="url"], input[type="week"], select, textarea {
@@ -2059,6 +2060,74 @@ span.customize-control-title.ast-group-section-title {
   height: 49px;
 }
 
+/* Image tooltip */
+.image-clickable[data-title]::before,
+.image-clickable[data-title]::after {
+  text-transform: none; 
+  font-size: .9em;
+  line-height: 1;
+  user-select: none;
+  pointer-events: none;
+  position: absolute;
+  display: none;
+  opacity: 0;
+  left: 50%;
+  transform: translate(-50%, -.5em);
+}
+
+.image-clickable[data-title]::before {
+  content: '';
+  border: 5px solid transparent;
+  z-index: 1001; 
+  bottom: 100%;
+  border-bottom-width: 0;
+  border-top-color: var(--ast-customizer-color-12);
+  animation: tooltips-vert 300ms ease-out forwards;
+}
+
+.image-clickable[data-title]::after {
+  content: attr(data-title); 
+  min-width: 3em;
+  max-width: 21em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 1ch 1.5ch;
+  border-radius: .3ch;
+  box-shadow: 0 1em 2em -.5em rgba(0, 0, 0, 0.35);
+  background: var(--ast-customizer-color-12);
+  color: var(--ast-customizer-color-10);
+  z-index: 1000;
+  bottom: calc(100% + 5px);
+  animation: tooltips-vert 300ms ease-out forwards;
+}
+
+/* Make the tooltips respond to hover */
+.image-clickable[data-title]:hover::before,
+.image-clickable[data-title]:hover::after {
+  display: block;
+}
+
+/* don't show empty tooltips */
+.image-clickable[data-title='']::before,
+.image-clickable[data-title='']::after {
+  display: none !important;
+}
+
+/* KEYFRAMES */
+@keyframes tooltips-vert {
+  to {
+    opacity: .9;
+    transform: translate(-50%, 0);
+  }
+}
+
+@keyframes tooltips-horz {
+  to {
+    opacity: .9;
+    transform: translate(0, -50%);
+  }
+}
 .customize-control-ast-responsive-background {
   position: relative;
   margin-bottom: -5px;
