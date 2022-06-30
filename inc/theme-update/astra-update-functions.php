@@ -937,6 +937,8 @@ function astra_apply_modern_block_editor_v2_ui() {
 function astra_display_cart_total_title_compatibility() {
 	$theme_options = get_option( 'astra-settings', array() );
 
+	error_log( 'Running theme batch...' );
+
 	if ( ! isset( $theme_options['woo-header-cart-label-display'] ) ) {
 
 		// Set the Display Cart Label toggle values with shortcodes.
@@ -953,7 +955,6 @@ function astra_display_cart_total_title_compatibility() {
 
 		update_option( 'astra-settings', $theme_options );
 	}
-
 }
 
 /**
