@@ -75,7 +75,7 @@
 .customize-control-ast-selector .ast-responsive-btns {
     position: relative;
     right: 6px;
-    top: -1px;
+    top: 0px;
 }
 .customize-control-ast-selector .ast-alignment-inner-wrap .components-button:focus:not(:disabled) {
     box-shadow: none;
@@ -843,7 +843,6 @@
     bottom: -1px;
     left: -1px;
     border-radius: 50%;
-    box-shadow: inset 0 0 0 1px var(--ast-customizer-color-7);
     border: 1px solid transparent;
 }
 .components-button.astra-background-icon-indicate {
@@ -1369,7 +1368,7 @@
 .customize-control-ast-selector .ast-responsive-btns {
     position: relative;
     right: 6px;
-    top: -1px;
+    top: 0px;
 }
 .customize-control-ast-selector .ast-alignment-inner-wrap .components-button:focus:not(:disabled) {
     box-shadow: none;
@@ -2137,7 +2136,6 @@
     bottom: -1px;
     left: -1px;
     border-radius: 50%;
-    box-shadow: inset 0 0 0 1px var(--ast-customizer-color-7);
     border: 1px solid transparent;
 }
 .components-button.astra-background-icon-indicate {
@@ -3100,7 +3098,7 @@ span.customize-control-title.ast-group-section-title {
 .customize-control-ast-group-title .ast-responsive-btns {
 	margin-right: 5px;
     position: relative;
-    top: 2px;
+    top: 3px;
 }
 
 .ast-field-settings-wrap .customize-control-ast-heading {
@@ -3938,7 +3936,10 @@ span.customize-control-title.ast-group-section-title {
   left: -10px;
   display: inline-block;
 }
-
+.customize-control-ast-responsive-spacing .ast-spacing-responsive-btns {
+    position: relative;
+    top: 2px;
+}
 .customize-control-ast-responsive-spacing .ast-spacing-responsive-btns > li {
   display: none;
 }
@@ -4644,7 +4645,7 @@ span.customize-control-title.ast-group-section-title {
 
 .customize-control-ast-responsive-slider .ast-responsive-slider-btns {
   position: relative;
-  top: -4px;
+  top: -3px;
   left: -10px;
   display: inline-block;
 }
@@ -5513,7 +5514,7 @@ span.customize-control-title.ast-group-section-title {
 .customize-control-ast-group-title .ast-responsive-btns {
 	margin-right: 5px;
     position: relative;
-    top: 2px;
+    top: 3px;
 }
 
 .ast-field-settings-wrap .customize-control-ast-heading {
@@ -6468,7 +6469,10 @@ span.customize-control-title.ast-group-section-title {
   left: -10px;
   display: inline-block;
 }
-
+.customize-control-ast-responsive-spacing .ast-spacing-responsive-btns {
+    position: relative;
+    top: 2px;
+}
 .customize-control-ast-responsive-spacing .ast-spacing-responsive-btns > li {
   display: none;
 }
@@ -7057,7 +7061,7 @@ span.customize-control-title.ast-group-section-title {
 
 .customize-control-ast-responsive-slider .ast-responsive-slider-btns {
   position: relative;
-  top: -4px;
+  top: -3px;
   left: -10px;
   display: inline-block;
 }

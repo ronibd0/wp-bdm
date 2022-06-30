@@ -169,7 +169,7 @@ if ( ! class_exists( 'Astra_Blog_Single_Layout_Configs' ) ) {
 					'divider'     => array( 'ast_class' => 'ast-top-dotted-divider' ),
 				),
 
-				
+
 				/**
 				 * Option: Single Post Spacing
 				 */
@@ -180,7 +180,7 @@ if ( ! class_exists( 'Astra_Blog_Single_Layout_Configs' ) ) {
 					'control'           => 'ast-responsive-spacing',
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_spacing' ),
 					'section'           => 'section-blog-single',
-					'title'             => __( 'Outside Container Spacing', 'astra' ),
+					'title'             => __( 'Outside Container Space', 'astra' ),
 					'linked_choices'    => true,
 					'transport'         => 'postMessage',
 					'unit_choices'      => array( 'px', 'em', '%' ),
