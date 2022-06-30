@@ -413,7 +413,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 							'path'  => Astra_Builder_UI_Controller::fetch_svg_icon( 'breadcrumb-separator-3' ),
 						),
 						'unicode' => array(
-							'label' => __( 'Custom unicode separator', 'astra' ),
+							'label' => __( 'Custom separator', 'astra' ),
 							'path'  => Astra_Builder_UI_Controller::fetch_svg_icon( 'breadcrumb-separator-unicode' ),
 						),
 					),

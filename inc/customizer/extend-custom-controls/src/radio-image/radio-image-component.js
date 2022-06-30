@@ -70,7 +70,7 @@ const RadioImageComponent = props => {
 						<span dangerouslySetInnerHTML={{
 							__html: choices[key]
 						}}/>
-				<span className="image-clickable" title={choices_titles[key]}></span>
+				<span className="image-clickable" data-title={choices_titles[key]}></span>
 			</label>
 		</Fragment>;
 	});

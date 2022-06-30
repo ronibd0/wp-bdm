@@ -169,6 +169,19 @@ if ( ! class_exists( 'Astra_Blog_Single_Layout_Configs' ) ) {
 					'divider'     => array( 'ast_class' => 'ast-top-dotted-divider' ),
 				),
 
+				/**
+				 * Option: Divider
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[section-blog-single-spacing-divider]',
+					'section'  => 'section-blog-single',
+					'title'    => __( 'Post Spacing', 'astra' ),
+					'type'     => 'control',
+					'control'  => 'ast-heading',
+					'priority' => 24,
+					'context'  => $tab_config,
+					'divider'  => array( 'ast_class' => 'ast-section-spacing' ),
+				),
 
 				/**
 				 * Option: Single Post Spacing
@@ -180,7 +193,7 @@ if ( ! class_exists( 'Astra_Blog_Single_Layout_Configs' ) ) {
 					'control'           => 'ast-responsive-spacing',
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_spacing' ),
 					'section'           => 'section-blog-single',
-					'title'             => __( 'Outside Container Space', 'astra' ),
+					'title'             => __( 'Outside', 'astra' ),
 					'linked_choices'    => true,
 					'transport'         => 'postMessage',
 					'unit_choices'      => array( 'px', 'em', '%' ),
@@ -192,6 +205,7 @@ if ( ! class_exists( 'Astra_Blog_Single_Layout_Configs' ) ) {
 					),
 					'priority'          => 25,
 					'context'           => $tab_config,
+					'divider'           => array( 'ast_class' => 'ast-section-spacing' ),
 				),
 			);
 

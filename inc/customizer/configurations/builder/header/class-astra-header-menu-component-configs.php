@@ -220,7 +220,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 							'step' => 1,
 							'max'  => 10,
 						),
-						'divider'     => array( 'ast_class' => 'ast-top-dotted-divider' ),
+						'divider'     => array( 'ast_class' => 'ast-section-spacing' ),
 					),
 
 					// Option: Submenu item Border Color.
@@ -403,7 +403,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'priority'   => 90,
 						'context'    => Astra_Builder_Helper::$design_tab,
 						'responsive' => true,
-						'divider'    => array( 'ast_class' => ( defined( 'ASTRA_EXT_VER' ) ) ? 'ast-bottom-section-divider' : '' ),
+						'divider'    => array( 'ast_class' => ( defined( 'ASTRA_EXT_VER' ) ) ? 'ast-bottom-dotted-divider' : '' ),
 					),
 
 					// Option: Menu Color.
@@ -531,6 +531,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'transport' => 'postMessage',
 						'priority'  => 120,
 						'context'   => Astra_Builder_Helper::$design_tab,
+						'divider'   => array( 'ast_class' => 'ast-section-spacing' ),
 					),
 
 					// Option: Menu Font Family.
