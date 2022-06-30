@@ -941,14 +941,14 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	$defaults['woo-header-cart-click-action']              = 'default';
 	$defaults['woo-desktop-cart-flyout-width']             = 460;
 	$defaults['woo-header-cart-icon-total-label-position'] = array(
-		'desktop' => 'left',
-		'tablet'  => 'left',
-		'mobile'  => 'left',
+		'desktop' => '',
+		'tablet'  => '',
+		'mobile'  => '',
 	);
 	$defaults['header-woo-cart-icon-size']                 = array(
-		'desktop' => 15,
-		'tablet'  => 15,
-		'mobile'  => 15,
+		'desktop' => '',
+		'tablet'  => '',
+		'mobile'  => '',
 	);
 	$defaults['woo-header-cart-icon-style']                = 'outline';
 	$defaults['woo-desktop-cart-flyout-direction']         = 'right';
