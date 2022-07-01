@@ -564,6 +564,7 @@
 	left: 0;
 	width: 100%;
 	display: none;
+	margin-top: 10px;
 }
 
 #customize-control-astra-color-palettes .astra-color-picker-wrap.picker-open{
@@ -722,6 +723,7 @@
 #customize-control-astra-color-palettes .ast-adv-toggle-icon {
 	top: -5px;
 }
+
  /** Remove Button Color */
 
 .astra-control-field.astra-color-control {
@@ -1859,6 +1861,7 @@
 	left: 0;
 	width: 100%;
 	display: none;
+	margin-top: 10px;
 }
 
 #customize-control-astra-color-palettes .astra-color-picker-wrap.picker-open{
@@ -2017,6 +2020,7 @@
 #customize-control-astra-color-palettes .ast-adv-toggle-icon {
 	top: -5px;
 }
+
  /** Remove Button Color */
 
 .astra-control-field.astra-color-control {
@@ -3672,6 +3676,7 @@ span.customize-control-title.ast-group-section-title {
 
 .astra-popover-color .ast-color-palette .components-button.is-pressed:focus:not(:disabled) {
 	box-shadow: none;
+	border: none;
 }
 
 .astra-popover-color .components-custom-gradient-picker {
@@ -4575,9 +4580,12 @@ span.customize-control-title.ast-group-section-title {
   top: 3px;
 }
 
-.customize-control-ast-settings-group .ast-field-settings-modal .customize-control-ast-responsive-slider .ast-responsive-slider-btns,
 .customize-control-ast-settings-group .ast-field-settings-modal .customize-control-ast-slider .ast-responsive-slider-btns {
   top: 2px;
+}
+
+.customize-control-ast-settings-group .ast-field-settings-modal .customize-control-ast-responsive-slider .ast-responsive-slider-btns {
+  top: 4px;
 }
 
 .ast-field-settings-modal .customize-control {
@@ -6188,6 +6196,7 @@ span.customize-control-title.ast-group-section-title {
 
 .astra-popover-color .ast-color-palette .components-button.is-pressed:focus:not(:disabled) {
 	box-shadow: none;
+	border: none;
 }
 
 .astra-popover-color .components-custom-gradient-picker {
@@ -7091,9 +7100,12 @@ span.customize-control-title.ast-group-section-title {
   top: 3px;
 }
 
-.customize-control-ast-settings-group .ast-field-settings-modal .customize-control-ast-responsive-slider .ast-responsive-slider-btns,
 .customize-control-ast-settings-group .ast-field-settings-modal .customize-control-ast-slider .ast-responsive-slider-btns {
   top: 2px;
+}
+
+.customize-control-ast-settings-group .ast-field-settings-modal .customize-control-ast-responsive-slider .ast-responsive-slider-btns {
+  top: 4px;
 }
 
 .ast-field-settings-modal .customize-control {

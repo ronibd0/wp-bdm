@@ -234,6 +234,7 @@
 
 .astra-popover-color .ast-color-palette .components-button.is-pressed:focus:not(:disabled) {
 	box-shadow: none;
+	border: none;
 }
 
 .astra-popover-color .components-custom-gradient-picker {

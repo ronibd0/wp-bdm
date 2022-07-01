@@ -17,6 +17,7 @@
 	left: 0;
 	width: 100%;
 	display: none;
+	margin-top: 10px;
 }
 
 #customize-control-astra-color-palettes .astra-color-picker-wrap.picker-open{

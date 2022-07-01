@@ -28,7 +28,7 @@ const RadioImageComponent = props => {
 		htmlDescription = null,
 		htmlRadio,
 		inp_array = [];
-	
+
 	// Adds class to enable four column layout.
 	const altLayout =  alt_layout ? 'ast-divide-four' : 'modern-layout';
 
