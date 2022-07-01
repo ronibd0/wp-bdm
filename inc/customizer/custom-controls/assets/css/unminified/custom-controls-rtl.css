@@ -1177,7 +1177,7 @@
 	mix-blend-mode: difference;
 }
 .astra-popover-color .components-circular-option-picker .components-circular-option-picker__swatches {
-    gap: 6px;
+    gap: 4px;
 	justify-content: center;
 }
 .astra-popover-color .components-circular-option-picker__option-wrapper:hover {
@@ -2472,7 +2472,7 @@
 	mix-blend-mode: difference;
 }
 .astra-popover-color .components-circular-option-picker .components-circular-option-picker__swatches {
-    gap: 6px;
+    gap: 4px;
 	justify-content: center;
 }
 .astra-popover-color .components-circular-option-picker__option-wrapper:hover {
@@ -2850,10 +2850,14 @@ input[type="text"].select2-search__field {
   border-bottom: 1px solid var(--ast-customizer-color-7);
 }
 
-#customize-controls .control-section.control-section-ast_section .accordion-section-title:hover,
-#customize-controls .control-section.control-section-ast_section .accordion-section-title:focus,
-.wp-core-ui .customize-panel-back:hover, .wp-core-ui .customize-panel-back:focus,
-.wp-core-ui .customize-section-back:hover, .wp-core-ui .customize-section-back:focus {
+.wp-core-ui #customize-controls .control-section:hover > .accordion-section-title,
+.wp-core-ui #customize-controls .control-section .accordion-section-title:hover,
+.wp-core-ui #customize-controls .control-section.open .accordion-section-title,
+.wp-core-ui #customize-controls .control-section .accordion-section-title:focus,
+.wp-core-ui .customize-panel-back:hover,
+.wp-core-ui .customize-panel-back:focus,
+.wp-core-ui .customize-section-back:hover,
+.wp-core-ui .customize-section-back:focus {
   border-right-color: var(--ast-customizer-color-1);
 }
 
@@ -4981,6 +4985,9 @@ span.customize-control-title.ast-group-section-title {
 }
 .customize-control-ast-sortable .sortable .rfip .rfipbtn__button {
     margin-right: auto;
+}
+.ast-sortable-subfields-wrap .customize-control-ast-responsive-slider .ast-responsive-slider-btns {
+    top: -5px;
 }
 
 .customize-control-ast-toggle-control .components-toggle-control .components-base-control__field, .ast-togglecontrol-wrapper .components-base-control__field {
@@ -7494,6 +7501,9 @@ span.customize-control-title.ast-group-section-title {
 }
 .customize-control-ast-sortable .sortable .rfip .rfipbtn__button {
     margin-right: auto;
+}
+.ast-sortable-subfields-wrap .customize-control-ast-responsive-slider .ast-responsive-slider-btns {
+    top: -5px;
 }
 
 .customize-control-ast-toggle-control .components-toggle-control .components-base-control__field, .ast-togglecontrol-wrapper .components-base-control__field {
