@@ -1177,7 +1177,7 @@
 	mix-blend-mode: difference;
 }
 .astra-popover-color .components-circular-option-picker .components-circular-option-picker__swatches {
-    gap: 6px;
+    gap: 4px;
 	justify-content: center;
 }
 .astra-popover-color .components-circular-option-picker__option-wrapper:hover {

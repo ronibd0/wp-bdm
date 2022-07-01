@@ -1177,7 +1177,7 @@
 	mix-blend-mode: difference;
 }
 .astra-popover-color .components-circular-option-picker .components-circular-option-picker__swatches {
-    gap: 6px;
+    gap: 4px;
 	justify-content: center;
 }
 .astra-popover-color .components-circular-option-picker__option-wrapper:hover {
@@ -1889,6 +1889,7 @@
 	grid-template-columns: repeat(9, 1fr);
 	align-items: center;
 	position: relative;
+	gap: 2px;
 }
 
 .ast-single-palette-wrap
