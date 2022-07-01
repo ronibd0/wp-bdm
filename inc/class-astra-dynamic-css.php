@@ -4118,7 +4118,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 			.ast-site-header-cart .ast-woo-header-cart-info-wrap,
 			.ast-edd-site-header-cart .ast-edd-header-cart-info-wrap {
-				padding: 0 2px;
+				padding: 0 6px 0 2px;
 				font-weight: 600;
 				line-height: 2.7;
 				display: inline-block;
