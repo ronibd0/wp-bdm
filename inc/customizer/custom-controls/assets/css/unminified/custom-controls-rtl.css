@@ -562,7 +562,7 @@
 	position: absolute;
 	z-index: 1;
 	left: 0;
-	width: 21em;
+	width: 100%;
 	display: none;
 }
 
@@ -594,6 +594,7 @@
 	grid-template-columns: repeat(9, 1fr);
 	align-items: center;
 	position: relative;
+	gap: 2px;
 }
 
 .ast-single-palette-wrap
@@ -1856,7 +1857,7 @@
 	position: absolute;
 	z-index: 1;
 	left: 0;
-	width: 21em;
+	width: 100%;
 	display: none;
 }
 
