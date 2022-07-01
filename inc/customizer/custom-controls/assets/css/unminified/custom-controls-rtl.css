@@ -1889,6 +1889,7 @@
 	grid-template-columns: repeat(9, 1fr);
 	align-items: center;
 	position: relative;
+	gap: 2px;
 }
 
 .ast-single-palette-wrap
@@ -2847,6 +2848,13 @@ input[type="text"].select2-search__field {
 #customize-theme-controls .accordion-section-title, #customize-outer-theme-controls .accordion-section-title,
 #customize-controls .control-section.control-section-ast_section .accordion-section-title {
   border-bottom: 1px solid var(--ast-customizer-color-7);
+}
+
+#customize-controls .control-section.control-section-ast_section .accordion-section-title:hover,
+#customize-controls .control-section.control-section-ast_section .accordion-section-title:focus,
+.wp-core-ui .customize-panel-back:hover, .wp-core-ui .customize-panel-back:focus,
+.wp-core-ui .customize-section-back:hover, .wp-core-ui .customize-section-back:focus {
+  border-right-color: var(--ast-customizer-color-1);
 }
 
 .customize-control-ast-description .ast-description {
@@ -5349,6 +5357,17 @@ input[type="text"].select2-search__field {
 #customize-theme-controls .accordion-section-title, #customize-outer-theme-controls .accordion-section-title,
 #customize-controls .control-section.control-section-ast_section .accordion-section-title {
   border-bottom: 1px solid var(--ast-customizer-color-7);
+}
+
+.wp-core-ui #customize-controls .control-section:hover > .accordion-section-title,
+.wp-core-ui #customize-controls .control-section .accordion-section-title:hover,
+.wp-core-ui #customize-controls .control-section.open .accordion-section-title,
+.wp-core-ui #customize-controls .control-section .accordion-section-title:focus,
+.wp-core-ui .customize-panel-back:hover,
+.wp-core-ui .customize-panel-back:focus,
+.wp-core-ui .customize-section-back:hover,
+.wp-core-ui .customize-section-back:focus {
+  border-right-color: var(--ast-customizer-color-1);
 }
 
 .customize-control-ast-description .ast-description {

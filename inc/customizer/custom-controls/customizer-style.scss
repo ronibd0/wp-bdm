@@ -247,3 +247,14 @@ input[type="text"] {
 #customize-controls .control-section.control-section-ast_section .accordion-section-title {
     border-bottom: 1px solid var(--ast-customizer-color-7);
 }
+
+.wp-core-ui #customize-controls .control-section:hover > .accordion-section-title, 
+.wp-core-ui #customize-controls .control-section .accordion-section-title:hover, 
+.wp-core-ui #customize-controls .control-section.open .accordion-section-title, 
+.wp-core-ui #customize-controls .control-section .accordion-section-title:focus,
+.wp-core-ui .customize-panel-back:hover,
+.wp-core-ui .customize-panel-back:focus,
+.wp-core-ui .customize-section-back:hover,
+.wp-core-ui .customize-section-back:focus {
+    border-left-color:  var(--ast-customizer-color-1);
+}
