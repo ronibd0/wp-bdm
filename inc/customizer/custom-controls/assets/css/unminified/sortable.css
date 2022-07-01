@@ -204,3 +204,6 @@
 .customize-control-ast-sortable .sortable .rfip .rfipbtn__button {
     margin-left: auto;
 }
+.ast-sortable-subfields-wrap .customize-control-ast-responsive-slider .ast-responsive-slider-btns {
+    top: -5px;
+}

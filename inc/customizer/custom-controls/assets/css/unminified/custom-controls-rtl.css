@@ -2472,7 +2472,7 @@
 	mix-blend-mode: difference;
 }
 .astra-popover-color .components-circular-option-picker .components-circular-option-picker__swatches {
-    gap: 6px;
+    gap: 4px;
 	justify-content: center;
 }
 .astra-popover-color .components-circular-option-picker__option-wrapper:hover {
@@ -7476,6 +7476,9 @@ span.customize-control-title.ast-group-section-title {
 }
 .customize-control-ast-sortable .sortable .rfip .rfipbtn__button {
     margin-right: auto;
+}
+.ast-sortable-subfields-wrap .customize-control-ast-responsive-slider .ast-responsive-slider-btns {
+    top: -5px;
 }
 
 .customize-control-ast-toggle-control .components-toggle-control .components-base-control__field, .ast-togglecontrol-wrapper .components-base-control__field {
