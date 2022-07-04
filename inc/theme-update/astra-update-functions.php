@@ -939,14 +939,15 @@ function astra_display_cart_total_title_compatibility() {
 
 	if ( ! isset( $theme_options['woo-header-cart-label-display'] ) ) {
 		// Set the Display Cart Label toggle values with shortcodes.
-		if ( ( isset( $theme_options['woo-header-cart-total-display'] ) && true === $theme_options['woo-header-cart-total-display'] ) && ( isset( $theme_options['woo-header-cart-title-display'] ) && true === $theme_options['woo-header-cart-title-display'] ) ) {
+		$cart_total_status = isset( $theme_options['woo-header-cart-total-display'] ) ? $theme_options['woo-header-cart-total-display'] : true;
+		$cart_label_status = isset( $theme_options['woo-header-cart-title-display'] ) ? $theme_options['woo-header-cart-title-display'] : true;
+
+		if ( $cart_total_status && $cart_label_status ) {
 			$theme_options['woo-header-cart-label-display'] = __( 'Cart', 'astra' ) . '/{cart_total_currency_symbol}';
-		} elseif ( isset( $theme_options['woo-header-cart-total-display'] ) && true === $theme_options['woo-header-cart-total-display'] ) {
+		} elseif ( $cart_total_status ) {
 			$theme_options['woo-header-cart-label-display'] = '{cart_total_currency_symbol}';
-		} elseif ( isset( $theme_options['woo-header-cart-title-display'] ) && true === $theme_options['woo-header-cart-title-display'] ) {
+		} elseif ( $cart_label_status ) {
 			$theme_options['woo-header-cart-label-display'] = __( 'Cart', 'astra' );
-		} else {
-			$theme_options['woo-header-cart-label-display'] = __( 'Cart', 'astra' ) . '/{cart_total_currency_symbol}';
 		}
 
 		update_option( 'astra-settings', $theme_options );
@@ -968,15 +969,15 @@ function astra_update_woocommerce_cart_icons() {
 }
 
 /**
- * Set flag to new customizer UI maintainer flag, to avoid direct reflections on live site & to maintain backward compatibility for existing users.
+ * Set brder color to blank for old users for new users 'default' will take over.
  *
  * @since x.x.x
  * @return void
  */
 function astra_legacy_customizer_maintenance() {
 	$theme_options = get_option( 'astra-settings', array() );
-	if ( ! isset( $theme_options['legacy-customizer-ui-maintainer'] ) ) {
-		$theme_options['legacy-customizer-ui-maintainer'] = true;
+	if ( ! isset( $theme_options['border-color'] ) ) {
+		$theme_options['border-color'] = '';
 		update_option( 'astra-settings', $theme_options );
 	}
 }
