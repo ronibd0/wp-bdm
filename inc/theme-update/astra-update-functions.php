@@ -938,12 +938,16 @@ function astra_display_cart_total_title_compatibility() {
 	$theme_options = get_option( 'astra-settings', array() );
 
 	if ( ! isset( $theme_options['woo-header-cart-label-display'] ) ) {
+		error_log( print_r( $theme_options, true ) );
 		// Set the Display Cart Label toggle values with shortcodes.
-		if ( ( isset( $theme_options['woo-header-cart-total-display'] ) && true === $theme_options['woo-header-cart-total-display'] ) && ( isset( $theme_options['woo-header-cart-title-display'] ) && true === $theme_options['woo-header-cart-title-display'] ) ) {
+		$cart_total_status = isset( $theme_options['woo-header-cart-total-display'] ) ? $theme_options['woo-header-cart-total-display'] : true;
+		$cart_label_status = isset( $theme_options['woo-header-cart-label-display'] ) ? $theme_options['woo-header-cart-label-display'] : true;
+
+		if ( $cart_total_status && $cart_label_status ) {
 			$theme_options['woo-header-cart-label-display'] = __( 'Cart', 'astra' ) . '/{cart_total_currency_symbol}';
-		} elseif ( isset( $theme_options['woo-header-cart-total-display'] ) && true === $theme_options['woo-header-cart-total-display'] ) {
+		} elseif ( $cart_total_status ) {
 			$theme_options['woo-header-cart-label-display'] = '{cart_total_currency_symbol}';
-		} elseif ( isset( $theme_options['woo-header-cart-title-display'] ) && true === $theme_options['woo-header-cart-title-display'] ) {
+		} elseif ( $cart_label_status ) {
 			$theme_options['woo-header-cart-label-display'] = __( 'Cart', 'astra' );
 		}
 
