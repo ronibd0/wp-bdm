@@ -941,7 +941,7 @@ function astra_display_cart_total_title_compatibility() {
 		error_log( print_r( $theme_options, true ) );
 		// Set the Display Cart Label toggle values with shortcodes.
 		$cart_total_status = isset( $theme_options['woo-header-cart-total-display'] ) ? $theme_options['woo-header-cart-total-display'] : true;
-		$cart_label_status = isset( $theme_options['woo-header-cart-label-display'] ) ? $theme_options['woo-header-cart-label-display'] : true;
+		$cart_label_status = isset( $theme_options['woo-header-cart-title-display'] ) ? $theme_options['woo-header-cart-title-display'] : true;
 
 		if ( $cart_total_status && $cart_label_status ) {
 			$theme_options['woo-header-cart-label-display'] = __( 'Cart', 'astra' ) . '/{cart_total_currency_symbol}';
