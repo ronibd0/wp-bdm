@@ -969,15 +969,15 @@ function astra_update_woocommerce_cart_icons() {
 }
 
 /**
- * Set flag to new customizer UI maintainer flag, to avoid direct reflections on live site & to maintain backward compatibility for existing users.
+ * Set brder color to blank for old users for new users 'default' will take over.
  *
  * @since x.x.x
  * @return void
  */
 function astra_legacy_customizer_maintenance() {
 	$theme_options = get_option( 'astra-settings', array() );
-	if ( ! isset( $theme_options['legacy-customizer-ui-maintainer'] ) ) {
-		$theme_options['legacy-customizer-ui-maintainer'] = true;
+	if ( ! isset( $theme_options['border-color'] ) ) {
+		$theme_options['border-color'] = '';
 		update_option( 'astra-settings', $theme_options );
 	}
 }
