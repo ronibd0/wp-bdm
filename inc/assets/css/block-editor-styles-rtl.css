@@ -98,7 +98,7 @@ html {
 }
 
 .edit-post-visual-editor blockquote {
-  border-right: 5px solid rgba(0, 0, 0, 0.05);
+  border-right: 5px solid var(--ast-border-color);
   padding: 20px;
   font-size: 1.2em;
   font-style: italic;
@@ -179,7 +179,7 @@ html {
 }
 
 .edit-post-visual-editor table, .edit-post-visual-editor th, .edit-post-visual-editor td {
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--ast-border-color);
 }
 
 .edit-post-visual-editor table {
