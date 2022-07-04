@@ -108,12 +108,12 @@ p.demo_store,
 		.ast-mini-cart-empty {
 			.woocommerce-mini-cart__buttons {
 				margin: 1.41575em;
-	
+
 				a{
 					width: 100%;
 				}
 			}
-			.ast-mini-cart-message { 
+			.ast-mini-cart-message {
 				.woocommerce-mini-cart__empty-message  {
 					text-align: center;
 					margin-bottom: 0;
@@ -174,7 +174,7 @@ p.demo_store,
 
 		&:before {
 			border-color: rgba(230, 230, 230, 0);
-			border-bottom-color: #E6E6E6;
+			border-bottom-color: var(--ast-border-color);
 			border-width: 9px;
 			margin-left: -5px;
 			right: 5px;
@@ -1335,7 +1335,7 @@ p.demo_store,
 
 			li {
 				margin: 0 2px 2px 0;
-				border: 1px solid #d3ced2;
+				border: 1px solid var(--ast-border-color);
 				padding: 0;
 				display: inline-block;
 				overflow: hidden;
@@ -1521,7 +1521,7 @@ p.demo_store,
 					position: relative;
 					background: 0;
 					border: 0;
-					border-bottom: 1px solid #e2e2e2;
+					border-bottom: 1px solid var(--ast-border-color);
 
 					&:last-child{
 						border-bottom: 0;
@@ -1680,7 +1680,7 @@ p.demo_store,
 			}
 		}
 
-		.comment-form-comment, 
+		.comment-form-comment,
 		.comment-form-rating {
 			label {
 				font-size: 1.2em;
@@ -3487,9 +3487,9 @@ button.pswp__button--zoom:hover {
 				}
 			}
 			div.payment_box{
-				background-color: #efefef;
+				background-color: var(--ast-border-color);
 				&:before{
-					border-bottom-color: #efefef;
+					border-bottom-color: var(--ast-border-color);
 				}
 			}
 			div.form-row {
@@ -3798,7 +3798,7 @@ button.pswp__button--zoom:hover {
 
 	.widget_product_tag_cloud {
 		.tagcloud a {
-			border: 1px solid #e2e2e2;
+			border: 1px solid var(--ast-border-color);
 			padding: 0.5em 0.9em;
 			display: inline-block;
 			margin-bottom: 4px;
@@ -3852,7 +3852,7 @@ button.pswp__button--zoom:hover {
 	}
 }
 
-.widget_layered_nav_filters ul li.chosen, 
+.widget_layered_nav_filters ul li.chosen,
 #secondary .widget_layered_nav_filters ul li.chosen {
 	padding: 0 .5em;
 	margin-right: .5em;
@@ -4123,7 +4123,7 @@ button.pswp__button--zoom:hover {
 			margin-bottom: 1rem;
 			color: var(--ast-global-color-3);
 		}
-	
+
 		> div h3 {
 			@extend .widget-title-common;
 		}
@@ -4151,7 +4151,7 @@ button.pswp__button--zoom:hover {
 				background-color: #ededed;
 			}
 
-			.wc-block-components-price-slider__range-input-wrapper, 
+			.wc-block-components-price-slider__range-input-wrapper,
 			.wc-block-components-price-slider__range-input-progress {
 				height: 3px;
 			}
@@ -4172,7 +4172,7 @@ button.pswp__button--zoom:hover {
 			.wc-block-components-price-slider__controls {
 				justify-content: end;
 			}
-			
+
 
 			input[type=range] {
 				margin: 0;
@@ -4202,8 +4202,8 @@ button.pswp__button--zoom:hover {
 					width: 15px;
 				}
 			}
-			
-			
+
+
 		}
 
 		.wc-block-checkbox-list {

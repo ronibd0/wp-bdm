@@ -22,7 +22,7 @@
 }
 
 .widget .llms-widget-syllabus .llms-section {
-  border-bottom: 1px solid #e5e5e5;
+  border-bottom: 1px solid var(--ast-border-color);
   margin-bottom: 0.5em;
   padding-bottom: 0.5em;
 }
@@ -376,7 +376,7 @@ body #review_box #review_text,
 body #review_box #review_title {
   margin-bottom: 1em;
   width: 100%;
-  border-color: #dddddd;
+  border-color: var(--ast-border-color);
   background: #fff;
   border-radius: 0;
 }
@@ -593,7 +593,7 @@ body .llms-loop-item-content .llms-progress-bar .progress-bar-complete {
 
 .llms-pagination ul li {
   margin: 0 0 5px 5px;
-  border: 1px solid #d3ced2;
+  border: 1px solid var(--ast-border-color);
   padding: 0;
   float: right;
   display: inline;
@@ -687,11 +687,11 @@ body .llms-loop-item-content .llms-progress-bar .progress-bar-complete {
 }
 
 .lifterlms .llms-checkout-wrapper .llms-checkout-col.llms-col-2 {
-  border: 2px solid #ebebeb;
+  border: 2px solid var(--ast-border-color);
 }
 
 .lifterlms .llms-checkout-wrapper .llms-login {
-  border: 1px solid #d3ced2;
+  border: 1px solid var(--ast-border-color);
   margin-bottom: 2em;
   border-radius: 5px;
 }
