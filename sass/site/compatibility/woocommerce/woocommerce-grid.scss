@@ -1947,10 +1947,15 @@ p.demo_store,
 				margin-right: .25em;
 				display: inline-block;
 				list-style: none outside;
+				font-weight: 500;
 			}
 
 			dd {
 				margin: 0;
+
+				p {
+					font-weight: 400;
+				}
 			}
 
 			p,
@@ -3456,7 +3461,7 @@ button.pswp__button--zoom:hover {
 				}
 
 				td.product-name {
-					font-weight: 700;
+					font-weight: 500;
 					.product-quantity {
 						font-weight: 400;
 					}

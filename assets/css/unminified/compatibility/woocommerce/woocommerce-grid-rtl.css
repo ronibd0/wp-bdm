@@ -2191,10 +2191,15 @@ p.demo_store[data-position="bottom"],
   margin-left: .25em;
   display: inline-block;
   list-style: none outside;
+  font-weight: 500;
 }
 
 .woocommerce td.product-name dl.variation dd, .woocommerce td.product-name .wc-item-meta dd {
   margin: 0;
+}
+
+.woocommerce td.product-name dl.variation dd p, .woocommerce td.product-name .wc-item-meta dd p {
+  font-weight: 400;
 }
 
 .woocommerce td.product-name dl.variation p, .woocommerce td.product-name dl.variation:last-child, .woocommerce td.product-name .wc-item-meta p, .woocommerce td.product-name .wc-item-meta:last-child {
@@ -4155,7 +4160,7 @@ button.pswp__button--zoom:hover {
 
 .woocommerce.woocommerce-checkout form #order_review td.product-name,
 .woocommerce-page.woocommerce-checkout form #order_review td.product-name {
-  font-weight: 700;
+  font-weight: 500;
 }
 
 .woocommerce.woocommerce-checkout form #order_review td.product-name .product-quantity,
