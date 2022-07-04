@@ -38,7 +38,7 @@ $color-border-submenu             : #eaeaea;				// Submenu border color
 $color-border-button              : #eaeaea;				// Button border color
 $color-border-button-hover        : #eaeaea;				// Button border color for hover event
 $color-border-button-focus        : #eaeaea;				// Button border color for focus & active event
-$color-border-input               : #eaeaea;				// Input box, textarea border color
+$color-border-input               : var(--ast-border-color); // Input box, textarea border color
 $color-border-abbr                : #666;					// Abbreviation tag bottom border color
 $color-border-toggle-menu         :	#4C4A4A;				// Toggle menu border color
 $color-border-widget              :	#eaeaea;				// Widget border color

@@ -811,7 +811,7 @@ a.edd-add-to-cart .edd-add-to-cart-label, .edd-loading {
 	legend {
 		font-size: 22px;
 		font-size: 1.4rem;
-		border-bottom: 1px solid #eaeaea;
+		border-bottom: 1px solid var(--ast-border-color);
 		background: #fafafa;
 		font-weight: bold;
 		padding: 15px 30px;
@@ -887,7 +887,7 @@ a.edd-add-to-cart .edd-add-to-cart-label, .edd-loading {
 	legend {
 		font-size: 22px;
 		font-size: 1.4rem;
-		border-bottom: 1px solid #eaeaea;
+		border-bottom: 1px solid var(--ast-border-color);
 		background: #fafafa;
 		font-weight: bold;
 		padding: 15px 30px;
@@ -924,7 +924,7 @@ a.edd-add-to-cart .edd-add-to-cart-label, .edd-loading {
 		padding-bottom: 15px;
 	}
 	#edd_discount_code {
-		border: 1px solid #eaeaea;
+		border: 1px solid var(--ast-border-color);
 		margin-bottom: 2em;
 		padding-top: .5em;
 		padding-bottom: .5em;
@@ -950,7 +950,7 @@ a.edd-add-to-cart .edd-add-to-cart-label, .edd-loading {
 		font-weight: bold;
 	}
 	fieldset {
-		border: 1px solid #eee;
+		border: 1px solid var(--ast-border-color);
 		margin: 0 0 20px;
 	}
 	#edd_purchase_submit{
@@ -966,7 +966,7 @@ a.edd-add-to-cart .edd-add-to-cart-label, .edd-loading {
 	#edd-discount-code-wrap,
 	#edd_final_total_wrap,
 	#edd_show_discount{
-		border: 1px solid #eee;
+		border: 1px solid var(--ast-border-color);
 		margin:0 0 20px; 
 	}
 	#edd_final_total_wrap,
@@ -1026,7 +1026,7 @@ a.edd-add-to-cart .edd-add-to-cart-label, .edd-loading {
 /* EDD License manager */
 .edd_sl_form {
 	> div{
-		border: 1px solid #e5e5e5;
+		border: 1px solid var(--ast-border-color);
 		padding: 10px 20px;
 		> span {
 			display: block;
@@ -1138,19 +1138,19 @@ a.edd-add-to-cart .edd-add-to-cart-label, .edd-loading {
 	input[type=reset],
 	input[type=tel],
 	textarea  {
-		border-color: #dddddd;
+		border-color: var(--ast-border-color);
 		background: #fff;
 		box-shadow: none;
 		border-radius: 0px;
 
 		&:focus{
 			box-shadow: none;
-			border-color: #dddddd;
+			border-color: var(--ast-border-color);
 			outline: 0;
 		}
 	}
 	select{
-		border: 1px solid #dddddd;
+		border: 1px solid var(--ast-border-color);
 		border-radius: 0px;
 		box-shadow: none;
 		&:focus{
@@ -1176,7 +1176,7 @@ a.edd-add-to-cart .edd-add-to-cart-label, .edd-loading {
 		min-width: 285px;
 	    width: 20em;
 	    text-align: center;
-	    border: 1px solid #e0e5e8;
+	    border: 1px solid var(--ast-border-color);
 	    box-shadow: 0 0 6px 0 #e1e3e4;
 	    height: 2.5em;
 		background: #eef2f5;
@@ -1208,7 +1208,7 @@ a.edd-add-to-cart .edd-add-to-cart-label, .edd-loading {
 
 #edd_profile_editor_form{
 	fieldset {
-		border: 1px solid #eaeaea;
+		border: 1px solid var(--ast-border-color);
 		margin-bottom: 2em;
 		p{
 			clear: both;

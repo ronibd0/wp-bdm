@@ -1168,7 +1168,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 					'font-size'     => '1.2rem',
 					'padding'       => '20px 0 14px',
 					'margin'        => '0 0 20px',
-					'border-bottom' => '1px solid #ebebeb',
+					'border-bottom' => '1px solid var(--ast-border-color)',
 					'font-weight'   => '700',
 				),
 				'form #order_review_heading:not(.elementor-widget-woocommerce-checkout-page #order_review_heading)' => array(
@@ -1177,14 +1177,14 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 					'font-size'    => '1.2rem',
 					'margin'       => '0',
 					'padding'      => '1.5em 1.5em 1em',
-					'border-color' => '#ebebeb',
+					'border-color' => 'var(--ast-border-color)',
 					'font-weight'  => '700',
 				),
 				'form #order_review:not(.elementor-widget-woocommerce-checkout-page #order_review)' => array(
 					'padding'      => '0 2em',
 					'border-width' => '0 2px 2px',
 					'border-style' => 'solid',
-					'border-color' => '#ebebeb',
+					'border-color' => 'var(--ast-border-color)',
 				),
 				'ul#shipping_method li:not(.elementor-widget-woocommerce-cart #shipping_method li)' => array(
 					'margin'      => '0',
@@ -1367,7 +1367,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				$css_output .= '
 					body .woocommerce-MyAccount-navigation-link {
 					list-style: none;
-						border: 1px solid rgba(0, 0, 0, 0.1);
+						border: 1px solid var(--ast-border-color);
 						border-bottom-width: 0;
 					}
 					body .woocommerce-MyAccount-navigation-link:last-child {
@@ -1381,7 +1381,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 						padding: .5em 1em;
 					}
 					body .woocommerce form.login, body .woocommerce form.checkout_coupon, body .woocommerce form.register {
-						border: 1px solid #d3ced2;
+						border: 1px solid var(--ast-border-color);
 						padding: 20px;
 						margin: 2em 0;
 						text-align: left;

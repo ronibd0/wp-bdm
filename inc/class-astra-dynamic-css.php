@@ -1952,17 +1952,17 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				if ( $is_site_rtl ) {
 					$static_layout_min_lang_direction_css = array(
 						'.ast-right-sidebar #primary'   => array(
-							'border-left' => '1px solid #eee',
+							'border-left' => '1px solid var(--ast-border-color)',
 						),
 						'.ast-right-sidebar #secondary' => array(
-							'border-right' => '1px solid #eee',
+							'border-right' => '1px solid var(--ast-border-color)',
 							'margin-right' => '-1px',
 						),
 						'.ast-left-sidebar #primary'    => array(
-							'border-right' => '1px solid #eee',
+							'border-right' => '1px solid var(--ast-border-color)',
 						),
 						'.ast-left-sidebar #secondary'  => array(
-							'border-left' => '1px solid #eee',
+							'border-left' => '1px solid var(--ast-border-color)',
 							'margin-left' => '-1px',
 						),
 						'.ast-separate-container.ast-two-container.ast-right-sidebar #secondary' => array(
@@ -1985,17 +1985,17 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				} else {
 					$static_layout_min_lang_direction_css = array(
 						'.ast-right-sidebar #primary'   => array(
-							'border-right' => '1px solid #eee',
+							'border-right' => '1px solid var(--ast-border-color)',
 						),
 						'.ast-left-sidebar #primary'    => array(
-							'border-left' => '1px solid #eee',
+							'border-left' => '1px solid var(--ast-border-color)',
 						),
 						'.ast-right-sidebar #secondary' => array(
-							'border-left' => '1px solid #eee',
+							'border-left' => '1px solid var(--ast-border-color)',
 							'margin-left' => '-1px',
 						),
 						'.ast-left-sidebar #secondary'  => array(
-							'border-right' => '1px solid #eee',
+							'border-right' => '1px solid var(--ast-border-color)',
 							'margin-right' => '-1px',
 						),
 						'.ast-separate-container.ast-two-container.ast-right-sidebar #secondary' => array(
