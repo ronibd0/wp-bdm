@@ -1698,7 +1698,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					),
 					'.ast-separate-container .ast-archive-description, .ast-separate-container .ast-author-box' => array(
 						'background-color' => 'var(--ast-global-color-5)',
-						'border-bottom'    => '1px solid var(--ast-global-color-6)',
+						'border-bottom'    => '1px solid var(--ast-border-color)',
 					),
 					'.ast-separate-container .comments-title' => array(
 						'padding' => '2em 2em 0 2em',
@@ -4199,7 +4199,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				text-align: left;
 				text-transform: inherit;
 				font-weight: 500;
-				border-bottom: 1px solid var(--ast-global-color-6);
+				border-bottom: 1px solid var(--ast-border-color);
 				background-color: var(--ast-global-color-5);
 				padding: 1.34em;
 				line-height: 1;

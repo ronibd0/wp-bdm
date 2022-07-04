@@ -145,7 +145,7 @@ p.demo_store,
         line-height: 1.618;
         box-shadow: 0px 2px 8px 1px rgba(0, 0, 0, 0.07);
         transition: all 0.3s ease;
-        border: 1px solid var(--ast-global-color-6);
+        border: 1px solid var(--ast-border-color);
         opacity: 0;
         visibility: hidden;
 
@@ -185,7 +185,7 @@ p.demo_store,
            overflow-y: auto;
         	li{
 				padding: .5em 2em .5em 5em;
-				border-bottom: 1px solid var(--ast-global-color-6);
+				border-bottom: 1px solid var(--ast-border-color);
 
 				.remove  {
 					top: 0.4em;
@@ -626,7 +626,7 @@ p.demo_store,
 		}
 
 		.product_meta {
-			border-top: 1px solid var(--ast-global-color-6);
+			border-top: 1px solid var(--ast-border-color);
     		padding-top: 1em;
     		font-size: .9em;
     		margin: 0 0 0.8em;
@@ -852,7 +852,7 @@ p.demo_store,
 					left: 0;
 					width: 100%;
 					height: 1px;
-					background-color: var(--ast-global-color-6);
+					background-color: var(--ast-border-color);
 				}
 
 				li {
@@ -947,7 +947,7 @@ p.demo_store,
 
 				td, th {
 					padding: 0.67em 1.34em;
-					border-color: var(--ast-global-color-6);
+					border-color: var(--ast-border-color);
 				}
 
 				th {
@@ -1050,7 +1050,7 @@ p.demo_store,
 			}
 
 			.variations {
-				border-bottom: 1px solid var(--ast-global-color-6);
+				border-bottom: 1px solid var(--ast-border-color);
 				position: relative;
 				margin-bottom: 1em;
 				width: 100%;
@@ -1637,7 +1637,7 @@ p.demo_store,
 		}
 
 		#review_form {
-			border: 1px solid var(--ast-global-color-6);
+			border: 1px solid var(--ast-border-color);
 			padding: 1.67em;
 
 			#respond{
@@ -1839,7 +1839,7 @@ p.demo_store,
 	 */
 	table.shop_attributes {
 		border: 0;
-		border-top: 1px solid var(--ast-global-color-6);
+		border-top: 1px solid var(--ast-border-color);
 		margin-bottom: 1.618em;
 		width: 100%;
 
@@ -2768,20 +2768,20 @@ p.demo_store,
  .woocommerce,
 .woocommerce-page{
 	input[type=text], input[type=email], input[type=url], input[type=password], input[type=number], input[type=search], input[type=reset], input[type=tel], textarea, form .form-row textarea {
-		border-color: var(--ast-global-color-6);
+		border-color: var(--ast-border-color);
 		background-color: #fff;
 		box-shadow: none;
 		border-radius: 0px;
 
 		&:focus{
 			box-shadow: none;
-			border-color: var(--ast-global-color-6);
+			border-color: var(--ast-border-color);
 		}
 	}
 
 	.select2-container {
 		.select2-dropdown {
-			border: 1px solid var(--ast-global-color-6);
+			border: 1px solid var(--ast-border-color);
 		}
 	}
 
@@ -2791,7 +2791,7 @@ p.demo_store,
 		padding-right: 2em;
 		appearance: none;
 		background-color: #fff;
-		border-color: var(--ast-global-color-6);
+		border-color: var(--ast-border-color);
 		border-radius: 3px;
 		box-shadow: none;
 
@@ -3679,7 +3679,7 @@ button.pswp__button--zoom:hover {
 			padding: .6em 0 .6em 5em;
 			min-height: 5em;
 			position: relative;
-			border-bottom: 1px solid var(--ast-global-color-6);
+			border-bottom: 1px solid var(--ast-border-color);
 			margin: 0;
 			line-height: 1.5;
 
@@ -3726,8 +3726,8 @@ button.pswp__button--zoom:hover {
 	.widget_shopping_cart .total,
 	&.widget_shopping_cart .total {
 		padding: 5px 0;
-		border-top: 1px solid var(--ast-global-color-6);
-		border-bottom: 1px solid var(--ast-global-color-6);
+		border-top: 1px solid var(--ast-border-color);
+		border-bottom: 1px solid var(--ast-border-color);
 		margin-bottom: 1.3em;
 	}
 
@@ -4165,7 +4165,7 @@ button.pswp__button--zoom:hover {
 			}
 
 			.wc-block-price-filter__controls {
-				border-color: var(--ast-global-color-6);
+				border-color: var(--ast-border-color);
 			}
 
 			.wc-block-price-filter__range-text {
