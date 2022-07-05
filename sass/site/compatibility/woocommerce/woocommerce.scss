@@ -88,6 +88,8 @@ p.demo_store,
 	        .widget_shopping_cart {
 	            right: 0;
 	    		left: auto;
+				visibility: visible;
+				opacity: 1;
 	        }
     	}
 		.ast-shopping-cart-icon{
@@ -109,6 +111,10 @@ p.demo_store,
 
 				a{
 					width: 100%;
+
+					&.button {
+						text-align: center;
+					}
 				}
 			}
 			.ast-mini-cart-message {
@@ -4235,5 +4241,13 @@ button.pswp__button--zoom:hover {
 				margin: 0;
 			}
 		}
+	}
+}
+
+.product.woocommerce.add_to_cart_inline {
+	border: 0 !important;
+
+	a.button {
+		margin-left: 1em;
 	}
 }

@@ -2891,7 +2891,7 @@ body {
 .widget_search .search-form .search-field {
   background: #fafafa;
   border-width: 1px;
-  border-color: #eaeaea;
+  border-color: var(--ast-border-color);
   border-radius: 2px;
 }
 
