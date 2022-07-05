@@ -220,6 +220,11 @@ p.demo_store[data-position="bottom"],
   width: 100%;
 }
 
+.woocommerce .ast-site-header-cart .ast-site-header-cart-data .ast-mini-cart-empty .woocommerce-mini-cart__buttons a.button,
+.ast-site-header-cart .ast-site-header-cart-data .ast-mini-cart-empty .woocommerce-mini-cart__buttons a.button {
+  text-align: center;
+}
+
 .woocommerce .ast-site-header-cart .ast-site-header-cart-data .ast-mini-cart-empty .ast-mini-cart-message .woocommerce-mini-cart__empty-message,
 .ast-site-header-cart .ast-site-header-cart-data .ast-mini-cart-empty .ast-mini-cart-message .woocommerce-mini-cart__empty-message {
   text-align: center;
@@ -4193,12 +4198,12 @@ button.pswp__button--zoom:hover {
 
 .woocommerce.woocommerce-checkout #payment div.payment_box,
 .woocommerce-page.woocommerce-checkout #payment div.payment_box {
-  background-color: var(--ast-border-color);
+  background-color: #efefef;
 }
 
 .woocommerce.woocommerce-checkout #payment div.payment_box:before,
 .woocommerce-page.woocommerce-checkout #payment div.payment_box:before {
-  border-bottom-color: var(--ast-border-color);
+  border-bottom-color: #efefef;
 }
 
 .woocommerce.woocommerce-checkout #payment div.form-row,

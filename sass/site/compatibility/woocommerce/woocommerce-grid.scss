@@ -111,6 +111,10 @@ p.demo_store,
 
 				a{
 					width: 100%;
+
+					&.button {
+						text-align: center;
+					}
 				}
 			}
 			.ast-mini-cart-message {

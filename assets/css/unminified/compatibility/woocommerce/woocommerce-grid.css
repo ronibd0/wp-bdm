@@ -220,6 +220,11 @@ p.demo_store[data-position="bottom"],
   width: 100%;
 }
 
+.woocommerce .ast-site-header-cart .ast-site-header-cart-data .ast-mini-cart-empty .woocommerce-mini-cart__buttons a.button,
+.ast-site-header-cart .ast-site-header-cart-data .ast-mini-cart-empty .woocommerce-mini-cart__buttons a.button {
+  text-align: center;
+}
+
 .woocommerce .ast-site-header-cart .ast-site-header-cart-data .ast-mini-cart-empty .ast-mini-cart-message .woocommerce-mini-cart__empty-message,
 .ast-site-header-cart .ast-site-header-cart-data .ast-mini-cart-empty .ast-mini-cart-message .woocommerce-mini-cart__empty-message {
   text-align: center;
