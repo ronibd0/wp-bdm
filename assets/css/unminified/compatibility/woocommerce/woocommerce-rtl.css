@@ -194,6 +194,8 @@ p.demo_store[data-position="bottom"],
 .ast-site-header-cart:hover .widget_shopping_cart {
   left: 0;
   right: auto;
+  visibility: visible;
+  opacity: 1;
 }
 
 .woocommerce .ast-site-header-cart .ast-shopping-cart-icon,
