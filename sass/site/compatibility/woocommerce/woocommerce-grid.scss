@@ -4233,3 +4233,12 @@ button.pswp__button--zoom:hover {
 		}
 	}
 }
+
+
+.product.woocommerce.add_to_cart_inline {
+	border: 0 !important;
+
+	a.button {
+		margin-left: 1em;
+	}
+}

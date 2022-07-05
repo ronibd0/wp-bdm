@@ -4926,3 +4926,11 @@ button.pswp__button--zoom:hover {
 .woocommerce-page .widget .wc-layered-nav-rating .star-rating {
   margin: 0;
 }
+
+.product.woocommerce.add_to_cart_inline {
+  border: 0 !important;
+}
+
+.product.woocommerce.add_to_cart_inline a.button {
+  margin-left: 1em;
+}
