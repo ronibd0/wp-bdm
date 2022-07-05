@@ -145,7 +145,7 @@
 
 .customize-control.ast-top-section-divider,
 .customize-control.ast-bottom-section-divider {
-    position: relative; 
+    position: relative;
 }
 
 .customize-control.ast-top-section-divider {
@@ -181,24 +181,25 @@
 /*
 * CSS for ast-first-control-spacing attribute started.
 */
+[ID*="-create-menu-link"] .ahfb-builder-item-start {
+    margin-bottom: 0;
+}
 
 .customize-control.ast-section-spacing,
 #customize-control-astra-settings-footer-create-menu-link,
-#customize-control-astra-settings-header-button1-text,
 #customize-control-astra-settings-footer-language-switcher-options,
 #customize-control-astra-settings-header-mobile-menu-create-menu-link,
 #customize-control-astra-settings-header-language-switcher-options,
 #customize-control-astra-settings-site-icon-link,
 #customize-control-custom_logo,
 #customize-control-astra-settings-header-above-stick,
-#customize-control-astra-settings-footer-button1-text,
-#customize-control-astra-settings-footer-button2-text,
-#customize-control-astra-settings-header-button2-text {
+[ID*="sub-accordion-section-section-hb-menu-"] [ID*="-create-menu-link"],
+[ID*="customize-control-astra-settings-header-button"][ID*="-text"],
+[ID*="customize-control-astra-settings-footer-button"][ID*="-text"] {
     margin-top: 32px;
 }
 
-
-#customize-control-body-font-variant, 
+#customize-control-body-font-variant,
 #customize-control-headings-font-variant {
     margin-top: 0;
 }

@@ -959,26 +959,3 @@ function astra_search_static_css() {
 
 	return Astra_Enqueue_Scripts::trim_css( $search_css );
 }
-
-/**
- * Getting current author ID.
- *
- * @since x.x.x
- * @return mixed
- */
-function astra_get_author_id() {
-	$author_id = get_queried_object_id();
-
-	if ( is_singular() ) {
-		$author_id = get_the_author_meta( 'ID' );
-	}
-
-	if ( ! $author_id ) {
-		$author = get_user_by( 'slug', get_query_var( 'author_name' ) );
-		/** @psalm-suppress PossiblyInvalidPropertyFetch */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-		$author_id = $author->ID;
-		/** @psalm-suppress PossiblyInvalidPropertyFetch */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-	}
-
-	return $author_id;
-}
