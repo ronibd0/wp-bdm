@@ -1992,7 +1992,6 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 					'background-position-x' => 'calc( 100% - 10px )',
 					'-webkit-appearance'    => 'none',
 					'-moz-appearance'       => 'none',
-					'-moz-appearance'       => 'none',
 					'padding-right'         => '2em',
 				),
 			);
