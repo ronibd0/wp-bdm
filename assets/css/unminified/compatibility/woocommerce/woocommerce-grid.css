@@ -4194,12 +4194,12 @@ button.pswp__button--zoom:hover {
 
 .woocommerce.woocommerce-checkout #payment div.payment_box,
 .woocommerce-page.woocommerce-checkout #payment div.payment_box {
-  background-color: var(--ast-border-color);
+  background-color: #efefef;
 }
 
 .woocommerce.woocommerce-checkout #payment div.payment_box:before,
 .woocommerce-page.woocommerce-checkout #payment div.payment_box:before {
-  border-bottom-color: var(--ast-border-color);
+  border-bottom-color: #efefef;
 }
 
 .woocommerce.woocommerce-checkout #payment div.form-row,
