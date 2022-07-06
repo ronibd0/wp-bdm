@@ -1541,6 +1541,7 @@ p.demo_store[data-position="bottom"],
 
 .woocommerce .woocommerce-result-count {
   margin: 0.6em 0 1em;
+  line-height: 1;
 }
 
 .woocommerce .woocommerce-ordering {
