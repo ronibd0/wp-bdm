@@ -93,7 +93,7 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 				'section'  => $_section,
 				'priority' => 50,
 				'context'  => Astra_Builder_Helper::$general_tab,
-				'help'     => '<p>' . __( 'Note: The Cart Label on the header will be displayed by using shortcodes. Click on the plus icon above to add your desired shortcode.', 'astra' ) . '</p>',
+				'help'     => '<p>' . __( 'Note: The Cart Label on the header will be displayed by using shortcodes. Type any custom string in it or click on the plus icon above to add your desired shortcode.', 'astra' ) . '</p>',
 			),
 
 			/**
@@ -249,7 +249,7 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 				'default'    => astra_get_option( 'header-woo-cart-icon-colors' ),
 				'type'       => 'control',
 				'control'    => 'ast-color-group',
-				'title'      => __( 'Color', 'astra' ),
+				'title'      => __( 'Cart Color', 'astra' ),
 				'section'    => $_section,
 				'transport'  => 'postMessage',
 				'priority'   => 45,
@@ -338,7 +338,7 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 				'type'       => 'control',
 				'transport'  => 'postMessage',
 				'section'    => $_section,
-				'title'      => __( 'Cart Total Position', 'astra' ),
+				'title'      => __( 'Cart Label Position', 'astra' ),
 				'control'    => 'ast-selector',
 				'priority'   => 47,
 				'choices'    => array(
@@ -349,7 +349,14 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 				),
 				'responsive' => true,
 				'renderAs'   => 'text',
-				'context'    => Astra_Builder_Helper::$design_tab,
+				'context'    => array(
+					Astra_Builder_Helper::$design_tab_config,
+					array(
+						'setting'  => ASTRA_THEME_SETTINGS . '[woo-header-cart-label-display]',
+						'operator' => '!=',
+						'value'    => '',
+					),
+				),
 				'divider'    => array( 'ast_class' => 'ast-bottom-section-divider' ),
 			),
 

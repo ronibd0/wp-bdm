@@ -1005,10 +1005,11 @@ function astra_update_single_product_sidebar_layout() {
  * @return void
  */
 function astra_update_single_product_breadcrumb() {
-	error_log( 'Running batch correctly...' );
 	$theme_options = get_option( 'astra-settings', array() );
-	if ( ! isset( $theme_options['single-product-breadcrumb-disable'] ) ) {
+	if ( isset( $theme_options['single-product-breadcrumb-disable'] ) ) {
+		$theme_options['single-product-breadcrumb-disable'] = ( true === $theme_options['single-product-breadcrumb-disable'] ) ? false : true;
+	} else {
 		$theme_options['single-product-breadcrumb-disable'] = true;
-		update_option( 'astra-settings', $theme_options );
 	}
+	update_option( 'astra-settings', $theme_options );
 }
