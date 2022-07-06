@@ -249,7 +249,7 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 				'default'    => astra_get_option( 'header-woo-cart-icon-colors' ),
 				'type'       => 'control',
 				'control'    => 'ast-color-group',
-				'title'      => __( 'Color', 'astra' ),
+				'title'      => __( 'Cart Color', 'astra' ),
 				'section'    => $_section,
 				'transport'  => 'postMessage',
 				'priority'   => 45,
