@@ -58,11 +58,10 @@ if ( ! class_exists( 'Astra_Woo_Shop_Single_Layout_Configs' ) ) {
 					'type'        => 'control',
 					'section'     => 'section-woo-shop-single',
 					'title'       => __( 'Enable Shipping Text', 'astra' ),
-					'description' => 'Adds shipping text next to the product price',
+					'description' => __( 'Adds shipping text next to the product price.', 'astra' ),
 					'control'     => 'ast-toggle-control',
 					'priority'    => 16,
 				),
-
 
 				/**
 				* Option: Single page variation tab layout.

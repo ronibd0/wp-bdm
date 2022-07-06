@@ -553,17 +553,21 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 	/**
 	 * Added for the Cart total label badge position
 	 */
+	$cart_dynamic_label = astra_get_option( 'woo-header-cart-label-display' );
+	if ( ! empty( $cart_dynamic_label ) ) {
 
-	$css_total_position_common_selector = array(
-		'.cart-container, .ast-addon-cart-wrap' => array(
-			'display'     => 'flex',
-			'align-items' => 'center',
-		),
-		'.astra-icon'                           => array(
-			'line-height' => 0.1,
-		),
-	);
-	$css_output                        .= astra_parse_css( $css_total_position_common_selector );
+		$css_total_position_common_selector = array(
+			'.cart-container, .ast-addon-cart-wrap' => array(
+				'display'     => 'flex',
+				'align-items' => 'center',
+			),
+			'.astra-icon'                           => array(
+				'line-height' => 0.1,
+			),
+		);
+
+		$css_output .= astra_parse_css( $css_total_position_common_selector );
+	}
 
 	/**
 	 * Position markup
