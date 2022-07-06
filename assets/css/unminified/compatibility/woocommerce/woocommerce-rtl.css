@@ -2139,6 +2139,7 @@ p.demo_store[data-position="bottom"],
   border-bottom: 1px dotted var(--ast-border-color);
   margin: 0;
   line-height: 1.5;
+  text-align: right;
 }
 
 .woocommerce table.shop_attributes td {
