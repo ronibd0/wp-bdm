@@ -194,8 +194,6 @@ p.demo_store[data-position="bottom"],
 .ast-site-header-cart:hover .widget_shopping_cart {
   right: 0;
   left: auto;
-  visibility: visible;
-  opacity: 1;
 }
 
 .woocommerce .ast-site-header-cart .ast-shopping-cart-icon,
@@ -847,7 +845,7 @@ p.demo_store[data-position="bottom"],
 
 .woocommerce div.product .product_meta {
   border-top: 1px solid var(--ast-border-color);
-  padding-top: 1em;
+  padding-top: .5em;
   font-size: .9em;
   margin: 0 0 0.8em;
 }
