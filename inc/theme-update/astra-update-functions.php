@@ -998,7 +998,6 @@ function astra_update_single_product_sidebar_layout() {
 	}
 }
 
-
 /**
  * Enable single product breadcrumb to maintain backward compatibility for existing users.
  *
@@ -1006,10 +1005,10 @@ function astra_update_single_product_sidebar_layout() {
  * @return void
  */
 function astra_update_single_product_breadcrumb() {
+	error_log( 'Running batch correctly...' );
 	$theme_options = get_option( 'astra-settings', array() );
 	if ( ! isset( $theme_options['single-product-breadcrumb-disable'] ) ) {
 		$theme_options['single-product-breadcrumb-disable'] = true;
 		update_option( 'astra-settings', $theme_options );
 	}
 }
-
