@@ -257,9 +257,9 @@ p.demo_store[data-position="bottom"],
   display: block;
   line-height: 1.618;
   transition: all 0.3s ease;
-  border-top: 20px solid transparent;
   opacity: 0;
   visibility: hidden;
+  transition: all 0.3s ease;
 }
 
 .woocommerce .ast-site-header-cart .widget_shopping_cart:after, .woocommerce .ast-site-header-cart .widget_shopping_cart:before,
