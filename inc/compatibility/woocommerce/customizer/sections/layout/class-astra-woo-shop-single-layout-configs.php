@@ -72,7 +72,7 @@ if ( ! class_exists( 'Astra_Woo_Shop_Single_Layout_Configs' ) ) {
 					'type'        => 'control',
 					'section'     => 'section-woo-shop-single',
 					'title'       => __( 'Product Variation Layout', 'astra' ),
-					'description' => __( 'Changes single product variation layout to be displayed inline or stacked' ),
+					'description' => __( 'Changes single product variation layout to be displayed inline or stacked.', 'astra' ),
 					'context'     => array(
 						Astra_Builder_Helper::$general_tab_config,
 					),
