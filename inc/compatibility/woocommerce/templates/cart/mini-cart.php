@@ -23,16 +23,16 @@ do_action( 'woocommerce_before_mini_cart' ); // phpcs:ignore WordPress.NamingCon
 
 <?php if ( ! WC()->cart->is_empty() ) : ?>
 
-	<?php 
-	/** @psalm-suppress UndefinedGlobalVariable */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort 
+	<?php
+	/** @psalm-suppress UndefinedGlobalVariable */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 		$list_class = $args['list_class']; // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
 	?>
-	<ul class="woocommerce-mini-cart cart_list product_list_widget <?php echo esc_attr( $list_class ); ?>"> 
+	<ul class="woocommerce-mini-cart cart_list product_list_widget <?php echo esc_attr( $list_class ); ?>">
 		<?php
 		do_action( 'woocommerce_before_mini_cart_contents' ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
 
 		foreach ( WC()->cart->get_cart() as $cart_item_key => $cart_item ) { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
-			/** @psalm-suppress TooManyArguments */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort 
+			/** @psalm-suppress TooManyArguments */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			$_product = apply_filters( 'woocommerce_cart_item_product', $cart_item['data'], $cart_item, $cart_item_key ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound,WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
 			/** @psalm-suppress TooManyArguments */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			$product_id = apply_filters( 'woocommerce_cart_item_product_id', $cart_item['product_id'], $cart_item, $cart_item_key ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound,WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
@@ -46,13 +46,13 @@ do_action( 'woocommerce_before_mini_cart' ); // phpcs:ignore WordPress.NamingCon
 				?>
 				<li class="woocommerce-mini-cart-item <?php echo esc_attr( apply_filters( 'woocommerce_mini_cart_item_class', 'mini_cart_item', $cart_item, $cart_item_key ) ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound ?>">
 					<?php
-					/** @psalm-suppress TooManyArguments */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort 
+					/** @psalm-suppress TooManyArguments */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 					echo apply_filters( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 						'woocommerce_cart_item_remove_link', // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
 						sprintf(
 							'<a href="%s" class="remove remove_from_cart_button" aria-label="%s" data-product_id="%s" data-cart_item_key="%s" data-product_sku="%s">&times;</a>',
 							esc_url( wc_get_cart_remove_url( $cart_item_key ) ),
-							esc_attr__( 'Remove this item', 'woocommerce' ),
+							esc_attr__( 'Remove this item', 'astra' ),
 							esc_attr( $product_id ),
 							esc_attr( $cart_item_key ),
 							esc_attr( $_product->get_sku() )
@@ -98,10 +98,10 @@ do_action( 'woocommerce_before_mini_cart' ); // phpcs:ignore WordPress.NamingCon
 <?php else : ?>
 	<div class="ast-mini-cart-empty">
 		<div class="ast-mini-cart-message">
-			<p class="woocommerce-mini-cart__empty-message"><?php esc_html_e( 'No products in the cart.', 'woocommerce' ); ?></p>
+			<p class="woocommerce-mini-cart__empty-message"><?php esc_html_e( 'No products in the cart.', 'astra' ); ?></p>
 		</div>
 		<div class="woocommerce-mini-cart__buttons">
-		<a href="<?php /** @psalm-suppress PossiblyFalseArgument */  echo esc_url( get_permalink( wc_get_page_id( 'shop' ) ) ); ?>" class="button wc-forward"><?php esc_html_e( 'Continue Shopping', 'woocommerce' ); ?></a> <?php // phpcs:ignore Generic.Commenting.DocComment.MissingShort ?>
+		<a href="<?php /** @psalm-suppress PossiblyFalseArgument */  echo esc_url( get_permalink( wc_get_page_id( 'shop' ) ) ); ?>" class="button wc-forward"><?php esc_html_e( 'Continue Shopping', 'astra' ); ?></a> <?php // phpcs:ignore Generic.Commenting.DocComment.MissingShort ?>
 		</div>
 	</div>
 
