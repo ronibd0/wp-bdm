@@ -40,7 +40,7 @@ if ( ! class_exists( 'Astra_Woo_Shop_Layout_Configs' ) ) {
 					'type'              => 'control',
 					'control'           => 'ast-responsive-slider',
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
-					'section'           => 'section-woo-shop-skin',
+					'section'           => 'woocommerce_product_catalog',
 					'default'           => astra_get_option(
 						'shop-grids',
 						array(
@@ -65,7 +65,7 @@ if ( ! class_exists( 'Astra_Woo_Shop_Layout_Configs' ) ) {
 				array(
 					'name'        => ASTRA_THEME_SETTINGS . '[shop-no-of-products]',
 					'type'        => 'control',
-					'section'     => 'section-woo-shop-skin',
+					'section'     => 'woocommerce_product_catalog',
 					'title'       => __( 'Products Per Page', 'astra' ),
 					'default'     => astra_get_option( 'shop-no-of-products' ),
 					'control'     => 'number',
@@ -125,24 +125,7 @@ if ( ! class_exists( 'Astra_Woo_Shop_Layout_Configs' ) ) {
 					'control'  => 'ast-heading',
 					'priority' => 10,
 					'settings' => array(),
-					'divider'  => array( 'ast_class' => 'ast-section-spacing ast-bottom-spacing' ),
-				),
-				
-
-				/**
-				 * Link to the shop skin layout.
-				 */
-				array(
-					'name'           => ASTRA_THEME_SETTINGS . '[shop-skin-section-link]',
-					'type'           => 'control',
-					'control'        => 'ast-customizer-link',
-					'section'        => 'woocommerce_product_catalog',
-					'panel'          => 'woocommerce',
-					'priority'       => 10,
-					'is_button_link' => true,
-					'link_type'      => 'section',
-					'linked'         => 'section-woo-shop-skin',
-					'link_text'      => __( 'Shop Skin Layout', 'astra' ),
+					'divider'  => array( 'ast_class' => 'ast-section-spacing' ),
 				),
 
 				/**
@@ -152,7 +135,7 @@ if ( ! class_exists( 'Astra_Woo_Shop_Layout_Configs' ) ) {
 					'name'       => ASTRA_THEME_SETTINGS . '[shop-archive-width]',
 					'type'       => 'control',
 					'control'    => 'ast-selector',
-					'section'    => 'section-woo-shop-skin',
+					'section'    => 'woocommerce_product_catalog',
 					'default'    => astra_get_option( 'shop-archive-width' ),
 					'priority'   => 10,
 					'title'      => __( 'Shop Archive Content Width', 'astra' ),
@@ -173,7 +156,7 @@ if ( ! class_exists( 'Astra_Woo_Shop_Layout_Configs' ) ) {
 					'name'        => ASTRA_THEME_SETTINGS . '[shop-archive-max-width]',
 					'type'        => 'control',
 					'control'     => 'ast-slider',
-					'section'     => 'section-woo-shop-skin',
+					'section'     => 'woocommerce_product_catalog',
 					'default'     => astra_get_option( 'shop-archive-max-width' ),
 					'priority'    => 10,
 					'title'       => __( 'Custom Width', 'astra' ),
