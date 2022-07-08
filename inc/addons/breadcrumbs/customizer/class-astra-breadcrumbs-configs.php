@@ -468,13 +468,6 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 					'control'     => 'ast-builder-header-control',
 					'priority'    => 0,
 					'description' => '',
-					'context'     => array(
-						array(
-							'setting'  => ASTRA_THEME_SETTINGS . '[breadcrumb-position]',
-							'operator' => '!=',
-							'value'    => 'none',
-						),
-					),
 				);
 
 			}
