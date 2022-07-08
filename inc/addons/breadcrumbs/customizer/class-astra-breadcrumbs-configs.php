@@ -112,7 +112,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 					'section'  => $_section,
 					'priority' => 5,
 					'label'    => '',
-					'help'     => __( 'Note: If this design setting is not reflecting, check if Header Position is set other than None.', 'astra' ),
+					'help'     => __( 'Note: To get design settings in action make sure to select Header Position other than None.', 'astra' ),
 					'context'  => array(
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[breadcrumb-position]',
