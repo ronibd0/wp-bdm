@@ -3026,6 +3026,7 @@ input[type="text"].select2-search__field {
 #customize-control-astra-settings-header-account-logged-out-text,
 #customize-control-blogname,
 #customize-control-blogdescription,
+#customize-control-astra-settings-shop-load-more-text,
 #customize-control-astra-settings-single-product-shipping-text,
 #customize-control-astra-settings-ast-header-retina-logo,
 #customize-control-astra-settings-header-account-create-menu-link,
@@ -3183,6 +3184,7 @@ input[type="text"].select2-search__field {
     border-right-color: transparent!important;
     border-left-color: transparent!important;
     border-top-style: solid!important;
+	border-top-color: #1e1e1e!important;
     margin-right: -10px;
 	bottom: -6px;
 	content: "";
@@ -5589,6 +5591,7 @@ input[type="text"].select2-search__field {
 #customize-control-astra-settings-header-account-logged-out-text,
 #customize-control-blogname,
 #customize-control-blogdescription,
+#customize-control-astra-settings-shop-load-more-text,
 #customize-control-astra-settings-single-product-shipping-text,
 #customize-control-astra-settings-ast-header-retina-logo,
 #customize-control-astra-settings-header-account-create-menu-link,

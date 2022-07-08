@@ -146,14 +146,13 @@ p.demo_store,
         left: -999em;
         display: block;
         line-height: 1.618;
-        transition: all 0.3s ease;
-		border-top: 20px solid transparent;
         opacity: 0;
         visibility: hidden;
+		transition: all 0.3s ease;
 
     	&:after,
     	&:before {
-			bottom: 100%;
+			bottom: 99.9%;
 			left: auto;
 			right: 8px;
 			border: solid transparent;
@@ -175,9 +174,9 @@ p.demo_store,
 		&:before {
 			border-color: rgba(230, 230, 230, 0);
 			border-bottom-color: var(--ast-border-color);
-			border-width: 9px;
-			margin-left: -5px;
-			right: 5px;
+			border-width: 7px;
+			margin-left: -12px;
+			right: 7px;
 		}
 
 		.widget_shopping_cart_content {
@@ -261,6 +260,15 @@ p.demo_store,
 			}
 		}
     }
+}
+
+.ast-site-header-cart {
+	&:focus, &:hover {
+		.widget_shopping_cart {
+			opacity: 1;
+			visibility: visible;
+		}
+	}
 }
 
 .ast-above-header-wrap,
@@ -1327,7 +1335,7 @@ p.demo_store,
 	}
 
 	.woocommerce-result-count {
-		margin: 0.6em 0 1em;
+		margin: 1em 0 1em;
 		line-height: 1;
 	}
 

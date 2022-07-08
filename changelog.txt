@@ -13,6 +13,7 @@ v3.9.0-beta.1 (woocommerce-improvements)
 - New: WooCommerce - Added Product Variation Orientation option in the Single product.
 - New: WooCommerce - Added show/hide cart total badge option.
 - Improvement: WooCommerce - Modify the Cart label section via Shortcodes. (Needs Doc)
+- Improvement: Introduced filter 'astra_stretched_layout_with_spacing' to exclude Stretched layout around spacing CSS. ( https://wpastra.com/docs/improved-block-editor-experience/ )
 - Fix: WooCommerce - Margin issue for single shop page with the Full width & Contained Layout.
 
 v3.8.5 (Unreleased)

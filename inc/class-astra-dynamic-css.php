@@ -4551,15 +4551,15 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				.ast-site-header-cart .widget_shopping_cart .buttons .button:not(.checkout) {
 					background-color: transparent;
 					border-style: solid;
-					border-width: 2px;
+					border-width: 1px;
 					border-color: ' . $normal_border_color . ';
-					color: ' . esc_attr( $btn_bg_color ) . ';
+					color: ' . esc_attr( $normal_border_color ) . ';
 				}
 
 				.woocommerce-js .astra-cart-drawer .astra-cart-drawer-content .woocommerce-mini-cart__buttons .button:not(.checkout):hover,
 				.ast-site-header-cart .widget_shopping_cart .buttons .button:not(.checkout):hover {
 					border-color: ' . $hover_border_color . ';
-					color: ' . esc_attr( $btn_bg_color ) . ';
+					color: ' . esc_attr( $hover_border_color ) . ';
 				}
 
 				.woocommerce-js .astra-cart-drawer .astra-cart-drawer-content .woocommerce-mini-cart__buttons a.checkout {

@@ -266,7 +266,7 @@ class Astra_Global_Palette {
 		$global_border_color = astra_get_option( 'border-color' );
 		
 		if ( ! $global_border_color ) {
-			$global_border_color = '#eaeaea';
+			$global_border_color = '#ddd';
 		}
 
 		$global_border = '
