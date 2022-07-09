@@ -132,7 +132,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			add_filter( 'woocommerce_cart_item_remove_link', array( $this, 'change_cart_close_icon' ), 10, 2 );
 
 			add_action( 'wp', array( $this, 'woocommerce_proceed_to_checkout_button' ) );
-			
+
 		}
 
 		/**
@@ -652,7 +652,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			/* Cart button*/
 			$defaults['woo-enable-cart-button-text'] = false;
 			$defaults['woo-cart-button-text']        = __( 'Proceed to checkout', 'astra' );
-			
+
 
 
 			return $defaults;
@@ -876,7 +876,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			if ( is_shop() || is_product_taxonomy() || is_checkout() || is_cart() || is_account_page() || is_product() ) {
 
 				$woo_sidebar                 = astra_get_option( 'woocommerce-sidebar-layout' );
-				$astra_with_modern_ecommerce = astra_get_option( 'astra-ecommerce-modern-setup', true );
+				$astra_with_modern_ecommerce = astra_get_option( 'modern-ecommerce-setup', true );
 
 				if ( 'default' !== $woo_sidebar ) {
 					$sidebar_layout = $woo_sidebar;
@@ -885,9 +885,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				$global_page_specific_layout = 'default';
 
 				if ( is_shop() || is_product_taxonomy() ) {
-					$archive_product_fallback_sidebar = ( false === $astra_with_modern_ecommerce ) ? astra_get_option( 'site-sidebar-layout' ) : astra_get_option( 'woocommerce-sidebar-layout' );
-					$archive_product_sidebar          = astra_get_option( 'archive-product-sidebar-layout', 'default' );
-					$global_page_specific_layout      = 'default' === $archive_product_sidebar ? $archive_product_fallback_sidebar : $archive_product_sidebar;
+					$global_page_specific_layout = astra_get_option( 'archive-product-sidebar-layout', 'default' );
 				}
 
 				if ( is_product() ) {
@@ -914,7 +912,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				}
 			}
 
-			return $sidebar_layout;
+			return apply_filters( 'astra_get_store_sidebar_layout', $sidebar_layout );
 		}
 		/**
 		 * WooCommerce Container
