@@ -2290,7 +2290,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			if ( $cart_button_text ) {
 				?>
 					<a href="<?php echo esc_url( wc_get_checkout_url() ); ?>" class="checkout-button button alt wc-forward">
-					<?php esc_html__( $cart_button_text, 'astra' ); ?>
+					<?php esc_attr_e( $cart_button_text ); ?>
 					</a>
 				<?php
 			}
