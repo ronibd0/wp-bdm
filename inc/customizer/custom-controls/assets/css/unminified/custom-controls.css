@@ -2175,6 +2175,7 @@ span.customize-control-title.ast-group-section-title {
   color: var(--ast-customizer-color-10);
   z-index: 1000;
   bottom: calc(100% + 5px);
+  text-align: center;
   animation: tooltips-vert 300ms ease-out forwards;
 }
 
