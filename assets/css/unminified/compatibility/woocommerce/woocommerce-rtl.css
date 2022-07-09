@@ -1260,7 +1260,7 @@ p.demo_store[data-position="bottom"],
 
 .woocommerce div.product form.cart div.quantity {
   float: right;
-  margin: 0 0 0 .5em;
+  margin: 0 0 0 1em;
 }
 
 .woocommerce div.product form.cart table {

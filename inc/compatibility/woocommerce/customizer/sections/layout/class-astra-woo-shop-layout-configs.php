@@ -69,7 +69,7 @@ if ( ! class_exists( 'Astra_Woo_Shop_Layout_Configs' ) ) {
 					'title'       => __( 'Products Per Page', 'astra' ),
 					'default'     => astra_get_option( 'shop-no-of-products' ),
 					'control'     => 'number',
-					'priority'    => 15,
+					'priority'    => 12,
 					'input_attrs' => array(
 						'min'  => 1,
 						'step' => 1,
