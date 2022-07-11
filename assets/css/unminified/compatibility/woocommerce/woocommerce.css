@@ -295,9 +295,7 @@ p.demo_store[data-position="bottom"],
 
 .woocommerce .ast-site-header-cart .widget_shopping_cart .widget_shopping_cart_content,
 .ast-site-header-cart .widget_shopping_cart .widget_shopping_cart_content {
-  background-color: var(--ast-global-color-5);
   box-shadow: 0px 2px 8px 1px rgba(0, 0, 0, 0.07);
-  border: 1px solid var(--ast-border-color);
 }
 
 .woocommerce .ast-site-header-cart .widget_shopping_cart .product_list_widget,
@@ -4958,4 +4956,9 @@ button.pswp__button--zoom:hover {
 
 .product.woocommerce.add_to_cart_inline a.button {
   margin-left: 1em;
+}
+
+.ast-site-header-cart .widget_shopping_cart, .astra-cart-drawer {
+  background-color: var(--ast-global-color-5);
+  border: 1px solid var(--ast-border-color);
 }

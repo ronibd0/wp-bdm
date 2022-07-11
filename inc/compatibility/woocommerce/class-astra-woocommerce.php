@@ -150,19 +150,6 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		}
 
 		/**
-		 * Encode SVG
-		 *
-		 * @since x.x.x
-		 *
-		 * @param  string $svg Svg icon.
-		 * @return string
-		 */
-		public function svg_encode( $svg ) {
-			$encoded_svg = base64_encode( $svg ); // phpcs:ignore WordPress.PHP.DiscouragedPHPFunctions.obfuscation_base64_encode
-			return 'url( "data:image/svg+xml;base64,' . $encoded_svg . '" );';
-		}
-
-		/**
 		 * Dynamic Store widgets.
 		 */
 		public function store_widgets_dynamic() {
@@ -1989,11 +1976,12 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			 * Select arrow styling
 			 */
 
-			$arrow_svg = '<svg class="ast-arrow-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" width="26px" height="16.043px" viewBox="57 35.171 26 16.043" enable-background="new 57 35.171 26 16.043" xml:space="preserve" fill="' . $global_palette['palette'][3] . '"><path d="M57.5,38.193l12.5,12.5l12.5-12.5l-2.5-2.5l-10,10l-10-10L57.5,38.193z"></path></svg>';
+			$arrow_color = str_replace( '#', '%23', $global_palette['palette'][3] );
+			$arrow_bg    = "data:image/svg+xml,%3Csvg class='ast-arrow-svg' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' version='1.1' x='0px' y='0px' width='26px' height='16.043px' fill='" . $arrow_color . "' viewBox='57 35.171 26 16.043' enable-background='new 57 35.171 26 16.043' xml:space='preserve' %3E%3Cpath d='M57.5,38.193l12.5,12.5l12.5-12.5l-2.5-2.5l-10,10l-10-10L57.5,38.193z'%3E%3C/path%3E%3C/svg%3E";
 
 			$css_output_woo_select_default = array(
 				'select, .select2-container .select2-selection--single' => array(
-					'background'            => self::svg_encode( $arrow_svg ),
+					'background-image'      => 'url("' . $arrow_bg . '")', 
 					'background-size'       => '.8em',
 					'background-repeat'     => 'no-repeat',
 					'background-position'   => 'center right',
@@ -2033,6 +2021,22 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 				$css_output .= astra_parse_css( $css_output_woo_variation_layout );
 			}
+
+
+			$available_gateways = WC()->payment_gateways->get_available_payment_gateways();
+
+			if ( empty( $available_gateways ) ) {
+				
+				$woo_checkout_payment_css = array(
+					'.woocommerce.woocommerce-checkout #payment ul.payment_methods, .woocommerce-page.woocommerce-checkout #payment ul.payment_methods' => array(
+						'border'        => esc_attr( '0' ),
+						'border-radius' => esc_attr( '0' ),
+					),
+				);
+
+				$css_output .= astra_parse_css( $woo_checkout_payment_css );
+			}
+
 			wp_add_inline_style( 'woocommerce-general', apply_filters( 'astra_theme_woocommerce_dynamic_css', $css_output ) );
 
 			/**
