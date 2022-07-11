@@ -2022,25 +2022,6 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				$css_output .= astra_parse_css( $css_output_woo_variation_layout );
 			}
 
-
-			$available_gateways = WC()->payment_gateways->get_available_payment_gateways();
-
-			if ( empty( $available_gateways ) ) {
-				
-				$woo_checkout_payment_css = array(
-					'.woocommerce.woocommerce-checkout #payment ul.payment_methods, .woocommerce-page.woocommerce-checkout #payment ul.payment_methods' => array(
-						'border'        => esc_attr( '0' ),
-						'border-radius' => esc_attr( '0' ),
-					),
-
-					'.woocommerce.woocommerce-checkout #payment ul.payment_methods > li:first-child, .woocommerce-page.woocommerce-checkout #payment ul.payment_methods > li:first-child' => array(
-						'border-radius' => esc_attr( '0' ),
-					),
-				);
-
-				$css_output .= astra_parse_css( $woo_checkout_payment_css );
-			}
-
 			wp_add_inline_style( 'woocommerce-general', apply_filters( 'astra_theme_woocommerce_dynamic_css', $css_output ) );
 
 			/**
