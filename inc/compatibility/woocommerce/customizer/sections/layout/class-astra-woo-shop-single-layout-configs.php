@@ -31,9 +31,21 @@ if ( ! class_exists( 'Astra_Woo_Shop_Single_Layout_Configs' ) ) {
 		 */
 		public function register_configuration( $configurations, $wp_customize ) {
 
-
-
 			$_configs = array(
+
+				/**
+				 * Option: Divider.
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[woo-single-product-structure-fields-divider]',
+					'section'  => 'section-woo-shop-single',
+					'title'    => defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'woocommerce' ) ? __( 'Product Structure Options', 'astra' ) : __( 'Product Options', 'astra' ),
+					'type'     => 'control',
+					'control'  => 'ast-heading',
+					'priority' => 16,
+					'settings' => array(),
+					'divider'  => array( 'ast_class' => 'ast-section-spacing' ),
+				),
 
 				/**
 				* Option: Disable Breadcrumb
