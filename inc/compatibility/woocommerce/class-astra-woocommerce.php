@@ -2032,6 +2032,10 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 						'border'        => esc_attr( '0' ),
 						'border-radius' => esc_attr( '0' ),
 					),
+
+					'.woocommerce.woocommerce-checkout #payment ul.payment_methods > li:first-child, .woocommerce-page.woocommerce-checkout #payment ul.payment_methods > li:first-child' => array(
+						'border-radius' => esc_attr( '0' ),
+					),
 				);
 
 				$css_output .= astra_parse_css( $woo_checkout_payment_css );
