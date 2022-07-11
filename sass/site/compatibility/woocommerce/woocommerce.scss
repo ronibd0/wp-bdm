@@ -1257,6 +1257,22 @@ p.demo_store,
 		z-index: 9;
 	}
 
+	&.single-product {
+		.sale {
+			> span.onsale {
+				font-size: 1em;
+				
+				left: -0.5em;
+			}
+		}
+
+		.sale:not(.ast-product-gallery-layout-vertical-slider) {
+			> span.onsale {
+				top: -0.5em;
+			}
+		}
+	}
+
 	/**
 	 * Product loops
 	 */

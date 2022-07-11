@@ -1460,6 +1460,15 @@ p.demo_store[data-position="bottom"],
   z-index: 9;
 }
 
+.woocommerce.single-product .sale > span.onsale {
+  font-size: 1em;
+  right: -0.5em;
+}
+
+.woocommerce.single-product .sale:not(.ast-product-gallery-layout-vertical-slider) > span.onsale {
+  top: -0.5em;
+}
+
 .woocommerce .products ul,
 .woocommerce ul.products {
   margin: 0 0 1em;
