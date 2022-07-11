@@ -42,7 +42,7 @@ if ( ! class_exists( 'Astra_Woo_Shop_Cart_Layout_Configs' ) ) {
 					'default'     => astra_get_option( 'woo-enable-cart-button-text' ),
 					'type'        => 'control',
 					'section'     => 'section-woo-shop-cart',
-					'title'       => __( 'Enable Cart Button Text', 'astra' ),
+					'title'       => __( 'Change Cart Button Text', 'astra' ),
 					'description' => __( 'Add custom text for cart button', 'astra' ),
 					'control'     => 'ast-toggle-control',
 					'priority'    => 2,
