@@ -1,4 +1,4 @@
-v3.9.0-beta.1 (woocommerce-improvements)
+v3.9.0-beta.1
 - New: Customizer UI improvements.
 - New: Builder - WooCommerce cart - Option for enabling desktop offcanvas cart flyout.
 - New: Builder - WooCommerce cart - Option to update offcanvas flyout direction.
@@ -12,7 +12,7 @@ v3.9.0-beta.1 (woocommerce-improvements)
 - New: WooCommerce - Added Option to add free shipping text next to Woocommerce single product price.
 - New: WooCommerce - Added Product Variation Orientation option in the Single product.
 - New: WooCommerce - Added show/hide cart total badge option.
-- Improvement: WooCommerce - Modify the Cart label section via Shortcodes. (Needs Doc)
+- Improvement: WooCommerce - Modify the Cart label section via Shortcodes. ( https://wpastra.com/docs/improvement-woocommerce-modify-the-cart-label-design/ )
 - Improvement: Introduced filter 'astra_stretched_layout_with_spacing' to exclude Stretched layout around spacing CSS. ( https://wpastra.com/docs/improved-block-editor-experience/ )
 - Improvement: Introduced filter 'astra_get_store_sidebar_layout' to extend sidebar option for the WooCommerce layout.
 - Fix: WooCommerce - Margin issue for single shop page with the Full width & Contained Layout.
