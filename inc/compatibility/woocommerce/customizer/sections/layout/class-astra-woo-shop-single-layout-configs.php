@@ -31,6 +31,9 @@ if ( ! class_exists( 'Astra_Woo_Shop_Single_Layout_Configs' ) ) {
 		 */
 		public function register_configuration( $configurations, $wp_customize ) {
 
+			/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+			$product_divider_title = defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'woocommerce' ) ? __( 'Product Structure Options', 'astra' ) : __( 'Product Options', 'astra' );
+
 			$_configs = array(
 
 				/**
@@ -39,7 +42,7 @@ if ( ! class_exists( 'Astra_Woo_Shop_Single_Layout_Configs' ) ) {
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[woo-single-product-structure-fields-divider]',
 					'section'  => 'section-woo-shop-single',
-					'title'    => defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'woocommerce' ) ? __( 'Product Structure Options', 'astra' ) : __( 'Product Options', 'astra' ),
+					'title'    => $product_divider_title,
 					'type'     => 'control',
 					'control'  => 'ast-heading',
 					'priority' => 16,
