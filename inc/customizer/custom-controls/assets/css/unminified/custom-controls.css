@@ -3467,7 +3467,8 @@ span.customize-control-title.ast-group-section-title {
 /**
  * Responsive slider control inside settings-group, case: body-font, headings-font.
  */
- .ast-fields-wrap .customize-control-ast-responsive-slider .ast-slider-wrap > label {
+ .ast-fields-wrap .customize-control-ast-responsive-slider .ast-slider-wrap > label,
+ .ast-fields-wrap .customize-control-ast-selector .ast-slider-wrap > label {
     display: inline-block;
 }
 
@@ -3722,8 +3723,12 @@ span.customize-control-title.ast-group-section-title {
     margin-bottom: 20px;
     font-size: 13px;
     margin-top: 3px;
-    display: block;
 }
+
+.customize-control-ast-sortable .ast-sortable-subfields-wrap .ast-responsive-btns {
+    top: 7px;
+}
+
 .ast-sortable-subfields-wrap .ast-fields-wrap {
     margin-left: -12px;
 	padding-bottom: 10px;
@@ -3765,7 +3770,7 @@ span.customize-control-title.ast-group-section-title {
     margin-left: auto;
 }
 .ast-sortable-subfields-wrap .customize-control-ast-responsive-slider .ast-responsive-slider-btns {
-    top: -5px;
+    top: -2px;
 }
 
 .customize-control-ast-toggle-control .components-toggle-control .components-base-control__field, .ast-togglecontrol-wrapper .components-base-control__field {
