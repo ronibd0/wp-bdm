@@ -2751,6 +2751,13 @@ input[type="text"], input[type="password"], input[type="color"], input[type="dat
   transform: translateY(-50%);
 }
 
+.customize-control.customize-control-ast-toggle-control.ast-top-dotted-divider .ast-control-tooltip {
+  position: absolute;
+  top: 52%;
+  left: 40px;
+  transform: translateY(0);
+}
+
 .customize-control.customize-control-ast-toggle-control.ast-top-divider .ast-control-tooltip {
   top: calc(50% + 15px);
 }
@@ -5318,6 +5325,13 @@ input[type="text"], input[type="password"], input[type="color"], input[type="dat
   top: 50%;
   left: 40px;
   transform: translateY(-50%);
+}
+
+.customize-control.customize-control-ast-toggle-control.ast-top-dotted-divider .ast-control-tooltip {
+  position: absolute;
+  top: 55%;
+  left: 40px;
+  transform: translateY(0);
 }
 
 .customize-control.customize-control-ast-toggle-control.ast-top-divider .ast-control-tooltip {

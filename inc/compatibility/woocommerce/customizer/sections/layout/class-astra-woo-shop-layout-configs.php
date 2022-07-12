@@ -42,7 +42,7 @@ if ( ! class_exists( 'Astra_Woo_Shop_Layout_Configs' ) ) {
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[woo-shop-structure-divider]',
 					'section'  => 'woocommerce_product_catalog',
-					'title'    => __( 'Shop Structure', 'astra' ),
+					'title'    => __( 'Shop Card Structure', 'astra' ),
 					'type'     => 'control',
 					'control'  => 'ast-heading',
 					'priority' => 15,
