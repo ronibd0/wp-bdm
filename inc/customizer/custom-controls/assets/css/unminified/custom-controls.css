@@ -1737,6 +1737,10 @@ input[type="text"].select2-search__field {
     border-top: 1px dashed var(--ast-customizer-color-7);
 }
 
+#customize-control-astra-settings-product-sale-percent-value .ast-control-tooltip {
+    top: 24px;
+} 
+
 .customize-control.ast-top-dotted-divider .ast-adv-toggle-icon {
     top: 25px;
 }
