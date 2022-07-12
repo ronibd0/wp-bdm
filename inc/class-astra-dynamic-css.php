@@ -4200,7 +4200,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				text-transform: inherit;
 				font-weight: 500;
 				border-bottom: 1px solid var(--ast-border-color);
-				background-color: var(--ast-global-color-5);
 				padding: 1.34em;
 				line-height: 1;
 				z-index: 1;
