@@ -274,15 +274,15 @@
     justify-content: space-between;
     height: auto;
     min-width: 90px;
-    background: #f1f1f1;
+    background: var(--ast-customizer-color-9);
     color: var(--ast-customizer-color-5);
     position: relative;
     white-space: nowrap;
     cursor: grab;
     margin: 0 4px;
     padding: 0 14px;
+	border: 1px solid var(--ast-customizer-color-7);
     border-radius: 4px;
-    border: none;
     transition: all 0.2s;
 }
 
@@ -497,9 +497,9 @@
     height: 52px;
     margin-bottom: 0;
     background: #eeeeee;
-    border: 1px solid #e5e5e5;
+    border: 1px dashed var(--ast-customizer-color-7);
     border-left: none;
-    border-radius: 0 2px 2px 0;
+    border-radius: 0 4px 4px 0;
     transition: all 0.15s;
     transform: translate(0, -2px);
 }
@@ -509,7 +509,7 @@
 }
 
 .ahfb-builder-area .ahfb-builder-drop-right, .ahfb-builder-area .ahfb-builder-drop-right + .ahfb-builder-add-item .ahfb-builder-item-add-icon {
-    border-radius: 0 2px 2px 0;
+    border-radius: 0 4px 4px 0;
 }
 
 .ahfb-builder-areas .ahfb-builder-group-horizontal:hover, .active-builder-row .ahfb-builder-group-horizontal, .ahfb-builder-areas:hover .ahfb-row-actions {
@@ -565,8 +565,8 @@
 
 .ahfb-builder-areas .ahfb-builder-group-horizontal .ahfb-builder-area-center {
     min-width: 134px;
-    border-left: 1px solid #e5e5e5;
-    border-right: 1px solid #e5e5e5;
+    border-left: 1px dashed var(--ast-customizer-color-7);
+    border-right: 1px dashed var(--ast-customizer-color-7);
 }
 
 .ahfb-builder-areas .ahfb-builder-group-horizontal .ahfb-builder-area-center.ahfb-dragging-dropzones, .ahfb-builder-areas.has-center-items .ahfb-builder-area-center {
@@ -682,8 +682,8 @@
 }
 
 .ahfb-builder-areas .components-button.ahfb-row-actions {
-    background: #ffffff;
-    color: #777777;
+    background: var(--ast-customizer-color-13);
+    color: var(--ast-customizer-color-6);
     text-transform: uppercase;
     font-size: 8px;
     font-weight: 500;
@@ -693,8 +693,8 @@
     left: 0;
     width: 30px;
     transition: all 0.2s;
-    border-radius: 2px 0 0 2px;
-    border: 1px solid #e5e5e5;
+    border-radius: 4px 0 0 4px;
+    border: 1px dashed var(--ast-customizer-color-7);
     height: 100%;
     padding: 0;
     overflow: visible;
@@ -732,7 +732,7 @@
 }
 
 .ahfb-builder-areas .components-button.ahfb-row-actions .dashicon {
-    font-size: 10px;
+    font-size: 13px;
     line-height: 20px;
     transition: 0s;
     margin: 0 auto;
@@ -906,7 +906,7 @@
     top: 0;
     bottom: 0;
     border-radius: 0;
-    background: #ffffff;
+    background: var(--ast-customizer-color-13);
     border: 0;
     height: auto;
     width: auto;
