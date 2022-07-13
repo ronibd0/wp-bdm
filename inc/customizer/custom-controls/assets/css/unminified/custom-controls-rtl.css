@@ -1275,7 +1275,9 @@
     margin-top: 25px;
     display: inline-flex;
     width: 100%;
+    min-height: 22px;
 }
+
 
 .ast-top-divider.customize-control-ast-toggle-control .ast-divider-title + .ast-togglecontrol-wrapper,
 .ast-bottom-divider.customize-control-ast-toggle-control .ast-divider-title + .ast-togglecontrol-wrapper,
@@ -2583,7 +2585,9 @@
     margin-top: 25px;
     display: inline-flex;
     width: 100%;
+    min-height: 22px;
 }
+
 
 .ast-top-divider.customize-control-ast-toggle-control .ast-divider-title + .ast-togglecontrol-wrapper,
 .ast-bottom-divider.customize-control-ast-toggle-control .ast-divider-title + .ast-togglecontrol-wrapper,
@@ -2683,6 +2687,7 @@ input[type="text"], input[type="password"], input[type="color"], input[type="dat
   display: flex;
   align-items: center;
   min-height: 28px;
+  flex-wrap: wrap;
 }
 
 .customize-control-ast-responsive-background label {
