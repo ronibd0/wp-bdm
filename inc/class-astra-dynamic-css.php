@@ -4150,7 +4150,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				visibility: hidden;
 				overflow: auto;
 				-webkit-overflow-scrolling: touch;
-				z-index: 9999;
+				z-index: 10000;
 				background-color: var(--ast-global-color-5);
 				transform: translate3d(0, 0, 0);
 				opacity: 0;

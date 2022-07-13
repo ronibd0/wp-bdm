@@ -4472,13 +4472,6 @@ button.pswp__button--zoom:hover {
   margin-bottom: 0;
 }
 
-.woocommerce .widget_shopping_cart .woocommerce-mini-cart__buttons a {
-  display: inline-block;
-  width: calc( 50% - 5px);
-  margin-left: 5px;
-  text-align: center;
-}
-
 .woocommerce .widget_shopping_cart .woocommerce-mini-cart__buttons .checkout.wc-forward {
   margin-right: 5px;
   margin-left: 0;
