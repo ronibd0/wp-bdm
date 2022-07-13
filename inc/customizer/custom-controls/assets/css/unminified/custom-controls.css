@@ -1375,6 +1375,7 @@ input[type="text"], input[type="password"], input[type="color"], input[type="dat
   display: flex;
   align-items: center;
   min-height: 28px;
+  flex-wrap: wrap;
 }
 
 .customize-control-ast-responsive-background label {
