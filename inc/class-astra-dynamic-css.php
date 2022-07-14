@@ -4288,7 +4288,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			}
 
 			.astra-cart-drawer .astra-cart-drawer-content .woocommerce-mini-cart__buttons .button.checkout {
-				margin-' . $ltr_left . ': 0;
+				margin-' . $ltr_right . ': 0;
 			}
 
 			.astra-cart-drawer .astra-cart-drawer-content .woocommerce-mini-cart__buttons a{
