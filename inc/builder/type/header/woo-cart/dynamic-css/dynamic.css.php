@@ -557,7 +557,7 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 	if ( true === Astra_Ext_Transparent_Header_Markup::is_transparent_header() ) {
 
 		if ( $check_sticky_is_enabled_on && 'desktop' !== $check_sticky_is_enabled_on && 'both' !== $check_sticky_is_enabled_on ) {
-			$css_output .= astra_parse_css( $remove_when_transparent_header, 922, '' );
+			$css_output .= astra_parse_css( $remove_when_transparent_header, astra_get_tablet_breakpoint( '', 1 ), '' );
 		}
 
 		if ( $check_sticky_is_enabled_on && 'mobile' !== $check_sticky_is_enabled_on && 'both' !== $check_sticky_is_enabled_on ) {
@@ -565,7 +565,7 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 		}
 
 		if ( $check_sticky_is_enabled_on && 'desktop' === $check_sticky_is_enabled_on ) {
-			$css_output .= astra_parse_css( $add_when_transparent_header, 922, '' );
+			$css_output .= astra_parse_css( $add_when_transparent_header, astra_get_tablet_breakpoint( '', 1 ), '' );
 		} elseif ( $check_sticky_is_enabled_on && 'mobile' === $check_sticky_is_enabled_on ) {
 			$css_output .= astra_parse_css( $add_when_transparent_header, '', astra_get_tablet_breakpoint() );
 		} else {
