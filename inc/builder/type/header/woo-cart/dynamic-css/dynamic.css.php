@@ -556,9 +556,12 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 	
 	if ( true === Astra_Ext_Transparent_Header_Markup::is_transparent_header() ) {
 
+		/** @psalm-suppress InvalidScalarArgument  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+		$tablet_breakpoint = astra_get_tablet_breakpoint( '', 1 );
+
 		if ( $check_sticky_is_enabled_on && 'desktop' !== $check_sticky_is_enabled_on && 'both' !== $check_sticky_is_enabled_on ) {
-			/** @psalm-suppress InvalidArgument InvalidScalarArgument  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-			$css_output .= astra_parse_css( $remove_when_transparent_header, astra_get_tablet_breakpoint( '', 1 ), '' );
+			/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+			$css_output .= astra_parse_css( $remove_when_transparent_header, $tablet_breakpoint, '' );
 		}
 
 		if ( $check_sticky_is_enabled_on && 'mobile' !== $check_sticky_is_enabled_on && 'both' !== $check_sticky_is_enabled_on ) {
@@ -567,8 +570,8 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 		}
 
 		if ( $check_sticky_is_enabled_on && 'desktop' === $check_sticky_is_enabled_on ) {
-			/** @psalm-suppress InvalidArgument InvalidScalarArgument  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-			$css_output .= astra_parse_css( $add_when_transparent_header, astra_get_tablet_breakpoint( '', 1 ), '' );
+			/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+			$css_output .= astra_parse_css( $add_when_transparent_header, $tablet_breakpoint, '' );
 		} elseif ( $check_sticky_is_enabled_on && 'mobile' === $check_sticky_is_enabled_on ) {
 			/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			$css_output .= astra_parse_css( $add_when_transparent_header, '', astra_get_tablet_breakpoint() );
