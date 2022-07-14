@@ -3189,6 +3189,7 @@ p.demo_store[data-position="bottom"],
   line-height: normal;
   padding-left: 2em;
   appearance: none;
+  background-position: center left;
   background-color: #fff;
   border-color: var(--ast-border-color);
   border-radius: 3px;
