@@ -1984,7 +1984,6 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 					'background-image'      => 'url("' . $arrow_bg . '")', 
 					'background-size'       => '.8em',
 					'background-repeat'     => 'no-repeat',
-					'background-position'   => 'center right',
 					'background-position-x' => 'calc( 100% - 10px )',
 					'-webkit-appearance'    => 'none',
 					'-moz-appearance'       => 'none',

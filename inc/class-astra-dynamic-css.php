@@ -4109,6 +4109,9 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 			$normal_border_color = $btn_border_color ? $btn_border_color : $btn_bg_color;
 			$hover_border_color  = $btn_border_h_color ? $btn_border_h_color : $btn_bg_h_color;
+			$is_site_rtl         = is_rtl();
+			$ltr_left            = $is_site_rtl ? 'right' : 'left';
+			$ltr_right           = $is_site_rtl ? 'left' : 'right';
 
 			$cart_static_css = '
 			.ast-site-header-cart .cart-container,
@@ -4182,21 +4185,16 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			.astra-cart-drawer.open-right {
 				width: 460px;
 				height: 100%;
-				left: 100%;
+				' . $ltr_left . ': 100%;
 				top: 0px;
 				opacity: 1;
 				transform: translate3d(0%, 0, 0);
 			}
 
-			.astra-cart-drawer.active {
-				transform: translate3d(-100%, 0, 0);
-				visibility: visible;
-			}
-
 			.astra-cart-drawer .astra-cart-drawer-header {
 				position: absolute;
 				width: 100%;
-				text-align: left;
+				text-align: ' . $ltr_left . ';
 				text-transform: inherit;
 				font-weight: 500;
 				border-bottom: 1px solid var(--ast-border-color);
@@ -4229,7 +4227,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			}
 
 			.astra-cart-drawer .astra-cart-drawer-content .woocommerce-mini-cart-item .ast-mini-cart-price-wrap {
-				float: right;
+				float: ' . $ltr_right . ';
 				margin-top: 0.5em;
 				max-width: 50%;
 			}
@@ -4290,7 +4288,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			}
 
 			.astra-cart-drawer .astra-cart-drawer-content .woocommerce-mini-cart__buttons .button.checkout {
-				margin-right: 0;
+				margin-' . $ltr_right . ': 0;
 			}
 
 			.astra-cart-drawer .astra-cart-drawer-content .woocommerce-mini-cart__buttons a{
@@ -4422,7 +4420,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				}
 				.astra-cart-drawer .astra-cart-drawer-close {
 					position: absolute;
-					top: 0.5;
+					top: 0.5em;
 					left: 0;
 					margin: 0;
 					padding: .6em 1em .4em;
@@ -4478,6 +4476,11 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 				.woocommerce-js .astra-cart-drawer .astra-cart-drawer-content .woocommerce-mini-cart__total .amount{
 					text-align: left;
+				}
+
+				.astra-cart-drawer.active {
+					transform: translate3d(100%, 0, 0);
+					visibility: visible;
 				}
 
 				';
@@ -4581,6 +4584,11 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 				.woocommerce-js .astra-cart-drawer .astra-cart-drawer-content .woocommerce-mini-cart__total .amount{
 					text-align: right;
+				}
+
+				.astra-cart-drawer.active {
+					transform: translate3d(-100%, 0, 0);
+					visibility: visible;
 				}
 
 				';
