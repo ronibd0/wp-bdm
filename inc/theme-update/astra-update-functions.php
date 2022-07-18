@@ -977,7 +977,7 @@ function astra_update_woocommerce_cart_icons() {
 function astra_legacy_customizer_maintenance() {
 	$theme_options = get_option( 'astra-settings', array() );
 	if ( ! isset( $theme_options['border-color'] ) ) {
-		$theme_options['border-color'] = '';
+		$theme_options['border-color'] = '#dddddd';
 		update_option( 'astra-settings', $theme_options );
 	}
 }
