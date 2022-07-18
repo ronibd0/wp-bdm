@@ -419,8 +419,6 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 
 		$cart_icon_list = astra_get_option( 'woo-header-cart-icon' );
 
-		$current_selected_color = 'default' === $cart_icon_list ? $icon_hover_color : 'transparent';
-
 		$header_cart_icon = array(
 
 			$selector . ' .ast-cart-menu-wrap, ' . $selector . ' .ast-addon-cart-wrap'       => array(
@@ -435,17 +433,6 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 			// Outline Info colors.
 			$selector . ' .ast-menu-cart-outline .ast-woo-header-cart-info-wrap' => array(
 				'color' => esc_attr( $icon_color ),
-			),
-
-			// Outline icon hover colors.
-			'.ast-theme-transparent-header .ast-site-header-cart .ast-cart-menu-wrap:hover .count, .ast-theme-transparent-header .ast-site-header-cart .ast-addon-cart-wrap:hover .count' => array(
-				'color'            => esc_attr( $transparent_header_cart_h_color ),
-				'background-color' => esc_attr( $transparent_header_icon_color ),
-			),
-			
-			// Outline Info colors.
-			$trans_header_selector . ' .ast-menu-cart-outline .ast-woo-header-cart-info-wrap' => array(
-				'color' => esc_attr( $transparent_header_icon_color ),
 			),
 
 			// Border radius.
@@ -545,16 +532,28 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 			'background-color' => esc_attr( $transparent_header_icon_color ),
 			'color'            => esc_attr( $transparent_header_cart_h_color ),
 		),
+
+		// Outline icon hover colors.
+		'.ast-theme-transparent-header .ast-site-header-cart .ast-cart-menu-wrap:hover .count, .ast-theme-transparent-header .ast-site-header-cart .ast-addon-cart-wrap:hover .count' => array(
+			'color'            => esc_attr( $transparent_header_cart_h_color ),
+			'background-color' => esc_attr( $transparent_header_icon_color ),
+		),
+		
+		// Outline Info colors.
+		$trans_header_selector . ' .ast-menu-cart-outline .ast-woo-header-cart-info-wrap' => array(
+			'color' => esc_attr( $transparent_header_icon_color ),
+		),
 	);
 	
 
 	$check_sticky_is_enabled_on = astra_get_option( 'transparent-header-on-devices' );
 
-	if ( false === Astra_Ext_Transparent_Header_Markup::is_transparent_header() ) {
+
+	if ( ! Astra_Ext_Transparent_Header_Markup::is_transparent_header() ) {
 		$css_output .= astra_parse_css( $remove_when_transparent_header );
 	}
 	
-	if ( true === Astra_Ext_Transparent_Header_Markup::is_transparent_header() ) {
+	if ( Astra_Ext_Transparent_Header_Markup::is_transparent_header() ) {
 
 		/** @psalm-suppress InvalidScalarArgument  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 		$tablet_breakpoint = astra_get_tablet_breakpoint( '', 1 );
