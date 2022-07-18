@@ -12206,7 +12206,7 @@ namespace {
      * Minimum Version requirement of the Astra Pro addon.
      * This constant will be used to display the notice asking user to update the Astra addon to the version defined below.
      */
-    \define('ASTRA_EXT_MIN_VER', 'v3.7.0-beta.1');
+    \define('ASTRA_EXT_MIN_VER', '3.9.0-beta.1');
     /**
      * Astra Get Breadcrumb
      *
