@@ -1051,7 +1051,7 @@ p.demo_store[data-position="bottom"],
 }
 
 .woocommerce div.product .woocommerce-tabs {
-  margin-top: 4em;
+  padding-top: 2em;
   margin-bottom: 4em;
   width: 100%;
 }
