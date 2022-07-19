@@ -1358,10 +1358,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				}
 			}
 
-			if (
-				( is_account_page() && class_exists( 'Astra_Ext_Extension' ) && Astra_Ext_Extension::is_active( 'woocommerce' ) && false === astra_get_option( 'modern-woo-account-view', false ) ||
-				( is_account_page() && ! defined( 'ASTRA_EXT_VER' ) ) )
-			) {
+			if ( is_account_page() && false === astra_get_option( 'modern-woo-account-view', false ) ) {
 				$css_output .= '
 					body .woocommerce-MyAccount-navigation-link {
 						list-style: none;
