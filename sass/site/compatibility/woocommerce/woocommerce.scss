@@ -2722,8 +2722,7 @@ p.demo_store,
 			border-top: 1px solid var(--ast-border-color);
 
 			&.woocommerce-orders-table__cell-order-actions, &.download-file {
-				display: flex;
-				flex-wrap: wrap;
+				display: block;
 
 				a {
 					margin-right: 0.5em;

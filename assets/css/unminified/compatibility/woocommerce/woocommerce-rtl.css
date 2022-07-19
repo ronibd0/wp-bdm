@@ -3102,8 +3102,7 @@ p.demo_store[data-position="bottom"],
 .woocommerce table.shop_table td.woocommerce-orders-table__cell-order-actions, .woocommerce table.shop_table td.download-file,
 .woocommerce-page table.shop_table td.woocommerce-orders-table__cell-order-actions,
 .woocommerce-page table.shop_table td.download-file {
-  display: flex;
-  flex-wrap: wrap;
+  display: block;
 }
 
 .woocommerce table.shop_table td.woocommerce-orders-table__cell-order-actions a, .woocommerce table.shop_table td.download-file a,
