@@ -1361,7 +1361,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			if ( is_account_page() && false === astra_get_option( 'modern-woo-account-view', false ) ) {
 				$css_output .= '
 					body .woocommerce-MyAccount-navigation-link {
-					list-style: none;
+						list-style: none;
 						border: 1px solid var(--ast-border-color);
 						border-bottom-width: 0;
 					}
@@ -1981,7 +1981,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 			$css_output_woo_select_default = array(
 				'select, .select2-container .select2-selection--single' => array(
-					'background-image'      => 'url("' . $arrow_bg . '")', 
+					'background-image'      => 'url("' . $arrow_bg . '")',
 					'background-size'       => '.8em',
 					'background-repeat'     => 'no-repeat',
 					'background-position-x' => 'calc( 100% - 10px )',
