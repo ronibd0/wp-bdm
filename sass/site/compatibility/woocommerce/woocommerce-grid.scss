@@ -2696,6 +2696,21 @@ p.demo_store,
 		}
 		td{
 			border-top: 1px solid var(--ast-border-color);
+
+			&.woocommerce-orders-table__cell-order-actions, &.download-file {
+				display: flex;
+				flex-wrap: wrap;
+
+				a {
+					margin-right: 0.5em;
+					margin-top: 0.25em;
+					margin-bottom: 0.25em;
+					
+					&:nth-last-child(1) {
+						margin-right: 0;
+					}
+				}
+			}
 		}
 		.woocommerce-Price-amount{
 			font-weight: 400;
