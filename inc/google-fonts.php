@@ -78,7 +78,7 @@ return array(
 	array(
 		'Akaya Kanadaka' => array(
 			'variants' => array( 'regular' ), 
-			'category' => 'display',
+			'category' => 'display', 
 		),
 	),
 	array(
@@ -114,6 +114,12 @@ return array(
 	array(
 		'Alatsi' => array(
 			'variants' => array( 'regular' ), 
+			'category' => 'sans-serif', 
+		),
+	),
+	array(
+		'Albert Sans' => array(
+			'variants' => array( '100', '200', '300', 'regular', '500', '600', '700', '800', '900', '100italic', '200italic', '300italic', 'italic', '500italic', '600italic', '700italic', '800italic', '900italic' ), 
 			'category' => 'sans-serif', 
 		),
 	),
@@ -2059,6 +2065,36 @@ return array(
 		'Eczar' => array(
 			'variants' => array( 'regular', '500', '600', '700', '800' ), 
 			'category' => 'serif', 
+		),
+	),
+	array(
+		'Edu NSW ACT Foundation' => array(
+			'variants' => array( 'regular', '500', '600', '700' ), 
+			'category' => 'handwriting', 
+		),
+	),
+	array(
+		'Edu QLD Beginner' => array(
+			'variants' => array( 'regular', '500', '600', '700' ), 
+			'category' => 'handwriting', 
+		),
+	),
+	array(
+		'Edu SA Beginner' => array(
+			'variants' => array( 'regular', '500', '600', '700' ), 
+			'category' => 'handwriting', 
+		),
+	),
+	array(
+		'Edu TAS Beginner' => array(
+			'variants' => array( 'regular', '500', '600', '700' ), 
+			'category' => 'handwriting', 
+		),
+	),
+	array(
+		'Edu VIC WA NT Beginner' => array(
+			'variants' => array( 'regular', '500', '600', '700' ), 
+			'category' => 'handwriting', 
 		),
 	),
 	array(
