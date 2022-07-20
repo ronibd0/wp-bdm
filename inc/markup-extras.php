@@ -1620,6 +1620,9 @@ add_filter( 'navigation_markup_template', 'astra_post_navigation_template' );
 /**
  * Prevent onboarding of Elementor for theme users as its demanding to continue with Hello theme which switches Astra theme.
  *
+ * @param bool $network_wide Whether to enable the plugin for all sites in the network
+ *                            or just the current site. Multisite only. Default false.
+ *
  * @since x.x.x
  */
 function skip_elementor_onboarding( $network_wide ) {
