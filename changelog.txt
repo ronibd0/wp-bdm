@@ -1,5 +1,5 @@
 v3.9.0
-- New: Customizer UI improvements
+- New: Customizer UI improvements.
 - New: Builder - WooCommerce cart - Option for enabling desktop offcanvas cart flyout.
 - New: Builder - WooCommerce cart - Option to update offcanvas flyout direction.
 - New: Builder - WooCommerce cart - Option to change offcanvas flyout width.
