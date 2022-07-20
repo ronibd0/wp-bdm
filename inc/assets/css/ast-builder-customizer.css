@@ -291,8 +291,9 @@
 }
 
 .ahfb-builder-item:hover, .ahfb-builder-item.active-builder-item {
-    background: #e3e3e3;
+    background: #fff;
     color: #111111;
+    border: 2px solid #007cba;
 }
 
 .ahfb-builder-area .ahfb-builder-drop:nth-last-child(2) .ahfb-builder-item:last-child {
@@ -748,6 +749,29 @@
     background: #007cba !important;
     color: white !important;
     border-color: #007cba;
+}
+
+.ahfb-builder-areas .components-button.ahfb-row-actions:hover {
+	background: white!important;
+    color: #007cba !important;
+    border-color: #007cba;
+	border: 1px solid;
+	border-right: 1px dashed var(--ast-customizer-color-7);
+}
+
+.ahfb-builder-areas:hover .components-button.ahfb-row-actions {
+	background: white!important;
+}
+
+.ahfb-builder-areas .components-button.ahfb-row-actions:hover ~ .ahfb-builder-group-horizontal {
+	border: 1px solid #007cba!important;
+	border-left: none!important;
+    box-shadow: 5px 3px 10px rgb(0 39 36 / 7%)!important;
+	background-color: white!important;
+}
+
+.ahfb-builder-areas .components-button.ahfb-row-actions:hover ~ .ahfb-builder-group-horizontal .ahfb-builder-item-add-icon {
+	background-color: white!important;
 }
 
 
