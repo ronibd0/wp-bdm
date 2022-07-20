@@ -3268,7 +3268,7 @@ p.demo_store[data-position="bottom"],
   line-height: normal;
   padding-right: 2em;
   appearance: none;
-  background-position: center right;
+  background-position: 98% 50%;
   background-color: #fff;
   border-color: var(--ast-border-color);
   border-radius: 3px;
