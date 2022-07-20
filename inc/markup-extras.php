@@ -1626,7 +1626,7 @@ add_filter( 'navigation_markup_template', 'astra_post_navigation_template' );
  * @since x.x.x
  */
 function astra_skip_elementor_onboarding( $network_wide ) {
-	// Setting onboaded true by default to skip steps.
+	// Deleted transient & setting up onboaded flag true to skip steps.
 	delete_transient( 'elementor_activation_redirect' );
 	update_option( 'elementor_onboarded', true );
 }
