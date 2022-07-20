@@ -1,4 +1,4 @@
-v3.9.0-beta.1
+v3.9.0
 - New: Customizer UI improvements.
 - New: Builder - WooCommerce cart - Option for enabling desktop offcanvas cart flyout.
 - New: Builder - WooCommerce cart - Option to update offcanvas flyout direction.
@@ -17,7 +17,7 @@ v3.9.0-beta.1
 - Improvement: Introduced filter 'astra_get_store_sidebar_layout' to extend sidebar option for the WooCommerce layout.
 - Fix: WooCommerce - Margin issue for single shop page with the Full width & Contained Layout.
 
-v3.8.5 (Unreleased)
+v3.8.5
 - Fix: Getting top spacing for entry-header in case of page builder template.
 
 v3.8.4
