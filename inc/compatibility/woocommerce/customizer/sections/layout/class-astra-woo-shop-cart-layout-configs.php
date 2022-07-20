@@ -81,7 +81,7 @@ if ( ! class_exists( 'Astra_Woo_Shop_Cart_Layout_Configs' ) ) {
 					'control'  => 'ast-toggle-control',
 					'default'  => astra_get_option( 'enable-cart-upsells' ),
 					'title'    => __( 'Enable Cross-sells', 'astra' ),
-					'priority' => 10,
+					'priority' => 2.7,
 					'divider'  => array( 'ast_class' => 'ast-section-spacing' ),
 				),
 			);
