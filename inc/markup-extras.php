@@ -1626,7 +1626,9 @@ add_filter( 'navigation_markup_template', 'astra_post_navigation_template' );
  * @since x.x.x
  */
 function astra_skip_elementor_onboarding( $network_wide ) {
-	update_option( 'elementor_onboarded', true ); // Setting onboaded true by default to skip steps.
+	// Setting onboaded true by default to skip steps.
+	delete_transient( 'elementor_activation_redirect' );
+	update_option( 'elementor_onboarded', true );
 }
 
 add_action( 'activate_elementor/elementor.php', 'astra_skip_elementor_onboarding' );
