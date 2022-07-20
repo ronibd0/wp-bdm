@@ -1616,3 +1616,19 @@ function astra_post_navigation_template() {
 }
 
 add_filter( 'navigation_markup_template', 'astra_post_navigation_template' );
+
+/**
+ * Prevent onboarding of Elementor for theme users.
+ *
+ * @since x.x.x
+ */
+add_action( 'activate_elementor/elementor.php', 'check_elementor_availability' );
+
+/**
+ * Prevent onboarding of Elementor for theme users as its demanding to continue with Hello theme which switches Astra theme.
+ *
+ * @since x.x.x
+ */
+function check_elementor_availability( $network_wide ) {
+	update_option( 'elementor_onboarded', true ); // Setting onboaded true by default to skip steps.
+}
