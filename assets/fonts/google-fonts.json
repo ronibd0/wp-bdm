@@ -151,6 +151,31 @@
         }
     },
     {
+        "Albert Sans": {
+            "variants": [
+                "100",
+                "200",
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800",
+                "900",
+                "100italic",
+                "200italic",
+                "300italic",
+                "italic",
+                "500italic",
+                "600italic",
+                "700italic",
+                "800italic",
+                "900italic"
+            ],
+            "category": "sans-serif"
+        }
+    },
+    {
         "Aldrich": {
             "variants": [
                 "regular"
@@ -504,17 +529,6 @@
     },
     {
         "Andika": {
-            "variants": [
-                "regular",
-                "italic",
-                "700",
-                "700italic"
-            ],
-            "category": "sans-serif"
-        }
-    },
-    {
-        "Andika New Basic": {
             "variants": [
                 "regular",
                 "italic",
@@ -3560,6 +3574,61 @@
         }
     },
     {
+        "Edu NSW ACT Foundation": {
+            "variants": [
+                "regular",
+                "500",
+                "600",
+                "700"
+            ],
+            "category": "handwriting"
+        }
+    },
+    {
+        "Edu QLD Beginner": {
+            "variants": [
+                "regular",
+                "500",
+                "600",
+                "700"
+            ],
+            "category": "handwriting"
+        }
+    },
+    {
+        "Edu SA Beginner": {
+            "variants": [
+                "regular",
+                "500",
+                "600",
+                "700"
+            ],
+            "category": "handwriting"
+        }
+    },
+    {
+        "Edu TAS Beginner": {
+            "variants": [
+                "regular",
+                "500",
+                "600",
+                "700"
+            ],
+            "category": "handwriting"
+        }
+    },
+    {
+        "Edu VIC WA NT Beginner": {
+            "variants": [
+                "regular",
+                "500",
+                "600",
+                "700"
+            ],
+            "category": "handwriting"
+        }
+    },
+    {
         "El Messiri": {
             "variants": [
                 "regular",
@@ -4554,17 +4623,6 @@
                 "900italic"
             ],
             "category": "sans-serif"
-        }
-    },
-    {
-        "Gentium Basic": {
-            "variants": [
-                "regular",
-                "italic",
-                "700",
-                "700italic"
-            ],
-            "category": "serif"
         }
     },
     {
@@ -6250,14 +6308,6 @@
     },
     {
         "Kavoon": {
-            "variants": [
-                "regular"
-            ],
-            "category": "display"
-        }
-    },
-    {
-        "Kdam Thmor": {
             "variants": [
                 "regular"
             ],
