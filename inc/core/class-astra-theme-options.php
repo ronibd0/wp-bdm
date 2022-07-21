@@ -428,6 +428,13 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 						'tablet-unit'  => 'px',
 						'mobile-unit'  => 'px',
 					),
+					'body-font-height-settings'                       => array(
+						'text-decoration'      => '',
+						'text-transform'       => 'uppercase',
+						'line-height'       => '',
+						'letter-spacing' => '',
+
+					),
 
 					'body-line-height'                     => '',
 					'para-margin-bottom'                   => '',

@@ -190,6 +190,37 @@ if ( ! class_exists( 'Astra_Body_Typo_Configs' ) ) {
 					),
 				),
 
+				/**
+				 * Option: Body Font Height
+				 */
+				array(
+					'name'              => ASTRA_THEME_SETTINGS . '[body-font-height-settings]',
+					'type'              => 'control',
+					'control'           => 'ast-font-height',
+					'section'           => $typo_section,
+					'priority'          => 10,
+					'title'             => __( 'Line Height New', 'astra' ),
+					'default'  => astra_get_option( 'body-font-height-settings' ),
+					'height_units'       => array(
+						'px' => 'px',
+						'em' => 'em',
+					),
+					'spacing_units'       => array(
+						'px' => 'px',
+						'%' => '%',
+					),
+					'font_transform'	=> array(
+						''				=> __( 'aa', 'astra' ),
+						'capitalize'	=> __( 'Aa', 'astra' ),
+						'uppercase'		=> __( 'AA', 'astra' ),
+					),
+					'font_decoration'	=> array(
+						''					=> __( 'Aa', 'astra' ),
+						'underline'			=> __( 'Aa', 'astra' ),
+						'stikethrough'		=> __( 'AA', 'astra' ),
+					),
+				),
+
 
 				/**
 				 * Option: Headings font family.

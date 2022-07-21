@@ -70,3 +70,105 @@
     line-height: 0;
 	border: 8px solid #fff;
 }
+
+.ast-font-styling {
+	display: flex;
+	gap: 36px;
+	padding-bottom: 12px;
+}
+
+.ast-font-height-wrapper, .ast-font-spacing-wrapper{
+	display: flex;
+	align-items: center;
+	gap: 12px;
+}
+
+.ast-font-height-wrapper .ast-font-height-input, .ast-font-spacing-wrapper .ast-font-spacing-input {
+	position: relative;
+	display: flex;
+	align-items: center;
+	background: #fff;
+}
+
+.ast-font-height-wrapper .ast-font-height-input input, .ast-font-spacing-wrapper .ast-font-spacing-input input {
+	padding: 0;
+	padding-left: 26px;
+	border: none;
+	min-height: 32px;
+	border-radius: 3px;
+	border: 1px solid #d1d5db;
+}
+
+.ast-font-height-wrapper .ast-font-height-input svg, .ast-font-spacing-wrapper .ast-font-spacing-input svg {
+	position: absolute;
+	top: 50%;
+	left: 6px;
+	transform: translateY(-50%);
+}
+
+.ast-font-unit-wrapper {
+	display: flex;
+	gap: 6px;
+	font-size: 12px;
+	font-weight: 500;
+}
+
+
+.ast-font-styling-second {
+	display: flex;
+	gap: 10px;
+	padding-top: 12px;
+}
+
+
+.ast-font-transform-wrapper, .ast-font-decoration-wrapper {
+	display: flex;
+	align-items: center;
+	flex: 1;
+
+}
+
+.ast-font-transform-wrapper div, .ast-font-decoration-wrapper div {
+	padding: 8px 0;
+	width: 33%;
+	text-align: center;
+	font-weight: 600;
+	font-size: 12px;
+	color: #334155;
+}
+
+.ast-font-transform-wrapper div.active, .ast-font-decoration-wrapper div.active {
+	background-color: #0284c7;
+	color: #fff;
+	cursor: pointer;
+}
+
+.ast-font-item-type {
+	border: 1px solid #d1d5db;
+}
+
+.ast-font-item-type:hover {
+	background-color: #0284c7;
+	color: #fff;
+	cursor: pointer;
+}
+
+.ast-font-item-type:first-child {
+	border: 1px solid #d1d5db;
+	border-right: none;
+	border-radius: 3px 0 0 3px;
+}
+
+.ast-font-item-type:last-child {
+	border: 1px solid #d1d5db;
+	border-left: none;
+	border-radius: 0 3px 3px 0;
+}
+
+.ast-font-item-type.ast-font-deco-underline{
+	text-decoration: underline;
+}
+
+.ast-font-item-type.ast-font-deco-linethrough{
+	text-decoration: line-through;
+}
