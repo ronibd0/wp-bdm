@@ -1,13 +1,13 @@
 import { createURL } from '@wordpress/e2e-test-utils';
-import { setCustomize } from '../../../../utils/customize';
-import { setBrowserViewport } from '../../../../utils/set-browser-viewport';
+import { setCustomize } from '../../../../../utils/customize';
+import { setBrowserViewport } from '../../../../../utils/set-browser-viewport';
 describe( 'Social icon in the customizer', () => {
 	it( 'social icon spacing should apply correctly', async () => {
 		const socialIconSpacing = {
 			'header-social-1-space': {
 				desktop: '50',
-				tablet: '38',
-				mobile: '28',
+				tablet: '40',
+				mobile: '30',
 			},
 			'desktop-unit': 'px',
 			'header-desktop-items': {
@@ -40,33 +40,25 @@ describe( 'Social icon in the customizer', () => {
 			selector: '.ast-header-social-1-wrap .ast-builder-social-element',
 			property: 'margin-right',
 		} ).cssValueToBe( `25px` );
+
+		await setBrowserViewport( 'medium' );
 		await expect( {
 			selector: '.ast-header-social-1-wrap .ast-builder-social-element',
-			property: 'margin-top',
+			property: 'margin-left',
 		} ).cssValueToBe( `0px` );
 		await expect( {
 			selector: '.ast-header-social-1-wrap .ast-builder-social-element',
-			property: 'margin-bottom',
+			property: 'margin-right',
+		} ).cssValueToBe( `20px` );
+
+		await setBrowserViewport( 'small' );
+		await expect( {
+			selector: '.ast-header-social-1-wrap .ast-builder-social-element',
+			property: 'margin-left',
 		} ).cssValueToBe( `0px` );
-
-		// await setBrowserViewport( 'medium' );
-		// await expect( {
-		// 	selector: '.ast-header-social-1-wrap .ast-builder-social-element',
-		// 	property: 'margin-left',
-		// } ).cssValueToBe( `${ socialIconSpacing[ 'header-social-1-space' ].tablet.left } ` );
-		// await expect( {
-		// 	selector: '.ast-header-social-1-wrap .ast-builder-social-element',
-		// 	property: 'margin-right',
-		// } ).cssValueToBe( `${ socialIconSpacing[ 'header-social-1-space' ].tablet.right } ` );
-
-		// await setBrowserViewport( 'small' );
-		// await expect( {
-		// 	selector: '.ast-header-social-1-wrap .ast-builder-social-element',
-		// 	property: 'margin-left',
-		// } ).cssValueToBe( `${ socialIconSpacing[ 'header-social-1-space' ].mobile.left } ` );
-		// await expect( {
-		// 	selector: '.ast-header-social-1-wrap .ast-builder-social-element',
-		// 	property: 'margin-right',
-		// } ).cssValueToBe( `${ socialIconSpacing[ 'header-social-1-space' ].mobile.right } ` );
+		await expect( {
+			selector: '.ast-header-social-1-wrap .ast-builder-social-element',
+			property: 'margin-right',
+		} ).cssValueToBe( `15px` );
 	} );
 } );
