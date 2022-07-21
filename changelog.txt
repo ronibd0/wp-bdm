@@ -16,6 +16,7 @@ v3.9.0
 - Improvement: Introduced filter 'astra_stretched_layout_with_spacing' to exclude Stretched layout around spacing CSS. ( https://wpastra.com/docs/improved-block-editor-experience/ )
 - Improvement: Introduced filter 'astra_get_store_sidebar_layout' to extend sidebar option for the WooCommerce layout.
 - Fix: WooCommerce - Margin issue for single shop page with the Full width & Contained Layout.
+- Fix: PHP error with uncaught function 'ctype_xdigit' not found in common-functions.php on some specific servers.
 
 v3.8.5
 - Fix: Getting top spacing for entry-header in case of page builder template.
