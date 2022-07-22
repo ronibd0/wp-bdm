@@ -860,7 +860,8 @@ p.demo_store,
 		}
 
 		.woocommerce-tabs {
-			margin-bottom: 2em;
+			padding-top: 2em;
+			margin-bottom: 4em;
 			width: 100%;
 
 			ul.tabs {
@@ -2695,6 +2696,20 @@ p.demo_store,
 		}
 		td{
 			border-top: 1px solid var(--ast-border-color);
+
+			&.woocommerce-orders-table__cell-order-actions, &.download-file {
+				display: block;
+
+				a {
+					margin-right: 0.5em;
+					margin-top: 0.25em;
+					margin-bottom: 0.25em;
+					
+					&:nth-last-child(1) {
+						margin-right: 0;
+					}
+				}
+			}
 		}
 		.woocommerce-Price-amount{
 			font-weight: 400;
@@ -2812,7 +2827,7 @@ p.demo_store,
 		line-height: normal;
 		padding-right: 2em;
 		appearance: none;
-		background-position: center right;
+		background-position: 98% 50%;
 		background-color: #fff;
 		border-color: var(--ast-border-color);
 		border-radius: 3px;

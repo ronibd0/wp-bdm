@@ -1051,7 +1051,8 @@ p.demo_store[data-position="bottom"],
 }
 
 .woocommerce div.product .woocommerce-tabs {
-  margin-bottom: 2em;
+  padding-top: 2em;
+  margin-bottom: 4em;
   width: 100%;
 }
 
@@ -3040,6 +3041,26 @@ p.demo_store[data-position="bottom"],
   border-top: 1px solid var(--ast-border-color);
 }
 
+.woocommerce table.shop_table td.woocommerce-orders-table__cell-order-actions, .woocommerce table.shop_table td.download-file,
+.woocommerce-page table.shop_table td.woocommerce-orders-table__cell-order-actions,
+.woocommerce-page table.shop_table td.download-file {
+  display: block;
+}
+
+.woocommerce table.shop_table td.woocommerce-orders-table__cell-order-actions a, .woocommerce table.shop_table td.download-file a,
+.woocommerce-page table.shop_table td.woocommerce-orders-table__cell-order-actions a,
+.woocommerce-page table.shop_table td.download-file a {
+  margin-left: 0.5em;
+  margin-top: 0.25em;
+  margin-bottom: 0.25em;
+}
+
+.woocommerce table.shop_table td.woocommerce-orders-table__cell-order-actions a:nth-last-child(1), .woocommerce table.shop_table td.download-file a:nth-last-child(1),
+.woocommerce-page table.shop_table td.woocommerce-orders-table__cell-order-actions a:nth-last-child(1),
+.woocommerce-page table.shop_table td.download-file a:nth-last-child(1) {
+  margin-left: 0;
+}
+
 .woocommerce table.shop_table .woocommerce-Price-amount,
 .woocommerce-page table.shop_table .woocommerce-Price-amount {
   font-weight: 400;
@@ -3189,7 +3210,7 @@ p.demo_store[data-position="bottom"],
   line-height: normal;
   padding-left: 2em;
   appearance: none;
-  background-position: center left;
+  background-position: 2% 50%;
   background-color: #fff;
   border-color: var(--ast-border-color);
   border-radius: 3px;
