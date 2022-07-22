@@ -140,7 +140,7 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 				'priority'   => 60,
 				'choices'    => array(
 					'default' => __( 'Dropdown Cart', 'astra' ),
-					'flyout'  => __( 'Offcanvas Cart', 'astra' ),
+					'flyout'  => __( 'Slide In Cart', 'astra' ),
 				),
 				'responsive' => false,
 				'renderAs'   => 'text',
