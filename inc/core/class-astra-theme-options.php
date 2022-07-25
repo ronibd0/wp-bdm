@@ -429,7 +429,7 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 						'mobile-unit'  => 'px',
 					),
 					'body-font-height-settings'                       => array(
-						'text-decoration'      => '',
+						'text-decoration'      => 'underline',
 						'text-transform'       => 'uppercase',
 						'line-height'       => '',
 						'letter-spacing' => '',
