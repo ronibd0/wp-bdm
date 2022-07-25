@@ -1,3 +1,6 @@
+v3.9.1
+- Fix: WooCommerce - Child theme's WooCommerce templates gets overridden by parent theme.
+
 v3.9.0
 - New: Redesigned the entire customizer UI for better user experience.
 - New: WooCommerce - Product Catalog - Introduced content layout & sidebar option.
