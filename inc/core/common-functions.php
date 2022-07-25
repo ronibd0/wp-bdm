@@ -54,7 +54,7 @@ if ( ! function_exists( 'astra_get_foreground_color' ) ) {
 				return $hex;
 			}
 		} else {
-			if ( ! @preg_match( '/^[a-f0-9]{2,}$/i', $hex ) ) {
+			if ( ! preg_match( '/^[a-f0-9]{2,}$/i', $hex ) ) {
 				return $hex;
 			}
 		}
@@ -1039,7 +1039,7 @@ if ( ! function_exists( 'astra_adjust_brightness' ) ) {
 				return $hex;
 			}
 		} else {
-			if ( ! @preg_match( '/^[a-f0-9]{2,}$/i', $hex ) ) {
+			if ( ! preg_match( '/^[a-f0-9]{2,}$/i', $hex ) ) {
 				return $hex;
 			}
 		}
