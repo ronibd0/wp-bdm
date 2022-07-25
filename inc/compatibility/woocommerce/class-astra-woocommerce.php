@@ -2251,7 +2251,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		 * @return string
 		 */
 		public function astra_update_flyout_cart_layout() {
-			if( WC()->cart->is_empty() && 'flyout' === astra_get_option( 'woo-header-cart-click-action' ) ) {
+			if ( WC()->cart->is_empty() && 'flyout' === astra_get_option( 'woo-header-cart-click-action' ) ) {
 				?>
 					<div class="ast-mini-cart-empty">
 						<div class="ast-mini-cart-message">
