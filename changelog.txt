@@ -1,3 +1,6 @@
+v3.9.1
+- Fix: Block editor - Row block is keep as Group block on page load.
+
 v3.9.0
 - New: Redesigned the entire customizer UI for better user experience.
 - New: WooCommerce - Product Catalog - Introduced content layout & sidebar option.
