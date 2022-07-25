@@ -2248,7 +2248,6 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		 * Add shopping CTA in cart flyout.
 		 *
 		 * @since 3.9.0
-		 * @return string
 		 */
 		public function astra_update_flyout_cart_layout() {
 			if ( WC()->cart->is_empty() && 'flyout' === astra_get_option( 'woo-header-cart-click-action' ) ) {
