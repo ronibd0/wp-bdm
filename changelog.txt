@@ -1,4 +1,5 @@
 v3.9.1
+- Fix: WooCommerce - Child theme's WooCommerce templates gets overridden by parent theme.
 - Fix: Block editor - Row block is keep as Group block on page load.
 
 v3.9.0
