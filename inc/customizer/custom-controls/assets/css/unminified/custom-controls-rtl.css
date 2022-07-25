@@ -3254,6 +3254,15 @@ input[type="text"].select2-search__field {
 	gap: 6px;
 	font-size: 12px;
 	font-weight: 500;
+	color: #9CA3AF;
+}
+
+.ast-font-unit-wrapper span {
+	cursor: pointer;
+}
+
+.ast-font-unit-wrapper .active {
+	color: #0284c7;
 }
 
 
@@ -5943,15 +5952,26 @@ input[type="text"].select2-search__field {
 	gap: 6px;
 	font-size: 12px;
 	font-weight: 500;
+	color: #9CA3AF;
 }
 
+.ast-font-unit-wrapper span {
+	cursor: pointer;
+}
+
+.ast-font-unit-wrapper span:hover {
+	color: #0284c7;
+}
+
+.ast-font-unit-wrapper .active {
+	color: #0284c7;
+}
 
 .ast-font-styling-second {
 	display: flex;
 	gap: 10px;
 	padding-top: 12px;
 }
-
 
 .ast-font-transform-wrapper, .ast-font-decoration-wrapper {
 	display: flex;
