@@ -2195,7 +2195,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 			$woo_cart_link = wc_get_cart_url();
 			
-			if ( is_customize_preview() || 'flyout' === astra_get_option( 'woo-header-cart-click-action' ) ) {
+			if ( is_customize_preview() ) {
 				$woo_cart_link = '#';
 			}
 			$cart_total_label_position = astra_get_option( 'woo-header-cart-icon-total-label-position' );
