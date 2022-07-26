@@ -2194,13 +2194,13 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			$view_shopping_cart = apply_filters( 'astra_woo_view_shopping_cart_title', __( 'View your shopping cart', 'astra' ) );
 
 			$woo_cart_link = wc_get_cart_url();
-
-			if ( is_customize_preview() ) {
+			
+			if ( is_customize_preview() || 'flyout' === astra_get_option( 'woo-header-cart-click-action' ) ) {
 				$woo_cart_link = '#';
 			}
 			$cart_total_label_position = astra_get_option( 'woo-header-cart-icon-total-label-position' );
 			?>
-			<a class="cart-container ast-cart-desktop-position-<?php echo esc_attr( $cart_total_label_position['desktop'] ); ?> ast-cart-mobile-position-<?php echo esc_attr( $cart_total_label_position['mobile'] ); ?> ast-cart-tablet-position-<?php echo esc_attr( $cart_total_label_position['tablet'] ); ?> ">
+			<a href="<?php echo esc_url( $woo_cart_link ); ?>" class="cart-container ast-cart-desktop-position-<?php echo esc_attr( $cart_total_label_position['desktop'] ); ?> ast-cart-mobile-position-<?php echo esc_attr( $cart_total_label_position['mobile'] ); ?> ast-cart-tablet-position-<?php echo esc_attr( $cart_total_label_position['tablet'] ); ?> ">
 
 						<?php
 						do_action( 'astra_woo_header_cart_icons_before' );
