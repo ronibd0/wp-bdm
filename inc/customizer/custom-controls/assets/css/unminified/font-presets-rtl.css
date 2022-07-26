@@ -94,7 +94,6 @@
     border-bottom-width: 0;
     border-top-color: var(--ast-customizer-color-12);
     animation: tooltips-vert .3s ease-out forwards;
-
 }
 
 .ast-typopreset-custom-tooltip[data-title]::before , .ast-typopreset-custom-tooltip[data-title]::after {
