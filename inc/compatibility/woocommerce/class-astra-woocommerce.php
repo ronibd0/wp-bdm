@@ -2193,8 +2193,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		public function astra_get_cart_link() {
 			$view_shopping_cart = apply_filters( 'astra_woo_view_shopping_cart_title', __( 'View your shopping cart', 'astra' ) );
 
-			$woo_cart_link = wc_get_cart_url();
-			
+			$woo_cart_link = wc_get_cart_url(); 
 			if ( is_customize_preview() ) {
 				$woo_cart_link = '#';
 			}
