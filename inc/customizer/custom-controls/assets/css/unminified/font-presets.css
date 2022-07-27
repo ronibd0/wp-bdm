@@ -73,14 +73,15 @@
 
 .ast-font-styling {
 	display: flex;
-	gap: 36px;
-	padding-bottom: 12px;
+	gap: 23px;
+	padding-bottom: 20px;
+	border-bottom: 1px dashed #D4D4D4;
 }
 
 .ast-font-height-wrapper, .ast-font-spacing-wrapper{
 	display: flex;
 	align-items: center;
-	gap: 12px;
+	gap: 8px;
 }
 
 .ast-font-height-wrapper .ast-font-height-input, .ast-font-spacing-wrapper .ast-font-spacing-input {
@@ -88,6 +89,8 @@
 	display: flex;
 	align-items: center;
 	background: #fff;
+	max-width: 54px;
+	width: 100%;
 }
 
 .ast-font-height-wrapper .ast-font-height-input input, .ast-font-spacing-wrapper .ast-font-spacing-input input {
@@ -129,7 +132,7 @@
 .ast-font-styling-second {
 	display: flex;
 	gap: 10px;
-	padding-top: 12px;
+	padding-top: 20px;
 }
 
 .ast-font-transform-wrapper, .ast-font-decoration-wrapper {
@@ -145,6 +148,7 @@
 	text-align: center;
 	font-weight: 600;
 	font-size: 12px;
+	line-height: 16px;
 	color: #334155;
 }
 
