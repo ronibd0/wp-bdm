@@ -1,5 +1,6 @@
 v3.9.2
-- Fix: Customizer - Customizer range slider module not accepting decimal values then em unit is selected.
+- Fix: Customizer range slider control not accepting decimal values for 'em' unit.
+- Fix: WooCommerce - Dropdown icon cart link is not redirect to cart page.
 
 v3.9.1
 - Fix: WooCommerce - Child theme's WooCommerce custom templates gets overridden by parent theme.
