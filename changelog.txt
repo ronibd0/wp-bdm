@@ -1,3 +1,6 @@
+v3.9.2
+- Fix: The Menu get disappear on the Android mobile device when you select Header Type is set as Dropdown.
+
 v3.9.1
 - Fix: WooCommerce - Child theme's WooCommerce custom templates gets overridden by parent theme.
 - Fix: Block editor - Row block's layout stack in editor.
