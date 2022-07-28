@@ -1,3 +1,6 @@
+v3.9.2 (Unreleased)
+- Fix: Block Editor: 2em Block gap spacing overcome.
+
 v3.9.2
 - Fix: WooCommerce - Alignment issue with content added by plugin near single product add to cart section.
 - Fix: Customizer range slider control not accepting decimal values for 'em' unit.
