@@ -34,7 +34,78 @@ if ( ! class_exists( 'Astra_Woo_Shop_Single_Layout_Configs' ) ) {
 			/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			$product_divider_title = defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'woocommerce' ) ? __( 'Product Structure Options', 'astra' ) : __( 'Product Options', 'astra' );
 
+
+			$clonning_attr    = array();
+			$add_to_cart_attr = array();
+
+			if ( defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'woocommerce' ) ) {
+
+				/**
+				 * Single product payment control.
+				 */
+
+				$clonning_attr['single-product-payments'] = array(
+					'clone'       => false,
+					'is_parent'   => true,
+					'main_index'  => 'single-product-payments',
+					'clone_limit' => 2,
+					'title'       => __( 'Payments', 'astra-addon' ),
+				);
+
+				/**
+				 * Single product extras control.
+				 */
+				$clonning_attr['summary-extras'] = array(
+					'clone'       => false,
+					'is_parent'   => true,
+					'main_index'  => 'summary-extras',
+					'clone_limit' => 2,
+					'title'       => __( 'Extras', 'astra-addon' ),
+				);
+
+			}
+
+			/**
+			 * Single product add to cart control.
+			 */
+			$add_to_cart_attr['add_cart'] = array(
+				'clone'       => false,
+				'is_parent'   => true,
+				'main_index'  => 'add_cart',
+				'clone_limit' => 2,
+				'title'       => __( 'Add To Cart', 'astra-addon' ),
+			);
+
 			$_configs = array(
+
+				
+				/**
+				 * Option: Single Post Meta
+				 */
+				array(
+					'name'              => ASTRA_THEME_SETTINGS . '[single-product-structure]',
+					'default'           => astra_get_option( 'single-product-structure' ),
+					'type'              => 'control',
+					'control'           => 'ast-sortable',
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_multi_choices' ),
+					'section'           => 'section-woo-shop-single',
+					'priority'          => 15,
+					'choices'           => array_merge(
+						array(
+							'title'   => __( 'Title', 'astra-addon' ),
+							'price'   => __( 'Price', 'astra-addon' ),
+							'ratings' => __( 'Ratings', 'astra-addon' ),
+						),
+						$add_to_cart_attr,
+						array(
+							'short_desc' => __( 'Short Description', 'astra-addon' ),
+							'meta'       => __( 'Meta', 'astra-addon' ),
+							'category'   => __( 'Category', 'astra-addon' ),
+						),
+						$clonning_attr
+					),
+					'divider'           => array( 'ast_class' => 'ast-section-spacing' ),
+				),
 
 				/**
 				 * Option: Divider.

@@ -130,6 +130,17 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 			add_action( 'wp', array( $this, 'woocommerce_proceed_to_checkout_button' ) );
 
+			// Remove Default actions.
+			remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_title', 5 );
+			remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_rating', 10 );
+			remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_price', 10 );
+			remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_excerpt', 20 );
+			remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40 );
+			remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 30 );
+
+			/* Add single product content */
+			add_action( 'woocommerce_single_product_summary', array( $this, 'single_product_content_structure' ), 10 );
+
 		}
 
 		/**
@@ -637,7 +648,16 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			$defaults['woo-enable-cart-button-text'] = false;
 			$defaults['woo-cart-button-text']        = __( 'Proceed to checkout', 'astra' );
 
-
+			/* Single product */
+			$defaults['single-product-structure'] = array(
+				'category',
+				'title',
+				'ratings',
+				'price',
+				'short_desc',
+				'add_cart',
+				'meta',
+			);
 
 			return $defaults;
 		}
@@ -2308,6 +2328,114 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			$astra_settings                       = get_option( ASTRA_THEME_SETTINGS );
 			$astra_settings['global-btn-woo-css'] = isset( $astra_settings['global-btn-woo-css'] ) ? false : true;
 			return apply_filters( 'astra_global_btn_woo_comp', $astra_settings['global-btn-woo-css'] );
+		}
+
+		/**
+		 * Show the product title in the product loop.
+		 *
+		 * @param string $product_type product type.
+		 */
+		public function astra_woo_woocommerce_template_product_title( $product_type ) {
+
+			if ( 'quick-view' === $product_type ) {
+				echo '<a href="' . esc_url( get_the_permalink() ) . '" class="ast-loop-product__link">';
+			}
+
+			woocommerce_template_single_title();
+
+			if ( 'quick-view' === $product_type ) {
+				echo '</a>';
+			}
+
+		}
+
+		/**
+		 * Show the product catgories in the product loop.
+		 */
+		public function single_product_category() {
+			global $product;
+			echo '<span class="single-product-category">' . wp_kses_post( wc_get_product_category_list( $product->get_id(), ', ' ) ) . '</span>';
+		}
+
+
+		/**
+		 * Show the product title in the product loop. By default this is an H2.
+		 *
+		 * @param string $product_type product type.
+		 */
+		public function single_product_content_structure( $product_type = '' ) {
+
+			$single_structure = apply_filters( 'astra_woo_single_product_structure', astra_get_option( 'single-product-structure' ), $product_type );
+
+			if ( is_array( $single_structure ) && ! empty( $single_structure ) ) {
+
+				foreach ( $single_structure as $value ) {
+
+					switch ( $value ) {
+						case 'title':
+							/**
+							 * Add Product Title on single product page for all products.
+							 */
+							do_action( 'astra_woo_single_title_before' );
+							$this->astra_woo_woocommerce_template_product_title( $product_type );
+							do_action( 'astra_woo_single_title_after' );
+							break;
+						case 'price':
+							/**
+							 * Add Product Price on single product page for all products.
+							 */
+							do_action( 'astra_woo_single_price_before' );
+							woocommerce_template_single_price();
+							do_action( 'astra_woo_single_price_after' );
+							break;
+						case 'ratings':
+							/**
+							 * Add rating on single product page for all products.
+							 */
+							do_action( 'astra_woo_single_rating_before' );
+							woocommerce_template_single_rating();
+							do_action( 'astra_woo_single_rating_after' );
+							break;
+						case 'short_desc':
+							do_action( 'astra_woo_single_short_description_before' );
+							woocommerce_template_single_excerpt();
+							do_action( 'astra_woo_single_short_description_after' );
+							break;
+						case 'add_cart':
+							do_action( 'astra_woo_single_add_to_cart_before' );
+							woocommerce_template_single_add_to_cart();
+							do_action( 'astra_woo_single_add_to_cart_after' );
+							break;
+						case 'summary-extras' && defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'woocommerce' ):
+							do_action( 'astra_woo_single_extras_before' );
+							$this->single_product_extras();
+							do_action( 'astra_woo_single_extras_after' );
+							break;
+						case 'single-product-payments' && defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'woocommerce' ):
+							do_action( 'astra_woo_single_product_payments_before' );
+							$this->woocommerce_product_single_payments();
+							do_action( 'astra_woo_single_product_payments_after' );
+							break;
+						case 'meta':
+							do_action( 'astra_woo_single_category_before' );
+							woocommerce_template_single_meta();
+							do_action( 'astra_woo_single_category_after' );
+							break;
+						case 'category':
+							do_action( 'astra_woo_single_product_category_before' );
+							$this->single_product_category();
+							do_action( 'astra_woo_single_product_category_after' );
+							break;
+						default:
+							break;
+					}
+				}
+
+				// Product single tabs accordion.
+				if ( defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'woocommerce' ) && astra_get_option( 'accordion-inside-woo-summary' ) && 'accordion' === astra_get_option( 'single-product-tabs-layout' ) && astra_get_option( 'single-product-tabs-display' ) ) {
+					$this->woo_product_tabs_layout_output();
+				}
+			}
 		}
 	}
 
