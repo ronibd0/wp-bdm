@@ -130,7 +130,41 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 			add_action( 'wp', array( $this, 'woocommerce_proceed_to_checkout_button' ) );
 
+			add_action( 'wp', array( $this, 'encapsulates_quantity_add_to_cart' ) );
+
 		}
+
+		/**
+		 * Encapsulates quantity selector and add to cart.
+		 *
+		 * @since x.x.x
+		 * @return void
+		 */
+		public function encapsulates_quantity_add_to_cart() {
+			add_action( 'woocommerce_before_add_to_cart_quantity', array( $this, 'encapsulates_quantity_selector' ) );
+			add_action( 'woocommerce_after_add_to_cart_button', array( $this, 'encapsulates_add_to_cart' ) );
+		}
+
+		/**
+		 * Encapsulates quantity selector.
+		 *
+		 * @since x.x.x
+		 * @return void
+		 */
+		public function encapsulates_quantity_selector() {
+			echo '<div class="ast-quantity-add-to-cart">'; 
+		}
+
+		/**
+		 * Encapsulates add to cart.
+		 *
+		 * @since x.x.x
+		 * @return void
+		 */
+		public function encapsulates_add_to_cart() {
+			echo '</div>'; 
+		}
+
 
 		/**
 		 * Change cart close icon.
@@ -2193,14 +2227,13 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		public function astra_get_cart_link() {
 			$view_shopping_cart = apply_filters( 'astra_woo_view_shopping_cart_title', __( 'View your shopping cart', 'astra' ) );
 
-			$woo_cart_link = wc_get_cart_url();
-
+			$woo_cart_link = wc_get_cart_url(); 
 			if ( is_customize_preview() ) {
 				$woo_cart_link = '#';
 			}
 			$cart_total_label_position = astra_get_option( 'woo-header-cart-icon-total-label-position' );
 			?>
-			<a class="cart-container ast-cart-desktop-position-<?php echo esc_attr( $cart_total_label_position['desktop'] ); ?> ast-cart-mobile-position-<?php echo esc_attr( $cart_total_label_position['mobile'] ); ?> ast-cart-tablet-position-<?php echo esc_attr( $cart_total_label_position['tablet'] ); ?> ">
+			<a href="<?php echo esc_url( $woo_cart_link ); ?>" class="cart-container ast-cart-desktop-position-<?php echo esc_attr( $cart_total_label_position['desktop'] ); ?> ast-cart-mobile-position-<?php echo esc_attr( $cart_total_label_position['mobile'] ); ?> ast-cart-tablet-position-<?php echo esc_attr( $cart_total_label_position['tablet'] ); ?> ">
 
 						<?php
 						do_action( 'astra_woo_header_cart_icons_before' );
