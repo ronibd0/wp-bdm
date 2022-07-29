@@ -49,7 +49,7 @@ if ( ! class_exists( 'Astra_Woo_Shop_Single_Layout_Configs' ) ) {
 					'is_parent'   => true,
 					'main_index'  => 'single-product-payments',
 					'clone_limit' => 2,
-					'title'       => __( 'Payments', 'astra-addon' ),
+					'title'       => __( 'Payments', 'astra' ),
 				);
 
 				/**
@@ -60,7 +60,7 @@ if ( ! class_exists( 'Astra_Woo_Shop_Single_Layout_Configs' ) ) {
 					'is_parent'   => true,
 					'main_index'  => 'summary-extras',
 					'clone_limit' => 2,
-					'title'       => __( 'Extras', 'astra-addon' ),
+					'title'       => __( 'Extras', 'astra' ),
 				);
 
 			}
@@ -73,7 +73,7 @@ if ( ! class_exists( 'Astra_Woo_Shop_Single_Layout_Configs' ) ) {
 				'is_parent'   => true,
 				'main_index'  => 'add_cart',
 				'clone_limit' => 2,
-				'title'       => __( 'Add To Cart', 'astra-addon' ),
+				'title'       => __( 'Add To Cart', 'astra' ),
 			);
 
 			$_configs = array(
@@ -92,15 +92,15 @@ if ( ! class_exists( 'Astra_Woo_Shop_Single_Layout_Configs' ) ) {
 					'priority'          => 15,
 					'choices'           => array_merge(
 						array(
-							'title'   => __( 'Title', 'astra-addon' ),
-							'price'   => __( 'Price', 'astra-addon' ),
-							'ratings' => __( 'Ratings', 'astra-addon' ),
+							'title'   => __( 'Title', 'astra' ),
+							'price'   => __( 'Price', 'astra' ),
+							'ratings' => __( 'Ratings', 'astra' ),
 						),
 						$add_to_cart_attr,
 						array(
-							'short_desc' => __( 'Short Description', 'astra-addon' ),
-							'meta'       => __( 'Meta', 'astra-addon' ),
-							'category'   => __( 'Category', 'astra-addon' ),
+							'short_desc' => __( 'Short Description', 'astra' ),
+							'meta'       => __( 'Meta', 'astra' ),
+							'category'   => __( 'Category', 'astra' ),
 						),
 						$clonning_attr
 					),
@@ -218,51 +218,28 @@ if ( ! class_exists( 'Astra_Woo_Shop_Single_Layout_Configs' ) ) {
 			);
 
 			/**
-			* Option: button width option
+			* Option: Button width option
 			*/
 
-			/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-			if ( defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'woocommerce' ) ) {
-				$_configs[] = array(
-					'name'        => 'single-product-cart-button-width',
-					'parent'      => ASTRA_THEME_SETTINGS . '[single-product-structure]',
-					'default'     => astra_get_option( 'single-product-cart-button-width' ),
-					'linked'      => 'add_cart',
-					'type'        => 'sub-control',
-					'control'     => 'ast-responsive-slider',
-					'responsive'  => true,
-					'section'     => 'section-woo-shop-single',
-					'priority'    => 11,
-					'title'       => __( 'Button Width', 'astra' ),
-					'transport'   => 'postMessage',
-					'suffix'      => '%',
-					'input_attrs' => array(
-						'min'  => 1,
-						'step' => 1,
-						'max'  => 100,
-					),
-				);
-
-			} else {
-				$_configs[] = array(
-					'name'        => ASTRA_THEME_SETTINGS . '[single-product-cart-button-width]',
-					'default'     => astra_get_option( 'single-product-cart-button-width' ),
-					'type'        => 'control',
-					'transport'   => 'postMessage',
-					'responsive'  => true,
-					'control'     => 'ast-responsive-slider',
-					'section'     => 'section-woo-shop-single',
-					'title'       => __( 'Button Width', 'astra' ),
-					'suffix'      => '%',
-					'priority'    => 16,
-					'input_attrs' => array(
-						'min'  => 1,
-						'step' => 1,
-						'max'  => 100,
-					),
-					'divider'     => array( 'ast_class' => 'ast-top-section-divider ast-bottom-section-divider' ),
-				);
-			}
+			$_configs[] = array(
+				'name'        => 'single-product-cart-button-width',
+				'parent'      => ASTRA_THEME_SETTINGS . '[single-product-structure]',
+				'default'     => astra_get_option( 'single-product-cart-button-width' ),
+				'linked'      => 'add_cart',
+				'type'        => 'sub-control',
+				'control'     => 'ast-responsive-slider',
+				'responsive'  => true,
+				'section'     => 'section-woo-shop-single',
+				'priority'    => 11,
+				'title'       => __( 'Button Width', 'astra' ),
+				'transport'   => 'postMessage',
+				'suffix'      => '%',
+				'input_attrs' => array(
+					'min'  => 1,
+					'step' => 1,
+					'max'  => 100,
+				),
+			);
 
 			return array_merge( $configurations, $_configs );
 

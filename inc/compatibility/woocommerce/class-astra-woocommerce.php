@@ -2368,6 +2368,8 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			$single_structure = apply_filters( 'astra_woo_single_product_structure', astra_get_option( 'single-product-structure' ), $product_type );
 
 			if ( is_array( $single_structure ) && ! empty( $single_structure ) ) {
+				
+				$astra_addons_condition = defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'woocommerce' ) && is_callable( ASTRA_Ext_WooCommerce_Markup::get_instance(), 'single_product_content_structure' );
 
 				foreach ( $single_structure as $value ) {
 
@@ -2406,14 +2408,14 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 							woocommerce_template_single_add_to_cart();
 							do_action( 'astra_woo_single_add_to_cart_after' );
 							break;
-						case 'summary-extras' && defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'woocommerce' ):
+						case 'summary-extras' && $astra_addons_condition:
 							do_action( 'astra_woo_single_extras_before' );
-							$this->single_product_extras();
+							ASTRA_Ext_WooCommerce_Markup::get_instance()->single_product_extras();
 							do_action( 'astra_woo_single_extras_after' );
 							break;
-						case 'single-product-payments' && defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'woocommerce' ):
+						case 'single-product-payments' && $astra_addons_condition:
 							do_action( 'astra_woo_single_product_payments_before' );
-							$this->woocommerce_product_single_payments();
+							ASTRA_Ext_WooCommerce_Markup::get_instance()->woocommerce_product_single_payments();
 							do_action( 'astra_woo_single_product_payments_after' );
 							break;
 						case 'meta':
@@ -2432,8 +2434,8 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				}
 
 				// Product single tabs accordion.
-				if ( defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'woocommerce' ) && astra_get_option( 'accordion-inside-woo-summary' ) && 'accordion' === astra_get_option( 'single-product-tabs-layout' ) && astra_get_option( 'single-product-tabs-display' ) ) {
-					$this->woo_product_tabs_layout_output();
+				if ( $astra_addons_condition && astra_get_option( 'accordion-inside-woo-summary' ) && 'accordion' === astra_get_option( 'single-product-tabs-layout' ) && astra_get_option( 'single-product-tabs-display' ) ) {
+					ASTRA_Ext_WooCommerce_Markup::get_instance()->woo_product_tabs_layout_output();
 				}
 			}
 		}
