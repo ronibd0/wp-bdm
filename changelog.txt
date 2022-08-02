@@ -1,3 +1,6 @@
+v3.9.3 (Unreleased)
+- Refactor : Moved shop layout design 3 and shop aligment into theme.
+
 v3.9.2
 - Fix: WooCommerce - Alignment issue with content added by plugin near single product add to cart section.
 - Fix: Customizer range slider control not accepting decimal values for 'em' unit.
