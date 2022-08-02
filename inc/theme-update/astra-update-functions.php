@@ -1030,3 +1030,19 @@ function astra_responsive_shop_content_alignment() {
 		update_option( 'astra-settings', $theme_options );
 	}
 }
+
+
+/**
+ * Change default layout to standard for old users.
+ *
+ * @since x.x.x
+ * @return void
+ */
+function astra_shop_style_design_layout() {
+	$theme_options = get_option( 'astra-settings', array() );
+	if ( ! isset( $theme_options['woo-shop-style-flag'] ) ) {
+		$theme_options['woo-shop-style-flag'] = false;
+		update_option( 'woo-shop-style-flag', $theme_options );
+	}
+}
+
