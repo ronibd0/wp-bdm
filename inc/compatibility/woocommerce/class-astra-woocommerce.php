@@ -141,7 +141,42 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			/* Add single product content */
 			add_action( 'woocommerce_single_product_summary', array( $this, 'single_product_content_structure' ), 10 );
 
+			add_action( 'wp', array( $this, 'encapsulates_quantity_add_to_cart' ) );
+
+
 		}
+
+		/**
+		 * Encapsulates quantity selector and add to cart.
+		 *
+		 * @since x.x.x
+		 * @return void
+		 */
+		public function encapsulates_quantity_add_to_cart() {
+			add_action( 'woocommerce_before_add_to_cart_quantity', array( $this, 'encapsulates_quantity_selector' ) );
+			add_action( 'woocommerce_after_add_to_cart_button', array( $this, 'encapsulates_add_to_cart' ) );
+		}
+
+		/**
+		 * Encapsulates quantity selector.
+		 *
+		 * @since x.x.x
+		 * @return void
+		 */
+		public function encapsulates_quantity_selector() {
+			echo '<div class="ast-quantity-add-to-cart">'; 
+		}
+
+		/**
+		 * Encapsulates add to cart.
+		 *
+		 * @since x.x.x
+		 * @return void
+		 */
+		public function encapsulates_add_to_cart() {
+			echo '</div>'; 
+		}
+
 
 		/**
 		 * Change cart close icon.
