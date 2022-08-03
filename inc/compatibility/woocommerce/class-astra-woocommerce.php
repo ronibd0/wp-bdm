@@ -133,9 +133,11 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 			add_action( 'wp', array( $this, 'encapsulates_quantity_add_to_cart' ) );
 
-			add_action( 'wp', array( $this, 'common_actions' ), 999 );
-
 			add_filter( 'woocommerce_sale_flash', array( $this, 'sale_flash' ), 10, 3 );
+
+			add_action( 'wp', array( $this, 'common_actions' ) );
+
+
 
 		}
 
@@ -167,7 +169,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		/**
 		 * Common Actions.
 		 *
-		 * @since 1.1.0
+		 * @since x.x.x
 		 * @return void
 		 */
 		public function common_actions() {
@@ -181,7 +183,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		/**
 		 * Init Modern Shop view's items.
 		 *
-		 * @since 3.9.0
+		 * @since x.x.x
 		 */
 		public function render_modern_shop_view() {
 			add_action( 'woocommerce_after_shop_loop_item', array( $this, 'add_modern_triggers_on_image' ), 5 );
@@ -190,7 +192,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		/**
 		 * Modern shop page's triggers on product image.
 		 *
-		 * @since 3.9.0
+		 * @since x.x.x
 		 */
 		public function add_modern_triggers_on_image() {
 
@@ -241,12 +243,12 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				$qv_enable = astra_get_option( 'shop-quick-view-enable' );
 				if ( 'disabled' !== $qv_enable && 'on-image' === $qv_enable ) {
 					$quick_view_button_text = apply_filters( 'astra_addon_product_card_quick_view_text', __( 'Quick View', 'astra-addon' ) );
-					add_filter( 'astra_theme_js_localize', array( $this, 'qv_js_localize' ) );
+					add_filter( 'astra_theme_js_localize', array( ASTRA_Ext_WooCommerce_Markup::get_instance(), 'qv_js_localize' ) );
 
 					$markup .= '<span class="ast-on-card-button ast-quick-view-trigger" data-product_id="' . esc_attr( $product_id ) . '"> <span class="ast-card-action-tooltip">' . esc_attr( $quick_view_button_text ) . '</span>' . Astra_Builder_UI_Controller::fetch_svg_icon( 'eye', false ) . '</span>';
 
 					// load modal template.
-					add_action( 'wp_footer', array( $this, 'quick_view_html' ) );
+					add_action( 'wp_footer', array( ASTRA_Ext_WooCommerce_Markup::get_instance(), 'quick_view_html' ) );
 				}           
 			}
 
@@ -255,11 +257,13 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			echo $html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		}
 
+
 		/**
 		 * Astra Sale flash markup.
 		 *
 		 * @param string $sale_notification sale bubble type.
 		 * @param string $product Product.
+		 * @since x.x.x
 		 * @return mixed HTML markup.
 		 */
 		public function get_sale_flash_markup( $sale_notification, $product ) {
@@ -328,6 +332,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		 * @param  mixed  $markup  HTML markup of the the sale bubble / flash.
 		 * @param  string $post Post.
 		 * @param  string $product Product.
+		 * @since x.x.x
 		 * @return string bubble markup.
 		 */
 		public function sale_flash( $markup, $post, $product ) {
