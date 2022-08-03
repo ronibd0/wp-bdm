@@ -2458,11 +2458,13 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		public function single_product_sticky_add_to_cart() {
 
 			if ( is_product() && astra_get_option( 'single-product-sticky-add-to-cart' ) ) {
+				/** @psalm-suppress InvalidGlobal */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 				global $post;
+
 				$product          = wc_get_product( $post->ID );
 				$sticky_position  = astra_get_option( 'single-product-sticky-add-to-cart-position' );
 				$add_to_cart_ajax = astra_get_option( 'single-product-ajax-add-to-cart' );
-
+				/** @psalm-suppress PossiblyNullReference  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 				if ( ( $product->is_purchasable() && ( $product->is_in_stock() || $product->backorders_allowed() ) ) || $product->is_type( 'external' ) ) {
 					echo '<div class="ast-sticky-add-to-cart ' . esc_attr( $sticky_position ) . '">';
 					echo '<div class="ast-container">';
@@ -2472,7 +2474,9 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 								echo '<span class="ast-sticky-add-to-cart-title">' . wp_kses_post( get_the_title() ) . '</span>';
 							echo '</div>';
 							echo '<div class="ast-sticky-add-to-cart-action-wrap">';
+					/** @psalm-suppress PossiblyNullReference  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 					if ( $product->is_type( 'simple' ) || $product->is_type( 'external' ) || $product->is_type( 'subscription' ) ) {
+						
 						echo '<span class="ast-sticky-add-to-cart-action-price price">' . wp_kses_post( $product->get_price_html() ) . '</span>';
 						if ( $add_to_cart_ajax ) {
 							echo '<div id="sticky-add-to-cart">';
@@ -2482,6 +2486,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 							echo '</div>';
 						}
 					} else {
+						/** @psalm-suppress PossiblyNullReference  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 						echo '<span class="ast-sticky-add-to-cart-action-price price">' . wp_kses_post( $product->get_price_html() ) . '</span>';
 						echo '<a href="#product-' . esc_attr( $product->get_ID() ) . '" class="single_link_to_cart_button button alt">' . esc_html( $product->add_to_cart_text() ) . '</a>';
 					}
