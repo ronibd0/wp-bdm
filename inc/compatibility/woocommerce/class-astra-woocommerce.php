@@ -909,6 +909,8 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				'mobile'  => 'align-left',
 			);
 
+			var_dump(astra_get_option( 'woo-shop-style-flag'));
+
 			/* Shop style */
 			$defaults['shop-style'] = astra_get_option( 'woo-shop-style-flag', false ) ? 'shop-page-grid-style' : 'shop-page-modern-style';
 
