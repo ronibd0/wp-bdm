@@ -82,6 +82,23 @@ if ( ! class_exists( 'Astra_Woo_Shop_Layout_Configs' ) ) {
 				),
 
 				/**
+				* Option: Divider
+				*/
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[shop-box-styling]',
+					'section'  => 'woocommerce_product_catalog',
+					'title'    => __( 'Shop Card Styling', 'astra' ),
+					'type'     => 'control',
+					'control'  => 'ast-heading',
+					'priority' => 229,
+					'settings' => array(),
+					'context'  => array(
+						Astra_Builder_Helper::$design_tab_config,
+					),
+					'divider'  => array( 'ast_class' => 'ast-section-spacing' ),
+				),
+
+				/**
 				 * Option: Content Alignment
 				 */
 				array(
