@@ -1039,7 +1039,6 @@ function astra_responsive_shop_content_alignment() {
  * @return void
  */
 function astra_shop_style_design_layout() {
-	var_dump('innn');
 
 	$theme_options = get_option( 'astra-settings', array() );
 	if ( ! isset( $theme_options['woo-shop-style-flag'] ) ) {
