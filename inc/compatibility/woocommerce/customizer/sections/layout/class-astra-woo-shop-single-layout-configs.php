@@ -453,7 +453,7 @@ if ( ! class_exists( 'Astra_Woo_Shop_Single_Layout_Configs' ) ) {
 
 				// Learn More link if Astra Pro is not activated.
 				$_configs[] = array(
-					'name'     => ASTRA_THEME_SETTINGS . '[breadcrumb-ast-button-link]',
+					'name'     => ASTRA_THEME_SETTINGS . '[sticky-add-to-cart-button-link]',
 					'type'     => 'control',
 					'control'  => 'ast-button-link',
 					'section'  => 'section-woo-shop-single',
@@ -462,7 +462,9 @@ if ( ! class_exists( 'Astra_Woo_Shop_Single_Layout_Configs' ) ) {
 					'url'      => astra_get_pro_url( 'https://wpastra.com/pro/', 'customizer', 'learn-more', 'upgrade-to-pro' ),
 					'settings' => array(),
 					'divider'  => array( 'ast_class' => 'ast-top-section-divider' ),
-					'context'  => Astra_Builder_Helper::$general_tab_config,
+					'context'  => array(
+						Astra_Builder_Helper::$design_tab_config,
+					),
 				);
 
 			}
