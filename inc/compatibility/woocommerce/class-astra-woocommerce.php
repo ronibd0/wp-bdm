@@ -845,6 +845,8 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		 */
 		public function theme_defaults( $defaults ) {
 
+			$theme_options = get_option( 'astra-settings' );
+
 			// Backward compatibility.
 			$defaults['astra-woocommerce-cart-icons-flag'] = true;
 
@@ -910,7 +912,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			);
 
 			/* Shop style */
-			$defaults['shop-style'] = astra_get_option( 'woo-shop-style-flag', false ) ? 'shop-page-grid-style' : 'shop-page-modern-style';
+			$defaults['shop-style'] = $theme_options['woo-shop-style-flag'] ? 'shop-page-grid-style' : 'shop-page-modern-style';
 
 			return $defaults;
 		}
