@@ -78,6 +78,20 @@ if ( ! class_exists( 'Astra_Woo_Shop_Single_Layout_Configs' ) ) {
 
 			$_configs = array(
 
+				/**
+				 * Option: Divider.
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[woo-single-product-structure-divider]',
+					'section'  => 'section-woo-shop-single',
+					'title'    => __( 'Single Product Structure', 'astra' ),
+					'type'     => 'control',
+					'control'  => 'ast-heading',
+					'priority' => 5,
+					'settings' => array(),
+					'divider'  => array( 'ast_class' => 'ast-section-spacing' ),
+				),
+
 				
 				/**
 				 * Option: Single Post Meta
