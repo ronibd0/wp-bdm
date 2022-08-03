@@ -87,7 +87,7 @@ if ( ! class_exists( 'Astra_Woo_Shop_Single_Layout_Configs' ) ) {
 					'title'    => __( 'Single Product Structure', 'astra' ),
 					'type'     => 'control',
 					'control'  => 'ast-heading',
-					'priority' => 5,
+					'priority' => 15,
 					'settings' => array(),
 					'divider'  => array( 'ast_class' => 'ast-section-spacing' ),
 				),
