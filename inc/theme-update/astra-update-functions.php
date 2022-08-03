@@ -1041,7 +1041,7 @@ function astra_responsive_shop_content_alignment() {
 function astra_shop_style_design_layout() {
 	$theme_options = get_option( 'astra-settings', array() );
 	if ( ! isset( $theme_options['woo-shop-style-flag'] ) ) {
-		$theme_options['woo-shop-style-flag'] = false;
+		$theme_options['woo-shop-style-flag'] = true;
 		update_option( 'astra-settings', $theme_options );
 	}
 }

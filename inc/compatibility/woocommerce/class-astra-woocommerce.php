@@ -910,7 +910,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			);
 
 			/* Shop style */
-			$defaults['shop-style'] = astra_get_option( 'woo-shop-style-flag', true ) ? 'shop-page-modern-style' : 'shop-page-grid-style';
+			$defaults['shop-style'] = astra_get_option( 'woo-shop-style-flag', false ) ? 'shop-page-grid-style' : 'shop-page-modern-style';
 
 			return $defaults;
 		}
