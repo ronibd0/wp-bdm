@@ -123,6 +123,7 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 				'title'       => __( 'Hide Cart Total Label', 'astra' ),
 				'description' => __( 'Hide cart total label if cart is empty', 'astra' ),
 				'priority'    => $astra_hfb_enabled ? 55 : 3.5,
+				'transport'   => 'postMessage',
 				'control'     => 'ast-toggle-control',
 				'context'     => Astra_Builder_Helper::$general_tab,
 			),

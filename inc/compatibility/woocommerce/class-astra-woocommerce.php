@@ -365,7 +365,8 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			$cart_total_markup         = '';
 			$cart_total_only_markup    = '';
 			$cart_check_total          = astra_get_option( 'woo-header-cart-total-label' ) ? intval( WC()->cart->get_cart_contents_total() ) > 0 : true;
-			
+		
+
 			if ( null !== WC()->cart ) {
 				if ( $cart_check_total ) {
 					$cart_total_markup      = '<span class="ast-woo-header-cart-total">' . WC()->cart->get_cart_subtotal() . '</span>';
