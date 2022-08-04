@@ -4274,16 +4274,6 @@ button.pswp__button--zoom:hover {
   align-items: center;
 }
 
-.woocommerce.woocommerce-checkout form #order_review td.product-name .ast-product-image,
-.woocommerce-page.woocommerce-checkout form #order_review td.product-name .ast-product-image {
-  flex: 1;
-}
-
-.woocommerce.woocommerce-checkout form #order_review td.product-name .ast-product-image .ast-product-name,
-.woocommerce-page.woocommerce-checkout form #order_review td.product-name .ast-product-image .ast-product-name {
-  width: 75%;
-}
-
 .woocommerce.woocommerce-checkout form #order_review td.product-name .product-quantity,
 .woocommerce-page.woocommerce-checkout form #order_review td.product-name .product-quantity {
   font-weight: 400;
