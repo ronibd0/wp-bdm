@@ -364,19 +364,22 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			$cart_total_label_position = astra_get_option( 'woo-header-cart-icon-total-label-position' );
 			$cart_total_markup         = '';
 			$cart_total_only_markup    = '';
+			$cart_check_total          = astra_get_option( 'woo-header-cart-total-label' ) ? intval( WC()->cart->get_cart_contents_total() ) > 0 : true;
+			
 			if ( null !== WC()->cart ) {
-				$cart_total_markup = '<span class="ast-woo-header-cart-total">' . WC()->cart->get_cart_subtotal() . '</span>';
-
-				$cart_total_only_markup = '<span class="ast-woo-header-cart-total-only">' . WC()->cart->get_cart_contents_total() . '</span>';
+				if ( $cart_check_total ) {
+					$cart_total_markup      = '<span class="ast-woo-header-cart-total">' . WC()->cart->get_cart_subtotal() . '</span>';
+					$cart_total_only_markup = '<span class="ast-woo-header-cart-total-only">' . WC()->cart->get_cart_contents_total() . '</span>';
+				}
 			}
 
 			$cart_cur_name_markup = '';
-			if ( function_exists( 'get_woocommerce_currency' ) ) {
+			if ( function_exists( 'get_woocommerce_currency' ) && $cart_check_total ) {
 				$cart_cur_name_markup = '<span class="ast-woo-header-cart-cur-name">' . get_woocommerce_currency() . '</span>';
 			}
 
 			$cart_cur_sym_markup = '';
-			if ( function_exists( 'get_woocommerce_currency_symbol' ) ) {
+			if ( function_exists( 'get_woocommerce_currency_symbol' ) && $cart_check_total ) {
 				$cart_cur_sym_markup = '<span class="ast-woo-header-cart-cur-symbol">' . get_woocommerce_currency_symbol() . '</span>';
 			}
 			$display_cart_label = astra_get_option( 'woo-header-cart-label-display' );
@@ -672,6 +675,8 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			$defaults['woo-cart-button-text']        = __( 'Proceed to checkout', 'astra' );
 
 
+			/* Hide cart label */
+			$defaults['woo-header-cart-total-label'] = false;
 
 			return $defaults;
 		}
