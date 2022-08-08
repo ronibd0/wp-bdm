@@ -2375,7 +2375,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			$edit_post = get_post_type_object( 'customize_changeset' )->cap->edit_post;
 
 			if ( is_customize_preview() && $wp_customize->changeset_post_id()
-				&& ! current_user_can( $edit_post, $wp_customize->changeset_post_id() ) // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+				&& ! current_user_can( /** @psalm-suppress PossiblyNullArgument */ $edit_post, $wp_customize->changeset_post_id() ) // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			) {
 				return;
 			}
