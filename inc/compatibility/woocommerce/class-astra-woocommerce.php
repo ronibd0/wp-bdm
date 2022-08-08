@@ -2371,12 +2371,14 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			}
 
 			// Don't show if the user cannot edit a given customize_changeset post currently being previewed.
-			/** @psalm-suppress PossiblyNullArgument PossiblyNullPropertyFetch */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-			$edit_post = current_user_can( get_post_type_object( 'customize_changeset' )->cap->edit_post, $wp_customize->changeset_post_id() );
-			/** @psalm-suppress PossiblyNullArgument PossiblyNullPropertyFetch */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+			/** @psalm-suppress PossiblyNullPropertyFetch */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+			/** @psalm-suppress PossiblyNullArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+			$edit_post = get_post_type_object( 'customize_changeset' )->cap->edit_post; 
+			/** @psalm-suppress PossiblyNullArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+			/** @psalm-suppress PossiblyNullPropertyFetch */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 
 			if ( is_customize_preview() && $wp_customize->changeset_post_id()
-				&& ! $edit_post 
+				&& ! current_user_can( $edit_post, $wp_customize->changeset_post_id() ) // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			) {
 				return;
 			}
