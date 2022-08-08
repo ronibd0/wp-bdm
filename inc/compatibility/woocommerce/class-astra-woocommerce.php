@@ -2376,48 +2376,59 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				return;
 			}
 
-			$current_url = ( is_ssl() ? 'https://' : 'http://' ) . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
-			if ( is_customize_preview() && $wp_customize->changeset_uuid() ) {
-				$current_url = remove_query_arg( 'customize_changeset_uuid', $current_url );
+
+			if ( isset( $_SERVER['HTTP_HOST'] ) && isset( $_SERVER['REQUEST_URI'] ) ) {
+
+				$http_host   = esc_url_raw( wp_unslash( $_SERVER['HTTP_HOST'] ) ); 
+				$request_uri = esc_url_raw( wp_unslash( $_SERVER['REQUEST_URI'] ) );
+
+				$current_url = $http_host . $request_uri;
+
+				if ( is_customize_preview() && $wp_customize->changeset_uuid() ) {
+					$current_url = remove_query_arg( 'customize_changeset_uuid', $current_url );
+				}
+
+				$customize_url = add_query_arg( 'url', rawurlencode( $current_url ), wp_customize_url() );
+
+				if ( is_customize_preview() ) {
+					$customize_url = add_query_arg( array( 'changeset_uuid' => $wp_customize->changeset_uuid() ), $customize_url );
+				}
+
+				if ( class_exists( 'WooCommerce' ) ) {
+					if ( is_product() ) {
+						$customize_url = admin_url( 'customize.php?autofocus[section]=section-woo-shop-single' );
+					}
+
+					if ( is_cart() ) {
+						$customize_url = admin_url( 'customize.php?autofocus[section]=section-woo-shop-cart' );
+					}
+
+					if ( is_checkout() ) {
+						$customize_url = admin_url( 'customize.php?autofocus[section]=woocommerce_checkout' );
+					}
+
+					if ( is_account_page() ) {
+						$customize_url = admin_url( 'customize.php?autofocus[section]=section-ast-woo-my-account' );
+					}
+
+					if ( is_shop() || is_product_taxonomy() ) {
+						$customize_url = admin_url( 'customize.php?autofocus[section]=woocommerce_product_catalog' );
+					}
+				}
+
+				$wp_admin_bar->add_node(
+					array(
+						'id'    => 'customize',
+						'title' => __( 'Customize' ),
+						'href'  => $customize_url,
+						'meta'  => array(
+							'class' => 'hide-if-no-customize',
+						),
+					)
+				);
+
 			}
-
-			$customize_url = add_query_arg( 'url', urlencode( $current_url ), wp_customize_url() );
-			if ( is_customize_preview() ) {
-				$customize_url = add_query_arg( array( 'changeset_uuid' => $wp_customize->changeset_uuid() ), $customize_url );
-			}
-
-			if ( class_exists( 'WooCommerce' ) ) {
-				if ( is_product() ) {
-					$customize_url = admin_url( 'customize.php?autofocus[section]=section-woo-shop-single' );
-				}
-
-				if ( is_cart() ) {
-					$customize_url = admin_url( 'customize.php?autofocus[section]=section-woo-shop-cart' );
-				}
-
-				if ( is_checkout() ) {
-					$customize_url = admin_url( 'customize.php?autofocus[section]=woocommerce_checkout' );
-				}
-
-				if ( is_account_page() ) {
-					$customize_url = admin_url( 'customize.php?autofocus[section]=section-ast-woo-my-account' );
-				}
-
-				if ( is_shop() || is_product_taxonomy() ) {
-					$customize_url = admin_url( 'customize.php?autofocus[section]=woocommerce_product_catalog' );
-				}
-			}
-
-			$wp_admin_bar->add_node(
-				array(
-					'id'    => 'customize',
-					'title' => __( 'Customize' ),
-					'href'  => $customize_url,
-					'meta'  => array(
-						'class' => 'hide-if-no-customize',
-					),
-				)
-			);
+			
 			add_action( 'wp_before_admin_bar_render', 'wp_customize_support_script' );
 		}
 
