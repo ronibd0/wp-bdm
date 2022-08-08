@@ -2374,7 +2374,10 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		public function astra_woo_woocommerce_template_product_title( $product_type ) {
 
 			if ( 'quick-view' === $product_type ) {
-				echo '<a href="' . /** @psalm-suppress PossiblyFalseArgument */ esc_url( get_the_permalink() ) . '" class="ast-loop-product__link">'; // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+				/** @psalm-suppress PossiblyFalseArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+				$permalink = get_the_permalink();
+
+				echo '<a href="' . esc_url( $permalink ) . '" class="ast-loop-product__link">'; 
 			}
 
 			woocommerce_template_single_title();
@@ -2407,7 +2410,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 			if ( is_array( $single_structure ) && ! empty( $single_structure ) ) {
 				
-				/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+				/** @psalm-suppress UndefinedClass InvalidScalarArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 				$astra_addons_condition = defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'woocommerce' ) && is_callable( ASTRA_Ext_WooCommerce_Markup::get_instance(), 'single_product_content_structure' );
 
 				foreach ( $single_structure as $value ) {
@@ -2447,13 +2450,16 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 							woocommerce_template_single_add_to_cart();
 							do_action( 'astra_woo_single_add_to_cart_after' );
 							break;
+						/** @psalm-suppress RedundantCondition */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 						case 'summary-extras' && $astra_addons_condition:
 							do_action( 'astra_woo_single_extras_before' );
+							/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 							ASTRA_Ext_WooCommerce_Markup::get_instance()->single_product_extras();
 							do_action( 'astra_woo_single_extras_after' );
 							break;
 						case 'single-product-payments' && $astra_addons_condition:
 							do_action( 'astra_woo_single_product_payments_before' );
+							/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 							ASTRA_Ext_WooCommerce_Markup::get_instance()->woocommerce_product_single_payments();
 							do_action( 'astra_woo_single_product_payments_after' );
 							break;
@@ -2474,6 +2480,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 				// Product single tabs accordion.
 				if ( $astra_addons_condition && astra_get_option( 'accordion-inside-woo-summary' ) && 'accordion' === astra_get_option( 'single-product-tabs-layout' ) && astra_get_option( 'single-product-tabs-display' ) ) {
+					/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 					ASTRA_Ext_WooCommerce_Markup::get_instance()->woo_product_tabs_layout_output();
 				}
 			}
