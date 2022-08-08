@@ -2371,8 +2371,11 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			}
 
 			// Don't show if the user cannot edit a given customize_changeset post currently being previewed.
+			/** @psalm-suppress PossiblyNullPropertyFetch PossiblyNullArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+			$edit_post = get_post_type_object( 'customize_changeset' )->cap->edit_post;
+
 			if ( is_customize_preview() && $wp_customize->changeset_post_id()
-				&& ! current_user_can( /** @psalm-suppress PossiblyNullPropertyFetch PossiblyNullArgument */  get_post_type_object( 'customize_changeset' )->cap->edit_post, $wp_customize->changeset_post_id() ) // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+				&& ! current_user_can( $edit_post, $wp_customize->changeset_post_id() ) // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			) {
 				return;
 			}
