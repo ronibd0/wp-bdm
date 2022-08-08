@@ -2383,7 +2383,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			if ( is_customize_preview() && $wp_customize->changeset_post_id()
 				&& ! current_user_can( $edit_post, $wp_customize->changeset_post_id() )
 			) {
-			/** @psalm-suppress PossiblyNullArgument  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+				/** @psalm-suppress PossiblyNullArgument  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 				return;
 			}
 
