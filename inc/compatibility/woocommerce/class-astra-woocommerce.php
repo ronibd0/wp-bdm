@@ -2464,9 +2464,13 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				$product          = wc_get_product( $post->ID );
 				$sticky_position  = astra_get_option( 'single-product-sticky-add-to-cart-position' );
 				$add_to_cart_ajax = astra_get_option( 'single-product-ajax-add-to-cart' );
-				/** @psalm-suppress PossiblyNullReference  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+				// @codingStandardsIgnoreStart
+				/**
+				 * @psalm-suppress PossiblyNullReference 
+				 * @psalm-suppress PossiblyFalseReference   
+				 */
 				if ( ( $product->is_purchasable() && ( $product->is_in_stock() || $product->backorders_allowed() ) ) || $product->is_type( 'external' ) ) {
-					/** @psalm-suppress PossiblyNullReference  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+				// @codingStandardsIgnoreEnd
 					echo '<div class="ast-sticky-add-to-cart ' . esc_attr( $sticky_position ) . '">';
 					echo '<div class="ast-container">';
 						echo '<div class="ast-sticky-add-to-cart-content">';
