@@ -2374,10 +2374,8 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		public function astra_woo_woocommerce_template_product_title( $product_type ) {
 
 			if ( 'quick-view' === $product_type ) {
-				/** @psalm-suppress PossiblyFalseArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-				$permalink = get_the_permalink();
 
-				echo '<a href="' . esc_url( $permalink ) . '" class="ast-loop-product__link">'; 
+				echo '<a href="' . /** @psalm-suppress PossiblyFalseArgument */ esc_url( get_the_permalink() ) . '" class="ast-loop-product__link">';  // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			}
 
 			woocommerce_template_single_title();
@@ -2412,7 +2410,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				
 				/** @psalm-suppress UndefinedClass InvalidScalarArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 				$astra_addons_condition = defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'woocommerce' ) && is_callable( ASTRA_Ext_WooCommerce_Markup::get_instance(), 'single_product_content_structure' );
-
+				/** @psalm-suppress UndefinedClass InvalidScalarArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 				foreach ( $single_structure as $value ) {
 
 					switch ( $value ) {
