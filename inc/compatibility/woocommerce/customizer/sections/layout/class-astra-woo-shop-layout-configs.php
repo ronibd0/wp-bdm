@@ -35,20 +35,25 @@ if ( ! class_exists( 'Astra_Woo_Shop_Layout_Configs' ) ) {
 			/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 
 			$current_shop_layouts = array();
-
+			/** @psalm-suppress PossiblyUndefinedVariable */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			$design_1['shop-page-grid-style'] = array(
-				'label' => __( 'Design 1', 'astra' ),
-				'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'shop-grid-view', false ) : '',
+				/** @psalm-suppress PossiblyUndefinedVariable */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+					'label' => __( 'Design 1', 'astra' ),
+				'path'      => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'shop-grid-view', false ) : '',
 			);
 
+			/** @psalm-suppress PossiblyUndefinedVariable */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			$design2['shop-page-list-style'] = array(
-				'label' => __( 'Design 2', 'astra' ),
-				'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'shop-list-view', false ) : '',
+				/** @psalm-suppress PossiblyUndefinedVariable */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+					'label' => __( 'Design 2', 'astra' ),
+				'path'      => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'shop-list-view', false ) : '',
 			);
 
+			/** @psalm-suppress PossiblyUndefinedVariable */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			$design_3['shop-page-modern-style'] = array(
-				'label' => __( 'Design 3', 'astra' ),
-				'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'shop-modern-view', false ) : '',
+				/** @psalm-suppress PossiblyUndefinedVariable */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+					'label' => __( 'Design 3', 'astra' ),
+				'path'      => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'shop-modern-view', false ) : '',
 			);
 
 			if ( defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'woocommerce' ) ) {

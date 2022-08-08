@@ -238,7 +238,9 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				$cart_icon
 			);
 
+			/** @psalm-suppress UndefinedClass   */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			if ( defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'woocommerce' ) ) {
+				/** @psalm-suppress UndefinedClass   */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 
 				// Quick view markup.
 				$qv_enable = astra_get_option( 'shop-quick-view-enable' );
@@ -287,10 +289,14 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 						if ( $sale_price ) {
 							/** @psalm-suppress InvalidMethodCall  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-							$regular_price      = $product->get_regular_price();
-							$percent_sale       = round( ( ( ( $regular_price - $sale_price ) / $regular_price ) * 100 ), 0 );
+							$regular_price = $product->get_regular_price();
+							/** @psalm-suppress InvalidOperand   */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+							$percent_sale = round( ( ( ( $regular_price - $sale_price ) / $regular_price ) * 100 ), 0 );
+							/** @psalm-suppress InvalidOperand   */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 							$sale_percent_value = $sale_percent_value ? $sale_percent_value : '-[value]%';
-							$text               = str_replace( '[value]', $percent_sale, $sale_percent_value );
+							/** @psalm-suppress InvalidScalarArgument   */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+							$text = str_replace( '[value]', $percent_sale, $sale_percent_value );
+							/** @psalm-suppress InvalidScalarArgument   */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 						}
 					} else {
 
@@ -305,11 +311,15 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 								$sale_price = $variation->get_sale_price();
 								if ( $sale_price ) {
 									$regular_price = $variation->get_regular_price();
-									/** @psalm-suppress InvalidScalarArgument  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+									// @codingStandardsIgnoreStart
+									/**
+									 * @psalm-suppress InvalidScalarArgument 
+									 * @psalm-suppress InvalidOperand   
+									 */
 									$percent_sale = round( ( ( ( $regular_price - $sale_price ) / $regular_price ) * 100 ), 0 );
-									/** @psalm-suppress InvalidOperand  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+									// @codingStandardsIgnoreEnd
 									$sale_percent_value = $sale_percent_value ? $sale_percent_value : '-[value]%';
-									/** @psalm-suppress InvalidOperand  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+									/** @psalm-suppress InvalidScalarArgument  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 									$text = str_replace( '[value]', $percent_sale, $sale_percent_value );
 									/** @psalm-suppress InvalidScalarArgument  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 									$sale_percentage_data[ $child_id ] = $percent_sale;
@@ -742,7 +752,9 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 			$modern_layout_css = array();
 
+			/** @psalm-suppress UndefinedFunction   */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			if ( class_exists( 'woocommerce' ) && astra_is_shop_page_modern_style() ) {
+				/** @psalm-suppress UndefinedFunction   */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 				$modern_layout_css['shop-page-modern-style'] = array(
 					'src'     => $css_uri . 'shop-page-modern-style' . $file_prefix . '.css',
 					'deps'    => '',
@@ -836,8 +848,9 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		 * Product Flip Image
 		 */
 		public function product_flip_image() {
-
+			/** @psalm-suppress InvalidGlobal   */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			global $product;
+			/** @psalm-suppress InvalidGlobal   */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 
 			$hover_style = astra_get_option( 'shop-hover-style' );
 
@@ -2220,13 +2233,12 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			}
 
 			/* Parse CSS from array()*/
-
+			/** @psalm-suppress InvalidScalarArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			$css_output .= astra_parse_css( $woo_product_lang_direction_css, astra_get_tablet_breakpoint( '', 1 ) );
-
-				/**
-			 * Single page cart buttion size.
+			/** @psalm-suppress InvalidScalarArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+			/**
+			 * Single page cart button size.
 			 */
-
 			$single_product_cart_button_width = astra_get_option( 'single-product-cart-button-width' );
 
 			$single_product_cart_button_width_desktop = ( ! empty( $single_product_cart_button_width['desktop'] ) ) ? $single_product_cart_button_width['desktop'] : '';
@@ -2503,7 +2515,9 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 						break;
 				}
 
+				/** @psalm-suppress InvalidOperand */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 				return $desktop_css . '@media(max-width: ' . $tablet_breakpoint . 'px){' . $tablet_css . '}' . '@media(max-width: ' . $mobile_breakpoint . 'px){' . $mobile_css . '}'; // phpcs:ignore Generic.Strings.UnnecessaryStringConcat.Found
+				/** @psalm-suppress InvalidOperand */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			}
 
 			$css_output .= astra_addon_shop_summary_box_alignment();
