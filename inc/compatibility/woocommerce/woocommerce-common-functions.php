@@ -328,7 +328,9 @@ if ( ! function_exists( 'astra_is_woocommerce_addons' ) ) :
 	 * @return bool true|false.
 	 */
 	function astra_is_woocommerce_addons() {
+		/** @psalm-suppress UndefinedClass  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 		return ( defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'woocommerce' ) ) ? true : false;
+		/** @psalm-suppress UndefinedClass  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 	}
 
 endif;

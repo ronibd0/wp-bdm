@@ -145,8 +145,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		 * Post Class
 		 *
 		 * @param array $classes Default argument array.
-		 *
-		 * @return array;
+		 * @return array
 		 */
 		public function post_class( $classes ) {
 
@@ -174,7 +173,9 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		 */
 		public function common_actions() {
 
+			/** @psalm-suppress UndefinedFunction  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			if ( astra_is_shop_page_modern_style() ) {
+				/** @psalm-suppress UndefinedFunction  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 				// Modern Shop Look.
 				$this->render_modern_shop_view();
 			}
@@ -277,10 +278,15 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				case 'sale-percentage':
 					$sale_percent_value = astra_get_option( 'product-sale-percent-value' );
 					// if not variable product.
+					/** @psalm-suppress InvalidMethodCall  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 					if ( ! $product->is_type( 'variable' ) ) {
+						/** @psalm-suppress InvalidMethodCall  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+
+						/** @psalm-suppress InvalidMethodCall  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 						$sale_price = $product->get_sale_price();
 
 						if ( $sale_price ) {
+							/** @psalm-suppress InvalidMethodCall  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 							$regular_price      = $product->get_regular_price();
 							$percent_sale       = round( ( ( ( $regular_price - $sale_price ) / $regular_price ) * 100 ), 0 );
 							$sale_percent_value = $sale_percent_value ? $sale_percent_value : '-[value]%';
@@ -289,16 +295,23 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 					} else {
 
 						// if variable product.
+						/** @psalm-suppress InvalidMethodCall  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 						foreach ( $product->get_children() as $child_id ) {
+							/** @psalm-suppress InvalidMethodCall  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+
 							$variation = wc_get_product( $child_id );
 							if ( $variation instanceof WC_Product ) {
 								// Checking in case if the wc_get_product exists or is not false.
 								$sale_price = $variation->get_sale_price();
 								if ( $sale_price ) {
-									$regular_price                     = $variation->get_regular_price();
-									$percent_sale                      = round( ( ( ( $regular_price - $sale_price ) / $regular_price ) * 100 ), 0 );
-									$sale_percent_value                = $sale_percent_value ? $sale_percent_value : '-[value]%';
-									$text                              = str_replace( '[value]', $percent_sale, $sale_percent_value );
+									$regular_price = $variation->get_regular_price();
+									/** @psalm-suppress InvalidScalarArgument  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+									$percent_sale = round( ( ( ( $regular_price - $sale_price ) / $regular_price ) * 100 ), 0 );
+									/** @psalm-suppress InvalidOperand  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+									$sale_percent_value = $sale_percent_value ? $sale_percent_value : '-[value]%';
+									/** @psalm-suppress InvalidOperand  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+									$text = str_replace( '[value]', $percent_sale, $sale_percent_value );
+									/** @psalm-suppress InvalidScalarArgument  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 									$sale_percentage_data[ $child_id ] = $percent_sale;
 
 								}
@@ -309,8 +322,10 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			}
 
 			// CSS classes.
-			$classes   = array();
+			$classes = array();
+			/** @psalm-suppress UndefinedFunction  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			$classes[] = ( astra_is_shop_page_modern_style() ) ? 'ast-on-card-button ast-onsale-card' : 'onsale';
+			/** @psalm-suppress UndefinedFunction  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			$classes[] = astra_get_option( 'product-sale-style' );
 			$classes   = implode( ' ', $classes );
 
@@ -340,7 +355,9 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			$sale_notification = astra_get_option( 'product-sale-notification', '', 'default' );
 
 			// If none then return!
+			/** @psalm-suppress UndefinedFunction  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			if ( 'none' === $sale_notification || ( ! is_singular( 'product' ) && astra_is_shop_page_modern_style() ) ) {
+				/** @psalm-suppress UndefinedFunction  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 				return;
 			}
 
