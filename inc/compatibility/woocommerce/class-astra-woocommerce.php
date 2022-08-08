@@ -2418,14 +2418,14 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				$astra_addons_condition = defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'woocommerce' ) && is_callable( ASTRA_Ext_WooCommerce_Markup::get_instance(), 'single_product_content_structure' );
 				// @codingStandardsIgnoreEnd
 
-				// @codingStandardsIgnoreStart
-				/**
-				 * @psalm-suppress RedundantCondition 
-				 */
+				/** @psalm-suppress RedundantCondition */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 				$summary_extras = 'summary-extras' && $astra_addons_condition;
-				$single_product_payments = 'single-product-payments' && $astra_addons_condition;
-				// @codingStandardsIgnoreEnd
+				/** @psalm-suppress RedundantCondition */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 				
+				/** @psalm-suppress RedundantCondition */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+				$single_product_payments = 'single-product-payments' && $astra_addons_condition;
+				/** @psalm-suppress RedundantCondition */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+
 				foreach ( $single_structure as $value ) {
 
 					switch ( $value ) {
