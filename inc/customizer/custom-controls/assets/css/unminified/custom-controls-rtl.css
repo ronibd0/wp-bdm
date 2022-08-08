@@ -3216,7 +3216,8 @@ input[type="text"].select2-search__field {
 
 .ast-font-styling {
 	display: flex;
-	gap: 23px;
+	justify-content: space-between;
+	align-items: center;
 	padding-bottom: 20px;
 	border-bottom: 1px dashed #D4D4D4;
 }
@@ -3232,7 +3233,7 @@ input[type="text"].select2-search__field {
 	display: flex;
 	align-items: center;
 	background: #fff;
-	max-width: 54px;
+	max-width: 72px;
 	width: 100%;
 }
 
@@ -3274,6 +3275,8 @@ input[type="text"].select2-search__field {
 
 .ast-font-styling-second {
 	display: flex;
+	justify-content: space-between;
+	align-items: center;
 	gap: 10px;
 	padding-top: 20px;
 }
@@ -5920,7 +5923,9 @@ input[type="text"].select2-search__field {
 
 .ast-font-styling {
 	display: flex;
-	gap: 23px;
+	justify-content: space-between;
+	gap: 20px;
+	align-items: center;
 	padding-bottom: 20px;
 	border-bottom: 1px dashed #D4D4D4;
 }
@@ -5936,7 +5941,7 @@ input[type="text"].select2-search__field {
 	display: flex;
 	align-items: center;
 	background: #fff;
-	max-width: 54px;
+	max-width: 72px;
 	width: 100%;
 }
 
@@ -5978,6 +5983,8 @@ input[type="text"].select2-search__field {
 
 .ast-font-styling-second {
 	display: flex;
+	justify-content: space-between;
+	align-items: center;
 	gap: 10px;
 	padding-top: 20px;
 }
