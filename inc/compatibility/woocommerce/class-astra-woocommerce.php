@@ -2379,9 +2379,11 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			 */
 			$edit_post =  get_post_type_object( 'customize_changeset' )->cap->edit_post;
 			// @codingStandardsIgnoreEnd 
+			/** @psalm-suppress PossiblyNullArgument  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			if ( is_customize_preview() && $wp_customize->changeset_post_id()
 				&& ! current_user_can( $edit_post, $wp_customize->changeset_post_id() )
 			) {
+			/** @psalm-suppress PossiblyNullArgument  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 				return;
 			}
 
