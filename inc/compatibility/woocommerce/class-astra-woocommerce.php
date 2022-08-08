@@ -255,7 +255,9 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				}           
 			}
 
+			/** @psalm-suppress TooManyArguments */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			$html = apply_filters( 'astra_addon_shop_cards_buttons_html', $markup, $product );
+			/** @psalm-suppress TooManyArguments */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 
 			echo $html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		}
