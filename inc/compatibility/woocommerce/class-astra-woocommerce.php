@@ -2357,6 +2357,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		 */
 		public function wp_admin_bar_customize_menu( $wp_admin_bar ) {
 			
+			/** @psalm-suppress InvalidGlobal */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			global $wp_customize;
 
 			// Don't show if a block theme is activated and no plugins use the customizer.
@@ -2370,6 +2371,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			}
 
 			// Don't show if the user cannot edit a given customize_changeset post currently being previewed.
+			/** @psalm-suppress PossiblyNullPropertyFetch PossiblyNullArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			if ( is_customize_preview() && $wp_customize->changeset_post_id()
 				&& ! current_user_can( get_post_type_object( 'customize_changeset' )->cap->edit_post, $wp_customize->changeset_post_id() )
 			) {
@@ -2379,6 +2381,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 			if ( isset( $_SERVER['HTTP_HOST'] ) && isset( $_SERVER['REQUEST_URI'] ) ) {
 
+				/** @psalm-suppress PossiblyInvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 				$http_host   = esc_url_raw( wp_unslash( $_SERVER['HTTP_HOST'] ) ); 
 				$request_uri = esc_url_raw( wp_unslash( $_SERVER['REQUEST_URI'] ) );
 
