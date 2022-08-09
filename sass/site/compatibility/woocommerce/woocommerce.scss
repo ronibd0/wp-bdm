@@ -1523,7 +1523,8 @@ p.demo_store,
 	}
 
 	a.added_to_cart {
-		display: none;
+		padding: 0.4em 0.4em 0;
+		display: inline-block;
 	}
 
 	/**
