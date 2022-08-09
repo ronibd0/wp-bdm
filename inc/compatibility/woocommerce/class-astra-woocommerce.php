@@ -2129,7 +2129,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 					$css_output .= astra_parse_css( $sticky_add_to_cart_admin_bar );
 				}
 		
-				$css_output .= astra_parse_css( $sticky_add_to_cart_responsive, '', astra_addon_get_mobile_breakpoint() );
+				$css_output .= astra_parse_css( $sticky_add_to_cart_responsive, '', astra_get_mobile_breakpoint() );
 				$css_output .= astra_parse_css( $sticky_add_to_cart_p );
 				$css_output .= astra_parse_css( $sticky_add_to_cart );
 		
