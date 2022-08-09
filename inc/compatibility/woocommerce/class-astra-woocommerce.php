@@ -2108,10 +2108,15 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 					);
 				}
 		
-				$sticky_add_to_cart_hide_responsive = array(
-					'div.ast-sticky-add-to-cart' => array(
-						'display' => 'block',
+				$sticky_add_to_cart_responsive = array(
+					'.ast-sticky-add-to-cart .ast-sticky-add-to-cart-content div.ast-sticky-add-to-cart-title-wrap, .ast-sticky-add-to-cart-action-price' => array(
+						'display' => 'none',
 					),
+
+					'.ast-quantity-add-to-cart, .ast-sticky-add-to-cart-action-wrap, .ast-sticky-add-to-cart-action-wrap > form' => array(
+						'width' => '100%',
+					),
+					
 				);
 		
 				if ( is_admin_bar_showing() ) {
@@ -2124,7 +2129,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 					$css_output .= astra_parse_css( $sticky_add_to_cart_admin_bar );
 				}
 		
-				$css_output .= astra_parse_css( $sticky_add_to_cart_hide_responsive, 1200, '' );
+				$css_output .= astra_parse_css( $sticky_add_to_cart_responsive, '', astra_addon_get_mobile_breakpoint() );
 				$css_output .= astra_parse_css( $sticky_add_to_cart_p );
 				$css_output .= astra_parse_css( $sticky_add_to_cart );
 		
