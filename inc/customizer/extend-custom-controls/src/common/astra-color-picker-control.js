@@ -45,8 +45,10 @@ const globalIconSVG = (fillColor) => {
  * @param {integer: RGB value blue} b 
  * @returns {string: hex color code}
  */
-function rgbToHex(r, g, b) {
-	return "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
+function rgbToHex(red, green, blue) {
+	let conversion = ((1 << 24) + (red << 16) + (green << 8) + blue).toString(16).slice(1);
+	let formatted = "#" + conversion;
+	return formatted;
 }
 
 /**
@@ -58,48 +60,46 @@ const lightOrDark = (color) => {
 
 	//get color code value
 	color = color.substring(4, color.length-1);
-	var style = getComputedStyle(document.body)
+	let style = getComputedStyle(document.body)
 	color = style.getPropertyValue(color);
 
 
-    // Variables for red, green, blue values
-    var r, g, b, hsp;
+    // variables for red, green, blue values
+    let red, green, blue;
+	let brightness;
     
-    // HEX or RGB
+    // check wether hex or rgb
     if (color.match(/^rgb/)) {
 
-        // If RGB --> store the red, green, blue values in separate variables
+        // extract rgb values
         color = color.match(/^rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*(\d+(?:\.\d+)?))?\)$/);
         
-        r = color[1];
-        g = color[2];
-        b = color[3];
+        red = color[1];
+        green = color[2];
+        blue = color[3];
     } 
     else {
         
-        // If hex --> Convert it to RGB
+        // conversion from hex to rgb
         color = +("0x" + color.slice(1).replace( 
         color.length < 5 && /./g, '$&$&'));
 
-        r = color >> 16;
-        g = color >> 8 & 255;
-        b = color & 255;
+        red = color >> 16;
+        green = color >> 8 & 255;
+        blue = color & 255;
     }
     
-    // HSP
-    hsp = Math.sqrt(
-    0.299 * (r * r) +
-    0.587 * (g * g) +
-    0.114 * (b * b)
+    brightness = Math.sqrt(
+    0.299 * (red * red) +
+    0.587 * (green * green) +
+    0.114 * (blue * blue)
     );
 
-    // Using the HSP value, determine whether the color is light or dark
-    if (hsp>127.5) {
-
+    // Check brightness to evaluate wether light or dark
+    if (brightness>127.5) {
         return 'light';
     } 
     else {
-
         return 'dark';
     }
 }
@@ -115,17 +115,16 @@ const getFillColor = (type, color) => {
 
 	//get color code value
 	color = color.substring(4, color.length-1);
-	var style = getComputedStyle(document.body)
+	let style = getComputedStyle(document.body)
 	color = style.getPropertyValue(color);
 
 	//convert to RGB
-	// If hex --> Convert it to RGB
 	color = +("0x" + color.slice(1).replace( 
 	color.length < 5 && /./g, '$&$&'));
 
-	var r = color >> 16;
-	var g = color >> 8 & 255;
-	var b = color & 255;
+	let red = color >> 16;
+	let green = color >> 8 & 255;
+	let blue = color & 255;
 
 	//convert colors based on type
 	if(type === "dark"){
@@ -137,10 +136,11 @@ const getFillColor = (type, color) => {
 	else if(type === "light"){		
 
 		//convert to dark color
-		r -= (r - 80) < 0 ? 0 : 80;
-		g -= (g - 80) < 0 ? 0 : 80;
-		b -= (b - 80) < 0 ? 0 : 80;
-		return rgbToHex(r,g,b);
+		red -= (red - 80) < 0 ? 0 : 80;
+		green -= (green - 80) < 0 ? 0 : 80;
+		blue -= (blue - 80) < 0 ? 0 : 80;
+		
+		return rgbToHex(red,green,blue);
 	}
 	
 }
