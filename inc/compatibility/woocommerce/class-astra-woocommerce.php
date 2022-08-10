@@ -2200,9 +2200,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 					<?php $this->astra_get_cart_link(); ?>
 				</div>
 				<div class="ast-site-header-cart-data">
-					<?php 	
-						the_widget( 'WC_Widget_Cart', 'title=' );
-					?>
+					<?php the_widget( 'WC_Widget_Cart', 'title=' ); ?>
 				</div>
 			</div>
 			<?php
