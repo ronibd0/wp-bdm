@@ -1418,6 +1418,11 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				';
 			}
 
+			// If Off canvas cart is enabled then we should not show view cart link.
+			if ( 'flyout' === astra_get_option( 'woo-header-cart-click-action' ) ) {
+				$css_output .= '.woocommerce a.added_to_cart { display: none; }';
+			}
+
 			/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			if ( ! ( defined( 'ASTRA_EXT_VER' ) && class_exists( 'Astra_Ext_Extension' ) && Astra_Ext_Extension::is_active( 'woocommerce' ) ) ) {
 				/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
@@ -2184,6 +2189,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 			$desktop_cart_flyout = 'flyout' === astra_get_option( 'woo-header-cart-click-action' ) ? 'ast-desktop-cart-flyout' : '';
 			$cart_menu_classes   = apply_filters( 'astra_cart_in_menu_class', array( 'ast-menu-cart-with-border', $desktop_cart_flyout ) );
+			$cart_page           = astra_get_option( 'woo-header-cart-click-action' );
 
 			ob_start();
 			if ( is_customize_preview() && true === Astra_Builder_Helper::$is_header_footer_builder_active ) {
@@ -2195,7 +2201,14 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 					<?php $this->astra_get_cart_link(); ?>
 				</div>
 				<div class="ast-site-header-cart-data">
-					<?php the_widget( 'WC_Widget_Cart', 'title=' ); ?>
+					<?php 
+						// if cart page is active then no action.
+					if ( 'cart_page' == $cart_page ) {
+							
+						the_widget( 'WC_Widget_Cart', 'title=' );
+
+					} 
+					?>
 				</div>
 			</div>
 			<?php
