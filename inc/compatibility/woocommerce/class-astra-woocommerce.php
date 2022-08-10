@@ -152,7 +152,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		 * @return void
 		 */
 		public function encapsulates_quantity_selector() {
-			echo '<div class="ast-quantity-add-to-cart">'; 
+			echo '<div class="ast-quantity-add-to-cart">';
 		}
 
 		/**
@@ -162,7 +162,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		 * @return void
 		 */
 		public function encapsulates_add_to_cart() {
-			echo '</div>'; 
+			echo '</div>';
 		}
 
 
@@ -1338,16 +1338,12 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				$css_desktop_output['.woocommerce[class*="rel-up-columns-"] .site-main div.product .related.products ul.products li.product, .woocommerce-page .site-main ul.products li.product'] = array(
 					'width' => '100%',
 				);
-
 			}
-			$crosssell_enabled  = astra_get_option( 'enable-cart-upsells' );
-			$cart_modern_layout = astra_get_option( 'cart-modern-layout' );
 
-			if ( is_cart() && true === $cart_modern_layout && true === $crosssell_enabled ) {
+			if ( is_cart() && false === Astra_Builder_Helper::apply_flex_based_css() && true === astra_get_option( 'cart-modern-layout' ) && true === astra_get_option( 'enable-cart-upsells' ) ) {
 				$css_desktop_output['.woocommerce[class*="rel-up-columns-"] .site-main div.product .related.products ul.products li.product, .woocommerce-page .site-main ul.products li.product'] = array(
 					'width' => '100%',
 				);
-				
 			}
 
 			if ( false === Astra_Icons::is_svg_icons() ) {
@@ -2237,7 +2233,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		public function astra_get_cart_link() {
 			$view_shopping_cart = apply_filters( 'astra_woo_view_shopping_cart_title', __( 'View your shopping cart', 'astra' ) );
 
-			$woo_cart_link = wc_get_cart_url(); 
+			$woo_cart_link = wc_get_cart_url();
 			if ( is_customize_preview() ) {
 				$woo_cart_link = '#';
 			}
