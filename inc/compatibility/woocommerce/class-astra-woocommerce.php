@@ -1338,6 +1338,16 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				$css_desktop_output['.woocommerce[class*="rel-up-columns-"] .site-main div.product .related.products ul.products li.product, .woocommerce-page .site-main ul.products li.product'] = array(
 					'width' => '100%',
 				);
+
+			}
+			$crosssell_enabled  = astra_get_option( 'enable-cart-upsells' );
+			$cart_modern_layout = astra_get_option( 'cart-modern-layout' );
+
+			if ( is_cart() && true === $cart_modern_layout && true === $crosssell_enabled ) {
+				$css_desktop_output['.woocommerce[class*="rel-up-columns-"] .site-main div.product .related.products ul.products li.product, .woocommerce-page .site-main ul.products li.product'] = array(
+					'width' => '100%',
+				);
+				
 			}
 
 			if ( false === Astra_Icons::is_svg_icons() ) {
