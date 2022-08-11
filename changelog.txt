@@ -3,6 +3,8 @@ v3.9.2
 - Fix: Customizer range slider control not accepting decimal values for 'em' unit.
 - Fix: WooCommerce - Dropdown icon cart link is not redirect to cart page.
 - Fix: Padding being added to the Full Width/Stretched Layout when using Brizy Page Builder.
+- Fix: WooCommerce - Single Product - Flex CSS conflicting with third party plugins which adds custom functionality aside add-to-cart button.
+
 
 v3.9.1
 - Fix: WooCommerce - Child theme's WooCommerce custom templates gets overridden by parent theme.
