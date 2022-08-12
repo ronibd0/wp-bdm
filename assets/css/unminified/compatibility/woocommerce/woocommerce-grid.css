@@ -4609,6 +4609,8 @@ button.pswp__button--zoom:hover {
 #secondary .widget_layered_nav_filters ul li.chosen a::before {
   margin-right: .5em;
   line-height: inherit;
+  position: relative;
+  top: 1px;
 }
 
 .woocommerce-terms-and-conditions {
