@@ -4663,7 +4663,7 @@ button.pswp__button--zoom:hover {
   margin-left: .5em;
   line-height: inherit;
   position: relative;
-  top: 0.07em;
+  top: 1px;
 }
 
 .woocommerce-terms-and-conditions {
