@@ -260,12 +260,9 @@ if ( ! class_exists( 'Astra_Elementor' ) ) :
 				return ( 'builder' === Plugin::$instance->db->get_edit_mode( $id ) );
 			} else {
 				$document = Plugin::$instance->documents->get( $id );
-				if($document)
-				{
+				if ( $document ) {
 					return $document->is_built_with_elementor();
-				}
-				else
-				{
+				} else {
 					return false;
 				}
 			}
