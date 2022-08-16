@@ -430,7 +430,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 
 	} );
 
-	var mobile_width = ( 'Android' === navigator.userAgent.match(/Android/i)[0] ) ? window.visualViewport.width : window.innerWidth;
+	var mobile_width = ( null !== navigator.userAgent.match(/Android/i)[0] && 'Android' === navigator.userAgent.match(/Android/i)[0] ) ? window.visualViewport.width : window.innerWidth;
 	function AstraHandleResizeEvent() {
 
 		var menu_offcanvas_close 	= document.getElementById('menu-toggle-close');
@@ -441,7 +441,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 		if ( desktop_header_content ) {
 			desktop_header_content.style.display = 'none';
 		}
-		var mobileResizeWidth = ( 'Android' === navigator.userAgent.match(/Android/i)[0] ) ? window.visualViewport.width : window.innerWidth;
+		var mobileResizeWidth = ( null !== navigator.userAgent.match(/Android/i)[0] && 'Android' === navigator.userAgent.match(/Android/i)[0] ) ? window.visualViewport.width : window.innerWidth;
 		if ( mobileResizeWidth !== mobile_width ) {
 			if ( menu_dropdown_close && null === elementor_editor ) {
 				menu_dropdown_close.click();
