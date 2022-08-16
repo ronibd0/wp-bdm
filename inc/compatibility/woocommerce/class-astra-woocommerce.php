@@ -1174,6 +1174,9 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			$if_free_shipping                        = astra_get_option( 'single-product-enable-shipping' );
 			$single_product_heading_tab_active_color = astra_get_option( 'single-product-heading-tab-active-color' );
 			$global_palette                          = astra_get_option( 'global-color-palette' );
+			$ltr_left                                = $is_site_rtl ? 'right' : 'left';
+			$ltr_right                               = $is_site_rtl ? 'left' : 'right';
+
 
 			$btn_color = astra_get_option( 'button-color' );
 			if ( empty( $btn_color ) ) {
@@ -2108,13 +2111,24 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 					);
 				}
 		
-				$sticky_add_to_cart_responsive = array(
+				$sticky_add_to_cart_responsive_mobile = array(
 					'.ast-sticky-add-to-cart .ast-sticky-add-to-cart-content div.ast-sticky-add-to-cart-title-wrap, .ast-sticky-add-to-cart-action-price' => array(
 						'display' => 'none',
 					),
 
 					'.ast-quantity-add-to-cart, .ast-sticky-add-to-cart-action-wrap, .ast-sticky-add-to-cart-action-wrap > form' => array(
 						'width' => '100%',
+					),
+					
+				);
+
+				$sticky_add_to_cart_responsive_tablet = array(
+					'.ast-sticky-add-to-cart-title-wrap > img' => array(
+						'display' => 'none',
+					),
+
+					'div.ast-sticky-add-to-cart .ast-sticky-add-to-cart-content .ast-sticky-add-to-cart-title-wrap .ast-sticky-add-to-cart-title' => array(
+						'padding-' . $ltr_left . '' => '0',
 					),
 					
 				);
@@ -2129,7 +2143,8 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 					$css_output .= astra_parse_css( $sticky_add_to_cart_admin_bar );
 				}
 		
-				$css_output .= astra_parse_css( $sticky_add_to_cart_responsive, '', astra_get_mobile_breakpoint() );
+				$css_output .= astra_parse_css( $sticky_add_to_cart_responsive_tablet, '', astra_get_tablet_breakpoint() );
+				$css_output .= astra_parse_css( $sticky_add_to_cart_responsive_mobile, '', astra_get_mobile_breakpoint() );
 				$css_output .= astra_parse_css( $sticky_add_to_cart_p );
 				$css_output .= astra_parse_css( $sticky_add_to_cart );
 		

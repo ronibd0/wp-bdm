@@ -44,8 +44,7 @@
 }
 
 .ast-sticky-add-to-cart .ast-sticky-add-to-cart-content .ast-stock-detail {
-  margin-bottom: 0;
-  padding-right: 20px;
+  display: none;
 }
 
 .ast-sticky-add-to-cart-action-wrap {
