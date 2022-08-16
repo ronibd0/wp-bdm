@@ -2330,18 +2330,15 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 					$customize_link = admin_url( 'customize.php?autofocus[section]=woocommerce_product_catalog' );
 				}
 
-				$wp_admin_bar->add_node(
-					/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-					array(
-						'id'    => 'customize',
-						'title' => __( 'Customize', 'astra' ),
-						'href'  => $customize_link,
-						'meta'  => array(
-							'class' => 'hide-if-no-customize',
-						),
+				$customize_node = array(
+					'id'    => 'customize',
+					'title' => __( 'Customize', 'astra' ),
+					'href'  => $customize_link,
+					'meta'  => array(
+						'class' => 'hide-if-no-customize',
 					)
-					/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 				);
+				$wp_admin_bar->add_node( $customize_node );
 			}
 		}
 
