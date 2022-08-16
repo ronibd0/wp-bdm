@@ -130,10 +130,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 			add_action( 'wp', array( $this, 'woocommerce_proceed_to_checkout_button' ) );
 
-			add_action( 'wp', array( $this, 'encapsulates_quantity_add_to_cart' ) );
-
 			add_action( 'add_admin_bar_menus', array( $this, 'change_customizer_url' ) );
-
 		}
 
 		/**
@@ -146,40 +143,6 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			remove_action( 'admin_bar_menu', 'wp_admin_bar_customize_menu' );
 			add_action( 'admin_bar_menu', array( $this, 'wp_admin_bar_customize_menu' ), 40 );
 		}
-
-	
-
-		/**
-		 * Encapsulates quantity selector and add to cart.
-		 *
-		 * @since x.x.x
-		 * @return void
-		 */
-		public function encapsulates_quantity_add_to_cart() {
-			add_action( 'woocommerce_before_add_to_cart_quantity', array( $this, 'encapsulates_quantity_selector' ) );
-			add_action( 'woocommerce_after_add_to_cart_button', array( $this, 'encapsulates_add_to_cart' ) );
-		}
-
-		/**
-		 * Encapsulates quantity selector.
-		 *
-		 * @since x.x.x
-		 * @return void
-		 */
-		public function encapsulates_quantity_selector() {
-			echo '<div class="ast-quantity-add-to-cart">'; 
-		}
-
-		/**
-		 * Encapsulates add to cart.
-		 *
-		 * @since x.x.x
-		 * @return void
-		 */
-		public function encapsulates_add_to_cart() {
-			echo '</div>'; 
-		}
-
 
 		/**
 		 * Change cart close icon.
