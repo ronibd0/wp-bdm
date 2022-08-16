@@ -140,8 +140,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		 * @return void
 		 */
 		public function change_customizer_url() {
-			remove_action( 'admin_bar_menu', 'wp_admin_bar_customize_menu' );
-			add_action( 'admin_bar_menu', array( $this, 'wp_admin_bar_customize_menu' ), 40 );
+			add_action( 'admin_bar_menu', array( $this, 'astra_update_customize_admin_bar_link' ), 45 );
 		}
 
 		/**
@@ -2205,7 +2204,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		public function astra_get_cart_link() {
 			$view_shopping_cart = apply_filters( 'astra_woo_view_shopping_cart_title', __( 'View your shopping cart', 'astra' ) );
 
-			$woo_cart_link = wc_get_cart_url(); 
+			$woo_cart_link = wc_get_cart_url();
 			if ( is_customize_preview() ) {
 				$woo_cart_link = '#';
 			}
@@ -2311,101 +2310,47 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		}
 
 		/**
-		 * Adds the "Customize" link to the Toolbar.
+		 * Update the "Customize" link to the Toolbar.
 		 *
 		 * @since x.x.x
 		 *
 		 * @param WP_Admin_Bar $wp_admin_bar The WP_Admin_Bar instance.
-		 * @global WP_Customize_Manager $wp_customize
 		 */
-		public function wp_admin_bar_customize_menu( $wp_admin_bar ) {
-			
-			/** @psalm-suppress InvalidGlobal */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-			global $wp_customize;
+		public function astra_update_customize_admin_bar_link( $wp_admin_bar ) {
 
-			// Don't show if a block theme is activated and no plugins use the customizer.
-			if ( wp_is_block_theme() && ! has_action( 'customize_register' ) ) {
-				return;
-			}
+			if ( ! is_admin() && class_exists( 'WooCommerce' ) && isset( $wp_admin_bar->get_nodes()['customize'] ) ) {
 
-			// Don't show for users who can't access the customizer or when in the admin.
-			if ( ! current_user_can( 'customize' ) || is_admin() ) {
-				return;
-			}
+				$customize_link = isset( $wp_admin_bar->get_nodes()['customize']->href ) ? $wp_admin_bar->get_nodes()['customize']->href : wp_customize_url();
 
-			// Don't show if the user cannot edit a given customize_changeset post currently being previewed.
+				$wp_admin_bar->remove_node( 'customize' );
 
-			// @codingStandardsIgnoreStart
-			/**
-			 * @psalm-suppress PossiblyNullPropertyFetch 
-			 * @psalm-suppress PossiblyNullArgument  
-			 */
-			$edit_post =  get_post_type_object( 'customize_changeset' )->cap->edit_post;
-			// @codingStandardsIgnoreEnd 
-			/** @psalm-suppress PossiblyNullArgument  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-			if ( is_customize_preview() && $wp_customize->changeset_post_id()
-				&& ! current_user_can( $edit_post, $wp_customize->changeset_post_id() )
-			) {
-				/** @psalm-suppress PossiblyNullArgument  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-				return;
-			}
-
-
-			if ( isset( $_SERVER['HTTP_HOST'] ) && isset( $_SERVER['REQUEST_URI'] ) ) {
-
-				/** @psalm-suppress PossiblyInvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-				$http_host = esc_url_raw( wp_unslash( $_SERVER['HTTP_HOST'] ) ); 
-				/** @psalm-suppress PossiblyInvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-				$request_uri = esc_url_raw( wp_unslash( $_SERVER['REQUEST_URI'] ) );
-
-				$current_url = $http_host . $request_uri;
-
-				if ( is_customize_preview() && $wp_customize->changeset_uuid() ) {
-					$current_url = remove_query_arg( 'customize_changeset_uuid', $current_url );
+				if ( is_product() ) {
+					$customize_link = admin_url( 'customize.php?autofocus[section]=section-woo-shop-single' );
 				}
-
-				$customize_url = add_query_arg( 'url', rawurlencode( $current_url ), wp_customize_url() );
-
-				if ( is_customize_preview() ) {
-					$customize_url = add_query_arg( array( 'changeset_uuid' => $wp_customize->changeset_uuid() ), $customize_url );
+				if ( is_cart() ) {
+					$customize_link = admin_url( 'customize.php?autofocus[section]=section-woo-shop-cart' );
 				}
-
-				if ( class_exists( 'WooCommerce' ) ) {
-					if ( is_product() ) {
-						$customize_url = admin_url( 'customize.php?autofocus[section]=section-woo-shop-single' );
-					}
-
-					if ( is_cart() ) {
-						$customize_url = admin_url( 'customize.php?autofocus[section]=section-woo-shop-cart' );
-					}
-
-					if ( is_checkout() ) {
-						$customize_url = admin_url( 'customize.php?autofocus[section]=woocommerce_checkout' );
-					}
-
-					if ( is_account_page() ) {
-						$customize_url = admin_url( 'customize.php?autofocus[section]=section-ast-woo-my-account' );
-					}
-
-					if ( is_shop() || is_product_taxonomy() ) {
-						$customize_url = admin_url( 'customize.php?autofocus[section]=woocommerce_product_catalog' );
-					}
+				if ( is_checkout() ) {
+					$customize_link = admin_url( 'customize.php?autofocus[section]=woocommerce_checkout' );
+				}
+				if ( is_account_page() ) {
+					$customize_link = admin_url( 'customize.php?autofocus[section]=section-ast-woo-my-account' );
+				}
+				if ( is_shop() || is_product_taxonomy() ) {
+					$customize_link = admin_url( 'customize.php?autofocus[section]=woocommerce_product_catalog' );
 				}
 
 				$wp_admin_bar->add_node(
 					array(
 						'id'    => 'customize',
-						'title' => __( 'Customize' ),
-						'href'  => $customize_url,
+						'title' => __( 'Customize', 'astra' ),
+						'href'  => $customize_link,
 						'meta'  => array(
 							'class' => 'hide-if-no-customize',
 						),
-					)
+					) 
 				);
-
 			}
-			
-			add_action( 'wp_before_admin_bar_render', 'wp_customize_support_script' );
 		}
 
 		/**

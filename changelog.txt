@@ -1,9 +1,9 @@
 v3.9.2
+- Improvement: WooCommerce - Admin bar's customize link updated on WooCommerce pages for quick landing to it's respected customizer section.
 - Fix: WooCommerce - Alignment issue with content added by plugin near single product add to cart section.
 - Fix: Customizer range slider control not accepting decimal values for 'em' unit.
 - Fix: WooCommerce - Dropdown icon cart link is not redirect to cart page.
 - Fix: WooCommerce - Single Product - Flex CSS conflicting with third party plugins which adds custom functionality aside add-to-cart button.
-- New: Customizer button in admin bar takes user to it's respected customizer.
 
 v3.9.1
 - Fix: WooCommerce - Child theme's WooCommerce custom templates gets overridden by parent theme.
