@@ -172,15 +172,14 @@ if ( ! class_exists( 'Astra_Woo_Shop_Single_Layout_Configs' ) ) {
 				* Option: Sticky add to cart.
 				*/
 				array(
-					'name'        => ASTRA_THEME_SETTINGS . '[single-product-sticky-add-to-cart]',
-					'default'     => astra_get_option( 'single-product-sticky-add-to-cart' ),
-					'type'        => 'control',
-					'section'     => 'section-woo-shop-single',
-					'title'       => __( 'Enable Sticky Add to Cart', 'astra' ),
-					'description' => __( 'This works for only desktop devices', 'astra' ),
-					'control'     => 'ast-toggle-control',
-					'priority'    => 76,
-					'divider'     => array( 'ast_class' => 'ast-section-spacing' ),
+					'name'     => ASTRA_THEME_SETTINGS . '[single-product-sticky-add-to-cart]',
+					'default'  => astra_get_option( 'single-product-sticky-add-to-cart' ),
+					'type'     => 'control',
+					'section'  => 'section-woo-shop-single',
+					'title'    => __( 'Enable Sticky Add to Cart', 'astra' ),
+					'control'  => 'ast-toggle-control',
+					'priority' => 76,
+					'divider'  => array( 'ast_class' => 'ast-section-spacing' ),
 				),
 
 				/**
