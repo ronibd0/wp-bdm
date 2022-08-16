@@ -2308,10 +2308,9 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		 */
 		public function astra_update_customize_admin_bar_link( $wp_admin_bar ) {
 
-			if ( ! is_admin() && class_exists( 'WooCommerce' ) && isset( $wp_admin_bar->get_nodes()['customize'] ) ) {
-
-				$admin_bar_nodes = $wp_admin_bar->get_nodes();
-				$customize_link  = isset( $admin_bar_nodes['customize']->href ) ? $admin_bar_nodes['customize']->href : wp_customize_url();
+			$admin_bar_nodes = $wp_admin_bar->get_nodes();
+			if ( ! is_admin() && class_exists( 'WooCommerce' ) && isset( $admin_bar_nodes['customize'] ) ) {
+				$customize_link = isset( $admin_bar_nodes['customize']->href ) ? $admin_bar_nodes['customize']->href : wp_customize_url();
 
 				$wp_admin_bar->remove_node( 'customize' );
 
