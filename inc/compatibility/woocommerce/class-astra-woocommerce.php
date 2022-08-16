@@ -2336,7 +2336,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 					'href'  => $customize_link,
 					'meta'  => array(
 						'class' => 'hide-if-no-customize',
-					)
+					),
 				);
 
 				/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
