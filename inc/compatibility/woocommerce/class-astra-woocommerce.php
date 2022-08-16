@@ -130,16 +130,6 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 			add_action( 'wp', array( $this, 'woocommerce_proceed_to_checkout_button' ) );
 
-			add_action( 'add_admin_bar_menus', array( $this, 'change_customizer_url' ) );
-		}
-
-		/**
-		 * Changes customizer admin bar url to its respected woocommerce customizer section url .
-		 *
-		 * @since x.x.x
-		 * @return void
-		 */
-		public function change_customizer_url() {
 			add_action( 'admin_bar_menu', array( $this, 'astra_update_customize_admin_bar_link' ), 45 );
 		}
 
@@ -2320,7 +2310,8 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 			if ( ! is_admin() && class_exists( 'WooCommerce' ) && isset( $wp_admin_bar->get_nodes()['customize'] ) ) {
 
-				$customize_link = isset( $wp_admin_bar->get_nodes()['customize']->href ) ? $wp_admin_bar->get_nodes()['customize']->href : wp_customize_url();
+				$admin_bar_nodes = $wp_admin_bar->get_nodes();
+				$customize_link  = isset( $admin_bar_nodes['customize']->href ) ? $admin_bar_nodes['customize']->href : wp_customize_url();
 
 				$wp_admin_bar->remove_node( 'customize' );
 
@@ -2348,7 +2339,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 						'meta'  => array(
 							'class' => 'hide-if-no-customize',
 						),
-					) 
+					)
 				);
 			}
 		}
