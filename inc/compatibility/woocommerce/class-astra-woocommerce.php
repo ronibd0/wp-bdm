@@ -2331,6 +2331,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				}
 
 				$wp_admin_bar->add_node(
+					/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 					array(
 						'id'    => 'customize',
 						'title' => __( 'Customize', 'astra' ),
@@ -2339,6 +2340,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 							'class' => 'hide-if-no-customize',
 						),
 					)
+					/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 				);
 			}
 		}
