@@ -506,14 +506,6 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 						'media'   => 'all',
 						'has_rtl' => true,
 					),
-					'sticky-add-to-cart'      => array(
-						'src'     => $css_uri . 'sticky-add-to-cart' . $file_prefix . '.css',
-						'deps'    => '',
-						'version' => ASTRA_THEME_VERSION,
-						'media'   => 'all',
-						'has_rtl' => true,
-					),
-
 				);
 			} else {
 				$styles = array(
@@ -538,13 +530,16 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 						'media'   => 'all',
 						'has_rtl' => true,
 					),
-					'sticky-add-to-cart'      => array(
-						'src'     => $css_uri . 'sticky-add-to-cart' . $file_prefix . '.css',
-						'deps'    => '',
-						'version' => ASTRA_THEME_VERSION,
-						'media'   => 'all',
-						'has_rtl' => true,
-					),
+				);
+			}
+
+			if ( is_product() && astra_get_option( 'single-product-sticky-add-to-cart' ) ) {
+				$styles['sticky-add-to-cart'] = array(
+					'src'     => $css_uri . 'sticky-add-to-cart' . $file_prefix . '.css',
+					'deps'    => '',
+					'version' => ASTRA_THEME_VERSION,
+					'media'   => 'all',
+					'has_rtl' => true,
 				);
 			}
 

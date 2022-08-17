@@ -189,7 +189,7 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 					$default_assets['js']['astra-mobile-cart'] = 'mobile-cart';
 				}
 
-				if ( class_exists( 'WooCommerce' ) && astra_get_option( 'single-product-sticky-add-to-cart' ) ) {
+				if ( class_exists( 'WooCommerce' ) && is_product() && astra_get_option( 'single-product-sticky-add-to-cart' ) ) {
 					$default_assets['js']['astra-sticky-add-to-cart'] = 'sticky-add-to-cart';
 				}
 			}
