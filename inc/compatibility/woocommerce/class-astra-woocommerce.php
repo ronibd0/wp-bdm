@@ -513,7 +513,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 						'media'   => 'all',
 						'has_rtl' => true,
 					),
-					
+
 				);
 			} else {
 				$styles = array(
@@ -2035,29 +2035,29 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				 * Single product sticky add to cart.
 				 */
 				$sticky_add_to_cart = array(
-		
+
 					'.woocommerce .ast-sticky-add-to-cart .button.alt' => array(
 						'border-color' => $sticky_add_to_cart_btn_bg_color,
 						'color'        => $sticky_add_to_cart_btn_text_color,
 						'background'   => $sticky_add_to_cart_btn_bg_color,
 					),
-		
+
 					'.woocommerce .ast-sticky-add-to-cart .button.alt:hover' => array(
 						'border-color' => $sticky_add_to_cart_btn_bg_color_h,
 						'color'        => $sticky_add_to_cart_btn_text_color_h,
 						'background'   => $sticky_add_to_cart_btn_bg_color_h,
 					),
-		
+
 					'.ast-sticky-add-to-cart .ast-container .ast-sticky-add-to-cart-content' => array(
 						'color' => $sticky_add_to_cart_text_color ? $sticky_add_to_cart_text_color : 'var(--ast-global-color-3)',
 					),
-		
+
 					'div.ast-sticky-add-to-cart' => array(
 						'background-color' => $sticky_add_to_cart_bg_color,
 					),
-		
+
 				);
-		
+
 				if ( 'top' === $sticky_add_to_cart_position ) {
 					$sticky_add_to_cart_p = array(
 						'div.ast-sticky-add-to-cart' => array(
@@ -2077,7 +2077,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 						),
 					);
 				}
-		
+
 				$sticky_add_to_cart_responsive_mobile = array(
 					'.ast-sticky-add-to-cart .ast-sticky-add-to-cart-content div.ast-sticky-add-to-cart-title-wrap, .ast-sticky-add-to-cart-action-price' => array(
 						'display' => 'none',
@@ -2086,7 +2086,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 					'.ast-quantity-add-to-cart, .ast-sticky-add-to-cart-action-wrap, .ast-sticky-add-to-cart-action-wrap > form' => array(
 						'width' => '100%',
 					),
-					
+
 				);
 
 				$sticky_add_to_cart_responsive_tablet = array(
@@ -2097,26 +2097,24 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 					'div.ast-sticky-add-to-cart .ast-sticky-add-to-cart-content .ast-sticky-add-to-cart-title-wrap .ast-sticky-add-to-cart-title' => array(
 						'padding-' . $ltr_left . '' => '0',
 					),
-					
+
 				);
-		
+
 				if ( is_admin_bar_showing() ) {
 					$sticky_add_to_cart_admin_bar = array(
 						'.admin-bar .ast-sticky-add-to-cart.top' => array(
 							'top' => '32px',
 						),
 					);
-		
-					$css_output .= astra_parse_css( $sticky_add_to_cart_admin_bar );
+
+					$css_output .= astra_parse_css( $sticky_add_to_cart_admin_bar, '601' );
 				}
-		
+
 				$css_output .= astra_parse_css( $sticky_add_to_cart_responsive_tablet, '', astra_get_tablet_breakpoint() );
 				$css_output .= astra_parse_css( $sticky_add_to_cart_responsive_mobile, '', astra_get_mobile_breakpoint() );
 				$css_output .= astra_parse_css( $sticky_add_to_cart_p );
 				$css_output .= astra_parse_css( $sticky_add_to_cart );
-		
 			}
-
 
 			/**
 			 * Single page variation tab layout.
@@ -2318,7 +2316,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		public function astra_get_cart_link() {
 			$view_shopping_cart = apply_filters( 'astra_woo_view_shopping_cart_title', __( 'View your shopping cart', 'astra' ) );
 
-			$woo_cart_link = wc_get_cart_url(); 
+			$woo_cart_link = wc_get_cart_url();
 			if ( is_customize_preview() ) {
 				$woo_cart_link = '#';
 			}
@@ -2453,8 +2451,8 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				$add_to_cart_ajax = astra_get_option( 'single-product-ajax-add-to-cart' );
 				// @codingStandardsIgnoreStart
 				/**
-				 * @psalm-suppress PossiblyNullReference 
-				 * @psalm-suppress PossiblyFalseReference   
+				 * @psalm-suppress PossiblyNullReference
+				 * @psalm-suppress PossiblyFalseReference
 				 */
 				if ( ( $product->is_purchasable() && ( $product->is_in_stock() || $product->backorders_allowed() ) ) || $product->is_type( 'external' ) ) {
 				// @codingStandardsIgnoreEnd
@@ -2468,8 +2466,8 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 							echo '<div class="ast-sticky-add-to-cart-action-wrap">';
 					// @codingStandardsIgnoreStart
 					/**
-					 * @psalm-suppress PossiblyNullReference 
-					 * @psalm-suppress PossiblyFalseReference   
+					 * @psalm-suppress PossiblyNullReference
+					 * @psalm-suppress PossiblyFalseReference
 					 */
 					if ( $product->is_type( 'simple' ) || $product->is_type( 'external' ) || $product->is_type( 'subscription' ) ) {
 					// @codingStandardsIgnoreEnd
