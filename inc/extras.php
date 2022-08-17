@@ -959,3 +959,23 @@ function astra_search_static_css() {
 
 	return Astra_Enqueue_Scripts::trim_css( $search_css );
 }
+
+/**
+ * Function which will return CSS for font-extras control.
+ * It includes - line-height, letter-spacing, text-decoration, font-style.
+ *
+ * @param array $config contins extra font settings.
+ * @param string $setting basis on this setting will return.
+ * @param string $unit Unit.
+ *
+ * @since x.x.x
+ */
+function astra_get_font_extras( $config, $setting, $unit = false ) {
+	$css = isset( $config[ $setting ] ) ? $config[ $setting ] : '';
+
+	if( $unit ) {
+		$css .= $config[ $unit ];
+	}
+
+	return $css;
+}

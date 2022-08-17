@@ -88,7 +88,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 			// Typography.
 			$body_font_size          = astra_get_option( 'font-size-body' );
-			$body_line_height        = astra_get_option( 'body-line-height' );
+			$body_line_height        = astra_get_font_extras( astra_get_option( 'body-font-extras' ), 'line-height', 'line-height-unit' );
 			$para_margin_bottom      = astra_get_option( 'para-margin-bottom' );
 			$body_text_transform     = astra_get_option( 'body-text-transform' );
 			$headings_font_family    = astra_get_option( 'headings-font-family' );

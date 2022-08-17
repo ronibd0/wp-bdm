@@ -169,57 +169,24 @@ if ( ! class_exists( 'Astra_Body_Typo_Configs' ) ) {
 				),
 
 				/**
-				 * Option: Body Line Height
-				 */
-				array(
-					'name'              => 'body-line-height',
-					'type'              => 'sub-control',
-					'parent'            => ASTRA_THEME_SETTINGS . '[ast-body-font-settings]',
-					'control'           => 'ast-slider',
-					'section'           => $typo_section,
-					'lazy'              => true,
-					'default'           => astra_get_option( 'body-line-height' ),
-					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
-					'priority'          => 25,
-					'title'             => __( 'Line Height', 'astra' ),
-					'suffix'            => 'em',
-					'input_attrs'       => array(
-						'min'  => 1,
-						'step' => 0.01,
-						'max'  => 5,
-					),
-				),
-
-				/**
 				 * Option: Body Font Height
 				 */
 				array(
-					'name'            => 'body-font-height',
+					'name'            => 'body-font-extras',
 					'type'            => 'sub-control',
 					'parent'          => ASTRA_THEME_SETTINGS . '[ast-body-font-settings]',
 					'control'         => 'ast-font-height',
 					'section'         => $typo_section,
 					'priority'        => 25,
-					'default'         => astra_get_option( 'body-font-height-settings' ),
+					'default'         => astra_get_option( 'body-font-height-settings', array(
+						'line-height'    => astra_get_option( 'body-line-height' ),
+						'line-height-unit' => 'em',
+						'letter-spacing'    => '',
+						'letter-spacing-unit'   => 'px',
+						'text-transform'    => astra_get_option( 'body-text-transform' ),
+						'text-decoration'   => '',
+					) ),
 					'title'           => __( 'Line Height New', 'astra' ),
-					'height_units'    => array(
-						'px' => 'px',
-						'em' => 'em',
-					),
-					'spacing_units'   => array(
-						'px' => 'px',
-						'%'  => '%',
-					),
-					'font_transform'  => array(
-						''           => __( 'aa', 'astra' ),
-						'capitalize' => __( 'Aa', 'astra' ),
-						'uppercase'  => __( 'AA', 'astra' ),
-					),
-					'font_decoration' => array(
-						''             => __( 'Aa', 'astra' ),
-						'underline'    => __( 'Aa', 'astra' ),
-						'stikethrough' => __( 'AA', 'astra' ),
-					),
 				),
 
 				/**
