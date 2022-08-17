@@ -24,7 +24,7 @@ function astra_check_any_page_builder_is_active( $post_id ) {
 
 	if ( class_exists( '\Elementor\Plugin' ) ) {
 		/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-		$document = Elementor\Plugin::$instance->documents->get( $post_id );
+		$document = Elementor\Plugin::$instance->documents->get( $post_id ); // phpcs:ignore PHPCompatibility.LanguageConstructs.NewLanguageConstructs.t_ns_separatorFound
 		if ( $document ) {
 			$deprecated_handle = $document->is_built_with_elementor();
 		} else {
