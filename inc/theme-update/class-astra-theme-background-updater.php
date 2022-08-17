@@ -135,6 +135,9 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 				'astra_legacy_customizer_maintenance',
 				'astra_apply_modern_ecommerce_setup',
 			),
+			'3.9.2' => array(
+				'astra_apply_woocommerce_show_password_icon_css',
+			),
 		);
 
 		/**
@@ -142,7 +145,7 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 		 */
 		public function __construct() {
 
-			// Theme Updates.
+			// Theme Updates.git 
 			if ( is_admin() ) {
 				add_action( 'admin_init', array( $this, 'install_actions' ) );
 			} else {
