@@ -80,6 +80,7 @@
 }
 div#astra_settings_meta_box {
     padding: 0;
+	overflow: hidden;
 }
 .components-panel__body .components-base-control__field {
     padding: 5px 0 0;
