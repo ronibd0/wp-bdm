@@ -132,7 +132,9 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 			add_filter( 'post_class', array( $this, 'post_class' ) );
 
-			add_filter( 'woocommerce_sale_flash', array( $this, 'sale_flash' ), 10, 3 );
+			if ( ! defined( 'ASTRA_EXT_VER' ) || astra_addon_check_version( '3.9.2', '>=' ) ) {
+				add_filter( 'woocommerce_sale_flash', array( $this, 'sale_flash' ), 10, 3 );
+			}
 
 			add_action( 'wp', array( $this, 'common_actions' ) );
 
@@ -199,57 +201,8 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			$product_id = $product->get_id();
 
 			// Sale bubble markup.
-			$sale_notification = astra_get_option( 'product-sale-notification', '', 'default' );
-			if ( $product->is_on_sale() && 'none' !== $sale_notification ) {
-				$markup .= $this->get_sale_flash_markup( $sale_notification, $product );
-			}
-
-			// Product link markup.
-			$header_woo_cart = astra_get_option( 'woo-header-cart-icon', 'default' );
-			$cart_icon       = ( true === Astra_Icons::is_svg_icons() ) ? Astra_Icons::get_icons( 'default' === $header_woo_cart ? 'bag' : $header_woo_cart ) : Astra_Builder_UI_Controller::fetch_svg_icon( 'shopping-' . $header_woo_cart, false );
-			$classes         = implode(
-				' ',
-				array_filter(
-					array(
-						'ast-on-card-button',
-						'ast-select-options-trigger',
-						'product_type_' . $product->get_type(),
-						$product->is_purchasable() && $product->is_in_stock() ? 'add_to_cart_button' : '',
-						$product->supports( 'ajax_add_to_cart' ) && $product->is_purchasable() && $product->is_in_stock() ? 'ajax_add_to_cart' : '',
-					)
-				)
-			);
-			$attributes      = array(
-				'data-product_id'  => $product->get_id(),
-				'data-product_sku' => $product->get_sku(),
-				'aria-label'       => $product->add_to_cart_description(),
-				'rel'              => 'nofollow',
-			);
-			$markup         .= sprintf(
-				'<a href="%s" data-quantity="%s" class="%s" %s> <span class="ast-card-action-tooltip"> %s </span> <span class="ahfb-svg-iconset"> %s </span> </a>',
-				esc_url( $product->add_to_cart_url() ),
-				esc_attr( 1 ),
-				esc_attr( $classes ),
-				wc_implode_html_attributes( $attributes ),
-				esc_html( $product->add_to_cart_text() ),
-				$cart_icon
-			);
-
-			/** @psalm-suppress UndefinedClass   */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-			if ( defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'woocommerce' ) ) {
-				/** @psalm-suppress UndefinedClass   */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-
-				// Quick view markup.
-				$qv_enable = astra_get_option( 'shop-quick-view-enable' );
-				if ( 'disabled' !== $qv_enable && 'on-image' === $qv_enable ) {
-					$quick_view_button_text = apply_filters( 'astra_addon_product_card_quick_view_text', __( 'Quick View', 'astra-addon' ) );
-					add_filter( 'astra_theme_js_localize', array( ASTRA_Ext_WooCommerce_Markup::get_instance(), 'qv_js_localize' ) );
-
-					$markup .= '<span class="ast-on-card-button ast-quick-view-trigger" data-product_id="' . esc_attr( $product_id ) . '"> <span class="ast-card-action-tooltip">' . esc_attr( $quick_view_button_text ) . '</span>' . Astra_Builder_UI_Controller::fetch_svg_icon( 'eye', false ) . '</span>';
-
-					// load modal template.
-					add_action( 'wp_footer', array( ASTRA_Ext_WooCommerce_Markup::get_instance(), 'quick_view_html' ) );
-				}
+			if ( $product->is_on_sale() ) {
+				$markup .= $this->get_sale_flash_markup( 'default', $product );
 			}
 
 			/** @psalm-suppress TooManyArguments */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
@@ -258,7 +211,6 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 			echo $html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		}
-
 
 		/**
 		 * Astra Sale flash markup.
@@ -269,73 +221,13 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		 * @return mixed HTML markup.
 		 */
 		public function get_sale_flash_markup( $sale_notification, $product ) {
-			$sale_percent_value   = '';
 			$text                 = __( 'Sale!', 'astra' ); // Default text.
-			$sale_percentage_data = array();
-
-			switch ( $sale_notification ) {
-
-				// Display % instead of "Sale!".
-				case 'sale-percentage':
-					$sale_percent_value = astra_get_option( 'product-sale-percent-value' );
-					// if not variable product.
-					/** @psalm-suppress InvalidMethodCall  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-					if ( ! $product->is_type( 'variable' ) ) {
-						/** @psalm-suppress InvalidMethodCall  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-
-						/** @psalm-suppress InvalidMethodCall  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-						$sale_price = $product->get_sale_price();
-
-						if ( $sale_price ) {
-							/** @psalm-suppress InvalidMethodCall  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-							$regular_price = $product->get_regular_price();
-							/** @psalm-suppress InvalidOperand   */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-							$percent_sale = round( ( ( ( $regular_price - $sale_price ) / $regular_price ) * 100 ), 0 );
-							/** @psalm-suppress InvalidOperand   */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-							$sale_percent_value = $sale_percent_value ? $sale_percent_value : '-[value]%';
-							/** @psalm-suppress InvalidScalarArgument   */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-							$text = str_replace( '[value]', $percent_sale, $sale_percent_value );
-							/** @psalm-suppress InvalidScalarArgument   */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-						}
-					} else {
-
-						// if variable product.
-						/** @psalm-suppress InvalidMethodCall  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-						foreach ( $product->get_children() as $child_id ) {
-							/** @psalm-suppress InvalidMethodCall  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-
-							$variation = wc_get_product( $child_id );
-							if ( $variation instanceof WC_Product ) {
-								// Checking in case if the wc_get_product exists or is not false.
-								$sale_price = $variation->get_sale_price();
-								if ( $sale_price ) {
-									$regular_price = $variation->get_regular_price();
-									// @codingStandardsIgnoreStart
-									/**
-									 * @psalm-suppress InvalidScalarArgument
-									 * @psalm-suppress InvalidOperand
-									 */
-									$percent_sale = round( ( ( ( $regular_price - $sale_price ) / $regular_price ) * 100 ), 0 );
-									// @codingStandardsIgnoreEnd
-									$sale_percent_value = $sale_percent_value ? $sale_percent_value : '-[value]%';
-									/** @psalm-suppress InvalidScalarArgument  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-									$text = str_replace( '[value]', $percent_sale, $sale_percent_value );
-									/** @psalm-suppress InvalidScalarArgument  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-									$sale_percentage_data[ $child_id ] = $percent_sale;
-
-								}
-							}
-						}
-					}
-					break;
-			}
 
 			// CSS classes.
 			$classes = array();
 			/** @psalm-suppress UndefinedFunction  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			$classes[] = ( astra_is_shop_page_modern_style() ) ? 'ast-on-card-button ast-onsale-card' : 'onsale';
 			/** @psalm-suppress UndefinedFunction  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-			$classes[] = astra_get_option( 'product-sale-style' );
 			$classes   = implode( ' ', $classes );
 
 			// Generate markup.
@@ -343,9 +235,8 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				'woo-sale-badge-container',
 				array(
 					'class'              => $classes,
-					'data-sale'          => wp_json_encode( $sale_percentage_data ),
-					'data-notification'  => $sale_notification,
-					'data-sale-per-text' => $sale_percent_value,
+					'data-sale'          => array(),
+					'data-notification'  => 'default',
 				)
 			) . '>' . esc_html( $text ) . '</span>';
 		}
@@ -361,19 +252,14 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		 */
 		public function sale_flash( $markup, $post, $product ) {
 
-			$sale_notification = astra_get_option( 'product-sale-notification', '', 'default' );
-
-			// If none then return!
 			/** @psalm-suppress UndefinedFunction  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-			if ( 'none' === $sale_notification || ( ! is_singular( 'product' ) && astra_is_shop_page_modern_style() ) ) {
+			if ( ( ! is_singular( 'product' ) && astra_is_shop_page_modern_style() ) ) {
 				/** @psalm-suppress UndefinedFunction  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 				return;
 			}
 
-			return $this->get_sale_flash_markup( $sale_notification, $product );
+			return $this->get_sale_flash_markup( 'default', $product );
 		}
-
-
 
 		/**
 		 * Change cart close icon.
@@ -719,76 +605,56 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 			$css_uri = ASTRA_THEME_URI . 'assets/css/' . $dir_name . '/compatibility/woocommerce/';
 
-			$modern_layout_css = array();
-
-			/** @psalm-suppress UndefinedFunction   */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-			if ( class_exists( 'woocommerce' ) && astra_is_shop_page_modern_style() ) {
-				/** @psalm-suppress UndefinedFunction   */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-				$modern_layout_css['shop-page-modern-style'] = array(
-					'src'     => $css_uri . 'shop-page-modern-style' . $file_prefix . '.css',
-					'deps'    => '',
-					'version' => ASTRA_THEME_VERSION,
-					'media'   => 'all',
-					'has_rtl' => true,
-				);
-			}
-
 			// Register & Enqueue Styles.
 			// Generate CSS URL.
 
 			if ( ! Astra_Builder_Helper::apply_flex_based_css() ) {
-				$styles = array_merge(
-					$modern_layout_css,
-					array(
-						'woocommerce-layout'      => array(
-							'src'     => $css_uri . 'woocommerce-layout' . $file_prefix . '.css',
-							'deps'    => '',
-							'version' => ASTRA_THEME_VERSION,
-							'media'   => 'all',
-							'has_rtl' => true,
-						),
-						'woocommerce-smallscreen' => array(
-							'src'     => $css_uri . 'woocommerce-smallscreen' . $file_prefix . '.css',
-							'deps'    => 'woocommerce-layout',
-							'version' => ASTRA_THEME_VERSION,
-							'media'   => 'only screen and (max-width: ' . apply_filters( 'woocommerce_style_smallscreen_breakpoint', astra_get_tablet_breakpoint() . 'px' ) . ')', // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
-							'has_rtl' => true,
-						),
-						'woocommerce-general'     => array(
-							'src'     => $css_uri . 'woocommerce' . $file_prefix . '.css',
-							'deps'    => '',
-							'version' => ASTRA_THEME_VERSION,
-							'media'   => 'all',
-							'has_rtl' => true,
-						),
-					)
+				$styles = array(
+					'woocommerce-layout'      => array(
+						'src'     => $css_uri . 'woocommerce-layout' . $file_prefix . '.css',
+						'deps'    => '',
+						'version' => ASTRA_THEME_VERSION,
+						'media'   => 'all',
+						'has_rtl' => true,
+					),
+					'woocommerce-smallscreen' => array(
+						'src'     => $css_uri . 'woocommerce-smallscreen' . $file_prefix . '.css',
+						'deps'    => 'woocommerce-layout',
+						'version' => ASTRA_THEME_VERSION,
+						'media'   => 'only screen and (max-width: ' . apply_filters( 'woocommerce_style_smallscreen_breakpoint', astra_get_tablet_breakpoint() . 'px' ) . ')', // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
+						'has_rtl' => true,
+					),
+					'woocommerce-general'     => array(
+						'src'     => $css_uri . 'woocommerce' . $file_prefix . '.css',
+						'deps'    => '',
+						'version' => ASTRA_THEME_VERSION,
+						'media'   => 'all',
+						'has_rtl' => true,
+					),
 				);
 			} else {
-				$styles = array_merge(
-					$modern_layout_css,
-					array(
-						'woocommerce-layout'      => array(
-							'src'     => $css_uri . 'woocommerce-layout-grid' . $file_prefix . '.css',
-							'deps'    => '',
-							'version' => ASTRA_THEME_VERSION,
-							'media'   => 'all',
-							'has_rtl' => true,
-						),
-						'woocommerce-smallscreen' => array(
-							'src'     => $css_uri . 'woocommerce-smallscreen-grid' . $file_prefix . '.css',
-							'deps'    => 'woocommerce-layout',
-							'version' => ASTRA_THEME_VERSION,
-							'media'   => 'only screen and (max-width: ' . apply_filters( 'woocommerce_style_smallscreen_breakpoint', astra_get_tablet_breakpoint() . 'px' ) . ')', // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
-							'has_rtl' => true,
-						),
-						'woocommerce-general'     => array(
-							'src'     => $css_uri . 'woocommerce-grid' . $file_prefix . '.css',
-							'deps'    => '',
-							'version' => ASTRA_THEME_VERSION,
-							'media'   => 'all',
-							'has_rtl' => true,
-						),
-					)
+				$styles = array(
+					'woocommerce-layout'      => array(
+						'src'     => $css_uri . 'woocommerce-layout-grid' . $file_prefix . '.css',
+						'deps'    => '',
+						'version' => ASTRA_THEME_VERSION,
+						'media'   => 'all',
+						'has_rtl' => true,
+					),
+					'woocommerce-smallscreen' => array(
+						'src'     => $css_uri . 'woocommerce-smallscreen-grid' . $file_prefix . '.css',
+						'deps'    => 'woocommerce-layout',
+						'version' => ASTRA_THEME_VERSION,
+						'media'   => 'only screen and (max-width: ' . apply_filters( 'woocommerce_style_smallscreen_breakpoint', astra_get_tablet_breakpoint() . 'px' ) . ')', // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
+						'has_rtl' => true,
+					),
+					'woocommerce-general'     => array(
+						'src'     => $css_uri . 'woocommerce-grid' . $file_prefix . '.css',
+						'deps'    => '',
+						'version' => ASTRA_THEME_VERSION,
+						'media'   => 'all',
+						'has_rtl' => true,
+					),
 				);
 			}
 
@@ -2279,10 +2145,10 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 					';
 				}
 
-
 				if ( 'none' !== astra_get_option( 'product-sale-notification', 'default' ) ) {
 					$modern_shop_page_css .= '
 						.ast-onsale-card {
+							position: absolute;
 							top: 1.5em;
 							' . esc_attr( $ltr_left ) . ': 1.5em;
 							color: var(--ast-global-color-3);
