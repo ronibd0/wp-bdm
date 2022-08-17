@@ -130,9 +130,10 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 			add_action( 'wp', array( $this, 'woocommerce_proceed_to_checkout_button' ) );
 
-			// Sticky add to cart.
-			add_action( 'wp_footer', array( $this, 'single_product_sticky_add_to_cart' ) );
-
+			if ( ! defined( 'ASTRA_EXT_VER' ) || astra_addon_check_version( '3.9.2', '>=' ) ) {
+				// Sticky add to cart.
+				add_action( 'wp_footer', array( $this, 'single_product_sticky_add_to_cart' ) );
+			}
 		}
 
 
@@ -2498,5 +2499,3 @@ endif;
 if ( apply_filters( 'astra_enable_woocommerce_integration', true ) ) {
 	Astra_Woocommerce::get_instance();
 }
-
-
