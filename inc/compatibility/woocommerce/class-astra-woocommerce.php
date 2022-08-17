@@ -130,14 +130,14 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 			add_action( 'wp', array( $this, 'woocommerce_proceed_to_checkout_button' ) );
 
-			add_filter( 'post_class', array( $this, 'post_class' ) );
-
-			if ( ! defined( 'ASTRA_EXT_VER' ) || astra_addon_check_version( '3.9.2', '>=' ) ) {
-				add_filter( 'woocommerce_sale_flash', array( $this, 'sale_flash' ), 10, 3 );
+			if ( ! defined( 'ASTRA_EXT_VER' ) ) {
+				add_filter( 'post_class', array( $this, 'post_class' ) );
 			}
 
-			add_action( 'wp', array( $this, 'common_actions' ) );
-
+			if ( ! defined( 'ASTRA_EXT_VER' ) || ( defined( 'ASTRA_EXT_VER' ) && ! Astra_Ext_Extension::is_active( 'woocommerce' ) ) ) {
+				add_filter( 'woocommerce_sale_flash', array( $this, 'sale_flash' ), 10, 3 );
+				add_action( 'woocommerce_after_shop_loop_item', array( $this, 'add_modern_triggers_on_image' ), 5 );
+			}
 		}
 
 		/**
@@ -165,51 +165,30 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		}
 
 		/**
-		 * Common Actions.
-		 *
-		 * @since x.x.x
-		 * @return void
-		 */
-		public function common_actions() {
-
-			/** @psalm-suppress UndefinedFunction  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-			if ( astra_is_shop_page_modern_style() ) {
-				/** @psalm-suppress UndefinedFunction  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-				// Modern Shop Look.
-				$this->render_modern_shop_view();
-			}
-		}
-
-		/**
-		 * Init Modern Shop view's items.
-		 *
-		 * @since x.x.x
-		 */
-		public function render_modern_shop_view() {
-			add_action( 'woocommerce_after_shop_loop_item', array( $this, 'add_modern_triggers_on_image' ), 5 );
-		}
-
-		/**
 		 * Modern shop page's triggers on product image.
 		 *
 		 * @since x.x.x
 		 */
 		public function add_modern_triggers_on_image() {
 
-			global $product;
-			$markup     = '';
-			$product_id = $product->get_id();
+			/** @psalm-suppress UndefinedFunction  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+			if ( astra_is_shop_page_modern_style() ) {
+				/** @psalm-suppress UndefinedFunction  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+				global $product;
+				$markup     = '';
+				$product_id = $product->get_id();
 
-			// Sale bubble markup.
-			if ( $product->is_on_sale() ) {
-				$markup .= $this->get_sale_flash_markup( 'default', $product );
+				// Sale bubble markup.
+				if ( $product->is_on_sale() ) {
+					$markup .= $this->get_sale_flash_markup( 'default', $product );
+				}
+
+				/** @psalm-suppress TooManyArguments */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+				$html = apply_filters( 'astra_addon_shop_cards_buttons_html', $markup, $product );
+				/** @psalm-suppress TooManyArguments */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+
+				echo $html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			}
-
-			/** @psalm-suppress TooManyArguments */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-			$html = apply_filters( 'astra_addon_shop_cards_buttons_html', $markup, $product );
-			/** @psalm-suppress TooManyArguments */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-
-			echo $html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		}
 
 		/**
