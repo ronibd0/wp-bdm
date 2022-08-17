@@ -137,6 +137,7 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 			),
 			'3.9.2' => array(
 				'astra_shop_style_design_layout',
+				'astra_responsive_shop_content_alignment',
 			),
 			
 		);
