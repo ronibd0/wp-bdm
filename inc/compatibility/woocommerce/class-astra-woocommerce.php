@@ -153,7 +153,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				$desktop_alignment      = ( isset( $shop_product_alignment['desktop'] ) ) ? $shop_product_alignment['desktop'] : '';
 				$tablet_alignment       = ( isset( $shop_product_alignment['tablet'] ) ) ? $shop_product_alignment['tablet'] : '';
 				$mobile_alignment       = ( isset( $shop_product_alignment['mobile'] ) ) ? $shop_product_alignment['mobile'] : '';
-				
+
 				$classes[] = 'desktop-' . esc_attr( $desktop_alignment );
 				$classes[] = 'tablet-' . esc_attr( $tablet_alignment );
 				$classes[] = 'mobile-' . esc_attr( $mobile_alignment );
@@ -249,7 +249,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 					// load modal template.
 					add_action( 'wp_footer', array( ASTRA_Ext_WooCommerce_Markup::get_instance(), 'quick_view_html' ) );
-				}           
+				}
 			}
 
 			/** @psalm-suppress TooManyArguments */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
@@ -312,8 +312,8 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 									$regular_price = $variation->get_regular_price();
 									// @codingStandardsIgnoreStart
 									/**
-									 * @psalm-suppress InvalidScalarArgument 
-									 * @psalm-suppress InvalidOperand   
+									 * @psalm-suppress InvalidScalarArgument
+									 * @psalm-suppress InvalidOperand
 									 */
 									$percent_sale = round( ( ( ( $regular_price - $sale_price ) / $regular_price ) * 100 ), 0 );
 									// @codingStandardsIgnoreEnd
@@ -371,7 +371,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			}
 
 			return $this->get_sale_flash_markup( $sale_notification, $product );
-		}   
+		}
 
 
 
@@ -911,7 +911,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			);
 
 			/* Shop style */
-			$defaults['shop-style'] = $theme_options['woo-shop-style-flag'] ? 'shop-page-grid-style' : 'shop-page-modern-style';
+			$defaults['shop-style'] = isset( $theme_options['woo-shop-style-flag'] ) && $theme_options['woo-shop-style-flag'] ? 'shop-page-grid-style' : 'shop-page-modern-style';
 
 			return $defaults;
 		}
@@ -2311,185 +2311,9 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				$css_output .= $modern_shop_page_css;
 			}
 
-			/**
-			 * Shop summary box wrapper alignment.
-			 *
-			 * @since 3.9.0
-			 * @return string
-			 */
-			function astra_addon_shop_summary_box_alignment() {
-				$shop_product_alignment = astra_get_option( 'shop-product-align-responsive' );
-				$desktop_alignment      = ( isset( $shop_product_alignment['desktop'] ) ) ? $shop_product_alignment['desktop'] : '';
-				$tablet_alignment       = ( isset( $shop_product_alignment['tablet'] ) ) ? $shop_product_alignment['tablet'] : '';
-				$mobile_alignment       = ( isset( $shop_product_alignment['mobile'] ) ) ? $shop_product_alignment['mobile'] : '';
-
-				$is_site_rtl = is_rtl();
-				$ltr_left    = $is_site_rtl ? 'right' : 'left';
-				$ltr_right   = $is_site_rtl ? 'left' : 'right';
-
-				$tablet_breakpoint = astra_get_tablet_breakpoint();
-				$mobile_breakpoint = astra_get_mobile_breakpoint();
-
-				$desktop_css = '';
-				$tablet_css  = '';
-				$mobile_css  = '';
-
-				switch ( $desktop_alignment ) {
-					case 'align-left':
-						$desktop_css = '
-							.woocommerce ul.products li.product.desktop-align-left, .woocommerce-page ul.products li.product.desktop-align-left {
-								text-align: ' . $ltr_left . ';
-							}
-							.woocommerce ul.products li.product.desktop-align-left .star-rating,
-							.woocommerce ul.products li.product.desktop-align-left .button,
-							.woocommerce-page ul.products li.product.desktop-align-left .star-rating,
-							.woocommerce-page ul.products li.product.desktop-align-left .button {
-								margin-left: 0;
-								margin-right: 0;
-							}
-						';
-						break;
-					case 'align-center':
-						$desktop_css = '
-							.woocommerce ul.products li.product.desktop-align-center, .woocommerce-page ul.products li.product.desktop-align-center {
-								text-align: center;
-							}
-							.woocommerce ul.products li.product.desktop-align-center .star-rating,
-							.woocommerce-page ul.products li.product.desktop-align-center .star-rating {
-								margin-left: auto;
-								margin-right: auto;
-							}
-						';
-						break;
-					case 'align-right':
-						$desktop_css = '
-							.woocommerce ul.products li.product.desktop-align-right, .woocommerce-page ul.products li.product.desktop-align-right {
-								text-align: ' . $ltr_right . ';
-							}
-							.woocommerce ul.products li.product.desktop-align-right .button,
-							.woocommerce-page ul.products li.product.desktop-align-right .button {
-								margin-left: 0;
-								margin-right: 0;
-							}
-
-							.woocommerce ul.products li.product.desktop-align-right .star-rating,
-							.woocommerce-page ul.products li.product.desktop-align-right .star-rating {
-								margin-' . $ltr_left . ': auto;
-								margin-' . $ltr_right . ': 0;
-							}
-						';
-						break;
-					default:
-						// code...
-						break;
-				}
-
-				switch ( $tablet_alignment ) {
-					case 'align-left':
-						$tablet_css = '
-							.woocommerce ul.products li.product.tablet-align-left, .woocommerce-page ul.products li.product.tablet-align-left {
-								text-align: ' . $ltr_left . ';
-							}
-							.woocommerce ul.products li.product.tablet-align-left .star-rating,
-							.woocommerce ul.products li.product.tablet-align-left .button,
-							.woocommerce-page ul.products li.product.tablet-align-left .star-rating,
-							.woocommerce-page ul.products li.product.tablet-align-left .button {
-								margin-left: 0;
-								margin-right: 0;
-							}
-						';
-						break;
-					case 'align-center':
-						$tablet_css = '
-							.woocommerce ul.products li.product.tablet-align-center, .woocommerce-page ul.products li.product.tablet-align-center {
-								text-align: center;
-							}
-							.woocommerce ul.products li.product.tablet-align-center .star-rating,
-							.woocommerce-page ul.products li.product.tablet-align-center .star-rating {
-								margin-left: auto;
-								margin-right: auto;
-							}
-						';
-						break;
-					case 'align-right':
-						$tablet_css = '
-							.woocommerce ul.products li.product.tablet-align-right, .woocommerce-page ul.products li.product.tablet-align-right {
-								text-align: ' . $ltr_right . ';
-							}
-							.woocommerce ul.products li.product.tablet-align-right .button,
-							.woocommerce-page ul.products li.product.tablet-align-right .button {
-								margin-left: 0;
-								margin-right: 0;
-							}
-
-							.woocommerce ul.products li.product.tablet-align-right .star-rating,
-							.woocommerce-page ul.products li.product.tablet-align-right .star-rating {
-								margin-' . $ltr_left . ': auto;
-								margin-' . $ltr_right . ': 0;
-							}
-						';
-						break;
-					default:
-						// code...
-						break;
-				}
-
-				switch ( $mobile_alignment ) {
-					case 'align-left':
-						$mobile_css = '
-							.woocommerce ul.products li.product.mobile-align-left, .woocommerce-page ul.products li.product.mobile-align-left {
-								text-align: ' . $ltr_left . ';
-							}
-							.woocommerce ul.products li.product.mobile-align-left .star-rating,
-							.woocommerce ul.products li.product.mobile-align-left .button,
-							.woocommerce-page ul.products li.product.mobile-align-left .star-rating,
-							.woocommerce-page ul.products li.product.mobile-align-left .button {
-								margin-left: 0;
-								margin-right: 0;
-							}
-						';
-						break;
-					case 'align-center':
-						$mobile_css = '
-							.woocommerce ul.products li.product.mobile-align-center, .woocommerce-page ul.products li.product.mobile-align-center {
-								text-align: center;
-							}
-							.woocommerce ul.products li.product.mobile-align-center .star-rating,
-							.woocommerce-page ul.products li.product.mobile-align-center .star-rating {
-								margin-left: auto;
-								margin-right: auto;
-							}
-						';
-						break;
-					case 'align-right':
-						$mobile_css = '
-							.woocommerce ul.products li.product.mobile-align-right, .woocommerce-page ul.products li.product.mobile-align-right {
-								text-align: ' . $ltr_right . ';
-							}
-							.woocommerce ul.products li.product.mobile-align-right .button,
-							.woocommerce-page ul.products li.product.mobile-align-right .button {
-								margin-left: 0;
-								margin-right: 0;
-							}
-
-							.woocommerce ul.products li.product.mobile-align-right .star-rating,
-							.woocommerce-page ul.products li.product.mobile-align-right .star-rating {
-								margin-' . $ltr_left . ': auto;
-								margin-' . $ltr_right . ': 0;
-							}
-						';
-						break;
-					default:
-						// code...
-						break;
-				}
-
-				/** @psalm-suppress InvalidOperand */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-				return $desktop_css . '@media(max-width: ' . $tablet_breakpoint . 'px){' . $tablet_css . '}' . '@media(max-width: ' . $mobile_breakpoint . 'px){' . $mobile_css . '}'; // phpcs:ignore Generic.Strings.UnnecessaryStringConcat.Found
-				/** @psalm-suppress InvalidOperand */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+			if( astra_addon_check_version( '3.9.2', '>=' ) ) {
+				$css_output .= $this->astra_shop_summary_box_alignment();
 			}
-
-			$css_output .= astra_addon_shop_summary_box_alignment();
 
 			/**
 			 * Single page variation tab layout.
@@ -2583,6 +2407,184 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			$yith_wcwl_main_style .= astra_parse_css( $yith_wcwl_main_style_small, '', astra_get_tablet_breakpoint() );
 			/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			wp_add_inline_style( 'yith-wcwl-main', $yith_wcwl_main_style );
+		}
+
+		/**
+		 * Shop summary box wrapper alignment.
+		 *
+		 * @since x.x.x
+		 * @return string
+		 */
+		public function astra_shop_summary_box_alignment() {
+			$shop_product_alignment = astra_get_option( 'shop-product-align-responsive' );
+			$desktop_alignment      = ( isset( $shop_product_alignment['desktop'] ) ) ? $shop_product_alignment['desktop'] : '';
+			$tablet_alignment       = ( isset( $shop_product_alignment['tablet'] ) ) ? $shop_product_alignment['tablet'] : '';
+			$mobile_alignment       = ( isset( $shop_product_alignment['mobile'] ) ) ? $shop_product_alignment['mobile'] : '';
+
+			$is_site_rtl = is_rtl();
+			$ltr_left    = $is_site_rtl ? 'right' : 'left';
+			$ltr_right   = $is_site_rtl ? 'left' : 'right';
+
+			$tablet_breakpoint = astra_get_tablet_breakpoint();
+			$mobile_breakpoint = astra_get_mobile_breakpoint();
+
+			$desktop_css = '';
+			$tablet_css  = '';
+			$mobile_css  = '';
+
+			switch ( $desktop_alignment ) {
+				case 'align-left':
+					$desktop_css = '
+						.woocommerce ul.products li.product.desktop-align-left, .woocommerce-page ul.products li.product.desktop-align-left {
+							text-align: ' . $ltr_left . ';
+						}
+						.woocommerce ul.products li.product.desktop-align-left .star-rating,
+						.woocommerce ul.products li.product.desktop-align-left .button,
+						.woocommerce-page ul.products li.product.desktop-align-left .star-rating,
+						.woocommerce-page ul.products li.product.desktop-align-left .button {
+							margin-left: 0;
+							margin-right: 0;
+						}
+					';
+					break;
+				case 'align-center':
+					$desktop_css = '
+						.woocommerce ul.products li.product.desktop-align-center, .woocommerce-page ul.products li.product.desktop-align-center {
+							text-align: center;
+						}
+						.woocommerce ul.products li.product.desktop-align-center .star-rating,
+						.woocommerce-page ul.products li.product.desktop-align-center .star-rating {
+							margin-left: auto;
+							margin-right: auto;
+						}
+					';
+					break;
+				case 'align-right':
+					$desktop_css = '
+						.woocommerce ul.products li.product.desktop-align-right, .woocommerce-page ul.products li.product.desktop-align-right {
+							text-align: ' . $ltr_right . ';
+						}
+						.woocommerce ul.products li.product.desktop-align-right .button,
+						.woocommerce-page ul.products li.product.desktop-align-right .button {
+							margin-left: 0;
+							margin-right: 0;
+						}
+
+						.woocommerce ul.products li.product.desktop-align-right .star-rating,
+						.woocommerce-page ul.products li.product.desktop-align-right .star-rating {
+							margin-' . $ltr_left . ': auto;
+							margin-' . $ltr_right . ': 0;
+						}
+					';
+					break;
+				default:
+					// code...
+					break;
+			}
+
+			switch ( $tablet_alignment ) {
+				case 'align-left':
+					$tablet_css = '
+						.woocommerce ul.products li.product.tablet-align-left, .woocommerce-page ul.products li.product.tablet-align-left {
+							text-align: ' . $ltr_left . ';
+						}
+						.woocommerce ul.products li.product.tablet-align-left .star-rating,
+						.woocommerce ul.products li.product.tablet-align-left .button,
+						.woocommerce-page ul.products li.product.tablet-align-left .star-rating,
+						.woocommerce-page ul.products li.product.tablet-align-left .button {
+							margin-left: 0;
+							margin-right: 0;
+						}
+					';
+					break;
+				case 'align-center':
+					$tablet_css = '
+						.woocommerce ul.products li.product.tablet-align-center, .woocommerce-page ul.products li.product.tablet-align-center {
+							text-align: center;
+						}
+						.woocommerce ul.products li.product.tablet-align-center .star-rating,
+						.woocommerce-page ul.products li.product.tablet-align-center .star-rating {
+							margin-left: auto;
+							margin-right: auto;
+						}
+					';
+					break;
+				case 'align-right':
+					$tablet_css = '
+						.woocommerce ul.products li.product.tablet-align-right, .woocommerce-page ul.products li.product.tablet-align-right {
+							text-align: ' . $ltr_right . ';
+						}
+						.woocommerce ul.products li.product.tablet-align-right .button,
+						.woocommerce-page ul.products li.product.tablet-align-right .button {
+							margin-left: 0;
+							margin-right: 0;
+						}
+
+						.woocommerce ul.products li.product.tablet-align-right .star-rating,
+						.woocommerce-page ul.products li.product.tablet-align-right .star-rating {
+							margin-' . $ltr_left . ': auto;
+							margin-' . $ltr_right . ': 0;
+						}
+					';
+					break;
+				default:
+					// code...
+					break;
+			}
+
+			switch ( $mobile_alignment ) {
+				case 'align-left':
+					$mobile_css = '
+						.woocommerce ul.products li.product.mobile-align-left, .woocommerce-page ul.products li.product.mobile-align-left {
+							text-align: ' . $ltr_left . ';
+						}
+						.woocommerce ul.products li.product.mobile-align-left .star-rating,
+						.woocommerce ul.products li.product.mobile-align-left .button,
+						.woocommerce-page ul.products li.product.mobile-align-left .star-rating,
+						.woocommerce-page ul.products li.product.mobile-align-left .button {
+							margin-left: 0;
+							margin-right: 0;
+						}
+					';
+					break;
+				case 'align-center':
+					$mobile_css = '
+						.woocommerce ul.products li.product.mobile-align-center, .woocommerce-page ul.products li.product.mobile-align-center {
+							text-align: center;
+						}
+						.woocommerce ul.products li.product.mobile-align-center .star-rating,
+						.woocommerce-page ul.products li.product.mobile-align-center .star-rating {
+							margin-left: auto;
+							margin-right: auto;
+						}
+					';
+					break;
+				case 'align-right':
+					$mobile_css = '
+						.woocommerce ul.products li.product.mobile-align-right, .woocommerce-page ul.products li.product.mobile-align-right {
+							text-align: ' . $ltr_right . ';
+						}
+						.woocommerce ul.products li.product.mobile-align-right .button,
+						.woocommerce-page ul.products li.product.mobile-align-right .button {
+							margin-left: 0;
+							margin-right: 0;
+						}
+
+						.woocommerce ul.products li.product.mobile-align-right .star-rating,
+						.woocommerce-page ul.products li.product.mobile-align-right .star-rating {
+							margin-' . $ltr_left . ': auto;
+							margin-' . $ltr_right . ': 0;
+						}
+					';
+					break;
+				default:
+					// code...
+					break;
+			}
+
+			/** @psalm-suppress InvalidOperand */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+			return $desktop_css . '@media(max-width: ' . $tablet_breakpoint . 'px){' . $tablet_css . '}' . '@media(max-width: ' . $mobile_breakpoint . 'px){' . $mobile_css . '}'; // phpcs:ignore Generic.Strings.UnnecessaryStringConcat.Found
+			/** @psalm-suppress InvalidOperand */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 		}
 
 		/**
@@ -2691,7 +2693,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		public function astra_get_cart_link() {
 			$view_shopping_cart = apply_filters( 'astra_woo_view_shopping_cart_title', __( 'View your shopping cart', 'astra' ) );
 
-			$woo_cart_link = wc_get_cart_url(); 
+			$woo_cart_link = wc_get_cart_url();
 			if ( is_customize_preview() ) {
 				$woo_cart_link = '#';
 			}
