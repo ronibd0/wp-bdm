@@ -2312,22 +2312,30 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			if ( ! is_admin() && class_exists( 'WooCommerce' ) && isset( $admin_bar_nodes['customize'] ) ) {
 				$customize_link = isset( $admin_bar_nodes['customize']->href ) ? $admin_bar_nodes['customize']->href : wp_customize_url();
 
+				vl( $admin_bar_nodes['customize'] );
+				$current_url = substr( $admin_bar_nodes['customize']->href, strpos( $admin_bar_nodes['customize']->href, '?url=' ) );
+
+				vl( $current_url );
+				vl( $customize_link );
+				vl( admin_url( 'customize.php' ) . $current_url . '?autofocus[section]=section-woo-shop-cart' );
+
+
 				$wp_admin_bar->remove_node( 'customize' );
 
 				if ( is_product() ) {
-					$customize_link = admin_url( 'customize.php?autofocus[section]=section-woo-shop-single' );
+					$customize_link = admin_url( 'customize.php?autofocus[section]=section-woo-shop-single' . $current_url );
 				}
 				if ( is_cart() ) {
-					$customize_link = admin_url( 'customize.php?autofocus[section]=section-woo-shop-cart' );
+					$customize_link = admin_url( 'customize.php?autofocus[section]=section-woo-shop-cart' . $current_url );
 				}
 				if ( is_checkout() ) {
-					$customize_link = admin_url( 'customize.php?autofocus[section]=woocommerce_checkout' );
+					$customize_link = admin_url( 'customize.php?autofocus[section]=woocommerce_checkout' . $current_url );
 				}
 				if ( is_account_page() ) {
-					$customize_link = admin_url( 'customize.php?autofocus[section]=section-ast-woo-my-account' );
+					$customize_link = admin_url( 'customize.php?autofocus[section]=section-ast-woo-my-account' . $current_url );
 				}
 				if ( is_shop() || is_product_taxonomy() ) {
-					$customize_link = admin_url( 'customize.php?autofocus[section]=woocommerce_product_catalog' );
+					$customize_link = admin_url( 'customize.php?autofocus[section]=woocommerce_product_catalog' . $current_url );
 				}
 
 				$customize_node = array(
