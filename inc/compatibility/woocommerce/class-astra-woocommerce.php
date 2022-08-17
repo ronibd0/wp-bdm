@@ -2311,7 +2311,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				$css_output .= $modern_shop_page_css;
 			}
 
-			if( astra_addon_check_version( '3.9.2', '>=' ) ) {
+			if ( ! defined( 'ASTRA_EXT_VER' ) || astra_addon_check_version( '3.9.2', '>=' ) ) {
 				$css_output .= $this->astra_shop_summary_box_alignment();
 			}
 
