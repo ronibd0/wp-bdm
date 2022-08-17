@@ -2116,14 +2116,6 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			if ( 'shop-page-modern-style' === astra_get_option( 'shop-style' ) ) {
 				$modern_shop_page_css = '';
 
-				if ( ! in_array( 'short_desc', astra_get_option( 'shop-product-structure' ) ) ) {
-					$modern_shop_page_css .= '
-						.ast-woocommerce-shop-page-modern-style .ast-woo-shop-product-description {
-							display: none;
-						}
-					';
-				}
-
 				if ( 'none' !== astra_get_option( 'product-sale-notification', 'default' ) ) {
 					$modern_shop_page_css .= '
 						.ast-onsale-card {
