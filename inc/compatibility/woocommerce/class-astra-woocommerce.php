@@ -130,15 +130,11 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 			add_action( 'wp', array( $this, 'woocommerce_proceed_to_checkout_button' ) );
 
-			add_action( 'wp', array( $this, 'encapsulates_quantity_add_to_cart' ) );
-
 			add_filter( 'post_class', array( $this, 'post_class' ) );
 
 			add_filter( 'woocommerce_sale_flash', array( $this, 'sale_flash' ), 10, 3 );
 
 			add_action( 'wp', array( $this, 'common_actions' ) );
-
-
 
 		}
 
@@ -377,36 +373,6 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			return $this->get_sale_flash_markup( $sale_notification, $product );
 		}   
 
-		/**
-		 * Encapsulates quantity selector and add to cart.
-		 *
-		 * @since x.x.x
-		 * @return void
-		 */
-		public function encapsulates_quantity_add_to_cart() {
-			add_action( 'woocommerce_before_add_to_cart_quantity', array( $this, 'encapsulates_quantity_selector' ) );
-			add_action( 'woocommerce_after_add_to_cart_button', array( $this, 'encapsulates_add_to_cart' ) );
-		}
-
-		/**
-		 * Encapsulates quantity selector.
-		 *
-		 * @since x.x.x
-		 * @return void
-		 */
-		public function encapsulates_quantity_selector() {
-			echo '<div class="ast-quantity-add-to-cart">'; 
-		}
-
-		/**
-		 * Encapsulates add to cart.
-		 *
-		 * @since x.x.x
-		 * @return void
-		 */
-		public function encapsulates_add_to_cart() {
-			echo '</div>'; 
-		}
 
 
 		/**
