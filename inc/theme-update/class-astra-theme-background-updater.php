@@ -136,7 +136,7 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 				'astra_legacy_customizer_maintenance',
 				'astra_apply_modern_ecommerce_setup',
 			),
-			'3.9.3' => array(
+			'3.9.2' => array(
 				'astra_shop_style_design_layout',
 			),
 			

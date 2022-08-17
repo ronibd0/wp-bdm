@@ -77,7 +77,6 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			add_filter( 'loop_shop_per_page', array( $this, 'shop_no_of_products' ) );
 			add_filter( 'body_class', array( $this, 'shop_page_products_item_class' ) );
 			add_filter( 'post_class', array( $this, 'single_product_class' ) );
-			add_filter( 'post_class', array( $this, 'post_class' ) );
 			add_filter( 'woocommerce_product_get_rating_html', array( $this, 'rating_markup' ), 10, 3 );
 			add_filter( 'woocommerce_output_related_products_args', array( $this, 'related_products_args' ) );
 
@@ -132,6 +131,8 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			add_action( 'wp', array( $this, 'woocommerce_proceed_to_checkout_button' ) );
 
 			add_action( 'wp', array( $this, 'encapsulates_quantity_add_to_cart' ) );
+
+			add_filter( 'post_class', array( $this, 'post_class' ) );
 
 			add_filter( 'woocommerce_sale_flash', array( $this, 'sale_flash' ), 10, 3 );
 
