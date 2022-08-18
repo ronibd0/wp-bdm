@@ -2,6 +2,7 @@ v3.9.2 (Unreleased)
 - Improvement: WooCommerce - Added WPML translation support for cart dynamic input, proceed to checkout input & free-shipping text input through wpml-config.xml file. (Props - OnTheGoSystems)
 - Improvement: Earth (default) icon for selected color needs to improved for better visibility on brighter & dim colors.
 - Improvement: Redesigned the Astra Meta Settings layout control similar to customizer layout selection options.
+- Fix: The Menu get disappear on the Android mobile device when you select Header Type is set as Dropdown.
 - Fix: WooCommerce - Alignment issue with content added by plugin near single product add to cart section.
 - Fix: Customizer range slider control not accepting decimal values for 'em' unit.
 - Fix: WooCommerce - Dropdown icon cart link is not redirect to cart page.
