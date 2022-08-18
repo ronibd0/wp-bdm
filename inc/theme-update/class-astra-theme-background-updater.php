@@ -145,7 +145,7 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 		 */
 		public function __construct() {
 
-			// Theme Updates.git. 
+			// Theme Updates.
 			if ( is_admin() ) {
 				add_action( 'admin_init', array( $this, 'install_actions' ) );
 			} else {
