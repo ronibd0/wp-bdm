@@ -1602,6 +1602,7 @@ function astra_check_is_structural_setup() {
 /**
  * Check if user is old for hiding/showing password icon field for login my-account form.
  *
+ * @since x.x.x
  * @return bool true|false.
  */
 function astra_load_woocommerce_login_form_password_icon() {
