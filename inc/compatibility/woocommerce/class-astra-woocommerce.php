@@ -2907,14 +2907,6 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				$astra_addons_condition = defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'woocommerce' ) && is_callable( array( ASTRA_Ext_WooCommerce_Markup::get_instance(), 'single_product_content_structure' ) );
 				// @codingStandardsIgnoreEnd
 
-				/** @psalm-suppress RedundantCondition */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-				$summary_extras = 'summary-extras' && $astra_addons_condition;
-				/** @psalm-suppress RedundantCondition */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-
-				/** @psalm-suppress RedundantCondition */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-				$single_product_payments = 'single-product-payments' && $astra_addons_condition;
-				/** @psalm-suppress RedundantCondition */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-
 				foreach ( $single_structure as $value ) {
 
 					switch ( $value ) {
@@ -2952,21 +2944,23 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 							woocommerce_template_single_add_to_cart();
 							do_action( 'astra_woo_single_add_to_cart_after' );
 							break;
-						case $summary_extras:
-							do_action( 'astra_woo_single_extras_before' );
+						case 'summary-extras':
 							/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 							if ( is_callable( array( ASTRA_Ext_WooCommerce_Markup::get_instance(), 'single_product_extras' ) ) ) {
+								/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+								do_action( 'astra_woo_single_extras_before' );
 								ASTRA_Ext_WooCommerce_Markup::get_instance()->single_product_extras();
+								do_action( 'astra_woo_single_extras_after' );
 							}
-							do_action( 'astra_woo_single_extras_after' );
 							break;
-						case $single_product_payments:
-							do_action( 'astra_woo_single_product_payments_before' );
+						case 'single-product-payments':
 							/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 							if ( is_callable( array( ASTRA_Ext_WooCommerce_Markup::get_instance(), 'woocommerce_product_single_payments' ) ) ) {
+								/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+								do_action( 'astra_woo_single_product_payments_before' );
 								ASTRA_Ext_WooCommerce_Markup::get_instance()->woocommerce_product_single_payments();
+								do_action( 'astra_woo_single_product_payments_after' );
 							}
-							do_action( 'astra_woo_single_product_payments_after' );
 							break;
 						case 'meta':
 							do_action( 'astra_woo_single_category_before' );
