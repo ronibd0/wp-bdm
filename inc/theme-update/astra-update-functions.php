@@ -1015,7 +1015,7 @@ function astra_apply_modern_ecommerce_setup() {
 /**
  * Apply css for show password icon on woocommerce account page.
  *
- * @since 3.9.2
+ * @since x.x.x
  * @return void
  */
 function astra_apply_woocommerce_show_password_icon_css() {
