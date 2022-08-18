@@ -2904,7 +2904,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				 * @psalm-suppress UndefinedClass
 				 * @psalm-suppress InvalidScalarArgument
 				 */
-				$astra_addons_condition = defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'woocommerce' ) && is_callable( array( ASTRA_Ext_WooCommerce_Markup::get_instance(), 'single_product_content_structure' ) );
+				$astra_addons_condition = defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'woocommerce' );
 				// @codingStandardsIgnoreEnd
 
 				foreach ( $single_structure as $value ) {
@@ -2946,7 +2946,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 							break;
 						case 'summary-extras':
 							/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-							if ( is_callable( array( ASTRA_Ext_WooCommerce_Markup::get_instance(), 'single_product_extras' ) ) ) {
+							if ( $astra_addons_condition && is_callable( array( ASTRA_Ext_WooCommerce_Markup::get_instance(), 'single_product_extras' ) ) ) {
 								/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 								do_action( 'astra_woo_single_extras_before' );
 								ASTRA_Ext_WooCommerce_Markup::get_instance()->single_product_extras();
@@ -2955,7 +2955,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 							break;
 						case 'single-product-payments':
 							/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-							if ( is_callable( array( ASTRA_Ext_WooCommerce_Markup::get_instance(), 'woocommerce_product_single_payments' ) ) ) {
+							if ( $astra_addons_condition && is_callable( array( ASTRA_Ext_WooCommerce_Markup::get_instance(), 'woocommerce_product_single_payments' ) ) ) {
 								/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 								do_action( 'astra_woo_single_product_payments_before' );
 								ASTRA_Ext_WooCommerce_Markup::get_instance()->woocommerce_product_single_payments();
