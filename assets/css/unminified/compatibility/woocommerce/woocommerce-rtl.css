@@ -1763,7 +1763,8 @@ p.demo_store[data-position="bottom"],
 }
 
 .woocommerce a.added_to_cart {
-  display: none;
+  padding: 0.4em 0.4em 0;
+  display: inline-block;
 }
 
 .woocommerce #reviews .woocommerce-Reviews-title {
