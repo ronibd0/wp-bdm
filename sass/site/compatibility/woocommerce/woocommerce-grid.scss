@@ -1035,15 +1035,6 @@ p.demo_store,
 			@include clearfix();
 		}
 
-		.woocommerce-variation-add-to-cart,
-		&.product-type-simple form.cart {
-
-			.ast-quantity-add-to-cart {
-				display: flex;
-				align-items: flex-start;
-			}
-		}
-
 		form.cart {
 			margin: 0 0 1em;
 
@@ -1508,7 +1499,8 @@ p.demo_store,
 	}
 
 	a.added_to_cart {
-		display: none;
+		padding: 0.4em 0.4em 0;
+		display: inline-block;
 	}
 
 	/**

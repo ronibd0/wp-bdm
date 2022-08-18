@@ -1,8 +1,14 @@
 v3.9.2
+- Improvement: Earth (default) icon for selected color needs to improved for better visibility on brighter & dim colors.
+- Improvement: Redesigned the Astra Meta Settings layout control similar to customizer layout selection options.
 - Fix: WooCommerce - Alignment issue with content added by plugin near single product add to cart section.
 - Fix: Customizer range slider control not accepting decimal values for 'em' unit.
 - Fix: WooCommerce - Dropdown icon cart link is not redirect to cart page.
 - Fix: WooCommerce - Crosssell grid products showing with 50% width when modern cart layout is enabled on cart page.
+- Fix: WooCommerce - 'View Cart' secondary link is hidden when product added to that cart from the products list.
+- Fix: Search element not clickable on above header, moving old to new header builder.
+- Fix: WooCommerce - Single Product - Flex CSS conflicting with third party plugins which adds custom functionality aside add-to-cart button.
+- Fix: Showing deprecated function warning on frontend after installing Elementor with Astra.
 
 v3.9.1
 - Fix: WooCommerce - Child theme's WooCommerce custom templates gets overridden by parent theme.
