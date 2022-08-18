@@ -4080,7 +4080,7 @@ button.pswp__button--zoom:hover {
   border-left-color: transparent;
   border-top-color: transparent;
   position: absolute;
-  top: -0.75em;
+  top: -1em;
   left: 0;
   margin: -1em 0 0 2em;
 }

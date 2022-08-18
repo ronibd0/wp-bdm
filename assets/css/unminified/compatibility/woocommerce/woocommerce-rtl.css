@@ -4079,7 +4079,7 @@ button.pswp__button--zoom:hover {
   border-right-color: transparent;
   border-top-color: transparent;
   position: absolute;
-  top: -0.75em;
+  top: -1em;
   right: 0;
   margin: -1em 2em 0 0;
 }
