@@ -4264,6 +4264,8 @@ button.pswp__button--zoom:hover {
 .woocommerce.woocommerce-checkout form #order_review td.product-name,
 .woocommerce-page.woocommerce-checkout form #order_review td.product-name {
   font-weight: 500;
+  display: flex;
+  align-items: center;
 }
 
 .woocommerce.woocommerce-checkout form #order_review td.product-name .product-quantity,
