@@ -1598,3 +1598,13 @@ function astra_check_is_structural_setup() {
 	$astra_settings = get_option( ASTRA_THEME_SETTINGS );
 	return apply_filters( 'astra_get_option_customizer-default-layout-update', isset( $astra_settings['customizer-default-layout-update'] ) ? false : true );
 }
+
+/**
+ * Check if user is old for hiding/showing password icon field for login my-account form.
+ *
+ * @return bool true|false.
+ */
+function astra_load_woocommerce_login_form_password_icon() {
+	$astra_settings = get_option( ASTRA_THEME_SETTINGS );
+	return apply_filters( 'astra_get_option_woo-show-password-icon', isset( $astra_settings['woo-show-password-icon'] ) ? false : true );
+}

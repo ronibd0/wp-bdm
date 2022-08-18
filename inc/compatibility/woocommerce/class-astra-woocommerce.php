@@ -2022,24 +2022,24 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			}
 
 			// Enable Show Password Icon on Login Form on Woocommerce Account Page.
-			$show_password_icon = get_option( 'astra-settings', array() );
-			if ( is_account_page() && ( ! is_user_logged_in() ) && 'visible' === $show_password_icon['woo-show-password-icon'] ) {
-				$is_site_rtl                   = is_rtl() ? true : false;
-				$site_dir                      = $is_site_rtl ? esc_attr( 'right' ) : esc_attr( 'left' );
+			if ( is_account_page() && ! is_user_logged_in() && astra_load_woocommerce_login_form_password_icon() ) {
+				$ltr_left  = $is_site_rtl ? esc_attr( 'right' ) : esc_attr( 'left' );
+				$ltr_right = $is_site_rtl ? esc_attr( 'left' ) : esc_attr( 'right' );
+
 				$css_output_show_password_icon = array(
-					'.woocommerce form .password-input' => array(
+					'.woocommerce form .password-input, .woocommerce-page form .password-input' => array(
 						'display'         => 'flex',
 						'flex-direction'  => 'column',
 						'justify-content' => 'center',
 						'position'        => 'relative',
 					),
-					'.woocommerce form .show-password-input' => array(
+					'.woocommerce form .show-password-input, .woocommerce-page form .show-password-input' => array(
 						'position' => 'absolute',
-						'right' === $site_dir ? esc_attr( 'left' ) : esc_attr( 'right' ) => '0.7em',
+						$ltr_right => '0.7em',
 						'cursor'   => 'pointer',
 						'top'      => '0.7em',
 					),
-					'.woocommerce form .show-password-input::after' => array(
+					'.woocommerce form .show-password-input::after, .woocommerce-page form .show-password-input::after' => array(
 						'font-family'            => 'WooCommerce',
 						'speak'                  => 'never',
 						'font-weight'            => '400',
@@ -2047,33 +2047,9 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 						'text-transform'         => 'none',
 						'line-height'            => '1',
 						'-webkit-font-smoothing' => 'antialiased',
-						'margin-' . $site_dir    => '0.618em',
+						'margin-' . $ltr_left    => '0.618em',
 						'content'                => '"\e010"',
-						'text-decoration'        => 'none',                     
-					),
-					'.woocommerce-page form .password-input' => array(
-						'display'         => 'flex',
-						'flex-direction'  => 'column',
-						'justify-content' => 'center',
-						'position'        => 'relative',
-					),
-					'.woocommerce-page form .show-password-input' => array(
-						'position' => 'absolute',
-						'right' === $site_dir ? esc_attr( 'left' ) : esc_attr( 'right' ) => '0.7em',
-						'cursor'   => 'pointer',
-						'top'      => '0.7em',
-					),
-					'.woocommerce-page form .show-password-input::after' => array(
-						'font-family'            => 'WooCommerce',
-						'speak'                  => 'never',
-						'font-weight'            => '400',
-						'font-variant'           => 'normal',
-						'text-transform'         => 'none',
-						'line-height'            => '1',
-						'-webkit-font-smoothing' => 'antialiased',
-						'margin-' . $site_dir    => '0.618em',
-						'content'                => '"\e010"',
-						'text-decoration'        => 'none',             
+						'text-decoration'        => 'none',
 					),
 				);
 				$css_output                   .= astra_parse_css( $css_output_show_password_icon );
@@ -2252,7 +2228,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		public function astra_get_cart_link() {
 			$view_shopping_cart = apply_filters( 'astra_woo_view_shopping_cart_title', __( 'View your shopping cart', 'astra' ) );
 
-			$woo_cart_link = wc_get_cart_url(); 
+			$woo_cart_link = wc_get_cart_url();
 			if ( is_customize_preview() ) {
 				$woo_cart_link = '#';
 			}

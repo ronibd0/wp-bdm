@@ -1022,7 +1022,7 @@ function astra_apply_woocommerce_show_password_icon_css() {
 
 	$theme_options = get_option( 'astra-settings', array() );
 	if ( ! isset( $theme_options['woo-show-password-icon'] ) ) {
-		$theme_options['woo-show-password-icon'] = 'visible';
+		$theme_options['woo-show-password-icon'] = false;
 		update_option( 'astra-settings', $theme_options );
 	}
 
