@@ -130,7 +130,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 			add_action( 'wp', array( $this, 'woocommerce_proceed_to_checkout_button' ) );
 
-			if ( ! defined( 'ASTRA_EXT_VER' ) ) {
+			if ( ! defined( 'ASTRA_EXT_VER' ) || astra_addon_check_version( '3.9.2', '>=' ) ) {
 				add_filter( 'post_class', array( $this, 'post_class' ) );
 			}
 
@@ -200,22 +200,22 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		 * @return mixed HTML markup.
 		 */
 		public function get_sale_flash_markup( $sale_notification, $product ) {
-			$text                 = __( 'Sale!', 'astra' ); // Default text.
+			$text = __( 'Sale!', 'astra' ); // Default text.
 
 			// CSS classes.
 			$classes = array();
 			/** @psalm-suppress UndefinedFunction  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			$classes[] = ( astra_is_shop_page_modern_style() ) ? 'ast-on-card-button ast-onsale-card' : 'onsale';
 			/** @psalm-suppress UndefinedFunction  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-			$classes   = implode( ' ', $classes );
+			$classes = implode( ' ', $classes );
 
 			// Generate markup.
 			return '<span  ' . astra_attr(
 				'woo-sale-badge-container',
 				array(
-					'class'              => $classes,
-					'data-sale'          => array(),
-					'data-notification'  => 'default',
+					'class'             => $classes,
+					'data-sale'         => array(),
+					'data-notification' => 'default',
 				)
 			) . '>' . esc_html( $text ) . '</span>';
 		}
