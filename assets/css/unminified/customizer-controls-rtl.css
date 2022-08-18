@@ -252,3 +252,10 @@
  .customize-control-ast-background .wp-picker-container {
  	display: block;
  }
+
+ /**
+ * Hide core shop/archive WooCommerce options on Design tab.
+ */
+ #sub-accordion-section-woocommerce_product_catalog.open.ast-active-design-tab li[ID*="customize-control-woocommerce_"] {
+	display: none;
+}
