@@ -5,6 +5,7 @@ v3.9.2 (Unreleased)
 - Improvement: WooCommerce - Shop - Shop skin layout design 3 option moved from addon to theme.
 - Improvement: WooCommerce - Shop - Product card alignment option moved from addon to theme.
 - Improvement: WooCommerce - Header Cart - Hide cart total when cart is empty option.
+- Improvement: WooCommerce - Single Product - Moved sticky add to cart from addon to theme.
 - Fix: WooCommerce - Alignment issue with content added by plugin near single product add to cart section.
 - Fix: Customizer range slider control not accepting decimal values for 'em' unit.
 - Fix: WooCommerce - Dropdown icon cart link is not redirect to cart page.
