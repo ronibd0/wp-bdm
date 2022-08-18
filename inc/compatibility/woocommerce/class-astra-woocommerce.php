@@ -1385,6 +1385,11 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				';
 			}
 
+			// If Off canvas cart is enabled then we should not show view cart link.
+			if ( 'flyout' === astra_get_option( 'woo-header-cart-click-action' ) ) {
+				$css_output .= '.woocommerce a.added_to_cart { display: none; }';
+			}
+
 			/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			if ( ! ( defined( 'ASTRA_EXT_VER' ) && class_exists( 'Astra_Ext_Extension' ) && Astra_Ext_Extension::is_active( 'woocommerce' ) ) ) {
 				/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
