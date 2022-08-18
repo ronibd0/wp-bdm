@@ -30,17 +30,6 @@ function astra_fb_above_footer_dynamic_css( $dynamic_css, $dynamic_css_filtered 
 		return $dynamic_css;
 	}
 
-	$global_footer_bg = astra_get_option( 'footer-bg-obj-responsive' );
-
-	$css_output_desktop = array(
-		'.site-footer' => astra_get_responsive_background_obj( $global_footer_bg, 'desktop' ),
-	);
-
-	$dynamic_css .= astra_parse_css( $css_output_desktop );
-
-	// Advanced CSS for Header Builder.
-	$dynamic_css .= Astra_Builder_Base_Dynamic_CSS::prepare_advanced_margin_padding_css( 'section-footer-builder-layout', '.ast-hfb-header .site-footer' );
-
 	$_section = 'section-above-footer-builder';
 
 	$selector = '.site-above-footer-wrap[data-section="section-above-footer-builder"]';
@@ -113,7 +102,6 @@ function astra_fb_above_footer_dynamic_css( $dynamic_css, $dynamic_css_filtered 
 	$css_output_tablet = array(
 
 		$selector                            => astra_get_responsive_background_obj( $footer_bg, 'tablet' ),
-		'.site-footer'                       => astra_get_responsive_background_obj( $global_footer_bg, 'tablet' ),
 		$selector . ' .ast-builder-grid-row' => array(
 			'grid-column-gap' => astra_get_css_value( $inner_spacing_tablet, 'px' ),
 			'grid-row-gap'    => astra_get_css_value( $inner_spacing_tablet, 'px' ),
@@ -133,7 +121,6 @@ function astra_fb_above_footer_dynamic_css( $dynamic_css, $dynamic_css_filtered 
 	$css_output_mobile = array(
 
 		$selector                            => astra_get_responsive_background_obj( $footer_bg, 'mobile' ),
-		'.site-footer'                       => astra_get_responsive_background_obj( $global_footer_bg, 'mobile' ),
 		$selector . ' .ast-builder-grid-row' => array(
 			'grid-column-gap' => astra_get_css_value( $inner_spacing_mobile, 'px' ),
 			'grid-row-gap'    => astra_get_css_value( $inner_spacing_mobile, 'px' ),
