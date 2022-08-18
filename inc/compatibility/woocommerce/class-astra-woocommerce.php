@@ -2899,13 +2899,12 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 			if ( is_array( $single_structure ) && ! empty( $single_structure ) ) {
 
-
 				// @codingStandardsIgnoreStart
 				/**
 				 * @psalm-suppress UndefinedClass
 				 * @psalm-suppress InvalidScalarArgument
 				 */
-				$astra_addons_condition = defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'woocommerce' ) && is_callable( ASTRA_Ext_WooCommerce_Markup::get_instance(), 'single_product_content_structure' );
+				$astra_addons_condition = defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'woocommerce' ) && is_callable( array( ASTRA_Ext_WooCommerce_Markup::get_instance(), 'single_product_content_structure' ) );
 				// @codingStandardsIgnoreEnd
 
 				/** @psalm-suppress RedundantCondition */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
@@ -2956,13 +2955,17 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 						case $summary_extras:
 							do_action( 'astra_woo_single_extras_before' );
 							/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-							ASTRA_Ext_WooCommerce_Markup::get_instance()->single_product_extras();
+							if ( is_callable( array( ASTRA_Ext_WooCommerce_Markup::get_instance(), 'single_product_extras' ) ) ) {
+								ASTRA_Ext_WooCommerce_Markup::get_instance()->single_product_extras();
+							}
 							do_action( 'astra_woo_single_extras_after' );
 							break;
 						case $single_product_payments:
 							do_action( 'astra_woo_single_product_payments_before' );
 							/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-							ASTRA_Ext_WooCommerce_Markup::get_instance()->woocommerce_product_single_payments();
+							if ( is_callable( array( ASTRA_Ext_WooCommerce_Markup::get_instance(), 'woocommerce_product_single_payments' ) ) ) {
+								ASTRA_Ext_WooCommerce_Markup::get_instance()->woocommerce_product_single_payments();
+							}
 							do_action( 'astra_woo_single_product_payments_after' );
 							break;
 						case 'meta':
