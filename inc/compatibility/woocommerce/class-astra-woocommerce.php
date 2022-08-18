@@ -130,6 +130,8 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 			add_action( 'wp', array( $this, 'woocommerce_proceed_to_checkout_button' ) );
 
+			add_action( 'admin_bar_menu', array( $this, 'astra_update_customize_admin_bar_link' ), 45 );
+
 			if ( ! defined( 'ASTRA_EXT_VER' ) || astra_addon_check_version( '3.9.2', '>=' ) ) {
 				// Sticky add to cart.
 				add_action( 'wp_footer', array( $this, 'single_product_sticky_add_to_cart' ) );
@@ -2766,6 +2768,54 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			if ( $cart_button_text && $enable_cart_button_text ) {
 				remove_action( 'woocommerce_proceed_to_checkout', 'woocommerce_button_proceed_to_checkout', 20 );
 				add_action( 'woocommerce_proceed_to_checkout', array( $this, 'woocommerce_proceed_to_checkout_button_html' ), 20 );
+			}
+		}
+
+		/**
+		 * Update the "Customize" link to the Toolbar.
+		 *
+		 * @since x.x.x
+		 *
+		 * @param WP_Admin_Bar $wp_admin_bar The WP_Admin_Bar instance.
+		 */
+		public function astra_update_customize_admin_bar_link( $wp_admin_bar ) {
+
+			$admin_bar_nodes = $wp_admin_bar->get_nodes();
+			if ( ! is_admin() && class_exists( 'WooCommerce' ) && isset( $admin_bar_nodes['customize'] ) ) {
+				$customize_link = isset( $admin_bar_nodes['customize']->href ) ? $admin_bar_nodes['customize']->href : wp_customize_url();
+
+				$current_url = substr( $admin_bar_nodes['customize']->href, strpos( $admin_bar_nodes['customize']->href, '?url=' ) + 1 );
+
+				$wp_admin_bar->remove_node( 'customize' );
+
+				if ( is_product() ) {
+					$customize_link = admin_url( 'customize.php' ) . '?autofocus[section]=section-woo-shop-single&' . $current_url;
+				}
+				if ( is_cart() ) {
+					$customize_link = admin_url( 'customize.php' ) . '?autofocus[section]=section-woo-shop-cart&' . $current_url;
+				}
+				if ( is_checkout() ) {
+					$customize_link = admin_url( 'customize.php' ) . '?autofocus[section]=woocommerce_checkout&' . $current_url;
+				}
+				if ( is_account_page() ) {
+					$customize_link = admin_url( 'customize.php' ) . '?autofocus[section]=section-ast-woo-my-account&' . $current_url;
+				}
+				if ( is_shop() || is_product_taxonomy() ) {
+					$customize_link = admin_url( 'customize.php' ) . '?autofocus[section]=woocommerce_product_catalog&' . $current_url;
+				}
+
+				$customize_node = array(
+					'id'    => 'customize',
+					'title' => __( 'Customize', 'astra' ),
+					'href'  => $customize_link,
+					'meta'  => array(
+						'class' => 'hide-if-no-customize',
+					),
+				);
+
+				/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+				$wp_admin_bar->add_node( $customize_node );
+				/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			}
 		}
 
