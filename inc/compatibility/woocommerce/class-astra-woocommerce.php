@@ -2268,6 +2268,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 					$css_output .= astra_parse_css( $sticky_add_to_cart_admin_bar, '601' );
 				}
 
+				/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 				$css_output .= astra_parse_css( $sticky_add_to_cart_responsive_tablet, '', astra_get_tablet_breakpoint() );
 				$css_output .= astra_parse_css( $sticky_add_to_cart_responsive_mobile, '', astra_get_mobile_breakpoint() );
 				$css_output .= astra_parse_css( $sticky_add_to_cart_p );
@@ -2844,7 +2845,9 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			if ( ! is_admin() && class_exists( 'WooCommerce' ) && isset( $admin_bar_nodes['customize'] ) ) {
 				$customize_link = isset( $admin_bar_nodes['customize']->href ) ? $admin_bar_nodes['customize']->href : wp_customize_url();
 
+				/** @psalm-suppress PossiblyFalseOperand */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 				$current_url = substr( $customize_link, strpos( $customize_link, '?url=' ) + 1 );
+				/** @psalm-suppress PossiblyFalseOperand */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 
 				$wp_admin_bar->remove_node( 'customize' );
 

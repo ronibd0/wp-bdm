@@ -1055,5 +1055,5 @@ function astra_apply_woocommerce_show_password_icon_css() {
 	if ( ! isset( $theme_options['woo-show-password-icon'] ) ) {
 		$theme_options['woo-show-password-icon'] = false;
 		update_option( 'astra-settings', $theme_options );
-  }
+	}
 }
