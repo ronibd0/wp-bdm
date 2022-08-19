@@ -15,9 +15,11 @@ v3.9.2 (Unreleased)
 - Fix: WooCommerce - 'View Cart' secondary link is hidden when product added to that cart from the products list.
 - Fix: Search element not clickable on above header, moving old to new header builder.
 - Fix: WooCommerce - Single Product - Flex CSS conflicting with third party plugins which adds custom functionality aside add-to-cart button.
-- Fix: WooCommerce - Active filter alignment issue on shop page.
+- Fix: WooCommerce - Shop - Active filter mialignment on the frontend.
+- Fix: WooCommerce - Show password eye icon is not visible on My Account page.
 - Fix: Showing deprecated function warning on frontend after installing Elementor with theme.
 - Fix: WooCommerce - Checkout - Misalignment for order products quality in order summary box.
+- Fix: Footer - Footer global background color and padding is not working in the frontend.
 
 v3.9.1
 - Fix: WooCommerce - Child theme's WooCommerce custom templates gets overridden by parent theme.
