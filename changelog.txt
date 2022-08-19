@@ -12,6 +12,7 @@ v3.9.2 (Unreleased)
 - Fix: Block Editor - 2em Block gap spacing appearing in container blocks.
 - Fix: Customizer range slider control not accepting decimal values for 'em' unit.
 - Fix: WooCommerce - Dropdown icon cart link is not redirect to cart page.
+- Fix: Padding being added to the Full Width/Stretched Layout when using Brizy Page Builder.
 - Fix: Woocommerce - Cart element is adding primary header height on below and above header section.
 - Fix: WooCommerce - Crosssell grid products showing with 50% width when modern cart layout is enabled on cart page.
 - Fix: WooCommerce - 'View Cart' secondary link is hidden when product added to that cart from the products list.
@@ -23,6 +24,7 @@ v3.9.2 (Unreleased)
 - Fix: WooCommerce - Checkout - Misalignment for order products quality in order summary box.
 - Fix: The Menu get disappear on the Android mobile device when you select Header Type is set as Dropdown.
 - Fix: Footer - Footer global background color and padding is not working in the frontend.
+
 
 v3.9.1
 - Fix: WooCommerce - Child theme's WooCommerce custom templates gets overridden by parent theme.
