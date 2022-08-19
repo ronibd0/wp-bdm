@@ -2268,8 +2268,14 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 					$css_output .= astra_parse_css( $sticky_add_to_cart_admin_bar, '601' );
 				}
 
+				/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 				$css_output .= astra_parse_css( $sticky_add_to_cart_responsive_tablet, '', astra_get_tablet_breakpoint() );
+				/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+
+				/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 				$css_output .= astra_parse_css( $sticky_add_to_cart_responsive_mobile, '', astra_get_mobile_breakpoint() );
+				/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+
 				$css_output .= astra_parse_css( $sticky_add_to_cart_p );
 				$css_output .= astra_parse_css( $sticky_add_to_cart );
 			}
@@ -2339,6 +2345,40 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				);
 
 				$css_output .= astra_parse_css( $css_output_woo_variation_layout );
+			}
+
+			// Enable Show Password Icon on Login Form on Woocommerce Account Page.
+			if ( is_account_page() && ! is_user_logged_in() && astra_load_woocommerce_login_form_password_icon() ) {
+				$ltr_left  = $is_site_rtl ? esc_attr( 'right' ) : esc_attr( 'left' );
+				$ltr_right = $is_site_rtl ? esc_attr( 'left' ) : esc_attr( 'right' );
+
+				$css_output_show_password_icon = array(
+					'.woocommerce form .password-input, .woocommerce-page form .password-input' => array(
+						'display'         => 'flex',
+						'flex-direction'  => 'column',
+						'justify-content' => 'center',
+						'position'        => 'relative',
+					),
+					'.woocommerce form .show-password-input, .woocommerce-page form .show-password-input' => array(
+						'position' => 'absolute',
+						$ltr_right => '0.7em',
+						'cursor'   => 'pointer',
+						'top'      => '0.7em',
+					),
+					'.woocommerce form .show-password-input::after, .woocommerce-page form .show-password-input::after' => array(
+						'font-family'            => 'WooCommerce',
+						'speak'                  => 'never',
+						'font-weight'            => '400',
+						'font-variant'           => 'normal',
+						'text-transform'         => 'none',
+						'line-height'            => '1',
+						'-webkit-font-smoothing' => 'antialiased',
+						'margin-' . $ltr_left    => '0.618em',
+						'content'                => '"\e010"',
+						'text-decoration'        => 'none',
+					),
+				);
+				$css_output                   .= astra_parse_css( $css_output_show_password_icon );
 			}
 
 			wp_add_inline_style( 'woocommerce-general', apply_filters( 'astra_theme_woocommerce_dynamic_css', $css_output ) );
@@ -2810,7 +2850,9 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			if ( ! is_admin() && class_exists( 'WooCommerce' ) && isset( $admin_bar_nodes['customize'] ) ) {
 				$customize_link = isset( $admin_bar_nodes['customize']->href ) ? $admin_bar_nodes['customize']->href : wp_customize_url();
 
-				$current_url = substr( $admin_bar_nodes['customize']->href, strpos( $admin_bar_nodes['customize']->href, '?url=' ) + 1 );
+				/** @psalm-suppress PossiblyFalseOperand */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+				$current_url = substr( $customize_link, strpos( $customize_link, '?url=' ) + 1 );
+				/** @psalm-suppress PossiblyFalseOperand */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 
 				$wp_admin_bar->remove_node( 'customize' );
 
