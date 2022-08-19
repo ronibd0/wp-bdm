@@ -20,6 +20,7 @@ v3.9.2 (Unreleased)
 - Fix: WooCommerce - Show password eye icon is not visible on My Account page.
 - Fix: Showing deprecated function warning on frontend after installing Elementor with theme.
 - Fix: WooCommerce - Checkout - Misalignment for order products quality in order summary box.
+- Fix: The Menu get disappear on the Android mobile device when you select Header Type is set as Dropdown.
 - Fix: Footer - Footer global background color and padding is not working in the frontend.
 
 v3.9.1
