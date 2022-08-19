@@ -8,6 +8,7 @@ v3.9.2 (Unreleased)
 - Improvement: WooCommerce - Header Cart - Hide cart total when cart is empty option.
 - Improvement: WooCommerce - Single Product - Moved sticky add to cart from addon to theme.
 - Improvement: WooCommerce - Single Product - Moved structure options from pro to free theme.
+- Fix: Footer - Footer global background color and padding is not working in the frontend
 - Fix: WooCommerce - Alignment issue with content added by plugin near single product add to cart section.
 - Fix: Customizer range slider control not accepting decimal values for 'em' unit.
 - Fix: WooCommerce - Dropdown icon cart link is not redirect to cart page.
