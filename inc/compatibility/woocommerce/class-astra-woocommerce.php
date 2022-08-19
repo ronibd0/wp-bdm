@@ -2844,7 +2844,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			if ( ! is_admin() && class_exists( 'WooCommerce' ) && isset( $admin_bar_nodes['customize'] ) ) {
 				$customize_link = isset( $admin_bar_nodes['customize']->href ) ? $admin_bar_nodes['customize']->href : wp_customize_url();
 
-				$current_url = substr( $admin_bar_nodes['customize']->href, strpos( $admin_bar_nodes['customize']->href, '?url=' ) + 1 );
+				$current_url = substr( $customize_link, strpos( $customize_link, '?url=' ) + 1 );
 
 				$wp_admin_bar->remove_node( 'customize' );
 

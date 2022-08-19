@@ -1018,15 +1018,12 @@ function astra_apply_modern_ecommerce_setup() {
  * @since x.x.x
  * @return void
  */
-
 function astra_apply_woocommerce_show_password_icon_css() {
-
 	$theme_options = get_option( 'astra-settings', array() );
 	if ( ! isset( $theme_options['woo-show-password-icon'] ) ) {
 		$theme_options['woo-show-password-icon'] = false;
 		update_option( 'astra-settings', $theme_options );
   }
-
 }
 
 /**
@@ -1047,20 +1044,16 @@ function astra_responsive_shop_content_alignment() {
 	}
 }
 
-
 /**
  * Change default layout to standard for old users.
  *
  * @since x.x.x
  * @return void
  */
-
 function astra_shop_style_design_layout() {
-
 	$theme_options = get_option( 'astra-settings', array() );
 	if ( ! isset( $theme_options['woo-shop-style-flag'] ) ) {
 		$theme_options['woo-shop-style-flag'] = true;
 		update_option( 'astra-settings', $theme_options );
 	}
-
 }
