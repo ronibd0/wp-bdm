@@ -8,9 +8,10 @@ v3.9.2 (Unreleased)
 - Improvement: WooCommerce - Header Cart - Hide cart total when cart is empty option.
 - Improvement: WooCommerce - Single Product - Moved sticky add to cart from addon to theme.
 - Improvement: WooCommerce - Single Product - Moved structure options from pro to free theme.
-- Fix: WooCommerce - Alignment issue with content added by plugin near single product add to cart section.
+- Fix: WooCommerce - Single Product - Alignment issue with content added by plugin near add to cart section.
 - Fix: Customizer range slider control not accepting decimal values for 'em' unit.
 - Fix: WooCommerce - Dropdown icon cart link is not redirect to cart page.
+- Fix: Woocommerce - Cart element is adding primary header height on below and above header section.
 - Fix: WooCommerce - Crosssell grid products showing with 50% width when modern cart layout is enabled on cart page.
 - Fix: WooCommerce - 'View Cart' secondary link is hidden when product added to that cart from the products list.
 - Fix: Search element not clickable on above header, moving old to new header builder.
