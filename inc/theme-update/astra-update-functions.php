@@ -1013,20 +1013,6 @@ function astra_apply_modern_ecommerce_setup() {
 }
 
 /**
- * Apply css for show password icon on woocommerce account page.
- *
- * @since x.x.x
- * @return void
- */
-function astra_apply_woocommerce_show_password_icon_css() {
-	$theme_options = get_option( 'astra-settings', array() );
-	if ( ! isset( $theme_options['woo-show-password-icon'] ) ) {
-		$theme_options['woo-show-password-icon'] = false;
-		update_option( 'astra-settings', $theme_options );
-  }
-}
-
-/**
  * Migrate old user data to new responsive format layout for shop's summary box content alignment.
  *
  * @since 3.9.0
@@ -1056,4 +1042,18 @@ function astra_shop_style_design_layout() {
 		$theme_options['woo-shop-style-flag'] = true;
 		update_option( 'astra-settings', $theme_options );
 	}
+}
+
+/**
+ * Apply css for show password icon on woocommerce account page.
+ *
+ * @since x.x.x
+ * @return void
+ */
+function astra_apply_woocommerce_show_password_icon_css() {
+	$theme_options = get_option( 'astra-settings', array() );
+	if ( ! isset( $theme_options['woo-show-password-icon'] ) ) {
+		$theme_options['woo-show-password-icon'] = false;
+		update_option( 'astra-settings', $theme_options );
+  }
 }
