@@ -620,11 +620,17 @@ module.exports = function (grunt) {
                     '!assets/fonts/google-fonts.json',
                     '!inc/customizer/extend-custom-controls/package.json',
 					'!inc/customizer/custom-controls/customizer-style.scss',
+					'!inc/customizer/custom-controls/typography/typography.scss',
+					'!inc/lib/astra-notices/composer.json',
                     '!inc/customizer/extend-custom-controls/package-lock.json',
                     '!inc/customizer/extend-custom-controls/src/**',
                     '!inc/customizer/extend-custom-controls/node_modules/**',
                     '!inc/customizer/extend-custom-controls/build/index.asset.php',
                     '!inc/customizer/extend-custom-controls/build/index.js.map',
+                    '!inc/metabox/extend-metabox/src/**',
+                    '!inc/metabox/extend-metabox/package.json',
+                    '!inc/metabox/extend-metabox/package-lock.json',
+                    '!inc/metabox/extend-metabox/build/index.asset.php',
                 ],
                 dest: 'astra/'
             }
