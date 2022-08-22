@@ -1147,6 +1147,16 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			$recommended_plugins = apply_filters(
 				'astra_recommended_plugins',
 				array(
+					'ultimate-addons-for-gutenberg' =>
+						array(
+							'plugin-name'        => __( 'Spectra – WordPress Gutenberg Blocks', 'astra' ),
+							'plugin-init'        => 'ultimate-addons-for-gutenberg/ultimate-addons-for-gutenberg.php',
+							'settings-link'      => admin_url( 'options-general.php?page=' . esc_attr( $spectra_plugin_slug ) ),
+							'settings-link-text' => 'Settings',
+							'highlight-label'    => __( 'Popular', 'astra' ),
+							'display'            => function_exists( 'register_block_type' ),
+						),
+
 					'astra-import-export'           =>
 						array(
 							'plugin-name'        => __( 'Import / Export Customizer Settings', 'astra' ),
@@ -1209,16 +1219,6 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 						'settings-link'      => admin_url( 'edit.php?post_type=bsf-sidebar' ),
 						'settings-link-text' => 'Settings',
 					),
-
-					'ultimate-addons-for-gutenberg' =>
-						array(
-							'plugin-name'        => __( 'Spectra – WordPress Gutenberg Blocks', 'astra' ),
-							'plugin-init'        => 'ultimate-addons-for-gutenberg/ultimate-addons-for-gutenberg.php',
-							'settings-link'      => admin_url( 'options-general.php?page=' . esc_attr( $spectra_plugin_slug ) ),
-							'settings-link-text' => 'Settings',
-							'highlight-label'    => __( 'Popular', 'astra' ),
-							'display'            => function_exists( 'register_block_type' ),
-						),
 				)
 			);
 
