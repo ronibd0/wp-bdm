@@ -1113,10 +1113,12 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		public static function astra_get_spectra_plugin_data() {
 			$path    = 'ultimate-addons-for-gutenberg/ultimate-addons-for-gutenberg.php';
 			$plugins = get_plugins();
+			/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			return array(
 				'is_exist' => isset( $plugins[ $path ] ),
-				'version'  => isset( $plugins[ $path ] ) ? $plugins[ $path ]['Version'] : '2.0.0',
+				'version'  => ( isset( $plugins[ $path ] ) && $plugins[ $path ]['Version'] ) ? $plugins[ $path ]['Version'] : '2.0.0',
 			);
+			/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 		}
 
 		/**
@@ -1142,7 +1144,9 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 
 			$spectra_plugin_data = self::astra_get_spectra_plugin_data();
 
+			/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			$spectra_plugin_slug = ( ! $spectra_plugin_data['is_exist'] ) || version_compare( $spectra_plugin_data['version'], '2.0.0', '>=' ) ? 'spectra' : 'uag';
+			/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 
 			$recommended_plugins = apply_filters(
 				'astra_recommended_plugins',
