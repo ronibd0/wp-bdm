@@ -619,7 +619,7 @@ module.exports = function (grunt) {
                     '!phpcs.xml.dist',
                     '!assets/fonts/google-fonts.json',
                     '!inc/customizer/extend-custom-controls/package.json',
-					'!inc/customizer/extend-custom-controls/customizer-style.scss',
+					'!inc/customizer/custom-controls/customizer-style.scss',
                     '!inc/customizer/extend-custom-controls/package-lock.json',
                     '!inc/customizer/extend-custom-controls/src/**',
                     '!inc/customizer/extend-custom-controls/node_modules/**',
