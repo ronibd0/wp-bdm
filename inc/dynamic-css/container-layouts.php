@@ -24,7 +24,13 @@ function astra_check_any_page_builder_is_active( $post_id ) {
 
 	if ( class_exists( '\Elementor\Plugin' ) ) {
 		/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-		if ( ( defined( 'ELEMENTOR_VERSION' ) && version_compare( ELEMENTOR_VERSION, '1.5.0', '<' ) && 'builder' === Elementor\Plugin::$instance->db->get_edit_mode( $post_id ) ) || Elementor\Plugin::$instance->db->is_built_with_elementor( $post_id ) ) { // phpcs:ignore PHPCompatibility.LanguageConstructs.NewLanguageConstructs.t_ns_separatorFound
+		$document = Elementor\Plugin::$instance->documents->get( $post_id ); // phpcs:ignore PHPCompatibility.LanguageConstructs.NewLanguageConstructs.t_ns_separatorFound
+		if ( $document ) {
+			$deprecated_handle = $document->is_built_with_elementor();
+		} else {
+			$deprecated_handle = false;
+		}
+		if ( ( defined( 'ELEMENTOR_VERSION' ) && version_compare( ELEMENTOR_VERSION, '1.5.0', '<' ) && 'builder' === Elementor\Plugin::$instance->db->get_edit_mode( $post_id ) ) || $deprecated_handle ) { // phpcs:ignore PHPCompatibility.LanguageConstructs.NewLanguageConstructs.t_ns_separatorFound
 			/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			return true;
 		}
@@ -45,6 +51,18 @@ function astra_check_any_page_builder_is_active( $post_id ) {
 
 	if ( function_exists( 'et_pb_is_pagebuilder_used' ) && et_pb_is_pagebuilder_used( $post_id ) ) {
 		return true;
+	}
+
+	if ( class_exists( 'Brizy_Editor_Post' ) ) {
+		try {
+			$post = Brizy_Editor_Post::get( $post_id );
+
+			if ( $post ) {
+				return true;
+			}
+		} catch ( Exception $exception ) { // phpcs:ignore Generic.CodeAnalysis.EmptyStatement.DetectedCatch
+			// The post type is not supported by Brizy hence Brizy should not be used render the post.
+		}
 	}
 
 	return false;
