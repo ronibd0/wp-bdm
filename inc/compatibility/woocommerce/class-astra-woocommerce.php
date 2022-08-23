@@ -2347,6 +2347,26 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				$css_output .= astra_parse_css( $css_output_woo_variation_layout );
 			}
 
+			/**
+			 * Woocommerce Active Filter Styles
+			 */
+			if ( has_block( 'woocommerce/active-filters' ) ) {
+
+				$woo_active_filter_css = array(
+					'.wp-block-woocommerce-active-filters .wc-block-active-filters' => array(
+						'display'         => esc_attr( 'flex' ),
+						'align-items'     => esc_attr( 'self-start' ),
+						'justify-content' => esc_attr( 'space-between' ),
+					),
+
+					'.wp-block-woocommerce-active-filters .wc-block-active-filters__clear-all' => array(
+						'flex' => esc_attr( 'none' ),
+					),
+				);
+
+				$css_output .= astra_parse_css( $woo_active_filter_css );
+			}
+
 			// Enable Show Password Icon on Login Form on Woocommerce Account Page.
 			if ( is_account_page() && ! is_user_logged_in() && astra_load_woocommerce_login_form_password_icon() ) {
 				$ltr_left  = $is_site_rtl ? esc_attr( 'right' ) : esc_attr( 'left' );
@@ -2382,6 +2402,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			}
 
 			wp_add_inline_style( 'woocommerce-general', apply_filters( 'astra_theme_woocommerce_dynamic_css', $css_output ) );
+
 
 			/**
 			 * YITH WooCommerce Wishlist Style
