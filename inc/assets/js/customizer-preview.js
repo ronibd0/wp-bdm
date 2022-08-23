@@ -44,12 +44,28 @@
             function(e) {
                 e.preventDefault();
                 e.stopPropagation();
-                var p = $( this ).closest( '.customizer-navigate-on-focus' );
-                var section_id = p.attr( 'data-section' ) || '';
-                if ( section_id ) {
-                    if ( defaultTarget.wp.customize.section( section_id ) ) {
-                        defaultTarget.wp.customize.section( section_id ).focus();
+
+                const p = $( this ).closest( '.customizer-navigate-on-focus' );
+                const section_id = p.attr( 'data-section' ) || '';
+                const type       = p.attr( 'data-type' ) ? p.attr( 'data-type' ) : 'section';
+
+                console.log(section_id);
+                console.log(type);
+
+                if ( section_id && type ) {
+
+                    if( 'section' === type ) {
+                        if ( defaultTarget.wp.customize.section( section_id ) ) {
+                            defaultTarget.wp.customize.section( section_id ).focus();
+                        }
                     }
+
+                    if( 'control' === type ) {
+                        if ( defaultTarget.wp.customize.control( section_id ) ) {
+                            defaultTarget.wp.customize.control( section_id ).focus();
+                        }
+                    }
+                  
                 }
             }
         );
