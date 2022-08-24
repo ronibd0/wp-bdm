@@ -1,0 +1,42 @@
+.ast-upgrade-pro-wrap .ast-upgrade-trigger {
+    -js-display: inline-flex;
+    display: inline-flex;
+    align-items: center;
+    flex-wrap: wrap;
+    align-content: center;
+    position: relative;
+	overflow: hidden;
+}
+.ast-upgrade-pro-wrap .ast-upgrade-cta {
+	position: absolute;
+    top: auto;
+    right: auto;
+    height: 28px;
+    border-radius: 4px;
+    padding: 0 8px;
+    font-size: 1em;
+    line-height: 1em;
+    display: inline-flex;
+    color: var(--ast-customizer-color-1);
+    background: var(--ast-customizer-color-9);
+    border: 1px solid var(--ast-customizer-color-1);
+    align-items: center;
+    align-content: center;
+    white-space: nowrap;
+}
+a.ast-upgrade-trigger:focus, a.ast-upgrade-trigger:active {
+    box-shadow: none;
+    border: none;
+    outline: none;
+}
+.ast-upgrade-pro-wrap .ast-upgrade-section-title {
+    margin-right: 8px;
+}
+.ast-upgrade-pro-wrap .ast-upgrade-trigger svg {
+    width: 100%;
+    height: 100%;
+}
+.ast-upgrade-pro-wrap .ast-upgrade-cta svg {
+    width: 1.2em;
+    height: 1.2em;
+}

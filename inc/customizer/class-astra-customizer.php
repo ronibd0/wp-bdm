@@ -1059,6 +1059,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 					'googleFonts'             => Astra_Font_Families::get_google_fonts(),
 					'variantLabels'           => Astra_Font_Families::font_variant_labels(),
 					'menuLocations'           => $resultant_menus,
+					'upgradeUrl'			  => ASTRA_PRO_UPGRADE_URL,
 				)
 			);
 

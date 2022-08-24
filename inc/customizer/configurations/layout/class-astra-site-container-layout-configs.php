@@ -39,6 +39,21 @@ if ( ! class_exists( 'Astra_Site_Container_Layout_Configs' ) ) {
 			$_configs = array(
 
 				/**
+				 * Option: Dummy control for upgrade-to-pro POC.
+				 */
+				array(
+					'name'              => ASTRA_THEME_SETTINGS . '[poc-astra-upgrade]',
+					'type'              => 'control',
+					'control'           => 'ast-upgrade',
+					'section'           => 'section-page-group',
+					'svg'				=> 'upgrade-meta-svg',
+					'default'           => astra_get_option( 'poc-astra-upgrade' ),
+					'priority'          => 1,
+					'title'             => __( 'Upgrade to unlock more features.', 'astra' ),
+					'divider'           => array( 'ast_class' => 'ast-bottom-section-divider' ),
+				),
+
+				/**
 				 * Option: Single Page Content Layout
 				 */
 				array(
