@@ -53,16 +53,18 @@ function astra_check_any_page_builder_is_active( $post_id ) {
 		return true;
 	}
 
-	if ( class_exists( 'Brizy_Editor_Post' ) ) {
-		try {
-			$post = Brizy_Editor_Post::get( $post_id );
+	if ( class_exists( 'Brizy_Editor_Post' ) && class_exists( 'Brizy_Editor' ) ) {
 
-			if ( $post ) {
+		$brizy_post_types = Brizy_Editor::get()->supported_post_types();
+		$post             = get_post( $post_id ); 
+		$post_type        = get_post_type( $post );
+		
+		if ( in_array( $post_type, $brizy_post_types ) ) {
+
+			if ( Brizy_Editor_Post::get( $post_id )->uses_editor() ) {
 				return true;
-			}
-		} catch ( Exception $exception ) { // phpcs:ignore Generic.CodeAnalysis.EmptyStatement.DetectedCatch
-			// The post type is not supported by Brizy hence Brizy should not be used render the post.
-		}
+			}       
+		}   
 	}
 
 	return false;
