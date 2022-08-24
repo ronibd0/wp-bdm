@@ -20,10 +20,12 @@ const UpgradeComponent = props => {
 
 	const renderUpgrdaeBtn = () => {
 		return <a href={window.AstraBuilderCustomizerData.upgradeUrl} target='_blank' className="ast-upgrade-trigger">
-			<span> {upgradeSvg} </span>
-			<span className='ast-upgrade-cta'>
-				{ lockIcon }
-				{ htmlTitle }
+			<span className='ast-upgrade-pro-innerwrap'>
+				{upgradeSvg}
+				<span className='ast-upgrade-cta'>
+					{ lockIcon }
+					{ htmlTitle }
+				</span>
 			</span>
 		</a>;
 	};

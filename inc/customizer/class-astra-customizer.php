@@ -481,6 +481,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 						foreach ( $configuration['choices'] as $key => $value ) {
 							$configuration['choices'][ $key ]        = $value['path'];
 							$configuration['choices_titles'][ $key ] = $value['label'];
+							$configuration['choices_upgrade'][ $key ] = isset( $value['is_pro'] ) ? $value['is_pro'] : false;
 						}
 					}
 					if ( isset( $configuration['input_attrs'] ) ) {
