@@ -5256,6 +5256,8 @@ span.customize-control-title.ast-group-section-title {
 }
 
 .ast-dashicons-custom-tooltip {
+	display: none;
+	opacity: 0;
 	position: absolute;
     top: 0;
     bottom: 0;
@@ -5291,6 +5293,11 @@ span.customize-control-title.ast-group-section-title {
     opacity: 0;
     right: 50%;
     transform: translate(50%,-0.5em);
+}
+
+.dashicons-editor-help[data-title]:hover .ast-dashicons-custom-tooltip {
+	display: block;
+	opacity: 100;
 }
 
 .dashicons-editor-help[data-title]:hover ~ .ast-dashicons-custom-tooltip[data-title]::after{
@@ -7923,6 +7930,8 @@ span.customize-control-title.ast-group-section-title {
 }
 
 .ast-dashicons-custom-tooltip {
+	display: none;
+	opacity: 0;
 	position: absolute;
     top: 0;
     bottom: 0;
@@ -7958,6 +7967,11 @@ span.customize-control-title.ast-group-section-title {
     opacity: 0;
     right: 50%;
     transform: translate(50%,-0.5em);
+}
+
+.dashicons-editor-help[data-title]:hover ~ .ast-dashicons-custom-tooltip {
+	display: block;
+	opacity: 100;
 }
 
 .dashicons-editor-help[data-title]:hover ~ .ast-dashicons-custom-tooltip[data-title]::after{
