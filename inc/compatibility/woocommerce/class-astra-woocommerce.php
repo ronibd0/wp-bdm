@@ -1841,13 +1841,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				'.woocommerce #content table.cart .button, .woocommerce-page #content table.cart .button' => array(
 					'width' => '100%',
 				),
-				'.woocommerce #content table.cart .product-thumbnail, .woocommerce-page #content table.cart .product-thumbnail' => array(
-					'display'    => 'block',
-					'text-align' => 'center !important',
-				),
-				'.woocommerce #content table.cart .product-thumbnail::before, .woocommerce-page #content table.cart .product-thumbnail::before' => array(
-					'display' => 'none',
-				),
+
 				'.woocommerce #content table.cart td.actions .coupon, .woocommerce-page #content table.cart td.actions .coupon' => array(
 					'float' => 'none',
 				),
