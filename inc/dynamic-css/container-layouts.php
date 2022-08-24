@@ -56,8 +56,7 @@ function astra_check_any_page_builder_is_active( $post_id ) {
 	if ( class_exists( 'Brizy_Editor_Post' ) && class_exists( 'Brizy_Editor' ) ) {
 
 		$brizy_post_types = Brizy_Editor::get()->supported_post_types();
-		$post             = get_post( $post_id ); 
-		$post_type        = get_post_type( $post );
+		$post_type        = get_post_type( $post_id );
 		
 		if ( in_array( $post_type, $brizy_post_types ) ) {
 
