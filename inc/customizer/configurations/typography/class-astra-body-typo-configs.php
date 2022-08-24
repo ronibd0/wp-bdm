@@ -172,21 +172,24 @@ if ( ! class_exists( 'Astra_Body_Typo_Configs' ) ) {
 				 * Option: Body Font Height
 				 */
 				array(
-					'name'            => 'body-font-extras',
-					'type'            => 'sub-control',
-					'parent'          => ASTRA_THEME_SETTINGS . '[ast-body-font-settings]',
-					'control'         => 'ast-font-height',
-					'section'         => $typo_section,
-					'priority'        => 25,
-					'default'         => astra_get_option( 'body-font-height-settings', array(
-						'line-height'    => astra_get_option( 'body-line-height' ),
-						'line-height-unit' => 'em',
-						'letter-spacing'    => '',
-						'letter-spacing-unit'   => 'px',
-						'text-transform'    => astra_get_option( 'body-text-transform' ),
-						'text-decoration'   => '',
-					) ),
-					'title'           => __( 'Line Height New', 'astra' ),
+					'name'     => 'body-font-extras',
+					'type'     => 'sub-control',
+					'parent'   => ASTRA_THEME_SETTINGS . '[ast-body-font-settings]',
+					'control'  => 'ast-font-height',
+					'section'  => $typo_section,
+					'priority' => 25,
+					'default'  => astra_get_option(
+						'body-font-height-settings',
+						array(
+							'line-height'         => astra_get_option( 'body-line-height' ),
+							'line-height-unit'    => 'em',
+							'letter-spacing'      => '',
+							'letter-spacing-unit' => 'px',
+							'text-transform'      => astra_get_option( 'body-text-transform' ),
+							'text-decoration'     => '',
+						) 
+					),
+					'title'    => __( 'Line Height New', 'astra' ),
 				),
 
 				/**
@@ -298,6 +301,30 @@ if ( ! class_exists( 'Astra_Body_Typo_Configs' ) ) {
 						'uppercase'  => __( 'Uppercase', 'astra' ),
 						'lowercase'  => __( 'Lowercase', 'astra' ),
 					),
+				),
+
+				/**
+				 * Option: Heading Font Height
+				 */
+				array(
+					'name'     => 'headings-font-extras',
+					'type'     => 'sub-control',
+					'parent'   => ASTRA_THEME_SETTINGS . '[ast-headings-font-settings]',
+					'control'  => 'ast-font-height',
+					'section'  => $typo_section,
+					'priority' => 26,
+					'default'  => astra_get_option(
+						'headings-font-height-settings',
+						array(
+							'line-height'         => astra_get_option( 'headings-line-height' ),
+							'line-height-unit'    => 'em',
+							'letter-spacing'      => '',
+							'letter-spacing-unit' => 'px',
+							'text-transform'      => astra_get_option( 'headings-text-transform' ),
+							'text-decoration'     => '',
+						) 
+					),
+					'title'    => __( 'Line Height New', 'astra' ),
 				),
 
 				/**
