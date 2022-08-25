@@ -113,7 +113,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 			// Initialize Free shipping and checks if astra-addon plugin is installed.
 			/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-			if ( defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'woocommerce' ) ) {
+			if ( astra_has_pro_woocommerce_addon() ) {
 				add_action( 'astra_woo_single_price_after', array( $this, 'woocommerce_shipping_text' ) );
 			} else {
 				add_filter( 'woocommerce_single_product_summary', array( $this, 'woocommerce_shipping_text' ), 11, 0 );
@@ -131,7 +131,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 			add_action( 'wp', array( $this, 'woocommerce_proceed_to_checkout_button' ) );
 
-			if ( ! defined( 'ASTRA_EXT_VER' ) || astra_addon_check_version( '3.9.2', '>=' ) ) {
+			if ( self::load_theme_side_woocommerce_strcture() ) {
 
 				// Remove Default actions.
 				remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_title', 5 );
@@ -147,7 +147,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 			add_action( 'admin_bar_menu', array( $this, 'astra_update_customize_admin_bar_link' ), 45 );
 
-			if ( ! defined( 'ASTRA_EXT_VER' ) || astra_addon_check_version( '3.9.2', '>=' ) ) {
+			if ( self::load_theme_side_woocommerce_strcture() ) {
 				// Sticky add to cart.
 				add_action( 'wp_footer', array( $this, 'single_product_sticky_add_to_cart' ) );
 				add_filter( 'post_class', array( $this, 'post_class' ) );
@@ -157,6 +157,16 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				add_filter( 'woocommerce_sale_flash', array( $this, 'sale_flash' ), 10, 3 );
 				add_action( 'woocommerce_after_shop_loop_item', array( $this, 'add_modern_triggers_on_image' ), 5 );
 			}
+		}
+
+		/**
+		 * As WooCommerce-Astra pro options moved to theme, decide here to load from theme's end after x.x.x version.
+		 *
+		 * @since x.x.x
+		 * @return bool true|false.
+		 */
+		public static function load_theme_side_woocommerce_strcture() {
+			return ! defined( 'ASTRA_EXT_VER' ) || astra_addon_check_version( '3.9.2', '>=' );
 		}
 
 		/**
@@ -286,7 +296,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			);
 
 			/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-			if ( defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'woocommerce' ) && astra_get_option( 'shop-filter-accordion' ) ) {
+			if ( astra_has_pro_woocommerce_addon() && astra_get_option( 'shop-filter-accordion' ) ) {
 				$shop_filter_array['before_title']   = '<h2 class="widget-title">';
 				$shop_filter_array['after_title']    = Astra_Builder_UI_Controller::fetch_svg_icon( 'angle-down', false ) . '</h2>';
 				$shop_filter_array['before_sidebar'] = '<div class="ast-accordion-layout ast-filter-wrap">';
@@ -2316,7 +2326,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				$css_output .= $modern_shop_page_css;
 			}
 
-			if ( ! defined( 'ASTRA_EXT_VER' ) || astra_addon_check_version( '3.9.2', '>=' ) ) {
+			if ( self::load_theme_side_woocommerce_strcture() ) {
 				$css_output .= $this->astra_shop_summary_box_alignment();
 			}
 
@@ -2946,7 +2956,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				 * @psalm-suppress UndefinedClass
 				 * @psalm-suppress InvalidScalarArgument
 				 */
-				$astra_addons_condition = defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'woocommerce' );
+				$astra_addons_condition = astra_has_pro_woocommerce_addon();
 				// @codingStandardsIgnoreEnd
 
 				foreach ( $single_structure as $value ) {
