@@ -49,9 +49,6 @@
                 const section_id = p.attr( 'data-section' ) || '';
                 const type       = p.attr( 'data-type' ) ? p.attr( 'data-type' ) : 'section';
 
-                console.log(section_id);
-                console.log(type);
-
                 if ( section_id && type ) {
 
                     if( 'section' === type ) {
