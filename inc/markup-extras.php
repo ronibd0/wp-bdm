@@ -1636,16 +1636,16 @@ add_action( 'activate_elementor/elementor.php', 'astra_skip_elementor_onboarding
 /**
  * Footer disable on archive pages.
  *
- * @param bool $display_footer for controling the header and footer enable/disable options
+ * @param bool $display_footer for controling the header and footer enable/disable options.
  *
  * @since 3.9.1
  */
-function astra_footer_bar_display_cb($display_footer) {
-	if (is_home() && !is_front_page()) {
-		$page_for_posts = get_option('page_for_posts');
+function astra_footer_bar_display_cb( $display_footer ) {
+	if ( is_home() && !is_front_page() ) {
+		$page_for_posts = get_option( 'page_for_posts' );
 		$display_footer = get_post_meta( $page_for_posts, 'footer-sml-layout', true );
 	}
 	return $display_footer;
 }
 
-add_filter('astra_footer_bar_display', 'astra_footer_bar_display_cb', 99, 1);
+add_filter( 'astra_footer_bar_display', 'astra_footer_bar_display_cb', 99, 1 );
