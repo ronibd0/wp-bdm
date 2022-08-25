@@ -45,9 +45,9 @@
                 e.preventDefault();
                 e.stopPropagation();
 
-                const p = $( this ).closest( '.customizer-navigate-on-focus' );
-                const section_id = p.attr( 'data-section' ) || '';
-                const type       = p.attr( 'data-type' ) ? p.attr( 'data-type' ) : 'section';
+                const currentElement = $( this ).closest( '.customizer-navigate-on-focus' );
+                const section_id = currentElement.attr( 'data-section' ) || '';
+                const type       = currentElement.attr( 'data-type' ) ? currentElement.attr( 'data-type' ) : 'section';
 
                 if ( section_id && type ) {
 

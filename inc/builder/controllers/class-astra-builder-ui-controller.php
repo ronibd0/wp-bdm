@@ -135,6 +135,9 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 
 		/**
 		 * Prepare Edit icon inside customizer.
+		 *
+		 * @param string $class custom class.
+		 * @since x.x.x
 		 */
 		public static function render_customizer_edit_button( $class = '' ) {
 			?>
