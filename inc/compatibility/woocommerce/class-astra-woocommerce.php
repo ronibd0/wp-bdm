@@ -184,7 +184,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		}
 
 		/**
-		 * Modern shop page's triggers on product image.
+		 * Modern Design Add to cart Markup 
 		 * 
 		 * @since x.x.x
 		 * @return mixed HTML markup.
