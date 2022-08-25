@@ -237,7 +237,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 			/** @psalm-suppress UndefinedFunction  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			if ( astra_is_shop_page_modern_style() ) {
-				/** @psalm-suppress UndefinedFunction  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+				/** @psalm-suppress InvalidGlobal  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 				global $product;
 				$markup = '';
 
