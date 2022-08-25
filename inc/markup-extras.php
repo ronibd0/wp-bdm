@@ -1641,7 +1641,7 @@ add_action( 'activate_elementor/elementor.php', 'astra_skip_elementor_onboarding
  * @since 3.9.1
  */
 function astra_footer_bar_display_cb( $display_footer ) {
-	if ( is_home() && !is_front_page() ) {
+	if ( is_home() && ! is_front_page() ) {
 		$page_for_posts = get_option( 'page_for_posts' );
 		$display_footer = get_post_meta( $page_for_posts, 'footer-sml-layout', true );
 	}
