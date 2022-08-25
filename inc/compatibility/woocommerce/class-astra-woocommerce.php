@@ -3051,6 +3051,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				// @codingStandardsIgnoreEnd
 					echo '<div class="ast-sticky-add-to-cart customizer-item-block-preview customizer-navigate-on-focus ' . esc_attr( $sticky_position ) . '" data-section="astra-settings[single-product-sticky-add-to-cart]" data-type="control">';
 					if ( is_customize_preview() ) {
+						/** @psalm-suppress TooManyArguments */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 						Astra_Builder_UI_Controller::render_customizer_edit_button( 'row-editor-shortcut' );
 					}
 					echo '<div class="ast-container">';
