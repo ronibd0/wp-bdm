@@ -553,6 +553,7 @@
 	left: unset;
 	top: unset;
 	vertical-align: sub;
+	z-index: 10;
 }
 
 #customize-control-astra-color-palettes .astra-color-picker-wrap {
@@ -612,7 +613,6 @@
 	.ast-color-palette-wrapper
 	.ast-color-picker-wrap {
 	margin-top: 12px;
-	position: relative;
 	cursor: pointer;
 }
 
@@ -725,7 +725,7 @@
 
 .ast-color-picker-custom-tooltip {
 	position: absolute;
-    top: 0;
+    top: -30px;
     bottom: 0;
     right: 0;
     left: 0;
@@ -761,7 +761,11 @@
     transform: translate(50%,-0.5em);
 }
 
-.ast-color-picker-custom-tooltip[data-title]:hover::after{
+.ast-color-picker-custom-tooltip-wrapper {
+	position: relative;
+}
+
+.ast-color-picker-wrap:hover + .ast-color-picker-custom-tooltip-wrapper .ast-color-picker-custom-tooltip[data-title]::after{
 	display: flex;
 	white-space: break-spaces;
 	inline-size: max-content;
@@ -1895,6 +1899,7 @@
 	left: unset;
 	top: unset;
 	vertical-align: sub;
+	z-index: 10;
 }
 
 #customize-control-astra-color-palettes .astra-color-picker-wrap {
@@ -1954,7 +1959,6 @@
 	.ast-color-palette-wrapper
 	.ast-color-picker-wrap {
 	margin-top: 12px;
-	position: relative;
 	cursor: pointer;
 }
 
@@ -2067,7 +2071,7 @@
 
 .ast-color-picker-custom-tooltip {
 	position: absolute;
-    top: 0;
+    top: -30px;
     bottom: 0;
     right: 0;
     left: 0;
@@ -2103,7 +2107,11 @@
     transform: translate(50%,-0.5em);
 }
 
-.ast-color-picker-custom-tooltip[data-title]:hover::after{
+.ast-color-picker-custom-tooltip-wrapper {
+	position: relative;
+}
+
+.ast-color-picker-wrap:hover + .ast-color-picker-custom-tooltip-wrapper .ast-color-picker-custom-tooltip[data-title]::after{
 	display: flex;
 	white-space: break-spaces;
 	inline-size: max-content;
@@ -5295,7 +5303,7 @@ span.customize-control-title.ast-group-section-title {
     transform: translate(50%,-0.5em);
 }
 
-.dashicons-editor-help[data-title]:hover .ast-dashicons-custom-tooltip {
+.dashicons-editor-help[data-title]:hover ~ .ast-dashicons-custom-tooltip {
 	display: block;
 	opacity: 100;
 }
