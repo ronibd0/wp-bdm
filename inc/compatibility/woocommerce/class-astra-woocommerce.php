@@ -111,7 +111,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 			add_filter( 'astra_dynamic_theme_css', array( $this, 'astra_woocommerce_store_dynamic_css' ) );
 
-			// Single Product Free shipping 
+			// Single Product Free shipping.
 			add_action( 'astra_woo_single_price_after', array( $this, 'woocommerce_shipping_text' ) );
 
 			// Register Dynamic Sidebars.
