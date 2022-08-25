@@ -160,3 +160,7 @@
     transform: translate(0, -50%);
   }
 }
+
+.ast-upgrade-trigger:hover .image-clickable[data-title]::after {
+    display: block;
+}
