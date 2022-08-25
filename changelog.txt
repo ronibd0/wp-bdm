@@ -1,4 +1,7 @@
 v3.9.2 (Unreleased)
+- Fix: Megamenu spacing conflict with primary menu top offset option on mobile devices.
+
+v3.9.2 (Unreleased)
 - Improvement: WooCommerce - Admin bar's customize link updated on WooCommerce pages for quick landing to it's respected customizer section.
 - Improvement: WooCommerce - Added WPML translation support for cart dynamic input, proceed to checkout input & free-shipping text input through wpml-config.xml file. (Props - OnTheGoSystems)
 - Improvement: Earth (default) icon for selected color needs to improved for better visibility on brighter & dim colors.
