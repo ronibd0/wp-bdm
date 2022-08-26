@@ -320,14 +320,14 @@ endif;
 /**
  * Check if Woocommerce pro addons is enabled.
  */
-if ( ! function_exists( 'astra_is_woocommerce_addons' ) ) :
+if ( ! function_exists( 'astra_has_pro_woocommerce_addon' ) ) :
 
 	/**
 	 * Check if Woocommerce pro addons is enabled.
 	 *
 	 * @return bool true|false.
 	 */
-	function astra_is_woocommerce_addons() {
+	function astra_has_pro_woocommerce_addon() {
 		/** @psalm-suppress UndefinedClass  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 		return ( defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'woocommerce' ) ) ? true : false;
 		/** @psalm-suppress UndefinedClass  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
