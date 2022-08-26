@@ -189,6 +189,51 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		}
 
 		/**
+		 * Modern Design Add to cart Markup
+		 *
+		 * @since x.x.x
+		 * @return mixed HTML markup.
+		 */
+		public function modern_add_to_cart() {
+
+			global $product;
+			$markup = '';
+
+			// Product link markup.
+			$header_woo_cart = astra_get_option( 'woo-header-cart-icon', 'default' );
+			$cart_icon       = ( true === Astra_Icons::is_svg_icons() ) ? Astra_Icons::get_icons( 'default' === $header_woo_cart ? 'bag' : $header_woo_cart ) : Astra_Builder_UI_Controller::fetch_svg_icon( 'shopping-' . $header_woo_cart, false );
+			$classes         = implode(
+				' ',
+				array_filter(
+					array(
+						'ast-on-card-button',
+						'ast-select-options-trigger',
+						'product_type_' . $product->get_type(),
+						$product->is_purchasable() && $product->is_in_stock() ? 'add_to_cart_button' : '',
+						$product->supports( 'ajax_add_to_cart' ) && $product->is_purchasable() && $product->is_in_stock() ? 'ajax_add_to_cart' : '',
+					)
+				)
+			);
+			$attributes      = array(
+				'data-product_id'  => $product->get_id(),
+				'data-product_sku' => $product->get_sku(),
+				'aria-label'       => $product->add_to_cart_description(),
+				'rel'              => 'nofollow',
+			);
+			$markup         .= sprintf(
+				'<a href="%s" data-quantity="%s" class="%s" %s> <span class="ast-card-action-tooltip"> %s </span> <span class="ahfb-svg-iconset"> %s </span> </a>',
+				esc_url( $product->add_to_cart_url() ),
+				esc_attr( 1 ),
+				esc_attr( $classes ),
+				wc_implode_html_attributes( $attributes ),
+				esc_html( $product->add_to_cart_text() ),
+				$cart_icon
+			);
+
+			return $markup;
+		}
+
+		/**
 		 * Modern shop page's triggers on product image.
 		 *
 		 * @since x.x.x
@@ -197,15 +242,16 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 			/** @psalm-suppress UndefinedFunction  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			if ( astra_is_shop_page_modern_style() ) {
-				/** @psalm-suppress UndefinedFunction  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+				/** @psalm-suppress InvalidGlobal  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 				global $product;
-				$markup     = '';
-				$product_id = $product->get_id();
+				$markup = '';
 
 				// Sale bubble markup.
 				if ( $product->is_on_sale() ) {
 					$markup .= $this->get_sale_flash_markup( 'default', $product );
 				}
+
+				$markup .= $this->modern_add_to_cart();
 
 				/** @psalm-suppress TooManyArguments */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 				$html = apply_filters( 'astra_addon_shop_cards_buttons_html', $markup, $product );
@@ -2312,11 +2358,132 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 						@media(max-width: 420px) {
 							.mobile-columns-3 .ast-onsale-card {
 								top: 1em;
-								left: 1em;
+								' . esc_attr( $ltr_left ) . ': 1em;
 							}
 						}
 					';
 				}
+
+				$modern_shop_page_css .= '
+
+					.ast-on-card-button {
+						position: absolute;
+						' . esc_attr( $ltr_right ) . ': 1em;
+						visibility: hidden;
+						opacity: 0;
+						transition: all 0.2s;
+						z-index: 5;
+						cursor: pointer;
+					}
+
+					.ast-on-card-button.ast-onsale-card {
+						opacity: 1;
+						visibility: visible;
+					}
+
+					.ast-on-card-button:hover .ast-card-action-tooltip {
+						opacity: 1;
+						visibility: visible;
+					}
+
+					.ast-on-card-button:hover .ahfb-svg-iconset {
+						opacity: 1;
+						color: var(--ast-global-color-2);
+					}
+
+					.ast-on-card-button .ahfb-svg-iconset {
+						border-radius: 50%;
+						color: var(--ast-global-color-2);
+						background: var(--ast-global-color-5);
+						opacity: 0.7;
+						width: 2em;
+						height: 2em;
+						justify-content: center;
+						box-shadow: 0 4px 4px rgba(0, 0, 0, 0.15);
+					}
+
+					.ast-on-card-button .ahfb-svg-iconset .ast-icon {
+						-js-display: inline-flex;
+						display: inline-flex;
+						align-self: center;
+					}
+
+					.ast-on-card-button svg {
+						fill: currentColor;
+					}
+
+					.ast-select-options-trigger {
+						top: 1em;
+					}
+
+					.ast-select-options-trigger.loading:after {
+						display: block;
+						content: " ";
+						position: absolute;
+						top: 50%;
+						' . esc_attr( $ltr_right ) . ': 50%;
+						' . esc_attr( $ltr_left ) . ': auto;
+						width: 16px;
+						height: 16px;
+						margin-top: -12px;
+						margin-' . esc_attr( $ltr_right ) . ': -8px;
+						background-color: var(--ast-global-color-2);
+						background-image: none;
+						border-radius: 100%;
+						-webkit-animation: dotPulse 0.65s 0s infinite cubic-bezier(0.21, 0.53, 0.56, 0.8);
+						animation: dotPulse 0.65s 0s infinite cubic-bezier(0.21, 0.53, 0.56, 0.8);
+					}
+
+					.ast-select-options-trigger.loading .ast-icon {
+						display: none;
+					}
+
+					.ast-card-action-tooltip {
+						background-color: var(--ast-global-color-2);
+						pointer-events: none;
+						white-space: nowrap;
+						padding: 8px 9px;
+						padding: 0.7em 0.9em;
+						color: var(--ast-global-color-5);
+						margin-' . esc_attr( $ltr_right ) . ': 10px;
+						border-radius: 3px;
+						font-size: 0.8em;
+						line-height: 1;
+						font-weight: normal;
+						position: absolute;
+						' . esc_attr( $ltr_right ) . ': 100%;
+						top: auto;
+						visibility: hidden;
+						opacity: 0;
+						transition: all 0.2s;
+					}
+
+					.ast-card-action-tooltip:after {
+						content: "";
+						position: absolute;
+						top: 50%;
+						margin-top: -5px;
+						' . esc_attr( $ltr_right ) . ': -10px;
+						width: 0;
+						height: 0;
+						border-style: solid;
+						border-width: 5px;
+						border-color: transparent transparent transparent var(--ast-global-color-2);
+					}
+
+					.astra-shop-thumbnail-wrap:hover .ast-on-card-button:not(.ast-onsale-card) {
+						opacity: 1;
+						visibility: visible;
+					}
+
+					@media (max-width: 420px) {
+
+						.mobile-columns-3 .ast-select-options-trigger {
+							top: 0.5em;
+							' . esc_attr( $ltr_right ) . ': 0.5em;
+						}
+					}
+				';
 
 				$css_output .= $modern_shop_page_css;
 			}

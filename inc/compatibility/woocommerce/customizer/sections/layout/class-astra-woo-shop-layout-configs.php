@@ -34,45 +34,33 @@ if ( ! class_exists( 'Astra_Woo_Shop_Layout_Configs' ) ) {
 			$astra_addon_with_woo = ( astra_has_pro_woocommerce_addon() ) ? true : false;
 			/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 
-			$current_shop_layouts = array();
-			/** @psalm-suppress PossiblyUndefinedVariable */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-			$design_1['shop-page-grid-style'] = array(
-				/** @psalm-suppress PossiblyUndefinedVariable */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-					'label' => __( 'Design 1', 'astra' ),
-				'path'      => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'shop-grid-view', false ) : '',
-			);
-
-			/** @psalm-suppress PossiblyUndefinedVariable */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-			$design2['shop-page-list-style'] = array(
-				/** @psalm-suppress PossiblyUndefinedVariable */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-					'label' => __( 'Design 2', 'astra' ),
-				'path'      => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'shop-list-view', false ) : '',
-			);
-
-			/** @psalm-suppress PossiblyUndefinedVariable */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-			$design_3['shop-page-modern-style'] = array(
-				/** @psalm-suppress PossiblyUndefinedVariable */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-					'label' => __( 'Design 3', 'astra' ),
-				'path'      => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'shop-modern-view', false ) : '',
-			);
-
-			/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-			if ( astra_has_pro_woocommerce_addon() ) {
-				/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-
-				$current_shop_layouts = array_merge(
-					$design_1,
-					$design2,
-					$design_3
+			if ( $astra_addon_with_woo ) {
+				$current_shop_layouts = array(
+					'shop-page-grid-style'   => array(
+						'label' => __( 'Design 1', 'astra' ),
+						'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'shop-grid-view', false ) : '',
+					),
+					'shop-page-modern-style' => array(
+						'label' => __( 'Design 2', 'astra' ),
+						'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'shop-modern-view', false ) : '',
+					),
+					'shop-page-list-style'   => array(
+						'label' => __( 'Design 3', 'astra' ),
+						'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'shop-list-view', false ) : '',
+					),
 				);
-
 			} else {
-				$current_shop_layouts = array_merge(
-					$design_1,
-					$design_3
+				$current_shop_layouts = array(
+					'shop-page-grid-style'   => array(
+						'label' => __( 'Design 1', 'astra' ),
+						'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'shop-grid-view', false ) : '',
+					),
+					'shop-page-modern-style' => array(
+						'label' => __( 'Design 2', 'astra' ),
+						'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'shop-modern-view', false ) : '',
+					),
 				);
 			}
-
 
 			$_configs = array(
 
