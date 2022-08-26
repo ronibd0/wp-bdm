@@ -2345,10 +2345,10 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 							background-color: var(--ast-global-color-5);
 							width: fit-content;
 							border-radius: 20px;
-							padding: 0.3em 0.8em;
+							padding: 0.4em 0.8em;
 							font-size: .87em;
 							font-weight: 500;
-							line-height: 1.5em;
+							line-height: normal;
 							letter-spacing: normal;
 							box-shadow: 0 4px 4px rgba(0,0,0,0.15);
 							opacity: 1;
