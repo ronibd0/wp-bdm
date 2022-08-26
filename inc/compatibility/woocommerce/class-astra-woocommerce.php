@@ -111,13 +111,8 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 			add_filter( 'astra_dynamic_theme_css', array( $this, 'astra_woocommerce_store_dynamic_css' ) );
 
-			// Initialize Free shipping and checks if astra-addon plugin is installed.
-			/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-			if ( defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'woocommerce' ) ) {
-				add_action( 'astra_woo_single_price_after', array( $this, 'woocommerce_shipping_text' ) );
-			} else {
-				add_filter( 'woocommerce_single_product_summary', array( $this, 'woocommerce_shipping_text' ), 11, 0 );
-			}
+			// Single Product Free shipping.
+			add_action( 'astra_woo_single_price_after', array( $this, 'woocommerce_shipping_text' ) );
 
 			// Register Dynamic Sidebars.
 			if ( is_customize_preview() ) {
