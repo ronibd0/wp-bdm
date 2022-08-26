@@ -157,6 +157,33 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				add_filter( 'woocommerce_sale_flash', array( $this, 'sale_flash' ), 10, 3 );
 				add_action( 'woocommerce_after_shop_loop_item', array( $this, 'add_modern_triggers_on_image' ), 5 );
 			}
+
+			add_filter( 'render_block_woocommerce/active-filters', array( $this, 'add_active_filter_widget_class' ), 10, 2 );
+		}
+
+		/**
+		 * Add active filter widget class when "chip" toggle enabled.
+		 *
+		 * @since x.x.x
+		 * @access public
+		 *
+		 * @param string $block_content Rendered block content.
+		 * @param array  $block         Block object.
+		 *
+		 * @return string Filtered block content.
+		 */
+		public function add_active_filter_widget_class( $block_content, $block ) {
+
+			if ( isset( $block['blockName'] ) && isset( $block['attrs']['displayStyle'] ) && 'chips' === $block['attrs']['displayStyle'] ) {
+				$block_content = preg_replace(
+					'/' . preg_quote( 'class="', '/' ) . '/',
+					'class="ast-woo-active-filter-widget ',
+					$block_content,
+					1
+				);
+			}
+
+			return $block_content;
 		}
 
 		/**
@@ -2350,22 +2377,20 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			/**
 			 * Woocommerce Active Filter Styles
 			 */
-			if ( has_block( 'woocommerce/active-filters' ) ) {
+			$woo_active_filter_css = array(
+				'.ast-woo-active-filter-widget .wc-block-active-filters' => array(
+					'display'         => esc_attr( 'flex' ),
+					'align-items'     => esc_attr( 'self-start' ),
+					'justify-content' => esc_attr( 'space-between' ),
+				),
 
-				$woo_active_filter_css = array(
-					'.wp-block-woocommerce-active-filters .wc-block-active-filters' => array(
-						'display'         => esc_attr( 'flex' ),
-						'align-items'     => esc_attr( 'self-start' ),
-						'justify-content' => esc_attr( 'space-between' ),
-					),
+				'.ast-woo-active-filter-widget .wc-block-active-filters__clear-all' => array(
+					'flex'       => esc_attr( 'none' ),
+					'margin-top' => esc_attr( '2px' ),
+				),
+			);
 
-					'.wp-block-woocommerce-active-filters .wc-block-active-filters__clear-all' => array(
-						'flex' => esc_attr( 'none' ),
-					),
-				);
-
-				$css_output .= astra_parse_css( $woo_active_filter_css );
-			}
+			$css_output .= astra_parse_css( $woo_active_filter_css );
 
 			// Enable Show Password Icon on Login Form on Woocommerce Account Page.
 			if ( is_account_page() && ! is_user_logged_in() && astra_load_woocommerce_login_form_password_icon() ) {
