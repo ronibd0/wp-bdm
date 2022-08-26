@@ -170,7 +170,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		 * @param string $block_content Rendered block content.
 		 * @param array  $block         Block object.
 		 *
-		 * @return string Filtered block content.
+		 * @return string Active filter block content.
 		 */
 		public function add_active_filter_widget_class( $block_content, $block ) {
 
