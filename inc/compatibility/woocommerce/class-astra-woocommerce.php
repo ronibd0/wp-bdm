@@ -3049,10 +3049,12 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				 */
 				if ( ( $product->is_purchasable() && ( $product->is_in_stock() || $product->backorders_allowed() ) ) || $product->is_type( 'external' ) ) {
 				// @codingStandardsIgnoreEnd
-					echo '<div class="ast-sticky-add-to-cart customizer-item-block-preview customizer-navigate-on-focus ' . esc_attr( $sticky_position ) . '" data-section="astra-settings[single-product-sticky-add-to-cart]" data-type="control">';
 					if ( is_customize_preview() ) {
+						echo '<div class="ast-sticky-add-to-cart customizer-item-block-preview customizer-navigate-on-focus ' . esc_attr( $sticky_position ) . '" data-section="astra-settings[single-product-sticky-add-to-cart]" data-type="control">';
 						/** @psalm-suppress TooManyArguments */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 						Astra_Builder_UI_Controller::render_customizer_edit_button( 'row-editor-shortcut' );
+					} else {
+						echo '<div class="ast-sticky-add-to-cart ' . esc_attr( $sticky_position ) . '">';
 					}
 					echo '<div class="ast-container">';
 						echo '<div class="ast-sticky-add-to-cart-content">';

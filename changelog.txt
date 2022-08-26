@@ -1,5 +1,5 @@
 v3.9.3 (Unreleased)
-- Improvement: WooCommerce - Quick edit feature added for sticky add to cart section when customizer preview is active.
+- Improvement: Customizer - Edit shortcut link assigned to sticky add to cart for easy navigation in respective customizer section.
 
 v3.9.2 (Unreleased)
 - Improvement: WooCommerce - Admin bar's customize link updated on WooCommerce pages for quick landing to it's respected customizer section.
