@@ -115,17 +115,17 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 			$h1_font_family    = astra_get_option( 'font-family-h1' );
 			$h1_font_weight    = astra_get_option( 'font-weight-h1' );
-			$h1_line_height    = astra_get_font_extras( astra_get_option( 'line-height-h1' ), 'line-height', 'line-height-unit' );
+			$h1_line_height    = astra_get_option( 'line-height-h1' );
 			$h1_text_transform = astra_get_option( 'text-transform-h1' );
 
 			$h2_font_family    = astra_get_option( 'font-family-h2' );
 			$h2_font_weight    = astra_get_option( 'font-weight-h2' );
-			$h2_line_height    = astra_get_font_extras( astra_get_option( 'line-height-h2' ), 'line-height', 'line-height-unit' );
+			$h2_line_height    = astra_get_option( 'line-height-h2' );
 			$h2_text_transform = astra_get_option( 'text-transform-h2' );
 
 			$h3_font_family    = astra_get_option( 'font-family-h3' );
 			$h3_font_weight    = astra_get_option( 'font-weight-h3' );
-			$h3_line_height    = astra_get_font_extras( astra_get_option( 'line-height-h3' ), 'line-height', 'line-height-unit' );
+			$h3_line_height    = astra_get_option( 'line-height-h3' );
 			$h3_text_transform = astra_get_option( 'text-transform-h3' );
 
 			$h4_font_family    = '';

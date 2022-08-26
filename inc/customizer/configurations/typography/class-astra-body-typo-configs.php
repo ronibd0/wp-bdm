@@ -178,18 +178,8 @@ if ( ! class_exists( 'Astra_Body_Typo_Configs' ) ) {
 					'control'  => 'ast-font-height',
 					'section'  => $typo_section,
 					'priority' => 25,
-					'default'  => astra_get_option(
-						'body-font-height-settings',
-						array(
-							'line-height'         => astra_get_option( 'body-line-height' ),
-							'line-height-unit'    => 'em',
-							'letter-spacing'      => '',
-							'letter-spacing-unit' => 'px',
-							'text-transform'      => astra_get_option( 'body-text-transform' ),
-							'text-decoration'     => '',
-						) 
-					),
-					'title'    => __( 'Line Height New', 'astra' ),
+					'default'  => astra_get_option( 'body-font-extras' ),
+					'title'    => __( 'Line Height', 'astra' ),
 				),
 
 				/**
@@ -313,18 +303,8 @@ if ( ! class_exists( 'Astra_Body_Typo_Configs' ) ) {
 					'control'  => 'ast-font-height',
 					'section'  => $typo_section,
 					'priority' => 26,
-					'default'  => astra_get_option(
-						'headings-font-height-settings',
-						array(
-							'line-height'         => astra_get_option( 'headings-line-height' ),
-							'line-height-unit'    => 'em',
-							'letter-spacing'      => '',
-							'letter-spacing-unit' => 'px',
-							'text-transform'      => astra_get_option( 'headings-text-transform' ),
-							'text-decoration'     => '',
-						) 
-					),
-					'title'    => __( 'Line Height New', 'astra' ),
+					'default'  => astra_get_option( 'headings-font-height-settings' ),
+					'title'    => __( 'Line Height', 'astra' ),
 				),
 
 				/**

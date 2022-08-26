@@ -104,6 +104,8 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 			 */
 			$apply_new_default_values = astra_button_default_padding_updated();
 
+			$astra_options = self::get_astra_options();
+
 			// Defaults list of options.
 			self::$defaults = apply_filters(
 				'astra_theme_defaults',
@@ -428,6 +430,22 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 						'tablet-unit'  => 'px',
 						'mobile-unit'  => 'px',
 					),
+					'body-font-extras'                  => array(
+						'line-height'         => ! isset( $astra_options['body-font-extras'] ) && isset( $astra_options['body-line-height'] ) ? $astra_options['body-line-height'] : '',
+						'line-height-unit'    => 'em',
+						'letter-spacing'      => '',
+						'letter-spacing-unit' => 'px',
+						'text-transform'      => isset( $astra_options['body-text-transform'] ) ? $astra_options['body-text-transform'] : '',
+						'text-decoration'     => '',
+					),
+					'headings-font-extras' => array(
+						'line-height'         => isset( $astra_options['headings-line-height'] ) ? $astra_options['headings-line-height'] : '',
+						'line-height-unit'    => 'em',
+						'letter-spacing'      => '',
+						'letter-spacing-unit' => 'px',
+						'text-transform'      => isset( $astra_options['headings-text-transform'] ) ? $astra_options['headings-text-transform'] : '',
+						'text-decoration'     => '',
+					),
 					'para-margin-bottom'                   => '',
 					'underline-content-links'              => true,
 					'body-text-transform'                  => '',
@@ -595,12 +613,21 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 		}
 
 		/**
+		 * Get astra-options DB values.
+		 *
+		 * @since x.x.x
+		 */
+		public static function get_astra_options() {
+			return get_option( ASTRA_THEME_SETTINGS );
+		}
+
+		/**
 		 * Get theme options from static array() from database
 		 *
 		 * @return array    Return array of theme options from database.
 		 */
 		public static function get_db_options() {
-			self::$db_options_no_defaults = get_option( ASTRA_THEME_SETTINGS );
+			self::$db_options_no_defaults = self::get_astra_options();
 			return self::$db_options_no_defaults;
 		}
 	}
