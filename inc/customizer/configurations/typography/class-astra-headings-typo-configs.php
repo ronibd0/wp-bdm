@@ -148,6 +148,30 @@ class Astra_Headings_Typo_Configs extends Astra_Customizer_Config_Base {
 			),
 
 			/**
+				 * Option: Heading H1 Font Extras
+				 */
+				array(
+					'name'     => 'heading-h1-font-extras',
+					'type'     => 'sub-control',
+					'parent'   => ASTRA_THEME_SETTINGS . '[ast-heading-h1-typo]',
+					'control'  => 'ast-font-height',
+					'section'  => $section,
+					'priority' => 28,
+					'default'  => astra_get_option(
+						'headings-font-height-settings',
+						array(
+							'line-height'         => astra_get_option( 'line-height-h1' ),
+							'line-height-unit'    => 'em',
+							'letter-spacing'      => '',
+							'letter-spacing-unit' => 'px',
+							'text-transform'      => astra_get_option( 'text-transform-h1' ),
+							'text-decoration'     => '',
+						)
+					),
+				),
+
+
+			/**
 			 * Option: Heading <H2> Font Family
 			 */
 			array(
@@ -258,6 +282,29 @@ class Astra_Headings_Typo_Configs extends Astra_Customizer_Config_Base {
 					'max'  => 5,
 				),
 			),
+
+			/**
+				 * Option: Heading H2 Font Extras
+				 */
+				array(
+					'name'     => 'heading-h2-font-extras',
+					'type'     => 'sub-control',
+					'parent'   => ASTRA_THEME_SETTINGS . '[ast-heading-h2-typo]',
+					'control'  => 'ast-font-height',
+					'section'  => $section,
+					'priority' => 28,
+					'default'  => astra_get_option(
+						'headings-font-height-settings',
+						array(
+							'line-height'         => astra_get_option( 'line-height-h2' ),
+							'line-height-unit'    => 'em',
+							'letter-spacing'      => '',
+							'letter-spacing-unit' => 'px',
+							'text-transform'      => astra_get_option( 'text-transform-h2' ),
+							'text-decoration'     => '',
+						)
+					),
+				),
 
 			/**
 			 * Option: Heading <H3> Font Family
@@ -371,6 +418,29 @@ class Astra_Headings_Typo_Configs extends Astra_Customizer_Config_Base {
 			),
 
 			/**
+				 * Option: Heading H3 Font Extras
+				 */
+				array(
+					'name'     => 'heading-h3-font-extras',
+					'type'     => 'sub-control',
+					'parent'   => ASTRA_THEME_SETTINGS . '[ast-heading-h3-typo]',
+					'control'  => 'ast-font-height',
+					'section'  => $section,
+					'priority' => 28,
+					'default'  => astra_get_option(
+						'headings-font-height-settings',
+						array(
+							'line-height'         => astra_get_option( 'line-height-h3' ),
+							'line-height-unit'    => 'em',
+							'letter-spacing'      => '',
+							'letter-spacing-unit' => 'px',
+							'text-transform'      => astra_get_option( 'text-transform-h3' ),
+							'text-decoration'     => '',
+						)
+					),
+				),
+
+			/**
 			 * Option: Heading <H4> Font Family
 			 */
 			array(
@@ -480,6 +550,29 @@ class Astra_Headings_Typo_Configs extends Astra_Customizer_Config_Base {
 					'max'  => 5,
 				),
 			),
+
+			/**
+				 * Option: Heading H4 Font Extras
+				 */
+				array(
+					'name'     => 'heading-h4-font-extras',
+					'type'     => 'sub-control',
+					'parent'   => ASTRA_THEME_SETTINGS . '[ast-heading-h4-typo]',
+					'control'  => 'ast-font-height',
+					'section'  => $section,
+					'priority' => 28,
+					'default'  => astra_get_option(
+						'headings-font-height-settings',
+						array(
+							'line-height'         => astra_get_option( 'line-height-h4' ),
+							'line-height-unit'    => 'em',
+							'letter-spacing'      => '',
+							'letter-spacing-unit' => 'px',
+							'text-transform'      => astra_get_option( 'text-transform-h4' ),
+							'text-decoration'     => '',
+						)
+					),
+				),
 
 			/**
 			 * Option: Heading <H5> Font Family
@@ -592,6 +685,29 @@ class Astra_Headings_Typo_Configs extends Astra_Customizer_Config_Base {
 			),
 
 			/**
+				 * Option: Heading H5 Font Extras
+				 */
+				array(
+					'name'     => 'heading-h5-font-extras',
+					'type'     => 'sub-control',
+					'parent'   => ASTRA_THEME_SETTINGS . '[ast-heading-h5-typo]',
+					'control'  => 'ast-font-height',
+					'section'  => $section,
+					'priority' => 28,
+					'default'  => astra_get_option(
+						'headings-font-height-settings',
+						array(
+							'line-height'         => astra_get_option( 'line-height-h5' ),
+							'line-height-unit'    => 'em',
+							'letter-spacing'      => '',
+							'letter-spacing-unit' => 'px',
+							'text-transform'      => astra_get_option( 'text-transform-h5' ),
+							'text-decoration'     => '',
+						)
+					),
+				),
+
+			/**
 			 * Option: Heading <H6> Font Family
 			 */
 			array(
@@ -700,6 +816,29 @@ class Astra_Headings_Typo_Configs extends Astra_Customizer_Config_Base {
 					'max'  => 5,
 				),
 			),
+
+			/**
+				 * Option: Heading H6 Font Extras
+				 */
+				array(
+					'name'     => 'heading-h6-font-extras',
+					'type'     => 'sub-control',
+					'parent'   => ASTRA_THEME_SETTINGS . '[ast-heading-h6-typo]',
+					'control'  => 'ast-font-height',
+					'section'  => $section,
+					'priority' => 28,
+					'default'  => astra_get_option(
+						'headings-font-height-settings',
+						array(
+							'line-height'         => astra_get_option( 'line-height-h6' ),
+							'line-height-unit'    => 'em',
+							'letter-spacing'      => '',
+							'letter-spacing-unit' => 'px',
+							'text-transform'      => astra_get_option( 'text-transform-h6' ),
+							'text-decoration'     => '',
+						)
+					),
+				),
 		);
 		return array_merge( $configurations, $_configs );
 	}
