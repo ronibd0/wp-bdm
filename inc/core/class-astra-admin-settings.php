@@ -1153,7 +1153,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 				array(
 					'ultimate-addons-for-gutenberg' =>
 						array(
-							'plugin-name'        => __( 'Spectra – WordPress Gutenberg Blocks', 'astra' ),
+							'plugin-name'        => __( 'Spectra — Free WordPress Page Builder Plugin', 'astra' ),
 							'plugin-init'        => 'ultimate-addons-for-gutenberg/ultimate-addons-for-gutenberg.php',
 							'settings-link'      => admin_url( 'options-general.php?page=' . esc_attr( $spectra_plugin_slug ) ),
 							'settings-link-text' => 'Settings',
