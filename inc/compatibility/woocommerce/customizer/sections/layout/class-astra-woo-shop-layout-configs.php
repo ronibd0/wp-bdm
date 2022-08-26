@@ -40,13 +40,13 @@ if ( ! class_exists( 'Astra_Woo_Shop_Layout_Configs' ) ) {
 						'label' => __( 'Design 1', 'astra' ),
 						'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'shop-grid-view', false ) : '',
 					),
-					'shop-page-list-style'   => array(
-						'label' => __( 'Design 2', 'astra' ),
-						'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'shop-list-view', false ) : '',
-					),
 					'shop-page-modern-style' => array(
-						'label' => __( 'Design 3', 'astra' ),
+						'label' => __( 'Design 2', 'astra' ),
 						'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'shop-modern-view', false ) : '',
+					),
+					'shop-page-list-style'   => array(
+						'label' => __( 'Design 3', 'astra' ),
+						'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'shop-list-view', false ) : '',
 					),
 				);
 			} else {
