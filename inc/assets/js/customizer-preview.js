@@ -62,6 +62,12 @@
                             defaultTarget.wp.customize.control( section_id ).focus();
                         }
                     }
+
+                    if( 'panel' === type ) {
+                        if ( defaultTarget.wp.customize.panel( section_id ) ) {
+                            defaultTarget.wp.customize.panel( section_id ).focus();
+                        }
+                    }
                   
                 }
             }

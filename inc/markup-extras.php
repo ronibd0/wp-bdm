@@ -1315,9 +1315,8 @@ if ( ! function_exists( 'astra_get_footer_widget' ) ) {
 			?>
 			<div class="widget ast-no-widget-row">
 				<h2 class='widget-title'><?php echo esc_html( $sidebar_name ); ?></h2>
-
 				<?php if ( is_customize_preview() ) { ?>
-					<div class="customizer-navigate-on-focus" data-section="sidebar-widgets-astra-woo-product-off-canvas-sidebar" data-type="section">
+					<div class="customizer-navigate-on-focus" data-section="widgets" data-type="panel">
 						<?php Astra_Builder_UI_Controller::render_customizer_edit_button(); ?>
 				<?php } ?>
 						<p class='no-widget-text'>
