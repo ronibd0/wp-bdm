@@ -430,20 +430,20 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 						'tablet-unit'  => 'px',
 						'mobile-unit'  => 'px',
 					),
-					'body-font-extras'                  => array(
+					'body-font-extras'                     => array(
 						'line-height'         => ! isset( $astra_options['body-font-extras'] ) && isset( $astra_options['body-line-height'] ) ? $astra_options['body-line-height'] : '',
 						'line-height-unit'    => 'em',
 						'letter-spacing'      => '',
 						'letter-spacing-unit' => 'px',
-						'text-transform'      => isset( $astra_options['body-text-transform'] ) ? $astra_options['body-text-transform'] : '',
+						'text-transform'      => ! isset( $astra_options['body-font-extras'] ) && isset( $astra_options['body-text-transform'] ) ? $astra_options['body-text-transform'] : '',
 						'text-decoration'     => '',
 					),
-					'headings-font-extras' => array(
-						'line-height'         => isset( $astra_options['headings-line-height'] ) ? $astra_options['headings-line-height'] : '',
+					'headings-font-extras'                 => array(
+						'line-height'         => ! isset( $astra_options['body-font-extras'] ) && isset( $astra_options['headings-line-height'] ) ? $astra_options['headings-line-height'] : '',
 						'line-height-unit'    => 'em',
 						'letter-spacing'      => '',
 						'letter-spacing-unit' => 'px',
-						'text-transform'      => isset( $astra_options['headings-text-transform'] ) ? $astra_options['headings-text-transform'] : '',
+						'text-transform'      => ! isset( $astra_options['body-font-extras'] ) && isset( $astra_options['headings-text-transform'] ) ? $astra_options['headings-text-transform'] : '',
 						'text-decoration'     => '',
 					),
 					'para-margin-bottom'                   => '',
