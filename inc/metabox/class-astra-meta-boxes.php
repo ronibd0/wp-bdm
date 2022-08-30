@@ -73,7 +73,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 				add_action( 'enqueue_block_editor_assets', array( $this, 'load_scripts' ) );
 			}
 
-			add_action('admin_enqueue_scripts', array( $this,'wp_post_metabox'));
+			add_action( 'admin_enqueue_scripts', array( $this, 'wp_post_metabox' ) );
 		}
 
 
@@ -82,11 +82,11 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 		 *
 		 * @return void
 		 */
-		public function wp_post_metabox($hook) {
+		public function wp_post_metabox( $hook ) {
 			// Only add to the post.php admin page.
 			// See WP docs.
-			if ('post.php' === $hook) {
-				wp_enqueue_script('wp-script', get_template_directory_uri(). '/assets/js/unminified/wp-script.js',[], rand(), true);
+			if ( 'post.php' === $hook ) {
+				wp_enqueue_script( 'wp-script', get_template_directory_uri() . '/assets/js/unminified/wp-script.js', array(), ASTRA_THEME_VERSION, true );
 			}
 		}
 		/**
