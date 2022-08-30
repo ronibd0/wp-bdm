@@ -72,8 +72,23 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 			if ( 'widgets.php' !== $pagenow && ! is_customize_preview() ) {
 				add_action( 'enqueue_block_editor_assets', array( $this, 'load_scripts' ) );
 			}
+
+			add_action('admin_enqueue_scripts', array( $this,'wp_post_metabox'));
 		}
 
+
+		/**
+		 * Provede more preference to Astra meta setting
+		 *
+		 * @return void
+		 */
+		public function wp_post_metabox($hook) {
+			// Only add to the post.php admin page.
+			// See WP docs.
+			if ('post.php' === $hook) {
+				wp_enqueue_script('wp-script', get_template_directory_uri(). '/assets/js/unminified/wp-script.js',[], rand(), true);
+			}
+		}
 		/**
 		 * Register Post Meta options support.
 		 *
