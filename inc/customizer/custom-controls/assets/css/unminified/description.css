@@ -1,5 +1,7 @@
 .customize-control-ast-description .ast-description {
   font-style: italic;
+  color: #9CA3AF;
+  font-size: 11px;
 }
 
 .customize-control-ast-description a.button {
@@ -10,4 +12,5 @@
 .customize-control-ast-description p {
   margin: 0;
   cursor: initial;
+  font-size: 11px;
 }
