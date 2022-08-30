@@ -79,12 +79,12 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 
 		/**
 		 * Provede more preference to Astra meta setting
-		 *
+		 * 
+		 * @since 3.9.2
+		 * @param string $hook metasetting name.
 		 * @return void
 		 */
 		public function wp_post_metabox( $hook ) {
-			// Only add to the post.php admin page.
-			// See WP docs.
 			if ( 'post.php' === $hook ) {
 				wp_enqueue_script( 'wp-script', get_template_directory_uri() . '/assets/js/unminified/wp-script.js', array(), ASTRA_THEME_VERSION, true );
 			}
