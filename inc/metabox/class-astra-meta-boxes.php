@@ -76,7 +76,6 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 			add_action( 'admin_enqueue_scripts', array( $this, 'wp_post_metabox' ) );
 		}
 
-
 		/**
 		 * Provede more preference to Astra meta setting
 		 * 
@@ -86,9 +85,10 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 		 */
 		public function wp_post_metabox( $hook ) {
 			if ( 'post.php' === $hook ) {
-				wp_enqueue_script( 'wp-script', get_template_directory_uri() . '/assets/js/unminified/wp-script.js', array(), ASTRA_THEME_VERSION, true );
+				wp_enqueue_script( 'custom-fields-priority', get_template_directory_uri() . '/assets/js/unminified/custom-fields-priority.js', array(), ASTRA_THEME_VERSION, true );
 			}
 		}
+
 		/**
 		 * Register Post Meta options support.
 		 *
@@ -180,9 +180,10 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 						array( $this, 'markup_meta_box' ),      // Callback.
 						$type,                                  // Post_type.
 						'side',                                 // Context.
-						'default',                               // Priority.
+						'low',                                  // Priority.
 						array(
 							'__back_compat_meta_box' => true,
+							'__block_editor_compatible_meta_box' => false,
 						)
 					);
 				}
