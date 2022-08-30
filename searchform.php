@@ -20,6 +20,8 @@ $astra_search_show_input_submit = isset( $args['show_input_submit'] ) ? $args['s
 $astra_search_data_attrs        = isset( $args['data_attributes'] ) ? $args['data_attributes'] : '';
 $astra_search_input_value       = isset( $args['input_value'] ) ? $args['input_value'] : '';
 
+do_action( 'my_ast_custom_hook' );
+
 ?>
 <form role="search" method="get" class="search-form" action="<?php echo esc_url( home_url( '/' ) ); ?>">
 	<label>
