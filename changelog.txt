@@ -7,6 +7,7 @@ v3.9.2 (Unreleased)
 - Improvement: WooCommerce - Shop - Product card alignment option moved from addon to theme.
 - Improvement: WooCommerce Cart - Hide cart total when cart is empty option.
 - Improvement: WooCommerce - Single Product - Moved sticky add to cart from addon to theme.
+- Improvement: WooCommerce - Moved Add to cart qty button to cart from addon to theme.
 - Improvement: WooCommerce - Single Product - Moved structure options from pro to free theme.
 - Fix: WooCommerce - Single Product - Alignment issue with content added by plugin near add to cart section.
 - Fix: Block Editor - 2em Block gap spacing appearing in container blocks.

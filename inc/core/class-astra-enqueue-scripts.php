@@ -192,6 +192,10 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 				if ( class_exists( 'WooCommerce' ) && is_product() && astra_get_option( 'single-product-sticky-add-to-cart' ) ) {
 					$default_assets['js']['astra-sticky-add-to-cart'] = 'sticky-add-to-cart';
 				}
+
+				if ( class_exists( 'WooCommerce' ) && astra_add_to_cart_quantity_btn_enabled() ) {
+					$default_assets['js']['astra-add-to-cart-quantity-btn'] = 'add-to-cart-quantity-btn';
+				}
 			}
 			return apply_filters( 'astra_theme_assets', $default_assets );
 		}
@@ -340,9 +344,14 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 				}
 			}
 
+			$quantity_type = astra_has_pro_woocommerce_addon() ? astra_get_option( 'cart-plus-minus-button-type' ) : 'normal';
+
 			$astra_localize = array(
 				'break_point' => astra_header_break_point(),    // Header Break Point.
 				'isRtl'       => is_rtl(),
+				'plus_qty'    => __( 'Plus Quantity', 'astra' ),
+				'minus_qty'   => __( 'Minus Quantity', 'astra' ),
+				'style_type'  => $quantity_type,    // Quantity button type.
 			);
 
 			wp_localize_script( 'astra-theme-js', 'astra', apply_filters( 'astra_theme_js_localize', $astra_localize ) );

@@ -334,3 +334,21 @@ if ( ! function_exists( 'astra_has_pro_woocommerce_addon' ) ) :
 	}
 
 endif;
+
+
+/**
+ * Checking whether shop page style is selected as modern layout.
+ */
+if ( ! function_exists( 'astra_add_to_cart_quantity_btn_enabled' ) ) :
+
+	/**
+	 * Function to disable the Add to Cart quantity buttons
+	 *
+	 * @return bool true|false.
+	 * @since x.x.x
+	 */
+	function astra_add_to_cart_quantity_btn_enabled() {
+		return apply_filters( 'astra_add_to_cart_quantity_btn_enabled', astra_get_option( 'single-product-plus-minus-button' ) );
+	}
+
+endif;

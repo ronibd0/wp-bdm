@@ -721,6 +721,16 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				);
 			}
 
+			if ( astra_add_to_cart_quantity_btn_enabled() ) {
+				$styles['add-to-cart-quantity-btn'] = array(
+					'src'     => $css_uri . 'add-to-cart-quantity-btn' . $file_prefix . '.css',
+					'deps'    => '',
+					'version' => ASTRA_THEME_VERSION,
+					'media'   => 'all',
+					'has_rtl' => true,
+				);
+			}
+
 			return $styles;
 		}
 
@@ -859,6 +869,10 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 			/* Shop style */
 			$defaults['shop-style'] = isset( $theme_options['woo-shop-style-flag'] ) && $theme_options['woo-shop-style-flag'] ? 'shop-page-grid-style' : 'shop-page-modern-style';
+
+			// Add to cart Plus minus button type.
+			$defaults['single-product-plus-minus-button'] = true;
+			$defaults['cart-plus-minus-button-type']      = 'normal';
 
 			return $defaults;
 		}
@@ -2820,6 +2834,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			require ASTRA_THEME_DIR . 'inc/compatibility/woocommerce/customizer/sections/layout/class-astra-woo-shop-layout-configs.php';
 			require ASTRA_THEME_DIR . 'inc/compatibility/woocommerce/customizer/sections/layout/class-astra-woo-shop-single-layout-configs.php';
 			require ASTRA_THEME_DIR . 'inc/compatibility/woocommerce/customizer/sections/layout/class-astra-woo-shop-cart-layout-configs.php';
+			require ASTRA_THEME_DIR . 'inc/compatibility/woocommerce/customizer/sections/layout/class-astra-woo-shop-misc-layout-configs.php';
 			require ASTRA_THEME_DIR . 'inc/compatibility/woocommerce/customizer/sections/class-astra-woo-store-notice-configs.php';
 			// @codingStandardsIgnoreEnd WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 
