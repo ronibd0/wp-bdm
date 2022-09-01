@@ -1545,6 +1545,43 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 					'font-size'   => '11px',
 					'font-size'   => '0.7rem',
 				);
+
+				$css_desktop_output['.ast-icon-shopping-cart svg']   = array(
+					'height' => '.82em',
+				);
+				$css_desktop_output['.ast-icon-shopping-bag svg']    = array(
+					'height' => '1em',
+					'width'  => '1em',
+				);
+				$css_desktop_output['.ast-icon-shopping-basket svg'] = array(
+					'height' => '1.15em',
+					'width'  => '1.2em',
+				);
+
+				$css_desktop_output['.ast-site-header-cart i.astra-icon:before'] = array(
+					'font-family' => 'Astra',
+				);
+
+				$css_desktop_output['.ast-icon-shopping-cart:before'] = array(
+					'content' => '"\f07a"',
+				);
+
+				$css_desktop_output['.ast-icon-shopping-bag:before'] = array(
+					'content' => '"\f290"',
+				);
+
+				$css_desktop_output['.ast-icon-shopping-basket:before'] = array(
+					'content' => '"\f291"',
+				);
+
+				$css_desktop_output['.ast-site-header-cart.ast-menu-cart-outline .ast-addon-cart-wrap, .ast-site-header-cart.ast-menu-cart-fill .ast-addon-cart-wrap '] = array(
+					'line-height' => '1.8',
+				);
+
+				$css_desktop_output['.ast-site-header-cart.ast-menu-cart-fill i.astra-icon'] = array(
+					' font-size' => '1.1em',
+				);
+
 			} else {
 				$css_desktop_output['.woocommerce ul.product-categories > li ul li'] = array(
 					'position' => 'relative',
@@ -1582,26 +1619,6 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 					);
 					$css_desktop_output['.woocommerce ul.product-categories > li ul li a']      = array(
 						'margin-left' => '15px',
-					);
-
-					$css_desktop_output['.ast-icon-shopping-cart svg']   = array(
-						'height' => '.82em',
-					);
-					$css_desktop_output['.ast-icon-shopping-bag svg']    = array(
-						'height' => '1em',
-						'width'  => '1em',
-					);
-					$css_desktop_output['.ast-icon-shopping-basket svg'] = array(
-						'height' => '1.15em',
-						'width'  => '1.2em',
-					);
-	
-					$css_desktop_output['.ast-site-header-cart.ast-menu-cart-outline .ast-addon-cart-wrap, .ast-site-header-cart.ast-menu-cart-fill .ast-addon-cart-wrap '] = array(
-						'line-height' => '1.8',
-					);
-	
-					$css_desktop_output['.ast-site-header-cart.ast-menu-cart-fill i.astra-icon'] = array(
-						' font-size' => '1.1em',
 					);
 				}
 			}

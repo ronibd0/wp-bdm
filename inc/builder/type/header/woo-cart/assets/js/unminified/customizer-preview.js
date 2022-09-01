@@ -255,6 +255,15 @@
 	} );
 
 	/**
+	 * Cart icon type
+	 */
+	wp.customize( 'astra-settings[woo-header-cart-icon]', function( setting ) {
+		setting.bind( function( icon_type ) {
+			$( document.body ).trigger( 'wc_fragment_refresh' );
+		} );
+	} );
+
+	/**
 	 * Cart icon style
 	 */
 	wp.customize('astra-settings[header-woo-cart-icon-color]', function (setting) {
