@@ -553,6 +553,7 @@
 	right: unset;
 	top: unset;
 	vertical-align: sub;
+	z-index: 10;
 }
 
 #customize-control-astra-color-palettes .astra-color-picker-wrap {
@@ -612,7 +613,6 @@
 	.ast-color-palette-wrapper
 	.ast-color-picker-wrap {
 	margin-top: 12px;
-	position: relative;
 	cursor: pointer;
 }
 
@@ -725,7 +725,7 @@
 
 .ast-color-picker-custom-tooltip {
 	position: absolute;
-    top: 0;
+    top: -30px;
     bottom: 0;
     left: 0;
     right: 0;
@@ -761,7 +761,11 @@
     transform: translate(-50%,-0.5em);
 }
 
-.ast-color-picker-custom-tooltip[data-title]:hover::after{
+.ast-color-picker-custom-tooltip-wrapper {
+	position: relative;
+}
+
+.ast-color-picker-wrap:hover + .ast-color-picker-custom-tooltip-wrapper .ast-color-picker-custom-tooltip[data-title]::after{
 	display: flex;
 	white-space: break-spaces;
 	inline-size: max-content;
@@ -1767,6 +1771,7 @@ input[type="text"].select2-search__field {
 #customize-control-astra-settings-product-sale-percent-value,
 #customize-control-astra-settings-header-account-create-menu-link,
 #customize-control-astra-settings-woo-cart-button-text,
+#customize-control-astra-settings-single-product-recently-viewed-text,
 #customize-control-astra-settings-sticky-header-retina-logo {
     margin-top: 24px;
     padding-top: 24px;
@@ -3915,6 +3920,8 @@ span.customize-control-title.ast-group-section-title {
 }
 
 .ast-dashicons-custom-tooltip {
+	display: none;
+	opacity: 0;
 	position: absolute;
     top: 0;
     bottom: 0;
@@ -3950,6 +3957,11 @@ span.customize-control-title.ast-group-section-title {
     opacity: 0;
     left: 50%;
     transform: translate(-50%,-0.5em);
+}
+
+.dashicons-editor-help[data-title]:hover ~ .ast-dashicons-custom-tooltip {
+	display: block;
+	opacity: 100;
 }
 
 .dashicons-editor-help[data-title]:hover ~ .ast-dashicons-custom-tooltip[data-title]::after{

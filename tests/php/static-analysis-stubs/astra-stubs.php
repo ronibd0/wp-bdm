@@ -1078,8 +1078,11 @@ namespace {
         }
         /**
          * Prepare Edit icon inside customizer.
+         *
+         * @param string $class custom class.
+         * @since x.x.x
          */
-        public static function render_customizer_edit_button()
+        public static function render_customizer_edit_button($class = '')
         {
         }
         /**
@@ -5034,7 +5037,7 @@ namespace {
         public function content_layout($layout)
         {
         }
-        /**
+        /** 
          * LearnDash Static CSS.
          *
          * @since 3.3.0
@@ -5387,6 +5390,15 @@ namespace {
          * Constructor
          */
         public function __construct()
+        {
+        }
+        /**
+         * As WooCommerce-Astra pro options moved to theme, decide here to load from theme's end after x.x.x version.
+         *
+         * @since x.x.x
+         * @return bool true|false.
+         */
+        public static function load_theme_side_woocommerce_strcture()
         {
         }
         /**
@@ -6680,6 +6692,17 @@ namespace {
         {
         }
         /**
+         * Check if Spectra is installed.
+         *
+         * @since x.x.x
+         *
+         * @access public
+         * @return array
+         */
+        public static function astra_get_spectra_plugin_data()
+        {
+        }
+        /**
          * Include Welcome page content
          *
          * @since 1.2.4
@@ -7123,7 +7146,7 @@ namespace {
         public function __construct()
         {
         }
-        /**
+        /** 
          * Comment count wrapper opening div.
          *
          * @param array $args markup arguments.
@@ -7133,7 +7156,7 @@ namespace {
         public function comment_count_wrapper_open($args)
         {
         }
-        /**
+        /** 
          * Comment count wrapper closing div.
          *
          * @param array $args markup arguments.
@@ -7143,7 +7166,7 @@ namespace {
         public function comment_count_wrapper_close($args)
         {
         }
-        /**
+        /** 
          * Comment data wrapper opening div.
          *
          * @param array $args markup arguments.
@@ -7153,7 +7176,7 @@ namespace {
         public function ast_comment_data_wrap_open($args)
         {
         }
-        /**
+        /** 
          * Comment data wrapper closing div.
          *
          * @param array $args markup arguments.
@@ -7163,7 +7186,7 @@ namespace {
         public function ast_comment_data_wrap_close($args)
         {
         }
-        /**
+        /** 
          * Comment meta wrapper opening div.
          *
          * @param array $args markup arguments.
@@ -7173,7 +7196,7 @@ namespace {
         public function ast_comment_meta_wrap_open($args)
         {
         }
-        /**
+        /** 
          * Comment meta wrapper closing div.
          *
          * @param array $args markup arguments.
@@ -7183,7 +7206,7 @@ namespace {
         public function ast_comment_meta_wrap_close($args)
         {
         }
-        /**
+        /** 
          * Comment time div attributes.
          *
          * @since 3.3.0
@@ -7192,7 +7215,7 @@ namespace {
         public function ast_comment_time_attr()
         {
         }
-        /**
+        /** 
          * Comment cite wrapper div attributes.
          *
          * @since 3.3.0
@@ -7237,16 +7260,16 @@ namespace {
         public function ast_grid_col_6()
         {
         }
-        /**
+        /** 
          * Comment form grid classes.
          *
-         * @since 3.3.0
+         * @since 3.3.0 
          * @return string.
          */
         public function comment_form_grid_class()
         {
         }
-        /**
+        /** 
          * Removed grid layout classes and make common class for same style
          *
          * @since 3.3.0
@@ -7255,7 +7278,7 @@ namespace {
         public function ast_grid_lg_12()
         {
         }
-        /**
+        /** 
          * Layout-4 grid css backward comaptibility.
          *
          * @return string.
@@ -7263,7 +7286,7 @@ namespace {
         public function ast_layout_4_grid()
         {
         }
-        /**
+        /** 
          * Layout-2 grid css backward comaptibility.
          *
          * @return string.
@@ -7271,7 +7294,7 @@ namespace {
         public function ast_layout_2_grid()
         {
         }
-        /**
+        /** 
          * Layout-1 grid css backward comaptibility.
          *
          * @return string.
@@ -7279,7 +7302,7 @@ namespace {
         public function ast_layout_1_grid()
         {
         }
-        /**
+        /** 
          * Layout-3 grid css backward comaptibility.
          *
          * @return string.
@@ -7287,7 +7310,7 @@ namespace {
         public function ast_layout_3_grid()
         {
         }
-        /**
+        /** 
          * Layout-5 grid css backward comaptibility.
          *
          * @return string.
@@ -7295,7 +7318,7 @@ namespace {
         public function ast_layout_5_grid()
         {
         }
-        /**
+        /** 
          * Layout-6 grid css backward comaptibility.
          *
          * @return string.
@@ -7305,7 +7328,7 @@ namespace {
         }
         /**
          * Footer widget opening div.
-         *
+         * 
          * @since 3.3.0
          * @param array $args div attributes.
          * @return array.
@@ -7315,7 +7338,7 @@ namespace {
         }
         /**
          * Footer widget closing div.
-         *
+         * 
          * @since 3.3.0
          * @param array $args div attributes.
          * @return array.
@@ -7345,7 +7368,7 @@ namespace {
         }
         /**
          * Footer widget opening div.
-         *
+         * 
          * @since 3.3.0
          * @param array $args div attributes.
          * @return array.
@@ -9912,7 +9935,7 @@ namespace {
          * @var array Notices.
          * @since 1.0.0
          */
-        private static $version = '1.1.11';
+        private static $version = '1.1.9';
         /**
          * Notices
          *
@@ -10994,64 +11017,6 @@ namespace {
          * @since 3.7.8
          */
         public static function post_meta_options()
-        {
-        }
-    }
-    /*!
-     * ISC License
-     *
-     * Copyright (c) 2018-2021, Andrea Giammarchi, @WebReflection
-     *
-     * Permission to use, copy, modify, and/or distribute this software for any
-     * purpose with or without fee is hereby granted, provided that the above
-     * copyright notice and this permission notice appear in all copies.
-     *
-     * THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
-     * REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
-     * AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
-     * INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
-     * LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE
-     * OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
-     * PERFORMANCE OF THIS SOFTWARE.
-     */
-    class FlattedString
-    {
-        public function __construct($value)
-        {
-        }
-    }
-    class Flatted
-    {
-        // public utilities
-        public static function parse($json, $assoc = \false, $depth = 512, $options = 0)
-        {
-        }
-        public static function stringify($value, $options = 0, $depth = 512)
-        {
-        }
-        // private helpers
-        private static function asString($value)
-        {
-        }
-        private static function index(&$known, &$input, &$value)
-        {
-        }
-        private static function keys(&$value)
-        {
-        }
-        private static function loop($obj, $keys, &$input, &$set, &$output)
-        {
-        }
-        private static function relate(&$known, &$input, &$value)
-        {
-        }
-        private static function ref($obj, &$key, &$value, &$input, &$set, &$output)
-        {
-        }
-        private static function transform(&$known, &$input, &$value)
-        {
-        }
-        private static function wrap($value)
         {
         }
     }
@@ -12901,7 +12866,7 @@ namespace {
     }
     /**
      * Load Menu hover style static CSS if any one of the menu hover style is selected.
-     *
+     * 
      * @return string
      * @since 3.5.0
      */
@@ -13264,7 +13229,7 @@ namespace {
      *
      * @return bool true|false.
      */
-    function astra_is_woocommerce_addons()
+    function astra_has_pro_woocommerce_addon()
     {
     }
     /**
@@ -13446,9 +13411,9 @@ namespace {
     /**
      * Parse CSS
      *
-     * @param  array  $css_output Array of CSS.
+     * @param  array $css_output Array of CSS.
      * @param  mixed $min_media  Min Media breakpoint.
-	 * @param  mixed $max_media  Max Media breakpoint.
+     * @param  mixed $max_media  Max Media breakpoint.
      * @return string             Generated CSS.
      */
     function astra_parse_css($css_output = array(), $min_media = '', $max_media = '')
@@ -14696,7 +14661,7 @@ namespace {
     /**
      * Old Header Menu Last Item - Dynamic CSS.
      *
-     * @param string $dynamic_css
+     * @param string $dynamic_css 
      * @since 3.5.0
      */
     function astra_old_header_custom_menu_css($dynamic_css)
@@ -14959,7 +14924,7 @@ namespace {
     /**
      * Check the Astra addon version.
      * For  major update and frequently we used version_compare, added a function for this for easy maintenance.
-     *
+     * 
      * @param string $version Astra addon version.
      * @param string $compare Compare symbols.
      * @since  x.x.x
@@ -16265,15 +16230,6 @@ namespace {
     {
     }
     /**
-     * Apply css for show password icon on woocommerce account page.
-     *
-     * @since x.x.x
-     * @return void
-     */
-    function astra_apply_woocommerce_show_password_icon_css()
-    {
-    }
-    /**
      * Migrate old user data to new responsive format layout for shop's summary box content alignment.
      *
      * @since 3.9.0
@@ -16289,6 +16245,15 @@ namespace {
      * @return void
      */
     function astra_shop_style_design_layout()
+    {
+    }
+    /**
+     * Apply css for show password icon on woocommerce account page.
+     *
+     * @since x.x.x
+     * @return void
+     */
+    function astra_apply_woocommerce_show_password_icon_css()
     {
     }
     /**
