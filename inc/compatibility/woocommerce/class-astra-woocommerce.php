@@ -1598,6 +1598,10 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 					' padding' => '0.2em 0.6em',
 				);
 
+				$css_desktop_output['.ast-hfb-header .ast-addon-cart-wrap .astra-icon'] = array(
+					' line-height' => '1',
+				);
+
 				$css_desktop_output['.ast-header-break-point.ast-header-custom-item-outside .ast-woo-header-cart-info-wrap'] = array(
 					' display' => 'none',
 				);
