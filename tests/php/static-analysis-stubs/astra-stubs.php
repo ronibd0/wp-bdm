@@ -5393,6 +5393,15 @@ namespace {
         {
         }
         /**
+         * As WooCommerce-Astra pro options moved to theme, decide here to load from theme's end after x.x.x version.
+         *
+         * @since x.x.x
+         * @return bool true|false.
+         */
+        public static function load_theme_side_woocommerce_strcture()
+        {
+        }
+        /**
          * Post Class
          *
          * @param array $classes Default argument array.
@@ -13220,7 +13229,7 @@ namespace {
      *
      * @return bool true|false.
      */
-    function astra_is_woocommerce_addons()
+    function astra_has_pro_woocommerce_addon()
     {
     }
     /**
