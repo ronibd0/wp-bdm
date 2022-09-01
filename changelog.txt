@@ -1,5 +1,7 @@
 v3.9.3 (Unreleased)
-- Fix: WooCommerce - Sale badge text alignment issue for design 3 layout ( Modern )
+- Fix: WooCommerce - Shop - Sale badge text is misaligned on the frontend. 
+- Improvement: Customizer - Edit shortcut link assigned to sticky add to cart for easy navigation in respective customizer section.
+- Improvement: WooCommerce - Added product image on cart page for tablet users.
 
 v3.9.2 (Unreleased)
 - Improvement: WooCommerce - Admin bar's customize link updated on WooCommerce pages for quick landing to it's respected customizer section.
