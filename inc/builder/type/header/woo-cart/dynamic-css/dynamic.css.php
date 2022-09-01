@@ -43,6 +43,7 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 
 	$transparent_header_icon_color   = esc_attr( astra_get_option( 'transparent-header-woo-cart-icon-color', $icon_color ) );
 	$transparent_header_cart_h_color = astra_get_foreground_color( $transparent_header_icon_color );
+	$header_woo_cart_list            = astra_get_option( 'woo-header-cart-icon', 'default' );
 
 	if ( 'none' === $header_cart_icon_style ) {
 		$icon_color                    = $theme_color;
@@ -488,10 +489,6 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 			'color' => $icon_hover_color,
 		),
 
-		// Outline icon hover colors.
-		'.ast-site-header-cart .cart-container:hover .count, .ast-site-header-cart .cart-container:hover .count' => array(
-			'color' => esc_attr( $cart_h_color ),
-		),
 
 		$selector . ' .ast-site-header-cart-li:hover .ast-cart-menu-wrap .count:after, ' . $selector . ' .ast-site-header-cart-li:hover .ast-addon-cart-wrap .count' => array(
 			'color'        => $icon_hover_color,
@@ -503,6 +500,26 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 		),
 
 	);
+
+
+	if ( 'default' !== $header_woo_cart_list ) {
+
+		$svg_cart_icon_not_transparent = array(
+			'.ast-site-header-cart .cart-container:hover .count, .ast-site-header-cart .cart-container:hover .count' => array(
+				'color' => esc_attr( $cart_h_color ),
+			),
+		);
+
+		$svg_cart_icon_transparent = array(
+			'.ast-site-header-cart .cart-container:hover .count, .ast-site-header-cart .cart-container:hover .count' => array(
+				'color' => esc_attr( $cart_h_color ),
+			),
+		);
+
+		if ( ! Astra_Ext_Transparent_Header_Markup::is_transparent_header() ) {
+			$css_output .= astra_parse_css( $svg_cart_icon_not_transparent );
+		}   
+	}
 
 	$add_when_transparent_header = array(
 
@@ -517,7 +534,7 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 			'color' => esc_attr( $transparent_header_icon_color ),
 		),
 		$trans_header_selector . ' .ast-addon-cart-wrap i.astra-icon:after' => array(
-			'color'            => esc_attr( $theme_h_color ),
+			'color'            => esc_attr( $transparent_header_cart_h_color ),
 			'background-color' => esc_attr( $transparent_header_icon_color ),
 		),
 
