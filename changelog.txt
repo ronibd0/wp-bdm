@@ -1,4 +1,5 @@
 v3.9.3 (Unreleased)
+- Improvement: Customizer - Edit shortcut link assigned to sticky add to cart for easy navigation in respective customizer section.
 - Improvement: WooCommerce - Added product image on cart page for tablet users.
 
 v3.9.2 (Unreleased)
