@@ -1585,6 +1585,23 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 					' font-size' => '1.1em',
 				);
 
+				$css_desktop_output['.ast-site-header-cart.ast-menu-cart-fill i.astra-icon'] = array(
+					' font-size' => '1.1em',
+				);
+
+
+				$css_desktop_output['li.woocommerce-custom-menu-item .ast-site-header-cart i.astra-icon:after'] = array(
+					' padding-left' => '2px',
+				);
+				
+				$css_desktop_output['.ast-hfb-header .ast-addon-cart-wrap'] = array(
+					' padding' => '0.2em 0.6em',
+				);
+
+				$css_desktop_output['.ast-header-break-point.ast-header-custom-item-outside .ast-woo-header-cart-info-wrap'] = array(
+					' display' => 'none',
+				);
+
 			} else {
 				$css_desktop_output['.woocommerce ul.product-categories > li ul li'] = array(
 					'position' => 'relative',
