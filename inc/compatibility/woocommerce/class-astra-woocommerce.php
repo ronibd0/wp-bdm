@@ -560,7 +560,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 			// Theme's default icon with cart title and cart total.
 			/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-			if ( 'default' === $icon || ! defined( 'ASTRA_EXT_VER' ) || ( defined( 'ASTRA_EXT_VER' ) && ! Astra_Ext_Extension::is_active( 'woocommerce' ) ) ) {
+			if ( 'default' === $icon ) {
 				// Cart Total or Cart Title enable then only add markup.
 				if ( '' !== $cart_label_markup ) {
 					echo $cart_info_markup; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
@@ -1582,6 +1582,26 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 					);
 					$css_desktop_output['.woocommerce ul.product-categories > li ul li a']      = array(
 						'margin-left' => '15px',
+					);
+
+					$css_desktop_output['.ast-icon-shopping-cart svg']   = array(
+						'height' => '.82em',
+					);
+					$css_desktop_output['.ast-icon-shopping-bag svg']    = array(
+						'height' => '1em',
+						'width'  => '1em',
+					);
+					$css_desktop_output['.ast-icon-shopping-basket svg'] = array(
+						'height' => '1.15em',
+						'width'  => '1.2em',
+					);
+	
+					$css_desktop_output['.ast-site-header-cart.ast-menu-cart-outline .ast-addon-cart-wrap, .ast-site-header-cart.ast-menu-cart-fill .ast-addon-cart-wrap '] = array(
+						'line-height' => '1.8',
+					);
+	
+					$css_desktop_output['.ast-site-header-cart.ast-menu-cart-fill i.astra-icon'] = array(
+						' font-size' => '1.1em',
 					);
 				}
 			}
