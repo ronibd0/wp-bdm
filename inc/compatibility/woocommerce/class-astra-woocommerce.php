@@ -860,6 +860,9 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			/* Shop style */
 			$defaults['shop-style'] = isset( $theme_options['woo-shop-style-flag'] ) && $theme_options['woo-shop-style-flag'] ? 'shop-page-grid-style' : 'shop-page-modern-style';
 
+			$defaults['woo-header-cart-product-count-color']   = '';
+			$defaults['woo-header-cart-product-count-h-color'] = '';
+
 			return $defaults;
 		}
 

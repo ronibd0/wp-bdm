@@ -98,9 +98,7 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 				'title'      => __( 'Select Cart Icon', 'astra-addon' ),
 				'choices'    => $cart_icon_choices,
 				'transport'  => 'postMessage',
-				'context'    => array(
-					Astra_Builder_Helper::$general_tab,
-				),
+				'context'    => Astra_Builder_Helper::$general_tab,
 				'responsive' => false,
 				'divider'    => ( true === Astra_Builder_Helper::$is_header_footer_builder_active ) ? array( 'ast_class' => 'ast-top-spacing ast-bottom-section-divider' ) : array( 'ast_class' => 'ast-section-spacing' ),
 			),
@@ -363,6 +361,60 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 				'responsive' => false,
 				'rgba'       => true,
 				'priority'   => 65,
+				'context'    => Astra_Builder_Helper::$design_tab,
+			),
+
+			array(
+				'name'       => ASTRA_THEME_SETTINGS . '[woo-header-cart-product-count-color-group]',
+				'default'    => astra_get_option( 'woo-header-cart-product-count-color-group' ),
+				'type'       => 'control',
+				'control'    => 'ast-color-group',
+				'title'      => __( 'Count Color', 'astra' ),
+				'section'    => $_section,
+				'transport'  => 'postMessage',
+				'priority'   => 45,
+				'context'    => array(
+					Astra_Builder_Helper::$design_tab_config,
+					array(
+						'setting'  => ASTRA_THEME_SETTINGS . '[woo-header-cart-icon-style]',
+						'operator' => '!=',
+						'value'    => 'none',
+					),
+				),
+				'responsive' => false,
+				'divider'    => array( 'ast_class' => 'ast-bottom-dotted-divider' ),
+			),
+
+			array(
+				'type'       => 'sub-control',
+				'parent'     => ASTRA_THEME_SETTINGS . '[woo-header-cart-product-count-color-group]',
+				'section'    => $_section,
+				'control'    => 'ast-responsive-color',
+				'transport'  => 'postMessage',
+				'name'       => 'woo-header-cart-product-count-color',
+				'default'    => astra_get_option( 'woo-header-cart-product-count-color' ),
+				'title'      => __( 'Normal', 'astra' ),
+				'responsive' => false,
+				'rgba'       => true,
+				'priority'   => 45,
+				'context'    => Astra_Builder_Helper::$design_tab,
+			),
+
+			/**
+			 * Option: Icon Hover Color section
+			 */
+			array(
+				'type'       => 'sub-control',
+				'control'    => 'ast-responsive-color',
+				'parent'     => ASTRA_THEME_SETTINGS . '[woo-header-cart-product-count-color-group]',
+				'section'    => $_section,
+				'transport'  => 'postMessage',
+				'name'       => 'woo-header-cart-product-count-h-color',
+				'default'    => astra_get_option( 'woo-header-cart-product-count-h-color' ),
+				'title'      => __( 'Hover', 'astra' ),
+				'responsive' => false,
+				'rgba'       => true,
+				'priority'   => 45,
 				'context'    => Astra_Builder_Helper::$design_tab,
 			),
 
