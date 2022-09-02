@@ -721,18 +721,6 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				);
 			}
 
-			$single_product_payment_array = astra_get_option( 'single-product-structure' );
-		
-			if ( is_array( $single_product_payment_array ) && ! empty( $single_product_payment_array ) && in_array( 'single-product-payments', $single_product_payment_array ) ) {
-				$styles['product-payment'] = array(
-					'src'     => $css_uri . 'product-payment' . $file_prefix . '.css',
-					'deps'    => '',
-					'version' => ASTRA_THEME_VERSION,
-					'media'   => 'all',
-					'has_rtl' => true,
-				);
-			}
-
 			return $styles;
 		}
 
@@ -2542,6 +2530,60 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				$css_output .= astra_parse_css( $css_output_woo_variation_layout );
 			}
 
+			// Single product payment.
+			$single_product_payment_array = astra_get_option( 'single-product-structure' );
+			if ( is_product() && is_array( $single_product_payment_array ) && ! empty( $single_product_payment_array ) && in_array( 'single-product-payments', $single_product_payment_array ) ) {
+				$single_product_payment_css = '';
+
+				$single_product_payment_css .= '
+					.ast-single-product-payments {
+						margin-bottom: 1em;
+						display: inline-block;
+						margin-top: 0;
+						padding: 13px 20px 18px;
+						border: 1px solid var(--ast-border-color);
+						border-radius: 0.25rem;
+						width: 100%;
+					}
+
+					.ast-single-product-payments.ast-text-color-version svg {
+						fill: var(--ast-global-color-3);
+					}
+
+					.ast-single-product-payments legend {
+						padding: 0 8px;
+						margin-bottom: 0;
+						font-size: 1em;
+						font-weight: 600;
+						text-align: center;
+						color: var(--ast-global-color-3);
+					}
+
+					.ast-single-product-payments ul {
+						display: flex;
+						flex-wrap: wrap;
+						margin: 0;
+						padding: 0;
+						list-style: none;
+						justify-content: center;
+					}
+
+					.ast-single-product-payments ul li {
+						display: flex;
+						margin: 0 0.5em 0.5em 0.5em;
+					}
+
+					.ast-single-product-payments ul li svg {
+						height: 30px;
+						width: auto;
+					}
+			   
+				';
+
+				$css_output .= $single_product_payment_css;
+
+			}
+
 			// Enable Show Password Icon on Login Form on Woocommerce Account Page.
 			if ( is_account_page() && ! is_user_logged_in() && astra_load_woocommerce_login_form_password_icon() ) {
 				$ltr_left  = $is_site_rtl ? esc_attr( 'right' ) : esc_attr( 'left' );
@@ -3130,7 +3172,6 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		 * @since  x.x.x
 		 * @return void
 		 */
-
 		public function woocommerce_product_single_payments() {
 			$section_title    = astra_get_option( 'single-product-payment-text' );
 			$if_color_version = astra_get_option( 'single-product-payment-icon-color' );

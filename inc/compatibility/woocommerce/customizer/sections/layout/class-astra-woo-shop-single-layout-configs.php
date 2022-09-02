@@ -389,7 +389,9 @@ if ( ! class_exists( 'Astra_Woo_Shop_Single_Layout_Configs' ) ) {
 					),
 				),
 
-				// Option: Link Color.
+				/**
+				 * Option: Link Color.
+				 */
 				array(
 					'type'     => 'sub-control',
 					'priority' => 76,
@@ -402,7 +404,9 @@ if ( ! class_exists( 'Astra_Woo_Shop_Single_Layout_Configs' ) ) {
 					'tab'      => __( 'Normal', 'astra' ),
 				),
 
-				// Option: Link Hover Color.
+				/**
+				 * Option: Link Hover Color.
+				 */
 				array(
 					'type'              => 'sub-control',
 					'priority'          => 82,
@@ -439,7 +443,9 @@ if ( ! class_exists( 'Astra_Woo_Shop_Single_Layout_Configs' ) ) {
 					),
 				),
 
-				// Option: Link Color.
+				/**
+				 * Option: Link Color.
+				 */
 				array(
 					'type'     => 'sub-control',
 					'priority' => 82,
@@ -452,7 +458,9 @@ if ( ! class_exists( 'Astra_Woo_Shop_Single_Layout_Configs' ) ) {
 					'tab'      => __( 'Normal', 'astra' ),
 				),
 
-				// Option: Link Hover Color.
+				/**
+				 * Option: Link Hover Color.
+				 */
 				array(
 					'type'              => 'sub-control',
 					'priority'          => 82,
@@ -525,7 +533,7 @@ if ( ! class_exists( 'Astra_Woo_Shop_Single_Layout_Configs' ) ) {
 				/**
 				 * Single product payment sub control MasterCard.
 				 */
-				$_configs[] = array(
+				array(
 					'name'      => 'single-product-payment-mastercard',
 					'parent'    => ASTRA_THEME_SETTINGS . '[single-product-structure]',
 					'default'   => astra_get_option( 'single-product-payment-mastercard' ),
