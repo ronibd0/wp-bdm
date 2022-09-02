@@ -350,12 +350,17 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 			$astra_localize = array(
 				'break_point' => astra_header_break_point(),    // Header Break Point.
 				'isRtl'       => is_rtl(),
-				'plus_qty'    => __( 'Plus Quantity', 'astra' ),
-				'minus_qty'   => __( 'Minus Quantity', 'astra' ),
-				'style_type'  => $quantity_type,    // Quantity button type.
 			);
 
 			wp_localize_script( 'astra-theme-js', 'astra', apply_filters( 'astra_theme_js_localize', $astra_localize ) );
+
+			$astra_qty_btn_localize = array(
+				'plus_qty'   => __( 'Plus Quantity', 'astra' ),
+				'minus_qty'  => __( 'Minus Quantity', 'astra' ),
+				'style_type' => $quantity_type,    // Quantity button type.
+			);
+
+			wp_localize_script( 'astra-add-to-cart-quantity-btn', 'astra_qty_btn', apply_filters( 'astra_qty_btn_js_localize', $astra_qty_btn_localize ) );
 
 			$astra_cart_localize_data = array(
 				'desktop_layout' => astra_get_option( 'woo-header-cart-click-action' ),    // WooCommerce sidebar flyout desktop.

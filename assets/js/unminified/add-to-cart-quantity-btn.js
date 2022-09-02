@@ -42,26 +42,26 @@ function astrawpWooQuantityButtons( $quantitySelector ) {
             // Add plus and minus icons.
             $qty_parent = $quantityBoxes.parentElement;
             $qty_parent.classList.add( 'buttons_added' );
-            switch ( astra.style_type ) {
+            switch (  astra_qty_btn.style_type ) {
 
 				case 'no-internal-border':
 						$quantityBoxes.classList.add( 'ast-no-internal-border' );
-						$qty_parent.insertAdjacentHTML( 'afterbegin', '<label class="screen-reader-text" for="minus_qty">' + astra.minus_qty + '</label><a href="javascript:void(0)" id ="minus_qty" class="minus no-internal-border">-</a>' );
-						$qty_parent.insertAdjacentHTML( 'beforeend', '<label class="screen-reader-text" for="plus_qty"> '+ astra.plus_qty + '</label><a href="javascript:void(0)" id ="plus_qty" class="plus no-internal-border">+</a> ' );
+						$qty_parent.insertAdjacentHTML( 'afterbegin', '<label class="screen-reader-text" for="minus_qty">' +  astra_qty_btn.minus_qty + '</label><a href="javascript:void(0)" id ="minus_qty" class="minus no-internal-border">-</a>' );
+						$qty_parent.insertAdjacentHTML( 'beforeend', '<label class="screen-reader-text" for="plus_qty"> '+  astra_qty_btn.plus_qty + '</label><a href="javascript:void(0)" id ="plus_qty" class="plus no-internal-border">+</a> ' );
 					break;
 
 				case 'vertical-icon':
 						$qty_parent.classList.add( 'ast-vertical-style-applied' );
 						$quantityBoxes.classList.add( 'vertical-icons-applied' );
 						$qty_parent.insertAdjacentHTML( 'beforeend',
-							'<label class="screen-reader-text" for="plus_qty"> '+ astra.plus_qty + '</label><a href="javascript:void(0)" id ="plus_qty" class="plus ast-vertical-icon">+</a>'+
-							'<label class="screen-reader-text" for="minus_qty">' + astra.minus_qty + '</label><a  href="javascript:void(0)" id ="minus_qty" class="minus ast-vertical-icon">-</a>'
+							'<label class="screen-reader-text" for="plus_qty"> '+  astra_qty_btn.plus_qty + '</label><a href="javascript:void(0)" id ="plus_qty" class="plus ast-vertical-icon">+</a>'+
+							'<label class="screen-reader-text" for="minus_qty">' +  astra_qty_btn.minus_qty + '</label><a  href="javascript:void(0)" id ="minus_qty" class="minus ast-vertical-icon">-</a>'
 						);
 					break;
 
 				default:
-						$qty_parent.insertAdjacentHTML( 'afterbegin', '<label class="screen-reader-text" for="minus_qty">' + astra.minus_qty + '</label><a href="javascript:void(0)" id ="minus_qty" class="minus">-</a>' );
-						$qty_parent.insertAdjacentHTML( 'beforeend', '<label class="screen-reader-text" for="plus_qty"> '+ astra.plus_qty + '</label><a href="javascript:void(0)" id ="plus_qty" class="plus">+</a>' );
+						$qty_parent.insertAdjacentHTML( 'afterbegin', '<label class="screen-reader-text" for="minus_qty">' +  astra_qty_btn.minus_qty + '</label><a href="javascript:void(0)" id ="minus_qty" class="minus">-</a>' );
+						$qty_parent.insertAdjacentHTML( 'beforeend', '<label class="screen-reader-text" for="plus_qty"> '+  astra_qty_btn.plus_qty + '</label><a href="javascript:void(0)" id ="plus_qty" class="plus">+</a>' );
 					break;
 			}
             $quantityEach = document.querySelectorAll( 'input' + $quantitySelector + ':not(.product-quantity)' );
