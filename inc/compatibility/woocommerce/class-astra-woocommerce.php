@@ -3311,7 +3311,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 								/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 								do_action( 'astra_woo_single_product_payments_before' );
-								self::get_instance()->woocommerce_product_single_payments();
+								$this->woocommerce_product_single_payments();
 								do_action( 'astra_woo_single_product_payments_after' );
 							
 							break;
