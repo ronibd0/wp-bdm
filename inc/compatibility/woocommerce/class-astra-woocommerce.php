@@ -721,16 +721,6 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				);
 			}
 
-			if ( astra_add_to_cart_quantity_btn_enabled() ) {
-				$styles['add-to-cart-quantity-btn'] = array(
-					'src'     => $css_uri . 'add-to-cart-quantity-btn' . $file_prefix . '.css',
-					'deps'    => '',
-					'version' => ASTRA_THEME_VERSION,
-					'media'   => 'all',
-					'has_rtl' => true,
-				);
-			}
-
 			return $styles;
 		}
 
@@ -871,7 +861,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			$defaults['shop-style'] = isset( $theme_options['woo-shop-style-flag'] ) && $theme_options['woo-shop-style-flag'] ? 'shop-page-grid-style' : 'shop-page-modern-style';
 
 			// Add to cart Plus minus button type.
-			$defaults['single-product-plus-minus-button'] = true;
+			$defaults['single-product-plus-minus-button'] = false;
 			$defaults['cart-plus-minus-button-type']      = 'normal';
 
 			return $defaults;
@@ -2343,6 +2333,66 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 				$css_output .= astra_parse_css( $sticky_add_to_cart_p );
 				$css_output .= astra_parse_css( $sticky_add_to_cart );
+			}
+
+			// Add to cart quantity button.
+			if ( astra_add_to_cart_quantity_btn_enabled() ) {
+				$add_to_cart_quantity_btn_css = '';
+
+				$add_to_cart_quantity_btn_css .= '
+					.woocommerce .quantity.buttons_added {
+						display: inline-flex;
+					}
+					
+					.woocommerce .quantity.buttons_added + .button.single_add_to_cart_button {
+						margin-' . $ltr_left . ': unset;
+					}
+					
+					.woocommerce .quantity .qty {
+						width: 2.631em;
+						margin-' . $ltr_left . ': 38px;
+					}
+					
+					.woocommerce .quantity .minus,
+					.woocommerce .quantity .plus {
+						width: 38px;
+						display: flex;
+						justify-content: center;
+						background-color: transparent;
+						border: 1px solid var(--ast-border-color);
+						color: var(--ast-global-color-3);
+						align-items: center;
+						outline: 0;
+						font-weight: 400;
+					}
+					
+					.woocommerce .quantity .minus {
+						border-' . $ltr_right . '-width: 0;
+						margin-' . $ltr_right . ': -38px;
+					}
+					
+					.woocommerce .quantity .plus {
+						border-' . $ltr_left . '-width: 0;
+						margin-' . $ltr_right . ': 6px;
+					}
+					
+					.woocommerce input[type=number] {
+						max-width: 58px;
+						min-height: 36px;
+					}
+					
+					.woocommerce input[type=number].qty::-webkit-inner-spin-button, .woocommerce input[type=number].qty::-webkit-outer-spin-button {
+						-webkit-appearance: none;
+					}
+					
+					.woocommerce input[type=number].qty {
+						-webkit-appearance: none;
+						-moz-appearance: textfield;
+					}
+				  
+				';
+
+				$css_output .= $add_to_cart_quantity_btn_css;
 			}
 
 			// Modern archive layout.
