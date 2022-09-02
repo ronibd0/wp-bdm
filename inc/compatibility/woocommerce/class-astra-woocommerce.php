@@ -1555,18 +1555,6 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 					'font-size'   => '0.7rem',
 				);
 
-				$css_desktop_output['.ast-icon-shopping-cart svg']   = array(
-					'height' => '.82em',
-				);
-				$css_desktop_output['.ast-icon-shopping-bag svg']    = array(
-					'height' => '1em',
-					'width'  => '1em',
-				);
-				$css_desktop_output['.ast-icon-shopping-basket svg'] = array(
-					'height' => '1.15em',
-					'width'  => '1.2em',
-				);
-
 				$css_desktop_output['.ast-site-header-cart i.astra-icon:before'] = array(
 					'font-family' => 'Astra',
 				);
@@ -1581,39 +1569,6 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 				$css_desktop_output['.ast-icon-shopping-basket:before'] = array(
 					'content' => '"\f291"',
-				);
-
-				$css_desktop_output['.ast-site-header-cart.ast-menu-cart-outline .ast-addon-cart-wrap, .ast-site-header-cart.ast-menu-cart-fill .ast-addon-cart-wrap '] = array(
-					'line-height' => '1.8',
-				);
-
-				$css_desktop_output['.ast-site-header-cart.ast-menu-cart-fill i.astra-icon'] = array(
-					' font-size' => '1.1em',
-				);
-
-				$css_desktop_output['.ast-site-header-cart.ast-menu-cart-fill i.astra-icon'] = array(
-					' font-size' => '1.1em',
-				);
-
-
-				$css_desktop_output['li.woocommerce-custom-menu-item .ast-site-header-cart i.astra-icon:after'] = array(
-					' padding-left' => '2px',
-				);
-				
-				$css_desktop_output['.ast-hfb-header .ast-addon-cart-wrap'] = array(
-					' padding' => '0.2em 0.6em',
-				);
-
-				$css_desktop_output['.ast-hfb-header .ast-addon-cart-wrap .astra-icon'] = array(
-					' line-height' => '1',
-				);
-
-				$css_desktop_output['.ast-header-break-point.ast-header-custom-item-outside .ast-woo-header-cart-info-wrap'] = array(
-					' display' => 'none',
-				);
-
-				$css_desktop_output['.ast-site-header-cart i.astra-icon:after'] = array(
-					' background' => $header_cart_count_color,
 				);
 
 			} else {
@@ -1656,6 +1611,51 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 					);
 				}
 			}
+
+			$css_desktop_output['.ast-icon-shopping-cart svg']   = array(
+				'height' => '.82em',
+			);
+			$css_desktop_output['.ast-icon-shopping-bag svg']    = array(
+				'height' => '1em',
+				'width'  => '1em',
+			);
+			$css_desktop_output['.ast-icon-shopping-basket svg'] = array(
+				'height' => '1.15em',
+				'width'  => '1.2em',
+			);
+
+			$css_desktop_output['.ast-site-header-cart.ast-menu-cart-outline .ast-addon-cart-wrap, .ast-site-header-cart.ast-menu-cart-fill .ast-addon-cart-wrap '] = array(
+				'line-height' => '1.8',
+			);
+
+			$css_desktop_output['.ast-site-header-cart.ast-menu-cart-fill i.astra-icon'] = array(
+				' font-size' => '1.1em',
+			);
+
+			$css_desktop_output['.ast-site-header-cart.ast-menu-cart-fill i.astra-icon'] = array(
+				' font-size' => '1.1em',
+			);
+
+			$css_desktop_output['li.woocommerce-custom-menu-item .ast-site-header-cart i.astra-icon:after'] = array(
+				' padding-left' => '2px',
+			);
+			
+			$css_desktop_output['.ast-hfb-header .ast-addon-cart-wrap'] = array(
+				' padding' => '0.2em 0.6em',
+			);
+
+			$css_desktop_output['.ast-hfb-header .ast-addon-cart-wrap .astra-icon'] = array(
+				' line-height' => '1',
+			);
+
+			$css_desktop_output['.ast-header-break-point.ast-header-custom-item-outside .ast-woo-header-cart-info-wrap'] = array(
+				' display' => 'none',
+			);
+
+			$css_desktop_output['.ast-site-header-cart i.astra-icon:after'] = array(
+				' background' => $header_cart_count_color,
+			);
+
 
 			if ( is_account_page() && false === astra_get_option( 'modern-woo-account-view', false ) ) {
 				$css_output .= '

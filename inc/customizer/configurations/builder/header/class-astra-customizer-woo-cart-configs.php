@@ -95,7 +95,7 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 				'control'    => 'ast-selector',
 				'section'    => $_section,
 				'priority'   => 3,
-				'title'      => __( 'Select Cart Icon', 'astra-addon' ),
+				'title'      => __( 'Select Cart Icon', 'astra' ),
 				'choices'    => $cart_icon_choices,
 				'transport'  => 'postMessage',
 				'context'    => Astra_Builder_Helper::$general_tab,
