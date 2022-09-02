@@ -860,6 +860,17 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			/* Shop style */
 			$defaults['shop-style'] = isset( $theme_options['woo-shop-style-flag'] ) && $theme_options['woo-shop-style-flag'] ? 'shop-page-grid-style' : 'shop-page-modern-style';
 
+
+			// Single Product Payments.
+			$defaults['single-product-payment-icon-color'] = 'inherit';
+			$defaults['single-product-payment-text']       = __( 'Guaranteed Safe Checkout', 'astra' );
+			$defaults['single-product-payment-visa']       = true;
+			$defaults['single-product-payment-mastercard'] = true;
+			$defaults['single-product-payment-amex']       = true;
+			$defaults['single-product-payment-discover']   = true;
+			$defaults['single-product-payment-paypal']     = false;
+			$defaults['single-product-payment-apple-pay']  = false;
+
 			return $defaults;
 		}
 
@@ -2519,6 +2530,60 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				$css_output .= astra_parse_css( $css_output_woo_variation_layout );
 			}
 
+			// Single product payment.
+			$single_product_payment_array = astra_get_option( 'single-product-structure' );
+			if ( is_product() && is_array( $single_product_payment_array ) && ! empty( $single_product_payment_array ) && in_array( 'single-product-payments', $single_product_payment_array ) ) {
+				$single_product_payment_css = '';
+
+				$single_product_payment_css .= '
+					.ast-single-product-payments {
+						margin-bottom: 1em;
+						display: inline-block;
+						margin-top: 0;
+						padding: 13px 20px 18px;
+						border: 1px solid var(--ast-border-color);
+						border-radius: 0.25rem;
+						width: 100%;
+					}
+
+					.ast-single-product-payments.ast-text-color-version svg {
+						fill: var(--ast-global-color-3);
+					}
+
+					.ast-single-product-payments legend {
+						padding: 0 8px;
+						margin-bottom: 0;
+						font-size: 1em;
+						font-weight: 600;
+						text-align: center;
+						color: var(--ast-global-color-3);
+					}
+
+					.ast-single-product-payments ul {
+						display: flex;
+						flex-wrap: wrap;
+						margin: 0;
+						padding: 0;
+						list-style: none;
+						justify-content: center;
+					}
+
+					.ast-single-product-payments ul li {
+						display: flex;
+						margin: 0 0.5em 0.5em 0.5em;
+					}
+
+					.ast-single-product-payments ul li svg {
+						height: 30px;
+						width: auto;
+					}
+			   
+				';
+
+				$css_output .= $single_product_payment_css;
+
+			}
+
 			// Enable Show Password Icon on Login Form on Woocommerce Account Page.
 			if ( is_account_page() && ! is_user_logged_in() && astra_load_woocommerce_login_form_password_icon() ) {
 				$ltr_left  = $is_site_rtl ? esc_attr( 'right' ) : esc_attr( 'left' );
@@ -3102,6 +3167,80 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		}
 
 		/**
+		 * Single Product Payments.
+		 *
+		 * @since  x.x.x
+		 * @return void
+		 */
+		public function woocommerce_product_single_payments() {
+			$section_title    = astra_get_option( 'single-product-payment-text' );
+			$if_color_version = astra_get_option( 'single-product-payment-icon-color' );
+			$visa_icon        = Astra_Builder_UI_Controller::fetch_svg_icon( 'visa', false );
+			$visa_gray        = Astra_Builder_UI_Controller::fetch_svg_icon( 'visa_gray', false );
+			$mastercard_icon  = Astra_Builder_UI_Controller::fetch_svg_icon( 'mastercard', false );
+			$mastercard_gray  = Astra_Builder_UI_Controller::fetch_svg_icon( 'mastercard_gray', false );
+			$amex_icon        = Astra_Builder_UI_Controller::fetch_svg_icon( 'amex', false );
+			$amex_gray        = Astra_Builder_UI_Controller::fetch_svg_icon( 'amex_gray', false );
+			$discover_icon    = Astra_Builder_UI_Controller::fetch_svg_icon( 'discover', false );
+			$discover_gray    = Astra_Builder_UI_Controller::fetch_svg_icon( 'discover_gray', false );
+			$paypal_icon      = Astra_Builder_UI_Controller::fetch_svg_icon( 'paypal', false );
+			$paypal_gray      = Astra_Builder_UI_Controller::fetch_svg_icon( 'paypal_gray', false );
+			$applepay_icon    = Astra_Builder_UI_Controller::fetch_svg_icon( 'applepay', false );
+			$applepay_gray    = Astra_Builder_UI_Controller::fetch_svg_icon( 'applepay_gray', false );
+
+			if ( 'inherit_text_color' === $if_color_version ) {
+				$visa_icon       = $visa_gray;
+				$mastercard_icon = $mastercard_gray;
+				$amex_icon       = $amex_gray;
+				$discover_icon   = $discover_gray;
+				$paypal_icon     = $paypal_gray;
+				$applepay_icon   = $applepay_gray;
+			}
+
+			ob_start();
+			?>
+			<?php $if_color_version = 'inherit_text_color' === $if_color_version ? 'ast-text-color-version' : 'ast-inherit-color-version'; ?>
+			<fieldset class="ast-single-product-payments <?php echo esc_attr( $if_color_version ); ?>">
+				<legend><?php echo esc_html( $section_title ); ?></legend>
+				<ul>
+					<?php if ( astra_get_option( 'single-product-payment-visa' ) ) { ?>
+						<li class="ast-payment-visa">
+							<?php echo $visa_icon;  // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+						</li>
+					<?php } ?>
+					<?php if ( astra_get_option( 'single-product-payment-mastercard' ) ) { ?>
+						<li class="ast-payment-mastercard">
+							<?php echo $mastercard_icon; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+						</li>
+					<?php } ?>
+					<?php if ( astra_get_option( 'single-product-payment-amex' ) ) { ?>
+						<li class="ast-payment-amex">
+							<?php echo $amex_icon; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+						</li>
+					<?php } ?>
+					<?php if ( astra_get_option( 'single-product-payment-discover' ) ) { ?>
+						<li class="ast-payment-discover">
+							<?php echo $discover_icon; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+						</li>
+					<?php } ?>
+					<?php if ( astra_get_option( 'single-product-payment-paypal' ) ) { ?>
+						<li class="ast-payment-paypal">
+							<?php echo $paypal_icon; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+						</li>
+					<?php } ?>
+					<?php if ( astra_get_option( 'single-product-payment-apple-pay' ) ) { ?>
+						<li class="ast-payment-apple-pay">
+							<?php echo $applepay_icon; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+						</li>
+					<?php } ?>
+				</ul>
+			</fieldset>
+
+			<?php
+			echo ob_get_clean(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		}
+
+		/**
 		 * Show the product title in the product loop. By default this is an H2.
 		 *
 		 * @param string $product_type product type.
@@ -3169,12 +3308,12 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 							break;
 						case 'single-product-payments':
 							/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-							if ( $astra_addons_condition && is_callable( array( ASTRA_Ext_WooCommerce_Markup::get_instance(), 'woocommerce_product_single_payments' ) ) ) {
+
 								/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 								do_action( 'astra_woo_single_product_payments_before' );
-								ASTRA_Ext_WooCommerce_Markup::get_instance()->woocommerce_product_single_payments();
+								$this->woocommerce_product_single_payments();
 								do_action( 'astra_woo_single_product_payments_after' );
-							}
+							
 							break;
 						case 'meta':
 							do_action( 'astra_woo_single_category_before' );
