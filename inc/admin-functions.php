@@ -84,15 +84,21 @@ if ( ! function_exists( 'astra_register_menu_locations' ) ) {
 
 add_action( 'init', 'astra_register_menu_locations' );
 
-add_action('admin_head', 'archive_meta_hide');
+add_action( 'admin_head', 'archive_meta_disable' );
 
-function archive_meta_hide() {
-	$page_for_posts_ID = get_option( 'page_for_posts');
-	if (get_the_ID() == $page_for_posts_ID){
-  echo '<style type="text/css">
+/**
+ * Page meta option is hide from archive pages. 
+ *
+ * @SInCE x.x.x
+ * @return void
+ */
+function archive_meta_disable() {
+	$page_for_posts_ID = get_option( 'page_for_posts' );
+	if ( get_the_ID() == $page_for_posts_ID ) {
+		echo '<style type="text/css">
      #astra_settings_meta_box .components-panel__body:nth-child(1), #astra_settings_meta_box .components-panel__body:nth-child(2){
 	display:none !important;
 	} 
   </style>';
-}
+	}
 }
