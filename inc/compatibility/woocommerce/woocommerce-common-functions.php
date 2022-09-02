@@ -334,3 +334,25 @@ if ( ! function_exists( 'astra_has_pro_woocommerce_addon' ) ) :
 	}
 
 endif;
+
+
+/**
+ * Support cart color setting to default cart icon, till now with other cart icons have this color compatibility but default one don't have this.
+ * This case is only for old header layout.
+ */
+if ( ! function_exists( 'astra_cart_color_default_icon_old_header' ) ) :
+
+	/**
+	 * Support cart color setting to default cart icon, till now with other cart icons have this color compatibility but default one don't have this.
+	 * This case is only for old header layout.
+	 *
+	 * @since x.x.x
+	 * @return boolean false if it is an existing user, true if not.
+	 */
+	function astra_cart_color_default_icon_old_header() {
+		$astra_settings = get_option( ASTRA_THEME_SETTINGS );
+		$astra_settings['can-reflect-cart-color-in-old-header'] = isset( $astra_settings['can-reflect-cart-color-in-old-header'] ) ? false : true;
+		return apply_filters( 'astra_support_default_cart_color_in_old_header', $astra_settings['can-reflect-cart-color-in-old-header'] ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
+	}
+
+endif;
