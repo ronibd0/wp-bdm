@@ -2336,6 +2336,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			}
 
 			// Add to cart quantity button.
+			/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			if ( astra_add_to_cart_quantity_btn_enabled() ) {
 				$add_to_cart_quantity_btn_css = '';
 

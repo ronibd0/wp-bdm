@@ -193,6 +193,7 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 					$default_assets['js']['astra-sticky-add-to-cart'] = 'sticky-add-to-cart';
 				}
 
+				/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 				if ( class_exists( 'WooCommerce' ) && astra_add_to_cart_quantity_btn_enabled() ) {
 					$default_assets['js']['astra-add-to-cart-quantity-btn'] = 'add-to-cart-quantity-btn';
 				}
