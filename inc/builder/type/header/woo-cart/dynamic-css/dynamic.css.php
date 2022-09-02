@@ -74,6 +74,8 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 	$checkout_button_bg_h_color   = astra_get_option( 'header-woo-checkout-btn-bg-hover-color' );
 	$cart_total_label_position    = astra_get_option( 'woo-header-cart-icon-total-label-position' );
 	$cart_badge_display           = astra_get_option( 'woo-header-cart-badge-display' );
+	
+	$check_transparent_is_enabled_on = astra_get_option( 'transparent-header-on-devices' );
 
 	$header_cart_icon = '';
 
@@ -535,13 +537,11 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 		),
 	);
 
-	$check_sticky_is_enabled_on = astra_get_option( 'transparent-header-on-devices' );
-
-	if ( $check_sticky_is_enabled_on && 'desktop' !== $check_sticky_is_enabled_on && 'both' !== $check_sticky_is_enabled_on ) {
+	if ( $check_transparent_is_enabled_on && 'desktop' !== $check_transparent_is_enabled_on && 'both' !== $check_transparent_is_enabled_on ) {
 		$css_output .= astra_parse_css( $remove_when_tp_header, astra_get_tablet_breakpoint( '', 1 ), '' );
 	}
 
-	if ( $check_sticky_is_enabled_on && 'mobile' !== $check_sticky_is_enabled_on && 'both' !== $check_sticky_is_enabled_on ) {
+	if ( $check_transparent_is_enabled_on && 'mobile' !== $check_transparent_is_enabled_on && 'both' !== $check_transparent_is_enabled_on ) {
 		$css_output .= astra_parse_css( $remove_when_tp_header, '', astra_get_tablet_breakpoint() );
 	}
 
@@ -585,9 +585,7 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 			'color' => esc_attr( $transparent_header_icon_color ),
 		),
 	);
-	
 
-	$check_sticky_is_enabled_on = astra_get_option( 'transparent-header-on-devices' );
 
 
 	if ( ! Astra_Ext_Transparent_Header_Markup::is_transparent_header() ) {
@@ -599,20 +597,20 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 		/** @psalm-suppress InvalidScalarArgument  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 		$tablet_breakpoint = astra_get_tablet_breakpoint( '', 1 );
 
-		if ( $check_sticky_is_enabled_on && 'desktop' !== $check_sticky_is_enabled_on && 'both' !== $check_sticky_is_enabled_on ) {
+		if ( $check_transparent_is_enabled_on && 'desktop' !== $check_transparent_is_enabled_on && 'both' !== $check_transparent_is_enabled_on ) {
 			/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			$css_output .= astra_parse_css( $remove_when_transparent_header, $tablet_breakpoint, '' );
 		}
 
-		if ( $check_sticky_is_enabled_on && 'mobile' !== $check_sticky_is_enabled_on && 'both' !== $check_sticky_is_enabled_on ) {
+		if ( $check_transparent_is_enabled_on && 'mobile' !== $check_transparent_is_enabled_on && 'both' !== $check_transparent_is_enabled_on ) {
 			/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			$css_output .= astra_parse_css( $remove_when_transparent_header, '', astra_get_tablet_breakpoint() );
 		}
 
-		if ( $check_sticky_is_enabled_on && 'desktop' === $check_sticky_is_enabled_on ) {
+		if ( $check_transparent_is_enabled_on && 'desktop' === $check_transparent_is_enabled_on ) {
 			/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			$css_output .= astra_parse_css( $add_when_transparent_header, $tablet_breakpoint, '' );
-		} elseif ( $check_sticky_is_enabled_on && 'mobile' === $check_sticky_is_enabled_on ) {
+		} elseif ( $check_transparent_is_enabled_on && 'mobile' === $check_transparent_is_enabled_on ) {
 			/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			$css_output .= astra_parse_css( $add_when_transparent_header, '', astra_get_tablet_breakpoint() );
 		} else {
