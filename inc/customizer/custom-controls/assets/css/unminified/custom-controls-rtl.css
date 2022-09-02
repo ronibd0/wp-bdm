@@ -702,16 +702,14 @@
 
 .color-button-wrap.has-global-palette-color .astra-advanced-color-indicate .global-color{
     color: #fff;
-	display: block;
+    display: block;
     opacity: 1;
     position: absolute;
     right: 50%;
     top: 50%;
     display: block;
-    transform: translate(50%, -50%);
     text-align: center;
-	font-size: 12px;
-	mix-blend-mode: difference;
+    transform: translate(50%, -50%);
 }
 .color-button-wrap.has-global-palette-color .astra-advanced-color-indicate .global-color svg{
     width: 10px;
@@ -801,6 +799,14 @@
     line-height: 1;
     font-weight: 600;
     margin-bottom: 4px;
+}
+
+.astra-globe-dashicon {
+    color: #ffffff;
+    background: rgba(0,0,0,0.4);
+    border-radius: 100%;
+    border: 0.1px solid rgba(0,0,0,0.1);
+    opacity: 0.78;
 }
 
 .components-button.astra-color-icon-indicate .component-color-indicator.astra-advanced-color-indicate {
@@ -2048,21 +2054,39 @@
 
 .color-button-wrap.has-global-palette-color .astra-advanced-color-indicate .global-color{
     color: #fff;
-	display: block;
+    display: block;
     opacity: 1;
     position: absolute;
     right: 50%;
     top: 50%;
     display: block;
-    transform: translate(50%, -50%);
     text-align: center;
-	font-size: 12px;
-	mix-blend-mode: difference;
+    transform: translate(50%, -50%);
 }
+
 .color-button-wrap.has-global-palette-color .astra-advanced-color-indicate .global-color svg{
     width: 10px;
     height: 10px;
     transform: scale(1.5);
+}
+
+.astra-globe-dashicon {
+  color: #ffffff;
+  background: rgba(0,0,0,0.4);
+  border-radius: 100%;
+  border: 0.1px solid rgba(0,0,0,0.1);
+  opacity: 0.78;
+}
+
+.components-button.astra-color-icon-indicate .astra-advanced-color-indicate:after {
+  content: "";
+  position: absolute;
+  top: -1px;
+  right: -1px;
+  bottom: -1px;
+  left: -1px;
+  border-radius: 50%;
+  border: 1px solid transparent;
 }
 
 #customize-control-astra-color-palettes .ast-adv-toggle-icon {
@@ -2232,16 +2256,20 @@
     height: 28px;
     width: 28px;
 }
-.components-button.astra-color-icon-indicate .astra-advanced-color-indicate:after {
-    content: "";
-    position: absolute;
-    top: -1px;
-    right: -1px;
-    bottom: -1px;
-    left: -1px;
-    border-radius: 50%;
-    border: 1px solid transparent;
-}
+
+/* .ast-globe-dashicon {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+  color: white;
+  background: rgba(0,0,0,.6);
+  border-radius: 100%;
+  width: 16px;
+  height: 16px;
+  border: 1px solid rgba(0,0,0,.1);  
+} */
+
 .components-button.astra-background-icon-indicate {
     width: 50px;
     height: 50px;
