@@ -1078,8 +1078,11 @@ namespace {
         }
         /**
          * Prepare Edit icon inside customizer.
+         *
+         * @param string $class custom class.
+         * @since x.x.x
          */
-        public static function render_customizer_edit_button()
+        public static function render_customizer_edit_button($class = '')
         {
         }
         /**
@@ -5387,6 +5390,15 @@ namespace {
          * Constructor
          */
         public function __construct()
+        {
+        }
+        /**
+         * As WooCommerce-Astra pro options moved to theme, decide here to load from theme's end after x.x.x version.
+         *
+         * @since x.x.x
+         * @return bool true|false.
+         */
+        public static function load_theme_side_woocommerce_strcture()
         {
         }
         /**
@@ -11008,64 +11020,6 @@ namespace {
         {
         }
     }
-    /*!
-     * ISC License
-     * 
-     * Copyright (c) 2018-2021, Andrea Giammarchi, @WebReflection
-     *
-     * Permission to use, copy, modify, and/or distribute this software for any
-     * purpose with or without fee is hereby granted, provided that the above
-     * copyright notice and this permission notice appear in all copies.
-     *
-     * THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
-     * REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
-     * AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
-     * INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
-     * LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE
-     * OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
-     * PERFORMANCE OF THIS SOFTWARE.
-     */
-    class FlattedString
-    {
-        public function __construct($value)
-        {
-        }
-    }
-    class Flatted
-    {
-        // public utilities
-        public static function parse($json, $assoc = \false, $depth = 512, $options = 0)
-        {
-        }
-        public static function stringify($value, $options = 0, $depth = 512)
-        {
-        }
-        // private helpers
-        private static function asString($value)
-        {
-        }
-        private static function index(&$known, &$input, &$value)
-        {
-        }
-        private static function keys(&$value)
-        {
-        }
-        private static function loop($obj, $keys, &$input, &$set, &$output)
-        {
-        }
-        private static function relate(&$known, &$input, &$value)
-        {
-        }
-        private static function ref($obj, &$key, &$value, &$input, &$set, &$output)
-        {
-        }
-        private static function transform(&$known, &$input, &$value)
-        {
-        }
-        private static function wrap($value)
-        {
-        }
-    }
     /**
      * Customizer Initialization
      *
@@ -13275,7 +13229,7 @@ namespace {
      *
      * @return bool true|false.
      */
-    function astra_is_woocommerce_addons()
+    function astra_has_pro_woocommerce_addon()
     {
     }
     /**

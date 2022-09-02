@@ -1514,8 +1514,7 @@ p.demo_store,
 	}
 
 	a.added_to_cart {
-		padding: 0.4em 0.4em 0;
-		display: inline-block;
+		display: none;
 	}
 
 	/**
@@ -2556,6 +2555,11 @@ p.demo_store,
 		th {
 			text-align: left;
 		}
+	}
+
+	&.single-product a.added_to_cart {
+		padding: 0.4em 0.4em 0;
+		display: inline-block;
 	}
 }
 
