@@ -863,7 +863,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 			// Single Product Payments.
 			$defaults['single-product-payment-icon-color'] = 'inherit';
-			$defaults['single-product-payment-text']       = __( 'Guaranteed Safe Checkout', 'astra-addon' );
+			$defaults['single-product-payment-text']       = __( 'Guaranteed Safe Checkout', 'astra' );
 			$defaults['single-product-payment-visa']       = true;
 			$defaults['single-product-payment-mastercard'] = true;
 			$defaults['single-product-payment-amex']       = true;
