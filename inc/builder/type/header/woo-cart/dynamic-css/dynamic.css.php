@@ -74,7 +74,7 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 	$checkout_button_bg_h_color   = astra_get_option( 'header-woo-checkout-btn-bg-hover-color' );
 	$cart_total_label_position    = astra_get_option( 'woo-header-cart-icon-total-label-position' );
 	$cart_badge_display           = astra_get_option( 'woo-header-cart-badge-display' );
-	
+
 	$check_transparent_is_enabled_on = astra_get_option( 'transparent-header-on-devices' );
 
 	$header_cart_icon = '';
@@ -157,7 +157,7 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 			'color'        => $icon_color,
 			'border-color' => $icon_color,
 		),
-		
+
 		$selector . ' .ast-addon-cart-wrap .ast-icon-shopping-cart:after' => array(
 			'color'            => esc_attr( $theme_h_color ),
 			'background-color' => esc_attr( $icon_color ),
@@ -180,7 +180,7 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 			'transition' => 'none',
 		),
 
-	
+
 		/**
 		 * General Woo Cart tray color for widget
 		 */
@@ -248,10 +248,7 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 			'background-color' => esc_attr( $checkout_button_bg_h_color_desktop ),
 		),
 
-		'.ast-site-header-cart .ast-addon-cart-wrap i.astra-icon:after' => array(
-			'color' => esc_attr( $cart_products_count_color ),
-		),
-		'.ast-theme-transparent-header .ast-site-header-cart .ast-addon-cart-wrap i.astra-icon:after' => array(
+		'.ast-site-header-cart .ast-addon-cart-wrap i.astra-icon:after, .ast-theme-transparent-header .ast-site-header-cart .ast-addon-cart-wrap i.astra-icon:after' => array(
 			'color' => esc_attr( $cart_products_count_color ),
 		),
 	);
@@ -531,7 +528,7 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 
 		if ( ! Astra_Ext_Transparent_Header_Markup::is_transparent_header() ) {
 			$css_output .= astra_parse_css( $svg_cart_icon_not_transparent );
-		}   
+		}
 	}
 
 
@@ -583,7 +580,7 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 			'color'            => esc_attr( $transparent_header_cart_h_color ),
 			'background-color' => esc_attr( $transparent_header_icon_color ),
 		),
-		
+
 		// Outline Info colors.
 		$trans_header_selector . ' .ast-menu-cart-outline .ast-woo-header-cart-info-wrap' => array(
 			'color' => esc_attr( $transparent_header_icon_color ),
@@ -595,7 +592,7 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 	if ( ! Astra_Ext_Transparent_Header_Markup::is_transparent_header() ) {
 		$css_output .= astra_parse_css( $remove_when_transparent_header );
 	}
-	
+
 	if ( Astra_Ext_Transparent_Header_Markup::is_transparent_header() ) {
 
 		/** @psalm-suppress InvalidScalarArgument  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
