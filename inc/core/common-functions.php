@@ -1272,8 +1272,8 @@ if ( ! function_exists( 'astra_responsive_spacing' ) ) {
 /**
  * Get the tablet breakpoint value.
  *
- * @param string $min min.
- * @param string $max max.
+ * @param mixed $min min.
+ * @param mixed $max max.
  *
  * @since 2.4.0
  *
