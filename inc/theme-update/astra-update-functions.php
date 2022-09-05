@@ -1057,3 +1057,13 @@ function astra_apply_woocommerce_show_password_icon_css() {
 		update_option( 'astra-settings', $theme_options );
 	}
 }
+
+/**
+ * Slide In Cart compatibility for responsive width slider
+ * 
+ * @since x.x.x
+ * @return void
+ */
+function astra_slide_in_cart_width_responsive_slider() {
+	$theme_options = get_option( 'astra-settings', array() );
+}

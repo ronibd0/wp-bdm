@@ -292,6 +292,7 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 		 */
 		public static function render_mobile_cart_flyout_markup() {
 			$current_canvas_width = astra_get_option( 'woo-desktop-cart-flyout-width' ); 
+			$flyout_option = astra_get_option('slide-in-cart-width');
 			$is_width_long        = $current_canvas_width && $current_canvas_width > 500 ? 'ast-large-view' : '';
 			
 			?>

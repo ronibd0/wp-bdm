@@ -192,27 +192,57 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 				'divider'    => array( 'ast_class' => 'ast-top-dotted-divider' ),
 			),
 
+			// /**
+			//  * Option: Flyout width
+			//  */
+			// array(
+			// 	'name'        => ASTRA_THEME_SETTINGS . '[woo-desktop-cart-flyout-width]',
+			// 	'default'     => astra_get_option( 'woo-desktop-cart-flyout-width' ),
+			// 	'type'        => 'control',
+			// 	'control'     => 'ast-responsive-slider',
+			// 	'transport'   => 'postMessage',
+			// 	'section'     => $_section,
+			// 	'context'     => array(
+			// 		Astra_Builder_Helper::$general_tab,
+			// 		array(
+			// 			'setting'  => ASTRA_THEME_SETTINGS . '[woo-header-cart-click-action]',
+			// 			'operator' => '==',
+			// 			'value'    => 'flyout',
+			// 		),
+			// 	),
+			// 	'title'       => __( 'Slide-In Cart Width', 'astra' ),
+			// 	'suffix'      => 'px',
+			// 	'priority'    => 70,
+			// 	'input_attrs' => array(
+			// 		'min'  => 0,
+			// 		'step' => 1,
+			// 		'max'  => 1920,
+			// 	),
+			// 	'responsive' => true,
+			// 	'divider'     => array( 'ast_class' => 'ast-top-dotted-divider' ),
+			// ),
+
 			/**
-			 * Option: Flyout width
+			 * Slide In Cart width
 			 */
 			array(
-				'name'        => ASTRA_THEME_SETTINGS . '[woo-desktop-cart-flyout-width]',
-				'default'     => astra_get_option( 'woo-desktop-cart-flyout-width' ),
-				'type'        => 'control',
-				'transport'   => 'postMessage',
-				'section'     => $_section,
-				'context'     => array(
-					Astra_Builder_Helper::$general_tab_config,
+				'name'              => ASTRA_THEME_SETTINGS . '[slide-in-cart-width]',
+				'type'              => 'control',
+				'context' => array(
 					array(
 						'setting'  => ASTRA_THEME_SETTINGS . '[woo-header-cart-click-action]',
 						'operator' => '==',
 						'value'    => 'flyout',
 					),
 				),
-				'title'       => __( 'Slide-In Cart Width', 'astra' ),
-				'control'     => 'ast-slider',
-				'suffix'      => 'px',
-				'priority'    => 70,
+				'control'           => 'ast-responsive-slider',
+				'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
+				'section'           => $_section,
+				'transport'         => 'postMessage',
+				'title'             => __( 'Slide In Cart Width', 'astra' ),
+				'priority'          => 400,
+				'default'           => astra_get_option( 'slide-in-cart-width' ),
+				'suffix'            => 'px',
 				'input_attrs' => array(
 					'min'  => 0,
 					'step' => 1,
