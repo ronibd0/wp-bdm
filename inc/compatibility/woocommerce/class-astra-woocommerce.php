@@ -861,7 +861,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			$defaults['shop-style'] = isset( $theme_options['woo-shop-style-flag'] ) && $theme_options['woo-shop-style-flag'] ? 'shop-page-grid-style' : 'shop-page-modern-style';
 
 			// Add to cart Plus minus button type.
-			$defaults['single-product-plus-minus-button'] = false;
+			$defaults['single-product-plus-minus-button'] = astra_has_pro_woocommerce_addon() ? true : false;
 			$defaults['cart-plus-minus-button-type']      = 'normal';
 
 			// Single Product Payments.
