@@ -1346,10 +1346,17 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			$global_palette                          = astra_get_option( 'global-color-palette' );
 			$ltr_left                                = $is_site_rtl ? 'right' : 'left';
 			$ltr_right                               = $is_site_rtl ? 'left' : 'right';
-			
+			$icon_cart_color_slug                    = '';
+
+			if ( false === Astra_Builder_Helper::$is_header_footer_builder_active ) {
+				$icon_cart_color_slug = 'woo-header-cart-icon-color';
+			} else {
+				$icon_cart_color_slug = 'header-woo-cart-icon-color';
+			}
+
 			// Supporting color setting for default icon as well.
 			$can_update_cart_color   = astra_cart_color_default_icon_old_header();
-			$cart_new_color_setting  = astra_get_option( 'woo-header-cart-icon-color', $theme_color );
+			$cart_new_color_setting  = astra_get_option( $icon_cart_color_slug, $theme_color );
 			$header_cart_count_color = ( $can_update_cart_color ) ? $cart_new_color_setting : $theme_color;
 
 
