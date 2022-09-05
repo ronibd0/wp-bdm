@@ -156,7 +156,7 @@ function astrawpWooQuantityButtons( $quantitySelector ) {
 
                     const miniCart = ev.currentTarget.closest( '.woocommerce-mini-cart' );
 
-					if ( miniCart ) {
+					if ( miniCart && astra && astra.single_product_qty_ajax_nonce && astra.ajax_url ) {
 						let quantity = $quantityBox.value;
 						let itemHash = $quantityBox.getAttribute('name').replace(/cart\[([\w]+)\]\[qty\]/g, '$1');
 						let qtyNonce = astra.single_product_qty_ajax_nonce;
