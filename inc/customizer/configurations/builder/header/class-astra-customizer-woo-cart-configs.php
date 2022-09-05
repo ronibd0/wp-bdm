@@ -354,7 +354,6 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 				'control'    => 'ast-responsive-color',
 				'parent'     => ASTRA_THEME_SETTINGS . '[header-woo-cart-icon-colors]',
 				'section'    => $_section,
-				'transport'  => 'postMessage',
 				'name'       => 'header-woo-cart-icon-hover-color',
 				'default'    => astra_get_option( 'header-woo-cart-icon-hover-color' ),
 				'title'      => __( 'Hover', 'astra' ),
