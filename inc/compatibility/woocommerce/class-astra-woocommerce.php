@@ -2345,9 +2345,11 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				$css_output .= astra_parse_css( $sticky_add_to_cart );
 			}
 
+			/** @psalm-suppress UndefinedFunction */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+			$astra_add_to_cart_quantity_btn_enabled = astra_add_to_cart_quantity_btn_enabled();
+
 			// Add to cart quantity button.
-			/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-			if ( astra_add_to_cart_quantity_btn_enabled() ) {
+			if ( $astra_add_to_cart_quantity_btn_enabled ) {
 				$add_to_cart_quantity_btn_css = '';
 
 				$add_to_cart_quantity_btn_css .= '
