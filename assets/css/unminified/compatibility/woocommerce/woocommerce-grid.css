@@ -1733,8 +1733,7 @@ p.demo_store[data-position="bottom"],
 }
 
 .woocommerce a.added_to_cart {
-  padding: 0.4em 0.4em 0;
-  display: inline-block;
+  display: none;
 }
 
 .woocommerce #reviews .woocommerce-Reviews-title {
@@ -2846,6 +2845,11 @@ p.demo_store[data-position="bottom"],
 
 .woocommerce .variations th {
   text-align: left;
+}
+
+.woocommerce.single-product a.added_to_cart {
+  padding: 0.4em 0.4em 0;
+  display: inline-block;
 }
 
 .woocommerce,
