@@ -316,27 +316,16 @@ if ( ! function_exists( 'astra_is_shop_page_modern_style' ) ) :
 
 endif;
 
-
 /**
  * Check if Woocommerce pro addons is enabled.
+ *
+ * @return bool true|false.
  */
-if ( ! function_exists( 'astra_has_pro_woocommerce_addon' ) ) :
-
-	/**
-	 * Check if Woocommerce pro addons is enabled.
-	 *
-	 * @return bool true|false.
-	 */
-	function astra_has_pro_woocommerce_addon() {
-		/** @psalm-suppress UndefinedClass  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-		return ( defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'woocommerce' ) ) ? true : false;
-		/** @psalm-suppress UndefinedClass  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-	}
-
-endif;
-
-
-
+function astra_has_pro_woocommerce_addon() {
+	/** @psalm-suppress UndefinedClass  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+	return ( defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'woocommerce' ) ) ? true : false;
+	/** @psalm-suppress UndefinedClass  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+}
 
 /**
  * Support cart color setting to default cart icon, till now with other cart icons have this color compatibility but default one don't have this.
@@ -351,4 +340,12 @@ function astra_cart_color_default_icon_old_header() {
 	return apply_filters( 'astra_support_default_cart_color_in_old_header', $astra_settings['can-reflect-cart-color-in-old-header'] ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
 }
 
-
+/**
+ * Function to check the Add to Cart quantity buttons.
+ *
+ * @return bool true|false.
+ * @since x.x.x
+ */
+function astra_add_to_cart_quantity_btn_enabled() {
+	return apply_filters( 'astra_add_to_cart_quantity_btn_enabled', astra_get_option( 'single-product-plus-minus-button' ) );
+}
