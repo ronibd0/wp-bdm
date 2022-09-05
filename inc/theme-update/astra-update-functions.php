@@ -1066,4 +1066,9 @@ function astra_apply_woocommerce_show_password_icon_css() {
  */
 function astra_slide_in_cart_width_responsive_slider() {
 	$theme_options = get_option( 'astra-settings', array() );
+	if(isset($theme_options['woo-desktop-cart-flyout-width'])){
+		$width = $theme_options['woo-desktop-cart-flyout-width'];
+		$theme_options['woo-slide-in-cart-width']['desktop'] = $width;
+		update_option( 'astra-settings', $theme_options );
+	}
 }

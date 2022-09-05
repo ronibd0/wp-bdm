@@ -226,7 +226,7 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 			 * Slide In Cart width
 			 */
 			array(
-				'name'              => ASTRA_THEME_SETTINGS . '[slide-in-cart-width]',
+				'name'              => ASTRA_THEME_SETTINGS . '[woo-slide-in-cart-width]',
 				'type'              => 'control',
 				'context' => array(
 					array(
@@ -241,7 +241,7 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 				'transport'         => 'postMessage',
 				'title'             => __( 'Slide In Cart Width', 'astra' ),
 				'priority'          => 400,
-				'default'           => astra_get_option( 'slide-in-cart-width' ),
+				'default'           => astra_get_option( 'woo-slide-in-cart-width' ),
 				'suffix'            => 'px',
 				'input_attrs' => array(
 					'min'  => 0,
