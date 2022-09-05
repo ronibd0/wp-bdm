@@ -1867,6 +1867,35 @@ function hasWordPressWidgetBlockEditor() {
 			} );
 		} );
 
+		/**
+		 * Cart Count Color.
+		 */
+		wp.customize( 'astra-settings[woo-header-cart-product-count-color]', function( setting ) {
+			setting.bind( function( color ) {
+				if( color ) {
+				var dynamicStyle = '.ast-site-header-cart .ast-addon-cart-wrap i.astra-icon:after { color: ' + color + '; } ';
+				astra_add_dynamic_css( 'woo-header-cart-product-count-color', dynamicStyle );
+				} else {
+					wp.customize.preview.send( 'refresh' );
+				}
+			} );
+		} );
+
+		/**
+		 * Cart Count Color Hover.
+		 */
+		wp.customize( 'astra-settings[woo-header-cart-product-count-h-color]', function( setting ) {
+			setting.bind( function( color ) {
+				if( color ) {
+					var dynamicStyle = '.ast-site-header-cart .ast-site-header-cart-li:hover .ast-addon-cart-wrap i.astra-icon:after { color: ' + color + '; } ';
+					astra_add_dynamic_css( 'woo-header-cart-product-count-h-color', dynamicStyle );
+				} else {
+					wp.customize.preview.send( 'refresh' );
+				}
+
+			} );
+		} );
+
 		wp.customize('astra-settings[single-product-cart-button-width]', function (value) {
 			value.bind(function (size) {
 				var tablet_break_point = astraBuilderPreview.tablet_break_point || 768,
