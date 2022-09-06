@@ -1645,7 +1645,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			);
 
 			$css_desktop_output['.ast-site-header-cart.ast-menu-cart-outline .ast-addon-cart-wrap, .ast-site-header-cart.ast-menu-cart-fill .ast-addon-cart-wrap '] = array(
-				'line-height' => '1.8',
+				'line-height' => '1',
 			);
 
 			$css_desktop_output['.ast-site-header-cart.ast-menu-cart-fill i.astra-icon'] = array(
@@ -1661,7 +1661,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			);
 
 			$css_desktop_output['.ast-hfb-header .ast-addon-cart-wrap'] = array(
-				' padding' => '0.2em 0.6em',
+				' padding' => '0.4em',
 			);
 
 			$css_desktop_output['.ast-header-break-point.ast-header-custom-item-outside .ast-woo-header-cart-info-wrap'] = array(
