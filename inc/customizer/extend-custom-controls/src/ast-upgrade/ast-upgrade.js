@@ -1,16 +1,21 @@
 import PropTypes from 'prop-types';
 import parse from 'html-react-parser';
 import svgIcons from '../../../../../assets/svg/svgs.json';
+import {__} from '@wordpress/i18n';
 
 const UpgradeComponent = props => {
 
 	const {
 		title,
 		svg,
+		choices = {},
+		renderAs = 'block'
 	} = props.control.params;
 
 	const upgradeSvg = parse( svgIcons[svg] ),
-		lockIcon = parse( svgIcons['upgradeLock'] );
+		lockIcon = parse( svgIcons['upgradeLock'] ),
+		astraBrand = parse( svgIcons['astraLogo'] ),
+		checkMark = parse( svgIcons['upgradeListCheck'] );
 
 	let htmlTitle = null;
 
@@ -30,9 +35,52 @@ const UpgradeComponent = props => {
 		</a>;
 	};
 
+	const getAstProItemData = ( data, key ) => {
+		return undefined != data[key] && data[key] ? data[key] : '';
+	}
+
+	const proOptionsList = () => {
+		const htmlContent = Object.entries(choices).map(([key, value]) => {
+			return <li key={ key } className='ast-pro-upgrade-item'>
+				<p>
+					{ checkMark }
+					<span className='ast-upgrade-list-title'> { getAstProItemData(value, 'title') } </span>
+					<span className='ast-upgrade-list-description'> { getAstProItemData(value, 'description') } </span>
+				</p>
+			</li>
+		});
+
+		return htmlContent;
+	};
+
+	const renderListUpgrdae = () => {
+		return <>
+			<div className='ast-upgrade-list-wrapper'>
+				<p className='ast-brand-logo'>
+					{ astraBrand }
+				</p>
+				<p className="ast-upgrade-list-section-title">{title}</p>
+			</div>
+			<ul className='ast-upgrade-list-items'>
+				{ proOptionsList() }
+			</ul>
+			<p>
+				<a
+					href={window.AstraBuilderCustomizerData.upgradeUrl}
+					target="_blank"
+					rel="noopener"
+					className="button ast-button-link"
+				>
+					{ __( 'Upgrade Now', 'astra' ) }
+				</a>
+			</p>
+		</>
+	};
+
 	return <>
 		<div className="ast-upgrade-pro-wrap">
-			{ renderUpgrdaeBtn() }
+			{ 'block' === renderAs && renderUpgrdaeBtn() }
+			{ 'list' === renderAs && renderListUpgrdae() }
 		</div>
 	</>;
 };

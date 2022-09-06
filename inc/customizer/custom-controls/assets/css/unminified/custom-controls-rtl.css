@@ -359,21 +359,21 @@
     color: var(--ast-customizer-color-1);
 }
 
-.customize-control-ast-button-link .ast-button-link {
+.customize-control-ast-button-link .ast-button-link, .ast-upgrade-pro-wrap .ast-button-link {
 	display: block;
 	padding: 10px 0;
 	border-radius: 2px;
 	border: 1px solid var(--ast-customizer-color-1);
 	background-color: var(--ast-customizer-color-9);
 	color: var(--ast-customizer-color-1);
-	font-size: 13px;
+	font-size: 13px !important;
 	font-weight: 400;
-	line-height: 13px;
+	line-height: 13px !important;
 	text-align: center;
 	cursor: pointer;
 }
 
-.customize-control-ast-button-link .ast-button-link:hover {
+.customize-control-ast-button-link .ast-button-link:hover, .ast-upgrade-pro-wrap .ast-button-link:hover {
 	background-color: var(--ast-customizer-color-9);
 	color: var(--ast-customizer-color-1);
 	border: 1px solid var(--ast-customizer-color-1);
@@ -1711,21 +1711,21 @@
     color: var(--ast-customizer-color-1);
 }
 
-.customize-control-ast-button-link .ast-button-link {
+.customize-control-ast-button-link .ast-button-link, .ast-upgrade-pro-wrap .ast-button-link {
 	display: block;
 	padding: 10px 0;
 	border-radius: 2px;
 	border: 1px solid var(--ast-customizer-color-1);
 	background-color: var(--ast-customizer-color-9);
 	color: var(--ast-customizer-color-1);
-	font-size: 13px;
+	font-size: 13px !important;
 	font-weight: 400;
-	line-height: 13px;
+	line-height: 13px !important;
 	text-align: center;
 	cursor: pointer;
 }
 
-.customize-control-ast-button-link .ast-button-link:hover {
+.customize-control-ast-button-link .ast-button-link:hover, .ast-upgrade-pro-wrap .ast-button-link:hover {
 	background-color: var(--ast-customizer-color-9);
 	color: var(--ast-customizer-color-1);
 	border: 1px solid var(--ast-customizer-color-1);
@@ -5440,7 +5440,35 @@ a.ast-upgrade-trigger:focus, a.ast-upgrade-trigger:active {
     width: 1.5em;
 	border: 1px solid var(--ast-customizer-color-1);
 	background-image: url("data:image/svg+xml,%3Csvg width='17' height='16' viewBox='0 0 17 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12.5002 7.2001H11.7002V4.8001C11.7002 3.0401 10.2602 1.6001 8.5002 1.6001C6.7402 1.6001 5.3002 3.0401 5.3002 4.8001V7.2001H4.5002C4.1002 7.2001 3.7002 7.6001 3.7002 8.0001V13.6001C3.7002 14.0001 4.1002 14.4001 4.5002 14.4001H12.5002C12.9002 14.4001 13.3002 14.0001 13.3002 13.6001V8.0001C13.3002 7.6001 12.9002 7.2001 12.5002 7.2001ZM9.3002 12.8001H7.7002L8.0202 11.0401C7.6202 10.8801 7.3002 10.4001 7.3002 10.0001C7.3002 9.3601 7.8602 8.8001 8.5002 8.8001C9.1402 8.8001 9.7002 9.3601 9.7002 10.0001C9.7002 10.4801 9.4602 10.8801 8.9802 11.0401L9.3002 12.8001ZM10.1002 7.2001H6.9002V4.8001C6.9002 3.9201 7.6202 3.2001 8.5002 3.2001C9.3802 3.2001 10.1002 3.9201 10.1002 4.8001V7.2001Z' fill='%230284C7'/%3E%3C/svg%3E");
-  }
+}
+
+.ast-upgrade-list-wrapper {
+    text-align: center;
+}
+.ast-upgrade-list-wrapper .ast-brand-logo {
+    margin-top: 0;
+}
+.ast-upgrade-list-wrapper svg {
+    width: 32px;
+    height: 32px;
+}
+.ast-upgrade-list-wrapper .ast-upgrade-list-section-title {
+    margin: 0.5em 0;
+}
+.ast-pro-upgrade-item svg {
+    vertical-align: middle;
+    margin-left: 5px;
+    fill: var(--ast-customizer-color-1);
+}
+.ast-pro-upgrade-item span {
+    display: inline-block;
+}
+.ast-upgrade-list-description {
+    margin: 5px 20px 0 0;
+}
+.ast-upgrade-list-title {
+    font-weight: 600;
+}
 
 /* Global customizer color palette */
 
@@ -8156,9 +8184,10 @@ a.ast-upgrade-trigger:focus, a.ast-upgrade-trigger:active {
 .ast-upgrade-pro-wrap .ast-upgrade-section-title {
     margin-right: 8px;
 }
-.ast-upgrade-pro-wrap .ast-upgrade-trigger svg {
+.ast-upgrade-pro-wrap .ast-upgrade-pro-innerwrap > svg {
     width: 100%;
     height: 100%;
+    filter: blur(2px);
 }
 .ast-upgrade-pro-wrap .ast-upgrade-cta svg {
     width: 1.2em;
@@ -8180,4 +8209,32 @@ a.ast-upgrade-trigger:focus, a.ast-upgrade-trigger:active {
     width: 1.5em;
 	border: 1px solid var(--ast-customizer-color-1);
 	background-image: url("data:image/svg+xml,%3Csvg width='17' height='16' viewBox='0 0 17 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12.5002 7.2001H11.7002V4.8001C11.7002 3.0401 10.2602 1.6001 8.5002 1.6001C6.7402 1.6001 5.3002 3.0401 5.3002 4.8001V7.2001H4.5002C4.1002 7.2001 3.7002 7.6001 3.7002 8.0001V13.6001C3.7002 14.0001 4.1002 14.4001 4.5002 14.4001H12.5002C12.9002 14.4001 13.3002 14.0001 13.3002 13.6001V8.0001C13.3002 7.6001 12.9002 7.2001 12.5002 7.2001ZM9.3002 12.8001H7.7002L8.0202 11.0401C7.6202 10.8801 7.3002 10.4001 7.3002 10.0001C7.3002 9.3601 7.8602 8.8001 8.5002 8.8001C9.1402 8.8001 9.7002 9.3601 9.7002 10.0001C9.7002 10.4801 9.4602 10.8801 8.9802 11.0401L9.3002 12.8001ZM10.1002 7.2001H6.9002V4.8001C6.9002 3.9201 7.6202 3.2001 8.5002 3.2001C9.3802 3.2001 10.1002 3.9201 10.1002 4.8001V7.2001Z' fill='%230284C7'/%3E%3C/svg%3E");
-  }
+}
+
+.ast-upgrade-list-wrapper {
+    text-align: center;
+}
+.ast-upgrade-list-wrapper .ast-brand-logo {
+    margin-top: 0;
+}
+.ast-upgrade-list-wrapper svg {
+    width: 32px;
+    height: 32px;
+}
+.ast-upgrade-list-wrapper .ast-upgrade-list-section-title {
+    margin: 0.5em 0;
+}
+.ast-pro-upgrade-item svg {
+    vertical-align: middle;
+    margin-left: 5px;
+    fill: var(--ast-customizer-color-1);
+}
+.ast-pro-upgrade-item span {
+    display: inline-block;
+}
+.ast-upgrade-list-description {
+    margin: 5px 20px 0 0;
+}
+.ast-upgrade-list-title {
+    font-weight: 600;
+}

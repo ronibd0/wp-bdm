@@ -39,6 +39,48 @@ if ( ! class_exists( 'Astra_Site_Container_Layout_Configs' ) ) {
 			$_configs = array(
 
 				/**
+				 * Option: Dummy control for upgrade-to-pro list items.
+				 */
+				array(
+					'name'              => ASTRA_THEME_SETTINGS . '[poc-astra-upgrade-list]',
+					'type'              => 'control',
+					'control'           => 'ast-upgrade',
+					'renderAs'			=> 'list',
+					'choices'			=> array(
+						'one'         => array(
+							'title' => __( 'Single Product Gallery', 'astra' ),
+						),
+						'two'         => array(
+							'title' => __( 'Single Product Structure', 'astra' ),
+						),
+						'three'         => array(
+							'title' => __( 'Product Structure Options', 'astra' ),
+						),
+						'four'         => array(
+							'title' => __( 'Product Navigation', 'astra' ),
+						),
+						'five'         => array(
+							'title' => __( 'Product Navigation', 'astra' ),
+						),
+						'six'         => array(
+							'title' => __( 'Related & Up Sell Products', 'astra' ),
+						),
+						'seven'         => array(
+							'title' => __( 'Sticky Add to Cart', 'astra' ),
+						),
+						'eight'         => array(
+							'title' => __( 'Recently Viewed Products', 'astra' ),
+						),
+					),
+					'section'           => 'section-page-group',
+					'svg'				=> 'upgrade-meta-svg',
+					'default'           => '',
+					'priority'          => 1,
+					'title'             => __( 'With Astra Pro you will get more powerfull WooCommerce features!', 'astra' ),
+					'divider'           => array( 'ast_class' => 'ast-bottom-section-divider' ),
+				),
+
+				/**
 				 * Option: Dummy control for upgrade-to-pro POC.
 				 */
 				array(
@@ -47,7 +89,7 @@ if ( ! class_exists( 'Astra_Site_Container_Layout_Configs' ) ) {
 					'control'           => 'ast-upgrade',
 					'section'           => 'section-page-group',
 					'svg'				=> 'upgrade-meta-svg',
-					'default'           => astra_get_option( 'poc-astra-upgrade' ),
+					'default'           => '',
 					'priority'          => 1,
 					'title'             => __( 'Upgrade to unlock more features.', 'astra' ),
 					'divider'           => array( 'ast_class' => 'ast-bottom-section-divider' ),
