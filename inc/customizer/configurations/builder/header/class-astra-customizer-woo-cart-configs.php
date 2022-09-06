@@ -193,12 +193,12 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 			),
 
 			/**
-			 * Slide In Cart width
+			 * Option: Slide In Cart Width.
 			 */
 			array(
 				'name'              => ASTRA_THEME_SETTINGS . '[woo-slide-in-cart-width]',
 				'type'              => 'control',
-				'context' => array(
+				'context'           => array(
 					array(
 						'setting'  => ASTRA_THEME_SETTINGS . '[woo-header-cart-click-action]',
 						'operator' => '==',
@@ -213,12 +213,12 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 				'priority'          => 400,
 				'default'           => astra_get_option( 'woo-slide-in-cart-width' ),
 				'suffix'            => 'px',
-				'input_attrs' => array(
+				'input_attrs'       => array(
 					'min'  => 0,
 					'step' => 1,
 					'max'  => 1920,
 				),
-				'divider'     => array( 'ast_class' => 'ast-top-dotted-divider' ),
+				'divider'           => array( 'ast_class' => 'ast-top-dotted-divider' ),
 			),
 
 			/**

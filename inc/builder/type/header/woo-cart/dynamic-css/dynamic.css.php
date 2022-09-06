@@ -319,8 +319,8 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 		/**
 		 * Mobile flyout cart width.
 		 */
-		$responsive_selector . '.active' => array(
-			'width' => astra_get_css_value( $flyout_cart_width['mobile'], 'px' )
+		$responsive_selector . '.active'                   => array(
+			'width' => astra_get_css_value( $flyout_cart_width['mobile'], 'px' ),
 		),
 
 		/**
@@ -396,8 +396,8 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 
 		/**
 		* Tablet flyout cart width.
-		*/		
-		$responsive_selector . '.active' => array(
+		*/      
+		$responsive_selector . '.active'                   => array(
 			'width' => astra_get_css_value( $flyout_cart_width['tablet'], 'px' ),
 		),
 

@@ -141,8 +141,8 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 				'astra_shop_style_design_layout',
 			),
 			'3.9.3' => array(
-				'astra_slide_in_cart_width_responsive_slider'
-			)
+				'astra_slide_in_cart_width_responsive_slider',
+			),
 		);
 
 		/**
