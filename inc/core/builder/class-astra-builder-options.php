@@ -941,8 +941,8 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	$defaults['woo-header-cart-click-action']              = 'default';
 	$defaults['woo-slide-in-cart-width'] = array(
 		'desktop' => 460,
-		'tablet'  => 460,
-		'mobile'  => 420,
+		'tablet'  => '',
+		'mobile'  => '',
 	);
 	$defaults['woo-header-cart-icon-total-label-position'] = array(
 		'desktop' => '',

@@ -234,16 +234,32 @@
 	 * Desktop cart offcanvas width.
 	 */
 	 wp.customize( 'astra-settings[woo-slide-in-cart-width]', function( setting ) {
-		setting.bind( function( wooSlideInConfig ) {
-			const { desktopWidth } = wooSlideInConfig;
+		setting.bind( function( flyoutWidth ) {
 
-			var offcanvasPosition = wp.customize( 'astra-settings[woo-desktop-cart-flyout-direction]' ).get();
+			const { desktopWidth, mobileWidth, tabletWidth } = flyoutWidth;
+			var offcanvasPosition                            = wp.customize( 'astra-settings[woo-desktop-cart-flyout-direction]' ).get();
+			let dynamicStyle                                 = '';
 
 			if( 'left' == offcanvasPosition ) {
-				var dynamicStyle = '.ast-desktop .astra-cart-drawer.open-right { width: ' + desktopWidth + 'px; left: -' + desktopWidth + 'px; } ';
-					dynamicStyle += '.ast-desktop .astra-cart-drawer.open-right.active { left: ' + desktopWidth + 'px; } ';
+				dynamicStyle = '.ast-desktop .astra-cart-drawer.open-right { width: ' + desktopWidth + 'px; left: -' + desktopWidth + 'px; } ';
+			    dynamicStyle += '.ast-desktop .astra-cart-drawer.open-right.active { left: ' + desktopWidth + 'px; } ';
+				
+				// Mobile.
+				dynamicStyle += '@media (max-width: ' + mobile_break_point + 'px) .astra-cart-drawer .open-right { width: ' + mobileWidth + 'px; left: -' + mobileWidth + 'px; }';
+				dynamicStyle += '@media (max-width: ' + mobile_break_point + 'px) .astra-cart-drawer .active { left: ' + mobileWidth + 'px; }';
+		
+				//Tablet.
+				dynamicStyle += '@media (max-width: ' + tablet_break_point + 'px) .astra-cart-drawer .open-right { width: ' + tabletWidth + 'px; left: -' + tabletWidth + 'px; }';
+				dynamicStyle += '@media (max-width: ' + tablet_break_point + 'px) .astra-cart-drawer .active { left: ' + tabletWidth + 'px; }';
+
 			} else {
-				var dynamicStyle = '.ast-desktop .astra-cart-drawer.open-right { width: ' + desktopWidth + 'px; left: 100%; } ';
+				dynamicStyle = '.ast-desktop .astra-cart-drawer.open-right { width: ' + desktopWidth + 'px; left: 100%; } ';
+
+				// Mobile.
+				dynamicStyle += '@media (max-width: ' + mobile_break_point + 'px) .astra-cart-drawer .open-right { width: ' + mobileWidth + 'px; left: 100% }';
+
+				//Tablet.
+				dynamicStyle += '@media (max-width: ' + tablet_break_point + 'px) .astra-cart-drawer .open-right { width: ' + tabletWidth + 'px; left: 100% }';
 			}
 
 			if( desktopWidth > 500 ) {
@@ -253,6 +269,7 @@
 			}
 
 			astra_add_dynamic_css( 'woo-slide-in-cart-width', dynamicStyle );
+
 		} );
 	} );
 

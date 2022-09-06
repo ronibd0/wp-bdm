@@ -243,27 +243,26 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 			'background-color' => esc_attr( $checkout_button_bg_h_color_desktop ),
 		),
 	);
-
+	
 	// Desktop offcanvas cart.
+	$desktop_flyout_cart_direction = astra_get_option( 'woo-desktop-cart-flyout-direction' );
+	$flyout_cart_width = astra_get_option( 'woo-slide-in-cart-width' );
 	if ( 'flyout' === astra_get_option( 'woo-header-cart-click-action' ) || is_customize_preview() ) {
 
-		$desktop_flyout_cart_width     = astra_get_option( 'woo-slide-in-cart-width' );
-		$desktop_flyout_cart_width = $desktop_flyout_cart_width['desktop'];
-		$desktop_flyout_cart_direction = astra_get_option( 'woo-desktop-cart-flyout-direction' );
 		$css_output_desktop['.ast-desktop-cart-flyout.ast-site-header-cart:focus .widget_shopping_cart, .ast-desktop-cart-flyout.ast-site-header-cart:hover .widget_shopping_cart'] = array(
 			'opacity'    => '0',
 			'visibility' => 'hidden',
 		);
 		$css_output_desktop['.ast-desktop .astra-cart-drawer.open-right'] = array(
-			'width' => astra_get_css_value( $desktop_flyout_cart_width, 'px' ),
+			'width' => astra_get_css_value( $flyout_cart_width['desktop'], 'px' ),
 		);
 		if ( 'left' === $desktop_flyout_cart_direction ) {
 			$css_output_desktop['.ast-desktop .astra-cart-drawer.open-right']        = array(
-				'width' => astra_get_css_value( $desktop_flyout_cart_width, 'px' ),
-				'left'  => '-' . astra_get_css_value( $desktop_flyout_cart_width, 'px' ),
+				'width' => astra_get_css_value( $flyout_cart_width['desktop'], 'px' ),
+				'left'  => '-' . astra_get_css_value( $flyout_cart_width['desktop'], 'px' ),
 			);
 			$css_output_desktop['.ast-desktop .astra-cart-drawer.open-right.active'] = array(
-				'left' => astra_get_css_value( $desktop_flyout_cart_width, 'px' ),
+				'left' => astra_get_css_value( $flyout_cart_width['desktop'], 'px' ),
 			);
 		}
 	}
@@ -272,8 +271,6 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 	/* Parse CSS from array() */
 	$css_output          = astra_parse_css( $css_output_desktop );
 	$responsive_selector = '.astra-cart-drawer';
-	$flyout_cart_width = astra_get_option( 'woo-slide-in-cart-width' );
-	$mobile_flyout_cart_width = $flyout_cart_width['mobile'];
 
 	$css_output_mobile = array(
 		$responsive_selector . ' .astra-cart-drawer-title, ' . $responsive_selector . ' .widget_shopping_cart_content span, ' . $responsive_selector . ' .widget_shopping_cart_content strong,' . $responsive_selector . ' .woocommerce-mini-cart__empty-message, .astra-cart-drawer .woocommerce-mini-cart *' => array(
@@ -318,9 +315,6 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 		'.ast-header-break-point.ast-hfb-header .ast-cart-menu-wrap' => array(
 			'font-size' => astra_get_css_value( $cart_icon_size_mobile, 'px' ),
 		),
-		$responsive_selector . '.active' => array(
-			'width' => astra_get_css_value( $mobile_flyout_cart_width, 'px' )
-		),
 
 		/**
 		* Checkout button color for widget
@@ -349,7 +343,27 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 
 	);
 
-	$tablet_flyout_cart_width = $flyout_cart_width['tablet'];
+
+	/**
+	 * Mobile Flyout Cart Width
+	 */
+	if( 'flyout' === astra_get_option( 'woo-header-cart-click-action' ) || is_customize_preview() ) {
+
+		$css_output_mobile[ $responsive_selector . '.open-right' ] = array(
+			'width' => astra_get_css_value( $flyout_cart_width['mobile'], 'px' ),
+		);
+		if ( 'left' === $desktop_flyout_cart_direction ) {
+			$css_output_mobile[ $responsive_selector . '.open-right' ]        = array(
+				'width' => astra_get_css_value( $flyout_cart_width['mobile'], 'px' ),
+				'left'  => '-' . astra_get_css_value( $flyout_cart_width['mobile'], 'px' ),
+			);
+			$css_output_mobile[$responsive_selector . '.active'] = array(
+				'left' => astra_get_css_value( $flyout_cart_width['mobile'], 'px' ),
+			);
+		}
+
+	}
+
 	$css_output_tablet = array(
 		$responsive_selector . ' .astra-cart-drawer-title, ' . $responsive_selector . ' .widget_shopping_cart_content span, ' . $responsive_selector . ' .widget_shopping_cart_content strong,' . $responsive_selector . ' .woocommerce-mini-cart__empty-message, .astra-cart-drawer .woocommerce-mini-cart *' => array(
 			'color' => esc_attr( $cart_text_color_tablet ),
@@ -393,9 +407,6 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 		'.ast-header-break-point.ast-hfb-header .ast-cart-menu-wrap' => array(
 			'font-size' => astra_get_css_value( $cart_icon_size_tablet, 'px' ),
 		),
-		$responsive_selector . '.active' => array(
-			'width' => astra_get_css_value( $tablet_flyout_cart_width, 'px' ),
-		),
 
 		/**
 		* Checkout button color for widget
@@ -423,6 +434,26 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 		),
 
 	);
+
+	/**
+	 * Tablet Flyout Cart Width
+	 */
+	if( 'flyout' === astra_get_option( 'woo-header-cart-click-action' ) || is_customize_preview() ) {
+
+		$css_output_tablet[ $responsive_selector . '.open-right' ] = array(
+			'width' => astra_get_css_value( $flyout_cart_width['tablet'], 'px' ),
+		);
+		if ( 'left' === $desktop_flyout_cart_direction ) {
+			$css_output_tablet[ $responsive_selector . '.open-right' ]        = array(
+				'width' => astra_get_css_value( $flyout_cart_width['tablet'], 'px' ),
+				'left'  => '-' . astra_get_css_value( $flyout_cart_width['tablet'], 'px' ),
+			);
+			$css_output_tablet[$responsive_selector . '.active'] = array(
+				'left' => astra_get_css_value( $flyout_cart_width['tablet'], 'px' ),
+			);
+		}
+
+	}
 
 	$css_output .= astra_parse_css( $css_output_tablet, '', astra_get_tablet_breakpoint() );
 	$css_output .= astra_parse_css( $css_output_mobile, '', astra_get_mobile_breakpoint() );
