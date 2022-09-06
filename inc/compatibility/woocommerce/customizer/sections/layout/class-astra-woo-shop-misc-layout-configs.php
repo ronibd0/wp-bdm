@@ -41,7 +41,7 @@ if ( ! class_exists( 'Astra_Woo_Shop_Misc_Layout_Configs' ) ) {
 					'description' => '',
 				),
 
-				
+
 				/**
 				 * Option: Divider.
 				 */
@@ -76,18 +76,30 @@ if ( ! class_exists( 'Astra_Woo_Shop_Misc_Layout_Configs' ) ) {
 			if ( ! defined( 'ASTRA_EXT_VER' ) ) {
 				// Learn More link if Astra Pro is not activated.
 				$_configs[] = array(
-					'name'     => ASTRA_THEME_SETTINGS . '[single-product-plus-minus-button-link]',
-					'type'     => 'control',
-					'control'  => 'ast-button-link',
-					'section'  => 'section-woo-misc',
-					'priority' => 999,
-					'title'    => __( 'View Astra Pro Features', 'astra' ),
-					'url'      => astra_get_pro_url( 'https://wpastra.com/pro/', 'customizer', 'learn-more', 'upgrade-to-pro' ),
-					'settings' => array(),
-					'divider'  => array( 'ast_class' => 'ast-section-spacing' ),
-					'context'  => array(
-						Astra_Builder_Helper::$design_tab_config,
+					'name'              => ASTRA_THEME_SETTINGS . '[ast-woo-checkout-pro-items]',
+					'type'              => 'control',
+					'control'           => 'ast-upgrade',
+					'renderAs'			=> 'list',
+					'choices'			=> array(
+						'two'         => array(
+							'title' => __( 'Modern Input Style', 'astra' ),
+						),
+						'one'         => array(
+							'title' => __( 'Sale Badge Modifications', 'astra' ),
+						),
+						'three'         => array(
+							'title' => __( 'Ecommerce Steps Navigation', 'astra' ),
+						),
+						'four'         => array(
+							'title' => __( 'Quantity Updater Designs', 'astra' ),
+						),
 					),
+					'section'           => 'section-woo-misc',
+					'default'           => '',
+					'priority'          => 999,
+					'title'             => __( 'With Astra Pro get more features for your Ecommerce setup!', 'astra' ),
+					'divider'  => array( 'ast_class' => 'ast-top-section-divider' ),
+					'context'  => array(),
 				);
 			}
 

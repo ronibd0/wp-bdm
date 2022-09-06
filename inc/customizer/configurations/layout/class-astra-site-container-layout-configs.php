@@ -39,63 +39,6 @@ if ( ! class_exists( 'Astra_Site_Container_Layout_Configs' ) ) {
 			$_configs = array(
 
 				/**
-				 * Option: Dummy control for upgrade-to-pro list items.
-				 */
-				array(
-					'name'              => ASTRA_THEME_SETTINGS . '[poc-astra-upgrade-list]',
-					'type'              => 'control',
-					'control'           => 'ast-upgrade',
-					'renderAs'			=> 'list',
-					'choices'			=> array(
-						'one'         => array(
-							'title' => __( 'Single Product Gallery', 'astra' ),
-						),
-						'two'         => array(
-							'title' => __( 'Single Product Structure', 'astra' ),
-						),
-						'three'         => array(
-							'title' => __( 'Product Structure Options', 'astra' ),
-						),
-						'four'         => array(
-							'title' => __( 'Product Navigation', 'astra' ),
-						),
-						'five'         => array(
-							'title' => __( 'Product Navigation', 'astra' ),
-						),
-						'six'         => array(
-							'title' => __( 'Related & Up Sell Products', 'astra' ),
-						),
-						'seven'         => array(
-							'title' => __( 'Sticky Add to Cart', 'astra' ),
-						),
-						'eight'         => array(
-							'title' => __( 'Recently Viewed Products', 'astra' ),
-						),
-					),
-					'section'           => 'section-page-group',
-					'svg'				=> 'upgrade-meta-svg',
-					'default'           => '',
-					'priority'          => 1,
-					'title'             => __( 'With Astra Pro you will get more powerfull WooCommerce features!', 'astra' ),
-					'divider'           => array( 'ast_class' => 'ast-bottom-section-divider' ),
-				),
-
-				/**
-				 * Option: Dummy control for upgrade-to-pro POC.
-				 */
-				array(
-					'name'              => ASTRA_THEME_SETTINGS . '[poc-astra-upgrade]',
-					'type'              => 'control',
-					'control'           => 'ast-upgrade',
-					'section'           => 'section-page-group',
-					'svg'				=> 'upgrade-meta-svg',
-					'default'           => '',
-					'priority'          => 1,
-					'title'             => __( 'Upgrade to unlock more features.', 'astra' ),
-					'divider'           => array( 'ast_class' => 'ast-bottom-section-divider' ),
-				),
-
-				/**
 				 * Option: Single Page Content Layout
 				 */
 				array(
@@ -159,7 +102,6 @@ if ( ! class_exists( 'Astra_Site_Container_Layout_Configs' ) ) {
 						),
 						'page-builder'            => array(
 							'label'  => __( 'Full Width / Stretched', 'astra' ),
-							'is_pro' => ! defined( 'ASTRA_EXT_VER' ) ? true : false,
 							'path'   => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'container-full-width-stretched', false ) : '',
 						),
 					),
@@ -228,18 +170,30 @@ if ( ! class_exists( 'Astra_Site_Container_Layout_Configs' ) ) {
 
 			// Learn More link if Astra Pro is not activated.
 			if ( ! defined( 'ASTRA_EXT_VER' ) ) {
-
 				$config = array(
-
 					array(
-						'name'     => ASTRA_THEME_SETTINGS . '[ast-site-layout-button-link]',
-						'type'     => 'control',
-						'control'  => 'ast-button-link',
-						'section'  => 'section-container-layout',
-						'priority' => 999,
-						'title'    => __( 'View Astra Pro Features', 'astra' ),
-						'url'      => astra_get_pro_url( 'https://wpastra.com/pro', 'customizer', 'learn-more', 'upgrade-to-pro' ),
-						'settings' => array(),
+						'name'              => ASTRA_THEME_SETTINGS . '[ast-site-layout-button-link]',
+						'type'              => 'control',
+						'control'           => 'ast-upgrade',
+						'renderAs'			=> 'list',
+						'choices'			=> array(
+							'one'         => array(
+								'title' => __( 'Full Width Layout', 'astra' ),
+							),
+							'two'         => array(
+								'title' => __( 'Padded Layout', 'astra' ),
+							),
+							'three'         => array(
+								'title' => __( 'Fluid Layout', 'astra' ),
+							),
+							'four'         => array(
+								'title' => __( 'Container Spacings', 'astra' ),
+							),
+						),
+						'section'           => 'section-container-layout',
+						'default'           => '',
+						'priority'          => 999,
+						'title'             => __( 'With Astra Pro you will get more control on container layouts!', 'astra' ),
 						'divider'  => array( 'ast_class' => 'ast-top-section-divider' ),
 					),
 				);

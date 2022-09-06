@@ -38,35 +38,44 @@ if ( ! class_exists( 'Astra_Archive_Typo_Configs' ) ) {
 				$_configs = array(
 
 					/**
-					 * Option: Learn More about content typography
+					 * Option: Astra Pro items for blog pro.
 					 */
 					array(
-						'name'     => ASTRA_THEME_SETTINGS . '[ast-blog-button-link]',
-						'type'     => 'control',
-						'control'  => 'ast-button-link',
-						'section'  => 'section-blog',
-						'priority' => 999,
-						'title'    => __( 'View Astra Pro Features', 'astra' ),
-						'url'      => astra_get_pro_url( 'https://wpastra.com/pro', 'customizer', 'learn-more', 'upgrade-to-pro' ),
-						'settings' => array(),
+						'name'              => ASTRA_THEME_SETTINGS . '[ast-blog-pro-items]',
+						'type'              => 'control',
+						'control'           => 'ast-upgrade',
+						'renderAs'			=> 'list',
+						'choices'			=> array(
+							'one'         => array(
+								'title' => __( 'Customizable Blog Layouts', 'astra' ),
+							),
+							'two'         => array(
+								'title' => __( 'Masonry Layout', 'astra' ),
+							),
+							'three'         => array(
+								'title' => __( 'Custom Featured Images Size', 'astra' ),
+							),
+							'four'         => array(
+								'title' => __( 'Numbered Post Pagination', 'astra' ),
+							),
+							'five'         => array(
+								'title' => __( 'Infinite Scroll Post Pagination', 'astra' ),
+							),
+							'six'         => array(
+								'title' => __( 'Extended Typography Options', 'astra' ),
+							),
+							'seven'         => array(
+								'title' => __( 'Extended Spacing Options', 'astra' ),
+							),
+						),
+						'section'           => 'section-blog',
+						'default'           => '',
+						'priority'          => 999,
+						'context'  => array(),
+						'title'             => __( 'With Astra Pro get more features for your blog!', 'astra' ),
 						'divider'  => array( 'ast_class' => 'ast-top-section-divider' ),
 					),
-
-					array(
-						'name'     => ASTRA_THEME_SETTINGS . '[ast-blog-design-button-link]',
-						'type'     => 'control',
-						'control'  => 'ast-button-link',
-						'section'  => 'section-blog',
-						'priority' => 999,
-						'title'    => __( 'View Astra Pro Features', 'astra' ),
-						'url'      => astra_get_pro_url( 'https://wpastra.com/pro', 'customizer', 'learn-more', 'upgrade-to-pro' ),
-						'settings' => array(),
-						'divider'  => array( 'ast_class' => 'ast-top-section-divider' ),
-						'context'  => Astra_Builder_Helper::$design_tab,
-					),
-
 				);
-
 			}
 
 			if ( defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'typography' ) ) {

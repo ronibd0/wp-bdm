@@ -7,12 +7,12 @@ const UpgradeComponent = props => {
 
 	const {
 		title,
-		svg,
+		svg = '',
 		choices = {},
 		renderAs = 'block'
 	} = props.control.params;
 
-	const upgradeSvg = parse( svgIcons[svg] ),
+	const upgradeSvg = svg != '' ? parse( svgIcons[svg] ) : '',
 		lockIcon = parse( svgIcons['upgradeLock'] ),
 		astraBrand = parse( svgIcons['astraLogo'] ),
 		checkMark = parse( svgIcons['upgradeListCheck'] );
