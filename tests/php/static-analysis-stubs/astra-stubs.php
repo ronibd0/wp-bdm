@@ -5408,6 +5408,15 @@ namespace {
         {
         }
         /**
+         * Modern Design Add to cart Markup
+         *
+         * @since x.x.x
+         * @return mixed HTML markup.
+         */
+        public function modern_add_to_cart()
+        {
+        }
+        /**
          * Modern shop page's triggers on product image.
          *
          * @since x.x.x
@@ -5886,6 +5895,15 @@ namespace {
         {
         }
         /**
+         * Single Product Payments.
+         *
+         * @since  x.x.x
+         * @return void
+         */
+        public function woocommerce_product_single_payments()
+        {
+        }
+        /**
          * Show the product title in the product loop. By default this is an H2.
          *
          * @param string $product_type product type.
@@ -5999,6 +6017,23 @@ namespace {
          * @param Array                $configurations Astra Customizer Configurations.
          * @param WP_Customize_Manager $wp_customize instance of WP_Customize_Manager.
          * @since 1.4.3
+         * @return Array Astra Customizer Configurations with updated configurations.
+         */
+        public function register_configuration($configurations, $wp_customize)
+        {
+        }
+    }
+    /**
+     * Customizer Sanitizes Initial setup
+     */
+    class Astra_Woo_Shop_Misc_Layout_Configs extends \Astra_Customizer_Config_Base
+    {
+        /**
+         * Register Astra-WooCommerce Misc Customizer Configurations.
+         *
+         * @param Array                $configurations Astra Customizer Configurations.
+         * @param WP_Customize_Manager $wp_customize instance of WP_Customize_Manager.
+         * @since x.x.x
          * @return Array Astra Customizer Configurations with updated configurations.
          */
         public function register_configuration($configurations, $wp_customize)
@@ -13288,6 +13323,25 @@ namespace {
     {
     }
     /**
+     * Support cart color setting to default cart icon, till now with other cart icons have this color compatibility but default one don't have this.
+     * This case is only for old header layout.
+     *
+     * @since x.x.x
+     * @return boolean false if it is an existing user, true if not.
+     */
+    function astra_cart_color_default_icon_old_header()
+    {
+    }
+    /**
+     * Function to check the Add to Cart quantity buttons.
+     *
+     * @return bool true|false.
+     * @since x.x.x
+     */
+    function astra_add_to_cart_quantity_btn_enabled()
+    {
+    }
+    /**
      * Return defaults for Builder Options.
      *
      * @param array $defaults exsiting options array.
@@ -13699,8 +13753,8 @@ namespace {
     /**
      * Get the tablet breakpoint value.
      *
-     * @param string $min min.
-     * @param string $max max.
+     * @param mixed $min min.
+     * @param mixed $max max.
      *
      * @since 2.4.0
      *

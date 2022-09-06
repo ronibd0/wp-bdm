@@ -560,7 +560,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 			// Theme's default icon with cart title and cart total.
 			/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-			if ( 'default' === $icon || ! defined( 'ASTRA_EXT_VER' ) || ( defined( 'ASTRA_EXT_VER' ) && ! Astra_Ext_Extension::is_active( 'woocommerce' ) ) ) {
+			if ( 'default' === $icon ) {
 				// Cart Total or Cart Title enable then only add markup.
 				if ( '' !== $cart_label_markup ) {
 					echo $cart_info_markup; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
@@ -860,6 +860,8 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			/* Shop style */
 			$defaults['shop-style'] = isset( $theme_options['woo-shop-style-flag'] ) && $theme_options['woo-shop-style-flag'] ? 'shop-page-grid-style' : 'shop-page-modern-style';
 
+			$defaults['woo-header-cart-product-count-color']   = '';
+			$defaults['woo-header-cart-product-count-h-color'] = '';
 			// Add to cart Plus minus button type.
 			$defaults['single-product-plus-minus-button'] = astra_has_pro_woocommerce_addon() ? true : false;
 			$defaults['cart-plus-minus-button-type']      = 'normal';
@@ -1357,6 +1359,19 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			$global_palette                          = astra_get_option( 'global-color-palette' );
 			$ltr_left                                = $is_site_rtl ? 'right' : 'left';
 			$ltr_right                               = $is_site_rtl ? 'left' : 'right';
+			$icon_cart_color_slug                    = '';
+
+			if ( false === Astra_Builder_Helper::$is_header_footer_builder_active ) {
+				$icon_cart_color_slug = 'woo-header-cart-icon-color';
+			} else {
+				$icon_cart_color_slug = 'header-woo-cart-icon-color';
+			}
+
+			// Supporting color setting for default icon as well.
+			$can_update_cart_color   = astra_cart_color_default_icon_old_header();
+			$cart_new_color_setting  = astra_get_option( $icon_cart_color_slug, $theme_color );
+			$header_cart_count_color = ( $can_update_cart_color ) ? $cart_new_color_setting : $theme_color;
+
 
 			$btn_color = astra_get_option( 'button-color' );
 			if ( empty( $btn_color ) ) {
@@ -1559,6 +1574,23 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 					'font-size'   => '11px',
 					'font-size'   => '0.7rem',
 				);
+
+				$css_desktop_output['.ast-site-header-cart i.astra-icon:before'] = array(
+					'font-family' => 'Astra',
+				);
+
+				$css_desktop_output['.ast-icon-shopping-cart:before'] = array(
+					'content' => '"\f07a"',
+				);
+
+				$css_desktop_output['.ast-icon-shopping-bag:before'] = array(
+					'content' => '"\f290"',
+				);
+
+				$css_desktop_output['.ast-icon-shopping-basket:before'] = array(
+					'content' => '"\f291"',
+				);
+
 			} else {
 				$css_desktop_output['.woocommerce ul.product-categories > li ul li'] = array(
 					'position' => 'relative',
@@ -1599,6 +1631,51 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 					);
 				}
 			}
+
+			$css_desktop_output['.ast-icon-shopping-cart svg']   = array(
+				'height' => '.82em',
+			);
+			$css_desktop_output['.ast-icon-shopping-bag svg']    = array(
+				'height' => '1em',
+				'width'  => '1em',
+			);
+			$css_desktop_output['.ast-icon-shopping-basket svg'] = array(
+				'height' => '1.15em',
+				'width'  => '1.2em',
+			);
+
+			$css_desktop_output['.ast-site-header-cart.ast-menu-cart-outline .ast-addon-cart-wrap, .ast-site-header-cart.ast-menu-cart-fill .ast-addon-cart-wrap '] = array(
+				'line-height' => '1.8',
+			);
+
+			$css_desktop_output['.ast-site-header-cart.ast-menu-cart-fill i.astra-icon'] = array(
+				' font-size' => '1.1em',
+			);
+
+			$css_desktop_output['.ast-site-header-cart.ast-menu-cart-fill i.astra-icon'] = array(
+				' font-size' => '1.1em',
+			);
+
+			$css_desktop_output['li.woocommerce-custom-menu-item .ast-site-header-cart i.astra-icon:after'] = array(
+				' padding-left' => '2px',
+			);
+
+			$css_desktop_output['.ast-hfb-header .ast-addon-cart-wrap'] = array(
+				' padding' => '0.2em 0.6em',
+			);
+
+			$css_desktop_output['.ast-hfb-header .ast-addon-cart-wrap .astra-icon'] = array(
+				' line-height' => '1',
+			);
+
+			$css_desktop_output['.ast-header-break-point.ast-header-custom-item-outside .ast-woo-header-cart-info-wrap'] = array(
+				' display' => 'none',
+			);
+
+			$css_desktop_output['.ast-site-header-cart i.astra-icon:after'] = array(
+				' background' => $header_cart_count_color,
+			);
+
 
 			if ( is_account_page() && false === astra_get_option( 'modern-woo-account-view', false ) ) {
 				$css_output .= '
@@ -2356,16 +2433,16 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 					.woocommerce .quantity.buttons_added {
 						display: inline-flex;
 					}
-					
+
 					.woocommerce .quantity.buttons_added + .button.single_add_to_cart_button {
 						margin-' . $ltr_left . ': unset;
 					}
-					
+
 					.woocommerce .quantity .qty {
 						width: 2.631em;
 						margin-' . $ltr_left . ': 38px;
 					}
-					
+
 					.woocommerce .quantity .minus,
 					.woocommerce .quantity .plus {
 						width: 38px;
@@ -2378,31 +2455,31 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 						outline: 0;
 						font-weight: 400;
 					}
-					
+
 					.woocommerce .quantity .minus {
 						border-' . $ltr_right . '-width: 0;
 						margin-' . $ltr_right . ': -38px;
 					}
-					
+
 					.woocommerce .quantity .plus {
 						border-' . $ltr_left . '-width: 0;
 						margin-' . $ltr_right . ': 6px;
 					}
-					
+
 					.woocommerce input[type=number] {
 						max-width: 58px;
 						min-height: 36px;
 					}
-					
+
 					.woocommerce input[type=number].qty::-webkit-inner-spin-button, .woocommerce input[type=number].qty::-webkit-outer-spin-button {
 						-webkit-appearance: none;
 					}
-					
+
 					.woocommerce input[type=number].qty {
 						-webkit-appearance: none;
 						-moz-appearance: textfield;
 					}
-				  
+
 				';
 
 				$css_output .= $add_to_cart_quantity_btn_css;
@@ -2643,7 +2720,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 						height: 30px;
 						width: auto;
 					}
-			   
+
 				';
 
 				$css_output .= $single_product_payment_css;
@@ -3380,7 +3457,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 								do_action( 'astra_woo_single_product_payments_before' );
 								$this->woocommerce_product_single_payments();
 								do_action( 'astra_woo_single_product_payments_after' );
-							
+
 							break;
 						case 'meta':
 							do_action( 'astra_woo_single_category_before' );

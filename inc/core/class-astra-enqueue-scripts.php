@@ -194,7 +194,7 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 				}
 
 				/** @psalm-suppress UndefinedFunction */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-				$astra_add_to_cart_quantity_btn_enabled = astra_add_to_cart_quantity_btn_enabled();
+				$astra_add_to_cart_quantity_btn_enabled = apply_filters( 'astra_add_to_cart_quantity_btn_enabled', astra_get_option( 'single-product-plus-minus-button' ) );
 
 				if ( class_exists( 'WooCommerce' ) && $astra_add_to_cart_quantity_btn_enabled ) {
 					$default_assets['js']['astra-add-to-cart-quantity-btn'] = 'add-to-cart-quantity-btn';
@@ -347,7 +347,9 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 				}
 			}
 
-			$quantity_type = astra_has_pro_woocommerce_addon() ? astra_get_option( 'cart-plus-minus-button-type' ) : 'normal';
+			/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+			$quantity_type = ( defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'woocommerce' ) ) ? astra_get_option( 'cart-plus-minus-button-type' ) : 'normal';
+			/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 
 			$astra_localize = array(
 				'break_point' => astra_header_break_point(),    // Header Break Point.
