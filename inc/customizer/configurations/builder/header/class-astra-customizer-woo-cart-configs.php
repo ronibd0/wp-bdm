@@ -192,36 +192,6 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 				'divider'    => array( 'ast_class' => 'ast-top-dotted-divider' ),
 			),
 
-			// /**
-			//  * Option: Flyout width
-			//  */
-			// array(
-			// 	'name'        => ASTRA_THEME_SETTINGS . '[woo-desktop-cart-flyout-width]',
-			// 	'default'     => astra_get_option( 'woo-desktop-cart-flyout-width' ),
-			// 	'type'        => 'control',
-			// 	'control'     => 'ast-responsive-slider',
-			// 	'transport'   => 'postMessage',
-			// 	'section'     => $_section,
-			// 	'context'     => array(
-			// 		Astra_Builder_Helper::$general_tab,
-			// 		array(
-			// 			'setting'  => ASTRA_THEME_SETTINGS . '[woo-header-cart-click-action]',
-			// 			'operator' => '==',
-			// 			'value'    => 'flyout',
-			// 		),
-			// 	),
-			// 	'title'       => __( 'Slide-In Cart Width', 'astra' ),
-			// 	'suffix'      => 'px',
-			// 	'priority'    => 70,
-			// 	'input_attrs' => array(
-			// 		'min'  => 0,
-			// 		'step' => 1,
-			// 		'max'  => 1920,
-			// 	),
-			// 	'responsive' => true,
-			// 	'divider'     => array( 'ast_class' => 'ast-top-dotted-divider' ),
-			// ),
-
 			/**
 			 * Slide In Cart width
 			 */

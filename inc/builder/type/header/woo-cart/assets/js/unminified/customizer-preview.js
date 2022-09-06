@@ -235,7 +235,7 @@
 	 */
 	 wp.customize( 'astra-settings[woo-slide-in-cart-width]', function( setting ) {
 		setting.bind( function( wooSlideInConfig ) {
-			const { desktop } = wooSlideInConfig;
+			const { desktop, mobile, tablet } = wooSlideInConfig;
 			var offcanvasPosition = wp.customize( 'astra-settings[woo-desktop-cart-flyout-direction]' ).get();
 			if( 'left' == offcanvasPosition ) {
 				var dynamicStyle = '.ast-desktop .astra-cart-drawer.open-right { width: ' + desktop + 'px; left: -' + desktop + 'px; } ';
@@ -243,7 +243,22 @@
 			} else {
 				var dynamicStyle = '.ast-desktop .astra-cart-drawer.open-right { width: ' + desktop + 'px; left: 100%; } ';
 			}
-			if( desktopWidth > 500 ) {
+
+			//Tablets.
+			dynamicStyle += '@media (max-width: ' + tablet_break_point + 'px ) and ( min-width: ' + mobile_break_point + 'px) {';
+			dynamicStyle += '#astra-mobile-cart-drawer {';
+			dynamicStyle += 'width: ' + tablet + 'px;';
+			dynamicStyle += '}';
+			dynamicStyle += '}';
+
+			// Mobile.
+			dynamicStyle += '@media (max-width: ' + mobile_break_point + 'px) {';
+			dynamicStyle += '#astra-mobile-cart-drawer {';
+			dynamicStyle += 'width: ' + mobile + 'px;';
+			dynamicStyle += '}';
+			dynamicStyle += '}';
+
+			if( desktop > 500 ) {
 				$( '#astra-mobile-cart-drawer .astra-cart-drawer-content' ).addClass('ast-large-view');
 			} else {
 				$( '#astra-mobile-cart-drawer .astra-cart-drawer-content' ).removeClass('ast-large-view');
