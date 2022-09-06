@@ -33,20 +33,7 @@ if ( ! class_exists( 'Astra_Woo_Shop_Misc_Layout_Configs' ) ) {
 
 
 			$_configs = array(
-				
-				/**
-				 * Option: Divider.
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[single-product-plus-minus-button-divider]',
-					'section'  => 'section-woo-misc',
-					'title'    => __( 'Quantity Plus and Minus', 'astra' ),
-					'type'     => 'control',
-					'control'  => 'ast-heading',
-					'priority' => 59,
-					'settings' => array(),
-					'divider'  => array( 'ast_class' => 'ast-section-spacing' ),
-				),
+			
 
 				/**
 				 * Option: Enable Quantity Plus and Minus.
