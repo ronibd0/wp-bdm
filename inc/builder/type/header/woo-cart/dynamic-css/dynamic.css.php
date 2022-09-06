@@ -426,6 +426,20 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 
 	if ( 'none' !== $header_cart_icon_style ) {
 
+		
+		if ( ! astra_has_pro_woocommerce_addon() && 'outline' === $header_cart_icon_style && 'default' !== $header_woo_cart_list ) {
+
+			$header_cart_icon_outline = array(
+				'.ast-menu-cart-outline .ast-cart-menu-wrap .count, .ast-menu-cart-outline .ast-addon-cart-wrap'  => array(
+					'border-width' => '2px',
+					'border-style' => 'solid',
+					'border-color' => esc_attr( $icon_color ),
+				),
+			);
+
+			$css_output .= astra_parse_css( $header_cart_icon_outline );
+		}
+
 		$header_cart_icon = array(
 
 			$selector . ' .ast-cart-menu-wrap, ' . $selector . ' .ast-addon-cart-wrap'       => array(
