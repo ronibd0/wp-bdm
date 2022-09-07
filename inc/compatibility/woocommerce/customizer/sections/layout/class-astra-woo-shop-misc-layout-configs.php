@@ -31,30 +31,9 @@ if ( ! class_exists( 'Astra_Woo_Shop_Misc_Layout_Configs' ) ) {
 		 */
 		public function register_configuration( $configurations, $wp_customize ) {
 
-			$_configs = array(
-				array(
-					'name'        => 'section-woo-general-tabs',
-					'section'     => 'section-woo-misc',
-					'type'        => 'control',
-					'control'     => 'ast-builder-header-control',
-					'priority'    => 0,
-					'description' => '',
-				),
 
-				
-				/**
-				 * Option: Divider.
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[single-product-plus-minus-button-divider]',
-					'section'  => 'section-woo-misc',
-					'title'    => __( 'Quantity Plus and Minus', 'astra' ),
-					'type'     => 'control',
-					'control'  => 'ast-heading',
-					'priority' => 59,
-					'settings' => array(),
-					'divider'  => array( 'ast_class' => 'ast-section-spacing' ),
-				),
+			$_configs = array(
+			
 
 				/**
 				 * Option: Enable Quantity Plus and Minus.
@@ -73,6 +52,20 @@ if ( ! class_exists( 'Astra_Woo_Shop_Misc_Layout_Configs' ) ) {
 
 			);
 
+			/**
+			 * Option: Adds tabs only if astra addons is enabled.
+			 */
+			if ( astra_has_pro_woocommerce_addon() ) {
+				$_configs[] = array(
+					'name'        => 'section-woo-general-tabs',
+					'section'     => 'section-woo-misc',
+					'type'        => 'control',
+					'control'     => 'ast-builder-header-control',
+					'priority'    => 0,
+					'description' => '',
+				);
+			}
+
 			if ( ! defined( 'ASTRA_EXT_VER' ) ) {
 				// Learn More link if Astra Pro is not activated.
 				$_configs[] = array(
@@ -86,7 +79,7 @@ if ( ! class_exists( 'Astra_Woo_Shop_Misc_Layout_Configs' ) ) {
 					'settings' => array(),
 					'divider'  => array( 'ast_class' => 'ast-section-spacing' ),
 					'context'  => array(
-						Astra_Builder_Helper::$design_tab_config,
+						Astra_Builder_Helper::$general_tab_config,
 					),
 				);
 			}
