@@ -247,6 +247,7 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 				'name'              => ASTRA_THEME_SETTINGS . '[woo-slide-in-cart-width]',
 				'type'              => 'control',
 				'context'           => array(
+					Astra_Builder_Helper::$general_tab_config,
 					array(
 						'setting'  => ASTRA_THEME_SETTINGS . '[woo-header-cart-click-action]',
 						'operator' => '==',
