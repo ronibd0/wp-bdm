@@ -12,7 +12,7 @@ v3.9.2
 - Improvement: Redesigned the Astra Meta Settings layout control similar to customizer layout selection options.
 - Fix: WooCommerce - Single Product - Alignment issue with content added by plugin near add to cart section.
 - Fix: WooCommerce - Dropdown icon cart link does not redirect to cart page.
-- Fix: Woocommerce - Cart element is adding primary header height on below and above header section.
+- Fix: WooCommerce - Cart element is adding primary header height on below and above header section.
 - Fix: WooCommerce - Cross sell grid products showing with 50% width when modern cart layout is enabled on cart page.
 - Fix: WooCommerce - Single Product - Flex CSS conflicting with third party plugins which adds custom functionality aside add-to-cart button.
 - Fix: WooCommerce - Checkout - Misalignment for order products quantity in order summary box.
