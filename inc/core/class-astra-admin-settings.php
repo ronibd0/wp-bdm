@@ -145,6 +145,59 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			add_action( 'astra_notice_before_markup', __CLASS__ . '::notice_assets' );
 
 			add_action( 'admin_init', __CLASS__ . '::minimum_addon_version_notice' );
+
+			if( ! defined( 'ASTRA_EXT_VER' ) ) {
+				add_action( 'admin_menu', __CLASS__ . '::register_pro_menu', 100 );
+			}
+		}
+
+		/**
+		 * Register Custom Layout & Page Header Pro sub-menus.
+		 *
+		 * Add new admin pages as sub-menu under the main Astra Options menu.
+		 *
+		 * Fired by `admin_menu` action.
+		 *
+		 * @since x.x.x
+		 * @access public
+		 */
+		public static function register_pro_menu() {
+			add_submenu_page(
+				'themes.php',
+				__( 'Custom Layouts', 'astra' ),
+				__( 'Custom Layouts', 'astra' ),
+				'edit_theme_options',
+				'astra-advanced-hook',
+				__CLASS__ . '::preview_custom_layout'
+			);
+			add_submenu_page(
+				'themes.php',
+				__( 'Page Header', 'astra' ),
+				__( 'Page Header', 'astra' ),
+				'edit_theme_options',
+				'astra_adv_header',
+				__CLASS__ . '::preview_page_header'
+			);
+		}
+
+		/**
+		 * Showcase Custom Layout highlight.
+		 *
+		 * @since x.x.x
+		 * @access public
+		 */
+		public static function preview_custom_layout() {
+
+		}
+
+		/**
+		 * Showcase Page Header highlight.
+		 *
+		 * @since x.x.x
+		 * @access public
+		 */
+		public static function preview_page_header() {
+
 		}
 
 		/**
@@ -1504,6 +1557,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			echo '<style class="astra-menu-appearance-style">
 					#menu-appearance a[href^="edit.php?post_type=astra-"]:before,
 					#menu-appearance a[href^="themes.php?page=astra-"]:before,
+					#menu-appearance a[href^="themes.php?page=astra_"]:before,
 					#menu-appearance a[href^="edit.php?post_type=astra_"]:before,
 					#menu-appearance a[href^="edit-tags.php?taxonomy=bsf_custom_fonts"]:before,
 					#menu-appearance a[href^="themes.php?page=custom-typekit-fonts"]:before,
