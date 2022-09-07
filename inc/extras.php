@@ -589,7 +589,7 @@ function astra_addon_has_3_5_0_version() {
  * 
  * @param string $version Astra addon version.
  * @param string $compare Compare symbols.
- * @since  x.x.x
+ * @since  3.9.2
  */
 function astra_addon_check_version( $version, $compare ) {
 	return defined( 'ASTRA_EXT_VER' ) && version_compare( ASTRA_EXT_VER, $version, $compare );

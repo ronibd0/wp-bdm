@@ -155,9 +155,9 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		}
 
 		/**
-		 * As WooCommerce-Astra pro options moved to theme, decide here to load from theme's end after x.x.x version.
+		 * As WooCommerce-Astra pro options moved to theme, decide here to load from theme's end after 3.9.2 version.
 		 *
-		 * @since x.x.x
+		 * @since 3.9.2
 		 * @return bool true|false.
 		 */
 		public static function load_theme_side_woocommerce_strcture() {
@@ -191,7 +191,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		/**
 		 * Modern Design Add to cart Markup
 		 *
-		 * @since x.x.x
+		 * @since 3.9.2
 		 * @return mixed HTML markup.
 		 */
 		public function modern_add_to_cart() {
@@ -236,7 +236,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		/**
 		 * Modern shop page's triggers on product image.
 		 *
-		 * @since x.x.x
+		 * @since 3.9.2
 		 */
 		public function add_modern_triggers_on_image() {
 
@@ -266,7 +266,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		 *
 		 * @param string $sale_notification sale bubble type.
 		 * @param string $product Product.
-		 * @since x.x.x
+		 * @since 3.9.2
 		 * @return mixed HTML markup.
 		 */
 		public function get_sale_flash_markup( $sale_notification, $product ) {
@@ -296,7 +296,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		 * @param  mixed  $markup  HTML markup of the the sale bubble / flash.
 		 * @param  string $post Post.
 		 * @param  string $product Product.
-		 * @since x.x.x
+		 * @since 3.9.2
 		 * @return string bubble markup.
 		 */
 		public function sale_flash( $markup, $post, $product ) {
@@ -1645,7 +1645,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			);
 
 			$css_desktop_output['.ast-site-header-cart.ast-menu-cart-outline .ast-addon-cart-wrap, .ast-site-header-cart.ast-menu-cart-fill .ast-addon-cart-wrap '] = array(
-				'line-height' => '1.8',
+				'line-height' => '1',
 			);
 
 			$css_desktop_output['.ast-site-header-cart.ast-menu-cart-fill i.astra-icon'] = array(
@@ -1661,11 +1661,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			);
 
 			$css_desktop_output['.ast-hfb-header .ast-addon-cart-wrap'] = array(
-				' padding' => '0.2em 0.6em',
-			);
-
-			$css_desktop_output['.ast-hfb-header .ast-addon-cart-wrap .astra-icon'] = array(
-				' line-height' => '1',
+				' padding' => '0.4em',
 			);
 
 			$css_desktop_output['.ast-header-break-point.ast-header-custom-item-outside .ast-woo-header-cart-info-wrap'] = array(
@@ -2831,7 +2827,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		/**
 		 * Shop summary box wrapper alignment.
 		 *
-		 * @since x.x.x
+		 * @since 3.9.2
 		 * @return string
 		 */
 		public function astra_shop_summary_box_alignment() {
@@ -3221,7 +3217,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		/**
 		 * Update the "Customize" link to the Toolbar.
 		 *
-		 * @since x.x.x
+		 * @since 3.9.2
 		 *
 		 * @param WP_Admin_Bar $wp_admin_bar The WP_Admin_Bar instance.
 		 */
@@ -3313,7 +3309,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		/**
 		 * Single Product Payments.
 		 *
-		 * @since  x.x.x
+		 * @since  3.9.2
 		 * @return void
 		 */
 		public function woocommerce_product_single_payments() {

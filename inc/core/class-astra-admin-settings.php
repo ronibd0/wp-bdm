@@ -1158,7 +1158,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		/**
 		 * Check if Spectra is installed.
 		 *
-		 * @since x.x.x
+		 * @since 3.9.2
 		 *
 		 * @access public
 		 * @return array

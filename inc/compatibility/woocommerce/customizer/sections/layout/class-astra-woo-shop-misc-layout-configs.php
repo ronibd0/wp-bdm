@@ -6,7 +6,7 @@
  * @author      Astra
  * @copyright   Copyright (c) 2020, Astra
  * @link        https://wpastra.com/
- * @since       Astra x.x.x
+ * @since       Astra 3.9.2
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -26,35 +26,13 @@ if ( ! class_exists( 'Astra_Woo_Shop_Misc_Layout_Configs' ) ) {
 		 *
 		 * @param Array                $configurations Astra Customizer Configurations.
 		 * @param WP_Customize_Manager $wp_customize instance of WP_Customize_Manager.
-		 * @since x.x.x
+		 * @since 3.9.2
 		 * @return Array Astra Customizer Configurations with updated configurations.
 		 */
 		public function register_configuration( $configurations, $wp_customize ) {
 
+
 			$_configs = array(
-				array(
-					'name'        => 'section-woo-general-tabs',
-					'section'     => 'section-woo-misc',
-					'type'        => 'control',
-					'control'     => 'ast-builder-header-control',
-					'priority'    => 0,
-					'description' => '',
-				),
-
-
-				/**
-				 * Option: Divider.
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[single-product-plus-minus-button-divider]',
-					'section'  => 'section-woo-misc',
-					'title'    => __( 'Quantity Plus and Minus', 'astra' ),
-					'type'     => 'control',
-					'control'  => 'ast-heading',
-					'priority' => 59,
-					'settings' => array(),
-					'divider'  => array( 'ast_class' => 'ast-section-spacing' ),
-				),
 
 				/**
 				 * Option: Enable Quantity Plus and Minus.
@@ -72,6 +50,20 @@ if ( ! class_exists( 'Astra_Woo_Shop_Misc_Layout_Configs' ) ) {
 				),
 
 			);
+
+			/**
+			 * Option: Adds tabs only if astra addons is enabled.
+			 */
+			if ( astra_has_pro_woocommerce_addon() ) {
+				$_configs[] = array(
+					'name'        => 'section-woo-general-tabs',
+					'section'     => 'section-woo-misc',
+					'type'        => 'control',
+					'control'     => 'ast-builder-header-control',
+					'priority'    => 0,
+					'description' => '',
+				);
+			}
 
 			if ( ! defined( 'ASTRA_EXT_VER' ) ) {
 				// Learn More link if Astra Pro is not activated.

@@ -65,14 +65,15 @@ a.ast-upgrade-trigger:focus, a.ast-upgrade-trigger:active {
     text-align: center;
 }
 .ast-upgrade-list-wrapper .ast-brand-logo {
-    margin-top: 0;
+    margin: 0;
 }
 .ast-upgrade-list-wrapper svg {
     width: 32px;
     height: 32px;
 }
 .ast-upgrade-list-wrapper .ast-upgrade-list-section-title {
-    margin: 0.5em 0;
+	margin: 0.5em auto;
+    max-width: 240px;
 }
 .ast-pro-upgrade-item svg {
     vertical-align: middle;
