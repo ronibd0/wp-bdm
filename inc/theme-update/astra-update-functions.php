@@ -1033,7 +1033,7 @@ function astra_responsive_shop_content_alignment() {
 /**
  * Change default layout to standard for old users.
  *
- * @since x.x.x
+ * @since 3.9.2
  * @return void
  */
 function astra_shop_style_design_layout() {
@@ -1047,7 +1047,7 @@ function astra_shop_style_design_layout() {
 /**
  * Apply css for show password icon on woocommerce account page.
  *
- * @since x.x.x
+ * @since 3.9.2
  * @return void
  */
 function astra_apply_woocommerce_show_password_icon_css() {
