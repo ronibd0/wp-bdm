@@ -34,7 +34,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 * Page title
 		 *
 		 * @since 1.0
-		 * @var array $page_title
+		 * @var string $page_title
 		 */
 		public static $page_title = 'Astra';
 
@@ -163,16 +163,14 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 * @access public
 		 */
 		public static function register_pro_menu() {
-			add_submenu_page(
-				'themes.php',
+			add_theme_page(
 				__( 'Custom Layouts', 'astra' ),
 				__( 'Custom Layouts', 'astra' ),
 				'edit_theme_options',
 				'astra-advanced-hook',
 				__CLASS__ . '::preview_custom_layout'
 			);
-			add_submenu_page(
-				'themes.php',
+			add_theme_page(
 				__( 'Page Headers', 'astra' ),
 				__( 'Page Headers', 'astra' ),
 				'edit_theme_options',
@@ -365,7 +363,9 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 * @since x.x.x
 		 */
 		public static function upgrade_to_pro_wc_notice() {
+			/** @psalm-suppress PossiblyInvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			$current_slug = isset( $_GET['page'] ) ? sanitize_text_field( wp_unslash( $_GET['page'] ) ) : ''; // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+			/** @psalm-suppress PossiblyInvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 
 			if ( '' !== $current_slug && function_exists( 'WC' ) && in_array( $current_slug, array( 'wc-admin', 'wc-reports', 'wc-status', 'wc-addons', 'wc-settings' ), true ) ) {
 

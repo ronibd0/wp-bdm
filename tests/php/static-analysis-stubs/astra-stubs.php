@@ -6517,7 +6517,7 @@ namespace {
          * Page title
          *
          * @since 1.0
-         * @var array $page_title
+         * @var string $page_title
          */
         public static $page_title = 'Astra';
         /**
