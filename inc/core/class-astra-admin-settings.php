@@ -148,6 +148,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 
 			if( ! defined( 'ASTRA_EXT_VER' ) && astra_showcase_upgrade_notices() ) {
 				add_action( 'admin_menu', __CLASS__ . '::register_pro_menu', 100 );
+				add_action( 'admin_init', __CLASS__ . '::upgrade_to_pro_wc_notice' );
 			}
 		}
 
@@ -350,6 +351,51 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 					'priority'                   => 5,
 					'display-with-other-notices' => false,
 					'show_if'                    => class_exists( 'Astra_Ext_White_Label_Markup' ) ? Astra_Ext_White_Label_Markup::show_branding() : true,
+				);
+
+				Astra_Notices::add_notice(
+					$astra_sites_notice_args
+				);
+			}
+		}
+
+		/**
+		 * Upgrade to Pro notice for Astra on WooCommerce pages.
+		 *
+		 * @since x.x.x
+		 */
+		public static function upgrade_to_pro_wc_notice() {
+			$current_slug = isset( $_GET['page'] ) ? sanitize_text_field( wp_unslash( $_GET['page'] ) ) : ''; // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+
+			if ( '' !== $current_slug && function_exists( 'WC' ) && in_array( $current_slug, array( 'wc-admin', 'wc-reports', 'wc-status', 'wc-addons', 'wc-settings' ), true ) ) {
+
+				$image_path           = ASTRA_THEME_URI . 'inc/assets/images/astra-logo.svg';
+
+				$astra_sites_notice_args = array(
+					'id'                         => 'astra-upgrade-pro-wc',
+					'type'                       => 'info',
+					'message'                    => sprintf(
+						'<div class="notice-image">
+							<img src="%1$s" class="custom-logo" alt="Astra" itemprop="logo"></div>
+							<div class="notice-content">
+								<h2 class="notice-heading">
+									%2$s
+								</h2>
+								<p>%3$s</p>
+								<div class="astra-review-notice-container">
+									<a class="%4$s" %5$s> %6$s </a>
+								</div>
+							</div>',
+						$image_path,
+						__( 'Astra Works Seamlessly with WooCommerce', 'astra' ),
+						__( 'With Astra Pro get your store the foundation it needs to load fast, convert higher, and bring in more revenue.', 'astra' ),
+						esc_attr( 'button button-primary' ),
+						'href="' . ASTRA_PRO_UPGRADE_URL . '" target="_blank"',
+						__( 'Upgrade Now', 'astra' )
+					),
+					'priority'                   => 5,
+					'show_if' => is_admin() ? true : false,
+					'display-with-other-notices' => false,
 				);
 
 				Astra_Notices::add_notice(
