@@ -876,6 +876,30 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			$defaults['single-product-payment-paypal']     = false;
 			$defaults['single-product-payment-apple-pay']  = false;
 
+			$defaults['single-product-payment-list'] = array(
+				'items' =>
+					array(
+						array(
+							'id'      => 'item-1',
+							'enabled' => true,
+							'source'  => 'icon',
+							'icon'    => 'check-circle',
+						),
+						array(
+							'id'      => 'item-2',
+							'enabled' => true,
+							'source'  => 'icon',
+							'icon'    => 'check-circle',
+						),
+						array(
+							'id'      => 'item-3',
+							'enabled' => true,
+							'source'  => 'icon',
+							'icon'    => 'check-circle',
+						),
+					),
+			);
+
 			return $defaults;
 		}
 
@@ -3372,6 +3396,27 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 						<li class="ast-payment-apple-pay">
 							<?php echo $applepay_icon; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 						</li>
+						<?php 
+					} 
+
+					$payment_list = astra_get_option( 'single-product-payment-list' );
+
+					if ( isset( $payment_list['items'] ) ) {
+						?>
+						<ul>
+							<?php foreach ( $payment_list['items'] as $single ) { ?>
+								<?php if ( isset( $single['enabled'] ) && true === $single['enabled'] ) { ?>
+									<?php $icon_data_attr = isset( $single['icon'] ) && ! $single['icon'] ? 'data-icon="false"' : 'data-icon="true"'; ?>
+									<li <?php echo $icon_data_attr; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
+										<?php
+										if ( isset( $single['icon'] ) && $single['icon'] ) {
+											echo Astra_Builder_UI_Controller::fetch_svg_icon( $single['icon'], false ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+										}
+										?>
+									</li>
+								<?php } ?>
+							<?php } ?>
+						</ul>
 					<?php } ?>
 				</ul>
 			</fieldset>
