@@ -172,8 +172,8 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			);
 			add_submenu_page(
 				'themes.php',
-				__( 'Page Header', 'astra' ),
-				__( 'Page Header', 'astra' ),
+				__( 'Page Headers', 'astra' ),
+				__( 'Page Headers', 'astra' ),
 				'edit_theme_options',
 				'astra_adv_header',
 				__CLASS__ . '::preview_page_header'
@@ -187,7 +187,41 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 * @access public
 		 */
 		public static function preview_custom_layout() {
+			$ast_icon           = apply_filters( 'astra_page_top_icon', true );
+			$ast_visit_site_url = apply_filters( 'astra_site_url', 'https://wpastra.com/?utm_source=welcome_page&utm_medium=logo_link&utm_campaign=astra_theme' );
+			$ast_wrapper_class  = apply_filters( 'astra_welcome_wrapper_class', array() );
 
+			?>
+				<div class="ast-menu-page-wrapper wrap ast-clear <?php echo esc_attr( implode( ' ', $ast_wrapper_class ) ); ?>">
+					<div class="ast-theme-page-header">
+						<div class="ast-container ast-flex">
+							<div class="ast-theme-title">
+								<a href="<?php echo esc_url( $ast_visit_site_url ); ?>" target="_blank" rel="noopener" >
+								<?php if ( $ast_icon ) { ?>
+									<img src="<?php echo esc_url( ASTRA_THEME_URI . 'inc/assets/images/astra.svg' ); ?>" class="ast-theme-icon" alt="<?php echo esc_attr( self::$page_title ); ?> " >
+									<span class="astra-theme-version"><?php echo esc_html( ASTRA_THEME_VERSION ); ?></span>
+								<?php } ?>
+								<?php do_action( 'astra_welcome_page_header_title' ); ?>
+								</a>
+							</div>
+							<?php do_action( 'astra_header_right_section' ); ?>
+						</div>
+					</div>
+					<div class="ast-pro-posttype-preview-container">
+						<img src="<?php echo esc_url( ASTRA_THEME_URI . 'inc/assets/images/custom-layout.svg' ); ?>"/>
+					</div>
+				</div>
+				<div class="ast-pro-posttype-popup">
+					<div class="ast-pro-posttype-popup-innerwrap">
+						<img src="<?php echo esc_url( ASTRA_THEME_URI . 'inc/assets/images/astra-logo.svg' ); ?>"/>
+						<p><span class="ast-posttype-title"> <?php echo __( 'Custom Layouts', 'astra' ); ?> </span></p>
+						<p class="ast-posttype-description"> <?php echo __( 'With this module, you can create a totally custom header, footer, 404 pages as well as custom content or code on various hook locations.', 'astra' ); ?> </p>
+						<a href="<?php echo esc_url( ASTRA_PRO_UPGRADE_URL ); ?>" target="_blank" class="button button-primary button-hero ast-upgrade-cpt-link">
+							<?php _e( 'Upgrade Now', 'astra' ); ?>
+						</a>
+					</div>
+				</div>
+			<?php
 		}
 
 		/**
@@ -197,7 +231,41 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 * @access public
 		 */
 		public static function preview_page_header() {
+			$ast_icon           = apply_filters( 'astra_page_top_icon', true );
+			$ast_visit_site_url = apply_filters( 'astra_site_url', 'https://wpastra.com/?utm_source=welcome_page&utm_medium=logo_link&utm_campaign=astra_theme' );
+			$ast_wrapper_class  = apply_filters( 'astra_welcome_wrapper_class', array() );
 
+			?>
+				<div class="ast-menu-page-wrapper wrap ast-clear <?php echo esc_attr( implode( ' ', $ast_wrapper_class ) ); ?>">
+					<div class="ast-theme-page-header">
+						<div class="ast-container ast-flex">
+							<div class="ast-theme-title">
+								<a href="<?php echo esc_url( $ast_visit_site_url ); ?>" target="_blank" rel="noopener" >
+								<?php if ( $ast_icon ) { ?>
+									<img src="<?php echo esc_url( ASTRA_THEME_URI . 'inc/assets/images/astra.svg' ); ?>" class="ast-theme-icon" alt="<?php echo esc_attr( self::$page_title ); ?> " >
+									<span class="astra-theme-version"><?php echo esc_html( ASTRA_THEME_VERSION ); ?></span>
+								<?php } ?>
+								<?php do_action( 'astra_welcome_page_header_title' ); ?>
+								</a>
+							</div>
+							<?php do_action( 'astra_header_right_section' ); ?>
+						</div>
+					</div>
+					<div class="ast-pro-posttype-preview-container">
+						<img src="<?php echo esc_url( ASTRA_THEME_URI . 'inc/assets/images/page-header.svg' ); ?>"/>
+					</div>
+				</div>
+				<div class="ast-pro-posttype-popup">
+					<div class="ast-pro-posttype-popup-innerwrap">
+						<img src="<?php echo esc_url( ASTRA_THEME_URI . 'inc/assets/images/astra-logo.svg' ); ?>"/>
+						<p><span class="ast-posttype-title"> <?php echo __( 'Page Headers', 'astra' ); ?> </span></p>
+						<p class="ast-posttype-description"> <?php echo __( 'With this module, you can design attractive Page Title/ Page Header area with breadcrumbs, background color/image.', 'astra' ); ?> </p>
+						<a href="<?php echo esc_url( ASTRA_PRO_UPGRADE_URL ); ?>" target="_blank" class="button button-primary button-hero ast-upgrade-cpt-link">
+							<?php _e( 'Upgrade Now', 'astra' ); ?>
+						</a>
+					</div>
+				</div>
+			<?php
 		}
 
 		/**
