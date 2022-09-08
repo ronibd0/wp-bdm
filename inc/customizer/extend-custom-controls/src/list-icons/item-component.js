@@ -1,7 +1,7 @@
 import { useState , useEffect } from 'react';
 
 const { __ } = wp.i18n;
-const {Dashicon, Tooltip, TextControl, Button } = wp.components;
+const {Dashicon, Tooltip, TextControl, Button, TabPanel } = wp.components;
 import FontIconPicker from "@fonticonpicker/react-fonticonpicker"
 import astIcons from "../../../../../assets/svg/ast-social-icons"
 import renderSVG from "../../../../assets/js/ast-render-svg"
@@ -10,6 +10,20 @@ import renderSVG from "../../../../assets/js/ast-render-svg"
 let svg_icons = Object.keys( astIcons )
 
 const ItemComponent = props => {
+
+	let tabs = [
+		{
+			name: 'icon',
+			title: __( 'Icon', 'astra' ),
+			className: 'astra-color-background',
+		},
+		{
+			name: 'image',
+			title: __( 'Image', 'astra' ),
+			className: 'astra-color-background',
+		},
+
+	];
 
 	const Icons = window.svgIcons;
 
@@ -64,23 +78,66 @@ const ItemComponent = props => {
 			</Button>
 		</div>
 		{ state.open && <div className="ahfb-sorter-item-panel-content">
-			<TextControl label={__('Text', 'astra')} value={props.item.label ? props.item.label : ''}
+
+			{false === props.disable && <TextControl label={__('Text', 'astra')} value={props.item.label ? props.item.label : ''}
 						 onChange={value => {
 							 props.onChangeLabel(value, props.index);
 						 }}/>
-			<p className="ast-social-icon-picker-label">{ __( 'Icon', 'astra' ) }</p>
-			<FontIconPicker
-				icons={svg_icons}
-				renderFunc= {renderSVG}
-				theme="default"
-				value={props.item.icon}
-				onChange={ value => {
-					props.onChangeIcon(value, props.index);
-					setSelectedIcon( Icons[value] );
-				} }
-				isMulti={false}
-				noSelectedPlaceholder= { __( 'Select Icon', 'astra' ) }
-			/>
+			}
+			
+			<TabPanel className="astra-popover-tabs astra-background-tabs"
+						activeClass="active-tab"
+						initialTabName='icon'
+						tabs={ tabs }>
+				{
+					( tab ) => {
+						let tabout;
+
+						if ( tab.name ) {
+							if ( 'icon' === tab.name ) {
+								tabout = (
+									<>
+										<p className="ast-social-icon-picker-label">{ __( 'Icon', 'astra' ) }</p>
+										<FontIconPicker
+											icons={svg_icons}
+											renderFunc= {renderSVG}
+											theme="default"
+											value={props.item.icon}
+											onChange={ value => {
+												props.onChangeIcon(value, props.index);
+												setSelectedIcon( Icons[value] );
+											} }
+											isMulti={false}
+											noSelectedPlaceholder= { __( 'Select Icon', 'astra' ) }
+										/>
+									</>
+								);
+							} 
+
+							if ( 'image' === tab.name ) {
+								tabout = (
+									<>
+										<p className="ast-social-icon-picker-label">{ __( 'Icon', 'astra' ) }</p>
+										<FontIconPicker
+											icons={svg_icons}
+											renderFunc= {renderSVG}
+											theme="default"
+											value={props.item.icon}
+											onChange={ value => {
+												props.onChangeIcon(value, props.index);
+												setSelectedIcon( Icons[value] );
+											} }
+											isMulti={false}
+											noSelectedPlaceholder= { __( 'Select Icon', 'astra' ) }
+										/>
+									</>
+								);
+							} 
+						}
+						return <div>{ tabout }</div>;
+					}
+				}
+			</TabPanel>
 		</div>}
 	</div>;
 };

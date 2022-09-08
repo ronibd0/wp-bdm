@@ -7,6 +7,9 @@ const {__} = wp.i18n;
 
 const ListIconsComponent = props => {
 
+	// Flag to disable any unwanted feature.
+	const disableFeat = props.params && props.params.disable ? props.params.disable : true;
+
 	let value = props.control.setting.get();
 	let baseDefault = {
 		'items': [
@@ -258,7 +261,7 @@ const ListIconsComponent = props => {
 										  cloneItem={() => addItem(item)}
 										  onChangeLabel={(label, itemIndex) => onChangeLabel(label, itemIndex)}
 										  onChangeIcon={( icon, index ) => onChangeIcon( icon, index ) }
-										  key={item.id} index={index} item={item} controlParams={controlParams}/>;
+										  key={item.id} index={index} item={item} controlParams={controlParams} disable={disableFeat} />;
 
 				})}
 			</ReactSortable>
