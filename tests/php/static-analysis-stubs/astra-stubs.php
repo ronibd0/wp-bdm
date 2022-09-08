@@ -6568,6 +6568,37 @@ namespace {
         {
         }
         /**
+         * Register Custom Layout & Page Header Pro sub-menus.
+         *
+         * Add new admin pages as sub-menu under the main Astra Options menu.
+         *
+         * Fired by `admin_menu` action.
+         *
+         * @since x.x.x
+         * @access public
+         */
+        public static function register_pro_menu()
+        {
+        }
+        /**
+         * Showcase Custom Layout highlight.
+         *
+         * @since x.x.x
+         * @access public
+         */
+        public static function preview_custom_layout()
+        {
+        }
+        /**
+         * Showcase Page Header highlight.
+         *
+         * @since x.x.x
+         * @access public
+         */
+        public static function preview_page_header()
+        {
+        }
+        /**
          * Save All admin settings here
          */
         public static function save_settings()
@@ -6588,6 +6619,14 @@ namespace {
          * @since 1.4.0
          */
         public static function register_notices()
+        {
+        }
+        /**
+         * Upgrade to Pro notice for Astra on WooCommerce pages.
+         *
+         * @since x.x.x
+         */
+        public static function upgrade_to_pro_wc_notice()
         {
         }
         /**
@@ -11055,6 +11094,64 @@ namespace {
         {
         }
     }
+    /*!
+     * ISC License
+     * 
+     * Copyright (c) 2018-2021, Andrea Giammarchi, @WebReflection
+     *
+     * Permission to use, copy, modify, and/or distribute this software for any
+     * purpose with or without fee is hereby granted, provided that the above
+     * copyright notice and this permission notice appear in all copies.
+     *
+     * THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
+     * REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
+     * AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
+     * INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
+     * LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE
+     * OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
+     * PERFORMANCE OF THIS SOFTWARE.
+     */
+    class FlattedString
+    {
+        public function __construct($value)
+        {
+        }
+    }
+    class Flatted
+    {
+        // public utilities
+        public static function parse($json, $assoc = \false, $depth = 512, $options = 0)
+        {
+        }
+        public static function stringify($value, $options = 0, $depth = 512)
+        {
+        }
+        // private helpers
+        private static function asString($value)
+        {
+        }
+        private static function index(&$known, &$input, &$value)
+        {
+        }
+        private static function keys(&$value)
+        {
+        }
+        private static function loop($obj, $keys, &$input, &$set, &$output)
+        {
+        }
+        private static function relate(&$known, &$input, &$value)
+        {
+        }
+        private static function ref($obj, &$key, &$value, &$input, &$set, &$output)
+        {
+        }
+        private static function transform(&$known, &$input, &$value)
+        {
+        }
+        private static function wrap($value)
+        {
+        }
+    }
     /**
      * Customizer Initialization
      *
@@ -12291,6 +12388,7 @@ namespace {
     \define('ASTRA_THEME_SETTINGS', 'astra-settings');
     \define('ASTRA_THEME_DIR', \trailingslashit(\get_template_directory()));
     \define('ASTRA_THEME_URI', \trailingslashit(\esc_url(\get_template_directory_uri())));
+    \define('ASTRA_PRO_UPGRADE_URL', 'https://wpastra.com/pro/');
     /**
      * Minimum Version requirement of the Astra Pro addon.
      * This constant will be used to display the notice asking user to update the Astra addon to the version defined below.
@@ -14978,7 +15076,7 @@ namespace {
     /**
      * Check the Astra addon version.
      * For  major update and frequently we used version_compare, added a function for this for easy maintenance.
-     * 
+     *
      * @param string $version Astra addon version.
      * @param string $compare Compare symbols.
      * @since  3.9.2
@@ -15139,6 +15237,15 @@ namespace {
      * @since 3.5.0
      */
     function astra_search_static_css()
+    {
+    }
+    /**
+     * Showcase "Upgrade to Pro" notices for Astra & here is the filter work as central control to enable/disable those notices from customizer, meta settings, admin area, pro post types pages.
+     *
+     * @since x.x.x
+     * @return bool
+     */
+    function astra_showcase_upgrade_notices()
     {
     }
     /**
