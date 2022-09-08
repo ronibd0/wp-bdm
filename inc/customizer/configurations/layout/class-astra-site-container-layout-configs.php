@@ -101,8 +101,8 @@ if ( ! class_exists( 'Astra_Site_Container_Layout_Configs' ) ) {
 							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'container-full-width-contained', false ) : '',
 						),
 						'page-builder'            => array(
-							'label'  => __( 'Full Width / Stretched', 'astra' ),
-							'path'   => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'container-full-width-stretched', false ) : '',
+							'label' => __( 'Full Width / Stretched', 'astra' ),
+							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'container-full-width-stretched', false ) : '',
 						),
 					),
 					'divider'           => array( 'ast_class' => 'ast-section-spacing ast-bottom-section-divider' ),
@@ -172,28 +172,28 @@ if ( ! class_exists( 'Astra_Site_Container_Layout_Configs' ) ) {
 			if ( ! defined( 'ASTRA_EXT_VER' ) && astra_showcase_upgrade_notices() ) {
 				$config = array(
 					array(
-						'name'              => ASTRA_THEME_SETTINGS . '[ast-site-layout-button-link]',
-						'type'              => 'control',
-						'control'           => 'ast-upgrade',
-						'renderAs'			=> 'list',
-						'choices'			=> array(
-							'one'         => array(
+						'name'     => ASTRA_THEME_SETTINGS . '[ast-site-layout-button-link]',
+						'type'     => 'control',
+						'control'  => 'ast-upgrade',
+						'renderAs' => 'list',
+						'choices'  => array(
+							'one'   => array(
 								'title' => __( 'Full Width Layout', 'astra' ),
 							),
-							'two'         => array(
+							'two'   => array(
 								'title' => __( 'Padded Layout', 'astra' ),
 							),
-							'three'         => array(
+							'three' => array(
 								'title' => __( 'Fluid Layout', 'astra' ),
 							),
-							'four'         => array(
+							'four'  => array(
 								'title' => __( 'Container Spacings', 'astra' ),
 							),
 						),
-						'section'           => 'section-container-layout',
-						'default'           => '',
-						'priority'          => 999,
-						'title'             => __( 'With Astra Pro you will get more control on container layouts!', 'astra' ),
+						'section'  => 'section-container-layout',
+						'default'  => '',
+						'priority' => 999,
+						'title'    => __( 'With Astra Pro you will get more control on container layouts!', 'astra' ),
 						'divider'  => array( 'ast_class' => 'ast-top-section-divider' ),
 					),
 				);

@@ -167,15 +167,15 @@ if ( ! class_exists( 'Astra_Body_Colors_Configs' ) ) {
 			// Learn More link if Astra Pro is not activated.
 			if ( ! defined( 'ASTRA_EXT_VER' ) && astra_showcase_upgrade_notices() ) {
 				$_configs[] = array(
-					'name'              => ASTRA_THEME_SETTINGS . '[colors-pro-upgrade]',
-					'type'              => 'control',
-					'control'           => 'ast-upgrade',
-					'section'           => $_section,
-					'svg'				=> 'color-upgrade-svg',
-					'default'           => '',
-					'priority'          => 998,
-					'title'             => __( 'Upgrade to unlock more colors.', 'astra' ),
-					'divider'           => array( 'ast_class' => 'ast-top-section-divider' ),
+					'name'     => ASTRA_THEME_SETTINGS . '[colors-pro-upgrade]',
+					'type'     => 'control',
+					'control'  => 'ast-upgrade',
+					'section'  => $_section,
+					'svg'      => 'color-upgrade-svg',
+					'default'  => '',
+					'priority' => 998,
+					'title'    => __( 'Upgrade to unlock more colors.', 'astra' ),
+					'divider'  => array( 'ast_class' => 'ast-top-section-divider' ),
 				);
 			}
 

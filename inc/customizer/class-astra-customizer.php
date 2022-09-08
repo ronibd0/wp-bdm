@@ -479,8 +479,8 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 					if ( isset( $configuration['choices'] ) && is_array( $configuration['choices'] ) ) {
 
 						foreach ( $configuration['choices'] as $key => $value ) {
-							$configuration['choices'][ $key ]        = $value['path'];
-							$configuration['choices_titles'][ $key ] = $value['label'];
+							$configuration['choices'][ $key ]         = $value['path'];
+							$configuration['choices_titles'][ $key ]  = $value['label'];
 							$configuration['choices_upgrade'][ $key ] = isset( $value['is_pro'] ) ? $value['is_pro'] : false;
 						}
 					}
@@ -1060,7 +1060,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 					'googleFonts'             => Astra_Font_Families::get_google_fonts(),
 					'variantLabels'           => Astra_Font_Families::font_variant_labels(),
 					'menuLocations'           => $resultant_menus,
-					'upgradeUrl'			  => ASTRA_PRO_UPGRADE_URL,
+					'upgradeUrl'              => ASTRA_PRO_UPGRADE_URL,
 				)
 			);
 

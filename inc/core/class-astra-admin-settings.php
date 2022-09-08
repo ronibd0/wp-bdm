@@ -146,7 +146,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 
 			add_action( 'admin_init', __CLASS__ . '::minimum_addon_version_notice' );
 
-			if( ! defined( 'ASTRA_EXT_VER' ) && astra_showcase_upgrade_notices() ) {
+			if ( ! defined( 'ASTRA_EXT_VER' ) && astra_showcase_upgrade_notices() ) {
 				add_action( 'admin_menu', __CLASS__ . '::register_pro_menu', 100 );
 				add_action( 'admin_init', __CLASS__ . '::upgrade_to_pro_wc_notice' );
 			}
@@ -369,7 +369,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 
 			if ( '' !== $current_slug && function_exists( 'WC' ) && in_array( $current_slug, array( 'wc-admin', 'wc-reports', 'wc-status', 'wc-addons', 'wc-settings' ), true ) ) {
 
-				$image_path           = ASTRA_THEME_URI . 'inc/assets/images/astra-logo.svg';
+				$image_path = ASTRA_THEME_URI . 'inc/assets/images/astra-logo.svg';
 
 				$astra_sites_notice_args = array(
 					'id'                         => 'astra-upgrade-pro-wc',
@@ -394,7 +394,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 						__( 'Upgrade Now', 'astra' )
 					),
 					'priority'                   => 5,
-					'show_if' => is_admin() ? true : false,
+					'show_if'                    => is_admin() ? true : false,
 					'display-with-other-notices' => false,
 				);
 

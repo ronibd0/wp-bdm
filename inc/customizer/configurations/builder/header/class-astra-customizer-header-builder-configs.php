@@ -504,37 +504,37 @@ class Astra_Customizer_Header_Builder_Configs extends Astra_Customizer_Config_Ba
 			 * Option: Pro options
 			 */
 			$_configs[] = array(
-				'name'              => ASTRA_THEME_SETTINGS . '[header-builder-pro-items]',
-				'type'              => 'control',
-				'control'           => 'ast-upgrade',
-				'renderAs'			=> 'list',
-				'choices'			=> array(
-					'one'         => array(
+				'name'     => ASTRA_THEME_SETTINGS . '[header-builder-pro-items]',
+				'type'     => 'control',
+				'control'  => 'ast-upgrade',
+				'renderAs' => 'list',
+				'choices'  => array(
+					'one'   => array(
 						'title' => __( 'Sticky Header', 'astra' ),
 					),
-					'two'         => array(
+					'two'   => array(
 						'title' => __( 'Divider Element', 'astra' ),
 					),
-					'three'         => array(
+					'three' => array(
 						'title' => __( 'Language Switcher Element', 'astra' ),
 					),
-					'four'         => array(
+					'four'  => array(
 						'title' => __( 'Toggle Button Element', 'astra' ),
 					),
-					'five'         => array(
+					'five'  => array(
 						'title' => __( 'Clone, Delete Element Options', 'astra' ),
 					),
-					'six'         => array(
+					'six'   => array(
 						'title' => __( 'Increased Element Count', 'astra' ),
 					),
-					'seven'         => array(
+					'seven' => array(
 						'title' => __( 'More Design Options', 'astra' ),
 					),
 				),
-				'section'           => 'section-header-builder-layout',
-				'default'           => '',
-				'priority'          => 999,
-				'title'             => __( 'With Astra Pro get more features for your site header!', 'astra' ),
+				'section'  => 'section-header-builder-layout',
+				'default'  => '',
+				'priority' => 999,
+				'title'    => __( 'With Astra Pro get more features for your site header!', 'astra' ),
 				'divider'  => array( 'ast_class' => 'ast-top-divider' ),
 			);
 		}

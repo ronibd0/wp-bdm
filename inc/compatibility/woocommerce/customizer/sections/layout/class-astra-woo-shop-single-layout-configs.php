@@ -698,43 +698,43 @@ if ( ! class_exists( 'Astra_Woo_Shop_Single_Layout_Configs' ) ) {
 					),
 				);
 
-				if( astra_showcase_upgrade_notices() ) {
+				if ( astra_showcase_upgrade_notices() ) {
 					// Learn More link if Astra Pro is not activated.
 					$_configs[] = array(
-						'name'              => ASTRA_THEME_SETTINGS . '[ast-woo-single-product-pro-items]',
-						'type'              => 'control',
-						'control'           => 'ast-upgrade',
-						'renderAs'			=> 'list',
-						'choices'			=> array(
-							'two'         => array(
+						'name'     => ASTRA_THEME_SETTINGS . '[ast-woo-single-product-pro-items]',
+						'type'     => 'control',
+						'control'  => 'ast-upgrade',
+						'renderAs' => 'list',
+						'choices'  => array(
+							'two'   => array(
 								'title' => __( 'Product Gallery', 'astra' ),
 							),
-							'three'         => array(
+							'three' => array(
 								'title' => __( 'Sticky Product Summary', 'astra' ),
 							),
-							'five'         => array(
+							'five'  => array(
 								'title' => __( 'Product Description Layouts', 'astra' ),
 							),
-							'six'         => array(
+							'six'   => array(
 								'title' => __( 'Related, Upsell Products Controls', 'astra' ),
 							),
-							'seven'         => array(
+							'seven' => array(
 								'title' => __( 'Extras Option In Product Structure', 'astra' ),
 							),
-							'eight'         => array(
+							'eight' => array(
 								'title' => __( 'More Typography Options', 'astra' ),
 							),
-							'nine'         => array(
+							'nine'  => array(
 								'title' => __( 'More Color Options', 'astra' ),
 							),
-							'one'         => array(
+							'one'   => array(
 								'title' => __( 'More Design Controls', 'astra' ),
 							),
 						),
-						'section'           => 'section-woo-shop-single',
-						'default'           => '',
-						'priority'          => 999,
-						'title'             => __( 'With Astra Pro get more features for your Ecommerce Product!', 'astra' ),
+						'section'  => 'section-woo-shop-single',
+						'default'  => '',
+						'priority' => 999,
+						'title'    => __( 'With Astra Pro get more features for your Ecommerce Product!', 'astra' ),
 						'divider'  => array( 'ast_class' => 'ast-top-section-divider' ),
 						'context'  => array(),
 					);

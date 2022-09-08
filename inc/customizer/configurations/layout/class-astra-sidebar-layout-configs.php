@@ -131,31 +131,31 @@ if ( ! class_exists( 'Astra_Sidebar_Layout_Configs' ) ) {
 			// Learn More link if Astra Pro is not activated.
 			if ( ! defined( 'ASTRA_EXT_VER' ) && astra_showcase_upgrade_notices() ) {
 				$_configs[] = array(
-					'name'              => ASTRA_THEME_SETTINGS . '[ast-sidebar-pro-items]',
-					'type'              => 'control',
-					'control'           => 'ast-upgrade',
-					'renderAs'			=> 'list',
-					'choices'			=> array(
-						'one'         => array(
+					'name'     => ASTRA_THEME_SETTINGS . '[ast-sidebar-pro-items]',
+					'type'     => 'control',
+					'control'  => 'ast-upgrade',
+					'renderAs' => 'list',
+					'choices'  => array(
+						'one'   => array(
 							'title' => __( 'Sidebar Spacings', 'astra' ),
 						),
-						'two'         => array(
+						'two'   => array(
 							'title' => __( 'Sidebar Color Options', 'astra' ),
 						),
-						'three'         => array(
+						'three' => array(
 							'title' => __( 'Widget Color Options', 'astra' ),
 						),
-						'four'         => array(
+						'four'  => array(
 							'title' => __( 'Widget Title Typography', 'astra' ),
 						),
-						'five'         => array(
+						'five'  => array(
 							'title' => __( 'Widget Content Typography', 'astra' ),
 						),
 					),
-					'section'           => 'section-sidebars',
-					'default'           => '',
-					'priority'          => 999,
-					'title'             => __( 'With Astra Pro get design options for your sidebar!', 'astra' ),
+					'section'  => 'section-sidebars',
+					'default'  => '',
+					'priority' => 999,
+					'title'    => __( 'With Astra Pro get design options for your sidebar!', 'astra' ),
 					'divider'  => array( 'ast_class' => 'ast-top-divider' ),
 				);
 			}

@@ -43,35 +43,35 @@ if ( ! class_exists( 'Astra_Single_Typo_Configs' ) ) {
 					 * Option: Astra Pro blog single post's options.
 					 */
 					array(
-						'name'              => ASTRA_THEME_SETTINGS . '[ast-single-post-items]',
-						'type'              => 'control',
-						'control'           => 'ast-upgrade',
-						'renderAs'			=> 'list',
-						'choices'			=> array(
-							'one'         => array(
+						'name'     => ASTRA_THEME_SETTINGS . '[ast-single-post-items]',
+						'type'     => 'control',
+						'control'  => 'ast-upgrade',
+						'renderAs' => 'list',
+						'choices'  => array(
+							'one'   => array(
 								'title' => __( 'Author Info', 'astra' ),
 							),
-							'two'         => array(
+							'two'   => array(
 								'title' => __( 'Auto Load Previous Posts', 'astra' ),
 							),
-							'three'         => array(
+							'three' => array(
 								'title' => __( 'Single Post Navigation Control', 'astra' ),
 							),
-							'four'         => array(
+							'four'  => array(
 								'title' => __( 'Custom Featured Images Size', 'astra' ),
 							),
-							'five'         => array(
+							'five'  => array(
 								'title' => __( 'Extended Typography Options', 'astra' ),
 							),
-							'six'         => array(
+							'six'   => array(
 								'title' => __( 'Extended Spacing Options', 'astra' ),
 							),
 						),
-						'section'           => 'section-blog-single',
-						'default'           => '',
-						'priority'          => 999,
+						'section'  => 'section-blog-single',
+						'default'  => '',
+						'priority' => 999,
 						'context'  => array(),
-						'title'             => __( 'With Astra Pro get more features for your Single Post!', 'astra' ),
+						'title'    => __( 'With Astra Pro get more features for your Single Post!', 'astra' ),
 						'divider'  => array( 'ast_class' => 'ast-top-section-divider' ),
 					),
 				);
