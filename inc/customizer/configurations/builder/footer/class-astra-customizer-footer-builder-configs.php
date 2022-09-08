@@ -302,7 +302,7 @@ class Astra_Customizer_Footer_Builder_Configs extends Astra_Customizer_Config_Ba
 			),
 		);
 
-		if ( ! defined( 'ASTRA_EXT_VER' ) ) {
+		if ( ! defined( 'ASTRA_EXT_VER' ) && astra_showcase_upgrade_notices() ) {
 			$_configs[] = array(
 				'name'              => ASTRA_THEME_SETTINGS . '[footer-builder-pro-items]',
 				'type'              => 'control',

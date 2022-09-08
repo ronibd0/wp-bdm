@@ -499,7 +499,7 @@ class Astra_Customizer_Header_Builder_Configs extends Astra_Customizer_Config_Ba
 		);
 
 		// Learn More link if Astra Pro is not activated.
-		if ( ! defined( 'ASTRA_EXT_VER' ) ) {
+		if ( ! defined( 'ASTRA_EXT_VER' ) && astra_showcase_upgrade_notices() ) {
 			/**
 			 * Option: Pro options
 			 */

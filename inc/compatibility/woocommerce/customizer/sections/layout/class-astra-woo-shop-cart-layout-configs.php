@@ -84,7 +84,7 @@ if ( ! class_exists( 'Astra_Woo_Shop_Cart_Layout_Configs' ) ) {
 				),
 			);
 
-			if( ! defined( 'ASTRA_EXT_VER' ) ) {
+			if( ! defined( 'ASTRA_EXT_VER' ) && astra_showcase_upgrade_notices() ) {
 				// Learn More link if Astra Pro is not activated.
 				$_configs[] = array(
 					'name'              => ASTRA_THEME_SETTINGS . '[ast-woo-cart-pro-items]',

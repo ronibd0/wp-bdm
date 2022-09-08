@@ -280,7 +280,7 @@ if ( ! class_exists( 'Astra_Woo_Shop_Layout_Configs' ) ) {
 			);
 
 			// Learn More link if Astra Pro is not activated.
-			if ( ! defined( 'ASTRA_EXT_VER' ) ) {
+			if ( ! defined( 'ASTRA_EXT_VER' ) && astra_showcase_upgrade_notices() ) {
 				$_configs[] = array(
 					'name'              => ASTRA_THEME_SETTINGS . '[ast-woo-shop-pro-items]',
 					'type'              => 'control',

@@ -146,7 +146,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 
 			add_action( 'admin_init', __CLASS__ . '::minimum_addon_version_notice' );
 
-			if( ! defined( 'ASTRA_EXT_VER' ) ) {
+			if( ! defined( 'ASTRA_EXT_VER' ) && astra_showcase_upgrade_notices() ) {
 				add_action( 'admin_menu', __CLASS__ . '::register_pro_menu', 100 );
 			}
 		}

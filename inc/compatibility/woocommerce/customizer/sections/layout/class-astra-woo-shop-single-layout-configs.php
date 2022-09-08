@@ -698,45 +698,47 @@ if ( ! class_exists( 'Astra_Woo_Shop_Single_Layout_Configs' ) ) {
 					),
 				);
 
-				// Learn More link if Astra Pro is not activated.
-				$_configs[] = array(
-					'name'              => ASTRA_THEME_SETTINGS . '[ast-woo-single-product-pro-items]',
-					'type'              => 'control',
-					'control'           => 'ast-upgrade',
-					'renderAs'			=> 'list',
-					'choices'			=> array(
-						'two'         => array(
-							'title' => __( 'Product Gallery', 'astra' ),
+				if( astra_showcase_upgrade_notices() ) {
+					// Learn More link if Astra Pro is not activated.
+					$_configs[] = array(
+						'name'              => ASTRA_THEME_SETTINGS . '[ast-woo-single-product-pro-items]',
+						'type'              => 'control',
+						'control'           => 'ast-upgrade',
+						'renderAs'			=> 'list',
+						'choices'			=> array(
+							'two'         => array(
+								'title' => __( 'Product Gallery', 'astra' ),
+							),
+							'three'         => array(
+								'title' => __( 'Sticky Product Summary', 'astra' ),
+							),
+							'five'         => array(
+								'title' => __( 'Product Description Layouts', 'astra' ),
+							),
+							'six'         => array(
+								'title' => __( 'Related, Upsell Products Controls', 'astra' ),
+							),
+							'seven'         => array(
+								'title' => __( 'Extras Option In Product Structure', 'astra' ),
+							),
+							'eight'         => array(
+								'title' => __( 'More Typography Options', 'astra' ),
+							),
+							'nine'         => array(
+								'title' => __( 'More Color Options', 'astra' ),
+							),
+							'one'         => array(
+								'title' => __( 'More Design Controls', 'astra' ),
+							),
 						),
-						'three'         => array(
-							'title' => __( 'Sticky Product Summary', 'astra' ),
-						),
-						'five'         => array(
-							'title' => __( 'Product Description Layouts', 'astra' ),
-						),
-						'six'         => array(
-							'title' => __( 'Related, Upsell Products Controls', 'astra' ),
-						),
-						'seven'         => array(
-							'title' => __( 'Extras Option In Product Structure', 'astra' ),
-						),
-						'eight'         => array(
-							'title' => __( 'More Typography Options', 'astra' ),
-						),
-						'nine'         => array(
-							'title' => __( 'More Color Options', 'astra' ),
-						),
-						'one'         => array(
-							'title' => __( 'More Design Controls', 'astra' ),
-						),
-					),
-					'section'           => 'section-woo-shop-single',
-					'default'           => '',
-					'priority'          => 999,
-					'title'             => __( 'With Astra Pro get more features for your Ecommerce Product!', 'astra' ),
-					'divider'  => array( 'ast_class' => 'ast-top-section-divider' ),
-					'context'  => array(),
-				);
+						'section'           => 'section-woo-shop-single',
+						'default'           => '',
+						'priority'          => 999,
+						'title'             => __( 'With Astra Pro get more features for your Ecommerce Product!', 'astra' ),
+						'divider'  => array( 'ast_class' => 'ast-top-section-divider' ),
+						'context'  => array(),
+					);
+				}
 			}
 
 			return array_merge( $configurations, $_configs );
