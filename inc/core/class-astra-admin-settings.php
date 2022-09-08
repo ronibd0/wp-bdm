@@ -832,7 +832,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 */
 		public static function get_starter_templates_title() {
 
-			$astra_sites_name = __( '180+ Starter Templates', 'astra' );
+			$astra_sites_name = __( '230+ Starter Templates', 'astra' );
 
 			if ( method_exists( 'Astra_Ext_White_Label_Markup', 'get_whitelabel_string' ) ) {
 				$white_labelled_astra_sites_name = Astra_Ext_White_Label_Markup::get_whitelabel_string( 'astra-sites', 'name' );
