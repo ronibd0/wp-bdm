@@ -331,7 +331,7 @@ function astra_has_pro_woocommerce_addon() {
  * Support cart color setting to default cart icon, till now with other cart icons have this color compatibility but default one don't have this.
  * This case is only for old header layout.
  *
- * @since x.x.x
+ * @since 3.9.2
  * @return boolean false if it is an existing user, true if not.
  */
 function astra_cart_color_default_icon_old_header() {
@@ -344,7 +344,7 @@ function astra_cart_color_default_icon_old_header() {
  * Function to check the Add to Cart quantity buttons.
  *
  * @return bool true|false.
- * @since x.x.x
+ * @since 3.9.2
  */
 function astra_add_to_cart_quantity_btn_enabled() {
 	return apply_filters( 'astra_add_to_cart_quantity_btn_enabled', astra_get_option( 'single-product-plus-minus-button' ) );
