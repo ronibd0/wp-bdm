@@ -42,18 +42,6 @@ if ( ! class_exists( 'Astra_Woo_Shop_Single_Layout_Configs' ) ) {
 			if ( astra_has_pro_woocommerce_addon() ) {
 
 				/**
-				 * Single product payment control.
-				 */
-
-				$clonning_attr['single-product-payments'] = array(
-					'clone'       => false,
-					'is_parent'   => true,
-					'main_index'  => 'single-product-payments',
-					'clone_limit' => 2,
-					'title'       => __( 'Payments', 'astra' ),
-				);
-
-				/**
 				 * Single product extras control.
 				 */
 				$clonning_attr['summary-extras'] = array(
@@ -75,6 +63,18 @@ if ( ! class_exists( 'Astra_Woo_Shop_Single_Layout_Configs' ) ) {
 				'main_index'  => 'add_cart',
 				'clone_limit' => 2,
 				'title'       => __( 'Add To Cart', 'astra' ),
+			);
+
+			/**
+			 * Single product payment control.
+			 */
+
+			$clonning_attr['single-product-payments'] = array(
+				'clone'       => false,
+				'is_parent'   => true,
+				'main_index'  => 'single-product-payments',
+				'clone_limit' => 2,
+				'title'       => __( 'Payments', 'astra' ),
 			);
 
 			$_configs = array(
@@ -389,7 +389,9 @@ if ( ! class_exists( 'Astra_Woo_Shop_Single_Layout_Configs' ) ) {
 					),
 				),
 
-				// Option: Link Color.
+				/**
+				 * Option: Link Color.
+				 */
 				array(
 					'type'     => 'sub-control',
 					'priority' => 76,
@@ -402,7 +404,9 @@ if ( ! class_exists( 'Astra_Woo_Shop_Single_Layout_Configs' ) ) {
 					'tab'      => __( 'Normal', 'astra' ),
 				),
 
-				// Option: Link Hover Color.
+				/**
+				 * Option: Link Hover Color.
+				 */
 				array(
 					'type'              => 'sub-control',
 					'priority'          => 82,
@@ -439,7 +443,9 @@ if ( ! class_exists( 'Astra_Woo_Shop_Single_Layout_Configs' ) ) {
 					),
 				),
 
-				// Option: Link Color.
+				/**
+				 * Option: Link Color.
+				 */
 				array(
 					'type'     => 'sub-control',
 					'priority' => 82,
@@ -452,7 +458,9 @@ if ( ! class_exists( 'Astra_Woo_Shop_Single_Layout_Configs' ) ) {
 					'tab'      => __( 'Normal', 'astra' ),
 				),
 
-				// Option: Link Hover Color.
+				/**
+				 * Option: Link Hover Color.
+				 */
 				array(
 					'type'              => 'sub-control',
 					'priority'          => 82,
@@ -465,6 +473,141 @@ if ( ! class_exists( 'Astra_Woo_Shop_Single_Layout_Configs' ) ) {
 					'name'              => 'single-product-sticky-add-to-cart-btn-bg-h-color',
 					'title'             => __( 'Hover', 'astra' ),
 					'tab'               => __( 'Hover', 'astra' ),
+				),
+
+				/**
+				 * Single product payment icon color style.
+				 */
+				array(
+					'name'       => 'single-product-payment-icon-color',
+					'parent'     => ASTRA_THEME_SETTINGS . '[single-product-structure]',
+					'default'    => astra_get_option( 'single-product-payment-icon-color' ),
+					'linked'     => 'single-product-payments',
+					'type'       => 'sub-control',
+					'control'    => 'ast-selector',
+					'section'    => 'section-woo-shop-single',
+					'priority'   => 5,
+					'title'      => __( 'Choose Icon Colors', 'astra' ),
+					'choices'    => array(
+						'inherit'            => __( 'Default', 'astra' ),
+						'inherit_text_color' => __( 'Grayscale', 'astra' ),
+					),
+					'transport'  => 'postMessage',
+					'responsive' => false,
+					'renderAs'   => 'text',
+				),
+
+				/**
+				 * Single product payment heading text.
+				 */
+				array(
+					'name'      => 'single-product-payment-text',
+					'parent'    => ASTRA_THEME_SETTINGS . '[single-product-structure]',
+					'default'   => astra_get_option( 'single-product-payment-text' ),
+					'linked'    => 'single-product-payments',
+					'type'      => 'sub-control',
+					'control'   => 'ast-text-input',
+					'section'   => 'section-woo-shop-single',
+					'priority'  => 5,
+					'transport' => 'postMessage',
+					'title'     => __( 'Payment Title', 'astra' ),
+					'settings'  => array(),
+				),
+
+				/**
+				 * Single product payment sub control Visa.
+				 */
+				array(
+					'name'      => 'single-product-payment-visa',
+					'parent'    => ASTRA_THEME_SETTINGS . '[single-product-structure]',
+					'default'   => astra_get_option( 'single-product-payment-visa' ),
+					'linked'    => 'single-product-payments',
+					'type'      => 'sub-control',
+					'control'   => 'ast-toggle',
+					'section'   => 'section-woo-shop-single',
+					'priority'  => 10,
+					'title'     => __( 'Show Visa', 'astra' ),
+					'transport' => 'postMessage',
+				),
+
+				/**
+				 * Single product payment sub control MasterCard.
+				 */
+				array(
+					'name'      => 'single-product-payment-mastercard',
+					'parent'    => ASTRA_THEME_SETTINGS . '[single-product-structure]',
+					'default'   => astra_get_option( 'single-product-payment-mastercard' ),
+					'linked'    => 'single-product-payments',
+					'type'      => 'sub-control',
+					'control'   => 'ast-toggle',
+					'section'   => 'section-woo-shop-single',
+					'priority'  => 10,
+					'title'     => __( 'Show MasterCard', 'astra' ),
+					'transport' => 'postMessage',
+				),
+
+				/**
+				 * Single product payment sub control Amex.
+				 */
+				array(
+					'name'      => 'single-product-payment-amex',
+					'parent'    => ASTRA_THEME_SETTINGS . '[single-product-structure]',
+					'default'   => astra_get_option( 'single-product-payment-amex' ),
+					'linked'    => 'single-product-payments',
+					'type'      => 'sub-control',
+					'control'   => 'ast-toggle',
+					'section'   => 'section-woo-shop-single',
+					'priority'  => 10,
+					'title'     => __( 'Show Amex', 'astra' ),
+					'transport' => 'postMessage',
+				),
+
+				/**
+				 * Single product payment sub control Discover.
+				 */
+				array(
+					'name'      => 'single-product-payment-discover',
+					'parent'    => ASTRA_THEME_SETTINGS . '[single-product-structure]',
+					'default'   => astra_get_option( 'single-product-payment-discover' ),
+					'linked'    => 'single-product-payments',
+					'type'      => 'sub-control',
+					'control'   => 'ast-toggle',
+					'section'   => 'section-woo-shop-single',
+					'priority'  => 10,
+					'title'     => __( 'Show Discover', 'astra' ),
+					'transport' => 'postMessage',
+				),
+
+				/**
+				 * Single product payment sub control Paypal.
+				 */
+				array(
+					'name'      => 'single-product-payment-paypal',
+					'parent'    => ASTRA_THEME_SETTINGS . '[single-product-structure]',
+					'default'   => astra_get_option( 'single-product-payment-paypal' ),
+					'linked'    => 'single-product-payments',
+					'type'      => 'sub-control',
+					'control'   => 'ast-toggle',
+					'section'   => 'section-woo-shop-single',
+					'priority'  => 10,
+					'title'     => __( 'Show Paypal', 'astra' ),
+					'transport' => 'postMessage',
+				),
+
+				/**
+				 * Single product payment sub control Apple Pay.
+				 */
+				array(
+					'name'      => 'single-product-payment-apple-pay',
+					'parent'    => ASTRA_THEME_SETTINGS . '[single-product-structure]',
+					'default'   => astra_get_option( 'single-product-payment-apple-pay' ),
+					'linked'    => 'single-product-payments',
+					'type'      => 'sub-control',
+					'control'   => 'ast-toggle',
+					'section'   => 'section-woo-shop-single',
+					'priority'  => 10,
+					'title'     => __( 'Show Apple Pay', 'astra' ),
+					'transport' => 'postMessage',
 				),
 
 			);
