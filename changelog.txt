@@ -2,7 +2,7 @@ v3.9.3 (Unreleased)
 - Improvement: Customizer - Edit shortcut link assigned to sticky add to cart for easy navigation in respective customizer section.
 - Improvement: WooCommerce - Added product image on cart page for tablet users.
 
-v3.9.2 (Unreleased)
+v3.9.2
 - Improvement: WooCommerce - Admin bar's customize link updated on WooCommerce pages for quick landing to it's respected customizer section.
 - Improvement: WooCommerce - Added WPML translation support for cart dynamic input, proceed to checkout input & free-shipping text input through wpml-config.xml file. (Props - OnTheGoSystems)
 - Improvement: WooCommerce - Shop - Shop skin layout design 3 option moved from addon to theme.
