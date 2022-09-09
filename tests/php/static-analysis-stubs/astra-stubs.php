@@ -5390,9 +5390,9 @@ namespace {
         {
         }
         /**
-         * As WooCommerce-Astra pro options moved to theme, decide here to load from theme's end after x.x.x version.
+         * As WooCommerce-Astra pro options moved to theme, decide here to load from theme's end after 3.9.2 version.
          *
-         * @since x.x.x
+         * @since 3.9.2
          * @return bool true|false.
          */
         public static function load_theme_side_woocommerce_strcture()
@@ -5408,9 +5408,18 @@ namespace {
         {
         }
         /**
+         * Modern Design Add to cart Markup
+         *
+         * @since 3.9.2
+         * @return mixed HTML markup.
+         */
+        public function modern_add_to_cart()
+        {
+        }
+        /**
          * Modern shop page's triggers on product image.
          *
-         * @since x.x.x
+         * @since 3.9.2
          */
         public function add_modern_triggers_on_image()
         {
@@ -5420,7 +5429,7 @@ namespace {
          *
          * @param string $sale_notification sale bubble type.
          * @param string $product Product.
-         * @since x.x.x
+         * @since 3.9.2
          * @return mixed HTML markup.
          */
         public function get_sale_flash_markup($sale_notification, $product)
@@ -5432,7 +5441,7 @@ namespace {
          * @param  mixed  $markup  HTML markup of the the sale bubble / flash.
          * @param  string $post Post.
          * @param  string $product Product.
-         * @since x.x.x
+         * @since 3.9.2
          * @return string bubble markup.
          */
         public function sale_flash($markup, $post, $product)
@@ -5758,7 +5767,7 @@ namespace {
         /**
          * Shop summary box wrapper alignment.
          *
-         * @since x.x.x
+         * @since 3.9.2
          * @return string
          */
         public function astra_shop_summary_box_alignment()
@@ -5855,7 +5864,7 @@ namespace {
         /**
          * Update the "Customize" link to the Toolbar.
          *
-         * @since x.x.x
+         * @since 3.9.2
          *
          * @param WP_Admin_Bar $wp_admin_bar The WP_Admin_Bar instance.
          */
@@ -5883,6 +5892,15 @@ namespace {
          * Show the product catagories in the product loop.
          */
         public function single_product_category()
+        {
+        }
+        /**
+         * Single Product Payments.
+         *
+         * @since  3.9.2
+         * @return void
+         */
+        public function woocommerce_product_single_payments()
         {
         }
         /**
@@ -5999,6 +6017,23 @@ namespace {
          * @param Array                $configurations Astra Customizer Configurations.
          * @param WP_Customize_Manager $wp_customize instance of WP_Customize_Manager.
          * @since 1.4.3
+         * @return Array Astra Customizer Configurations with updated configurations.
+         */
+        public function register_configuration($configurations, $wp_customize)
+        {
+        }
+    }
+    /**
+     * Customizer Sanitizes Initial setup
+     */
+    class Astra_Woo_Shop_Misc_Layout_Configs extends \Astra_Customizer_Config_Base
+    {
+        /**
+         * Register Astra-WooCommerce Misc Customizer Configurations.
+         *
+         * @param Array                $configurations Astra Customizer Configurations.
+         * @param WP_Customize_Manager $wp_customize instance of WP_Customize_Manager.
+         * @since 3.9.2
          * @return Array Astra Customizer Configurations with updated configurations.
          */
         public function register_configuration($configurations, $wp_customize)
@@ -6691,7 +6726,7 @@ namespace {
         /**
          * Check if Spectra is installed.
          *
-         * @since x.x.x
+         * @since 3.9.2
          *
          * @access public
          * @return array
@@ -13288,6 +13323,25 @@ namespace {
     {
     }
     /**
+     * Support cart color setting to default cart icon, till now with other cart icons have this color compatibility but default one don't have this.
+     * This case is only for old header layout.
+     *
+     * @since 3.9.2
+     * @return boolean false if it is an existing user, true if not.
+     */
+    function astra_cart_color_default_icon_old_header()
+    {
+    }
+    /**
+     * Function to check the Add to Cart quantity buttons.
+     *
+     * @return bool true|false.
+     * @since 3.9.2
+     */
+    function astra_add_to_cart_quantity_btn_enabled()
+    {
+    }
+    /**
      * Return defaults for Builder Options.
      *
      * @param array $defaults exsiting options array.
@@ -13699,8 +13753,8 @@ namespace {
     /**
      * Get the tablet breakpoint value.
      *
-     * @param string $min min.
-     * @param string $max max.
+     * @param mixed $min min.
+     * @param mixed $max max.
      *
      * @since 2.4.0
      *
@@ -13832,7 +13886,7 @@ namespace {
     /**
      * Check if user is old for hiding/showing password icon field for login my-account form.
      *
-     * @since x.x.x
+     * @since 3.9.2
      * @return bool true|false.
      */
     function astra_load_woocommerce_login_form_password_icon()
@@ -14982,7 +15036,7 @@ namespace {
      * 
      * @param string $version Astra addon version.
      * @param string $compare Compare symbols.
-     * @since  x.x.x
+     * @since  3.9.2
      */
     function astra_addon_check_version($version, $compare)
     {
@@ -16296,7 +16350,7 @@ namespace {
     /**
      * Change default layout to standard for old users.
      *
-     * @since x.x.x
+     * @since 3.9.2
      * @return void
      */
     function astra_shop_style_design_layout()
@@ -16305,7 +16359,7 @@ namespace {
     /**
      * Apply css for show password icon on woocommerce account page.
      *
-     * @since x.x.x
+     * @since 3.9.2
      * @return void
      */
     function astra_apply_woocommerce_show_password_icon_css()
