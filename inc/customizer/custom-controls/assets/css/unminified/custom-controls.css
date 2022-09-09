@@ -702,16 +702,14 @@
 
 .color-button-wrap.has-global-palette-color .astra-advanced-color-indicate .global-color{
     color: #fff;
-	display: block;
+    display: block;
     opacity: 1;
     position: absolute;
     left: 50%;
     top: 50%;
     display: block;
-    transform: translate(-50%, -50%);
     text-align: center;
-	font-size: 12px;
-	mix-blend-mode: difference;
+    transform: translate(-50%, -50%);
 }
 .color-button-wrap.has-global-palette-color .astra-advanced-color-indicate .global-color svg{
     width: 10px;
@@ -801,6 +799,14 @@
     line-height: 1;
     font-weight: 600;
     margin-bottom: 4px;
+}
+
+.astra-globe-dashicon {
+    color: #ffffff;
+    background: rgba(0,0,0,0.4);
+    border-radius: 100%;
+    border: 0.1px solid rgba(0,0,0,0.1);
+    opacity: 0.78;
 }
 
 .components-button.astra-color-icon-indicate .component-color-indicator.astra-advanced-color-indicate {
@@ -2223,13 +2229,6 @@ span.customize-control-title.ast-group-section-title {
 
 .ast-divide-four .ast-radio-img-svg svg path {
   color: var(--ast-customizer-color-8);
-}
-
-#customize-control-astra-settings-above-header-menu-align .ast-radio-img-svg svg,
-#customize-control-astra-settings-header-main-menu-align .ast-radio-img-svg svg,
-#customize-control-astra-settings-below-header-menu-align .ast-radio-img-svg svg {
-  width: 37px;
-  height: 49px;
 }
 
 /* Image tooltip */
