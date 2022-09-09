@@ -3,6 +3,7 @@ v3.9.3 (Unreleased)
 - Improvement: Customizer - Edit shortcut link assigned to sticky add to cart for easy navigation in respective customizer section.
 - Improvement: WooCommerce - Added product image on cart page for tablet users.
 - Fix: WooCommerce - Content background color preview not working in customizer preview.
+- Fix: WooCommerce - Shop - Sale badge text is misaligned on the frontend. 
 
 v3.9.2
 - Improvement: WooCommerce - Admin bar's customize link updated on WooCommerce pages for quick landing to it's respected customizer section.
