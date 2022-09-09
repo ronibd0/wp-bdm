@@ -3060,7 +3060,6 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 			$desktop_cart_flyout = 'flyout' === astra_get_option( 'woo-header-cart-click-action' ) ? 'ast-desktop-cart-flyout' : '';
 			$cart_menu_classes   = apply_filters( 'astra_cart_in_menu_class', array( 'ast-menu-cart-with-border', $desktop_cart_flyout ) );
-
 			ob_start();
 			if ( is_customize_preview() && true === Astra_Builder_Helper::$is_header_footer_builder_active ) {
 				Astra_Builder_UI_Controller::render_customizer_edit_button();
@@ -3071,7 +3070,14 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 					<?php $this->astra_get_cart_link(); ?>
 				</div>
 				<div class="ast-site-header-cart-data">
-					<?php the_widget( 'WC_Widget_Cart', 'title=' ); ?>
+
+					<?php
+					// Load 'Slide-In Cart' or 'Dropdown Cart' Widget when 'Cart Page' Option is not selected.
+					if ( 'redirect' !== astra_get_option( 'woo-header-cart-click-action' ) ) {
+						the_widget( 'WC_Widget_Cart', 'title=' );
+					}
+					?>
+
 				</div>
 			</div>
 			<?php
@@ -3101,12 +3107,15 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		 * @since  1.0.0
 		 */
 		public function astra_get_cart_link() {
-			$view_shopping_cart = apply_filters( 'astra_woo_view_shopping_cart_title', __( 'View your shopping cart', 'astra' ) );
 
-			$woo_cart_link = wc_get_cart_url();
-			if ( is_customize_preview() ) {
+			$view_shopping_cart = apply_filters( 'astra_woo_view_shopping_cart_title', __( 'View your shopping cart', 'astra' ) );
+			$woo_cart_link      = wc_get_cart_url();
+
+			// Do not redirect to Cart Page in Customizer Preview & when 'Cart Page' option is not selected.
+			if ( is_customize_preview() && 'redirect' !== astra_get_option( 'woo-header-cart-click-action' ) ) {
 				$woo_cart_link = '#';
 			}
+
 			$cart_total_label_position = astra_get_option( 'woo-header-cart-icon-total-label-position' );
 			?>
 			<a href="<?php echo esc_url( $woo_cart_link ); ?>" class="cart-container ast-cart-desktop-position-<?php echo esc_attr( $cart_total_label_position['desktop'] ); ?> ast-cart-mobile-position-<?php echo esc_attr( $cart_total_label_position['mobile'] ); ?> ast-cart-tablet-position-<?php echo esc_attr( $cart_total_label_position['tablet'] ); ?> ">
