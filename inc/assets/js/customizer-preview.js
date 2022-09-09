@@ -295,5 +295,3 @@ bodyFontFamily.forEach(element => {
 });
 
 // Global Typography Refresh - END
-
-
