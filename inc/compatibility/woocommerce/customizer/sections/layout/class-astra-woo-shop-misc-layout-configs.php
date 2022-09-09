@@ -68,7 +68,7 @@ if ( ! class_exists( 'Astra_Woo_Shop_Misc_Layout_Configs' ) ) {
 			if ( ! defined( 'ASTRA_EXT_VER' ) && astra_showcase_upgrade_notices() ) {
 				// Learn More link if Astra Pro is not activated.
 				$_configs[] = array(
-					'name'     => ASTRA_THEME_SETTINGS . '[ast-woo-checkout-pro-items]',
+					'name'     => ASTRA_THEME_SETTINGS . '[ast-woo-misc-pro-items]',
 					'type'     => 'control',
 					'control'  => 'ast-upgrade',
 					'renderAs' => 'list',
