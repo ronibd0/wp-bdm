@@ -1776,6 +1776,7 @@ input[type="text"].select2-search__field {
 #customize-control-astra-settings-product-sale-percent-value,
 #customize-control-astra-settings-header-account-create-menu-link,
 #customize-control-astra-settings-woo-cart-button-text,
+#customize-control-astra-settings-single-product-recently-viewed-text,
 #customize-control-astra-settings-sticky-header-retina-logo {
     margin-top: 24px;
     padding-top: 24px;
@@ -2228,13 +2229,6 @@ span.customize-control-title.ast-group-section-title {
 
 .ast-divide-four .ast-radio-img-svg svg path {
   color: var(--ast-customizer-color-8);
-}
-
-#customize-control-astra-settings-above-header-menu-align .ast-radio-img-svg svg,
-#customize-control-astra-settings-header-main-menu-align .ast-radio-img-svg svg,
-#customize-control-astra-settings-below-header-menu-align .ast-radio-img-svg svg {
-  width: 37px;
-  height: 49px;
 }
 
 /* Image tooltip */
