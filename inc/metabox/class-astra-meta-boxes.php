@@ -79,7 +79,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 		/**
 		 * Provede more preference to Astra meta setting
 		 * 
-		 * @SInCE x.x.x
+		 * @since x.x.x 
 		 * @param string $hook metasetting name.
 		 * @return void
 		 */
