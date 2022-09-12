@@ -475,17 +475,17 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 
 			wp_enqueue_script( 'astra-meta-settings' );
 			$astra_ext_extension_class_exists = class_exists( 'Astra_Ext_Extension' ) ? true : false;
-			
+
 			global $post;
-			
+
 			$ast_content_layout_sidebar = false;
 			if ( $post ) {
-				$page_for_posts = get_option( 'page_for_posts' );
+				$page_for_posts = absint( get_option( 'page_for_posts' ) );
 				if ( $post->ID === $page_for_posts ) {
 					$ast_content_layout_sidebar = true;
 				}
 			}
-			
+
 			wp_localize_script(
 				'astra-meta-settings',
 				'astMetaParams',
