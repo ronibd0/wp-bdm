@@ -5,6 +5,7 @@ v3.9.3 (Unreleased)
 - Improvement: WooCommerce - Added product image on cart page for tablet users.
 - Fix: WooCommerce - Content background color preview not working in customizer preview.
 - Fix: WooCommerce - Shop - Sale badge text is misaligned on the frontend.
+- Fix: Block Editor - Astra Meta settings does not save when Custom Fields option is enabled from the preferences.
 
 v3.9.2
 - Improvement: WooCommerce - Admin bar's customize link updated on WooCommerce pages for quick landing to it's respected customizer section.
@@ -33,7 +34,6 @@ v3.9.2
 - Fix: The Menu gets disappeared on the Android mobile device when you select Header Type is set as Dropdown.
 - Fix: Footer - Footer global background color and padding is not working in the frontend.
 - Fix: Spectra plugin settings page link redirect to old 'uag' admin page.
-- Fix: Wordpress custom fields - Astra Meta settings not saving when custom fields option is enabled in the preferences.
 
 v3.9.1
 - Fix: WooCommerce - Child theme's WooCommerce custom templates gets overridden by parent theme.
