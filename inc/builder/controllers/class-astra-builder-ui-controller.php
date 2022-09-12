@@ -291,6 +291,7 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 		 * @since 3.1.0
 		 */
 		public static function render_mobile_cart_flyout_markup() {
+			$flyout_cart_width = astra_get_option( 'woo-slide-in-cart-width' );
 			$flyout_cart_width_desktop      = ( isset( $flyout_cart_width['desktop'] ) ) ? $flyout_cart_width['desktop'] : '';
 			$flyout_cart_width_desktop_unit = ( isset( $flyout_cart_width['desktop-unit'] ) ) ? $flyout_cart_width['desktop-unit'] : '';
 			$flyout_cart_unit_breakpoint = $flyout_cart_width_desktop_unit === 'px' ? 500 : 50;
