@@ -85,6 +85,15 @@ if ( ! class_exists( 'Astra_Woo_Shop_Misc_Layout_Configs' ) ) {
 						'four'  => array(
 							'title' => __( 'Quantity Updater Designs', 'astra' ),
 						),
+						'five'  => array(
+							'title' => __( 'Modern My Account Page', 'astra' ),
+						),
+						'six'  => array(
+							'title' => __( 'Downloads, Orders Grid View', 'astra' ),
+						),
+						'seven'  => array(
+							'title' => __( 'Modern Thank You Page Design', 'astra' ),
+						),
 					),
 					'section'  => 'section-woo-misc',
 					'default'  => '',

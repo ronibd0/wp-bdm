@@ -47,24 +47,30 @@ if ( ! class_exists( 'Astra_Archive_Typo_Configs' ) ) {
 						'renderAs' => 'list',
 						'choices'  => array(
 							'one'   => array(
-								'title' => __( 'Customizable Blog Layouts', 'astra' ),
+								'title' => __( 'Archive Blog Layout', 'astra' ),
 							),
 							'two'   => array(
-								'title' => __( 'Masonry Layout', 'astra' ),
+								'title' => __( 'Grid, Masonry Layout', 'astra' ),
 							),
 							'three' => array(
 								'title' => __( 'Custom Featured Images Size', 'astra' ),
 							),
 							'four'  => array(
-								'title' => __( 'Numbered Post Pagination', 'astra' ),
-							),
-							'five'  => array(
-								'title' => __( 'Infinite Scroll Post Pagination', 'astra' ),
+								'title' => __( 'Archive Pagination Options', 'astra' ),
 							),
 							'six'   => array(
 								'title' => __( 'Extended Typography Options', 'astra' ),
 							),
 							'seven' => array(
+								'title' => __( 'Extended Spacing Options', 'astra' ),
+							),
+							'eight' => array(
+								'title' => __( 'Archive Read Time', 'astra' ),
+							),
+							'nine' => array(
+								'title' => __( 'Archive Excerpt Options', 'astra' ),
+							),
+							'ten' => array(
 								'title' => __( 'Extended Spacing Options', 'astra' ),
 							),
 						),
