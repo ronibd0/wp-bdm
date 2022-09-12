@@ -255,14 +255,12 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 
 	// Offcanvas cart.
 	$flyout_cart_width = astra_get_option( 'woo-slide-in-cart-width' );
-	if ( $flyout_cart_width ) {
-		$flyout_cart_width_desktop      = ( isset( $flyout_cart_width['desktop'] ) ) ? $flyout_cart_width['desktop'] : '';
-		$flyout_cart_width_tablet       = ( isset( $flyout_cart_width['tablet'] ) ) ? $flyout_cart_width['tablet'] : '';
-		$flyout_cart_width_mobile       = ( isset( $flyout_cart_width['mobile'] ) ) ? $flyout_cart_width['mobile'] : '';
-		$flyout_cart_width_desktop_unit = ( isset( $flyout_cart_width['desktop-unit'] ) ) ? $flyout_cart_width['desktop-unit'] : '';
-		$flyout_cart_width_tablet_unit  = ( isset( $flyout_cart_width['tablet-unit'] ) ) ? $flyout_cart_width['tablet-unit'] : '';
-		$flyout_cart_width_mobile_unit  = ( isset( $flyout_cart_width['mobile-unit'] ) ) ? $flyout_cart_width['mobile-unit'] : '';
-	}
+	$flyout_cart_width_desktop      = ( isset( $flyout_cart_width['desktop'] ) ) ? $flyout_cart_width['desktop'] : '';
+	$flyout_cart_width_tablet       = ( isset( $flyout_cart_width['tablet'] ) ) ? $flyout_cart_width['tablet'] : '';
+	$flyout_cart_width_mobile       = ( isset( $flyout_cart_width['mobile'] ) ) ? $flyout_cart_width['mobile'] : '';
+	$flyout_cart_width_desktop_unit = ( isset( $flyout_cart_width['desktop-unit'] ) ) ? $flyout_cart_width['desktop-unit'] : '';
+	$flyout_cart_width_tablet_unit  = ( isset( $flyout_cart_width['tablet-unit'] ) ) ? $flyout_cart_width['tablet-unit'] : '';
+	$flyout_cart_width_mobile_unit  = ( isset( $flyout_cart_width['mobile-unit'] ) ) ? $flyout_cart_width['mobile-unit'] : '';
 
 	if ( 'flyout' === astra_get_option( 'woo-header-cart-click-action' ) || is_customize_preview() ) {
 		$desktop_flyout_cart_direction = astra_get_option( 'woo-desktop-cart-flyout-direction' );
