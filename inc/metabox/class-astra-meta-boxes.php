@@ -985,7 +985,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
  *
  * @param bool $display_footer for controling the header and footer enable/disable options.
  *
- * @since 3.9.1
+ * @since x.x.x
  */
 function astra_footer_bar_display_cb( $display_footer ) {
 	if ( is_home() && ! is_front_page() ) {
