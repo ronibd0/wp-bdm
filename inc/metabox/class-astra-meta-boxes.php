@@ -477,15 +477,15 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 			$astra_ext_extension_class_exists = class_exists( 'Astra_Ext_Extension' ) ? true : false;
 			
 			global $post;
-			$astra_hide_content_layout_theme_settings = false;
-			$astra_hide_sidebar_theme_settings        = false;
+
+			$ast_content_layout_sidebar = false;
+
 			if ( $post ) {
 				$page_for_posts = get_option( 'page_for_posts' );
 
 				if ( $post->ID == $page_for_posts ) {
 
-					$astra_hide_content_layout_theme_settings = true;
-					$astra_hide_sidebar_theme_settings        = true;
+					$ast_content_layout_sidebar = true;
 				}
 			}
 			
@@ -516,7 +516,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 					'sticky_addon_enabled'     => ( $astra_ext_extension_class_exists && Astra_Ext_Extension::is_active( 'sticky-header' ) ) ? true : false,
 					'register_astra_metabox'   => apply_filters( 'astra_settings_metabox_register', true ),
 					'is_hide_sidebar'          => $astra_hide_content_layout_theme_settings,
-					'is_hide_contnet_layout'   => $astra_hide_sidebar_theme_settings,
+					'is_hide_contnet_layout_sidebar'   => $ast_content_layout_sidebar,
 				)
 			);
 		}
