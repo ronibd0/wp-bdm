@@ -268,11 +268,11 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 						'step' => 1,
 						'max'  => 1920,
 					),
-					'%' => array(
-						'min' => 0,
+					'%'  => array(
+						'min'  => 0,
 						'step' => 1,
-						'max'  => 100
-					)
+						'max'  => 100,
+					),
 				),
 				'divider'           => array( 'ast_class' => 'ast-top-dotted-divider' ),
 			),
