@@ -481,7 +481,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 			$ast_content_layout_sidebar = false;
 			if ( $post ) {
 				$page_for_posts = get_option( 'page_for_posts' );
-				if ( $post->ID == $page_for_posts ) {
+				if ( $post->ID === $page_for_posts ) {
 					$ast_content_layout_sidebar = true;
 				}
 			}
