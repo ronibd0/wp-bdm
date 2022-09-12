@@ -25,7 +25,6 @@ v3.9.2
 - Fix: The Menu gets disappeared on the Android mobile device when you select Header Type is set as Dropdown.
 - Fix: Footer - Footer global background color and padding is not working in the frontend.
 - Fix: Spectra plugin settings page link redirect to old 'uag' admin page.
-- Fix: Disable header & footer not working on archive pages.
 - Fix: On blog page astra meta setting not work as it is the archive page.
 
 v3.9.1
