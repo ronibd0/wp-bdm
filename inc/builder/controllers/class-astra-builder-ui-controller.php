@@ -291,9 +291,10 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 		 * @since 3.1.0
 		 */
 		public static function render_mobile_cart_flyout_markup() {
-			$current_canvas_width = astra_get_option( 'woo-slide-in-cart-width' );
-			$is_width_long        = $current_canvas_width && $current_canvas_width['desktop'] > 500 ? 'ast-large-view' : '';
-
+			$flyout_cart_width_desktop      = ( isset( $flyout_cart_width['desktop'] ) ) ? $flyout_cart_width['desktop'] : '';
+			$flyout_cart_width_desktop_unit = ( isset( $flyout_cart_width['desktop-unit'] ) ) ? $flyout_cart_width['desktop-unit'] : '';
+			$flyout_cart_unit_breakpoint = $flyout_cart_width_desktop_unit === 'px' ? 500 : 50;
+			$is_width_long        = $flyout_cart_width_desktop && $flyout_cart_unit_breakpoint && $flyout_cart_width_desktop['desktop'] > $flyout_cart_unit_breakpoint ? 'ast-large-view' : '';
 			?>
 			<div class="astra-mobile-cart-overlay"></div>
 			<div id="astra-mobile-cart-drawer" class="astra-cart-drawer open-right">

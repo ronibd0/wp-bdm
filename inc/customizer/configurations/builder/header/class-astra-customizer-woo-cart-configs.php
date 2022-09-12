@@ -261,11 +261,18 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 				'title'             => __( 'Slide In Cart Width', 'astra' ),
 				'priority'          => 400,
 				'default'           => astra_get_option( 'woo-slide-in-cart-width' ),
-				'suffix'            => 'px',
+				'suffix'            => array( 'px', '%' ),
 				'input_attrs'       => array(
-					'min'  => 0,
-					'step' => 1,
-					'max'  => 1920,
+					'px' => array(
+						'min'  => 0,
+						'step' => 1,
+						'max'  => 1920,
+					),
+					'%' => array(
+						'min' => 0,
+						'step' => 1,
+						'max'  => 100
+					)
 				),
 				'divider'           => array( 'ast_class' => 'ast-top-dotted-divider' ),
 			),

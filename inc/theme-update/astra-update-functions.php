@@ -1071,6 +1071,9 @@ function astra_slide_in_cart_width_responsive_slider() {
 			'desktop' => $theme_options['woo-desktop-cart-flyout-width'],
 			'tablet'  => '',
 			'mobile'  => '',
+			'desktop-unit' => 'px',
+			'tablet-unit'  => '',
+			'mobile-unit'  => ''
 		);
 		update_option( 'astra-settings', $theme_options );
 	}

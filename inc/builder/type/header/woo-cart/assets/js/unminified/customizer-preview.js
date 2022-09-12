@@ -214,26 +214,31 @@
 	 */
 	 wp.customize( 'astra-settings[woo-slide-in-cart-width]', function( setting ) {
 		setting.bind( function( wooSlideInConfig ) {
+
 			const { desktop, mobile, tablet } = wooSlideInConfig;
-			var offcanvasPosition = wp.customize( 'astra-settings[woo-desktop-cart-flyout-direction]' ).get();
+			const desktopUnit = wooSlideInConfig['desktop-unit'];
+			const tabletUnit = wooSlideInConfig['tablet-unit'];
+			const mobileUnit = wooSlideInConfig['mobile-unit'];
+			const offcanvasPosition = wp.customize( 'astra-settings[woo-desktop-cart-flyout-direction]' ).get();
+			
 			if( 'left' == offcanvasPosition ) {
-				var dynamicStyle = '.ast-desktop .astra-cart-drawer.open-right { width: ' + desktop + 'px; left: -' + desktop + 'px; } ';
-					dynamicStyle += '.ast-desktop .astra-cart-drawer.open-right.active { left: ' + desktop + 'px; } ';
+				var dynamicStyle = '.ast-desktop .astra-cart-drawer.open-right { width: ' + desktop + desktopUnit + '; left: -' + desktop + desktopUnit + '; } ';
+					dynamicStyle += '.ast-desktop .astra-cart-drawer.open-right.active { left: ' + desktop + desktopUnit + '; } ';
 			} else {
-				var dynamicStyle = '.ast-desktop .astra-cart-drawer.open-right { width: ' + desktop + 'px; left: 100%; } ';
+				var dynamicStyle = '.ast-desktop .astra-cart-drawer.open-right { width: ' + desktop + desktopUnit + '; left: 100%; } ';
 			}
 
 			//Tablets.
 			dynamicStyle += '@media (max-width: ' + tablet_break_point + 'px ) and ( min-width: ' + mobile_break_point + 'px) {';
 			dynamicStyle += '#astra-mobile-cart-drawer {';
-			dynamicStyle += 'width: ' + tablet + 'px;';
+			dynamicStyle += 'width: ' + tablet + tabletUnit + ';';
 			dynamicStyle += '}';
 			dynamicStyle += '}';
 
 			// Mobile.
 			dynamicStyle += '@media (max-width: ' + mobile_break_point + 'px) {';
 			dynamicStyle += '#astra-mobile-cart-drawer {';
-			dynamicStyle += 'width: ' + mobile + 'px;';
+			dynamicStyle += 'width: ' + mobile + mobileUnit + ';';
 			dynamicStyle += '}';
 			dynamicStyle += '}';
 
