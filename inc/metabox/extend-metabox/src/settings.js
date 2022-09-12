@@ -22,7 +22,7 @@ const MetaSettings = props => {
 
     const openModal = () => setOpen( true );
     const closeModal = () => setOpen( false );
-
+	
 	const is_hide_contnet_layout_sidebar = astMetaParams.is_hide_contnet_layout_sidebar;
 
 	// Adjust spacing & borders for table.
