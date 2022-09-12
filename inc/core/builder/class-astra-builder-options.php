@@ -944,8 +944,8 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 		'tablet'  => '',
 		'mobile'  => '',
 		'desktop-unit' => '%',
-		'tablet-unit'  => '',
-		'mobile-unit'  => '',
+		'tablet-unit'  => '%',
+		'mobile-unit'  => '%',
 	);
 	$defaults['woo-header-cart-icon-total-label-position'] = array(
 		'desktop' => '',
