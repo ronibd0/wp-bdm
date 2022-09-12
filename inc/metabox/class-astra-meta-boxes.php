@@ -168,7 +168,6 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 						'default',                              // Priority.
 						array(
 							'__back_compat_meta_box' => true,
-							'__block_editor_compatible_meta_box' => false,
 						)
 					);
 				}
