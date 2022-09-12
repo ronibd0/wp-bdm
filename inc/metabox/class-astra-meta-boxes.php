@@ -72,21 +72,6 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 			if ( 'widgets.php' !== $pagenow && ! is_customize_preview() ) {
 				add_action( 'enqueue_block_editor_assets', array( $this, 'load_scripts' ) );
 			}
-
-			add_action( 'admin_enqueue_scripts', array( $this, 'wp_post_metabox' ) );
-		}
-
-		/**
-		 * Provede more preference to Astra meta setting
-		 * 
-		 * @since x.x.x 
-		 * @param string $hook metasetting name.
-		 * @return void
-		 */
-		public function wp_post_metabox( $hook ) {
-			if ( 'post.php' === $hook ) {
-				wp_enqueue_script( 'custom-fields-priority', get_template_directory_uri() . '/assets/js/unminified/custom-fields-priority.js', array(), ASTRA_THEME_VERSION, true );
-			}
 		}
 
 		/**
@@ -519,6 +504,8 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 					'register_astra_metabox'   => apply_filters( 'astra_settings_metabox_register', true ),
 				)
 			);
+
+			wp_enqueue_script( 'astra-metabox-cf-compatibility', ASTRA_THEME_URI . 'inc/assets/js/custom-fields-priority.js', array(), ASTRA_THEME_VERSION, false );
 		}
 
 		/**
