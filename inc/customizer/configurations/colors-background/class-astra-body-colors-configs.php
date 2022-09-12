@@ -174,7 +174,7 @@ if ( ! class_exists( 'Astra_Body_Colors_Configs' ) ) {
 					'svg'      => 'color-upgrade-svg',
 					'default'  => '',
 					'priority' => 998,
-					'title'    => __( 'Upgrade to unlock more colors.', 'astra' ),
+					'title'    => __( 'Upgrade to Unlock More Colors', 'astra' ),
 					'divider'  => array( 'ast_class' => 'ast-top-section-divider' ),
 				);
 			}

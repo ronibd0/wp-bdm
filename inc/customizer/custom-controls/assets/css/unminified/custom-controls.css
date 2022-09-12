@@ -4031,15 +4031,16 @@ span.select2-container.select2-container--default.select2-container--open li.sel
     align-content: center;
     position: relative;
 	overflow: hidden;
+    justify-content: center;
 }
 .ast-upgrade-pro-wrap .ast-upgrade-cta {
 	position: absolute;
     top: auto;
     left: auto;
-	width: calc(100% - 20px);
+	width: auto;
     height: 28px;
     border-radius: 4px;
-    padding: 0 0 0 8px;
+    padding: 0 8px 0 5px;
     font-size: 1em;
     line-height: 1em;
     display: inline-flex;
@@ -4061,7 +4062,7 @@ a.ast-upgrade-trigger:focus, a.ast-upgrade-trigger:active {
 .ast-upgrade-pro-wrap .ast-upgrade-pro-innerwrap > svg {
     width: 100%;
     height: 100%;
-    filter: blur(3px);
+    filter: blur(4px);
 }
 .ast-upgrade-pro-wrap .ast-upgrade-cta svg {
     width: 1.2em;
@@ -4095,8 +4096,11 @@ a.ast-upgrade-trigger:focus, a.ast-upgrade-trigger:active {
     width: 32px;
     height: 32px;
 }
+.ast-upgrade-list-items {
+    margin-bottom: 1.8em;
+}
 .ast-upgrade-list-wrapper .ast-upgrade-list-section-title {
-	margin: 0.5em auto;
+	margin: 0.5em auto 1.8em;
     max-width: 240px;
 }
 .ast-pro-upgrade-item svg {
@@ -4125,4 +4129,8 @@ a.ast-upgrade-trigger:focus, a.ast-upgrade-trigger:active {
     border-radius: 4px;
     padding: 6px 10px;
     text-decoration: none;
+}
+.ast-pro-upgrade-item p {
+    margin: 1.25em 0;
+    line-height: 1;
 }

@@ -302,8 +302,12 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 				return;
 			}
 
+			/** @psalm-suppress PossiblyInvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+			$current_slug = isset( $_GET['page'] ) ? sanitize_text_field( wp_unslash( $_GET['page'] ) ) : ''; // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+			/** @psalm-suppress PossiblyInvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+
 			// Force Astra welcome notice on theme activation.
-			if ( current_user_can( 'install_plugins' ) && ! defined( 'ASTRA_SITES_NAME' ) && '1' == get_option( 'fresh_site' ) ) {
+			if ( current_user_can( 'install_plugins' ) && ! defined( 'ASTRA_SITES_NAME' ) && '1' == get_option( 'fresh_site' ) && ! in_array( $current_slug, array( 'astra-advanced-hook', 'astra_adv_header' ), true ) ) {
 
 				$image_path           = ASTRA_THEME_URI . 'inc/assets/images/astra-logo.svg';
 				$ast_sites_notice_btn = self::astra_sites_notice_button();
