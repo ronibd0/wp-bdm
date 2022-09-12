@@ -103,8 +103,9 @@ a.ast-upgrade-trigger:focus, a.ast-upgrade-trigger:active {
     box-shadow: 0px 4px 8px -4px rgba(0, 0, 0, 0.16);
     margin-right: 10px;
     border-radius: 4px;
-    padding: 6px 10px;
+    padding: 3px 10px 5px;
     text-decoration: none;
+	vertical-align: top;
 }
 .ast-pro-upgrade-item p {
     margin: 1.25em 0;
