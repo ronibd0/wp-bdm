@@ -5,30 +5,30 @@
  *
  * @package Astra
  */
-
-function removeMetaBoxSection() {
-        const elementMetaBox = document.getElementById("the-list");
-  
-        if (elementMetaBox != null) {
-          elementMetaBox.remove();
-        }
-  
+ function removeMetaBoxSection() {
+    const elementMetaBox = document.getElementById("the-list");
+ 
+    if (elementMetaBox != null) {
+       elementMetaBox.remove();
     }
-  
-    function buttonClickEvent() {
-  
-        [...document.querySelectorAll('.editor-post-publish-button')].forEach(element => element.addEventListener('click', function(event) {
-            removeMetaBoxSection();
-  
-        }));
-  
-        [...document.querySelectorAll('.editor-post-publish-panel__toggle')].forEach(element => element.addEventListener('click', function(event) {
-            removeMetaBoxSection();
-        }));
-    }
-  
-    function DOMContentLoaded () {
-        setTimeout(buttonClickEvent, 2000);
-    }
-  
-    document.addEventListener('DOMContentLoaded', DOMContentLoaded, false);
+ 
+ }
+ 
+ function buttonClickEvent() {
+ 
+    [...document.querySelectorAll('.editor-post-publish-button')].forEach(element => element.addEventListener('click', function (event) {
+       removeMetaBoxSection();
+ 
+    }));
+ 
+    [...document.querySelectorAll('.editor-post-publish-panel__toggle')].forEach(element => element.addEventListener('click', function (event) {
+       removeMetaBoxSection();
+    }));
+ }
+ 
+ function DOMContentLoaded() {
+    setTimeout(buttonClickEvent, 2000);
+ }
+ 
+ document.addEventListener('DOMContentLoaded', DOMContentLoaded, false);
+ 
