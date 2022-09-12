@@ -135,10 +135,12 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 
 		/**
 		 * Prepare Edit icon inside customizer.
+		 *
+		 * @param string $class custom class.
+		 * @since x.x.x
 		 */
-		public static function render_customizer_edit_button() {
-			?>
-			<div class="customize-partial-edit-shortcut" data-id="ahfb">
+		public static function render_customizer_edit_button( $class = '' ) { ?>
+			<div class="customize-partial-edit-shortcut <?php echo esc_attr( $class ); ?>" data-id="ahfb">
 				<button aria-label="<?php esc_attr_e( 'Click to edit this element.', 'astra' ); ?>"
 						title="<?php esc_attr_e( 'Click to edit this element.', 'astra' ); ?>"
 						class="customize-partial-edit-shortcut-button item-customizer-focus">

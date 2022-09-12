@@ -1,3 +1,11 @@
+v3.9.3 (Unreleased)
+- New: WooCommerce Cart - "Cart Page" click action introduced to redirect user on cart page.
+- Improvement: WooCommerce - Clear button is aligned on top for woocommerce active filter widget when "Chips" option is enabled.
+- Improvement: Customizer - Edit shortcut link assigned to sticky add to cart for easy navigation in respective customizer section.
+- Improvement: WooCommerce - Added product image on cart page for tablet users.
+- Fix: WooCommerce - Content background color preview not working in customizer preview.
+- Fix: WooCommerce - Shop - Sale badge text is misaligned on the frontend.
+
 v3.9.2
 - Improvement: WooCommerce - Admin bar's customize link updated on WooCommerce pages for quick landing to it's respected customizer section.
 - Improvement: WooCommerce - Added WPML translation support for cart dynamic input, proceed to checkout input & free-shipping text input through wpml-config.xml file. (Props - OnTheGoSystems)
