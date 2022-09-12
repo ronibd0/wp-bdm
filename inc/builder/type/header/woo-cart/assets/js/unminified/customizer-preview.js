@@ -243,6 +243,17 @@
 	} );
 
 	/**
+	 * Cart Click Action
+	 */
+	 wp.customize( 'astra-settings[woo-header-cart-click-action]', function( setting ) {
+		setting.bind( function( clickAction ) {
+			//Trigger refresh to reload markup.
+			$( document.body ).trigger( 'wc_fragment_refresh' );
+			wp.customize.preview.send('refresh');
+		} );
+	} );
+
+	/**
 	 * Cart icon hover style
 	 */
 	wp.customize('astra-settings[header-woo-cart-icon-hover-color]', function (setting) {
