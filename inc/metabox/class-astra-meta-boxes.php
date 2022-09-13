@@ -165,7 +165,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 						array( $this, 'markup_meta_box' ),      // Callback.
 						$type,                                  // Post_type.
 						'side',                                 // Context.
-						'default',                               // Priority.
+						'default',                              // Priority.
 						array(
 							'__back_compat_meta_box' => true,
 						)
@@ -515,6 +515,8 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 					'is_hide_contnet_layout_sidebar'   => $ast_content_layout_sidebar,
 				)
 			);
+
+			wp_enqueue_script( 'astra-metabox-cf-compatibility', ASTRA_THEME_URI . 'inc/assets/js/custom-fields-priority.js', array(), ASTRA_THEME_VERSION, false );
 		}
 
 		/**
