@@ -236,7 +236,7 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 				array(
 					'name'      => ASTRA_THEME_SETTINGS . '[display-site-title-responsive]',
 					'type'      => 'control',
-					'control'   => 'ast-responsive-toggle-control',
+					'control'   => 'ast-toggle-control',
 					'default'   => astra_get_option( 'display-site-title-responsive' ),
 					'section'   => 'title_tagline',
 					'title'     => __( 'Display Site Title', 'astra' ),
@@ -250,6 +250,23 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 					'divider'   => array( 'ast_class' => 'ast-top-section-divider' ),
 				),
 
+				array(
+					'name'      => ASTRA_THEME_SETTINGS . '[site-title-devices-visibility]',
+					'default'   => astra_get_option( 'site-title-devices-visibility' ),
+					'type'      => 'control',
+					'control'   => 'ast-multi-selector',
+					'section'   => 'title_tagline',
+					'priority'  => 8,
+					'title'     => __( 'Site Title Visibility', 'astra' ),
+					'context'   => Astra_Builder_Helper::$general_tab,
+					'transport' => 'postMessage',
+					'choices'   => array(
+						'desktop' => 'customizer-desktop',
+						'tablet'  => 'customizer-tablet',
+						'mobile'  => 'customizer-mobile',
+					),
+					'divider'   => array( 'ast_class' => 'ast-top-dotted-divider' ),
+				),
 
 				/**
 				 * Option: Display Tagline
