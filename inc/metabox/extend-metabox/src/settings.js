@@ -158,7 +158,7 @@ const MetaSettings = props => {
 						</div>
 					</PanelBody>
 
-					{ ( undefined !== props.meta['ast-global-header-display'] && 'disabled' !== props.meta['ast-global-header-display'] ) &&
+					{  ! is_hide_contnet_layout_sidebar && ( undefined !== props.meta['ast-global-header-display'] && 'disabled' !== props.meta['ast-global-header-display'] ) &&
 						<div className="ast-custom-layout-panel components-panel__body">
 							<h2 className="components-panel__body-title">
 								<button className="components-button components-panel__body-toggle" onClick = { openModal }>
@@ -168,7 +168,7 @@ const MetaSettings = props => {
 									{modalIcon}
 								</button>
 							</h2>
-						</div>
+						</div> 
 					}
 
 					{/* Header related all settings */}
