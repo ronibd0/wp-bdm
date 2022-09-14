@@ -131,6 +131,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 
 			add_action( 'astra_welcome_page_right_sidebar_content', __CLASS__ . '::astra_welcome_page_starter_sites_section', 10 );
 			add_action( 'astra_welcome_page_right_sidebar_content', __CLASS__ . '::external_important_links_section', 11 );
+			add_action( 'astra_welcome_page_right_sidebar_content', __CLASS__ . '::astra_upgrade_pro_postbox', 12 );
 
 			add_action( 'astra_welcome_page_content', __CLASS__ . '::astra_welcome_page_content' );
 			add_action( 'astra_welcome_page_content', __class__ . '::astra_available_plugins', 30 );
@@ -264,6 +265,43 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 						</a>
 					</div>
 				</div>
+			<?php
+		}
+
+		/**
+		 * Astra upgrade to pro postbox.
+		 *
+		 * @since x.x.x
+		 */
+		public static function astra_upgrade_pro_postbox() {
+
+			if ( defined( 'ASTRA_EXT_VER' ) ) {
+				return;
+			}
+
+			$status = astra_get_option( 'ast-disable-upgrade-notices', true );
+			$label = ( false !== $status ) ? __( 'Disable Notices', 'astra' ) : __( 'Enable Notices', 'astra' );
+
+			?>
+			<div class="postbox">
+				<h2 class="hndle ast-normal-cursor">
+					<span><?php echo esc_html( apply_filters( 'astra_upgrade_pro_postbox', __( 'Do More With Astra Pro', 'astra' ) ) ); ?></span>
+				</h2>
+				<div class="inside">
+					</p>
+						<?php echo esc_html__( 'Get access to powerful features for painless WordPress designing, without the high costs.', 'astra-addon' ); ?>
+					<p>
+					<label for="astra_upgrade_pro_postbox">
+						<a class="button button-primary" href="<?php echo esc_url( ASTRA_PRO_UPGRADE_URL ); ?>" target="_blank" rel="noopener">
+							<?php echo esc_html__( 'Get Pro »', 'astra' ); ?>
+						</a>
+						&nbsp;
+						<a href="#" class="ast-disable-notices" data-value="<?php echo $status ? 0 : 1; ?>" target="_blank" rel="noopener">
+							<?php echo esc_html__( $label ); ?>
+						</a>
+					</label>
+				</div>
+			</div>
 			<?php
 		}
 
@@ -619,6 +657,11 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 					'recommendedPluiginSettingsText'     => __( 'Settings', 'astra' ),
 					'astraPluginManagerNonce'            => wp_create_nonce( 'astra-recommended-plugin-nonce' ),
 					'ajax_nonce'                         => wp_create_nonce( 'astra-builder-module-nonce' ),
+					'notices_ajax_nonce'                 => wp_create_nonce( 'astra-upgrade-notices-nonce' ),
+					'noticeEnableText'                   => __( 'Enable Notices', 'astra' ),
+					'noticeDisableText'                  => __( 'Disable Notices', 'astra' ),
+					'noticeEnablingText'                 => __( 'Enabling...', 'astra' ),
+					'noticeDisablingText'                => __( 'Disabling...', 'astra' ),
 					'old_header_footer'                  => __( 'Use Old Header/Footer', 'astra' ),
 					'migrate_to_builder'                 => __( 'Use New Header/Footer Builder', 'astra' ),
 				);

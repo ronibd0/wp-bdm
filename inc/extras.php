@@ -979,5 +979,5 @@ function astra_search_static_css() {
  * @return bool
  */
 function astra_showcase_upgrade_notices() {
-	return apply_filters( 'astra_display_pro_upgrade_notices', true );
+	return astra_get_option( 'ast-disable-upgrade-notices', true );
 }
