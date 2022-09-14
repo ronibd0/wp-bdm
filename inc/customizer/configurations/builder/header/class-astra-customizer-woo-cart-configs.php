@@ -243,15 +243,12 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 			),
 
 			/**
-			 * Option: Flyout width
+			 * Option: Slide In Cart Width.
 			 */
 			array(
-				'name'        => ASTRA_THEME_SETTINGS . '[woo-desktop-cart-flyout-width]',
-				'default'     => astra_get_option( 'woo-desktop-cart-flyout-width' ),
-				'type'        => 'control',
-				'transport'   => 'postMessage',
-				'section'     => $_section,
-				'context'     => array(
+				'name'              => ASTRA_THEME_SETTINGS . '[woo-slide-in-cart-width]',
+				'type'              => 'control',
+				'context'           => array(
 					Astra_Builder_Helper::$general_tab_config,
 					array(
 						'setting'  => ASTRA_THEME_SETTINGS . '[woo-header-cart-click-action]',
@@ -259,16 +256,27 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 						'value'    => 'flyout',
 					),
 				),
-				'title'       => __( 'Slide-In Cart Width', 'astra' ),
-				'control'     => 'ast-slider',
-				'suffix'      => 'px',
-				'priority'    => 70,
-				'input_attrs' => array(
-					'min'  => 0,
-					'step' => 1,
-					'max'  => 1920,
+				'control'           => 'ast-responsive-slider',
+				'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
+				'section'           => $_section,
+				'transport'         => 'postMessage',
+				'title'             => __( 'Slide in Cart Width', 'astra' ),
+				'priority'          => 400,
+				'default'           => astra_get_option( 'woo-slide-in-cart-width' ),
+				'suffix'            => array( 'px', '%' ),
+				'input_attrs'       => array(
+					'px' => array(
+						'min'  => 0,
+						'step' => 1,
+						'max'  => 1920,
+					),
+					'%'  => array(
+						'min'  => 0,
+						'step' => 1,
+						'max'  => 100,
+					),
 				),
-				'divider'     => array( 'ast_class' => 'ast-top-dotted-divider' ),
+				'divider'           => array( 'ast_class' => 'ast-top-dotted-divider' ),
 			),
 
 			/**
