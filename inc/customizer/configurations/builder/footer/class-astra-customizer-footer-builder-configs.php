@@ -205,6 +205,8 @@ class Astra_Customizer_Footer_Builder_Configs extends Astra_Customizer_Config_Ba
 				'control'     => 'ast-builder-header-control',
 				'priority'    => 20,
 				'description' => '',
+				'context'   => array(),
+				'divider'     => ( astra_showcase_upgrade_notices() ) ? array() : array( 'ast_class' => 'ast-pro-available' ),
 			),
 
 			// Group Option: Global Footer Background styling.
@@ -302,7 +304,7 @@ class Astra_Customizer_Footer_Builder_Configs extends Astra_Customizer_Config_Ba
 			),
 		);
 
-		if ( ! defined( 'ASTRA_EXT_VER' ) && astra_showcase_upgrade_notices() ) {
+		if ( astra_showcase_upgrade_notices() ) {
 			$_configs[] = array(
 				'name'     => ASTRA_THEME_SETTINGS . '[footer-builder-pro-items]',
 				'type'     => 'control',
@@ -329,7 +331,7 @@ class Astra_Customizer_Footer_Builder_Configs extends Astra_Customizer_Config_Ba
 				'default'  => '',
 				'priority' => 999,
 				'title'    => __( 'With Astra Pro get more features for your site footer!', 'astra' ),
-				'divider'  => array( 'ast_class' => 'ast-top-divider' ),
+				'divider'  => array( 'ast_class' => 'ast-top-section-divider' ),
 			);
 		}
 

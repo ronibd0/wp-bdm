@@ -42,8 +42,9 @@
 }
 
 .button.ahfb-builder-hide-button.ahfb-builder-tab-toggle {
-    width: 100px;
-    text-align: center;
+	width: auto;
+	padding-right: 20px;
+	text-align: center;
 }
 
 .customize-control-ast-builder-header-control .ahfb-builder-tab-toggle:hover, .customize-control-ast-builder-header-control .ahfb-builder-section-shortcut:hover {

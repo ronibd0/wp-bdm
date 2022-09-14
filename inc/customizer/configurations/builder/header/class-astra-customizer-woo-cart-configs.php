@@ -937,7 +937,7 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 		}
 
 		// Learn More link if Astra Pro is not activated.
-		if ( ! defined( 'ASTRA_EXT_VER' ) && astra_showcase_upgrade_notices() ) {
+		if ( astra_showcase_upgrade_notices() ) {
 
 			$_configs[] = array(
 
@@ -956,7 +956,7 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 		}
 
 		// Learn More link if Astra Pro is not activated.
-		if ( ! defined( 'ASTRA_EXT_VER' ) && astra_showcase_upgrade_notices() ) {
+		if ( astra_showcase_upgrade_notices() ) {
 
 			$_configs[] = array(
 

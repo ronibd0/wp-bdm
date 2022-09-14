@@ -93,9 +93,16 @@ a.ast-upgrade-trigger:focus, a.ast-upgrade-trigger:active {
 .ast-upgrade-list-title {
     font-weight: 600;
 }
-.ahfb-header-builder-active li#customize-control-astra-settings-builder-header, .ahfb-header-builder-active li#customize-control-astra-settings-builder-header *, .ahfb-footer-builder-active li#customize-control-astra-settings-builder-footer, .ahfb-footer-builder-active li#customize-control-astra-settings-builder-footer * {
+.ahfb-header-builder-active li#customize-control-astra-settings-builder-header:not(.ast-pro-available),
+.ahfb-header-builder-active li#customize-control-astra-settings-builder-header:not(.ast-pro-available) *,
+.ahfb-footer-builder-active li#customize-control-astra-settings-builder-footer:not(.ast-pro-available),
+.ahfb-footer-builder-active li#customize-control-astra-settings-builder-footer:not(.ast-pro-available) * {
     color: var(--ast-customizer-color-9);
     background: var(--ast-customizer-color-1);
+}
+.customize-control .button.ahfb-builder-section-shortcut {
+    border-right: 1px solid #ddd;
+    border-left: 1px solid #ddd;
 }
 .ast-customize-control-title a.ast-builder-upgrade-link {
     background: var(--ast-customizer-color-9) !important;

@@ -169,7 +169,7 @@ if ( ! class_exists( 'Astra_Site_Container_Layout_Configs' ) ) {
 			$configurations = array_merge( $configurations, $_configs );
 
 			// Learn More link if Astra Pro is not activated.
-			if ( ! defined( 'ASTRA_EXT_VER' ) && astra_showcase_upgrade_notices() ) {
+			if ( astra_showcase_upgrade_notices() ) {
 				$config = array(
 					array(
 						'name'     => ASTRA_THEME_SETTINGS . '[ast-site-layout-button-link]',

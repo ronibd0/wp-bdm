@@ -129,7 +129,7 @@ if ( ! class_exists( 'Astra_Sidebar_Layout_Configs' ) ) {
 			);
 
 			// Learn More link if Astra Pro is not activated.
-			if ( ! defined( 'ASTRA_EXT_VER' ) && astra_showcase_upgrade_notices() ) {
+			if ( astra_showcase_upgrade_notices() ) {
 				$_configs[] = array(
 					'name'     => ASTRA_THEME_SETTINGS . '[ast-sidebar-pro-items]',
 					'type'     => 'control',
@@ -156,7 +156,7 @@ if ( ! class_exists( 'Astra_Sidebar_Layout_Configs' ) ) {
 					'default'  => '',
 					'priority' => 999,
 					'title'    => __( 'With Astra Pro get design options for your sidebar!', 'astra' ),
-					'divider'  => array( 'ast_class' => 'ast-top-divider' ),
+					'divider'  => array( 'ast_class' => 'ast-top-section-divider' ),
 				);
 			}
 

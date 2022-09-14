@@ -225,6 +225,8 @@ class Astra_Customizer_Header_Builder_Configs extends Astra_Customizer_Config_Ba
 				'control'     => 'ast-builder-header-control',
 				'priority'    => 40,
 				'description' => '',
+				'context'   => array(),
+				'divider'     => ( astra_showcase_upgrade_notices() ) ? array() : array( 'ast_class' => 'ast-pro-available' ),
 			),
 
 			/**
@@ -499,7 +501,7 @@ class Astra_Customizer_Header_Builder_Configs extends Astra_Customizer_Config_Ba
 		);
 
 		// Learn More link if Astra Pro is not activated.
-		if ( ! defined( 'ASTRA_EXT_VER' ) && astra_showcase_upgrade_notices() ) {
+		if ( astra_showcase_upgrade_notices() ) {
 			/**
 			 * Option: Pro options
 			 */
@@ -535,7 +537,7 @@ class Astra_Customizer_Header_Builder_Configs extends Astra_Customizer_Config_Ba
 				'default'  => '',
 				'priority' => 999,
 				'title'    => __( 'With Astra Pro get more features for your site header!', 'astra' ),
-				'divider'  => array( 'ast_class' => 'ast-top-divider' ),
+				'divider'  => array( 'ast_class' => 'ast-top-section-divider' ),
 			);
 		}
 

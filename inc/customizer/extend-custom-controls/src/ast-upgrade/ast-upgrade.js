@@ -45,7 +45,9 @@ const UpgradeComponent = props => {
 				<p>
 					{ checkMark }
 					<span className='ast-upgrade-list-title'> { getAstProItemData(value, 'title') } </span>
-					<span className='ast-upgrade-list-description'> { getAstProItemData(value, 'description') } </span>
+					{ '' != getAstProItemData(value, 'description') &&
+						<span className='ast-upgrade-list-description'> { getAstProItemData(value, 'description') } </span>
+					}
 				</p>
 			</li>
 		});

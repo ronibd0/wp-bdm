@@ -109,7 +109,7 @@ if ( ! class_exists( 'Astra_Lifter_General_Configs' ) ) {
 			);
 
 			// Learn More link if Astra Pro is not activated.
-			if ( ! defined( 'ASTRA_EXT_VER' ) && astra_showcase_upgrade_notices() ) {
+			if ( astra_showcase_upgrade_notices() ) {
 
 				$_configs[] =
 
