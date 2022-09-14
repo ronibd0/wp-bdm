@@ -150,7 +150,31 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			if ( ! defined( 'ASTRA_EXT_VER' ) && astra_showcase_upgrade_notices() ) {
 				add_action( 'admin_menu', __CLASS__ . '::register_pro_menu', 100 );
 				add_action( 'admin_init', __CLASS__ . '::upgrade_to_pro_wc_notice' );
+				add_action( 'wp_nav_menu_item_custom_fields', __CLASS__ . '::add_custom_fields', 10, 4 );
 			}
+		}
+
+		/**
+		 * Add custom megamenu fields data to the menu.
+		 *
+		 * @access public
+		 * @param int    $id menu item id.
+		 * @param object $item A single menu item.
+		 * @param int    $depth menu item depth.
+		 * @param array  $args menu item arguments.
+		 * @return void.
+		 *
+		 * @since x.x.x
+		 */
+		public static function add_custom_fields( $id, $item, $depth, $args ) {
+			?>
+				<p class="description description-wide">
+					<a href="<?php echo esc_url( ASTRA_PRO_UPGRADE_URL ); ?>" title="<?php echo __( 'Unlock with Astra Pro', 'astra' ); ?>" class="button button-secondary button-large astra-megamenu-opts-btn" style="margin-top: 8px; margin-bottom: 8px;">
+						<?php echo esc_html__( 'Astra Menu Settings', 'astra' ); ?>
+						<svg width="17" height="16" style="vertical-align: sub;" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M12.5002 7.2001H11.7002V4.8001C11.7002 3.0401 10.2602 1.6001 8.5002 1.6001C6.7402 1.6001 5.3002 3.0401 5.3002 4.8001V7.2001H4.5002C4.1002 7.2001 3.7002 7.6001 3.7002 8.0001V13.6001C3.7002 14.0001 4.1002 14.4001 4.5002 14.4001H12.5002C12.9002 14.4001 13.3002 14.0001 13.3002 13.6001V8.0001C13.3002 7.6001 12.9002 7.2001 12.5002 7.2001ZM9.3002 12.8001H7.7002L8.0202 11.0401C7.6202 10.8801 7.3002 10.4001 7.3002 10.0001C7.3002 9.3601 7.8602 8.8001 8.5002 8.8001C9.1402 8.8001 9.7002 9.3601 9.7002 10.0001C9.7002 10.4801 9.4602 10.8801 8.9802 11.0401L9.3002 12.8001ZM10.1002 7.2001H6.9002V4.8001C6.9002 3.9201 7.6202 3.2001 8.5002 3.2001C9.3802 3.2001 10.1002 3.9201 10.1002 4.8001V7.2001Z" fill="#0284C7"></path> </svg>
+					</a>
+				</p>
+			<?php
 		}
 
 		/**
