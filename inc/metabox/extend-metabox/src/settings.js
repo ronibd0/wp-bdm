@@ -149,14 +149,23 @@ const MetaSettings = props => {
 					)}
 
 					{/* Disable Section Setting */}
-					<PanelBody
+					{ ! is_hide_contnet_layout_sidebar && ( <PanelBody
 						title={ __( 'Disable Elements', 'astra' ) }
 						initialOpen={ false }
 					>
 						<div className="ast-sidebar-layout-meta-wrap components-base-control__field">
 							{ disableSections }
 						</div>
-					</PanelBody>
+					</PanelBody> ) }
+
+					{ is_hide_contnet_layout_sidebar && ( <PanelBody
+						title={ __( 'Disable Elements', 'astra' ) }
+						initialOpen={ true }
+					>
+						<div className="ast-sidebar-layout-meta-wrap components-base-control__field">
+							{ disableSections }
+						</div>
+					</PanelBody> ) }
 
 					{  ! is_hide_contnet_layout_sidebar && ( undefined !== props.meta['ast-global-header-display'] && 'disabled' !== props.meta['ast-global-header-display'] ) &&
 						<div className="ast-custom-layout-panel components-panel__body">
