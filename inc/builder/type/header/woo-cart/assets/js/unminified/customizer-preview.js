@@ -370,7 +370,7 @@
 					break;
 				}
 			}
-			astra_add_dynamic_css( 'woo-slide-in-cart-width', dynamicStyle );
+			astra_add_dynamic_css( 'woo-header-cart-icon-total-label-position', dynamicStyle );
 		});
 	});
 
