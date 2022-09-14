@@ -55,9 +55,9 @@
 			};
 
 			if ( data.value == '1' ) {
-				$this.text( astra.noticeDisablingText );
-			} else {
 				$this.text( astra.noticeEnablingText );
+			} else {
+				$this.text( astra.noticeDisablingText );
 			}
 
 			$.ajax({
@@ -72,6 +72,7 @@
 						} else {
 							$this.text( astra.noticeEnableText );
 						}
+						location.reload(true);
 					}
 				}
 			})
