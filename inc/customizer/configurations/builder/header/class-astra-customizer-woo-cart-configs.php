@@ -260,7 +260,7 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 				'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
 				'section'           => $_section,
 				'transport'         => 'postMessage',
-				'title'             => __( 'Slide In Cart Width', 'astra' ),
+				'title'             => __( 'Slide in Cart Width', 'astra' ),
 				'priority'          => 400,
 				'default'           => astra_get_option( 'woo-slide-in-cart-width' ),
 				'suffix'            => array( 'px', '%' ),
