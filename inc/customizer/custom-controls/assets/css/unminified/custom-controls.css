@@ -1638,6 +1638,8 @@ input[type="text"].select2-search__field {
   font-style: italic;
   color: #9CA3AF;
   font-size: 11px;
+  line-height: 16px;
+  font-weight: 400;
 }
 
 .customize-control-ast-description a.button {
@@ -1649,6 +1651,8 @@ input[type="text"].select2-search__field {
   margin: 0;
   cursor: initial;
   font-size: 11px;
+  line-height: 16px;
+  font-weight: 400;
 }
 
 .customize-control-ast-divider hr {
