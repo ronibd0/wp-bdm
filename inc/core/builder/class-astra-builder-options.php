@@ -1625,6 +1625,8 @@ function astra_prepare_widget_defaults( $defaults, $index ) {
  */
 function astra_prepare_menu_defaults( $defaults, $index ) {
 
+	$astra_options = Astra_Theme_Options::get_astra_options();
+
 	$_prefix = 'menu' . $index;
 
 	// Specify all the default values for Menu from here.
@@ -1703,13 +1705,36 @@ function astra_prepare_menu_defaults( $defaults, $index ) {
 	/**
 	 * Submenu
 	 */
-	$defaults[ 'header-' . $_prefix . '-submenu-item-border' ]   = false;
-	$defaults[ 'header-' . $_prefix . '-submenu-item-b-size' ]   = '1';
-	$defaults[ 'header-' . $_prefix . '-submenu-item-b-color' ]  = '#eaeaea';
-	$defaults[ 'header-' . $_prefix . '-submenu-border-radius' ] = '';
-	$defaults[ 'header-' . $_prefix . '-submenu-top-offset' ]    = '';
-	$defaults[ 'header-' . $_prefix . '-submenu-width' ]         = '';
-	$defaults[ 'header-' . $_prefix . '-submenu-border' ]        = array(
+	$defaults[ 'header-' . $_prefix . '-submenu-item-border' ]          = false;
+	$defaults[ 'header-' . $_prefix . '-submenu-item-b-size' ]          = '1';
+	$defaults[ 'header-' . $_prefix . '-submenu-item-b-color' ]         = '#eaeaea';
+	$defaults[ 'header-' . $_prefix . '-submenu-border-radius' ]        = '';
+	$defaults[ 'header-' . $_prefix . '-submenu-border-radius-fields' ] = array(
+		'desktop'      => array(
+			'top'    => ! isset( $astra_options[ 'header-' . $_prefix . '-submenu-border-radius' ] ) ? '' : $astra_options[ 'header-' . $_prefix . '-submenu-border-radius' ],
+			'right'  => ! isset( $astra_options[ 'header-' . $_prefix . '-submenu-border-radius' ] ) ? '' : $astra_options[ 'header-' . $_prefix . '-submenu-border-radius' ],
+			'bottom' => ! isset( $astra_options[ 'header-' . $_prefix . '-submenu-border-radius' ] ) ? '' : $astra_options[ 'header-' . $_prefix . '-submenu-border-radius' ],
+			'left'   => ! isset( $astra_options[ 'header-' . $_prefix . '-submenu-border-radius' ] ) ? '' : $astra_options[ 'header-' . $_prefix . '-submenu-border-radius' ],
+		),
+		'tablet'       => array(
+			'top'    => ! isset( $astra_options[ 'header-' . $_prefix . '-submenu-border-radius' ] ) ? '' : $astra_options[ 'header-' . $_prefix . '-submenu-border-radius' ],
+			'right'  => ! isset( $astra_options[ 'header-' . $_prefix . '-submenu-border-radius' ] ) ? '' : $astra_options[ 'header-' . $_prefix . '-submenu-border-radius' ],
+			'bottom' => ! isset( $astra_options[ 'header-' . $_prefix . '-submenu-border-radius' ] ) ? '' : $astra_options[ 'header-' . $_prefix . '-submenu-border-radius' ],
+			'left'   => ! isset( $astra_options[ 'header-' . $_prefix . '-submenu-border-radius' ] ) ? '' : $astra_options[ 'header-' . $_prefix . '-submenu-border-radius' ],
+		),
+		'mobile'       => array(
+			'top'    => ! isset( $astra_options[ 'header-' . $_prefix . '-submenu-border-radius' ] ) ? '' : $astra_options[ 'header-' . $_prefix . '-submenu-border-radius' ],
+			'right'  => ! isset( $astra_options[ 'header-' . $_prefix . '-submenu-border-radius' ] ) ? '' : $astra_options[ 'header-' . $_prefix . '-submenu-border-radius' ],
+			'bottom' => ! isset( $astra_options[ 'header-' . $_prefix . '-submenu-border-radius' ] ) ? '' : $astra_options[ 'header-' . $_prefix . '-submenu-border-radius' ],
+			'left'   => ! isset( $astra_options[ 'header-' . $_prefix . '-submenu-border-radius' ] ) ? '' : $astra_options[ 'header-' . $_prefix . '-submenu-border-radius' ],
+		),
+		'desktop-unit' => 'px',
+		'tablet-unit'  => 'px',
+		'mobile-unit'  => 'px',
+	);
+	$defaults[ 'header-' . $_prefix . '-submenu-top-offset' ]           = '';
+	$defaults[ 'header-' . $_prefix . '-submenu-width' ]                = '';
+	$defaults[ 'header-' . $_prefix . '-submenu-border' ]               = array(
 		'top'    => 2,
 		'bottom' => 0,
 		'left'   => 0,

@@ -324,6 +324,32 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'divider'     => array( 'ast_class' => 'ast-bottom-section-divider' ),
 					),
 
+					/**
+					* Option: Button Radius Fields
+					*/
+					array(
+						'name'              => ASTRA_THEME_SETTINGS . '[header-' . $_prefix . '-submenu-border-radius-fields]',
+						'default'           => astra_get_option( 'header-' . $_prefix . '-submenu-border-radius-fields' ),
+						'type'              => 'control',
+						'control'           => 'ast-responsive-spacing',
+						'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_spacing' ),
+						'section'           => $_section,
+						'title'             => __( 'Border Radius', 'astra' ),
+						'linked_choices'    => true,
+						'transport'         => 'postMessage',
+						'unit_choices'      => array( 'px', 'em', '%' ),
+						'choices'           => array(
+							'top'    => __( 'Top', 'astra' ),
+							'right'  => __( 'Right', 'astra' ),
+							'bottom' => __( 'Bottom', 'astra' ),
+							'left'   => __( 'Left', 'astra' ),
+						),
+						'priority'          => 23,
+						'connected'         => false,
+						'divider'           => array( 'ast_class' => 'ast-bottom-section-divider' ),
+						'context'           => Astra_Builder_Helper::$design_tab,
+					),
+
 					// Option: Submenu Divider Checkbox.
 					array(
 						'name'      => ASTRA_THEME_SETTINGS . '[header-' . $_prefix . '-submenu-item-border]',

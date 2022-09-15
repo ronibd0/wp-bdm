@@ -104,6 +104,8 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 			 */
 			$apply_new_default_values = astra_button_default_padding_updated();
 
+			$astra_options = self::get_astra_options();
+
 			// Defaults list of options.
 			self::$defaults = apply_filters(
 				'astra_theme_defaults',
@@ -202,6 +204,29 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 						'mobile-unit'  => 'px',
 					),
 					'button-radius'                        => 2,
+					'button-radius-fields'                 => array(
+						'desktop'      => array(
+							'top'    => ! isset( $astra_options['button-radius'] ) ? '' : $astra_options['button-radius'],
+							'right'  => ! isset( $astra_options['button-radius'] ) ? '' : $astra_options['button-radius'],
+							'bottom' => ! isset( $astra_options['button-radius'] ) ? '' : $astra_options['button-radius'],
+							'left'   => ! isset( $astra_options['button-radius'] ) ? '' : $astra_options['button-radius'],
+						),
+						'tablet'       => array(
+							'top'    => ! isset( $astra_options['button-radius'] ) ? '' : $astra_options['button-radius'],
+							'right'  => ! isset( $astra_options['button-radius'] ) ? '' : $astra_options['button-radius'],
+							'bottom' => ! isset( $astra_options['button-radius'] ) ? '' : $astra_options['button-radius'],
+							'left'   => ! isset( $astra_options['button-radius'] ) ? '' : $astra_options['button-radius'],
+						),
+						'mobile'       => array(
+							'top'    => ! isset( $astra_options['button-radius'] ) ? '' : $astra_options['button-radius'],
+							'right'  => ! isset( $astra_options['button-radius'] ) ? '' : $astra_options['button-radius'],
+							'bottom' => ! isset( $astra_options['button-radius'] ) ? '' : $astra_options['button-radius'],
+							'left'   => ! isset( $astra_options['button-radius'] ) ? '' : $astra_options['button-radius'],
+						),
+						'desktop-unit' => 'px',
+						'tablet-unit'  => 'px',
+						'mobile-unit'  => 'px',
+					),
 					'theme-button-border-group-border-size' => array(
 						'top'    => '',
 						'right'  => '',
@@ -597,12 +622,21 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 		}
 
 		/**
+		 * Get astra-options DB values.
+		 *
+		 * @since x.x.x
+		 */
+		public static function get_astra_options() {
+			return get_option( ASTRA_THEME_SETTINGS );
+		}
+
+		/**
 		 * Get theme options from static array() from database
 		 *
 		 * @return array    Return array of theme options from database.
 		 */
 		public static function get_db_options() {
-			self::$db_options_no_defaults = get_option( ASTRA_THEME_SETTINGS );
+			self::$db_options_no_defaults = self::get_astra_options();
 			return self::$db_options_no_defaults;
 		}
 	}
