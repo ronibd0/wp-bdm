@@ -118,3 +118,8 @@ a.ast-upgrade-trigger:focus, a.ast-upgrade-trigger:active {
     margin: 1.25em 0;
     line-height: 1;
 }
+li#customize-control-astra-settings-header-builder-pro-items .ast-upgrade-pro-wrap,
+li#customize-control-astra-settings-footer-builder-pro-items .ast-upgrade-pro-wrap {
+    padding-left: 12px;
+    padding-right: 12px;
+}
