@@ -536,6 +536,7 @@ class Astra_Customizer_Header_Builder_Configs extends Astra_Customizer_Config_Ba
 				'section'  => 'section-header-builder-layout',
 				'default'  => '',
 				'priority' => 999,
+				'context'  => array(),
 				'title'    => __( 'With Astra Pro get more features for your site header!', 'astra' ),
 				'divider'  => array( 'ast_class' => 'ast-top-section-divider' ),
 			);

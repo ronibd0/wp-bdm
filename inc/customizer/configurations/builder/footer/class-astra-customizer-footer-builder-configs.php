@@ -329,6 +329,7 @@ class Astra_Customizer_Footer_Builder_Configs extends Astra_Customizer_Config_Ba
 				),
 				'section'  => 'section-footer-builder-layout',
 				'default'  => '',
+				'context'  => array(),
 				'priority' => 999,
 				'title'    => __( 'With Astra Pro get more features for your site footer!', 'astra' ),
 				'divider'  => array( 'ast_class' => 'ast-top-section-divider' ),
