@@ -5002,7 +5002,7 @@ span.customize-control-title.ast-group-section-title {
 }
 
 .customize-control-ast-sortable .sortable .ast-sortable-item, .customize-control-ast-sortable .sortable .ast-sortable-subcontrols {
-  padding: 0 12px 0 0;
+  padding: 3px 12px 3px 3px;
   border: 1px solid #D1D5DB;
   color: #334155;
   background: #ffffff;
@@ -5011,9 +5011,6 @@ span.customize-control-title.ast-group-section-title {
   line-height: 38px;
   margin: 0 0 10px;
   border-radius: 4px;
-}
-.customize-control-ast-sortable .sortable .ast-sortable-item {
-	padding: 3px 12px 3px 3px;
 }
 .customize-control-ast-sortable .sortable .ast-sortable-subcontrols {
     border: none;
@@ -5076,7 +5073,7 @@ span.customize-control-title.ast-group-section-title {
 	margin-left: -3px!important;
 }
 .ast-sortable-subcontrols > * {
-	padding-left: 12px;
+	padding-left: 9px;
 	padding-bottom: 12px;
 }
 .show .ast-sortable-subcontrols {
@@ -7683,7 +7680,7 @@ span.customize-control-title.ast-group-section-title {
 }
 
 .customize-control-ast-sortable .sortable .ast-sortable-item, .customize-control-ast-sortable .sortable .ast-sortable-subcontrols {
-  padding: 3px 12px 3px 3px;
+  padding: 1px 12px 1px 3px;
   border: 1px solid #D1D5DB;
   color: #334155;
   background: #ffffff;

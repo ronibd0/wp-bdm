@@ -3650,7 +3650,7 @@ span.customize-control-title.ast-group-section-title {
 }
 
 .customize-control-ast-sortable .sortable .ast-sortable-item, .customize-control-ast-sortable .sortable .ast-sortable-subcontrols {
-  padding: 3px 3px 3px 12px;
+  padding: 1px 3px 1px 12px;
   border: 1px solid #D1D5DB;
   color: #334155;
   background: #ffffff;
