@@ -307,7 +307,6 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			}
 
 			$status = astra_get_option( 'ast-disable-upgrade-notices', true );
-			$label = ( false !== $status ) ? __( 'Disable Promotions', 'astra' ) : __( 'Enable Promotions', 'astra' );
 
 			?>
 			<div class="postbox">
@@ -318,13 +317,15 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 					</p>
 						<?php echo esc_html__( 'Get access to powerful features for painless WordPress designing, without the high costs.', 'astra-addon' ); ?>
 					<p>
+					</p>
+						<?php echo esc_html__( 'You can toggle visibility of upgrade notices anytime from ', 'astra-addon' ); ?>
+						<a href="#" class="ast-disable-notices" data-value="<?php echo $status ? 0 : 1; ?>" target="_blank" rel="noopener">
+							<?php echo __( 'here.', 'astra' ); ?>
+						</a>
+					<p>
 					<label for="astra_upgrade_pro_postbox">
 						<a class="button button-primary" href="<?php echo esc_url( ASTRA_PRO_UPGRADE_URL ); ?>" target="_blank" rel="noopener">
 							<?php echo esc_html__( 'Get Pro »', 'astra' ); ?>
-						</a>
-						&nbsp;
-						<a href="#" class="ast-disable-notices" data-value="<?php echo $status ? 0 : 1; ?>" target="_blank" rel="noopener">
-							<?php echo esc_html__( $label ); ?>
 						</a>
 					</label>
 				</div>
@@ -456,7 +457,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 								</div>
 							</div>',
 						$image_path,
-						__( 'Astra Works Seamlessly with WooCommerce', 'astra' ),
+						__( 'Astra Works Seamlessly with WooCommerce!', 'astra' ),
 						__( 'With Astra Pro get your store the foundation it needs to load fast, convert higher, and bring in more revenue.', 'astra' ),
 						esc_attr( 'button button-primary' ),
 						'href="' . ASTRA_PRO_UPGRADE_URL . '" target="_blank"',
@@ -527,9 +528,9 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 */
 		public static function notice_assets() {
 			if ( is_rtl() ) {
-				wp_enqueue_style( 'astra-notices-rtl', ASTRA_THEME_URI . 'inc/assets/css/astra-notices-rtl.css', array(), ASTRA_THEME_VERSION );
+				wp_enqueue_style( 'astra-custom-notices-rtl', ASTRA_THEME_URI . 'inc/assets/css/astra-notices-rtl.css', array(), ASTRA_THEME_VERSION );
 			} else {
-				wp_enqueue_style( 'astra-notices', ASTRA_THEME_URI . 'inc/assets/css/astra-notices.css', array(), ASTRA_THEME_VERSION );
+				wp_enqueue_style( 'astra-custom-notices', ASTRA_THEME_URI . 'inc/assets/css/astra-notices.css', array(), ASTRA_THEME_VERSION );
 			}
 		}
 
@@ -685,8 +686,8 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 					'astraPluginManagerNonce'            => wp_create_nonce( 'astra-recommended-plugin-nonce' ),
 					'ajax_nonce'                         => wp_create_nonce( 'astra-builder-module-nonce' ),
 					'notices_ajax_nonce'                 => wp_create_nonce( 'astra-upgrade-notices-nonce' ),
-					'noticeEnableText'                   => __( 'Enable Promotions', 'astra' ),
-					'noticeDisableText'                  => __( 'Disable Promotions', 'astra' ),
+					'noticeEnableText'                   => __( 'Disabled', 'astra' ),
+					'noticeDisableText'                  => __( 'Enabled', 'astra' ),
 					'noticeEnablingText'                 => __( 'Enabling...', 'astra' ),
 					'noticeDisablingText'                => __( 'Disabling...', 'astra' ),
 					'old_header_footer'                  => __( 'Use Old Header/Footer', 'astra' ),
