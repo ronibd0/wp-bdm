@@ -3120,7 +3120,6 @@ input[type="text"].select2-search__field {
 .customize-control.ast-top-dotted-divider,
 #customize-control-astra-settings-edd-archive-variable-button-text,
 #customize-control-astra-settings-header-account-logged-out-text,
-#customize-control-blogname,
 #customize-control-blogdescription,
 #customize-control-astra-settings-shop-load-more-text,
 #customize-control-astra-settings-single-product-shipping-text,
@@ -3134,9 +3133,13 @@ input[type="text"].select2-search__field {
     border-top: 1px dashed var(--ast-customizer-color-7);
 }
 
+#customize-control-blogname {
+	margin-top: 16px;
+}
+
 #customize-control-astra-settings-product-sale-percent-value .ast-control-tooltip {
     top: 24px;
-} 
+}
 
 .customize-control.ast-top-dotted-divider .ast-adv-toggle-icon {
     top: 25px;
@@ -3509,10 +3512,10 @@ span.customize-control-title.ast-group-section-title {
 	line-height: 1;
 }
 .customize-control-ast-multi-selector .ast-multiselector-inner-wrap:last-child {
-	border-radius: 2px 0px 0px 2px;
+	border-radius: 3px 0px 0px 3px;
 }
 .customize-control-ast-multi-selector .ast-multiselector-inner-wrap:first-child {
-	border-radius: 0px 2px 2px 0px;
+	border-radius: 0px 3px 3px 0px;
 }
 
 .customize-control-ast-row-layout .ast-responsive-btns {
@@ -5826,7 +5829,6 @@ input[type="text"].select2-search__field {
 .customize-control.ast-top-dotted-divider,
 #customize-control-astra-settings-edd-archive-variable-button-text,
 #customize-control-astra-settings-header-account-logged-out-text,
-#customize-control-blogname,
 #customize-control-blogdescription,
 #customize-control-astra-settings-shop-load-more-text,
 #customize-control-astra-settings-single-product-shipping-text,
@@ -5840,9 +5842,13 @@ input[type="text"].select2-search__field {
     border-top: 1px dashed var(--ast-customizer-color-7);
 }
 
+#customize-control-blogname {
+	margin-top: 16px;
+}
+
 #customize-control-astra-settings-product-sale-percent-value .ast-control-tooltip {
     top: 24px;
-} 
+}
 
 .customize-control.ast-top-dotted-divider .ast-adv-toggle-icon {
     top: 25px;

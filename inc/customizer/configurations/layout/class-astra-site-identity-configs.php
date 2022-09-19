@@ -227,32 +227,12 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 						'step' => 1,
 						'max'  => 600,
 					),
-					'divider'           => array( 'ast_class' => 'ast-top-section-divider' ),
+					'divider'           => array( 'ast_class' => 'ast-top-section-divider ast-bottom-section-divider' ),
 				),
 
-				/**
-				 * Option: Display Title
-				 */
 				array(
 					'name'      => ASTRA_THEME_SETTINGS . '[display-site-title-responsive]',
-					'type'      => 'control',
-					'control'   => 'ast-toggle-control',
 					'default'   => astra_get_option( 'display-site-title-responsive' ),
-					'section'   => 'title_tagline',
-					'title'     => __( 'Display Site Title', 'astra' ),
-					'priority'  => 7,
-					'transport' => 'postMessage',
-					'partial'   => array(
-						'selector'            => '.site-branding',
-						'container_inclusive' => false,
-						'render_callback'     => 'Astra_Builder_Header::site_identity',
-					),
-					'divider'   => array( 'ast_class' => 'ast-top-section-divider' ),
-				),
-
-				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[site-title-devices-visibility]',
-					'default'   => astra_get_option( 'site-title-devices-visibility' ),
 					'type'      => 'control',
 					'control'   => 'ast-multi-selector',
 					'section'   => 'title_tagline',
@@ -265,7 +245,7 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 						'tablet'  => 'customizer-tablet',
 						'mobile'  => 'customizer-mobile',
 					),
-					'divider'   => array( 'ast_class' => 'ast-top-dotted-divider' ),
+					'divider'   => array( 'ast_class' => 'ast-top-dotted-divider ast-bottom-section-divider' ),
 				),
 
 				/**
