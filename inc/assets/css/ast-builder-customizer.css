@@ -1466,15 +1466,6 @@ li#customize-control-astra-settings-header-desktop-items, li#customize-control-a
     width: 18px;
     height: 18px;
 }
-/*
-.ahfb-sorter-item-panel-header .ahfb-sorter-item-expand:before, .ahfb-sorter-item-panel-header .ahfb-sorter-item-remove:before {
-    content: '';
-    position: absolute;
-    left: 0;
-    height: 100%;
-    background: #dddddd;
-    width: 1px;
-} */
 
 .ahfb-sorter-drop .ahfb-sorter-item {
     line-height: 28px;
@@ -1541,6 +1532,10 @@ li#customize-control-astra-settings-header-desktop-items, li#customize-control-a
 .ahfb-social-add-area .components-base-control {
     flex-grow: 1;
     padding-right: 10px;
+}
+
+.ahfb-social-add-area .components-select-control {
+    border-radius: 4px;
 }
 
 .ahfb-social-add-area .ahfb-sorter-add-item {
