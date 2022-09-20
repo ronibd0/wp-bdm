@@ -162,7 +162,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 * @param object $item A single menu item.
 		 * @param int    $depth menu item depth.
 		 * @param array  $args menu item arguments.
-		 * @return void.
+		 * @return void
 		 *
 		 * @since x.x.x
 		 */
