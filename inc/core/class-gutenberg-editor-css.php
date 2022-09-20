@@ -246,8 +246,8 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 			}
 
 			// Site title (Page Title) on Block Editor.
-			$body_text_transform = astra_get_option( 'body-text-transform', 'inherit' );
-			$headings_font_transform = astra_get_option( 'headings-text-transform', $body_text_transform );
+			$body_text_transform       = astra_get_option( 'body-text-transform', 'inherit' );
+			$headings_font_transform   = astra_get_option( 'headings-text-transform', $body_text_transform );
 			$site_title_font_family    = astra_get_option( 'font-family-entry-title' );
 			$site_title_font_weight    = astra_get_option( 'font-weight-entry-title' );
 			$site_title_line_height    = astra_get_option( 'line-height-entry-title' );
@@ -428,7 +428,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 					'font-family'    => astra_get_css_value( $site_title_font_family, 'font', $body_font_family ),
 					'line-height'    => esc_attr( $site_title_line_height ),
 					'text-transform' => esc_attr( $site_title_text_transform ),
-				)
+				),
 			);
 
 			if ( false === $improve_gb_ui ) {
