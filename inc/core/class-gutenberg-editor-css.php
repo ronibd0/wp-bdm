@@ -246,24 +246,24 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 			}
 
 			// Site title (Page Title) on Block Editor.
-			$body_text_transform       = astra_get_option( 'body-text-transform', 'inherit' );
-			$headings_font_transform   = astra_get_option( 'headings-text-transform', $body_text_transform );
 			$site_title_font_family    = astra_get_option( 'font-family-entry-title' );
 			$site_title_font_weight    = astra_get_option( 'font-weight-entry-title' );
 			$site_title_line_height    = astra_get_option( 'line-height-entry-title' );
 			$site_title_font_size      = astra_get_option( 'font-size-entry-title' );
-			$site_title_text_transform = astra_get_option( 'text-transform-entry-title', $headings_font_transform );
-			
-			$headings_font_family    = astra_get_option( 'headings-font-family' );
-			$headings_font_weight    = astra_get_option( 'headings-font-weight' );
-			$headings_font_transform = astra_get_option( 'headings-text-transform', $body_text_transform );
+			$site_title_text_transform = astra_get_option( 'text-transform-entry-title', $headings_text_transform  );
 
 			// Fallback for Site title (Page Title).
 			if ( 'inherit' == $site_title_font_family ) {
 				$site_title_font_family = $headings_font_family;
 			}
-			if ( $font_weight_prop === $site_title_font_weight ) {
-				$site_title_font_weight = $headings_font_weight;
+			if ( 'inherit' == $site_title_font_weight ) {
+				$site_title_font_weight = 'normal';
+			}
+			if ( '' == $site_title_text_transform ) {
+				$site_title_text_transform = $headings_text_transform;
+			}
+			if ( '' == $site_title_line_height ) {
+				$site_title_line_height = $headings_line_height;
 			}
 
 			// check the selection color incase of empty/no theme color.
