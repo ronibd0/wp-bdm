@@ -1552,9 +1552,6 @@ input[type="text"].select2-search__field {
       color: #000000;
       opacity: .75;
     }
-    .ast-field-settings-modal .customize-control-ast-responsive .input-wrapper .ast-responsive-input.active + .ast-responsive-select {
-      width: 20%;
-    }
     .ast-reset-btn.components-button svg {
       padding: 0px;
       height: 13px;
@@ -2677,34 +2674,6 @@ span.customize-control-title.ast-group-section-title {
   }
 }
 
-.ast-responsive-select-container {
-  display: none;
-}
-
-.ast-responsive-select-container.active {
-  display: block;
-}
-
-.ast-variant-select > div {
-  border-color: #dddddd;
-}
-
-.customize-control select, .ast-variant-select > div, .customize-control input, .customize-control-content .components-text-control__input {
-	border-color: var(--ast-customizer-color-7);
-	color: var(--ast-customizer-color-5);
-	padding-top: 1px;
-    padding-bottom: 1px;
-}
-
-.customize-control select:focus, .ast-variant-select > div:focus, .customize-control input:focus {
-	border-color: var(--ast-customizer-color-1);
-	color: #0a4b78;
-	box-shadow: 0 0 0 1px var(--ast-customizer-color-1);
-}
-
-
-
-
 .customize-control-ast-responsive-slider .wrapper, .customize-control-ast-slider .wrapper {
   position: relative;
   display: flex;
@@ -3104,12 +3073,6 @@ span.customize-control-title.ast-group-section-title {
   vertical-align: top;
 }
 
-.customize-control-ast-responsive-select .ast-responsive-btns {
-  position: relative;
-  top: -1px;
-  right: -5px;
-}
-
 .ast-responsive-btns > li {
   margin-bottom: 0;
   display: none;
@@ -3160,22 +3123,6 @@ span.customize-control-title.ast-group-section-title {
   display: block;
 }
 
-.customize-control-ast-responsive .input-wrapper .ast-responsive-select {
-  width: 50px;
-  margin: 0;
-  margin-left: 2px;
-  padding: 0 24px 0 8px;
-  font-size: 13px;
-  text-transform: uppercase;
-  float: none;
-  display: none;
-}
-
-.customize-control-ast-responsive .input-wrapper .ast-responsive-input.active + .ast-responsive-select {
-  display: block;
-  width: 25%;
-  float: none;
-}
 
 .customize-control-ast-responsive .input-wrapper .ast-non-reponsive.ast-responsive-input {
   display: inline-block;
@@ -3185,16 +3132,8 @@ span.customize-control-title.ast-group-section-title {
   display: inline-block;
 }
 
-.customize-control-ast-responsive .input-wrapper .ast-non-reponsive.ast-responsive-select {
-  display: inline-block;
-}
-
 #customize-control-astra-settings-font-size-body.customize-control-ast-responsive .input-wrapper {
   display: inline-block;
-}
-
-#customize-control-astra-settings-font-size-body.customize-control-ast-responsive .input-wrapper .ast-responsive-select {
-  display: none;
 }
 
 #customize-control-astra-settings-font-size-body.customize-control-ast-responsive .input-wrapper .ast-responsive-input {
@@ -3213,6 +3152,21 @@ span.customize-control-title.ast-group-section-title {
   position: absolute;
   right: 0px;
   top: 1px;
+}
+
+.ast-variant-select > div {
+	border-color: #dddddd;
+}
+.customize-control select, .ast-variant-select > div, .customize-control input, .customize-control-content .components-text-control__input {
+	border-color: var(--ast-customizer-color-7);
+	color: var(--ast-customizer-color-5);
+	padding-top: 1px;
+	padding-bottom: 1px;
+}
+.customize-control select:focus, .ast-variant-select > div:focus, .customize-control input:focus {
+	border-color: var(--ast-customizer-color-1);
+	color: #0a4b78;
+	box-shadow: 0 0 0 1px var(--ast-customizer-color-1);
 }
 
 .ast-adv-toggle-icon {
