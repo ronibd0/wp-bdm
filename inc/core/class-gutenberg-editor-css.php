@@ -258,9 +258,6 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 			$headings_font_weight    = astra_get_option( 'headings-font-weight' );
 			$headings_font_transform = astra_get_option( 'headings-text-transform', $body_text_transform );
 
-			$is_widget_title_support_font_weight = Astra_Addon_Update_Filter_Function::support_addon_font_css_to_widget_and_in_editor();
-			$font_weight_prop                    = ( $is_widget_title_support_font_weight ) ? 'inherit' : 'normal';
-
 			// Fallback for Site title (Page Title).
 			if ( 'inherit' == $site_title_font_family ) {
 				$site_title_font_family = $headings_font_family;
