@@ -15,12 +15,12 @@ const ItemComponent = props => {
 		{
 			name: 'icon',
 			title: __( 'Icon', 'astra' ),
-			className: 'astra-color-background',
+			className: 'astra-icon-media',
 		},
 		{
 			name: 'image',
 			title: __( 'Image', 'astra' ),
-			className: 'astra-color-background',
+			className: 'astra-image-media',
 		},
 
 	];
@@ -85,7 +85,7 @@ const ItemComponent = props => {
 						 }}/>
 			}
 			
-			<TabPanel className="astra-popover-tabs astra-background-tabs"
+			<TabPanel className="astra-popover-tabs astra-media-tab"
 						activeClass="active-tab"
 						initialTabName='icon'
 						tabs={ tabs }>
