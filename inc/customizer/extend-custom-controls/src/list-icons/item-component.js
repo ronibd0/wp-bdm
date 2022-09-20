@@ -2,6 +2,7 @@ import { useState , useEffect } from 'react';
 
 const { __ } = wp.i18n;
 const {Dashicon, Tooltip, TextControl, Button, TabPanel } = wp.components;
+import { MediaUpload } from '@wordpress/block-editor';
 import FontIconPicker from "@fonticonpicker/react-fonticonpicker"
 import astIcons from "../../../../../assets/svg/ast-social-icons"
 import renderSVG from "../../../../assets/js/ast-render-svg"
@@ -35,8 +36,17 @@ const ItemComponent = props => {
 		props.item.icon
 	)
 
+	const[ selectedImage , setSelectedImage ] = useState(
+		props.item.image
+	)
+
+	const removeImage = () => {
+		setSelectedImage( '' );
+	}
+	
 	useEffect(() => {
 		setSelectedIcon( Icons[props.item.icon] );
+		setSelectedImage( props.item.image );
 	}, []);
 
 	return <div className="ahfb-sorter-item" data-id={props.item.id} key={props.item.id}>
@@ -115,21 +125,25 @@ const ItemComponent = props => {
 							} 
 
 							if ( 'image' === tab.name ) {
+
 								tabout = (
 									<>
-										<p className="ast-social-icon-picker-label">{ __( 'Icon', 'astra' ) }</p>
-										<FontIconPicker
-											icons={svg_icons}
-											renderFunc= {renderSVG}
-											theme="default"
-											value={props.item.icon}
-											onChange={ value => {
-												props.onChangeIcon(value, props.index);
-												setSelectedIcon( Icons[value] );
-											} }
-											isMulti={false}
-											noSelectedPlaceholder= { __( 'Select Icon', 'astra' ) }
-										/>
+										<p className="ast-social-icon-picker-label">{ __( 'Image', 'astra' ) }</p>
+											{ selectedImage && <img className="astra-media-image " src={selectedImage} /> }
+											<MediaUpload
+												onSelect={ ( media ) => {
+													props.onChangeImage( media.url, props.index);
+													setSelectedImage( media.url )
+												} }
+												allowedTypes={ [ 'image' ] }
+												value={ selectedImage }
+												render={ ( { open } ) => (
+													<>
+														<Button className="ast-media-btn" onClick={ open }>{selectedImage ? "Replace Image" : "Select Image" }</Button>
+														{ selectedImage && <Button className="ast-media-btn ast-danger-btn" onClick={ removeImage }>Remove Image</Button> }
+													</>
+												) }	
+											/>
 									</>
 								);
 							} 

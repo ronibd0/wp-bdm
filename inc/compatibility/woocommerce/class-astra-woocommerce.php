@@ -884,18 +884,21 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 							'enabled' => true,
 							'source'  => 'icon',
 							'icon'    => 'check-circle',
+							'image'	  => '',	
 						),
 						array(
 							'id'      => 'item-2',
 							'enabled' => true,
 							'source'  => 'icon',
 							'icon'    => 'check-circle',
+							'image'	  => '',	
 						),
 						array(
 							'id'      => 'item-3',
 							'enabled' => true,
 							'source'  => 'icon',
 							'icon'    => 'check-circle',
+							'image'	  => '',	
 						),
 					),
 			);

@@ -305,6 +305,35 @@
   text-align: left;
 }
 
+.astra-media-tab .astra-media-image {
+  width: 100%;
+  margin-bottom: 0;
+}
+
+.astra-media-tab .ast-media-btn {
+  display: block;
+  width: 100%;
+  border: 1px dashed #b4b9be;
+  box-sizing: border-box;
+  box-shadow: unset;
+  padding: 9px 0;
+  line-height: 1.6;
+  text-decoration: none;
+}
+
+.astra-media-tab .ast-danger-btn {
+  color: #cc1818;
+  margin-top: 10px;
+}
+
+.astra-media-tab .ast-media-btn:hover {
+  border-color: #0185ba;
+}
+
+.astra-media-tab .ast-danger-btn:hover {
+  border-color: #cc1818;
+}
+
 .astra-popover-color .astra-popover-tabs .components-tab-panel__tabs button.components-tab-panel__tabs-item.active-tab:not(.is-primary):not(.is-tertiary):not(.is-link):hover {
   color: #fff;
 }

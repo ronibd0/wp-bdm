@@ -18,12 +18,14 @@ const ListIconsComponent = props => {
 				'enabled': true,
 				'icon': 'facebook',
 				'label': 'Facebook',
+				'image': '',
 			},
 			{
 				'id': 'twitter',
 				'enabled': true,
 				'icon': 'twitter',
 				'label': 'Twitter',
+				'image': '',
 			}
 		],
 	};
@@ -172,7 +174,8 @@ const ListIconsComponent = props => {
 			'id': 'item-' + getMaxId,
 			'enabled': true,
 			'icon': item['icon'],
-			'label': item['label']
+			'label': item['label'],
+			'image' : '',
 		};
 		update.push(newItem);
 		updateState.items = update;
@@ -249,6 +252,12 @@ const ListIconsComponent = props => {
 		}, itemIndex);
 	};
 
+	const onChangeImage = ( image, itemIndex ) => {
+		saveArrayUpdate({
+			image: image
+		}, itemIndex);
+	};
+
 	return <div className="ahfb-control-field ahfb-sorter-items">
 		<div className="ahfb-sorter-row">
 			<ReactSortable animation={100} onStart={() => onDragStop()} onEnd={() => onDragStop()}
@@ -261,6 +270,7 @@ const ListIconsComponent = props => {
 										  cloneItem={() => addItem(item)}
 										  onChangeLabel={(label, itemIndex) => onChangeLabel(label, itemIndex)}
 										  onChangeIcon={( icon, index ) => onChangeIcon( icon, index ) }
+										  onChangeImage={( image, index ) => onChangeImage( image, index ) }
 										  key={item.id} index={index} item={item} controlParams={controlParams} disable={disableFeat} />;
 
 				})}
