@@ -245,6 +245,30 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 				$body_font_size_desktop = ( '' != $body_font_size ) ? $body_font_size : 15;
 			}
 
+			// Site title (Page Title) on Block Editor.
+			$body_text_transform = astra_get_option( 'body-text-transform', 'inherit' );
+			$headings_font_transform = astra_get_option( 'headings-text-transform', $body_text_transform );
+			$site_title_font_family    = astra_get_option( 'font-family-entry-title' );
+			$site_title_font_weight    = astra_get_option( 'font-weight-entry-title' );
+			$site_title_line_height    = astra_get_option( 'line-height-entry-title' );
+			$site_title_font_size      = astra_get_option( 'font-size-entry-title' );
+			$site_title_text_transform = astra_get_option( 'text-transform-entry-title', $headings_font_transform );
+			
+			$headings_font_family    = astra_get_option( 'headings-font-family' );
+			$headings_font_weight    = astra_get_option( 'headings-font-weight' );
+			$headings_font_transform = astra_get_option( 'headings-text-transform', $body_text_transform );
+
+			$is_widget_title_support_font_weight = Astra_Addon_Update_Filter_Function::support_addon_font_css_to_widget_and_in_editor();
+			$font_weight_prop                    = ( $is_widget_title_support_font_weight ) ? 'inherit' : 'normal';
+
+			// Fallback for Site title (Page Title).
+			if ( 'inherit' == $site_title_font_family ) {
+				$site_title_font_family = $headings_font_family;
+			}
+			if ( $font_weight_prop === $site_title_font_weight ) {
+				$site_title_font_weight = $headings_font_weight;
+			}
+
 			// check the selection color incase of empty/no theme color.
 			$selection_text_color = ( 'transparent' === $highlight_theme_color ) ? '' : $highlight_theme_color;
 
@@ -394,6 +418,17 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 					'padding-bottom' => astra_responsive_spacing( $theme_btn_padding, 'bottom', 'desktop' ),
 					'padding-left'   => astra_responsive_spacing( $theme_btn_padding, 'left', 'desktop' ),
 				),
+
+				/**
+				 * Site title (Page Title) on Block Editor.
+				 */
+				'body .edit-post-visual-editor__post-title-wrapper > h1:first-of-type' => array(
+					'font-size'      => astra_responsive_font( $site_title_font_size, 'desktop' ),
+					'font-weight'    => astra_get_css_value( $site_title_font_weight, 'font' ),
+					'font-family'    => astra_get_css_value( $site_title_font_family, 'font', $body_font_family ),
+					'line-height'    => esc_attr( $site_title_line_height ),
+					'text-transform' => esc_attr( $site_title_text_transform ),
+				)
 			);
 
 			if ( false === $improve_gb_ui ) {
