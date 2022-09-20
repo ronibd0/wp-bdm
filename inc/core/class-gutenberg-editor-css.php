@@ -250,7 +250,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 			$site_title_font_weight    = astra_get_option( 'font-weight-entry-title' );
 			$site_title_line_height    = astra_get_option( 'line-height-entry-title' );
 			$site_title_font_size      = astra_get_option( 'font-size-entry-title' );
-			$site_title_text_transform = astra_get_option( 'text-transform-entry-title', $headings_text_transform  );
+			$site_title_text_transform = astra_get_option( 'text-transform-entry-title', $headings_text_transform );
 
 			// Fallback for Site title (Page Title).
 			if ( 'inherit' == $site_title_font_family ) {
@@ -265,7 +265,9 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 			if ( '' == $site_title_line_height ) {
 				$site_title_line_height = $headings_line_height;
 			}
-
+			if ( $font_weight_prop === $site_title_font_weight ) {
+				$site_title_font_weight = $headings_font_weight;
+			}
 			// check the selection color incase of empty/no theme color.
 			$selection_text_color = ( 'transparent' === $highlight_theme_color ) ? '' : $highlight_theme_color;
 
