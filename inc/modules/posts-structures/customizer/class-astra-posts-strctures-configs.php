@@ -49,43 +49,36 @@ class Astra_Posts_Strctures_Configs extends Astra_Customizer_Config_Base {
 				),
 			);
 
+			$ignore_single_for_posttypes = array( 'post', 'product' );
+			$ignore_archive_for_posttypes = array( 'post', 'product' );
+
 			/**
 			 * Individual post types main section.
 			 */
-			foreach ( $post_types as $index => $slug ) {
-				$post_type_object = get_post_type_object( $slug );
+			foreach ( $post_types as $index => $label ) {
+				$post_type_object = get_post_type_object( $label );
 				$parent_section   = 'section-posts-structure';
 
-				if ( 'download' === $slug ) {
+				if ( 'download' === $label ) {
 					$parent_section = 'section-edd-group';
 				}
 
-				if ( 'llms_membership' === $slug ) {
+				if ( 'llms_membership' === $label ) {
 					$parent_section = 'section-lifterlms';
 				}
 
-				if ( 'groups' === $slug || 'sfwd-topic' === $slug || 'sfwd-lessons' === $slug || 'sfwd-courses' === $slug ) {
+				if ( 'groups' === $label || 'sfwd-topic' === $label || 'sfwd-lessons' === $label || 'sfwd-courses' === $label ) {
 					$parent_section = 'section-learndash';
 				}
 
 				$_configs[] = array(
-					'name'     => 'section-posttype-' . $slug,
+					'name'     => 'section-posttype-' . $label,
 					'type'     => 'section',
 					'section'  => $parent_section,
-					'title'    => isset( $post_type_object->labels->name ) ? $post_type_object->labels->name : ucfirst( $slug ),
+					'title'    => isset( $post_type_object->labels->name ) ? $post_type_object->labels->name : ucfirst( $label ),
 					'priority' => 69,
 				);
-			}
 
-			$ignore_single_for_posttypes = array( 'post', 'product' );
-			$ignore_archive_for_posttypes = array( 'post', 'product' );
-			foreach ( $post_types as $index => $label ) {
-				$_configs[] = array(
-					'name'    => 'section-posttype-' . $label,
-					'type'    => 'section',
-					'title'   => ucfirst( $label ),
-					'priority' => 69,
-				);
 				if ( ! in_array( $label, $ignore_single_for_posttypes ) ) {
 					$_configs[] = array(
 						'name'    => 'single-posttype-' . $label,

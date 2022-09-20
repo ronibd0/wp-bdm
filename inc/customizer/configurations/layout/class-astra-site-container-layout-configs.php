@@ -79,7 +79,7 @@ if ( ! class_exists( 'Astra_Site_Container_Layout_Configs' ) ) {
 					'type'              => 'control',
 					'control'           => 'ast-radio-image',
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
-					'section'           => 'section-page-group',
+					'section'           => 'section-page-dynamic-group',
 					'default'           => astra_get_option( 'single-page-content-layout', 'default' ),
 					'priority'          => 4,
 					'title'             => __( 'Container Layout', 'astra' ),

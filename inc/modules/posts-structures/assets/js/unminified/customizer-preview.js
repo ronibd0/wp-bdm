@@ -12,8 +12,8 @@
 
 	var postTypesCount = AstraPostStrcturesData.post_types.length || false,
 		postTypes = AstraPostStrcturesData.post_types || [],
-		tablet_break_point    = astraBuilderPreview.tablet_break_point || 768,
-		mobile_break_point    = astraBuilderPreview.mobile_break_point || 544;
+		tablet_break_point    = AstraPostStrcturesData.tablet_break_point || 768,
+		mobile_break_point    = AstraPostStrcturesData.mobile_break_point || 544;
 
 	// For single layouts.
 	for ( var index = 0; index < postTypesCount; index++ ) {

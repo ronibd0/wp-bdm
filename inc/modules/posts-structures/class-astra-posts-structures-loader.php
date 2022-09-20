@@ -159,9 +159,6 @@ class Astra_Posts_Strctures_Loader {
 			)
 		);
 
-		$queried_post_types[] = 'page';
-		$queried_post_types[] = 'post';
-
 		$queried_post_types = array_diff(
 			$queried_post_types,
 			array(
@@ -217,6 +214,8 @@ class Astra_Posts_Strctures_Loader {
 			'AstraPostStrcturesData',
 			array(
 				'post_types' => self::get_supported_post_types(),
+				'tablet_break_point' => astra_get_tablet_breakpoint(),
+				'mobile_break_point' => astra_get_mobile_breakpoint(),
 			)
 		);
 	}
