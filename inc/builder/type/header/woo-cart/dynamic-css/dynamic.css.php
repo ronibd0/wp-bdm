@@ -253,25 +253,31 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 		),
 	);
 
-	// Desktop offcanvas cart.
-	if ( 'flyout' === astra_get_option( 'woo-header-cart-click-action' ) || is_customize_preview() ) {
+	// Offcanvas cart.
+	$flyout_cart_width = astra_get_option( 'woo-slide-in-cart-width' );
+	$flyout_cart_width_desktop      = ( isset( $flyout_cart_width['desktop'] ) ) ? $flyout_cart_width['desktop'] : '';
+	$flyout_cart_width_tablet       = ( isset( $flyout_cart_width['tablet'] ) ) ? $flyout_cart_width['tablet'] : '';
+	$flyout_cart_width_mobile       = ( isset( $flyout_cart_width['mobile'] ) ) ? $flyout_cart_width['mobile'] : '';
+	$flyout_cart_width_desktop_unit = ( isset( $flyout_cart_width['desktop-unit'] ) ) ? $flyout_cart_width['desktop-unit'] : '';
+	$flyout_cart_width_tablet_unit  = ( isset( $flyout_cart_width['tablet-unit'] ) ) ? $flyout_cart_width['tablet-unit'] : '';
+	$flyout_cart_width_mobile_unit  = ( isset( $flyout_cart_width['mobile-unit'] ) ) ? $flyout_cart_width['mobile-unit'] : '';
 
-		$desktop_flyout_cart_width     = astra_get_option( 'woo-desktop-cart-flyout-width' );
+	if ( 'flyout' === astra_get_option( 'woo-header-cart-click-action' ) || is_customize_preview() ) {
 		$desktop_flyout_cart_direction = astra_get_option( 'woo-desktop-cart-flyout-direction' );
 		$css_output_desktop['.ast-desktop-cart-flyout.ast-site-header-cart:focus .widget_shopping_cart, .ast-desktop-cart-flyout.ast-site-header-cart:hover .widget_shopping_cart'] = array(
 			'opacity'    => '0',
 			'visibility' => 'hidden',
 		);
 		$css_output_desktop['.ast-desktop .astra-cart-drawer.open-right'] = array(
-			'width' => astra_get_css_value( $desktop_flyout_cart_width, 'px' ),
+			'width' => astra_get_css_value( $flyout_cart_width_desktop, $flyout_cart_width_desktop_unit ),
 		);
 		if ( 'left' === $desktop_flyout_cart_direction ) {
 			$css_output_desktop['.ast-desktop .astra-cart-drawer.open-right']        = array(
-				'width' => astra_get_css_value( $desktop_flyout_cart_width, 'px' ),
-				'left'  => '-' . astra_get_css_value( $desktop_flyout_cart_width, 'px' ),
-			);
+				'width' => astra_get_css_value( $flyout_cart_width_desktop, $flyout_cart_width_desktop_unit ),
+				'left'  => '-' . astra_get_css_value( $flyout_cart_width_desktop, $flyout_cart_width_desktop_unit ),
+			); 
 			$css_output_desktop['.ast-desktop .astra-cart-drawer.open-right.active'] = array(
-				'left' => astra_get_css_value( $desktop_flyout_cart_width, 'px' ),
+				'left' => astra_get_css_value( $flyout_cart_width_desktop, $flyout_cart_width_desktop_unit ),
 			);
 		}
 	}
@@ -326,6 +332,13 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 		),
 
 		/**
+		 * Mobile flyout cart width.
+		 */
+		$responsive_selector . '.active'                   => array(
+			'width' => astra_get_css_value( $flyout_cart_width_mobile, $flyout_cart_width_mobile_unit ),
+		),
+
+		/**
 		* Checkout button color for widget
 		*/
 		$responsive_selector . ' .widget_shopping_cart_content a.button.checkout.wc-forward' => array(
@@ -351,6 +364,7 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 		),
 
 	);
+
 	$css_output_tablet = array(
 		$responsive_selector . ' .astra-cart-drawer-title, ' . $responsive_selector . ' .widget_shopping_cart_content span, ' . $responsive_selector . ' .widget_shopping_cart_content strong,' . $responsive_selector . ' .woocommerce-mini-cart__empty-message, .astra-cart-drawer .woocommerce-mini-cart *' => array(
 			'color' => esc_attr( $cart_text_color_tablet ),
@@ -394,6 +408,14 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 		'.ast-header-break-point.ast-hfb-header .ast-cart-menu-wrap' => array(
 			'font-size' => astra_get_css_value( $cart_icon_size_tablet, 'px' ),
 		),
+
+		/**
+		* Tablet flyout cart width.
+		*/      
+		$responsive_selector . '.active'                   => array(
+			'width' => astra_get_css_value( $flyout_cart_width_tablet, $flyout_cart_width_tablet_unit ),
+		),
+
 		/**
 		* Checkout button color for widget
 		*/
