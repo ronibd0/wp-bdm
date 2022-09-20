@@ -256,6 +256,9 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 			if ( 'inherit' == $site_title_font_family ) {
 				$site_title_font_family = $headings_font_family;
 			}
+			if ( $font_weight_prop === $site_title_font_weight ) {
+				$site_title_font_weight = $headings_font_weight;
+			}
 			if ( '' == $site_title_text_transform ) {
 				$site_title_text_transform = $headings_text_transform;
 			}
