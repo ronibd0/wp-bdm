@@ -77,15 +77,15 @@ class Astra_Customizer_Mobile_Trigger_Configs extends Astra_Customizer_Config_Ba
 				'section'           => $_section,
 				'choices'           => array(
 					'menu'  => array(
-						'label' => __( 'menu', 'astra' ),
+						'label' => __( 'Menu', 'astra' ),
 						'path'  => Astra_Builder_UI_Controller::fetch_svg_icon( 'mobile_menu' ),
 					),
 					'menu2' => array(
-						'label' => __( 'menu2', 'astra' ),
+						'label' => __( 'Menu 2', 'astra' ),
 						'path'  => Astra_Builder_UI_Controller::fetch_svg_icon( 'mobile_menu2' ),
 					),
 					'menu3' => array(
-						'label' => __( 'menu3', 'astra' ),
+						'label' => __( 'Menu 3', 'astra' ),
 						'path'  => Astra_Builder_UI_Controller::fetch_svg_icon( 'mobile_menu3' ),
 					),
 				),
@@ -96,7 +96,7 @@ class Astra_Customizer_Mobile_Trigger_Configs extends Astra_Customizer_Config_Ba
 				),
 				'priority'          => 10,
 				'context'           => Astra_Builder_Helper::$general_tab,
-				'divider'           => array( 'ast_class' => 'ast-bottom-divider' ),
+				'divider'           => array( 'ast_class' => 'ast-bottom-section-divider' ),
 				'alt_layout'        => true,
 			),
 
@@ -123,6 +123,7 @@ class Astra_Customizer_Mobile_Trigger_Configs extends Astra_Customizer_Config_Ba
 					'render_callback' => array( 'Astra_Builder_UI_Controller', 'render_mobile_trigger' ),
 				),
 				'responsive' => false,
+				'divider'    => array( 'ast_class' => 'ast-bottom-section-divider' ),
 				'renderAs'   => 'text',
 			),
 
@@ -147,28 +148,6 @@ class Astra_Customizer_Mobile_Trigger_Configs extends Astra_Customizer_Config_Ba
 			),
 
 			/**
-			 * Option: Icon Size
-			 */
-			array(
-				'name'        => ASTRA_THEME_SETTINGS . '[mobile-header-toggle-icon-size]',
-				'default'     => astra_get_option( 'mobile-header-toggle-icon-size' ),
-				'type'        => 'control',
-				'control'     => 'ast-slider',
-				'section'     => $_section,
-				'title'       => __( 'Icon Size', 'astra' ),
-				'priority'    => 40,
-				'suffix'      => 'px',
-				'transport'   => 'postMessage',
-				'input_attrs' => array(
-					'min'  => 0,
-					'step' => 1,
-					'max'  => 100,
-				),
-				'context'     => Astra_Builder_Helper::$design_tab,
-				'divider'     => array( 'ast_class' => 'ast-bottom-divider' ),
-			),
-
-			/**
 			 * Option: Toggle Button Color
 			 */
 			array(
@@ -180,9 +159,35 @@ class Astra_Customizer_Mobile_Trigger_Configs extends Astra_Customizer_Config_Ba
 				'title'             => __( 'Icon Color', 'astra' ),
 				'section'           => $_section,
 				'transport'         => 'postMessage',
-				'priority'          => 50,
+				'priority'          => 40,
 				'context'           => Astra_Builder_Helper::$design_tab,
+				'divider'           => array( 'ast_class' => 'ast-section-spacing' ),
+
 			),
+
+			/**
+			 * Option: Icon Size
+			 */
+			array(
+				'name'        => ASTRA_THEME_SETTINGS . '[mobile-header-toggle-icon-size]',
+				'default'     => astra_get_option( 'mobile-header-toggle-icon-size' ),
+				'type'        => 'control',
+				'control'     => 'ast-slider',
+				'section'     => $_section,
+				'title'       => __( 'Icon Size', 'astra' ),
+				'priority'    => 50,
+				'suffix'      => 'px',
+				'transport'   => 'postMessage',
+				'input_attrs' => array(
+					'min'  => 0,
+					'step' => 1,
+					'max'  => 100,
+				),
+				'context'     => Astra_Builder_Helper::$design_tab,
+				'divider'     => array( 'ast_class' => 'ast-top-section-divider' ),
+			),
+
+
 
 			/**
 			 * Option: Toggle Button Bg Color
@@ -196,7 +201,7 @@ class Astra_Customizer_Mobile_Trigger_Configs extends Astra_Customizer_Config_Ba
 				'title'             => __( 'Background Color', 'astra' ),
 				'section'           => $_section,
 				'transport'         => 'postMessage',
-				'priority'          => 50,
+				'priority'          => 40,
 				'context'           => array(
 					Astra_Builder_Helper::$design_tab_config,
 					array(
@@ -234,6 +239,7 @@ class Astra_Customizer_Mobile_Trigger_Configs extends Astra_Customizer_Config_Ba
 						'value'    => 'outline',
 					),
 				),
+				'divider'        => array( 'ast_class' => 'ast-top-section-divider' ),
 			),
 
 			/**
@@ -248,7 +254,7 @@ class Astra_Customizer_Mobile_Trigger_Configs extends Astra_Customizer_Config_Ba
 				'title'             => __( 'Border Color', 'astra' ),
 				'section'           => $_section,
 				'transport'         => 'postMessage',
-				'priority'          => 65,
+				'priority'          => 40,
 				'context'           => array(
 					Astra_Builder_Helper::$design_tab_config,
 					array(
@@ -269,7 +275,7 @@ class Astra_Customizer_Mobile_Trigger_Configs extends Astra_Customizer_Config_Ba
 				'control'     => 'ast-slider',
 				'section'     => $_section,
 				'title'       => __( 'Border Radius', 'astra' ),
-				'priority'    => 70,
+				'priority'    => 50,
 				'suffix'      => 'px',
 				'transport'   => 'postMessage',
 				'input_attrs' => array(
@@ -285,6 +291,23 @@ class Astra_Customizer_Mobile_Trigger_Configs extends Astra_Customizer_Config_Ba
 						'value'    => 'minimal',
 					),
 				),
+				'divider'     => array( 'ast_class' => 'ast-top-section-divider' ),
+			),
+
+
+			/**
+			 * Option: Divider
+			 */
+			array(
+				'name'     => ASTRA_THEME_SETTINGS . '[' . $_section . '-margin-divider]',
+				'section'  => $_section,
+				'title'    => __( 'Spacing', 'astra' ),
+				'type'     => 'control',
+				'control'  => 'ast-heading',
+				'priority' => 130,
+				'settings' => array(),
+				'context'  => Astra_Builder_Helper::$design_tab,
+				'divider'  => array( 'ast_class' => 'ast-section-spacing' ),
 			),
 
 			/**
@@ -298,7 +321,7 @@ class Astra_Customizer_Mobile_Trigger_Configs extends Astra_Customizer_Config_Ba
 				'control'           => 'ast-responsive-spacing',
 				'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_spacing' ),
 				'section'           => $_section,
-				'priority'          => 220,
+				'priority'          => 130,
 				'title'             => __( 'Margin', 'astra' ),
 				'linked_choices'    => true,
 				'unit_choices'      => array( 'px', 'em', '%' ),
@@ -308,7 +331,7 @@ class Astra_Customizer_Mobile_Trigger_Configs extends Astra_Customizer_Config_Ba
 					'bottom' => __( 'Bottom', 'astra' ),
 					'left'   => __( 'Left', 'astra' ),
 				),
-				'divider'           => array( 'ast_class' => 'ast-top-divider' ),
+				'divider'           => array( 'ast_class' => 'ast-section-spacing' ),
 				'context'           => Astra_Builder_Helper::$design_tab,
 			),
 		);

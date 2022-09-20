@@ -123,7 +123,7 @@ class Astra_Button_Component_Configs {
 						'render_callback'     => array( $class_obj, 'button_' . $index ),
 					),
 					'context'           => Astra_Builder_Helper::$general_tab,
-					'divider'           => array( 'ast_class' => 'ast-bottom-divider' ),
+					'divider'           => array( 'ast_class' => 'ast-top-section-divider' ),
 				),
 
 				/**
@@ -140,6 +140,7 @@ class Astra_Button_Component_Configs {
 					'priority'   => 70,
 					'context'    => Astra_Builder_Helper::$design_tab,
 					'responsive' => true,
+					'divider'    => array( 'ast_class' => 'ast-section-spacing' ),
 				),
 				array(
 					'name'       => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-' . $_prefix . '-background-color-group]',
@@ -152,7 +153,6 @@ class Astra_Button_Component_Configs {
 					'priority'   => 70,
 					'context'    => Astra_Builder_Helper::$design_tab,
 					'responsive' => true,
-					'divider'    => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				/**
@@ -231,38 +231,18 @@ class Astra_Button_Component_Configs {
 					'title'      => __( 'Hover', 'astra' ),
 				),
 
-				/**
-				* Option: Button Border Size
-				*/
-				array(
-					'name'           => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-' . $_prefix . '-border-size]',
-					'default'        => astra_get_option( $builder_type . '-' . $_prefix . '-border-size' ),
-					'type'           => 'control',
-					'section'        => $_section,
-					'control'        => 'ast-border',
-					'transport'      => 'postMessage',
-					'linked_choices' => true,
-					'priority'       => 79,
-					'title'          => __( 'Border Width', 'astra' ),
-					'context'        => Astra_Builder_Helper::$design_tab,
-					'choices'        => array(
-						'top'    => __( 'Top', 'astra' ),
-						'right'  => __( 'Right', 'astra' ),
-						'bottom' => __( 'Bottom', 'astra' ),
-						'left'   => __( 'Left', 'astra' ),
-					),
-				),
-
+				
 				array(
 					'name'       => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-' . $_prefix . '-builder-button-border-colors-group]',
 					'type'       => 'control',
 					'control'    => 'ast-color-group',
 					'title'      => __( 'Border Color', 'astra' ),
 					'section'    => $_section,
-					'priority'   => 80,
+					'priority'   => 70,
 					'transport'  => 'postMessage',
 					'context'    => Astra_Builder_Helper::$design_tab,
 					'responsive' => true,
+					'divider'    => array( 'ast_class' => 'ast-bottom-section-divider' ),
 				),
 
 				/**
@@ -278,7 +258,7 @@ class Astra_Button_Component_Configs {
 					'control'    => 'ast-responsive-color',
 					'responsive' => true,
 					'rgba'       => true,
-					'priority'   => 80,
+					'priority'   => 70,
 					'context'    => Astra_Builder_Helper::$design_tab,
 					'title'      => __( 'Normal', 'astra' ),
 				),
@@ -296,14 +276,38 @@ class Astra_Button_Component_Configs {
 					'control'    => 'ast-responsive-color',
 					'responsive' => true,
 					'rgba'       => true,
-					'priority'   => 80,
+					'priority'   => 70,
 					'context'    => Astra_Builder_Helper::$design_tab,
 					'title'      => __( 'Hover', 'astra' ),
 				),
 
 				/**
+				* Option: Button Border Size
+				*/
+				array(
+					'name'           => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-' . $_prefix . '-border-size]',
+					'default'        => astra_get_option( $builder_type . '-' . $_prefix . '-border-size' ),
+					'type'           => 'control',
+					'section'        => $_section,
+					'control'        => 'ast-border',
+					'transport'      => 'postMessage',
+					'linked_choices' => true,
+					'priority'       => 99,
+					'title'          => __( 'Border Width', 'astra' ),
+					'context'        => Astra_Builder_Helper::$design_tab,
+					'choices'        => array(
+						'top'    => __( 'Top', 'astra' ),
+						'right'  => __( 'Right', 'astra' ),
+						'bottom' => __( 'Bottom', 'astra' ),
+						'left'   => __( 'Left', 'astra' ),
+					),
+					'divider'        => array( 'ast_class' => 'ast-top-section-divider' ),
+				),
+
+				/**
 				* Option: Button Border Radius
 				*/
+
 				array(
 					'name'        => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-' . $_prefix . '-border-radius]',
 					'default'     => astra_get_option( $builder_type . '-' . $_prefix . '-border-radius' ),
@@ -311,7 +315,7 @@ class Astra_Button_Component_Configs {
 					'section'     => $_section,
 					'control'     => 'ast-slider',
 					'transport'   => 'postMessage',
-					'priority'    => 80,
+					'priority'    => 99,
 					'context'     => Astra_Builder_Helper::$design_tab,
 					'title'       => __( 'Border Radius', 'astra' ),
 					'suffix'      => 'px',
@@ -320,7 +324,7 @@ class Astra_Button_Component_Configs {
 						'step' => 1,
 						'max'  => 100,
 					),
-					'divider'     => array( 'ast_class' => 'ast-bottom-divider' ),
+					'divider'     => array( 'ast_class' => 'ast-top-section-divider' ),
 				),
 
 				/**
@@ -363,7 +367,7 @@ class Astra_Button_Component_Configs {
 						),
 						'em' => array(
 							'min'  => 0,
-							'step' => 1,
+							'step' => 0.01,
 							'max'  => 20,
 						),
 					),
@@ -492,7 +496,7 @@ class Astra_Button_Component_Configs {
 							'center'     => 'align-center',
 							'flex-end'   => 'align-right',
 						),
-						'divider'   => array( 'ast_class' => 'ast-top-divider' ),
+						'divider'   => array( 'ast_class' => 'ast-top-section-divider' ),
 					),
 				);
 			}

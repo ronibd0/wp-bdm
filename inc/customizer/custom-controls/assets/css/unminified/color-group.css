@@ -8,20 +8,6 @@
   line-height: 1;
 }
 
-.color-group-item .components-tooltip:before {
-  content: '';
-  position: absolute;
-  left: -5px;
-  top: -12px;
-  bottom: 100%;
-  width: 0;
-  height: 0;
-  border-bottom: 5px solid transparent;
-  border-top: 5px solid #1f1f1f;
-  border-left: 5px solid transparent;
-  border-right: 5px solid transparent;
-}
-
 .customize-control.customize-control-ast-color-group {
   display: flex;
   flex-wrap: wrap;
@@ -39,6 +25,7 @@
 .customize-control.customize-control-ast-color-group .ast-field-color-group-wrap {
   justify-content: flex-end;
   display: flex;
+  max-height: 28px;
 }
 
 .customize-control.customize-control-ast-color-group .color-button-wrap {
@@ -67,6 +54,7 @@
 .customize-control.customize-control-ast-color-group .ast-responsive-btns {
   position: relative;
   right: -5px;
+  top: 3px;
 }
 
 .customize-control.customize-control-ast-color-group .ast-bg-img-remove.components-button.is-link {
@@ -107,6 +95,14 @@
 }
 
 .ast-top-divider.customize-control-ast-color-group .ast-divider-title + .ast-control-wrap .ast-color-btn-reset-wrap {
+  top: 75px;
+}
+
+.ast-top-dotted-divider.customize-control-ast-color-group .ast-control-wrap .ast-color-btn-reset-wrap {
+  top: 30px;
+}
+
+.ast-top-dotted-divider.customize-control-ast-color-group .ast-divider-title + .ast-control-wrap .ast-color-btn-reset-wrap {
   top: 75px;
 }
 

@@ -83,7 +83,7 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	 */
 	$defaults['hb-header-main-layout-width'] = 'content';
 	$defaults['hb-header-height']            = array(
-		'desktop' => 70,
+		'desktop' => ( false === astra_check_is_structural_setup() ) ? 70 : 80,
 		'tablet'  => '',
 		'mobile'  => '',
 	);
@@ -828,7 +828,7 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 			'#4B4F58',
 			'#F5F5F5',
 			'#FFFFFF',
-			'#F2F5F7',
+			'#E5E5E5',
 			'#424242',
 			'#000000',
 		),
@@ -939,11 +939,18 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	 * Woo-Cart.
 	 */
 	$defaults['woo-header-cart-click-action']              = 'default';
-	$defaults['woo-desktop-cart-flyout-width']             = 460;
+	$defaults['woo-slide-in-cart-width']                   = array(
+		'desktop'      => 35,
+		'tablet'       => '',
+		'mobile'       => '',
+		'desktop-unit' => '%',
+		'tablet-unit'  => '%',
+		'mobile-unit'  => '%',
+	);
 	$defaults['woo-header-cart-icon-total-label-position'] = array(
-		'desktop' => 'left',
-		'tablet'  => 'left',
-		'mobile'  => 'left',
+		'desktop' => '',
+		'tablet'  => '',
+		'mobile'  => '',
 	);
 	$defaults['header-woo-cart-icon-size']                 = array(
 		'desktop' => '',
@@ -958,7 +965,7 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	$defaults['woo-header-cart-icon-radius']               = 3;
 	$defaults['woo-header-cart-badge-display']             = true;
 	// Woo Cart - Dynamic label default value.
-	$defaults['woo-header-cart-label-display'] = __( 'Cart', 'astra' ) . '/{cart_total_currency_symbol}';
+	$defaults['woo-header-cart-label-display'] = '';
 
 	// Cart tray > General Color styles.
 	$defaults['header-woo-cart-text-color']             = '';

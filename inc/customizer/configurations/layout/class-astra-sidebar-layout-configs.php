@@ -45,29 +45,25 @@ if ( ! class_exists( 'Astra_Sidebar_Layout_Configs' ) ) {
 					'priority'          => 5,
 					'title'             => __( 'Default Layout', 'astra' ),
 					'choices'           => array(
-						'default'       => array(
-							'label' => __( 'Default', 'astra' ),
-							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'tmp-angle', false ) : '',
-						),
 						'no-sidebar'    => array(
 							'label' => __( 'No Sidebar', 'astra' ),
-							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'tmp-angle', false ) : '',
+							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'no-sidebar', false ) : '',
 						),
 						'left-sidebar'  => array(
 							'label' => __( 'Left Sidebar', 'astra' ),
-							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'tmp-angle', false ) : '',
+							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'left-sidebar', false ) : '',
 						),
 						'right-sidebar' => array(
 							'label' => __( 'Right Sidebar', 'astra' ),
-							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'tmp-angle', false ) : '',
+							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'right-sidebar', false ) : '',
 						),
 					),
+					'divider'           => array( 'ast_class' => 'ast-bottom-section-divider ast-section-spacing' ),
 				),
 
 				/**
 				 * Option: Sidebar Page
 				 */
-
 				array(
 					'name'              => ASTRA_THEME_SETTINGS . '[single-page-sidebar-layout]',
 					'type'              => 'control',
@@ -80,24 +76,22 @@ if ( ! class_exists( 'Astra_Sidebar_Layout_Configs' ) ) {
 					'choices'           => array(
 						'default'       => array(
 							'label' => __( 'Default', 'astra' ),
-							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'tmp-angle', false ) : '',
+							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'layout-default', false ) : '',
 						),
 						'no-sidebar'    => array(
 							'label' => __( 'No Sidebar', 'astra' ),
-							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'tmp-angle', false ) : '',
+							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'no-sidebar', false ) : '',
 						),
 						'left-sidebar'  => array(
 							'label' => __( 'Left Sidebar', 'astra' ),
-							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'tmp-angle', false ) : '',
+							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'left-sidebar', false ) : '',
 						),
 						'right-sidebar' => array(
 							'label' => __( 'Right Sidebar', 'astra' ),
-							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'tmp-angle', false ) : '',
+							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'right-sidebar', false ) : '',
 						),
 					),
 				),
-
-
 
 				/**
 				 * Option: Primary Content Width
@@ -117,6 +111,7 @@ if ( ! class_exists( 'Astra_Sidebar_Layout_Configs' ) ) {
 						'step' => 1,
 						'max'  => 50,
 					),
+
 				),
 
 				array(
@@ -127,9 +122,42 @@ if ( ! class_exists( 'Astra_Sidebar_Layout_Configs' ) ) {
 					'priority' => 15,
 					'title'    => '',
 					'help'     => __( 'Sidebar width will apply only when one of the above sidebar is set.', 'astra' ),
+					'divider'  => array( 'ast_class' => 'ast-bottom-section-divider' ),
 					'settings' => array(),
 				),
 			);
+
+			// Learn More link if Astra Pro is not activated.
+			if ( astra_showcase_upgrade_notices() ) {
+				$_configs[] = array(
+					'name'     => ASTRA_THEME_SETTINGS . '[ast-sidebar-pro-items]',
+					'type'     => 'control',
+					'control'  => 'ast-upgrade',
+					'renderAs' => 'list',
+					'choices'  => array(
+						'one'   => array(
+							'title' => __( 'Sidebar Spacings', 'astra' ),
+						),
+						'two'   => array(
+							'title' => __( 'Sidebar Color Options', 'astra' ),
+						),
+						'three' => array(
+							'title' => __( 'Widget Color Options', 'astra' ),
+						),
+						'four'  => array(
+							'title' => __( 'Widget Title Typography', 'astra' ),
+						),
+						'five'  => array(
+							'title' => __( 'Widget Content Typography', 'astra' ),
+						),
+					),
+					'section'  => 'section-sidebars',
+					'default'  => '',
+					'priority' => 999,
+					'title'    => __( 'With Astra Pro get design options for your sidebar!', 'astra' ),
+					'divider'  => array( 'ast_class' => 'ast-top-section-divider' ),
+				);
+			}
 
 			return array_merge( $configurations, $_configs );
 		}

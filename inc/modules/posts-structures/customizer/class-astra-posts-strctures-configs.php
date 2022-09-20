@@ -59,7 +59,7 @@ class Astra_Posts_Strctures_Configs extends Astra_Customizer_Config_Base {
 				if ( 'download' === $slug ) {
 					$parent_section = 'section-edd-group';
 				}
-				
+
 				if ( 'llms_membership' === $slug ) {
 					$parent_section = 'section-lifterlms';
 				}
@@ -67,7 +67,7 @@ class Astra_Posts_Strctures_Configs extends Astra_Customizer_Config_Base {
 				if ( 'groups' === $slug || 'sfwd-topic' === $slug || 'sfwd-lessons' === $slug || 'sfwd-courses' === $slug ) {
 					$parent_section = 'section-learndash';
 				}
-				
+
 				$_configs[] = array(
 					'name'     => 'section-posttype-' . $slug,
 					'type'     => 'section',
@@ -75,7 +75,35 @@ class Astra_Posts_Strctures_Configs extends Astra_Customizer_Config_Base {
 					'title'    => isset( $post_type_object->labels->name ) ? $post_type_object->labels->name : ucfirst( $slug ),
 					'priority' => 69,
 				);
-				
+			}
+
+			$ignore_single_for_posttypes = array( 'post', 'product' );
+			$ignore_archive_for_posttypes = array( 'post', 'product' );
+			foreach ( $post_types as $index => $label ) {
+				$_configs[] = array(
+					'name'    => 'section-posttype-' . $label,
+					'type'    => 'section',
+					'title'   => ucfirst( $label ),
+					'priority' => 69,
+				);
+				if ( ! in_array( $label, $ignore_single_for_posttypes ) ) {
+					$_configs[] = array(
+						'name'    => 'single-posttype-' . $label,
+						'type'    => 'section',
+						'title'   => __( 'Single', 'astra' ) . ' ' . ucfirst( $label ),
+						'section'    => 'section-posttype-' . $label,
+						'priority' => 5,
+					);
+				}
+				if ( ! in_array( $label, $ignore_archive_for_posttypes ) ) {
+					$_configs[] = array(
+						'name'    => 'archive-posttype-' . $label,
+						'type'    => 'section',
+						'title'   => __( 'Archive', 'astra' ) . ' ' .ucfirst( $label ),
+						'section'    => 'section-posttype-' . $label,
+						'priority' => 10,
+					);
+				}
 			}
 
 			$configurations = array_merge( $configurations, $_configs );

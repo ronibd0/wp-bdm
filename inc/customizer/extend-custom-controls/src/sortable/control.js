@@ -23,7 +23,8 @@ import {
 	astraGetResponsiveColorJs,
 	astraGetResponsiveJs,
 	astraGetResponsiveSliderJs,
-	astraGetResponsiveSpacingJs
+	astraGetResponsiveSpacingJs,
+	astraGetAlignmentJS,
 } from '../common/responsive-helper';
 
 export const sortableControl = wp.customize.astraControl.extend( {
@@ -42,7 +43,7 @@ export const sortableControl = wp.customize.astraControl.extend( {
 
 		// Init sortable.
 		control.sortableContainer.sortable({
-
+			cancel: ".ast-sortable-item.show",
 			// Update value when we stop sorting.
 			stop: function() {
 				control.updateValue();
@@ -115,7 +116,7 @@ export const sortableControl = wp.customize.astraControl.extend( {
 			}
 		}
 
-		jQuery( instance ).toggleClass( 'dashicons-arrow-up-alt2' ).closest( '.ast-sortable-item' ).toggleClass( 'show' );
+		jQuery( instance ).closest( '.ast-sortable-item' ).toggleClass( 'show' );
 
 		control.updateValue();
 	},
@@ -280,6 +281,9 @@ export const sortableControl = wp.customize.astraControl.extend( {
 					break;
 				case "ast-responsive-slider":
 					astraGetResponsiveSliderJs( control )
+					break;
+				case "ast-selector":
+					astraGetAlignmentJS( control )
 					break;
 				case "ast-responsive-spacing":
 					astraGetResponsiveSpacingJs( control )
@@ -478,12 +482,18 @@ export const sortableControl = wp.customize.astraControl.extend( {
 
 	getFinalControlObject: function ( attr, controlObject ) {
 
+		
 		if ( undefined !== attr.choices && undefined === controlObject.params['choices'] ) {
 			controlObject.params['choices'] = attr.choices;
 		}
 		if ( undefined !== attr.inputAttrs && undefined === controlObject.params['inputAttrs'] ) {
 			controlObject.params['inputAttrs'] = attr.inputAttrs;
 		}
+
+		if ( undefined !== attr.input_attrs && undefined === controlObject.params['input_attrs'] ) {
+			controlObject.params['input_attrs'] = attr.input_attrs;
+		}
+
 		if ( undefined !== attr.link && undefined === controlObject.params['link'] ) {
 			controlObject.params['link'] = attr.link;
 		}
@@ -514,7 +524,20 @@ export const sortableControl = wp.customize.astraControl.extend( {
 		'use strict';
 
 		let control = this,
-		newValue = [];
+			newValue = [];
+
+		if( undefined !== control.params.consider_hidden && control.params.consider_hidden ) {
+			let withHiddenSet = {};
+			wp.customize.control( control.params.hidden_dataset ).setting.set( withHiddenSet );
+			this.sortableContainer.find( '.ast-sortable-item' ).each( function() {
+				if( jQuery( this ).hasClass( 'invisible' ) ) {
+					withHiddenSet[ jQuery( this ).data( 'value' ) ] = false;
+				} else {
+					withHiddenSet[ jQuery( this ).data( 'value' ) ] = true;
+				}
+			});
+			wp.customize.control( control.params.hidden_dataset ).setting.set( withHiddenSet );
+		}
 
 		this.sortableContainer.find( '.ast-sortable-item:not(.invisible)' ).each( function() {
 			newValue.push( jQuery( this ).data( 'value' ) );

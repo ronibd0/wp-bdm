@@ -82,6 +82,8 @@ const SliderComponent = props => {
 	}
 
 	return <div className="ast-slider-wrap">
+
+
 		{labelHtml}
 		{descriptionHtml}
 		{ suffixHtml }
@@ -91,7 +93,7 @@ const SliderComponent = props => {
 				value={ savedValue }
 				onChange={ ( value ) => updateValues( value ) }
 				resetFallbackValue={ defaultVal }
-				min={ min < 0 ? min : 0 }
+				min={ min > 0 ? min : 0 }
 				max={ max || 500 }
 				step={ step || 1 }
 			/>

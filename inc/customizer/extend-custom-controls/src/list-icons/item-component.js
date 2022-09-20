@@ -33,20 +33,20 @@ const ItemComponent = props => {
 				open: state.open ? false : true
 			})))
 		}}>
-			<Tooltip text={__('Toggle Item Visiblity', 'astra')}>
+			{ props.item.icon &&
 				<Button className="ahfb-sorter-visiblity">
 					<span dangerouslySetInnerHTML={{
 						__html: selectedIcon
 					}}/>
 				</Button>
-			</Tooltip>
-			<span className="ahfb-sorter-title">{ __('Feature Item', 'astra') }</span>
+			}
+			<span className="ahfb-sorter-title"><span className='feature-label'> { props.item.label ? props.item.label : __('Feature Item', 'astra') } </span></span>
 			<Button className={`ast-sorter-item-expand ${props.item.enabled ? 'item-is-visible' : 'item-is-hidden'}`}
 					onClick={e => {
 						e.stopPropagation();
 						props.cloneItem(props.item);
 
-						const featuredItems = jQuery( e.target ).closest( '.ahfb-sorter-drop-social_item_group' ).find( '.ahfb-sorter-item' );
+						const featuredItems = jQuery( e.target ).closest( '.ahfb-sorter-drop-list_item_group' ).find( '.ahfb-sorter-item' );
 						featuredItems.find( '.ahfb-sorter-item-remove.hide' ).toggleClass( 'hide' );
 					}}>
 				<Dashicon icon="admin-page"/>
@@ -55,19 +55,12 @@ const ItemComponent = props => {
 				e.stopPropagation();
 				props.removeItem(props.index);
 
-				const featuredItems = jQuery( e.target ).closest( '.ahfb-sorter-drop-social_item_group' ).find( '.ahfb-sorter-item' );
+				const featuredItems = jQuery( e.target ).closest( '.ahfb-sorter-drop-list_item_group' ).find( '.ahfb-sorter-item' );
 				if( ( parseInt( featuredItems.length ) - 1 ) == 1 ) {
 					featuredItems.find( '.ahfb-sorter-item-remove' ).toggleClass( 'hide' );
 				}
 			}}>
 				<Dashicon icon="no-alt"/>
-			</Button>
-			<Button className={`ahfb-sorter-item-expand visibility-item ${props.item.enabled ? 'item-is-visible' : 'item-is-hidden'}`}
-					onClick={e => {
-						e.stopPropagation();
-						props.toggleEnabled(props.item.enabled ? false : true, props.index);
-					}}>
-				<Dashicon icon="visibility"/>
 			</Button>
 		</div>
 		{ state.open && <div className="ahfb-sorter-item-panel-content">
@@ -75,7 +68,7 @@ const ItemComponent = props => {
 						 onChange={value => {
 							 props.onChangeLabel(value, props.index);
 						 }}/>
-			<p className="ast-social-icon-picker-label">{ __( "Icon" ) }</p>
+			<p className="ast-social-icon-picker-label">{ __( 'Icon', 'astra' ) }</p>
 			<FontIconPicker
 				icons={svg_icons}
 				renderFunc= {renderSVG}

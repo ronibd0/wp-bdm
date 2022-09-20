@@ -1,14 +1,13 @@
 import PropTypes from "prop-types";
 import AstraColorPickerControl from "../common/astra-color-picker-control";
 import { useEffect, useState } from "react";
-import { Tooltip } from '@wordpress/components';
 import { __ } from "@wordpress/i18n";
 
 const ColorPaletteComponent = (props) => {
 	const value = props.control.setting.get();
 	const defaultValue = props.control.params.default;
 	let labelHtml = null;
-	const { label } = props.control.params;
+	const { label, name } = props.control.params;
 	let UpdatePaletteEvent;
 
 	const [state, setState] = value ? useState(value) : useState(defaultValue);
@@ -94,24 +93,27 @@ const ColorPaletteComponent = (props) => {
 				{state.palettes[state.currentPalette].map((value, index) => {
 					const paletteLables = astra.customizer.globalPaletteLabels;
 					return (
-						<Tooltip key={index} text={paletteLables[index]} position="top center">
-							<div className="ast-color-picker-wrap">
-								<AstraColorPickerControl
-									color={value ? value : ""}
-									onChangeComplete={(color, backgroundType) =>
-										handleChangeComplete(index, color)
-									}
-									backgroundType={"color"}
-									allowGradient={false}
-									allowImage={false}
-									disablePalette={true}
-									onColorResetClick={(
-										color,
-										backgroundType
-									) => handleColorReset(index, color)}
-								/>
+							<div>
+								<div className="ast-color-picker-wrap">
+									<AstraColorPickerControl
+										color={value ? value : ""}
+										onChangeComplete={(color, backgroundType) =>
+											handleChangeComplete(index, color)
+										}
+										backgroundType={"color"}
+										allowGradient={false}
+										allowImage={false}
+										disablePalette={true}
+										onColorResetClick={(
+											color,
+											backgroundType
+										) => handleColorReset(index, color)}
+									/>
+								</div>
+								<div className="ast-color-picker-custom-tooltip-wrapper">
+									<span className="ast-color-picker-custom-tooltip" data-title={ paletteLables[index] }></span>
+								</div>
 							</div>
-						</Tooltip>
 					);
 				})}
 			</div>
@@ -131,22 +133,20 @@ const ColorPaletteComponent = (props) => {
 						}
 						key={index}
 					>
-						<label onClick={() => onPaletteChange(paletteKey)}>
+						<section onClick={() => onPaletteChange(paletteKey)}>
 							{state.palettes[paletteKey].map((color, index) => {
-								return (
-									<>
-										<div
-											className="ast-single-color-container"
-											style={{ backgroundColor: color }}
-											key={index}
-										></div>
-									</>
-								);
+								if( index < 4 ) {
+									return (
+										<div className="ast-single-color-container" style={{ backgroundColor: color }} key={index}></div>
+									)
+								} else {
+									return ('')
+								}
 							})}
 							<span className="ast-palette-label-wrap">
-								{__("Palette", "astra") + " " + (index + 1)}
+								{__("Style", "astra") + " " + (index + 1)}
 							</span>
-						</label>
+						</section>
 					</div>
 				);
 			})}
@@ -172,11 +172,21 @@ const ColorPaletteComponent = (props) => {
 
 	return (
 		<>
-			<label className="customizer-text">{labelHtml}</label>
-			<div className="ast-palette-selection-wrapper">
-				{paletteOptions}
+			<div className="ast-toggle-desc-wrap">
+				<label className="customizer-text">{labelHtml}</label>
+				<span className="ast-adv-toggle-icon dashicons" data-control={name}></span>
+
 			</div>
+
 			<div className="ast-color-palette-wrapper">{paletteColors}</div>
+
+			<div className="ast-field-settings-wrap">
+				<div className="ast-field-settings-modal">
+					<div className="ast-color-palette-container">
+						{paletteOptions}
+					</div>
+				</div>
+			</div>
 		</>
 	);
 };
@@ -185,4 +195,4 @@ ColorPaletteComponent.propTypes = {
 	control: PropTypes.object.isRequired,
 };
 
-export default React.memo(ColorPaletteComponent);
+export default ColorPaletteComponent;

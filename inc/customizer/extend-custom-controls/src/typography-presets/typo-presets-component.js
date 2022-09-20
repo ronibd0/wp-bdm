@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import { __ } from "@wordpress/i18n";
 import { useState } from 'react';
-import { Tooltip, Dashicon } from "@wordpress/components";
+import { Dashicon } from "@wordpress/components";
 import parse from 'html-react-parser';
 
 const TypoPresetControl = ( props ) => {
@@ -57,8 +57,13 @@ const TypoPresetControl = ( props ) => {
 				optionVal = options[ presetKey ][ option ];
 			}
 
+			let fontOption = 'astra-settings[' + option + ']';
+			if( 'body-font-family' === option || 'headings-font-family' === option || 'body-font-variant' === option || 'headings-font-variant' === option ) {
+				fontOption = option;
+			}
+
 			AstTypography.setOption(
-				'astra-settings[' + option + ']',
+				fontOption,
 				optionVal,
 				true
 			);
@@ -99,12 +104,12 @@ const TypoPresetControl = ( props ) => {
 		document.dispatchEvent(updateTypoEvent);
 
 		AstTypography.setOption(
-			"astra-settings[body-font-weight]",
+			"body-font-weight",
 			bodyFontWeight,
 			false
 		);
 		AstTypography.setOption(
-			"astra-settings[headings-font-weight]",
+			"headings-font-weight",
 			headingFontWeight,
 			false
 		);
@@ -130,10 +135,6 @@ const TypoPresetControl = ( props ) => {
 
 	const SingleList = ( props ) => {
 		return (
-			<Tooltip
-				key={props.uniqueKey}
-				text={ generateToolTipText(props.preset ) }
-			>
 			<li
 				className={
 					"ast-typo-preset-item " +
@@ -141,7 +142,11 @@ const TypoPresetControl = ( props ) => {
 				}
 				key={props.preset}
 				onClick={() => onPresetClick(props.preset)}
-			>{parse(window.svgIcons[props.preset])}</li></Tooltip>
+			>
+				{parse(window.svgIcons[props.preset])}
+				<span className="ast-typopreset-custom-tooltip" data-title={ generateToolTipText(props.preset ) }></span>
+			</li>
+
 		);
 	};
 

@@ -9,6 +9,8 @@
  * @since       Astra x.x.x
  */
 
+use SureCartCore\Support\Arr;
+
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
@@ -21,18 +23,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 class Astra_Posts_Strctures_Loader {
 
 	/**
-	 * Initiator
+	 * Instance
 	 *
-	 * @since x.x.x
-	 *
-	 * @return object initialized object of class.
+	 * @var $customizer_defaults
 	 */
-	public static function get_instance() {
-		if ( ! isset( self::$instance ) ) {
-			self::$instance = new self();
-		}
-		return self::$instance;
-	}
+	private static $customizer_defaults = array();
 
 	/**
 	 *  Constructor
@@ -40,6 +35,78 @@ class Astra_Posts_Strctures_Loader {
 	 * @since x.x.x
 	 */
 	public function __construct() {
+		self::$customizer_defaults['responsive-background'] = array(
+			'desktop' => array(
+				'background-color'      => '',
+				'background-image'      => '',
+				'background-repeat'     => 'repeat',
+				'background-position'   => 'center center',
+				'background-size'       => 'auto',
+				'background-attachment' => 'scroll',
+				'background-type'       => '',
+				'background-media'      => '',
+			),
+			'tablet'  => array(
+				'background-color'      => '',
+				'background-image'      => '',
+				'background-repeat'     => 'repeat',
+				'background-position'   => 'center center',
+				'background-size'       => 'auto',
+				'background-attachment' => 'scroll',
+				'background-type'       => '',
+				'background-media'      => '',
+			),
+			'mobile'  => array(
+				'background-color'      => '',
+				'background-image'      => '',
+				'background-repeat'     => 'repeat',
+				'background-position'   => 'center center',
+				'background-size'       => 'auto',
+				'background-attachment' => 'scroll',
+				'background-type'       => '',
+				'background-media'      => '',
+			),
+		);
+
+		self::$customizer_defaults['responsive-spacing'] = array(
+			'desktop'      => array(
+				'top'    => '',
+				'right'  => '',
+				'bottom' => '',
+				'left'   => '',
+			),
+			'tablet'       => array(
+				'top'    => '',
+				'right'  => '',
+				'bottom' => '',
+				'left'   => '',
+			),
+			'mobile'       => array(
+				'top'    => '',
+				'right'  => '',
+				'bottom' => '',
+				'left'   => '',
+			),
+			'desktop-unit' => 'px',
+			'tablet-unit'  => 'px',
+			'mobile-unit'  => 'px',
+		);
+
+		self::$customizer_defaults['font-size'] = array(
+			'desktop'      => '',
+			'tablet'       => '',
+			'mobile'       => '',
+			'desktop-unit' => 'px',
+			'tablet-unit'  => 'px',
+			'mobile-unit'  => 'px',
+		);
+
+		self::$customizer_defaults['responsive-slider'] = array(
+			'desktop' => '',
+			'tablet'  => '',
+			'mobile'  => '',
+		);
+
 		add_action( 'customize_register', array( $this, 'posts_strctures_customize_register' ), 2 );
 		add_action( 'astra_get_fonts', array( $this, 'add_fonts' ), 1 );
 		add_action( 'customize_preview_init', array( $this, 'preview_scripts' ) );
@@ -127,7 +194,7 @@ class Astra_Posts_Strctures_Loader {
 
 		$supported_post_types = array_reverse( array_unique( $queried_post_types ) );
 
-		return apply_filters( 'astra_dynamic_posts_strctures_query_posttypes', $supported_post_types );
+		return apply_filters( 'astra_dynamic_posts_strctures_posttypes', $supported_post_types );
 	}
 
 	/**
@@ -152,6 +219,16 @@ class Astra_Posts_Strctures_Loader {
 				'post_types' => self::get_supported_post_types(),
 			)
 		);
+	}
+
+	/**
+	 * Get customizer dynamic default.
+	 * @param string $key Retrieve default for this parameter.
+	 *
+	 * @since x.x.x
+	 */
+	public static function get_customizer_default( $key ) {
+		return isset( self::$customizer_defaults[ $key ] ) ? self::$customizer_defaults[ $key ] : array();
 	}
 }
 

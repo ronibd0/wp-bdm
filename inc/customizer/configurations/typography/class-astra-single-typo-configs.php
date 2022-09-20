@@ -35,25 +35,48 @@ if ( ! class_exists( 'Astra_Single_Typo_Configs' ) ) {
 			$_configs = array();
 
 			// Learn More link if Astra Pro is not activated.
-			if ( ! defined( 'ASTRA_EXT_VER' ) ) {
+			if ( astra_showcase_upgrade_notices() ) {
 
 				$_configs = array(
 
 					/**
-					 * Option: Learn More about Typography
+					 * Option: Astra Pro blog single post's options.
 					 */
 					array(
-						'name'     => ASTRA_THEME_SETTINGS . '[ast-sngle-blog-typography-more-feature-description]',
+						'name'     => ASTRA_THEME_SETTINGS . '[ast-single-post-items]',
 						'type'     => 'control',
-						'control'  => 'ast-description',
+						'control'  => 'ast-upgrade',
+						'renderAs' => 'list',
+						'choices'  => array(
+							'one'   => array(
+								'title' => __( 'Author Info', 'astra' ),
+							),
+							'two'   => array(
+								'title' => __( 'Auto Load Previous Posts', 'astra' ),
+							),
+							'three' => array(
+								'title' => __( 'Single Post Navigation Control', 'astra' ),
+							),
+							'four'  => array(
+								'title' => __( 'Custom Featured Images Size', 'astra' ),
+							),
+							'seven'   => array(
+								'title' => __( 'Single Post Read Time', 'astra' ),
+							),
+							'five'  => array(
+								'title' => __( 'Extended Typography Options', 'astra' ),
+							),
+							'six'   => array(
+								'title' => __( 'Extended Spacing Options', 'astra' ),
+							),
+						),
 						'section'  => 'section-blog-single',
+						'default'  => '',
 						'priority' => 999,
-						'title'    => '',
-						'help'     => '<p>' . __( 'More Options Available in Astra Pro!', 'astra' ) . '</p><a href="' . astra_get_pro_url( 'https://wpastra.com/pro/', 'customizer', 'learn-more', 'upgrade-to-pro' ) . '" class="button button-secondary"  target="_blank" rel="noopener">' . __( 'Learn More', 'astra' ) . '</a>',
-						'settings' => array(),
-						'divider'  => array( 'ast_class' => 'ast-bottom-divider' ),
+						'context'  => array(),
+						'title'    => __( 'With Astra Pro get more features for your Single Post!', 'astra' ),
+						'divider'  => array( 'ast_class' => 'ast-top-section-divider' ),
 					),
-
 				);
 			}
 
@@ -67,7 +90,7 @@ if ( ! class_exists( 'Astra_Single_Typo_Configs' ) ) {
 						'priority'  => Astra_Builder_Helper::$is_header_footer_builder_active ?
 						13 : 20,
 						'control'   => 'ast-settings-group',
-						'title'     => __( 'Post / Page Title Font', 'astra' ),
+						'title'     => __( 'Title Font', 'astra' ),
 						'section'   => 'section-blog-single',
 						'transport' => 'postMessage',
 						'context'   => Astra_Builder_Helper::$is_header_footer_builder_active ?
@@ -98,7 +121,7 @@ if ( ! class_exists( 'Astra_Single_Typo_Configs' ) ) {
 							),
 							'em' => array(
 								'min'  => 0,
-								'step' => 1,
+								'step' => 0.01,
 								'max'  => 20,
 							),
 						),
@@ -119,8 +142,8 @@ if ( ! class_exists( 'Astra_Single_Typo_Configs' ) ) {
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
 					'section'           => 'section-blog-single',
 					'transport'         => 'postMessage',
-					'title'             => __( 'Post / Page Title Font Size', 'astra' ),
-					'priority'          => 9,
+					'title'             => __( 'Post / Page Title Font', 'astra' ),
+					'priority'          => 13,
 					'default'           => astra_get_option( 'font-size-entry-title' ),
 					'suffix'            => array( 'px', 'em' ),
 					'input_attrs'       => array(
@@ -131,12 +154,13 @@ if ( ! class_exists( 'Astra_Single_Typo_Configs' ) ) {
 						),
 						'em' => array(
 							'min'  => 0,
-							'step' => 1,
+							'step' => 0.01,
 							'max'  => 20,
 						),
 					),
 					'context'           => ( true === Astra_Builder_Helper::$is_header_footer_builder_active ) ?
 					Astra_Builder_Helper::$design_tab : Astra_Builder_Helper::$general_tab,
+					'divider'           => array( 'ast_class' => 'ast-section-spacing' ),
 				);
 			}
 

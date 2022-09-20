@@ -37,74 +37,6 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 	public function register_configuration( $configurations, $wp_customize ) {
 
 		$post_types                 = Astra_Posts_Strctures_Loader::get_supported_post_types();
-		$responsive_bg_default      = array(
-			'desktop' => array(
-				'background-color'      => '',
-				'background-image'      => '',
-				'background-repeat'     => 'repeat',
-				'background-position'   => 'center center',
-				'background-size'       => 'auto',
-				'background-attachment' => 'scroll',
-				'background-type'       => '',
-				'background-media'      => '',
-			),
-			'tablet'  => array(
-				'background-color'      => '',
-				'background-image'      => '',
-				'background-repeat'     => 'repeat',
-				'background-position'   => 'center center',
-				'background-size'       => 'auto',
-				'background-attachment' => 'scroll',
-				'background-type'       => '',
-				'background-media'      => '',
-			),
-			'mobile'  => array(
-				'background-color'      => '',
-				'background-image'      => '',
-				'background-repeat'     => 'repeat',
-				'background-position'   => 'center center',
-				'background-size'       => 'auto',
-				'background-attachment' => 'scroll',
-				'background-type'       => '',
-				'background-media'      => '',
-			),
-		);
-		$spacing_default            = array(
-			'desktop'      => array(
-				'top'    => '',
-				'right'  => '',
-				'bottom' => '',
-				'left'   => '',
-			),
-			'tablet'       => array(
-				'top'    => '',
-				'right'  => '',
-				'bottom' => '',
-				'left'   => '',
-			),
-			'mobile'       => array(
-				'top'    => '',
-				'right'  => '',
-				'bottom' => '',
-				'left'   => '',
-			),
-			'desktop-unit' => 'px',
-			'tablet-unit'  => 'px',
-			'mobile-unit'  => 'px',
-		);
-		$font_size_defaults         = array(
-			'desktop'      => '',
-			'tablet'       => '',
-			'mobile'       => '',
-			'desktop-unit' => 'px',
-			'tablet-unit'  => 'px',
-			'mobile-unit'  => 'px',
-		);
-		$responsive_slider_defaults = array(
-			'desktop' => '',
-			'tablet'  => '',
-			'mobile'  => '',
-		);
 
 		foreach ( $post_types as $index => $post_type ) {
 
@@ -172,75 +104,105 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 				'title'         => __( 'Taxonomy', 'astra' ),
 			);
 
+			if ( 'post' !== $post_type && 'product' !== $post_type && 'page' !== $post_type ) {
+				/**
+				 * Single Parent Section.
+				 */
+				$_configs[] = array(
+					'name'     => $section_parent,
+					'title'    => isset( $post_type_object->labels->name ) ? $post_type_object->labels->name . __( ' Single', 'astra' ) : ucfirst( $post_type ) . __( ' Single', 'astra' ),
+					'section'  => $parent_section,
+					'type'     => 'section',
+					'priority' => 10,
+				);
 
-			$_configs = array(
-
-
-
-				array(
+				/**
+				 * Single Title section.
+				 */
+				$_configs[] = array(
+					'name'     => $section,
+					'title'    => isset( $post_type_object->labels->name ) ? $post_type_object->labels->name . __( ' Single Title', 'astra' ) : ucfirst( $post_type ) . __( ' Single Title', 'astra' ),
+					'type'     => 'section',
+					'section'  => $section_parent,
+					'priority' => 5,
+				);
+				$_configs[] = array(
 					'name'              => ASTRA_THEME_SETTINGS . '[single-' . $post_type . '-content-layout]',
 					'type'              => 'control',
 					'control'           => 'ast-radio-image',
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
-					'section'           => $section_parent,
+					'section'           => $parent_section,
 					'default'           => astra_get_option( 'single-' . $post_type . '-content-layout', 'default' ),
 					'priority'          => 5,
 					'title'             => __( 'Container Layout', 'astra' ),
 					'choices'           => array(
 						'default'                 => array(
 							'label' => __( 'Default', 'astra' ),
-							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'tmp-angle', false ) : '',
+							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'layout-default', false ) : '',
 						),
 						'boxed-container'         => array(
 							'label' => __( 'Boxed', 'astra' ),
-							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'tmp-angle', false ) : '',
+							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'container-boxed', false ) : '',
 						),
 						'content-boxed-container' => array(
 							'label' => __( 'Content Boxed', 'astra' ),
-							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'tmp-angle', false ) : '',
+							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'container-content-boxed', false ) : '',
 						),
 						'plain-container'         => array(
 							'label' => __( 'Full Width / Contained', 'astra' ),
-							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'tmp-angle', false ) : '',
+							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'container-full-width-contained', false ) : '',
 						),
 						'page-builder'            => array(
 							'label' => __( 'Full Width / Stretched', 'astra' ),
-							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'tmp-angle', false ) : '',
+							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'container-full-width-stretched', false ) : '',
 						),
 					),
 					'divider'           => array( 'ast_class' => 'ast-bottom-divider' ),
-				),
-			
+				);
 
-				array(
+				$_configs[] = array(
 					'name'              => ASTRA_THEME_SETTINGS . '[single-' . $post_type . '-sidebar-layout]',
 					'type'              => 'control',
 					'control'           => 'ast-radio-image',
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
-					'section'           => $section_parent,
+					'section'           => $parent_section,
 					'default'           => astra_get_option( 'single-' . $post_type . '-sidebar-layout', 'default' ),
 					'priority'          => 5,
 					'title'             => __( 'Sidebar Layout', 'astra' ),
 					'choices'           => array(
 						'default'       => array(
 							'label' => __( 'Default', 'astra' ),
-							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'tmp-angle', false ) : '',
+							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'layout-default', false ) : '',
 						),
 						'no-sidebar'    => array(
 							'label' => __( 'No Sidebar', 'astra' ),
-							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'tmp-angle', false ) : '',
+							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'no-sidebar', false ) : '',
 						),
 						'left-sidebar'  => array(
 							'label' => __( 'Left Sidebar', 'astra' ),
-							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'tmp-angle', false ) : '',
+							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'left-sidebar', false ) : '',
 						),
 						'right-sidebar' => array(
 							'label' => __( 'Right Sidebar', 'astra' ),
-							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'tmp-angle', false ) : '',
+							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'right-sidebar', false ) : '',
 						),
 					),
 					'divider'           => array( 'ast_class' => 'ast-bottom-divider' ),
-				),
+				);
+			} else {
+				/**
+				 * Single Title section.
+				 */
+				$_configs[] = array(
+					'name'     => $section,
+					'title'    => isset( $post_type_object->labels->name ) ? ucfirst( $post_type_object->labels->name ) . __( ' Single Title', 'astra' ) : ucfirst( $post_type ) . __( ' Single Title', 'astra' ),
+					'type'     => 'section',
+					'section'  => $parent_section,
+					'priority' => 5,
+				);
+			}
+
+			$_configs = array(
 
 				/**
 				 * Option: Builder Tabs
@@ -492,7 +454,7 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 				 */
 				array(
 					'name'      => ASTRA_THEME_SETTINGS . '[' . $section . '-banner-custom-bg]',
-					'default'   => astra_get_option( $section . '-banner-custom-bg', $responsive_bg_default ),
+					'default'   => astra_get_option( $section . '-banner-custom-bg', Astra_Posts_Strctures_Loader::get_customizer_default('responsive-background') ),
 					'type'      => 'control',
 					'control'   => 'ast-responsive-background',
 					'section'   => $section,
@@ -552,7 +514,7 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 					'section'           => $section,
 					'transport'         => 'postMessage',
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
-					'default'           => astra_get_option( $section . '-banner-height', $responsive_slider_defaults ),
+					'default'           => astra_get_option( $section . '-banner-height', Astra_Posts_Strctures_Loader::get_customizer_default('responsive-slider') ),
 					'context'           => array(
 						Astra_Builder_Helper::$design_tab_config,
 						'relation' => 'AND',
@@ -711,7 +673,7 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 					'section'           => $section,
 					'type'              => 'sub-control',
 					'control'           => 'ast-responsive-slider',
-					'default'           => astra_get_option( $section . '-text-font-size', $font_size_defaults ),
+					'default'           => astra_get_option( $section . '-text-font-size', Astra_Posts_Strctures_Loader::get_customizer_default('font-size') ),
 					'transport'         => 'postMessage',
 					'title'             => __( 'Size', 'astra' ),
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
@@ -728,7 +690,7 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 							'max'  => 20,
 						),
 					),
-				), 
+				),
 				/**
 				 * Option: Text Font Weight
 				 */
@@ -812,7 +774,7 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 					'section'           => $section,
 					'type'              => 'sub-control',
 					'control'           => 'ast-responsive-slider',
-					'default'           => astra_get_option( $section . '-title-font-size', $font_size_defaults ),
+					'default'           => astra_get_option( $section . '-title-font-size', Astra_Posts_Strctures_Loader::get_customizer_default('font-size') ),
 					'transport'         => 'postMessage',
 					'title'             => __( 'Size', 'astra' ),
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
@@ -926,7 +888,7 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 				/**
 				 * Option: Meta Font Size
 				 */
-		
+
 
 				array(
 					'name'              => $section . '-meta-font-size',
@@ -934,7 +896,7 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 					'section'           => $section,
 					'type'              => 'sub-control',
 					'control'           => 'ast-responsive-slider',
-					'default'           => astra_get_option( $section . '-meta-font-size', $font_size_defaults ),
+					'default'           => astra_get_option( $section . '-meta-font-size', Astra_Posts_Strctures_Loader::get_customizer_default('font-size') ),
 					'transport'         => 'postMessage',
 					'title'             => __( 'Size', 'astra' ),
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
@@ -951,7 +913,7 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 							'max'  => 20,
 						),
 					),
-				), 
+				),
 				/**
 				 * Option: Meta Font Weight
 				 */
@@ -1012,7 +974,7 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 
 				array(
 					'name'              => ASTRA_THEME_SETTINGS . '[' . $section . '-banner-margin]',
-					'default'           => astra_get_option( $section . '-banner-margin', $spacing_default ),
+					'default'           => astra_get_option( $section . '-banner-margin', Astra_Posts_Strctures_Loader::get_customizer_default('responsive-spacing') ),
 					'type'              => 'control',
 					'control'           => 'ast-responsive-spacing',
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_spacing' ),
@@ -1043,7 +1005,7 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 
 				array(
 					'name'              => ASTRA_THEME_SETTINGS . '[' . $section . '-banner-padding]',
-					'default'           => astra_get_option( $section . '-banner-padding', $spacing_default ),
+					'default'           => astra_get_option( $section . '-banner-padding', Astra_Posts_Strctures_Loader::get_customizer_default('responsive-spacing') ),
 					'type'              => 'control',
 					'control'           => 'ast-responsive-spacing',
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_spacing' ),
@@ -1072,42 +1034,6 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 				),
 			);
 
-			if ( 'post' !== $post_type && 'product' !== $post_type && 'page' !== $post_type ) {
-				
-				/**
-				 * Archive Parent.
-				 */
-				$_configs[] = array(
-					'name'     => $section_parent,
-					'title'    => isset( $post_type_object->labels->name ) ? $post_type_object->labels->name . __( ' Single', 'astra' ) : ucfirst( $post_type ) . __( ' Single', 'astra' ),
-					'section'  => $parent_section,
-					'type'     => 'section',
-					'priority' => 10,
-				);
-
-				/**
-				 * Archive Post section.
-				 */
-				$_configs[] = array(
-					'name'     => $section,
-					'title'    => isset( $post_type_object->labels->name ) ? $post_type_object->labels->name . __( ' Single Title', 'astra' ) : ucfirst( $post_type ) . __( ' Single Title', 'astra' ),
-					'type'     => 'section',
-					'section'  => $section_parent,
-					'priority' => 5,
-				);
-
-			} else {
-				/**
-				 * Archive Post section.
-				 */
-				$_configs[] = array(
-					'name'     => $section,
-					'title'    => isset( $post_type_object->labels->name ) ? $post_type_object->labels->name . __( ' Single Title', 'astra' ) : ucfirst( $post_type ) . __( ' Single Title', 'astra' ),
-					'type'     => 'section',
-					'section'  => $parent_section,
-					'priority' => 5,
-				);
-			}
 
 			for ( $index = 1; $index <= $clone_limit; $index++ ) {
 

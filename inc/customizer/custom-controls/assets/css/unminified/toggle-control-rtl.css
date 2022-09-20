@@ -2,13 +2,17 @@
   margin: 0;
 }
 
-.customize-control-ast-toggle-control .components-toggle-control .components-form-toggle, .customize-control-ast-link .ast-togglecontrol-wrapper .components-form-toggle {
+.customize-control-ast-toggle-control .components-toggle-control .components-form-toggle, .customize-control-ast-link .ast-togglecontrol-wrapper .components-form-toggle, .customize-control-ast-toggle .components-toggle-control .components-form-toggle {
   margin: 0;
   order: 2;
 }
 
 .customize-control-ast-link .ast-togglecontrol-wrapper .components-base-control__field {
   margin: 20px 0;
+}
+
+.ast-togglecontrol-wrapper .toggle-control-label {
+  font-size: 14px;
 }
 
 .customize-control-ast-toggle-control .components-toggle-control .components-toggle-control__label, .ast-togglecontrol-wrapper label {
@@ -21,7 +25,7 @@
   display: block;
   width: 35px;
   height: 14px;
-  background-color: #ddd;
+  background-color: var(--ast-customizer-color-7);
   color: transparent;
   border-radius: 50px;
   cursor: pointer;
@@ -36,16 +40,16 @@
   width: 20px;
   height: 20px;
   border-radius: 50px;
-  background: #fff;
+  background: var(--ast-customizer-color-9);
   box-shadow: 0 2px 4px 0 rgba(72, 72, 72, 0.50);
   transition: all 0.2s ease-in;
 }
 .ast-switch:checked ~ label {
-  background: #007CBA;
+  background: var(--ast-customizer-color-1);
 }
 .ast-switch:checked ~ label:after {
   transform: translateX(-16px);
-  background: #fff;
+  background: var(--ast-customizer-color-9);
 }
 .ast-switch:disabled ~ label {
   background: #f0f0f0;

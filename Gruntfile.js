@@ -104,6 +104,16 @@ module.exports = function (grunt) {
                         dest: 'inc/customizer/custom-controls/assets/css/unminified',
                         ext: '-rtl.css'
                     },
+					{
+                        expand: true,
+                        cwd: 'inc/metabox/extend-metabox/css/unminified',
+                        src: [
+                            '*.css',
+                            '!*-rtl.css',
+                        ],
+                        dest: 'inc/metabox/extend-metabox/css/unminified',
+                        ext: '-rtl.css'
+                    },
                 ]
             }
         },
@@ -129,8 +139,8 @@ module.exports = function (grunt) {
                     /* Editor Style */
                     {
                         'assets/css/unminified/editor-style.css': 'sass/editor-style.scss',
-                        // 'inc/customizer/custom-controls/assets/unminified/custom-controls.css': 'inc/customizer/custom-controls/custom-controls.scss',
                         'inc/assets/css/block-editor-styles.css': 'sass/admin/block-editor-styles.scss',
+                        'inc/assets/css/wp-editor-styles.css': 'sass/admin/wp-editor-styles.scss',
                     },
 
                     /* Common Style */
@@ -261,12 +271,6 @@ module.exports = function (grunt) {
                             'inc/addons/breadcrumbs/assets/js/unminified/*.js',
                         ],
                         dest: 'inc/addons/breadcrumbs/assets/js/minified/customizer-preview.min.js',
-                    },
-					{
-                        src: [
-                            'inc/modules/posts-structures/assets/js/unminified/customizer-preview.js',
-                        ],
-                        dest: 'inc/modules/posts-structures/assets/js/minified/customizer-preview.min.js',
                     },
                     {
                         src: [
@@ -567,6 +571,10 @@ module.exports = function (grunt) {
                         src: 'inc/metabox/extend-metabox/css/unminified/metabox.css',
                         dest: 'inc/metabox/extend-metabox/css/minified/metabox.min.css',
                     },
+					{
+                        src: 'inc/metabox/extend-metabox/css/unminified/metabox-rtl.css',
+                        dest: 'inc/metabox/extend-metabox/css/minified/metabox-rtl.min.css',
+                    },
                 ]
             }
         },
@@ -594,6 +602,7 @@ module.exports = function (grunt) {
                     '!tests/**',
                     '!phpunit.xml.dist',
                     '!*.sh',
+                    '!*.scss',
                     '!*.map',
                     '!Gruntfile.js',
                     '!package.json',
@@ -610,11 +619,18 @@ module.exports = function (grunt) {
                     '!phpcs.xml.dist',
                     '!assets/fonts/google-fonts.json',
                     '!inc/customizer/extend-custom-controls/package.json',
+					'!inc/customizer/custom-controls/customizer-style.scss',
+					'!inc/customizer/custom-controls/typography/typography.scss',
+					'!inc/lib/astra-notices/composer.json',
                     '!inc/customizer/extend-custom-controls/package-lock.json',
                     '!inc/customizer/extend-custom-controls/src/**',
                     '!inc/customizer/extend-custom-controls/node_modules/**',
                     '!inc/customizer/extend-custom-controls/build/index.asset.php',
                     '!inc/customizer/extend-custom-controls/build/index.js.map',
+                    '!inc/metabox/extend-metabox/src/**',
+                    '!inc/metabox/extend-metabox/package.json',
+                    '!inc/metabox/extend-metabox/package-lock.json',
+                    '!inc/metabox/extend-metabox/build/index.asset.php',
                 ],
                 dest: 'astra/'
             }
