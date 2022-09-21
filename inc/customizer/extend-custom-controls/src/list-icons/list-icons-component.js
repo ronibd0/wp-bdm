@@ -176,6 +176,7 @@ const ListIconsComponent = props => {
 			'icon': item['icon'],
 			'label': item['label'],
 			'image' : '',
+			'source' : 'icon',
 		};
 		update.push(newItem);
 		updateState.items = update;
@@ -258,6 +259,12 @@ const ListIconsComponent = props => {
 		}, itemIndex);
 	};
 
+	const onChangeSource = ( source, itemIndex ) => {
+		saveArrayUpdate({
+			source: source
+		}, itemIndex);
+	};
+
 	return <div className="ahfb-control-field ahfb-sorter-items">
 		<div className="ahfb-sorter-row">
 			<ReactSortable animation={100} onStart={() => onDragStop()} onEnd={() => onDragStop()}
@@ -271,6 +278,7 @@ const ListIconsComponent = props => {
 										  onChangeLabel={(label, itemIndex) => onChangeLabel(label, itemIndex)}
 										  onChangeIcon={( icon, index ) => onChangeIcon( icon, index ) }
 										  onChangeImage={( image, index ) => onChangeImage( image, index ) }
+										  onChangeSource={( source, index ) => onChangeSource( source, index ) }
 										  key={item.id} index={index} item={item} controlParams={controlParams} disable={disableFeat} />;
 
 				})}

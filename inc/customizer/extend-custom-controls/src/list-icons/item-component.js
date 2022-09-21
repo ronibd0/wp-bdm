@@ -97,8 +97,12 @@ const ItemComponent = props => {
 			
 			<TabPanel className="astra-popover-tabs astra-media-tab"
 						activeClass="active-tab"
-						initialTabName='icon'
-						tabs={ tabs }>
+						initialTabName={ props.item.source ? props.item.source : __( 'Icon', 'astra' ) }
+						tabs={ tabs }
+						onSelect={ ( currentTab ) => {
+							props.onChangeSource( currentTab, props.index);
+						} }
+						>
 				{
 					( tab ) => {
 						let tabout;
@@ -139,7 +143,7 @@ const ItemComponent = props => {
 												value={ selectedImage }
 												render={ ( { open } ) => (
 													<>
-														<Button className="ast-media-btn" onClick={ open }>{selectedImage ? "Replace Image" : "Select Image" }</Button>
+														<Button className="ast-media-btn" onClick={ open }>{selectedImage ? __( 'Replace Image' ) : __( 'Select Image' ) }</Button>
 														{ selectedImage && <Button className="ast-media-btn ast-danger-btn" onClick={ removeImage }>Remove Image</Button> }
 													</>
 												) }	

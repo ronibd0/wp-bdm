@@ -884,21 +884,21 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 							'enabled' => true,
 							'source'  => 'icon',
 							'icon'    => 'check-circle',
-							'image'	  => '',	
+							'image'   => '',    
 						),
 						array(
 							'id'      => 'item-2',
 							'enabled' => true,
 							'source'  => 'icon',
 							'icon'    => 'check-circle',
-							'image'	  => '',	
+							'image'   => '',    
 						),
 						array(
 							'id'      => 'item-3',
 							'enabled' => true,
 							'source'  => 'icon',
 							'icon'    => 'check-circle',
-							'image'	  => '',	
+							'image'   => '',    
 						),
 					),
 			);
@@ -2739,7 +2739,8 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 						margin: 0 0.5em 0.5em 0.5em;
 					}
 
-					.ast-single-product-payments ul li svg {
+					.ast-single-product-payments ul li svg, 
+					.ast-single-product-payments ul li img {
 						height: 30px;
 						width: auto;
 					}
@@ -3406,20 +3407,26 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 					if ( isset( $payment_list['items'] ) ) {
 						?>
-						<ul>
 							<?php foreach ( $payment_list['items'] as $single ) { ?>
 								<?php if ( isset( $single['enabled'] ) && true === $single['enabled'] ) { ?>
 									<?php $icon_data_attr = isset( $single['icon'] ) && ! $single['icon'] ? 'data-icon="false"' : 'data-icon="true"'; ?>
-									<li <?php echo $icon_data_attr; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
+									<li class="ast-custom-payment" <?php echo $icon_data_attr; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
 										<?php
-										if ( isset( $single['icon'] ) && $single['icon'] ) {
-											echo Astra_Builder_UI_Controller::fetch_svg_icon( $single['icon'], false ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+										if ( isset( $single['source'] ) && $single['source'] ) {
+											if ( 'image' === $single['source'] ) {
+												if ( isset( $single['image'] ) && $single['image'] ) {
+													echo '<img src=' . esc_attr( $single['image'] ) . ' />';
+												}
+											} else {
+												if ( isset( $single['icon'] ) && $single['icon'] ) {
+													echo Astra_Builder_UI_Controller::fetch_svg_icon( $single['icon'], false ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+												}
+											}
 										}
 										?>
 									</li>
 								<?php } ?>
 							<?php } ?>
-						</ul>
 					<?php } ?>
 				</ul>
 			</fieldset>
