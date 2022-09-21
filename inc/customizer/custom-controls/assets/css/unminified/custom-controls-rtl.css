@@ -2717,6 +2717,7 @@
     --ast-customizer-color-10: #fff; /* text invert / Icon invert */
     --ast-customizer-color-11: #F5F5F5; /* alt background*/
     --ast-customizer-color-12: #1e293b; /* alt background 2*/
+    --ast-customizer-color-13: #cc1818; /* danger color*/
 }
 
 input[type="text"], input[type="password"], input[type="color"], input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="email"], input[type="month"], input[type="number"], input[type="search"], input[type="tel"], input[type="time"], input[type="url"], input[type="week"], select, textarea {
@@ -4881,8 +4882,9 @@ span.customize-control-title.ast-group-section-title {
 }
 
 .astra-media-tab .ast-media-btn {
+  display: block;
   width: 100%;
-  border: 1px dashed #b4b9be;
+  border: 1px dashed var(--ast-customizer-color-7);
   box-sizing: border-box;
   box-shadow: unset;
   padding: 9px 0;
@@ -4891,16 +4893,16 @@ span.customize-control-title.ast-group-section-title {
 }
 
 .astra-media-tab .ast-danger-btn {
-  color: #cc1818;
+  color: var(--ast-customizer-color-13);
   margin-top: 10px;
 }
 
 .astra-media-tab .ast-media-btn:hover {
-  border-color: #0185ba;
+  border-color: var(--ast-customizer-color-3);
 }
 
 .astra-media-tab .ast-danger-btn:hover {
-  border-color: #cc1818;
+  border-color: var(--ast-customizer-color-13);
 }
 
 .astra-popover-color .astra-popover-tabs .components-tab-panel__tabs button.components-tab-panel__tabs-item.active-tab:not(.is-primary):not(.is-tertiary):not(.is-link):hover {
@@ -5433,6 +5435,7 @@ span.select2-container.select2-container--default.select2-container--open li.sel
     --ast-customizer-color-10: #fff; /* text invert / Icon invert */
     --ast-customizer-color-11: #F5F5F5; /* alt background*/
     --ast-customizer-color-12: #1e293b; /* alt background 2*/
+    --ast-customizer-color-13: #cc1818; /* danger color*/
 }
 
 input[type="text"], input[type="password"], input[type="color"], input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="email"], input[type="month"], input[type="number"], input[type="search"], input[type="tel"], input[type="time"], input[type="url"], input[type="week"], select, textarea {
@@ -7599,7 +7602,7 @@ span.customize-control-title.ast-group-section-title {
 .astra-media-tab .ast-media-btn {
   display: block;
   width: 100%;
-  border: 1px dashed #b4b9be;
+  border: 1px dashed var(--ast-customizer-color-7);
   box-sizing: border-box;
   box-shadow: unset;
   padding: 9px 0;
@@ -7608,16 +7611,16 @@ span.customize-control-title.ast-group-section-title {
 }
 
 .astra-media-tab .ast-danger-btn {
-  color: #cc1818;
+  color: var(--ast-customizer-color-13);
   margin-top: 10px;
 }
 
 .astra-media-tab .ast-media-btn:hover {
-  border-color: #0185ba;
+  border-color: var(--ast-customizer-color-3);
 }
 
 .astra-media-tab .ast-danger-btn:hover {
-  border-color: #cc1818;
+  border-color: var(--ast-customizer-color-13);
 }
 
 .astra-popover-color .astra-popover-tabs .components-tab-panel__tabs button.components-tab-panel__tabs-item.active-tab:not(.is-primary):not(.is-tertiary):not(.is-link):hover {

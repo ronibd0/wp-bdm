@@ -313,7 +313,7 @@
 .astra-media-tab .ast-media-btn {
   display: block;
   width: 100%;
-  border: 1px dashed #b4b9be;
+  border: 1px dashed var(--ast-customizer-color-7);
   box-sizing: border-box;
   box-shadow: unset;
   padding: 9px 0;
@@ -322,16 +322,16 @@
 }
 
 .astra-media-tab .ast-danger-btn {
-  color: #cc1818;
+  color: var(--ast-customizer-color-13);
   margin-top: 10px;
 }
 
 .astra-media-tab .ast-media-btn:hover {
-  border-color: #0185ba;
+  border-color: var(--ast-customizer-color-3);
 }
 
 .astra-media-tab .ast-danger-btn:hover {
-  border-color: #cc1818;
+  border-color: var(--ast-customizer-color-13);
 }
 
 .astra-popover-color .astra-popover-tabs .components-tab-panel__tabs button.components-tab-panel__tabs-item.active-tab:not(.is-primary):not(.is-tertiary):not(.is-link):hover {
