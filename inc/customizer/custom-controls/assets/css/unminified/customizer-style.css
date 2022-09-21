@@ -272,6 +272,17 @@ input[type="text"].select2-search__field {
   cursor: pointer;
 }
 
-.ast-dynamic-posts-section-hide {
+.ast-section-toggle-icon span {
+  font-size: 16px;
+  line-height: 16px;
+}
+
+.customize-control-ast-section-toggle {
+  padding-top: 25px;
+  padding-bottom: 16px;
+}
+
+li[ID*="ast-dynamic-single-title-"].control-section-ast_section,
+li[ID*="ast-dynamic-archive-title-"].control-section-ast_section {
   display: none !important;
 }

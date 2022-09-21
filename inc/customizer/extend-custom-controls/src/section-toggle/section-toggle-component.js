@@ -37,7 +37,7 @@ const SectionToggleComponent = ( props ) => {
 				}} className="ast-section-toggle-icon">
 				<Dashicon icon="arrow-right-alt2"/>
 			</span>
-			:	<></>
+			: <></>
 		}
 		</div>;
 };

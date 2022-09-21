@@ -132,7 +132,7 @@ class Astra_Posts_Archive_Strctures_Configs extends Astra_Customizer_Config_Base
 
 			$_configs = array(
 
-		
+
 
 				array(
 					'name'              => ASTRA_THEME_SETTINGS . '[archive-' . $post_type . '-content-layout]',
@@ -863,10 +863,6 @@ class Astra_Posts_Archive_Strctures_Configs extends Astra_Customizer_Config_Base
 				),
 			);
 
-
-			
-			
-
 			if ( 'post' !== $post_type && 'product' !== $post_type ) {
 
 				if ( isset( $post_type_object->has_archive ) && true === $post_type_object->has_archive ) {
@@ -891,7 +887,7 @@ class Astra_Posts_Archive_Strctures_Configs extends Astra_Customizer_Config_Base
 						'section'  => $section_parent,
 						'priority' => 5,
 					);
-				}           
+				}
 			} else {
 				/**
 				 * Archive Post section.
@@ -903,7 +899,7 @@ class Astra_Posts_Archive_Strctures_Configs extends Astra_Customizer_Config_Base
 					'section'  => $parent_section,
 					'priority' => 5,
 				);
-			}           
+			}
 
 			if ( 'post' === $post_type ) {
 				/**

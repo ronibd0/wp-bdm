@@ -120,19 +120,6 @@
 	};
 
 	/**
-	 * Init Astra Header & Footer Builder
-	 */
-	const initAstraDynamicSections = function (section) {
-			const innerSection = api.section('ast-single-page');
-			section.expanded.bind(function (isExpanded) {
-				console.log('Working 02');
-				if (isExpanded) {const $section = innerSection.container;
-					$($section[0]).addClass('ast-dynamic-posts-section-hide');
-				}
-			});
-	};
-
-	/**
 	 * API for control/section/panel registrations.
 	 */
 	const AstCustomizerAPI = {
@@ -400,8 +387,6 @@
 
 				api.panel('panel-header-builder-group', initAstraBuilderPanel)
 				api.panel('panel-footer-builder-group', initAstraBuilderPanel);
-				// api.section('section-page-dynamic-group', initAstraDynamicSections);
-
 			}
 		},
 

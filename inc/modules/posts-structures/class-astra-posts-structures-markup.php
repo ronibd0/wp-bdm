@@ -34,6 +34,7 @@ class Astra_Posts_Strctures_Markup {
 	 * @return void
 	 */
 	public function astra_add_hero_section_markup() {
+		echo "Banner appear here...";
 		if ( apply_filters( 'astra_apply_hero_header_banner', true ) ) {
 			$this->override_entry_header();
 		}
@@ -49,7 +50,6 @@ class Astra_Posts_Strctures_Markup {
 		if ( ! is_front_page() && is_home() ) {
 			return true;
 		}
-
 		return false;
 	}
 
@@ -74,9 +74,13 @@ class Astra_Posts_Strctures_Markup {
 			$layout_type = astra_get_option( 'ast-single-' . $post_type . '-layout', 'layout-1' );
 		}
 
-		$post_type_array   = apply_filters( 'astra_post_structures_supported_post_types',  Astra_Posts_Strctures_Loader::get_supported_post_types() );
+		if ( false === astra_get_option( 'ast-' . $type . '-' . $post_type . '-title', false ) ) {
+			return;
+		}
 
-		if( ! in_array( $post_type, $post_type_array ) ) {
+		$supported_post_types   = Astra_Posts_Strctures_Loader::get_supported_post_types();
+
+		if( ! in_array( $post_type, $supported_post_types ) ) {
 			return;
 		}
 
@@ -128,7 +132,7 @@ class Astra_Posts_Strctures_Markup {
 
 				do_action( 'astra_after_archive_' . $post_type . '_banner_content' );
 			}
-		} elseif ( 'archive' === $type && astra_get_option( 'display-single-' . $post_type . '-title', false ) ) {
+		} elseif ( 'archive' === $type ) {
 
 			do_action( 'astra_before_archive_' . $post_type . '_banner_content' );
 
@@ -136,6 +140,8 @@ class Astra_Posts_Strctures_Markup {
 
 			do_action( 'astra_after_archive_' . $post_type . '_banner_content' );
 		}
+
+		echo "Final loop...";
 	}
 }
 
