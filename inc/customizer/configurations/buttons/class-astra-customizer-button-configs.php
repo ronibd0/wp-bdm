@@ -465,7 +465,7 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 				),
 
 				/**
-				 * Option: Button Radius Fields
+				 * Option: Global Button Radius Fields
 				 */
 				array(
 					'name'              => ASTRA_THEME_SETTINGS . '[button-radius-fields]',
