@@ -950,6 +950,7 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 		'tablet'  => '',
 		'mobile'  => '',
 	);
+	$defaults['woo-header-cart-icon']                      = 'default';
 	$defaults['woo-header-cart-icon-style']                = 'outline';
 	$defaults['woo-desktop-cart-flyout-direction']         = 'right';
 	$defaults['header-woo-cart-icon-color']                = '';
