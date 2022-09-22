@@ -235,7 +235,7 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 					'default'   => astra_get_option( 'display-site-title-responsive' ),
 					'type'      => 'control',
 					'control'   => 'ast-multi-selector',
-					'section'   => 'title_tagline',
+					'section'   => $_section,
 					'priority'  => 8,
 					'title'     => __( 'Site Title Visibility', 'astra' ),
 					'context'   => Astra_Builder_Helper::$general_tab,
@@ -253,19 +253,20 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 				 */
 				array(
 					'name'      => ASTRA_THEME_SETTINGS . '[display-site-tagline-responsive]',
-					'type'      => 'control',
-					'control'   => 'ast-responsive-toggle-control',
 					'default'   => astra_get_option( 'display-site-tagline-responsive' ),
-					'section'   => 'title_tagline',
-					'priority'  => 11,
-					'title'     => __( 'Display Site Tagline', 'astra' ),
+					'type'      => 'control',
+					'control'   => 'ast-multi-selector',
+					'section'   => $_section,
+					'priority'  => 12,
+					'title'     => __( 'Site Tagline Visibility', 'astra' ),
+					'context'   => Astra_Builder_Helper::$general_tab,
 					'transport' => 'postMessage',
-					'partial'   => array(
-
-						'selector'            => '.site-branding',
-						'container_inclusive' => false,
-						'render_callback'     => 'Astra_Builder_Header::site_identity',
+					'choices'   => array(
+						'desktop' => 'customizer-desktop',
+						'tablet'  => 'customizer-tablet',
+						'mobile'  => 'customizer-mobile',
 					),
+					'divider'   => array( 'ast_class' => 'ast-top-dotted-divider ast-bottom-section-divider' ),
 				),
 
 				/**
@@ -277,7 +278,7 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 					'type'      => 'control',
 					'context'   => array( Astra_Builder_Helper::$general_tab_config ),
 					'control'   => 'ast-toggle-control',
-					'divider'   => array( 'ast_class' => 'ast-top-section-divider ast-bottom-section-divider' ),
+					'divider'   => array( 'ast_class' => 'ast-bottom-section-divider' ),
 					'section'   => $_section,
 					'title'     => __( 'Inline Logo & Site Title', 'astra' ),
 					'priority'  => 8,

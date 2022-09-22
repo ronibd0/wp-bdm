@@ -226,6 +226,31 @@ final class Astra_Builder_Base_Configuration {
 
 		$configs = array(
 
+			array(
+				'name'      => ASTRA_THEME_SETTINGS . '[' . $_section . '-copyright-responsive]',
+				'default'   => astra_get_option(
+					'section-visibility-settings',
+					array(
+						'desktop' => astra_get_option( $_section . '-hide-desktop' ) ? 0 : 1,
+						'tablet'  => astra_get_option( $_section . '-hide-tablet' ) ? 0 : 1,
+						'mobile'  => astra_get_option( $_section . '-hide-mobile' ) ? 0 : 1,
+					)
+				),
+				'type'      => 'control',
+				'control'   => 'ast-multi-selector',
+				'section'   => $_section,
+				'priority'  => 320,
+				'title'     => __( 'Visibility', 'astra' ),
+				'context'   => Astra_Builder_Helper::$general_tab,
+				'transport' => 'postMessage',
+				'choices'   => array(
+					'desktop' => 'customizer-desktop',
+					'tablet'  => 'customizer-tablet',
+					'mobile'  => 'customizer-mobile',
+				),
+				'divider'   => array( 'ast_class' => 'ast-top-section-divider' ),
+			),
+
 			/**
 			 * Option: Hide on tablet
 			 */
