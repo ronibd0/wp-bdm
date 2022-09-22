@@ -10,6 +10,7 @@
 
 global $post;
 $post_type = $post->post_type;
+$banner_control = 'ast-dynamic-single-title-' . esc_attr( $post_type );
 
 // Conditionally updating data section & class.
 $attr = 'class="ast-single-entry-banner"';
@@ -19,14 +20,14 @@ if ( is_customize_preview() ) {
 
 $data_attrs = 'data-post-type="' . $post_type . '"';
 
-$layout_type = astra_get_option( 'ast-single-' . $post_type . '-layout', 'layout-1' );
+$layout_type = astra_get_option( $banner_control . '-layout', 'layout-1' );
 $data_attrs .= 'data-banner-layout="' . $layout_type . '"';
 
-if ( 'custom' === astra_get_option( 'ast-single-' . $post_type . '-banner-width-type', 'fullwidth' ) ) {
+if ( 'custom' === astra_get_option( $banner_control . '-banner-width-type', 'fullwidth' ) ) {
 	$data_attrs .= 'data-banner-width-type="custom"';
 }
 
-$background_type = astra_get_option( 'ast-single-' . $post_type . '-banner-image-type', 'none' );
+$background_type = astra_get_option( $banner_control . '-banner-image-type', 'none' );
 if ( 'none' !== $background_type ) {
 	$data_attrs .= 'data-banner-background-type="' . $background_type . '"';
 }

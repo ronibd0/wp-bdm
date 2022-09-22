@@ -65,23 +65,18 @@ class Astra_Posts_Strctures_Markup {
 		}
 
 		$post_type = $post->post_type;
+		$type      = is_single() ? 'single' : 'archive';
 
-		$type        = 'archive';
-		$layout_type = astra_get_option( 'ast-archive-' . $post_type . '-layout', 'default' );
-		if ( is_single() ) {
-			$type        = 'single';
-			$layout_type = astra_get_option( 'ast-single-' . $post_type . '-layout', 'layout-1' );
+		$supported_post_types   = Astra_Posts_Strctures_Loader::get_supported_post_types();
+		if( ! in_array( $post_type, $supported_post_types ) ) {
+			return;
 		}
 
 		if ( false === astra_get_option( 'ast-' . $type . '-' . $post_type . '-title', false ) ) {
 			return;
 		}
 
-		$supported_post_types   = Astra_Posts_Strctures_Loader::get_supported_post_types();
-
-		if( ! in_array( $post_type, $supported_post_types ) ) {
-			return;
-		}
+		$layout_type = ( 'single' === $type ) ? astra_get_option( 'ast-single-' . $post_type . '-layout', 'layout-1' ) : astra_get_option( 'ast-archive-' . $post_type . '-layout', 'default' );
 
 		if ( 'single' === $type && 'layout-2' === $layout_type ) {
 

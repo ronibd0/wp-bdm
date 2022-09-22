@@ -10,21 +10,21 @@
 
 global $post;
 $post_type = $post->post_type;
-
+$banner_control = 'ast-dynamic-archive-title-' . esc_attr( $post_type );
 // Conditionally updating data section & class.
 $attr = 'class="ast-archive-entry-banner"';
 if ( is_customize_preview() ) {
 	$attr = 'class="ast-archive-entry-banner ast-post-banner-highlight site-header-focus-item" data-section="ast-archive-' . esc_attr( $post_type ) . '"';
 }
 
-$layout_type = astra_get_option( 'ast-archive-' . $post_type . '-layout' );
+$layout_type = astra_get_option( $banner_control . '-layout' );
 $data_attrs  = 'data-post-type="' . $post_type . '" data-banner-layout="' . $layout_type . '"';
 
-if ( 'custom' === astra_get_option( 'ast-archive-' . $post_type . '-banner-width-type', 'fullwidth' ) ) {
+if ( 'custom' === astra_get_option( $banner_control . '-banner-width-type', 'fullwidth' ) ) {
 	$data_attrs .= 'data-banner-width-type="custom"';
 }
 
-$background_type = astra_get_option( 'ast-archive-' . $post_type . '-banner-image-type', 'none' );
+$background_type = astra_get_option( $banner_control . '-banner-image-type', 'none' );
 if ( 'none' !== $background_type ) {
 	$data_attrs .= 'data-banner-background-type="' . $background_type . '"';
 }
