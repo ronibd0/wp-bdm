@@ -883,7 +883,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 							'id'      => 'item-1',
 							'enabled' => true,
 							'source'  => 'icon',
-							'icon'    => 'check-circle',
+							'icon'    => '',
 							'image'   => '',    
 						),
 					),
@@ -3395,21 +3395,24 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 						?>
 							<?php foreach ( $payment_list['items'] as $single ) { ?>
 								<?php if ( isset( $single['enabled'] ) && true === $single['enabled'] ) { ?>
-									<?php $icon_data_attr = isset( $single['icon'] ) && ! $single['icon'] ? 'data-icon="false"' : 'data-icon="true"'; ?>
-									<li class="ast-custom-payment" <?php echo esc_attr( $icon_data_attr ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
+									
 										<?php
 										if ( isset( $single['source'] ) && $single['source'] ) {
 											if ( 'image' === $single['source'] ) {
-												if ( isset( $single['image'] ) && $single['image'] ) {
-													echo '<img src=' . esc_attr( $single['image'] ) . ' />';
-												} else {
-													if ( isset( $single['icon'] ) && $single['icon'] ) {
-														echo Astra_Builder_UI_Controller::fetch_svg_icon( $single['icon'], false ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-													}
+												if ( isset( $single['image'] ) && $single['image'] ) { 
+													?>
+														<li class="ast-custom-payment">
+															<img src="<?php echo esc_attr( $single['image'] ); ?>" />
+														<li>
+													<?php
 												}
 											} else {
 												if ( isset( $single['icon'] ) && $single['icon'] ) {
-													echo Astra_Builder_UI_Controller::fetch_svg_icon( $single['icon'], false ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+													?>
+														<li class="ast-custom-payment">
+															<?php echo Astra_Builder_UI_Controller::fetch_svg_icon( $single['icon'], false ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+														</li>
+													<?php
 												}
 											}
 										}

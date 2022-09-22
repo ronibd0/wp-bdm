@@ -39,10 +39,6 @@ const ItemComponent = props => {
 	const[ selectedImage , setSelectedImage ] = useState(
 		props.item.image
 	)
-
-	const removeImage = () => {
-		setSelectedImage( '' );
-	}
 	
 	useEffect(() => {
 		setSelectedIcon( Icons[props.item.icon] );
@@ -57,13 +53,20 @@ const ItemComponent = props => {
 				open: state.open ? false : true
 			})))
 		}}>
-			{ props.item.icon &&
+			{ ( props.item.icon && "icon" === props.item.source ) &&
 				<Button className="ahfb-sorter-visiblity">
 					<span dangerouslySetInnerHTML={{
 						__html: selectedIcon
 					}}/>
 				</Button>
 			}
+
+			{ ( props.item.image && "image" === props.item.source ) &&
+				<Button className="ahfb-sorter-visiblity">
+					<img className="ast-media-image-preview" src={selectedImage} />
+				</Button>
+			}
+
 			<span className="ahfb-sorter-title"><span className='feature-label'> { props.item.label ? props.item.label : __('Feature Item', 'astra') } </span></span>
 			<Button className={`ast-sorter-item-expand ${props.item.enabled ? 'item-is-visible' : 'item-is-hidden'}`}
 					onClick={e => {
@@ -144,7 +147,12 @@ const ItemComponent = props => {
 												render={ ( { open } ) => (
 													<>
 														<Button className="ast-media-btn" onClick={ open }>{selectedImage ? __( 'Replace Image' ) : __( 'Select Image' ) }</Button>
-														{ selectedImage && <Button className="ast-media-btn ast-danger-btn" onClick={ removeImage }>Remove Image</Button> }
+														{ selectedImage && <Button className="ast-media-btn ast-danger-btn" 
+														onClick={ () =>  {
+																setSelectedImage( '' ); 
+																props.onChangeImage( '' , props.index);
+														} }
+														> { __( 'Remove Image' ) } </Button> }
 													</>
 												) }	
 											/>
