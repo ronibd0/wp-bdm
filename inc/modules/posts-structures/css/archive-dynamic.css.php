@@ -189,6 +189,7 @@ function astra_post_archive_strcture_dynamic_css( $dynamic_css, $dynamic_css_fil
 		if ( ( 'layout-1' === $layout ) ) {
 			$site_content_width                           = astra_get_option( 'site-content-width', 1200 );
 			$css_output_desktop[ $selector ]['max-width'] = $site_content_width . 'px';
+			$css_output_desktop[ $selector ]['width']     = '100%';
 		}
 
 		if ( $layout_2_active && 'none' !== $background_type ) {

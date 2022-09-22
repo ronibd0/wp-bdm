@@ -161,7 +161,7 @@ if ( ! function_exists( 'astra_blog_post_thumbnail_and_title_order' ) ) {
 	 */
 	function astra_blog_post_thumbnail_and_title_order() {
 		// If migration succedded then follow new layout otherwise fallback to old one.
-		if ( is_single() && true === astra_get_option( 'post-structure-migration-succeed', true ) ) {
+		if ( is_single() && true === astra_use_dynamic_blog_layouts() ) {
 			astra_banner_elements_order();
 		} else {
 			$blog_post_thumb_title_order = astra_get_option( 'blog-post-structure' );
