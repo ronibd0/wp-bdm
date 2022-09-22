@@ -30,14 +30,13 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 	 * Register Single Post's Strctures Customizer Configurations.
 	 *
 	 * @param string $parent_section Section of dynamic customizer.
-	 * @param string $page_title_section Section for CPT's Page Title.
 	 * @param string $post_type Post Type.
 	 * @param object $post_type_object Object of Derived Post Type.
 	 * @since x.x.x
 	 *
 	 * @return array Customizer Configurations.
 	 */
-	public function get_layout_configuration( $parent_section, $page_title_section, $post_type, $post_type_object ) {
+	public function get_layout_configuration( $parent_section, $post_type, $post_type_object ) {
 		if ( 'post' === $post_type || 'product' === $post_type || 'page' === $post_type ) {
 			return array();
 		}
@@ -187,7 +186,7 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 				$taxonomy_meta = array();
 			}
 
-			$configurations = array_merge( $configurations, $this->get_layout_configuration( $parent_section, $title_section, $post_type, $post_type_object ) );
+			$configurations = array_merge( $configurations, $this->get_layout_configuration( $parent_section, $post_type, $post_type_object ) );
 
 			$_configs = array(
 
@@ -195,7 +194,7 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 				 * Option: Builder Tabs
 				 */
 				array(
-					'name'        => $section . '-ast-context-tabs',
+					'name'        => $title_section . '-ast-context-tabs',
 					'section'     => $title_section,
 					'type'        => 'control',
 					'control'     => 'ast-builder-header-control',
@@ -206,7 +205,7 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 
 				array(
 					'name'     => $title_section,
-					'title'    => isset( $post_type_object->labels->name ) ? ucfirst( $post_type_object->labels->name ) . __( ' Title', 'astra' ) : ucfirst( $post_type ) . __( ' Title', 'astra' ),
+					'title'    => isset( $post_type_object->labels->name ) ? ucfirst( $post_type_object->labels->name ) . __( ' Single Banner', 'astra' ) : ucfirst( $post_type ) . __( ' Single Banner', 'astra' ),
 					'type'     => 'section',
 					'section'  => $parent_section,
 					'priority' => 1,

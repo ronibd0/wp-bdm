@@ -34,7 +34,6 @@ class Astra_Posts_Strctures_Markup {
 	 * @return void
 	 */
 	public function astra_add_hero_section_markup() {
-		echo "Banner appear here...";
 		if ( apply_filters( 'astra_apply_hero_header_banner', true ) ) {
 			$this->override_entry_header();
 		}
@@ -140,8 +139,6 @@ class Astra_Posts_Strctures_Markup {
 
 			do_action( 'astra_after_archive_' . $post_type . '_banner_content' );
 		}
-
-		echo "Final loop...";
 	}
 }
 
