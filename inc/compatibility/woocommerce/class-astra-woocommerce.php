@@ -3395,24 +3395,23 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 						?>
 							<?php foreach ( $payment_list['items'] as $single ) { ?>
 								<?php if ( isset( $single['enabled'] ) && true === $single['enabled'] ) { ?>
-									
 										<?php
 										if ( isset( $single['source'] ) && $single['source'] ) {
 											if ( 'image' === $single['source'] ) {
 												if ( isset( $single['image'] ) && $single['image'] ) { 
 													?>
-														<li class="ast-custom-payment">
-															<img src="<?php echo esc_attr( $single['image'] ); ?>" />
-														<li>
-													<?php
+															<li class="ast-custom-payment">
+																<img src="<?php echo esc_attr( $single['image'] ); ?>" />
+															<li>
+														<?php
 												}
 											} else {
 												if ( isset( $single['icon'] ) && $single['icon'] ) {
 													?>
-														<li class="ast-custom-payment">
+															<li class="ast-custom-payment">
 															<?php echo Astra_Builder_UI_Controller::fetch_svg_icon( $single['icon'], false ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-														</li>
-													<?php
+															</li>
+														<?php
 												}
 											}
 										}
