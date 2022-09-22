@@ -1173,12 +1173,12 @@ if ( ! function_exists( 'astra_get_pro_url' ) ) :
 			$astra_pro_url = add_query_arg( 'utm_campaign', sanitize_text_field( $campaign ), $astra_pro_url );
 		}
 
-		$astra_pro_url = esc_url( apply_filters( 'astra_get_pro_url', $astra_pro_url, $url ) );
+		$astra_pro_url = apply_filters( 'astra_get_pro_url', $astra_pro_url, $url );
 		$astra_pro_url = remove_query_arg( 'bsf', $astra_pro_url );
 
 		$ref = get_option( 'astra_partner_url_param', '' );
 		if ( ! empty( $ref ) ) {
-			$astra_pro_url = esc_url_raw( add_query_arg( 'bsf', sanitize_text_field( $ref ), $astra_pro_url ) );
+			$astra_pro_url = add_query_arg( 'bsf', sanitize_text_field( $ref ), $astra_pro_url );
 		}
 
 		return $astra_pro_url;
@@ -1602,7 +1602,7 @@ function astra_check_is_structural_setup() {
 /**
  * Check if user is old for hiding/showing password icon field for login my-account form.
  *
- * @since x.x.x
+ * @since 3.9.2
  * @return bool true|false.
  */
 function astra_load_woocommerce_login_form_password_icon() {
