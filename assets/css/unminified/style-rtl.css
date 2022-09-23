@@ -2062,15 +2062,6 @@ body {
   }
 }
 
-h1.has-background.has-background,
-h2.has-background.has-background,
-h3.has-background.has-background,
-h4.has-background.has-background,
-h5.has-background.has-background,
-h6.has-background.has-background {
-  padding: 0;
-}
-
 /*----------  Navigation  ----------*/
 /**
  * 	Navigations
