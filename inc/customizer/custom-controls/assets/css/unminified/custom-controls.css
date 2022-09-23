@@ -3553,6 +3553,15 @@ span.customize-control-title.ast-group-section-title {
   border-color: var(--ast-customizer-color-13);
 }
 
+.components-base-control.ast-text-control-input {
+  margin-bottom: 16px;
+}
+
+.components-base-control.ast-text-control-input input {
+  border-color: var(--ast-customizer-color-7);
+  color: var(--ast-customizer-color-5);
+}
+
 .astra-popover-color .astra-popover-tabs .components-tab-panel__tabs button.components-tab-panel__tabs-item.active-tab:not(.is-primary):not(.is-tertiary):not(.is-link):hover {
   color: #fff;
 }

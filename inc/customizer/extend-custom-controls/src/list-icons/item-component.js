@@ -92,7 +92,7 @@ const ItemComponent = props => {
 		</div>
 		{ state.open && <div className="ahfb-sorter-item-panel-content">
 
-			{false === props.disable && <TextControl label={__('Text', 'astra')} value={props.item.label ? props.item.label : ''}
+			{false === props.disable && <TextControl className="ast-text-control-input" label={__('Text', 'astra')} value={props.item.label ? props.item.label : ''}
 						 onChange={value => {
 							 props.onChangeLabel(value, props.index);
 						 }}/>

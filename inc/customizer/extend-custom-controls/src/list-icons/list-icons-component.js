@@ -8,7 +8,7 @@ const {__} = wp.i18n;
 const ListIconsComponent = props => {
 
 	// Flag to disable any unwanted feature.
-	const disableFeat = props.params && props.params.disable ? props.params.disable : true;
+	const disableFeat = ( props.control ?. params ?. disable ) ? props.control.params.disable : false;
 
 	let value = props.control.setting.get();
 	let baseDefault = {
