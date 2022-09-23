@@ -37,6 +37,7 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 	$icon_hover_color      = esc_attr( astra_get_option( 'header-woo-cart-icon-hover-color' ) ); // icon cart hover color.
 
 	$header_cart_icon_radius         = astra_get_option( 'woo-header-cart-icon-radius' );
+	$header_cart_icon_radius_fields  = astra_get_option( 'woo-header-cart-icon-radius-fields' );
 	$cart_h_color                    = astra_get_foreground_color( $icon_color );
 	$header_cart_icon_style          = astra_get_option( 'woo-header-cart-icon-style' );
 	$theme_h_color                   = astra_get_foreground_color( $theme_color );
@@ -426,7 +427,7 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 
 	if ( 'none' !== $header_cart_icon_style ) {
 
-		
+
 		if ( ! astra_has_pro_woocommerce_addon() && 'outline' === $header_cart_icon_style && 'default' !== $header_woo_cart_list ) {
 
 			$header_cart_icon_outline = array(
@@ -458,7 +459,10 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 
 			// Border radius.
 			'.ast-site-header-cart.ast-menu-cart-outline .ast-cart-menu-wrap, .ast-site-header-cart.ast-menu-cart-fill .ast-cart-menu-wrap, .ast-site-header-cart.ast-menu-cart-outline .ast-cart-menu-wrap .count, .ast-site-header-cart.ast-menu-cart-fill .ast-cart-menu-wrap .count, .ast-site-header-cart.ast-menu-cart-outline .ast-addon-cart-wrap, .ast-site-header-cart.ast-menu-cart-fill .ast-addon-cart-wrap, .ast-site-header-cart.ast-menu-cart-outline .ast-woo-header-cart-info-wrap, .ast-site-header-cart.ast-menu-cart-fill .ast-woo-header-cart-info-wrap' => array(
-				'border-radius' => astra_get_css_value( $header_cart_icon_radius, 'px' ),
+				'border-top-left-radius'     => astra_responsive_spacing( $header_cart_icon_radius_fields, 'top', 'desktop' ),
+				'border-top-right-radius'    => astra_responsive_spacing( $header_cart_icon_radius_fields, 'right', 'desktop' ),
+				'border-bottom-right-radius' => astra_responsive_spacing( $header_cart_icon_radius_fields, 'bottom', 'desktop' ),
+				'border-bottom-left-radius'  => astra_responsive_spacing( $header_cart_icon_radius_fields, 'left', 'desktop' ),
 			),
 
 		);

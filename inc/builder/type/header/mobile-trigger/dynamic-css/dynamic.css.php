@@ -34,15 +34,16 @@ function astra_mobile_trigger_row_setting( $dynamic_css, $dynamic_css_filtered =
 
 	$selector = '[data-section="section-header-mobile-trigger"]';
 
-	$theme_color           = astra_get_option( 'theme-color' );
-	$icon_size             = astra_get_option( 'mobile-header-toggle-icon-size' );
-	$trigger_bg            = astra_get_option( 'mobile-header-toggle-btn-bg-color', $theme_color );
-	$trigger_border_width  = astra_get_option( 'mobile-header-toggle-btn-border-size' );
-	$trigger_border_color  = astra_get_option( 'mobile-header-toggle-border-color', $trigger_bg );
-	$trigger_border_radius = astra_get_option( 'mobile-header-toggle-border-radius' );
-	$font_size             = astra_get_option( 'mobile-header-label-font-size' );
-	$style                 = astra_get_option( 'mobile-header-toggle-btn-style' );
-	$default               = '#ffffff';
+	$theme_color                  = astra_get_option( 'theme-color' );
+	$icon_size                    = astra_get_option( 'mobile-header-toggle-icon-size' );
+	$trigger_bg                   = astra_get_option( 'mobile-header-toggle-btn-bg-color', $theme_color );
+	$trigger_border_width         = astra_get_option( 'mobile-header-toggle-btn-border-size' );
+	$trigger_border_color         = astra_get_option( 'mobile-header-toggle-border-color', $trigger_bg );
+	$trigger_border_radius        = astra_get_option( 'mobile-header-toggle-border-radius' );
+	$trigger_border_radius_fields = astra_get_option( 'mobile-header-toggle-border-radius-fields' );
+	$font_size                    = astra_get_option( 'mobile-header-label-font-size' );
+	$style                        = astra_get_option( 'mobile-header-toggle-btn-style' );
+	$default                      = '#ffffff';
 
 	if ( 'fill' !== $style ) {
 		$default = $theme_color;
@@ -112,10 +113,13 @@ function astra_mobile_trigger_row_setting( $dynamic_css, $dynamic_css_filtered =
 			$css_output_fill = array(
 				$selector . ' .ast-button-wrap .ast-mobile-menu-trigger-fill' => array(
 					// Color & Border.
-					'color'         => esc_attr( $icon_color ),
-					'border'        => 'none',
-					'background'    => esc_attr( $trigger_bg ),
-					'border-radius' => astra_get_css_value( $trigger_border_radius, 'px' ),
+					'color'                      => esc_attr( $icon_color ),
+					'border'                     => 'none',
+					'background'                 => esc_attr( $trigger_bg ),
+					'border-top-left-radius'     => astra_responsive_spacing( $trigger_border_radius_fields, 'top', 'desktop' ),
+					'border-top-right-radius'    => astra_responsive_spacing( $trigger_border_radius_fields, 'right', 'desktop' ),
+					'border-bottom-right-radius' => astra_responsive_spacing( $trigger_border_radius_fields, 'bottom', 'desktop' ),
+					'border-bottom-left-radius'  => astra_responsive_spacing( $trigger_border_radius_fields, 'left', 'desktop' ),
 				),
 			);
 			$dynamic_css    .= astra_parse_css( $css_output_fill );
@@ -126,15 +130,18 @@ function astra_mobile_trigger_row_setting( $dynamic_css, $dynamic_css_filtered =
 		case 'outline': // phpcs:ignore PSR2.ControlStructures.SwitchDeclaration.TerminatingComment
 			$css_output_outline = array(
 				$selector . ' .ast-button-wrap .ast-mobile-menu-trigger-outline' => array(
-					'background'          => 'transparent',
-					'color'               => esc_attr( $icon_color ),
-					'border-top-width'    => astra_get_css_value( $trigger_border_width_top, 'px' ),
-					'border-bottom-width' => astra_get_css_value( $trigger_border_width_bottom, 'px' ),
-					'border-right-width'  => astra_get_css_value( $trigger_border_width_right, 'px' ),
-					'border-left-width'   => astra_get_css_value( $trigger_border_width_left, 'px' ),
-					'border-style'        => 'solid',
-					'border-color'        => $trigger_border_color,
-					'border-radius'       => astra_get_css_value( $trigger_border_radius, 'px' ),
+					'background'                 => 'transparent',
+					'color'                      => esc_attr( $icon_color ),
+					'border-top-width'           => astra_get_css_value( $trigger_border_width_top, 'px' ),
+					'border-bottom-width'        => astra_get_css_value( $trigger_border_width_bottom, 'px' ),
+					'border-right-width'         => astra_get_css_value( $trigger_border_width_right, 'px' ),
+					'border-left-width'          => astra_get_css_value( $trigger_border_width_left, 'px' ),
+					'border-style'               => 'solid',
+					'border-color'               => $trigger_border_color,
+					'border-top-left-radius'     => astra_responsive_spacing( $trigger_border_radius_fields, 'top', 'desktop' ),
+					'border-top-right-radius'    => astra_responsive_spacing( $trigger_border_radius_fields, 'right', 'desktop' ),
+					'border-bottom-right-radius' => astra_responsive_spacing( $trigger_border_radius_fields, 'bottom', 'desktop' ),
+					'border-bottom-left-radius'  => astra_responsive_spacing( $trigger_border_radius_fields, 'left', 'desktop' ),
 				),
 			);
 			$dynamic_css       .= astra_parse_css( $css_output_outline );
@@ -145,7 +152,7 @@ function astra_mobile_trigger_row_setting( $dynamic_css, $dynamic_css_filtered =
 		default:
 			$dynamic_css .= '';
 			break;
-			
+
 	}
 
 	// Tablet CSS.

@@ -84,7 +84,7 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 				'context'  => Astra_Builder_Helper::$general_tab,
 				'divider'  => $astra_hfb_enabled ? array( 'ast_class' => 'ast-bottom-spacing' ) : array( 'ast_class' => 'ast-section-spacing' ),
 			),
-			
+
 			/**
 			 * Option: Header Cart Icon
 			 */
@@ -444,6 +444,39 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 					'max'  => 200,
 				),
 				'divider'     => array( 'ast_class' => 'ast-bottom-section-divider' ),
+			),
+
+			/**
+			* Option: Border Radius Fields
+			*/
+			array(
+				'name'              => ASTRA_THEME_SETTINGS . '[woo-header-cart-icon-radius-fields]',
+				'default'           => astra_get_option( 'woo-header-cart-icon-radius-fields' ),
+				'type'              => 'control',
+				'control'           => 'ast-responsive-spacing',
+				'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_spacing' ),
+				'section'           => $_section,
+				'title'             => __( 'Border Radius', 'astra' ),
+				'linked_choices'    => true,
+				'transport'         => 'postMessage',
+				'unit_choices'      => array( 'px', 'em', '%' ),
+				'choices'           => array(
+					'top'    => __( 'Top', 'astra' ),
+					'right'  => __( 'Right', 'astra' ),
+					'bottom' => __( 'Bottom', 'astra' ),
+					'left'   => __( 'Left', 'astra' ),
+				),
+				'priority'          => 47,
+				'connected'         => false,
+				'divider'           => array( 'ast_class' => 'ast-bottom-section-divider' ),
+				'context'           => array(
+					Astra_Builder_Helper::$design_tab_config,
+					array(
+						'setting'  => ASTRA_THEME_SETTINGS . '[woo-header-cart-icon-style]',
+						'operator' => '!=',
+						'value'    => 'none',
+					),
+				),
 			),
 
 			/**

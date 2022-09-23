@@ -21,6 +21,7 @@ add_filter( 'astra_theme_defaults', 'astra_hf_builder_customizer_defaults' );
 function astra_hf_builder_customizer_defaults( $defaults ) {
 
 	$palette_css_var_prefix = Astra_Global_Palette::get_css_variable_prefix();
+	$astra_options          = Astra_Theme_Options::get_astra_options();
 
 	/**
 	 * Header Builder - Desktop Defaults.
@@ -807,6 +808,30 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 		'left'   => 1,
 	);
 	$defaults['mobile-header-toggle-border-radius']   = 2;
+
+	$defaults['mobile-header-toggle-border-radius-fields'] = array(
+		'desktop'      => array(
+			'top'    => ! isset( $astra_options['mobile-header-toggle-border-radius'] ) ? '' : $astra_options['mobile-header-toggle-border-radius'],
+			'right'  => ! isset( $astra_options['mobile-header-toggle-border-radius'] ) ? '' : $astra_options['mobile-header-toggle-border-radius'],
+			'bottom' => ! isset( $astra_options['mobile-header-toggle-border-radius'] ) ? '' : $astra_options['mobile-header-toggle-border-radius'],
+			'left'   => ! isset( $astra_options['mobile-header-toggle-border-radius'] ) ? '' : $astra_options['mobile-header-toggle-border-radius'],
+		),
+		'tablet'       => array(
+			'top'    => ! isset( $astra_options['mobile-header-toggle-border-radius'] ) ? '' : $astra_options['mobile-header-toggle-border-radius'],
+			'right'  => ! isset( $astra_options['mobile-header-toggle-border-radius'] ) ? '' : $astra_options['mobile-header-toggle-border-radius'],
+			'bottom' => ! isset( $astra_options['mobile-header-toggle-border-radius'] ) ? '' : $astra_options['mobile-header-toggle-border-radius'],
+			'left'   => ! isset( $astra_options['mobile-header-toggle-border-radius'] ) ? '' : $astra_options['mobile-header-toggle-border-radius'],
+		),
+		'mobile'       => array(
+			'top'    => ! isset( $astra_options['mobile-header-toggle-border-radius'] ) ? '' : $astra_options['mobile-header-toggle-border-radius'],
+			'right'  => ! isset( $astra_options['mobile-header-toggle-border-radius'] ) ? '' : $astra_options['mobile-header-toggle-border-radius'],
+			'bottom' => ! isset( $astra_options['mobile-header-toggle-border-radius'] ) ? '' : $astra_options['mobile-header-toggle-border-radius'],
+			'left'   => ! isset( $astra_options['mobile-header-toggle-border-radius'] ) ? '' : $astra_options['mobile-header-toggle-border-radius'],
+		),
+		'desktop-unit' => 'px',
+		'tablet-unit'  => 'px',
+		'mobile-unit'  => 'px',
+	);
 
 	/**
 	 * Mobile trigger - Label Typography.

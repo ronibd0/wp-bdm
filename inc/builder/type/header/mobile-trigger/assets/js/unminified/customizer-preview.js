@@ -12,7 +12,7 @@
 
 	var tablet_break_point    = astraBuilderPreview.tablet_break_point || 768,
         mobile_break_point    = astraBuilderPreview.mobile_break_point || 544;
-	
+
 	// Trigger Icon Color.
 	astra_css(
 		'astra-settings[mobile-header-toggle-btn-color]',
@@ -60,6 +60,30 @@
 				dynamicStyle += 'border-bottom-width:'   + border.bottom + 'px;';
 				dynamicStyle += '} ';
 			astra_add_dynamic_css( 'astra-settings[mobile-header-toggle-btn-border-size]', dynamicStyle );
+		} );
+	} );
+
+	// Border Radius Fields.
+	wp.customize( 'astra-settings[mobile-header-toggle-border-radius-fields]', function( setting ) {
+		setting.bind( function( border ) {
+			var tabletBreakPoint    = astraBuilderPreview.tablet_break_point || 768,
+				mobileBreakPoint    = astraBuilderPreview.mobile_break_point || 544;
+
+			var globalSelector = '[data-section="section-header-mobile-trigger"] .ast-button-wrap .menu-toggle.main-header-menu-toggle';
+
+			var dynamicStyle = globalSelector + '{ border-top-left-radius :' + border['desktop']['top'] + border['desktop-unit']
+					+ '; border-bottom-right-radius :' + border['desktop']['bottom'] + border['desktop-unit'] + '; border-bottom-left-radius :'
+					+ border['desktop']['left'] + border['desktop-unit'] + '; border-top-right-radius :' + border['desktop']['right'] + border['desktop-unit'] + '; } ';
+
+			dynamicStyle += '@media (max-width: ' + tabletBreakPoint + 'px) { ' + globalSelector + '{ border-top-left-radius :' + border['tablet']['top'] + border['tablet-unit']
+					+ '; border-bottom-right-radius :' + border['tablet']['bottom'] + border['tablet-unit'] + '; border-bottom-left-radius :'
+					+ border['tablet']['left'] + border['tablet-unit'] + '; border-top-right-radius :' + border['tablet']['right'] + border['tablet-unit'] + '; } } ';
+
+			dynamicStyle += '@media (max-width: ' + mobileBreakPoint + 'px) { ' + globalSelector + '{ border-top-left-radius :' + border['mobile']['top'] + border['mobile-unit']
+					+ '; border-bottom-right-radius :' + border['mobile']['bottom'] + border['mobile-unit'] + '; border-bottom-left-radius :'
+					+ border['mobile']['left'] + border['mobile-unit'] + '; border-top-right-radius :' + border['mobile']['right'] + border['mobile-unit'] + '; } } ';
+
+			astra_add_dynamic_css( 'astra-settings[mobile-header-toggle-border-radius-fields]', dynamicStyle );
 		} );
 	} );
 
