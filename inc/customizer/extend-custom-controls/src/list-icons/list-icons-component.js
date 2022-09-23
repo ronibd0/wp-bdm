@@ -175,8 +175,8 @@ const ListIconsComponent = props => {
 			'enabled': true,
 			'icon': item['icon'],
 			'label': item['label'],
-			'image' : '',
-			'source' : 'icon',
+			'image' : item['image'],
+			'source' : item['source'],
 		};
 		update.push(newItem);
 		updateState.items = update;

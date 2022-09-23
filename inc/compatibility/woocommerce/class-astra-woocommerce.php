@@ -3459,7 +3459,6 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 											}
 										}
 										?>
-									</li>
 								<?php } ?>
 							<?php } ?>
 					<?php } ?>
