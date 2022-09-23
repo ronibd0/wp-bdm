@@ -3566,6 +3566,10 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
   margin-bottom: 0;
 }
 
+.wp-block-separator:not(.is-style-wide):not(.is-style-dots) {
+  margin: 20px auto;
+}
+
 .bypostauthor {
   display: block;
 }
