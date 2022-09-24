@@ -107,6 +107,12 @@ class Astra_Posts_Strctures_Loader {
 			'mobile'  => '',
 		);
 
+		self::$customizer_defaults['responsive-color'] = array(
+			'desktop' => '',
+			'tablet'  => '',
+			'mobile'  => '',
+		);
+
 		add_action( 'customize_register', array( $this, 'posts_strctures_customize_register' ), 2 );
 		add_action( 'astra_get_fonts', array( $this, 'add_fonts' ), 1 );
 		add_action( 'customize_preview_init', array( $this, 'preview_scripts' ) );
@@ -188,6 +194,9 @@ class Astra_Posts_Strctures_Loader {
 				'e-landing-page',
 			)
 		);
+
+		$queried_post_types[] = 'post';
+		$queried_post_types[] = 'page';
 
 		$supported_post_types = array_reverse( array_unique( $queried_post_types ) );
 

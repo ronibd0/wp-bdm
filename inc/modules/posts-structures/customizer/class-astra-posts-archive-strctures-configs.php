@@ -844,7 +844,7 @@ class Astra_Posts_Archive_Strctures_Configs extends Astra_Customizer_Config_Base
 							'value'    => 'default',
 						),
 					),
-					'title'       => __( 'Enable on Blog or Latest Posts Page?', 'astra' ),
+					'title'       => __( 'Blog or Latest Posts Page?', 'astra' ),
 					'description' => __( "Latest Posts page is your site's front page when the latest posts are displayed on the home page.", 'astra' ),
 					'priority'    => 7,
 					'control'     => 'ast-toggle-control',

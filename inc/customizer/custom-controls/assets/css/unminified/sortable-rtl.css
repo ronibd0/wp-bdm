@@ -211,3 +211,17 @@
 .ast-sortable-subfields-wrap .customize-control-ast-responsive-slider .ast-responsive-slider-btns {
     top: -2px;
 }
+
+/**
+ * Dynamic featured-image section compat.
+ */
+.ast-sortable-item .customize-control-ast-color .ast-color-btn-reset-wrap {
+    top: 12px;
+}
+.ast-sortable-item .customize-control-ast-color .color-button-wrap {
+    top: 8px;
+}
+.ast-sortable-item .customize-control-ast-color .astra-color-picker-wrap {
+    position: relative;
+    top: 8px;
+}

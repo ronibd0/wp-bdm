@@ -3886,6 +3886,20 @@ span.customize-control-title.ast-group-section-title {
     top: -2px;
 }
 
+/**
+ * Dynamic featured-image section compat.
+ */
+.ast-sortable-item .customize-control-ast-color .ast-color-btn-reset-wrap {
+    top: 12px;
+}
+.ast-sortable-item .customize-control-ast-color .color-button-wrap {
+    top: 8px;
+}
+.ast-sortable-item .customize-control-ast-color .astra-color-picker-wrap {
+    position: relative;
+    top: 8px;
+}
+
 .customize-control-ast-toggle-control .components-toggle-control .components-base-control__field, .ast-togglecontrol-wrapper .components-base-control__field {
   margin: 0;
 }

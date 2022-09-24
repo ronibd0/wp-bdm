@@ -11,6 +11,37 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
+ * Prepare markup for taxonomies.
+ * @param string $control_tax Taxonomy subcontrol name.
+ *
+ * @return string $output Taxonomy output.
+ */
+function astra_get_dynamic_taxonomy( $control_tax ) {
+	$tax_type = astra_get_option( $control_tax );
+	$post_id = get_the_ID();
+
+	if( ! $post_id ) {
+		return '';
+	}
+
+	$terms = get_the_terms( $post_id, $tax_type );
+	if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) {
+
+		$term_links = array();
+
+		foreach ( $terms as $term ) {
+			$term_links[] = '<a href="' . esc_attr( get_term_link( $term->slug, $tax_type ) ) . '">' . __( $term->name ) . '</a>';
+		}
+
+		$all_terms = join( ', ', $term_links );
+
+		return ' / <span class="ast-terms-link">' . __( $all_terms ) . '</span>';
+	}
+
+	return '';
+}
+
+/**
  * Common Functions for Blog and Single Blog
  *
  * @return  post meta
@@ -74,6 +105,10 @@ if ( ! function_exists( 'astra_get_post_meta' ) ) {
 				default:
 					$output_str = apply_filters( 'astra_meta_case_' . $meta_value, $output_str, $loop_count, $separator );
 
+			}
+
+			if( strpos( $meta_value, '-taxonomy' ) !== false){
+				$output_str .= astra_get_dynamic_taxonomy( $meta_value );
 			}
 
 			$loop_count ++;

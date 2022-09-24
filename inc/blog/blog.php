@@ -427,14 +427,13 @@ function astra_banner_elements_order( $structure = array() ) {
 	}
 
 	$post_type = $post->post_type;
-	$post_id   = astra_get_post_id();
 
 	$prefix    = 'archive';
-	$structure = astra_get_option( 'ast-' . $prefix . '-' . $post_type . '-structure', array( 'ast-' . $prefix . '-' . $post_type . '-title', 'ast-' . $prefix . '-' . $post_type . '-description' ) );
+	$structure = astra_get_option( 'ast-dynamic-' . $prefix . '-title-' . $post_type . '-structure', array( 'ast-dynamic-' . $prefix . '-title-' . $post_type . '-title', 'ast-dynamic-' . $prefix . '-title-' . $post_type . '-description' ) );
 
 	if ( is_single() ) {
 		$prefix    = 'single';
-		$structure = astra_get_option( 'ast-' . $prefix . '-' . $post_type . '-structure', array( 'ast-' . $prefix . '-' . $post_type . '-title', 'ast-' . $prefix . '-' . $post_type . '-breadcrumb' ) );
+		$structure = astra_get_option( 'ast-dynamic-' . $prefix . '-title-' . $post_type . '-structure', array( 'ast-dynamic-' . $prefix . '-title-' . $post_type . '-title', 'ast-dynamic-' . $prefix . '-title-' . $post_type . '-breadcrumb' ) );
 	}
 
 	foreach ( $structure as $metaval ) {
@@ -463,13 +462,13 @@ function astra_banner_elements_order( $structure = array() ) {
 
 			case 'single-excerpt':
 				do_action( 'astra_single_post_banner_excerpt_before' );
-				echo get_the_excerpt( $post->ID ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+				echo '<span>' . get_the_excerpt( $post->ID ) . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 				do_action( 'astra_single_post_banner_excerpt_before' );
 				break;
 
 			case 'single-meta':
 				do_action( 'astra_single_post_banner_meta_before' );
-				$post_meta = astra_get_option( 'ast-single-' . $post_type . '-metadata', array( 'comments', 'author', 'date' ) );
+				$post_meta = astra_get_option( 'ast-dynamic-single-title-' . $post_type . '-metadata', array( 'comments', 'author', 'date' ) );
 				$output    = '';
 				if ( ! empty( $post_meta ) ) {
 					$output_str = astra_get_post_meta( $post_meta );
@@ -482,9 +481,12 @@ function astra_banner_elements_order( $structure = array() ) {
 				break;
 
 			case 'single-image':
-				do_action( 'astra_blog_single_featured_image_before' );
-				astra_get_blog_post_thumbnail( 'single' );
-				do_action( 'astra_blog_single_featured_image_after' );
+				$featured_background = astra_get_option( 'ast-dynamic-single-title-' . $post_type . '-featured-as-background', false );
+				if ( false === $featured_background ) {
+					do_action( 'astra_blog_single_featured_image_before' );
+					astra_get_blog_post_thumbnail( 'single' );
+					do_action( 'astra_blog_single_featured_image_after' );
+				}
 				break;
 
 			case 'archive-title':
@@ -509,17 +511,14 @@ function astra_banner_elements_order( $structure = array() ) {
 						$description = get_the_archive_description();
 					}
 					if ( is_author() ) {
-						if ( ! empty( trim( get_the_author_meta( 'description', astra_get_author_id() ) ) ) ) {
-							$description = wp_kses_post( get_the_author_meta( 'description', astra_get_author_id() ) );
+						if ( ! empty( trim( get_the_author_meta( 'description' ) ) ) ) {
+							$description = wp_kses_post( get_the_author_meta( 'description' ) );
 						}
-					}
-					if ( empty( $description ) ) {
-						$description = get_the_excerpt( $post->ID );
 					}
 					if ( empty( $description ) && ! have_posts() ) {
 						$description = esc_html( astra_default_strings( 'string-content-nothing-found-message', false ) );
 					}
-					echo $description;
+					echo '<span>' . $description . '</span>';
 				}
 				do_action( 'astra_blog_archive_description_after' );
 				break;

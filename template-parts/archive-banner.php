@@ -14,7 +14,7 @@ $banner_control = 'ast-dynamic-archive-title-' . esc_attr( $post_type );
 // Conditionally updating data section & class.
 $attr = 'class="ast-archive-entry-banner"';
 if ( is_customize_preview() ) {
-	$attr = 'class="ast-archive-entry-banner ast-post-banner-highlight site-header-focus-item" data-section="ast-archive-' . esc_attr( $post_type ) . '"';
+	$attr = 'class="ast-archive-entry-banner ast-post-banner-highlight site-header-focus-item" data-section="' . esc_attr( $banner_control ) . '"';
 }
 
 $layout_type = astra_get_option( $banner_control . '-layout' );
@@ -32,13 +32,10 @@ if ( 'none' !== $background_type ) {
 ?>
 
 <section <?php echo $attr . ' ' . $data_attrs; ?>>
-
 	<?php
-	if ( is_customize_preview() ) {
-		Astra_Builder_UI_Controller::render_banner_customizer_edit_button();
-	}
+		if ( is_customize_preview() ) {
+			Astra_Builder_UI_Controller::render_banner_customizer_edit_button();
+		}
+		astra_banner_elements_order();
 	?>
-
-	<?php astra_banner_elements_order(); ?>
-
 </section>
