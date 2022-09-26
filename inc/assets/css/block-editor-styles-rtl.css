@@ -702,7 +702,7 @@ h6 {
 }
 
 .block-editor-block-list__layout .wp-block-heading {
-  margin-bottom: 20px !important;
+  margin-bottom: 20px;
 }
 
 .block-editor-block-list__empty-block-inserter .block-editor-inserter__toggle.components-button.has-icon {
@@ -749,4 +749,19 @@ h6 {
 .components-color-palette__custom-color {
   text-align: right;
   padding-right: 5px;
+}
+
+.is-root-container.block-editor-block-list__layout > .wp-block-heading {
+  margin-bottom: 20px;
+}
+
+.is-root-container.block-editor-block-list__layout > .wp-block-paragraph {
+  margin-bottom: 20px;
+}
+
+/**
+* :nth-child(2) is 2 here because last child in block editor is new block div.
+*/
+.is-root-container.block-editor-block-list__layout :nth-last-child(2) {
+  margin-bottom: 0;
 }
