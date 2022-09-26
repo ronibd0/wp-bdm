@@ -72,7 +72,7 @@ class Astra_Posts_Archive_Strctures_Configs extends Astra_Customizer_Config_Base
 						'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'container-full-width-stretched', false ) : '',
 					),
 				),
-				'divider'        => array( 'ast_class' => 'ast-top-divider ast-bottom-divider' ),
+				'divider'           => array( 'ast_class' => 'ast-top-divider ast-bottom-divider' ),
 			),
 			array(
 				'name'              => ASTRA_THEME_SETTINGS . '[archive-' . $post_type . '-sidebar-layout]',
@@ -116,12 +116,16 @@ class Astra_Posts_Archive_Strctures_Configs extends Astra_Customizer_Config_Base
 	 */
 	public function register_configuration( $configurations, $wp_customize ) {
 
-		$post_types                 = Astra_Posts_Strctures_Loader::get_supported_post_types();
+		$post_types = Astra_Posts_Strctures_Loader::get_supported_post_types();
 
 		foreach ( $post_types as $index => $post_type ) {
 
-			$section        = 'archive-posttype-' . $post_type;
-			$title_section = 'ast-dynamic-archive-title-' . $post_type;
+			if ( 'page' === $post_type ) {
+				continue;
+			}
+
+			$section          = 'archive-posttype-' . $post_type;
+			$title_section    = 'ast-dynamic-archive-title-' . $post_type;
 			$post_type_object = get_post_type_object( $post_type );
 
 			$background_choices = array(
@@ -167,14 +171,14 @@ class Astra_Posts_Archive_Strctures_Configs extends Astra_Customizer_Config_Base
 				),
 
 				array(
-					'name'           => ASTRA_THEME_SETTINGS . '[ast-archive-' . $post_type . '-title]',
-					'type'           => 'control',
-					'default'        => astra_get_option( 'ast-archive-' . $post_type . '-title', false ),
-					'control'        => 'ast-section-toggle',
-					'section'        => $parent_section,
-					'priority'       => 2,
-					'linked'         => $title_section,
-					'linkText'       => __( 'Title Banner', 'astra' ),
+					'name'     => ASTRA_THEME_SETTINGS . '[ast-archive-' . $post_type . '-title]',
+					'type'     => 'control',
+					'default'  => astra_get_option( 'ast-archive-' . $post_type . '-title', false ),
+					'control'  => 'ast-section-toggle',
+					'section'  => $parent_section,
+					'priority' => 2,
+					'linked'   => $title_section,
+					'linkText' => __( 'Title Banner', 'astra' ),
 				),
 
 				/**
@@ -369,7 +373,7 @@ class Astra_Posts_Archive_Strctures_Configs extends Astra_Customizer_Config_Base
 				 */
 				array(
 					'name'      => ASTRA_THEME_SETTINGS . '[' . $title_section . '-banner-custom-bg]',
-					'default'   => astra_get_option( $title_section . '-banner-custom-bg', Astra_Posts_Strctures_Loader::get_customizer_default('responsive-background') ),
+					'default'   => astra_get_option( $title_section . '-banner-custom-bg', Astra_Posts_Strctures_Loader::get_customizer_default( 'responsive-background' ) ),
 					'type'      => 'control',
 					'control'   => 'ast-responsive-background',
 					'section'   => $title_section,
@@ -402,7 +406,7 @@ class Astra_Posts_Archive_Strctures_Configs extends Astra_Customizer_Config_Base
 					'section'           => $title_section,
 					'transport'         => 'postMessage',
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
-					'default'           => astra_get_option( $title_section . '-banner-height', Astra_Posts_Strctures_Loader::get_customizer_default('responsive-slider') ),
+					'default'           => astra_get_option( $title_section . '-banner-height', Astra_Posts_Strctures_Loader::get_customizer_default( 'responsive-slider' ) ),
 					'context'           => array(
 						Astra_Builder_Helper::$design_tab_config,
 						'relation' => 'AND',
@@ -561,7 +565,7 @@ class Astra_Posts_Archive_Strctures_Configs extends Astra_Customizer_Config_Base
 					'section'           => $title_section,
 					'type'              => 'sub-control',
 					'control'           => 'ast-responsive-slider',
-					'default'           => astra_get_option( $title_section . '-text-font-size', Astra_Posts_Strctures_Loader::get_customizer_default('font-size') ),
+					'default'           => astra_get_option( $title_section . '-text-font-size', Astra_Posts_Strctures_Loader::get_customizer_default( 'font-size' ) ),
 					'transport'         => 'postMessage',
 					'title'             => __( 'Size', 'astra' ),
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
@@ -586,7 +590,7 @@ class Astra_Posts_Archive_Strctures_Configs extends Astra_Customizer_Config_Base
 					'section'           => $title_section,
 					'type'              => 'sub-control',
 					'control'           => 'ast-responsive-slider',
-					'default'           => astra_get_option( $title_section . '-text-font-size', Astra_Posts_Strctures_Loader::get_customizer_default('font-size') ),
+					'default'           => astra_get_option( $title_section . '-text-font-size', Astra_Posts_Strctures_Loader::get_customizer_default( 'font-size' ) ),
 					'transport'         => 'postMessage',
 					'title'             => __( 'Size', 'astra' ),
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
@@ -688,7 +692,7 @@ class Astra_Posts_Archive_Strctures_Configs extends Astra_Customizer_Config_Base
 					'section'           => $title_section,
 					'type'              => 'sub-control',
 					'control'           => 'ast-responsive-slider',
-					'default'           => astra_get_option( $title_section . '-title-font-size', Astra_Posts_Strctures_Loader::get_customizer_default('font-size') ),
+					'default'           => astra_get_option( $title_section . '-title-font-size', Astra_Posts_Strctures_Loader::get_customizer_default( 'font-size' ) ),
 					'transport'         => 'postMessage',
 					'title'             => __( 'Size', 'astra' ),
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
@@ -767,7 +771,7 @@ class Astra_Posts_Archive_Strctures_Configs extends Astra_Customizer_Config_Base
 
 				array(
 					'name'              => ASTRA_THEME_SETTINGS . '[' . $title_section . '-banner-margin]',
-					'default'           => astra_get_option( $title_section . '-banner-margin', Astra_Posts_Strctures_Loader::get_customizer_default('responsive-spacing') ),
+					'default'           => astra_get_option( $title_section . '-banner-margin', Astra_Posts_Strctures_Loader::get_customizer_default( 'responsive-spacing' ) ),
 					'type'              => 'control',
 					'control'           => 'ast-responsive-spacing',
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_spacing' ),
@@ -798,7 +802,7 @@ class Astra_Posts_Archive_Strctures_Configs extends Astra_Customizer_Config_Base
 
 				array(
 					'name'              => ASTRA_THEME_SETTINGS . '[' . $title_section . '-banner-padding]',
-					'default'           => astra_get_option( $title_section . '-banner-padding', Astra_Posts_Strctures_Loader::get_customizer_default('responsive-spacing') ),
+					'default'           => astra_get_option( $title_section . '-banner-padding', Astra_Posts_Strctures_Loader::get_customizer_default( 'responsive-spacing' ) ),
 					'type'              => 'control',
 					'control'           => 'ast-responsive-spacing',
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_spacing' ),

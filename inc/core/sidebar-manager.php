@@ -25,7 +25,7 @@ if ( ! function_exists( 'astra_page_layout' ) ) {
 	 */
 	function astra_page_layout() {
 
-		$supported_post_types =  Astra_Posts_Strctures_Loader::get_supported_post_types();
+		$supported_post_types = Astra_Posts_Strctures_Loader::get_supported_post_types();
 
 		if ( is_singular() ) {
 

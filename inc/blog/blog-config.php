@@ -12,15 +12,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 /**
  * Prepare markup for taxonomies.
+ *
  * @param string $control_tax Taxonomy subcontrol name.
  *
  * @return string $output Taxonomy output.
  */
 function astra_get_dynamic_taxonomy( $control_tax ) {
 	$tax_type = astra_get_option( $control_tax );
-	$post_id = get_the_ID();
+	$post_id  = get_the_ID();
 
-	if( ! $post_id ) {
+	if ( ! $post_id ) {
 		return '';
 	}
 
@@ -107,7 +108,7 @@ if ( ! function_exists( 'astra_get_post_meta' ) ) {
 
 			}
 
-			if( strpos( $meta_value, '-taxonomy' ) !== false){
+			if ( strpos( $meta_value, '-taxonomy' ) !== false ) {
 				$output_str .= astra_get_dynamic_taxonomy( $meta_value );
 			}
 

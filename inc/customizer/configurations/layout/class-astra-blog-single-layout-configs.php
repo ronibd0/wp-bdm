@@ -200,14 +200,14 @@ if ( ! class_exists( 'Astra_Blog_Single_Layout_Configs' ) ) {
 				 * Option: Display Post Structure
 				 */
 				$_configs[] = array(
-				   'name'     => ASTRA_THEME_SETTINGS . '[post-single-content-structure-divider]',
-				   'section'  => 'section-blog-single',
-				   'title'    => __( 'Structure', 'astra' ),
-				   'type'     => 'control',
-				   'control'  => 'ast-heading',
-				   'priority' => 5,
-				   'settings' => array(),
-				   'divider'  => array( 'ast_class' => 'ast-section-spacing ast-bottom-spacing' ),
+					'name'     => ASTRA_THEME_SETTINGS . '[post-single-content-structure-divider]',
+					'section'  => 'section-blog-single',
+					'title'    => __( 'Structure', 'astra' ),
+					'type'     => 'control',
+					'control'  => 'ast-heading',
+					'priority' => 5,
+					'settings' => array(),
+					'divider'  => array( 'ast_class' => 'ast-section-spacing ast-bottom-spacing' ),
 				);
 				$_configs[] = array(
 					'name'              => ASTRA_THEME_SETTINGS . '[blog-single-post-structure]',

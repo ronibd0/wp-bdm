@@ -1087,7 +1087,7 @@ function astra_slide_in_cart_width_responsive_slider() {
  * @return void
  */
 function astra_post_strctures_meta_migration() {
-	$theme_options                                     = get_option( 'astra-settings', array() );
+	$theme_options = get_option( 'astra-settings', array() );
 	if ( ! isset( $theme_options['dynamic-blog-layouts'] ) ) {
 		$theme_options['dynamic-blog-layouts'] = false;
 
@@ -1108,8 +1108,8 @@ function astra_post_strctures_meta_migration() {
 					}
 				}
 
-				$theme_options['ast-single-post-structure']        = $migrated_post_strcture;
-				$theme_options['dynamic-blog-layouts'] = true;
+				$theme_options['ast-single-post-structure'] = $migrated_post_strcture;
+				$theme_options['dynamic-blog-layouts']      = true;
 			}
 		}
 
@@ -1146,10 +1146,13 @@ function astra_post_strctures_meta_migration() {
 					$migrated_post_metadata[] = 'comments';
 				}
 
-				$theme_options['ast-single-post-metadata']         = $migrated_post_metadata;
-				$theme_options['dynamic-blog-layouts'] = true;
+				$theme_options['ast-single-post-metadata'] = $migrated_post_metadata;
+				$theme_options['dynamic-blog-layouts']     = true;
 			}
 		}
+
+		// Archive layout compatibilities.
+		$theme_options['ast-archive-post-title'] = true;
 
 		update_option( 'astra-settings', $theme_options );
 	}

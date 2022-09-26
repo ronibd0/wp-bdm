@@ -67,16 +67,24 @@ class Astra_Posts_Strctures_Markup {
 		$post_type = $post->post_type;
 		$type      = is_single() ? 'single' : 'archive';
 
-		$supported_post_types   = Astra_Posts_Strctures_Loader::get_supported_post_types();
-		if( ! in_array( $post_type, $supported_post_types ) ) {
-			return;
-		}
-
-		if ( false === astra_get_option( 'ast-' . $type . '-' . $post_type . '-title', false ) ) {
+		$supported_post_types = Astra_Posts_Strctures_Loader::get_supported_post_types();
+		if ( ! in_array( $post_type, $supported_post_types ) ) {
 			return;
 		}
 
 		$layout_type = ( 'single' === $type ) ? astra_get_option( 'ast-dynamic-single-title-' . $post_type . '-layout', 'layout-1' ) : astra_get_option( 'ast-dynamic-archive-title-' . $post_type . '-layout', 'default' );
+
+		if ( 'single' === $type ) {
+			if ( false === astra_get_option( 'ast-single-' . $post_type . '-title', false ) ) {
+				add_filter( 'astra_display_single_layout1_header_banner', '__return_false' );
+				return;
+			}
+		} else {
+			if ( false === astra_get_option( 'ast-archive-' . $post_type . '-title', false ) ) {
+				add_filter( 'astra_the_title_enabled', '__return_false' );
+				return;
+			}
+		}
 
 		if ( 'single' === $type && 'layout-2' === $layout_type ) {
 
@@ -101,32 +109,30 @@ class Astra_Posts_Strctures_Markup {
 			}
 		} elseif ( class_exists( 'WooCommerce' ) && ( is_shop() || is_product_taxonomy() ) ) {
 
-			if ( 'layout-1' === astra_get_option( 'ast-archive-product-layout' ) || 'layout-2' === astra_get_option( 'ast-archive-product-layout' ) ) {
+			add_filter( 'woocommerce_show_page_title', '__return_false' );
 
-				add_filter( 'woocommerce_show_page_title', '__return_false' );
+			remove_action(
+				'woocommerce_before_main_content',
+				'woocommerce_breadcrumb',
+				20
+			);
 
-				remove_action(
-					'woocommerce_before_main_content',
-					'woocommerce_breadcrumb',
-					20
-				);
+			remove_action(
+				'woocommerce_archive_description',
+				'woocommerce_taxonomy_archive_description'
+			);
 
-				remove_action(
-					'woocommerce_archive_description',
-					'woocommerce_taxonomy_archive_description'
-				);
+			remove_action(
+				'woocommerce_archive_description',
+				'woocommerce_product_archive_description'
+			);
 
-				remove_action(
-					'woocommerce_archive_description',
-					'woocommerce_product_archive_description'
-				);
+			do_action( 'astra_before_archive_' . $post_type . '_banner_content' );
 
-				do_action( 'astra_before_archive_' . $post_type . '_banner_content' );
+			get_template_part( 'template-parts/archive-banner' );
 
-				get_template_part( 'template-parts/archive-banner' );
+			do_action( 'astra_after_archive_' . $post_type . '_banner_content' );
 
-				do_action( 'astra_after_archive_' . $post_type . '_banner_content' );
-			}
 		} elseif ( 'archive' === $type ) {
 
 			do_action( 'astra_before_archive_' . $post_type . '_banner_content' );

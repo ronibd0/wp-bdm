@@ -29,11 +29,14 @@ function astra_post_archive_strcture_dynamic_css( $dynamic_css, $dynamic_css_fil
 	$current_post_type    = get_post_type();
 	$supported_post_types = Astra_Posts_Strctures_Loader::get_supported_post_types();
 
-	if( ! in_array( $current_post_type, $supported_post_types ) ) {
+	if ( ! in_array( $current_post_type, $supported_post_types ) ) {
+		return $dynamic_css;
+	}
+	if ( false === astra_get_option( 'ast-archive-' . $current_post_type . '-title', false ) ) {
 		return $dynamic_css;
 	}
 
-	$layout   = astra_get_option( 'ast-dynamic-archive-title-' . $current_post_type . '-layout', 'layout-1' );
+	$layout          = astra_get_option( 'ast-dynamic-archive-title-' . $current_post_type . '-layout', 'layout-1' );
 	$layout_2_active = ( 'layout-2' === $layout ) ? true : false;
 
 	$selector = '.ast-archive-entry-banner[data-post-type="' . $current_post_type . '"]';
@@ -53,10 +56,10 @@ function astra_post_archive_strcture_dynamic_css( $dynamic_css, $dynamic_css_fil
 	$banner_padding = astra_get_option( 'ast-dynamic-archive-title-' . $current_post_type . '-banner-padding' );
 	$banner_margin  = astra_get_option( 'ast-dynamic-archive-title-' . $current_post_type . '-banner-margin' );
 
-	$banner_height    = astra_get_option( 'ast-dynamic-archive-title-' . $current_post_type . '-banner-height' );
+	$banner_height      = astra_get_option( 'ast-dynamic-archive-title-' . $current_post_type . '-banner-height' );
 	$desk_banner_height = ( $layout_2_active && isset( $banner_height['desktop'] ) ) ? astra_get_css_value( $banner_height['desktop'], 'px' ) : '';
-	$tab_banner_height   = ( $layout_2_active && isset( $banner_height['tablet'] ) ) ? astra_get_css_value( $banner_height['tablet'], 'px' ) : '';
-	$mob_banner_height   = ( $layout_2_active && isset( $banner_height['mobile'] ) ) ? astra_get_css_value( $banner_height['mobile'], 'px' ) : '';
+	$tab_banner_height  = ( $layout_2_active && isset( $banner_height['tablet'] ) ) ? astra_get_css_value( $banner_height['tablet'], 'px' ) : '';
+	$mob_banner_height  = ( $layout_2_active && isset( $banner_height['mobile'] ) ) ? astra_get_css_value( $banner_height['mobile'], 'px' ) : '';
 
 	$text_color       = astra_get_option( 'ast-dynamic-archive-title-' . $current_post_type . '-banner-text-color' );
 	$title_color      = astra_get_option( 'ast-dynamic-archive-title-' . $current_post_type . '-banner-title-color' );
@@ -132,7 +135,7 @@ function astra_post_archive_strcture_dynamic_css( $dynamic_css, $dynamic_css_fil
 	$css_output_tablet = array(
 		$selector         => array(
 			'text-align'     => $tab_h_alignment,
-			'min-height'      => $tab_banner_height,
+			'min-height'     => $tab_banner_height,
 			'padding-top'    => $layout_2_active ? astra_responsive_spacing( $banner_padding, 'top', 'tablet' ) : '',
 			'padding-right'  => $layout_2_active ? astra_responsive_spacing( $banner_padding, 'right', 'tablet' ) : '',
 			'padding-bottom' => $layout_2_active ? astra_responsive_spacing( $banner_padding, 'bottom', 'tablet' ) : '',
@@ -156,7 +159,7 @@ function astra_post_archive_strcture_dynamic_css( $dynamic_css, $dynamic_css_fil
 	$css_output_mobile = array(
 		$selector         => array(
 			'text-align'     => $mob_h_alignment,
-			'min-height'      => $mob_banner_height,
+			'min-height'     => $mob_banner_height,
 			'padding-top'    => $layout_2_active ? astra_responsive_spacing( $banner_padding, 'top', 'mobile' ) : '',
 			'padding-right'  => $layout_2_active ? astra_responsive_spacing( $banner_padding, 'right', 'mobile' ) : '',
 			'padding-bottom' => $layout_2_active ? astra_responsive_spacing( $banner_padding, 'bottom', 'mobile' ) : '',
@@ -181,6 +184,7 @@ function astra_post_archive_strcture_dynamic_css( $dynamic_css, $dynamic_css_fil
 	if ( ( 'layout-1' === $layout ) ) {
 		$site_content_width                           = astra_get_option( 'site-content-width', 1200 );
 		$css_output_desktop[ $selector ]['max-width'] = $site_content_width . 'px';
+		$css_output_desktop[ $selector ]['margin']    = '0 auto';
 		$css_output_desktop[ $selector ]['width']     = '100%';
 	}
 
@@ -200,7 +204,7 @@ function astra_post_archive_strcture_dynamic_css( $dynamic_css, $dynamic_css_fil
 				global $wp_query;
 				$taxonomy = $wp_query->get_queried_object();
 				if ( ! empty( $taxonomy->term_id ) ) {
-					$thumbnail_id = get_term_meta( $taxonomy->term_id, 'thumbnail_id', true );
+					$thumbnail_id   = get_term_meta( $taxonomy->term_id, 'thumbnail_id', true );
 					$feat_image_src = wp_get_attachment_url( $thumbnail_id );
 					$css_output_desktop[ $selector . '[data-banner-background-type="featured"]' ] = array(
 						'background'            => 'url( ' . esc_url( $feat_image_src ) . ' )',
@@ -219,7 +223,7 @@ function astra_post_archive_strcture_dynamic_css( $dynamic_css, $dynamic_css_fil
 		}
 	}
 
-	$dynamic_css      .= '
+	$dynamic_css .= '
 		.ast-archive-entry-banner {
 			-js-display: flex;
 			display: flex;

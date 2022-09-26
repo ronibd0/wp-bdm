@@ -923,7 +923,7 @@ if ( ! function_exists( 'astra_get_the_title' ) ) {
  * @return boolean false if it is an existing user , true if not.
  */
 function astra_use_dynamic_blog_layouts() {
-	$astra_settings                               = get_option( ASTRA_THEME_SETTINGS );
+	$astra_settings                         = get_option( ASTRA_THEME_SETTINGS );
 	$astra_settings['dynamic-blog-layouts'] = isset( $astra_settings['dynamic-blog-layouts'] ) ? false : true;
 	return apply_filters( 'astra_get_option_dynamic-blog-layouts', $astra_settings['dynamic-blog-layouts'] );
 }

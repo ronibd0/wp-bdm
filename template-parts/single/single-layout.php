@@ -15,7 +15,7 @@
 
 	<?php astra_single_header_before(); ?>
 
-	<?php if( apply_filters( 'astra_display_single_layout1_header_banner', true ) ) { ?>
+	<?php if ( apply_filters( 'astra_display_single_layout1_header_banner', true ) ) { ?>
 
 		<header class="entry-header <?php astra_entry_header_class(); ?>">
 

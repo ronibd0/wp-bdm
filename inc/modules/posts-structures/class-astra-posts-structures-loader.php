@@ -222,7 +222,7 @@ class Astra_Posts_Strctures_Loader {
 			'astra-post-strctures-customizer-preview',
 			'AstraPostStrcturesData',
 			array(
-				'post_types' => self::get_supported_post_types(),
+				'post_types'         => self::get_supported_post_types(),
 				'tablet_break_point' => astra_get_tablet_breakpoint(),
 				'mobile_break_point' => astra_get_mobile_breakpoint(),
 			)
@@ -231,6 +231,7 @@ class Astra_Posts_Strctures_Loader {
 
 	/**
 	 * Get customizer dynamic default.
+	 *
 	 * @param string $key Retrieve default for this parameter.
 	 *
 	 * @since x.x.x

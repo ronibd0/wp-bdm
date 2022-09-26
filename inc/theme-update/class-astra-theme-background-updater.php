@@ -144,7 +144,7 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 				'astra_slide_in_cart_width_responsive_slider',
 			),
 			'4.0.0' => array(
-				'astra_post_strctures_meta_migration'
+				'astra_post_strctures_meta_migration',
 			),
 		);
 
