@@ -146,13 +146,13 @@ const ItemComponent = props => {
 												value={ selectedImage }
 												render={ ( { open } ) => (
 													<>
-														<Button className="ast-media-btn" onClick={ open }>{selectedImage ? __( 'Replace Image', 'astra' ) : __( 'Select Image', 'astra ) }</Button>
+														<Button className="ast-media-btn" onClick={ open }>{selectedImage ? __( 'Replace Image', 'astra' ) : __( 'Select Image', 'astra' ) }</Button>
 														{ selectedImage && <Button className="ast-media-btn ast-danger-btn" 
 														onClick={ () =>  {
 																setSelectedImage( '' ); 
 																props.onChangeImage( '' , props.index);
 														} }
-														> { __( 'Remove Image', 'astra ) } </Button> }
+														> { __( 'Remove Image', 'astra' ) } </Button> }
 													</>
 												) }	
 											/>
