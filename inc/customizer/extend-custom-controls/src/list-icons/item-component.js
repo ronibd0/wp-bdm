@@ -152,7 +152,7 @@ const ItemComponent = props => {
 																setSelectedImage( '' ); 
 																props.onChangeImage( '' , props.index);
 														} }
-														> { __( 'Remove Image' ) } </Button> }
+														> { __( 'Remove Image', 'astra ) } </Button> }
 													</>
 												) }	
 											/>
