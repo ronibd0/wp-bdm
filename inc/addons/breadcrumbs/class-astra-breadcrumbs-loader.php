@@ -70,6 +70,8 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Loader' ) ) {
 		 */
 		public function theme_defaults( $defaults ) {
 
+			$astra_options = Astra_Theme_Options::get_astra_options();
+
 			/**
 			 * Breadcrumb Typography
 			 */
@@ -148,6 +150,14 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Loader' ) ) {
 				'tablet-unit'  => 'px',
 				'mobile-unit'  => 'px',
 			);
+			$defaults['breadcrumb-font-extras']    = array(
+				'line-height'         => ! isset( $astra_options['breadcrumb-font-extras'] ) && isset( $astra_options['breadcrumb-line-height'] ) ? $astra_options['breadcrumb-line-height'] : '',
+				'line-height-unit'    => 'em',
+				'letter-spacing'      => '',
+				'letter-spacing-unit' => 'px',
+				'text-transform'      => ! isset( $astra_options['breadcrumb-font-extras'] ) && isset( $astra_options['breadcrumb-text-transform'] ) ? $astra_options['breadcrumb-text-transform'] : '',
+				'text-decoration'     => '',
+			);
 
 			/**
 			 * Breadcrumb Separator defaults
@@ -155,7 +165,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Loader' ) ) {
 
 			$defaults['breadcrumb-separator-selector'] = '\003E';
 			$defaults['breadcrumb-separator']          = '\00bb';
-			
+
 			return $defaults;
 		}
 

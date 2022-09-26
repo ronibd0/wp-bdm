@@ -231,7 +231,7 @@ class Astra_Button_Component_Configs {
 					'title'      => __( 'Hover', 'astra' ),
 				),
 
-				
+
 				array(
 					'name'       => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-' . $_prefix . '-builder-button-border-colors-group]',
 					'type'       => 'control',
@@ -475,6 +475,21 @@ class Astra_Button_Component_Configs {
 						'step' => 1,
 						'max'  => 100,
 					),
+				),
+
+				/**
+				* Option: Primary Footer Button Font Extras
+				*/
+				array(
+					'name'     => $builder_type . '-' . $_prefix . '-font-extras',
+					'parent'   => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-' . $_prefix . '-text-typography]',
+					'section'  => $_section,
+					'type'     => 'sub-control',
+					'control'  => 'ast-font-height',
+					'priority' => 5,
+					'default'  => astra_get_option( 'breadcrumb-font-extras' ),
+					'context'  => Astra_Builder_Helper::$general_tab,
+					'title'    => __( 'Line Height', 'astra' ),
 				),
 			);
 

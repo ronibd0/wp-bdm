@@ -635,6 +635,21 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					),
 
 					/**
+					 * Option: Primary Menu Font Extras
+					 */
+					array(
+						'name'     => 'header-' . $_prefix . '-font-extras',
+						'parent'   => ASTRA_THEME_SETTINGS . '[header-' . $_prefix . '-header-menu-typography]',
+						'section'  => $_section,
+						'type'     => 'sub-control',
+						'control'  => 'ast-font-height',
+						'priority' => 26,
+						'default'  => astra_get_option( 'breadcrumb-font-extras' ),
+						'title'    => __( 'Line Height', 'astra' ),
+					),
+
+
+					/**
 							 * Option: Spacing Divider
 							 */
 							array(

@@ -174,6 +174,20 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Typo_Configs' ) ) {
 					),
 				),
 
+				/**
+				 * Option: Breadcrumb Content Font Extras
+				 */
+				array(
+					'name'     => 'breadcrumb-font-extras',
+					'type'     => 'sub-control',
+					'parent'   => ASTRA_THEME_SETTINGS . '[section-breadcrumb-typo]',
+					'control'  => 'ast-font-height',
+					'section'  => 'section-breadcrumb',
+					'priority' => 25,
+					'default'  => astra_get_option( 'breadcrumb-font-extras' ),
+					'title'    => __( 'Line Height', 'astra' ),
+				),
+
 			);
 
 			return array_merge( $configurations, $_configs );
