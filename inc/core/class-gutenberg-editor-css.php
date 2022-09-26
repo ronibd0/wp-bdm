@@ -394,6 +394,8 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 					'padding-bottom' => astra_responsive_spacing( $theme_btn_padding, 'bottom', 'desktop' ),
 					'padding-left'   => astra_responsive_spacing( $theme_btn_padding, 'left', 'desktop' ),
 				),
+
+				// Margin bottom same as applied on frontend.
 				'.editor-styles-wrapper .is-root-container.block-editor-block-list__layout > .wp-block-heading' => array(
 					'margin-bottom' => '20px',
 				),
