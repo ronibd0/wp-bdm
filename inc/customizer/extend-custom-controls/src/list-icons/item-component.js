@@ -146,7 +146,7 @@ const ItemComponent = props => {
 												value={ selectedImage }
 												render={ ( { open } ) => (
 													<>
-														<Button className="ast-media-btn" onClick={ open }>{selectedImage ? __( 'Replace Image' ) : __( 'Select Image' ) }</Button>
+														<Button className="ast-media-btn" onClick={ open }>{selectedImage ? __( 'Replace Image', 'astra' ) : __( 'Select Image', 'astra ) }</Button>
 														{ selectedImage && <Button className="ast-media-btn ast-danger-btn" 
 														onClick={ () =>  {
 																setSelectedImage( '' ); 
