@@ -1378,6 +1378,8 @@ function astra_prepare_html_defaults( $defaults, $index ) {
  */
 function astra_prepare_social_icon_defaults( $defaults, $index ) {
 
+	$astra_options = Astra_Theme_Options::get_astra_options();
+
 	$defaults[ 'header-social-' . $index . '-space' ]          = array(
 		'desktop' => '',
 		'tablet'  => '',
@@ -1390,6 +1392,29 @@ function astra_prepare_social_icon_defaults( $defaults, $index ) {
 		'mobile'  => '',
 	);
 	$defaults[ 'header-social-' . $index . '-radius' ]         = '';
+	$defaults[ 'header-social-' . $index . '-radius-fields' ]  = array(
+		'desktop'      => array(
+			'top'    => ! isset( $astra_options[ 'header-social-' . $index . '-radius' ] ) ? '' : $astra_options[ 'header-social-' . $index . '-radius' ],
+			'right'  => ! isset( $astra_options[ 'header-social-' . $index . '-radius' ] ) ? '' : $astra_options[ 'header-social-' . $index . '-radius' ],
+			'bottom' => ! isset( $astra_options[ 'header-social-' . $index . '-radius' ] ) ? '' : $astra_options[ 'header-social-' . $index . '-radius' ],
+			'left'   => ! isset( $astra_options[ 'header-social-' . $index . '-radius' ] ) ? '' : $astra_options[ 'header-social-' . $index . '-radius' ],
+		),
+		'tablet'       => array(
+			'top'    => ! isset( $astra_options[ 'header-social-' . $index . '-radius' ] ) ? '' : $astra_options[ 'header-social-' . $index . '-radius' ],
+			'right'  => ! isset( $astra_options[ 'header-social-' . $index . '-radius' ] ) ? '' : $astra_options[ 'header-social-' . $index . '-radius' ],
+			'bottom' => ! isset( $astra_options[ 'header-social-' . $index . '-radius' ] ) ? '' : $astra_options[ 'header-social-' . $index . '-radius' ],
+			'left'   => ! isset( $astra_options[ 'header-social-' . $index . '-radius' ] ) ? '' : $astra_options[ 'header-social-' . $index . '-radius' ],
+		),
+		'mobile'       => array(
+			'top'    => ! isset( $astra_options[ 'header-social-' . $index . '-radius' ] ) ? '' : $astra_options[ 'header-social-' . $index . '-radius' ],
+			'right'  => ! isset( $astra_options[ 'header-social-' . $index . '-radius' ] ) ? '' : $astra_options[ 'header-social-' . $index . '-radius' ],
+			'bottom' => ! isset( $astra_options[ 'header-social-' . $index . '-radius' ] ) ? '' : $astra_options[ 'header-social-' . $index . '-radius' ],
+			'left'   => ! isset( $astra_options[ 'header-social-' . $index . '-radius' ] ) ? '' : $astra_options[ 'header-social-' . $index . '-radius' ],
+		),
+		'desktop-unit' => 'px',
+		'tablet-unit'  => 'px',
+		'mobile-unit'  => 'px',
+	);
 	$defaults[ 'header-social-' . $index . '-color' ]          = '';
 	$defaults[ 'header-social-' . $index . '-h-color' ]        = '';
 	$defaults[ 'header-social-' . $index . '-bg-color' ]       = '';

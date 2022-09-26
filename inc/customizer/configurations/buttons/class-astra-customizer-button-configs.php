@@ -444,27 +444,6 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 				),
 
 				/**
-				 * Option: Global Button Radius
-				 */
-				array(
-					'name'        => ASTRA_THEME_SETTINGS . '[button-radius]',
-					'default'     => astra_get_option( 'button-radius' ),
-					'type'        => 'control',
-					'transport'   => 'postMessage',
-					'section'     => 'section-buttons',
-					'control'     => 'ast-slider',
-					'priority'    => 19,
-					'suffix'      => 'px',
-					'title'       => __( 'Border Radius', 'astra' ),
-					'input_attrs' => array(
-						'min'  => 0,
-						'step' => 1,
-						'max'  => 200,
-					),
-					'divider'     => array( 'ast_class' => 'ast-top-dotted-divider' ),
-				),
-
-				/**
 				 * Option: Global Button Radius Fields
 				 */
 				array(
