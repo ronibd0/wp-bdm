@@ -399,9 +399,6 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 				'.editor-styles-wrapper .is-root-container.block-editor-block-list__layout > .wp-block-heading' => array(
 					'margin-bottom' => '20px',
 				),
-				'.editor-styles-wrapper .is-root-container.block-editor-block-list__layout :nth-last-child(2)' => array(
-					'margin-bottom' => '0',
-				),
 			);
 
 			if ( false === $improve_gb_ui ) {
