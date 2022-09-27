@@ -235,7 +235,7 @@ function astra_hb_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 				'margin-right'  => astra_responsive_spacing( $margin, 'right', 'tablet' ),
 			),
 			$selector . ' .main-header-menu > .menu-item > .sub-menu, ' . $selector . ' .main-header-menu > .menu-item > .astra-full-megamenu-wrapper' => array(
-				'margin-top' => astra_get_css_value( '0', 'px' ),
+				'margin-top' => '0',
 			),
 		);
 
@@ -284,7 +284,7 @@ function astra_hb_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 				'margin-right'  => astra_responsive_spacing( $margin, 'right', 'mobile' ),
 			),
 			$selector . ' .main-header-menu > .menu-item > .sub-menu, ' . $selector . ' .main-header-menu > .menu-item > .astra-full-megamenu-wrapper' => array(
-				'margin-top' => astra_get_css_value( '0', 'px' ),
+				'margin-top' => '0',
 			),
 		);
 
