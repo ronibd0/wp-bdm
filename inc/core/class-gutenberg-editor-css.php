@@ -370,7 +370,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 
 				/* Seperator block default width */
 				'.wp-block-separator:not(.is-style-wide):not(.is-style-dots)' => array(
-					'width' => '100px !important'
+					'width' => '100px !important',
 				),
 				/**
 				 * WooCommerce Grid Products compatibility.
