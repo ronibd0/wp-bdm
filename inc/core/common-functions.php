@@ -1272,8 +1272,8 @@ if ( ! function_exists( 'astra_responsive_spacing' ) ) {
 /**
  * Get the tablet breakpoint value.
  *
- * @param string $min min.
- * @param string $max max.
+ * @param mixed $min min.
+ * @param mixed $max max.
  *
  * @since 2.4.0
  *
@@ -1602,7 +1602,7 @@ function astra_check_is_structural_setup() {
 /**
  * Check if user is old for hiding/showing password icon field for login my-account form.
  *
- * @since x.x.x
+ * @since 3.9.2
  * @return bool true|false.
  */
 function astra_load_woocommerce_login_form_password_icon() {
