@@ -522,18 +522,6 @@ h6{
 	padding-left: 5px;
 }
 
-// Seperator block default.
-.edit-post-visual-editor .wp-block-separator {
-	height: 0;
-	&:not(.is-style-wide) {
-		margin-left: auto;
-		margin-right: auto;
-		&:not(.is-style-dots) {
-			width: 100px;
-		}
-	}
-}
-
 // Overriding padding which is inherited from wp-includes > block > heading > style.css
 h1.wp-block.has-background,
 h2.wp-block.has-background,

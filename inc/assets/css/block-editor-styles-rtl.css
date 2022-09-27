@@ -751,19 +751,6 @@ h6 {
   padding-right: 5px;
 }
 
-.edit-post-visual-editor .wp-block-separator {
-  height: 0;
-}
-
-.edit-post-visual-editor .wp-block-separator:not(.is-style-wide) {
-  margin-right: auto;
-  margin-left: auto;
-}
-
-.edit-post-visual-editor .wp-block-separator:not(.is-style-wide):not(.is-style-dots) {
-  width: 100px;
-}
-
 h1.wp-block.has-background,
 h2.wp-block.has-background,
 h3.wp-block.has-background,
