@@ -318,9 +318,12 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 						<?php echo esc_html__( 'Access powerful features for painless WordPress design without the high costs.', 'astra-addon' ); ?>
 					<p>
 					</p>
-						<?php echo esc_html__( 'Powerful tools, premium support, limitless opportunity with Astra Pro! ', 'astra-addon' ); ?>
+						<?php echo esc_html__( 'Powerful tools, premium support, limitless opportunity with Astra Pro!', 'astra-addon' ); ?>
+					<p>
+					</p>
+						<?php echo esc_html__( 'Toggle upgrade notices on or off ', 'astra-addon' ); ?>
 						<a href="#" class="ast-disable-notices" data-value="<?php echo $status ? 0 : 1; ?>" target="_blank" rel="noopener">
-							<?php echo __( 'Toggle Notices.', 'astra' ); ?>
+							<?php echo __( 'here.', 'astra' ); ?>
 						</a>
 					<p>
 					<label for="astra_upgrade_pro_postbox">
