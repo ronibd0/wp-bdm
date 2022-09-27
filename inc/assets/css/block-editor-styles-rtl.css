@@ -751,16 +751,16 @@ h6 {
   padding-right: 5px;
 }
 
-.wp-block-separator {
+.edit-post-visual-editor .wp-block-separator {
   height: 0;
 }
 
-.wp-block-separator:not(.is-style-wide) {
+.edit-post-visual-editor .wp-block-separator:not(.is-style-wide) {
   margin-right: auto;
   margin-left: auto;
 }
 
-.wp-block-separator:not(.is-style-wide):not(.is-style-dots) {
+.edit-post-visual-editor .wp-block-separator:not(.is-style-wide):not(.is-style-dots) {
   width: 100px;
 }
 
