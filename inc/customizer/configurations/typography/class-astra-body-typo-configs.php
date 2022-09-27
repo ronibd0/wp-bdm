@@ -179,7 +179,7 @@ if ( ! class_exists( 'Astra_Body_Typo_Configs' ) ) {
 					'section'  => $typo_section,
 					'priority' => 25,
 					'default'  => astra_get_option( 'body-font-extras' ),
-					'title'    => __( 'Line Height', 'astra' ),
+					'title'    => __( 'Font Extras', 'astra' ),
 				),
 
 				/**

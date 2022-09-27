@@ -489,7 +489,7 @@ class Astra_Button_Component_Configs {
 					'priority' => 5,
 					'default'  => astra_get_option( 'breadcrumb-font-extras' ),
 					'context'  => Astra_Builder_Helper::$general_tab,
-					'title'    => __( 'Line Height', 'astra' ),
+					'title'    => __( 'Font Extras', 'astra' ),
 				),
 			);
 

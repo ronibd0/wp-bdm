@@ -645,7 +645,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'control'  => 'ast-font-height',
 						'priority' => 26,
 						'default'  => astra_get_option( 'breadcrumb-font-extras' ),
-						'title'    => __( 'Line Height', 'astra' ),
+						'title'    => __( 'Font Extras', 'astra' ),
 					),
 
 
