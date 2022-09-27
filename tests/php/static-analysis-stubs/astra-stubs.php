@@ -1078,8 +1078,11 @@ namespace {
         }
         /**
          * Prepare Edit icon inside customizer.
+         *
+         * @param string $class custom class.
+         * @since x.x.x
          */
-        public static function render_customizer_edit_button()
+        public static function render_customizer_edit_button($class = '')
         {
         }
         /**
@@ -6514,7 +6517,7 @@ namespace {
          * Page title
          *
          * @since 1.0
-         * @var array $page_title
+         * @var string $page_title
          */
         public static $page_title = 'Astra';
         /**
@@ -6565,6 +6568,37 @@ namespace {
         {
         }
         /**
+         * Register Custom Layout & Page Header Pro sub-menus.
+         *
+         * Add new admin pages as sub-menu under the main Astra Options menu.
+         *
+         * Fired by `admin_menu` action.
+         *
+         * @since x.x.x
+         * @access public
+         */
+        public static function register_pro_menu()
+        {
+        }
+        /**
+         * Showcase Custom Layout highlight.
+         *
+         * @since x.x.x
+         * @access public
+         */
+        public static function preview_custom_layout()
+        {
+        }
+        /**
+         * Showcase Page Header highlight.
+         *
+         * @since x.x.x
+         * @access public
+         */
+        public static function preview_page_header()
+        {
+        }
+        /**
          * Save All admin settings here
          */
         public static function save_settings()
@@ -6585,6 +6619,14 @@ namespace {
          * @since 1.4.0
          */
         public static function register_notices()
+        {
+        }
+        /**
+         * Upgrade to Pro notice for Astra on WooCommerce pages.
+         *
+         * @since x.x.x
+         */
+        public static function upgrade_to_pro_wc_notice()
         {
         }
         /**
@@ -11928,7 +11970,7 @@ namespace {
          *
          * @var array
          */
-        private static $db_updates = array('2.1.3' => array('astra_submenu_below_header'), '2.2.0' => array('astra_page_builder_button_color_compatibility', 'astra_vertical_horizontal_padding_migration'), '2.3.0' => array('astra_header_button_new_options'), '2.3.3' => array('astra_elementor_default_color_typo_comp'), '2.3.4' => array('astra_breadcrumb_separator_fix'), '2.4.0' => array('astra_responsive_base_background_option', 'astra_update_theme_tablet_breakpoint'), '2.4.4' => array('astra_gtn_full_wide_image_group_css'), '2.5.0' => array('astra_global_button_woo_css', 'astra_gtn_full_wide_group_cover_css'), '2.5.2' => array('astra_footer_widget_bg'), '2.6.0' => array('astra_bg_control_migration', 'astra_bg_responsive_control_migration', 'astra_gutenberg_core_blocks_design_compatibility'), '2.6.1' => array('astra_gutenberg_media_text_block_css_compatibility'), '3.0.0' => array('astra_header_builder_compatibility'), '3.0.1' => array('astra_clear_assets_cache'), '3.3.0' => array('astra_gutenberg_pattern_compatibility', 'astra_icons_svg_compatibility', 'astra_check_flex_based_css'), '3.4.0' => array('astra_update_cart_style'), '3.5.0' => array('astra_update_related_posts_grid_layout', 'astra_site_title_tagline_responsive_control_migration'), '3.6.0' => array('astra_headings_font_support', 'astra_remove_logo_max_width', 'astra_transparent_header_default_value'), '3.6.3' => array('astra_button_default_values_updated'), '3.6.4' => array('astra_update_underline_link_setting'), '3.6.5' => array('astra_support_block_editor'), '3.6.7' => array('astra_fix_footer_widget_right_margin_case', 'astra_remove_elementor_toc_margin'), '3.6.8' => array('astra_set_removal_widget_design_options_flag'), '3.6.9' => array('astra_zero_font_size_comp', 'astra_unset_builder_elements_underline', 'astra_remove_responsive_account_menu_colors_support'), '3.7.0' => array('astra_global_color_compatibility'), '3.7.4' => array('astra_improve_gutenberg_editor_ui'), '3.7.9' => array('astra_set_default_breadcrumb_separator_option', 'astra_fullwidth_layouts_apply_content_background'), '3.8.1' => array('astra_apply_modern_block_editor_ui'), '3.8.3' => array('astra_update_customizer_layout_defaults', 'astra_apply_modern_block_editor_v2_ui'), '3.9.0' => array('astra_update_single_product_breadcrumb', 'astra_display_cart_total_title_compatibility', 'astra_update_woocommerce_cart_icons', 'astra_legacy_customizer_maintenance', 'astra_apply_modern_ecommerce_setup', 'astra_responsive_shop_content_alignment'), '3.9.2' => array('astra_apply_woocommerce_show_password_icon_css', 'astra_shop_style_design_layout'));
+        private static $db_updates = array('2.1.3' => array('astra_submenu_below_header'), '2.2.0' => array('astra_page_builder_button_color_compatibility', 'astra_vertical_horizontal_padding_migration'), '2.3.0' => array('astra_header_button_new_options'), '2.3.3' => array('astra_elementor_default_color_typo_comp'), '2.3.4' => array('astra_breadcrumb_separator_fix'), '2.4.0' => array('astra_responsive_base_background_option', 'astra_update_theme_tablet_breakpoint'), '2.4.4' => array('astra_gtn_full_wide_image_group_css'), '2.5.0' => array('astra_global_button_woo_css', 'astra_gtn_full_wide_group_cover_css'), '2.5.2' => array('astra_footer_widget_bg'), '2.6.0' => array('astra_bg_control_migration', 'astra_bg_responsive_control_migration', 'astra_gutenberg_core_blocks_design_compatibility'), '2.6.1' => array('astra_gutenberg_media_text_block_css_compatibility'), '3.0.0' => array('astra_header_builder_compatibility'), '3.0.1' => array('astra_clear_assets_cache'), '3.3.0' => array('astra_gutenberg_pattern_compatibility', 'astra_icons_svg_compatibility', 'astra_check_flex_based_css'), '3.4.0' => array('astra_update_cart_style'), '3.5.0' => array('astra_update_related_posts_grid_layout', 'astra_site_title_tagline_responsive_control_migration'), '3.6.0' => array('astra_headings_font_support', 'astra_remove_logo_max_width', 'astra_transparent_header_default_value'), '3.6.3' => array('astra_button_default_values_updated'), '3.6.4' => array('astra_update_underline_link_setting'), '3.6.5' => array('astra_support_block_editor'), '3.6.7' => array('astra_fix_footer_widget_right_margin_case', 'astra_remove_elementor_toc_margin'), '3.6.8' => array('astra_set_removal_widget_design_options_flag'), '3.6.9' => array('astra_zero_font_size_comp', 'astra_unset_builder_elements_underline', 'astra_remove_responsive_account_menu_colors_support'), '3.7.0' => array('astra_global_color_compatibility'), '3.7.4' => array('astra_improve_gutenberg_editor_ui'), '3.7.9' => array('astra_set_default_breadcrumb_separator_option', 'astra_fullwidth_layouts_apply_content_background'), '3.8.1' => array('astra_apply_modern_block_editor_ui'), '3.8.3' => array('astra_update_customizer_layout_defaults', 'astra_apply_modern_block_editor_v2_ui'), '3.9.0' => array('astra_update_single_product_breadcrumb', 'astra_display_cart_total_title_compatibility', 'astra_update_woocommerce_cart_icons', 'astra_legacy_customizer_maintenance', 'astra_apply_modern_ecommerce_setup', 'astra_responsive_shop_content_alignment'), '3.9.2' => array('astra_apply_woocommerce_show_password_icon_css', 'astra_shop_style_design_layout'), '3.9.3' => array('astra_slide_in_cart_width_responsive_slider'));
         /**
          *  Constructor
          */
@@ -12346,6 +12388,7 @@ namespace {
     \define('ASTRA_THEME_SETTINGS', 'astra-settings');
     \define('ASTRA_THEME_DIR', \trailingslashit(\get_template_directory()));
     \define('ASTRA_THEME_URI', \trailingslashit(\esc_url(\get_template_directory_uri())));
+    \define('ASTRA_PRO_UPGRADE_URL', 'https://wpastra.com/pro/');
     /**
      * Minimum Version requirement of the Astra Pro addon.
      * This constant will be used to display the notice asking user to update the Astra addon to the version defined below.
@@ -15033,7 +15076,7 @@ namespace {
     /**
      * Check the Astra addon version.
      * For  major update and frequently we used version_compare, added a function for this for easy maintenance.
-     * 
+     *
      * @param string $version Astra addon version.
      * @param string $compare Compare symbols.
      * @since  3.9.2
@@ -15194,6 +15237,15 @@ namespace {
      * @since 3.5.0
      */
     function astra_search_static_css()
+    {
+    }
+    /**
+     * Showcase "Upgrade to Pro" notices for Astra & here is the filter work as central control to enable/disable those notices from customizer, meta settings, admin area, pro post types pages.
+     *
+     * @since x.x.x
+     * @return bool
+     */
+    function astra_showcase_upgrade_notices()
     {
     }
     /**
@@ -16363,6 +16415,15 @@ namespace {
      * @return void
      */
     function astra_apply_woocommerce_show_password_icon_css()
+    {
+    }
+    /**
+     * Slide In Cart compatibility for responsive width slider
+     * 
+     * @since x.x.x
+     * @return void
+     */
+    function astra_slide_in_cart_width_responsive_slider()
     {
     }
     /**

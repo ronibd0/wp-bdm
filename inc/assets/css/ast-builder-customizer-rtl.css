@@ -19,14 +19,12 @@
     background: #eeeeee;
     vertical-align: top;
     border: none;
-    border-right: 1px solid #dddddd;
     padding: 8px 12px;
     border-radius: 0;
 }
 
 #customize-control-astra-settings-builder-header, #customize-control-astra-settings-builder-footer {
     background: #eee;
-    transition: all 0.2s;
     backface-visibility: hidden;
     z-index: 10;
     height: 45px;
@@ -44,8 +42,9 @@
 }
 
 .button.ahfb-builder-hide-button.ahfb-builder-tab-toggle {
-    width: 100px;
-    text-align: center;
+	width: auto;
+	padding-left: 20px;
+	text-align: center;
 }
 
 .customize-control-ast-builder-header-control .ahfb-builder-tab-toggle:hover, .customize-control-ast-builder-header-control .ahfb-builder-section-shortcut:hover {
