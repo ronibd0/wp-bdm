@@ -46,7 +46,6 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 			$theme_color                 = astra_get_option( 'theme-color' );
 			$link_color                  = astra_get_option( 'link-color', $theme_color );
 			$heading_base_color          = astra_get_option( 'heading-base-color' );
-
 			$highlight_theme_color = astra_get_foreground_color( $theme_color );
 
 			$body_font_weight    = astra_get_option( 'body-font-weight' );
@@ -367,6 +366,13 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 					'line-height'    => esc_attr( $h6_line_height ),
 					'text-transform' => esc_attr( $h6_text_transform ),
 				),
+				'.ast-page-builder-template .edit-post-visual-editor__post-title-wrapper .editor-post-title__input' => array(
+					'margin-left' => '0 !important',
+				),
+				'.ast-page-builder-template .edit-post-visual-editor__post-title-wrapper, .ast-stacked-title-visibility .edit-post-visual-editor__post-title-wrapper' => array(
+					'padding' => '0',
+				),
+
 				/**
 				 * WooCommerce Grid Products compatibility.
 				 */
