@@ -644,25 +644,25 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'type'     => 'sub-control',
 						'control'  => 'ast-font-height',
 						'priority' => 26,
-						'default'  => astra_get_option( 'breadcrumb-font-extras' ),
+						'default'  => astra_get_option( 'header-' . $_prefix . '-font-extras' ),
 						'title'    => __( 'Font Extras', 'astra' ),
 					),
 
 
 					/**
-							 * Option: Spacing Divider
-							 */
-							array(
-								'name'     => ASTRA_THEME_SETTINGS . '[header-' . $index . '-spacing-divider]',
-								'type'     => 'control',
-								'control'  => 'ast-heading',
-								'section'  => $_section,
-								'title'    => __( 'Spacing', 'astra' ),
-								'settings' => array(),
-								'priority' => 150,
-								'context'  => Astra_Builder_Helper::$design_tab,
-								'divider'  => array( 'ast_class' => 'ast-section-spacing' ),
-							),
+					* Option: Spacing Divider
+					*/
+					array(
+						'name'     => ASTRA_THEME_SETTINGS . '[header-' . $index . '-spacing-divider]',
+						'type'     => 'control',
+						'control'  => 'ast-heading',
+						'section'  => $_section,
+						'title'    => __( 'Spacing', 'astra' ),
+						'settings' => array(),
+						'priority' => 150,
+						'context'  => Astra_Builder_Helper::$design_tab,
+						'divider'  => array( 'ast_class' => 'ast-section-spacing' ),
+					),
 
 
 					// Option - Menu Space.

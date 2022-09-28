@@ -304,7 +304,7 @@ if ( ! class_exists( 'Astra_Body_Typo_Configs' ) ) {
 					'section'  => $typo_section,
 					'priority' => 26,
 					'default'  => astra_get_option( 'headings-font-height-settings' ),
-					'title'    => __( 'Line Height', 'astra' ),
+					'title'    => __( 'Font Extras', 'astra' ),
 				),
 
 				/**

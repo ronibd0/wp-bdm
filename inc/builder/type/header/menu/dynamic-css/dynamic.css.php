@@ -81,10 +81,10 @@ function astra_hb_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 		$menu_font_family     = astra_get_option( 'header-' . $_prefix . '-font-family' );
 		$menu_font_size       = astra_get_option( 'header-' . $_prefix . '-font-size' );
 		$menu_font_weight     = astra_get_option( 'header-' . $_prefix . '-font-weight' );
-		$menu_text_transform  = astra_get_font_extras( astra_get_option( 'header-' . $_prefix . '-front-extras' ), 'text-transform' );
-		$menu_line_height     = astra_get_font_extras( astra_get_option( 'header-' . $_prefix . '-front-extras' ), 'line-height', 'line-height-unit' );
-		$menu_letter_spacing  = astra_get_font_extras( astra_get_option( 'header-' . $_prefix . '-front-extras' ), 'letter-spacing', 'letter-spacing-unit' );
-		$menu_text_decoration = astra_get_font_extras( astra_get_option( 'header-' . $_prefix . '-front-extras' ), 'text-decoration' );
+		$menu_text_transform  = astra_get_font_extras( astra_get_option( 'header-' . $_prefix . '-font-extras' ), 'text-transform' );
+		$menu_line_height     = astra_get_font_extras( astra_get_option( 'header-' . $_prefix . '-font-extras' ), 'line-height', 'line-height-unit' );
+		$menu_letter_spacing  = astra_get_font_extras( astra_get_option( 'header-' . $_prefix . '-font-extras' ), 'letter-spacing', 'letter-spacing-unit' );
+		$menu_text_decoration = astra_get_font_extras( astra_get_option( 'header-' . $_prefix . '-font-extras' ), 'text-decoration' );
 
 		$menu_font_size_desktop      = ( isset( $menu_font_size['desktop'] ) ) ? $menu_font_size['desktop'] : '';
 		$menu_font_size_tablet       = ( isset( $menu_font_size['tablet'] ) ) ? $menu_font_size['tablet'] : '';

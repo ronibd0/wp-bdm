@@ -1101,6 +1101,8 @@ function astra_prepare_divider_defaults( $defaults, $index ) {
  */
 function astra_prepare_button_defaults( $defaults, $index ) {
 
+	$astra_options = Astra_Theme_Options::get_astra_options();
+
 	$_prefix = 'button' . $index;
 
 	$defaults[ 'header-' . $_prefix . '-text' ]           = __( 'Button', 'astra' );

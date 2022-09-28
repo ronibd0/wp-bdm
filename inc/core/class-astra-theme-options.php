@@ -439,11 +439,11 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 						'text-decoration'     => '',
 					),
 					'headings-font-extras'                 => array(
-						'line-height'         => ! isset( $astra_options['body-font-extras'] ) && isset( $astra_options['headings-line-height'] ) ? $astra_options['headings-line-height'] : '',
+						'line-height'         => ! isset( $astra_options['headings-font-extras'] ) && isset( $astra_options['headings-line-height'] ) ? $astra_options['headings-line-height'] : '',
 						'line-height-unit'    => 'em',
 						'letter-spacing'      => '',
 						'letter-spacing-unit' => 'px',
-						'text-transform'      => ! isset( $astra_options['body-font-extras'] ) && isset( $astra_options['headings-text-transform'] ) ? $astra_options['headings-text-transform'] : '',
+						'text-transform'      => ! isset( $astra_options['headings-font-extras'] ) && isset( $astra_options['headings-text-transform'] ) ? $astra_options['headings-text-transform'] : '',
 						'text-decoration'     => '',
 					),
 					'para-margin-bottom'                   => '',

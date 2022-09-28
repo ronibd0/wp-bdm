@@ -512,9 +512,11 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'h1, .entry-content h1, .entry-content h1 a, h2, .entry-content h2, .entry-content h2 a, h3, .entry-content h3, .entry-content h3 a, h4, .entry-content h4, .entry-content h4 a, h5, .entry-content h5, .entry-content h5 a, h6, .entry-content h6, .entry-content h6 a, .site-title, .site-title a',
 					'h1, .entry-content h1, h2, .entry-content h2, h3, .entry-content h3, h4, .entry-content h4, h5, .entry-content h5, h6, .entry-content h6, .site-title, .site-title a'
 				)                                        => array(
-					'font-family'    => astra_get_css_value( $headings_font_family, 'font' ),
-					'font-weight'    => astra_get_css_value( $headings_font_weight, 'font' ),
-					'text-transform' => esc_attr( $headings_text_transform ),
+					'font-family'     => astra_get_css_value( $headings_font_family, 'font' ),
+					'font-weight'     => astra_get_css_value( $headings_font_weight, 'font' ),
+					'text-transform'  => esc_attr( $headings_text_transform ),
+					'text-decoration' => esc_attr( $headings_text_decoration ),
+					'letter-spacing'  => esc_attr( $headings_letter_spacing ),
 				),
 
 				'.ast-site-identity .site-title a'       => array(
