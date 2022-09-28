@@ -372,6 +372,10 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 				'.ast-page-builder-template .edit-post-visual-editor__post-title-wrapper, .ast-stacked-title-visibility .edit-post-visual-editor__post-title-wrapper' => array(
 					'padding' => '0',
 				),
+				'.ast-separate-container .edit-post-visual-editor__post-title-wrapper' => array(
+					'padding-left' => 'calc( 6.67em - 28px )',
+					'padding-right' => 'calc( 6.67em - 28px )'  
+				),
 
 				/**
 				 * WooCommerce Grid Products compatibility.
