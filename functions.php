@@ -15,10 +15,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Define Constants
  */
-define( 'ASTRA_THEME_VERSION', '3.9.2' );
+define( 'ASTRA_THEME_VERSION', '3.9.3' );
 define( 'ASTRA_THEME_SETTINGS', 'astra-settings' );
 define( 'ASTRA_THEME_DIR', trailingslashit( get_template_directory() ) );
 define( 'ASTRA_THEME_URI', trailingslashit( esc_url( get_template_directory_uri() ) ) );
+define( 'ASTRA_PRO_UPGRADE_URL', 'https://wpastra.com/pro/' );
 
 /**
  * Minimum Version requirement of the Astra Pro addon.
