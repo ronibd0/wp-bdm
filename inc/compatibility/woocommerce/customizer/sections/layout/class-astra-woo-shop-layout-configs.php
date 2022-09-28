@@ -288,7 +288,7 @@ if ( ! class_exists( 'Astra_Woo_Shop_Layout_Configs' ) ) {
 					'renderAs' => 'list',
 					'choices'  => array(
 						'two'   => array(
-							'title' => __( 'Shop design layouts', 'astra' ),
+							'title' => __( 'More shop design layouts', 'astra' ),
 						),
 						'three' => array(
 							'title' => __( 'Shop toolbar structure', 'astra' ),
