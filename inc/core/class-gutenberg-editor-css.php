@@ -372,10 +372,6 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 				'.ast-page-builder-template .edit-post-visual-editor__post-title-wrapper, .ast-stacked-title-visibility .edit-post-visual-editor__post-title-wrapper' => array(
 					'padding' => '0',
 				),
-				'.ast-separate-container .edit-post-visual-editor__post-title-wrapper' => array(
-					'padding-left' => 'calc( 6.67em - 28px )',
-					'padding-right' => 'calc( 6.67em - 28px )'  
-				),
 
 				/**
 				 * WooCommerce Grid Products compatibility.
@@ -1172,6 +1168,10 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 				'.ast-separate-container .block-editor-block-list__layout .block-editor-block-list__block[data-align="full"], .ast-separate-container .block-editor-block-list__layout .editor-block-list__block[data-align="full"] > .block-editor-block-list__block-edit, .ast-two-container .block-editor-block-list__layout .editor-block-list__block[data-align="full"], .ast-two-container .block-editor-block-list__layout .editor-block-list__block[data-align="full"] > .block-editor-block-list__block-edit' => array(
 					'margin-left'  => '0',
 					'margin-right' => '0',
+				),
+				'.ast-separate-container .edit-post-visual-editor__post-title-wrapper' => array(
+					'padding-left' => 'calc( 6.67em - 28px )',
+					'padding-right' => 'calc( 6.67em - 28px )'  
 				),
 			);
 
