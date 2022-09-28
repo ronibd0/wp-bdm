@@ -462,9 +462,6 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 					'padding' => '10px',
 				);
 				$desktop_css['.ast-page-builder-template .editor-styles-wrapper .block-editor-writing-flow, .ast-plain-container .editor-styles-wrapper .block-editor-writing-flow, #editor .edit-post-visual-editor'] = $background_style_data;
-				$desktop_css['.ast-page-builder-template .edit-post-visual-editor__post-title-wrapper .editor-post-title__input'] = array(
-					'margin-left' => 'auto !important',
-				);
 			}
 
 			if ( astra_wp_version_compare( '5.8', '>=' ) ) {
@@ -1103,6 +1100,9 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 					'.ast-page-builder-template .editor-block-list__block-edit .editor-block-list__block-edit' => array(
 						'padding-left'  => '0',
 						'padding-right' => '0',
+					),
+					'.ast-page-builder-template .edit-post-visual-editor__post-title-wrapper .editor-post-title__input' => array(
+						'margin-left' => 'auto !important',
 					),
 				);
 			}
