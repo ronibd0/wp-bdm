@@ -462,6 +462,9 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 					'padding' => '10px',
 				);
 				$desktop_css['.ast-page-builder-template .editor-styles-wrapper .block-editor-writing-flow, .ast-plain-container .editor-styles-wrapper .block-editor-writing-flow, #editor .edit-post-visual-editor'] = $background_style_data;
+				$desktop_css['.editor-styles-wrapper .edit-post-visual-editor__post-title-wrapper > :where(:not(.alignleft):not(.alignright)), .editor-styles-wrapper .block-editor-block-list__layout.is-root-container > :where(:not(.alignleft):not(.alignright))'] = array(
+					'margin-left' => 'auto !important',
+				);
 			}
 
 			if ( astra_wp_version_compare( '5.8', '>=' ) ) {
