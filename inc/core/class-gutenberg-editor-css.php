@@ -391,6 +391,11 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 					'line-height'    => esc_attr( $h6_line_height ),
 					'text-transform' => esc_attr( $h6_text_transform ),
 				),
+
+				/* Seperator block default width */
+				'.wp-block-separator:not(.is-style-wide):not(.is-style-dots)' => array(
+					'width' => '100px !important',
+				),
 				/**
 				 * WooCommerce Grid Products compatibility.
 				 */
