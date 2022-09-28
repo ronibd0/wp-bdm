@@ -366,6 +366,12 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 					'line-height'    => esc_attr( $h6_line_height ),
 					'text-transform' => esc_attr( $h6_text_transform ),
 				),
+				'.ast-page-builder-template .edit-post-visual-editor__post-title-wrapper .editor-post-title__input' => array(
+					'margin-left' => '0 !important',
+				),
+				'.ast-page-builder-template .edit-post-visual-editor__post-title-wrapper, .ast-stacked-title-visibility .edit-post-visual-editor__post-title-wrapper' => array(
+					'padding' => '0',
+				),
 
 				/**
 				 * WooCommerce Grid Products compatibility.
@@ -445,9 +451,6 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 					);
 					$desktop_css['.ast-separate-container .editor-post-title'] = array(
 						'margin-top' => '0',
-					);
-					$desktop_css['.ast-page-builder-template .edit-post-visual-editor__post-title-wrapper .editor-post-title__input'] = array(
-						'margin-left' => '0 !important',
 					);
 				}
 
