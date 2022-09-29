@@ -5008,19 +5008,19 @@ span.customize-control-title.ast-group-section-title {
 }
 
 .customize-control-ast-sortable .sortable .ast-sortable-item, .customize-control-ast-sortable .sortable .ast-sortable-subcontrols {
-  padding: 0 12px 0 0;
-  border: 1px solid #dddddd;
-  color: #556068;
+  padding: 1px 12px 1px 3px;
+  border: 1px solid #D1D5DB;
+  color: #334155;
   background: #ffffff;
   cursor: move;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 38px;
   margin: 0 0 10px;
-  border-radius: 3px;
+  border-radius: 4px;
 }
 .customize-control-ast-sortable .sortable .ast-sortable-subcontrols {
     border: none;
-    border-top: 1px solid #ddd;
+    border-top: 1px solid #d1d5db;
     border-radius: 0 0 3px 3px;
 }
 .customize-control-ast-sortable .sortable div:last-child {
@@ -5033,7 +5033,7 @@ span.customize-control-title.ast-group-section-title {
   font-size: 16px;
   padding: 9px;
   line-height: 20px;
-  border-right: 1px solid #ddd;
+  border-right: none;
 }
 
 .customize-control-ast-sortable .sortable div.invisible {
@@ -5065,6 +5065,9 @@ span.customize-control-title.ast-group-section-title {
 .ast-sortable-item.show:hover {
   opacity: 1;
 }
+.ast-sortable-item .dashicons-arrow-down-alt2 {
+	margin-left: -6px;
+}
 .ast-sortable-item .dashicons-admin-page, .ast-sortable-item .dashicons-arrow-down-alt2, .ast-sortable-item .dashicons-remove {
     cursor: pointer;
 }
@@ -5072,10 +5075,11 @@ span.customize-control-title.ast-group-section-title {
 	display: none;
 	padding: 12px 0;
     margin-right: -12px !important;
-    border-top: 1px solid #ddd;
+    border-top: 1px solid #d1d5db;
+	margin-left: -3px!important;
 }
 .ast-sortable-subcontrols > * {
-	padding-left: 12px;
+	padding-left: 9px;
 	padding-bottom: 12px;
 }
 .show .ast-sortable-subcontrols {
@@ -5091,7 +5095,7 @@ span.customize-control-title.ast-group-section-title {
  */
 .ast-sortable-item.show i.ast-accordion {
 	transform: rotate(-180deg);
-	border-right: none;border-left: 1px solid #ddd;
+	border-right: none;border-left: none;
 }
 .ast-sortable-subfields-wrap .customize-control-ast-list-icons .components-button {
     padding: 6px 8px;
@@ -7819,19 +7823,19 @@ span.customize-control-title.ast-group-section-title {
 }
 
 .customize-control-ast-sortable .sortable .ast-sortable-item, .customize-control-ast-sortable .sortable .ast-sortable-subcontrols {
-  padding: 0 12px 0 0;
-  border: 1px solid #dddddd;
-  color: #556068;
+  padding: 1px 12px 1px 3px;
+  border: 1px solid #D1D5DB;
+  color: #334155;
   background: #ffffff;
   cursor: move;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 38px;
   margin: 0 0 10px;
-  border-radius: 3px;
+  border-radius: 4px;
 }
 .customize-control-ast-sortable .sortable .ast-sortable-subcontrols {
     border: none;
-    border-top: 1px solid #ddd;
+    border-top: 1px solid #d1d5db;
     border-radius: 0 0 3px 3px;
 }
 .customize-control-ast-sortable .sortable div:last-child {
@@ -7844,7 +7848,7 @@ span.customize-control-title.ast-group-section-title {
   font-size: 16px;
   padding: 9px;
   line-height: 20px;
-  border-right: 1px solid #ddd;
+  border-right: none;
 }
 
 .customize-control-ast-sortable .sortable div.invisible {
@@ -7876,6 +7880,9 @@ span.customize-control-title.ast-group-section-title {
 .ast-sortable-item.show:hover {
   opacity: 1;
 }
+.ast-sortable-item .dashicons-arrow-down-alt2 {
+	margin-left: -6px;
+}
 .ast-sortable-item .dashicons-admin-page, .ast-sortable-item .dashicons-arrow-down-alt2, .ast-sortable-item .dashicons-remove {
     cursor: pointer;
 }
@@ -7883,10 +7890,11 @@ span.customize-control-title.ast-group-section-title {
 	display: none;
 	padding: 12px 0;
     margin-right: -12px !important;
-    border-top: 1px solid #ddd;
+    border-top: 1px solid #d1d5db;
+	margin-left: -3px!important;
 }
 .ast-sortable-subcontrols > * {
-	padding-left: 12px;
+	padding-left: 9px;
 	padding-bottom: 12px;
 }
 .show .ast-sortable-subcontrols {
@@ -7902,7 +7910,7 @@ span.customize-control-title.ast-group-section-title {
  */
 .ast-sortable-item.show i.ast-accordion {
 	transform: rotate(-180deg);
-	border-right: none;border-left: 1px solid #ddd;
+	border-right: none;border-left: none;
 }
 .ast-sortable-subfields-wrap .customize-control-ast-list-icons .components-button {
     padding: 6px 8px;
