@@ -1459,6 +1459,18 @@ function hasWordPressWidgetBlockEditor() {
 	// Site Title - Line Height
 	astra_css( 'astra-settings[line-height-site-title]', 'line-height', '.site-title, .site-title a' );
 
+	wp.customize( 'astra-settings[font-extras-site-title]', function( value ) {
+		value.bind( function( data ) {
+			let dynamicStyle = '';
+			let globalSelector = '.site-title, .site-title a';
+			dynamicStyle += globalSelector + ' { line-height : ' + data['line-height'] + data['line-height-unit'] + ";";
+			dynamicStyle += 'letter-spacing : ' + data['letter-spacing'] + data['letter-spacing-unit'] + ";" ;
+			dynamicStyle += 'text-decoration : ' + data['text-decoration'] + ";";
+			dynamicStyle += 'text-transform : ' + data['text-transform']  + ';}' ;
+			astra_add_dynamic_css( 'font-extras-site-title', dynamicStyle );
+		});
+	});
+
 	// Site Title - Text Transform
 	astra_css( 'astra-settings[text-transform-site-title]', 'text-transform', '.site-title, .site-title a' );
 

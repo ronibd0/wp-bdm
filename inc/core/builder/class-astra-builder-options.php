@@ -22,6 +22,8 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 
 	$palette_css_var_prefix = Astra_Global_Palette::get_css_variable_prefix();
 
+	$astra_options = Astra_Theme_Options::get_astra_options();
+
 	/**
 	 * Header Builder - Desktop Defaults.
 	 */

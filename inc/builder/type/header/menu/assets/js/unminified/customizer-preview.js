@@ -58,6 +58,17 @@
 				selector + ' .menu-item > .menu-link',
 				'px'
 			);
+			wp.customize( 'astra-settings[header-' + prefix + '-font-extras]', function( value ) {
+				value.bind( function( data ) {
+					let dynamicStyle = '';
+					let globalSelector = selector + ' .menu-item > .menu-link';
+					dynamicStyle += globalSelector + ' { line-height : ' + data['line-height'] + data['line-height-unit'] + ";";
+					dynamicStyle += 'letter-spacing : ' + data['letter-spacing'] + data['letter-spacing-unit'] + ";" ;
+					dynamicStyle += 'text-decoration : ' + data['text-decoration'] + ";";
+					dynamicStyle += 'text-transform : ' + data['text-transform']  + ';}' ;
+					astra_add_dynamic_css( 'header-' + prefix + '-font-extras' , dynamicStyle );
+				});
+			});
 
 		/**
 		 * Color CSS.
