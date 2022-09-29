@@ -465,12 +465,6 @@ class Astra_WP_Editor_CSS {
 			'.editor-styles-wrapper .wp-block-quote:not(.has-text-align-right):not(.has-text-align-center)' => array(
 				'border-' . esc_attr( $ltr_left ) => '5px solid rgba(0, 0, 0, 0.05)',
 			),
-			'.ast-page-builder-template .edit-post-visual-editor__post-title-wrapper, .ast-stacked-title-visibility .edit-post-visual-editor__post-title-wrapper' => array(
-				'padding' => '0',
-			),
-			'.ast-page-builder-template .edit-post-visual-editor__post-title-wrapper, .ast-stacked-title-visibility .edit-post-visual-editor__post-title-wrapper' => array(
-				'margin-left' => '0 !important',
-			),
 
 			// Gutenberg button compatibility for default styling.
 			'.wp-block-button .wp-block-button__link, .block-editor-writing-flow .wp-block-search .wp-block-search__inside-wrapper .wp-block-search__button, .block-editor-writing-flow .wp-block-file .wp-block-file__button' => array(
