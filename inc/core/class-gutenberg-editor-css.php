@@ -327,11 +327,12 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 				'.block-editor-block-list__block'         => array(
 					'color' => esc_attr( $text_color ),
 				),
-				'.ast-page-builder-template .edit-post-visual-editor__post-title-wrapper .editor-post-title__input' => array(
-					'margin-left' => '0 !important',
-				),
 				'.ast-page-builder-template .edit-post-visual-editor__post-title-wrapper, .ast-stacked-title-visibility .edit-post-visual-editor__post-title-wrapper' => array(
 					'padding' => '0',
+				),
+				// For Party Planner
+				'body .editor-styles-wrapper .edit-post-visual-editor__post-title-wrapper > :where(:not(.alignleft):not(.alignright)), .editor-styles-wrapper .block-editor-block-list__layout.is-root-container > :where(:not(.alignleft):not(.alignright))' => array(
+					'margin-left' => '0 !important',
 				),
 
 				/**
@@ -1215,12 +1216,12 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 					'margin-left'  => '0',
 					'margin-right' => '0',
 				),
+				/**
+				 * For other general templates
+				 */
 				'.ast-separate-container .edit-post-visual-editor__post-title-wrapper' => array(
 					'padding-left' => 'calc( 6.67em - 28px )',
 					'padding-right' => 'calc( 6.67em - 28px )'  
-				),
-				'.ast-page-builder-template .edit-post-visual-editor__post-title-wrapper .editor-post-title__input' => array(
-					'margin-left' => '0 !important',
 				),
 			);
 
