@@ -330,10 +330,6 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 				'.ast-page-builder-template .edit-post-visual-editor__post-title-wrapper, .ast-stacked-title-visibility .edit-post-visual-editor__post-title-wrapper' => array(
 					'padding' => '0',
 				),
-				// Full Width Alignment
-				'.ast-page-builder-template .editor-styles-wrapper .edit-post-visual-editor__post-title-wrapper > :where(:not(.alignleft):not(.alignright)), .editor-styles-wrapper .block-editor-block-list__layout.is-root-container > :where(:not(.alignleft):not(.alignright))' => array(
-					'margin-left' => '0 !important',
-				),
 
 				/**
 				 * Content base heading color.
@@ -466,6 +462,9 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 			}
 
 			// Full-Width/Stretched Layout.
+			$desktop_css['.ast-page-builder-template .editor-styles-wrapper .edit-post-visual-editor__post-title-wrapper > :where(:not(.alignleft):not(.alignright)), .editor-styles-wrapper .block-editor-block-list__layout.is-root-container > :where(:not(.alignleft):not(.alignright))'] = array(
+				'margin-left' => '0 !important',
+			);
 			$desktop_css['.ast-page-builder-template .edit-post-visual-editor .editor-styles-wrapper .block-editor-block-list__layout.is-root-container > :where(:not(.alignleft):not(.alignright))'] = array(
 				'margin-left' => '0 !important',
 				'margin-right' => '0 !important',
