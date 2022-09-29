@@ -330,7 +330,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 				'.ast-page-builder-template .edit-post-visual-editor__post-title-wrapper, .ast-stacked-title-visibility .edit-post-visual-editor__post-title-wrapper' => array(
 					'padding' => '0',
 				),
-				// For Party Planner
+				// Full Width Alignment
 				'.ast-page-builder-template .editor-styles-wrapper .edit-post-visual-editor__post-title-wrapper > :where(:not(.alignleft):not(.alignright)), .editor-styles-wrapper .block-editor-block-list__layout.is-root-container > :where(:not(.alignleft):not(.alignright))' => array(
 					'margin-left' => '0 !important',
 				),
@@ -464,6 +464,19 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 					'background-color' => '#ffffff',
 				);
 			}
+
+			// Full-Width/Stretched Layout.
+			$desktop_css['body .editor-styles-wrapper .block-editor-block-list__layout.is-root-container > :where(:not(.alignleft):not(.alignright))'] = array(
+				'margin-left' => '0 !important',
+				'margin-right' => '0 !important',
+			);
+			$desktop_css['.ast-page-builder-template .edit-post-visual-editor .editor-styles-wrapper'] = array(
+				'max-width' => '100%',
+				'padding-top' => '2em',
+				'padding-left' => '20px',
+				'padding-right' => '20px',
+			);
+
 			if ( astra_wp_version_compare( '5.7', '>=' ) ) {
 
 				if ( true === $improve_gb_ui ) {
@@ -488,9 +501,6 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 						'width'     => '100%',
 						'margin'    => '0 auto',
 						'padding'   => '0',
-					);
-					$desktop_css['.ast-page-builder-template .edit-post-visual-editor .editor-styles-wrapper'] = array(
-						'max-width' => '100%',
 					);
 					$desktop_css['.ast-separate-container .edit-post-visual-editor .block-editor-block-list__layout .wp-block[data-align="full"] figure.wp-block-image, .ast-separate-container .edit-post-visual-editor .wp-block[data-align="full"] .wp-block-cover'] = array(
 						'margin-left'  => 'calc(-4.8em - 10px)',
