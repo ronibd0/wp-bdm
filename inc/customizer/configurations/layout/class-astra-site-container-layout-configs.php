@@ -178,22 +178,22 @@ if ( ! class_exists( 'Astra_Site_Container_Layout_Configs' ) ) {
 						'renderAs' => 'list',
 						'choices'  => array(
 							'one'   => array(
-								'title' => __( 'Full Width Layout', 'astra' ),
+								'title' => __( 'Full Width layout', 'astra' ),
 							),
 							'two'   => array(
-								'title' => __( 'Padded Layout', 'astra' ),
+								'title' => __( 'Padded layout', 'astra' ),
 							),
 							'three' => array(
-								'title' => __( 'Fluid Layout', 'astra' ),
+								'title' => __( 'Fluid layout', 'astra' ),
 							),
 							'four'  => array(
-								'title' => __( 'Container Spacings', 'astra' ),
+								'title' => __( 'Container spacings', 'astra' ),
 							),
 						),
 						'section'  => 'section-container-layout',
 						'default'  => '',
 						'priority' => 999,
-						'title'    => __( 'With Astra Pro you will get more control on container layouts!', 'astra' ),
+						'title'    => __( 'Use containers to their maximum potential with Astra Pro', 'astra' ),
 						'divider'  => array( 'ast_class' => 'ast-top-section-divider' ),
 					),
 				);

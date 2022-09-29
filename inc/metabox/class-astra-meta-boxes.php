@@ -451,6 +451,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 		 * @return void
 		 */
 		public function load_scripts() {
+			$post_id   = get_the_ID();
 			$post_type = get_post_type();
 
 			if ( defined( 'ASTRA_ADVANCED_HOOKS_POST_TYPE' ) && ASTRA_ADVANCED_HOOKS_POST_TYPE === $post_type ) {
@@ -476,12 +477,10 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 			wp_enqueue_script( 'astra-meta-settings' );
 			$astra_ext_extension_class_exists = class_exists( 'Astra_Ext_Extension' ) ? true : false;
 
-			global $post;
-
 			$ast_content_layout_sidebar = false;
-			if ( $post ) {
+			if ( $post_id ) {
 				$page_for_posts = absint( get_option( 'page_for_posts' ) );
-				if ( $post->ID === $page_for_posts ) {
+				if ( $post_id === $page_for_posts ) {
 					$ast_content_layout_sidebar = true;
 				}
 			}
