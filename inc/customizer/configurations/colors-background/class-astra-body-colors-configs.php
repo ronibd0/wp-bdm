@@ -174,7 +174,7 @@ if ( ! class_exists( 'Astra_Body_Colors_Configs' ) ) {
 					'svg'      => 'color-upgrade-svg',
 					'default'  => '',
 					'priority' => 998,
-					'title'    => __( 'Unlock with Astra Pro', 'astra' ),
+					'title'    => __( 'Unlimited color options with Pro', 'astra' ),
 					'divider'  => array( 'ast_class' => 'ast-top-section-divider' ),
 				);
 			}

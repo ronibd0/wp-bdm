@@ -512,32 +512,32 @@ class Astra_Customizer_Header_Builder_Configs extends Astra_Customizer_Config_Ba
 				'renderAs' => 'list',
 				'choices'  => array(
 					'one'   => array(
-						'title' => __( 'Sticky Header', 'astra' ),
+						'title' => __( 'Sticky header', 'astra' ),
 					),
 					'two'   => array(
-						'title' => __( 'Divider Element', 'astra' ),
+						'title' => __( 'Divider element', 'astra' ),
 					),
 					'three' => array(
-						'title' => __( 'Language Switcher Element', 'astra' ),
+						'title' => __( 'Language Switcher element', 'astra' ),
 					),
 					'four'  => array(
-						'title' => __( 'Toggle Button Element', 'astra' ),
+						'title' => __( 'Toggle Button element', 'astra' ),
 					),
 					'five'  => array(
-						'title' => __( 'Clone, Delete Element Options', 'astra' ),
+						'title' => __( 'Clone, Delete element options', 'astra' ),
 					),
 					'six'   => array(
-						'title' => __( 'Increased Element Count', 'astra' ),
+						'title' => __( 'Increased element count', 'astra' ),
 					),
 					'seven' => array(
-						'title' => __( 'More Design Options', 'astra' ),
+						'title' => __( 'More design options', 'astra' ),
 					),
 				),
 				'section'  => 'section-header-builder-layout',
 				'default'  => '',
 				'priority' => 999,
 				'context'  => array(),
-				'title'    => __( 'With Astra Pro get more features for your site header!', 'astra' ),
+				'title'    => __( 'Make an instant connection with amazing site headers', 'astra' ),
 				'divider'  => array( 'ast_class' => 'ast-top-section-divider' ),
 			);
 		}

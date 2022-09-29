@@ -178,7 +178,7 @@ const MetaSettings = props => {
 									{modalIcon}
 								</button>
 							</h2>
-						</div> 
+						</div>
 					}
 
 					{/* Header related all settings */}
@@ -311,7 +311,7 @@ const MetaSettings = props => {
 					{ ( ! astMetaParams.is_addon_activated && astMetaParams.show_upgrade_notice ) &&
 						<div className="ast-pro-upgrade-cta-wrapper">
 							{astraLogo}
-							<p className="ast-upgrade-description"> { __( 'Build professional websites faster, easier and better than ever before!', 'astra' ) } </p>
+							<p className="ast-upgrade-description"> { __( 'Unlock your full design potential and build a website to be proud of with Astra Pro.', 'astra' ) } </p>
 							<a href={ astMetaParams.upgrade_pro_link } className='ast-pro-upgrade-link' target='_blank'> { __( 'Upgrade Now', 'astra' ) } </a>
 						</div>
 					}
