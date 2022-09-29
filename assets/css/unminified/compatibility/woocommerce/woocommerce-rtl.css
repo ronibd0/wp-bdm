@@ -1341,6 +1341,7 @@ p.demo_store[data-position="bottom"],
 .woocommerce div.product form.cart .button {
   vertical-align: middle;
   float: right;
+  margin-bottom: 1em;
 }
 
 .woocommerce div.product form.cart .button.single_add_to_cart_button {
