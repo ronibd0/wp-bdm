@@ -1033,7 +1033,7 @@ function astra_responsive_shop_content_alignment() {
 /**
  * Change default layout to standard for old users.
  *
- * @since x.x.x
+ * @since 3.9.2
  * @return void
  */
 function astra_shop_style_design_layout() {
@@ -1047,13 +1047,34 @@ function astra_shop_style_design_layout() {
 /**
  * Apply css for show password icon on woocommerce account page.
  *
- * @since x.x.x
+ * @since 3.9.2
  * @return void
  */
 function astra_apply_woocommerce_show_password_icon_css() {
 	$theme_options = get_option( 'astra-settings', array() );
 	if ( ! isset( $theme_options['woo-show-password-icon'] ) ) {
 		$theme_options['woo-show-password-icon'] = false;
+		update_option( 'astra-settings', $theme_options );
+	}
+}
+
+/**
+ * Slide In Cart compatibility for responsive width slider
+ * 
+ * @since x.x.x
+ * @return void
+ */
+function astra_slide_in_cart_width_responsive_slider() {
+	$theme_options = get_option( 'astra-settings', array() );
+	if ( isset( $theme_options['woo-desktop-cart-flyout-width'] ) && ! isset( $theme_options['woo-slide-in-cart-width'] ) ) {
+		$theme_options['woo-slide-in-cart-width'] = array(
+			'desktop'      => $theme_options['woo-desktop-cart-flyout-width'],
+			'tablet'       => '',
+			'mobile'       => '',
+			'desktop-unit' => 'px',
+			'tablet-unit'  => 'px',
+			'mobile-unit'  => 'px',
+		);
 		update_option( 'astra-settings', $theme_options );
 	}
 }
