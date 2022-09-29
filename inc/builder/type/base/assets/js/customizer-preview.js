@@ -171,6 +171,17 @@ function astra_builder_button_css( builder_type = 'header', button_count ) {
 			'px'
 		);
 
+		wp.customize( 'astra-settings[' + builder_type + '-' + prefix + '-letter-spacing]', function( value ) {
+			value.bind( function( data ) {
+				let globalSelector = button_selector + ' .ast-custom-button';
+				let dynamicStyle = globalSelector + ' { line-height : ' + data['line-height'] + data['line-height-unit'] + ";";
+				dynamicStyle += 'letter-spacing : ' + data['letter-spacing'] + data['letter-spacing-unit'] + ";" ;
+				dynamicStyle += 'text-decoration : ' + data['text-decoration'] + ";";
+				dynamicStyle += 'text-transform : ' + data['text-transform']  + ';}' ;
+				astra_add_dynamic_css( builder_type + '-' + prefix + '-letter-spacing', dynamicStyle );
+			});
+		});
+
 		// Border Radius.
 		astra_css(
 			'astra-settings[' + builder_type + '-' + prefix + '-border-radius]',

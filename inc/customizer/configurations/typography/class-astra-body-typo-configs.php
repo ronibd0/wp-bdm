@@ -125,28 +125,6 @@ if ( ! class_exists( 'Astra_Body_Typo_Configs' ) ) {
 				),
 
 				/**
-				 * Option: Body Text Transform
-				 */
-				array(
-					'name'     => 'body-text-transform',
-					'type'     => 'sub-control',
-					'parent'   => ASTRA_THEME_SETTINGS . '[ast-body-font-settings]',
-					'control'  => 'ast-select',
-					'section'  => $typo_section,
-					'default'  => astra_get_option( 'body-text-transform' ),
-					'priority' => 20,
-					'lazy'     => true,
-					'title'    => __( 'Text Transform', 'astra' ),
-					'choices'  => array(
-						''           => __( 'Default', 'astra' ),
-						'none'       => __( 'None', 'astra' ),
-						'capitalize' => __( 'Capitalize', 'astra' ),
-						'uppercase'  => __( 'Uppercase', 'astra' ),
-						'lowercase'  => __( 'Lowercase', 'astra' ),
-					),
-				),
-
-				/**
 				 * Option: Body Font Size
 				 */
 				array(
