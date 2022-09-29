@@ -468,7 +468,7 @@ class Astra_WP_Editor_CSS {
 			'.ast-page-builder-template .edit-post-visual-editor__post-title-wrapper, .ast-stacked-title-visibility .edit-post-visual-editor__post-title-wrapper' => array(
 				'padding' => '0',
 			),
-			'.edit-post-visual-editor__post-title-wrapper' => array(
+			'.ast-page-builder-template .edit-post-visual-editor__post-title-wrapper, .ast-stacked-title-visibility .edit-post-visual-editor__post-title-wrapper' => array(
 				'margin-left' => '0 !important',
 			),
 
