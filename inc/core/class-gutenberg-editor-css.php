@@ -244,6 +244,30 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 				$body_font_size_desktop = ( '' != $body_font_size ) ? $body_font_size : 15;
 			}
 
+			// Site title (Page Title) on Block Editor.
+			$site_title_font_family    = astra_get_option( 'font-family-entry-title' );
+			$site_title_font_weight    = astra_get_option( 'font-weight-entry-title' );
+			$site_title_line_height    = astra_get_option( 'line-height-entry-title' );
+			$site_title_font_size      = astra_get_option( 'font-size-entry-title' );
+			$site_title_text_transform = astra_get_option( 'text-transform-entry-title', $headings_text_transform );
+
+			// Fallback for Site title (Page Title).
+			if ( 'inherit' == $site_title_font_family ) {
+				$site_title_font_family = $headings_font_family;
+			}
+			if ( $font_weight_prop === $site_title_font_weight ) {
+				$site_title_font_weight = $headings_font_weight;
+			}
+			if ( '' == $site_title_text_transform ) {
+				$site_title_text_transform = $headings_text_transform;
+			}
+			if ( '' == $site_title_line_height ) {
+				$site_title_line_height = $headings_line_height;
+			}
+			if ( 'inherit' == $site_title_font_weight || '' == $site_title_font_weight ) {
+				$site_title_font_weight = 'normal';
+			}
+
 			// check the selection color incase of empty/no theme color.
 			$selection_text_color = ( 'transparent' === $highlight_theme_color ) ? '' : $highlight_theme_color;
 
@@ -374,6 +398,11 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 					'text-transform' => esc_attr( $h6_text_transform ),
 				),
 
+				/* Seperator block default width */
+				'.wp-block-separator:not(.is-style-wide):not(.is-style-dots)' => array(
+					'width' => '100px !important',
+				),
+
 				/**
 				 * WooCommerce Grid Products compatibility.
 				 */
@@ -400,6 +429,22 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 					'padding-right'  => astra_responsive_spacing( $theme_btn_padding, 'right', 'desktop' ),
 					'padding-bottom' => astra_responsive_spacing( $theme_btn_padding, 'bottom', 'desktop' ),
 					'padding-left'   => astra_responsive_spacing( $theme_btn_padding, 'left', 'desktop' ),
+				),
+
+				// Margin bottom same as applied on frontend.
+				'.editor-styles-wrapper .is-root-container.block-editor-block-list__layout > .wp-block-heading' => array(
+					'margin-bottom' => '20px',
+				),
+
+				/**
+				 * Site title (Page Title) on Block Editor.
+				 */
+				'body .edit-post-visual-editor__post-title-wrapper > h1:first-of-type' => array(
+					'font-size'      => astra_responsive_font( $site_title_font_size, 'desktop' ),
+					'font-weight'    => astra_get_css_value( $site_title_font_weight, 'font' ),
+					'font-family'    => astra_get_css_value( $site_title_font_family, 'font', $body_font_family ),
+					'line-height'    => esc_attr( $site_title_line_height ),
+					'text-transform' => esc_attr( $site_title_text_transform ),
 				),
 			);
 

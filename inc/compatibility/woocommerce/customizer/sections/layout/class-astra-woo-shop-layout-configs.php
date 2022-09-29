@@ -288,40 +288,40 @@ if ( ! class_exists( 'Astra_Woo_Shop_Layout_Configs' ) ) {
 					'renderAs' => 'list',
 					'choices'  => array(
 						'two'   => array(
-							'title' => __( 'Shop Design Layout 3', 'astra' ),
+							'title' => __( 'More shop design layouts', 'astra' ),
 						),
 						'three' => array(
-							'title' => __( 'Shop Toolbar Structure', 'astra' ),
+							'title' => __( 'Shop toolbar structure', 'astra' ),
 						),
 						'five'  => array(
-							'title' => __( 'Offcanvas Filter Sidebar', 'astra' ),
+							'title' => __( 'Offcanvas product filters', 'astra' ),
 						),
 						'six'   => array(
-							'title' => __( 'Products Quick View', 'astra' ),
+							'title' => __( 'Products quick view', 'astra' ),
 						),
 						'seven' => array(
-							'title' => __( 'Shop Pagination', 'astra' ),
+							'title' => __( 'Shop pagination', 'astra' ),
 						),
 						'eight' => array(
-							'title' => __( 'More Typography Options', 'astra' ),
+							'title' => __( 'More typography options', 'astra' ),
 						),
 						'nine'  => array(
-							'title' => __( 'More Color Options', 'astra' ),
+							'title' => __( 'More color options', 'astra' ),
 						),
 						'ten'   => array(
-							'title' => __( 'More Spacing Options', 'astra' ),
+							'title' => __( 'More spacing options', 'astra' ),
 						),
 						'four'  => array(
-							'title' => __( 'Box Shadow Design Options', 'astra' ),
+							'title' => __( 'Box shadow design options', 'astra' ),
 						),
 						'one'   => array(
-							'title' => __( 'More Design Controls', 'astra' ),
+							'title' => __( 'More design controls', 'astra' ),
 						),
 					),
 					'section'  => 'woocommerce_product_catalog',
 					'default'  => '',
 					'priority' => 999,
-					'title'    => __( 'With Astra Pro get more features for your Ecommerce Shop!', 'astra' ),
+					'title'    => __( 'Optimize your WooCommerce store for maximum profit with enhanced features', 'astra' ),
 					'divider'  => array( 'ast_class' => 'ast-top-section-divider' ),
 					'context'  => array(),
 				);

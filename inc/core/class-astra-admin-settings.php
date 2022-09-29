@@ -242,7 +242,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 					<div class="ast-pro-posttype-popup-innerwrap">
 						<img src="<?php echo esc_url( ASTRA_THEME_URI . 'inc/assets/images/astra-logo.svg' ); ?>"/>
 						<p><span class="ast-posttype-title"> <?php echo __( 'Custom Layouts', 'astra' ); ?> </span></p>
-						<p class="ast-posttype-description"> <?php echo __( 'With this module, you can create a totally custom header, footer, 404 pages as well as custom content or code on various hook locations.', 'astra' ); ?> </p>
+						<p class="ast-posttype-description"> <?php echo __( 'Upgrade to Astra Pro for instant access to your website\'s full potential. Create unique layouts, headers and footers, custom pages and content areas with ease!', 'astra' ); ?> </p>
 						<a href="<?php echo esc_url( ASTRA_PRO_UPGRADE_URL ); ?>" target="_blank" class="button button-primary button-hero ast-upgrade-cpt-link">
 							<?php _e( 'Upgrade Now', 'astra' ); ?>
 						</a>
@@ -286,7 +286,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 					<div class="ast-pro-posttype-popup-innerwrap">
 						<img src="<?php echo esc_url( ASTRA_THEME_URI . 'inc/assets/images/astra-logo.svg' ); ?>"/>
 						<p><span class="ast-posttype-title"> <?php echo __( 'Page Headers', 'astra' ); ?> </span></p>
-						<p class="ast-posttype-description"> <?php echo __( 'With this module, you can design attractive Page Title/ Page Header area with breadcrumbs, background color/image.', 'astra' ); ?> </p>
+						<p class="ast-posttype-description"> <?php echo __( 'Make that instant connection with engaging page headers. Unlock the full potential of pages with full control over the look and feel of your page headers!', 'astra' ); ?> </p>
 						<a href="<?php echo esc_url( ASTRA_PRO_UPGRADE_URL ); ?>" target="_blank" class="button button-primary button-hero ast-upgrade-cpt-link">
 							<?php _e( 'Upgrade Now', 'astra' ); ?>
 						</a>
@@ -311,21 +311,24 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			?>
 			<div class="postbox">
 				<h2 class="hndle ast-normal-cursor">
-					<span><?php echo esc_html( apply_filters( 'astra_upgrade_pro_postbox', __( 'Do More With Astra Pro', 'astra' ) ) ); ?></span>
+					<span><?php echo esc_html( apply_filters( 'astra_upgrade_pro_postbox', __( 'Build Better Websites with Astra Pro', 'astra' ) ) ); ?></span>
 				</h2>
 				<div class="inside">
 					</p>
-						<?php echo esc_html__( 'Get access to powerful features for painless WordPress designing, without the high costs.', 'astra-addon' ); ?>
+						<?php echo esc_html__( 'Access powerful features for painless WordPress design without the high costs.', 'astra-addon' ); ?>
 					<p>
 					</p>
-						<?php echo esc_html__( 'You can toggle visibility of upgrade notices anytime from ', 'astra-addon' ); ?>
+						<?php echo esc_html__( 'Powerful tools, premium support, limitless opportunity with Astra Pro!', 'astra-addon' ); ?>
+					<p>
+					</p>
+						<?php echo esc_html__( 'Toggle upgrade notices on or off ', 'astra-addon' ); ?>
 						<a href="#" class="ast-disable-notices" data-value="<?php echo $status ? 0 : 1; ?>" target="_blank" rel="noopener">
 							<?php echo __( 'here.', 'astra' ); ?>
 						</a>
 					<p>
 					<label for="astra_upgrade_pro_postbox">
 						<a class="button button-primary" href="<?php echo esc_url( ASTRA_PRO_UPGRADE_URL ); ?>" target="_blank" rel="noopener">
-							<?php echo esc_html__( 'Get Pro »', 'astra' ); ?>
+							<?php echo esc_html__( 'Upgrade to Astra Pro!', 'astra' ); ?>
 						</a>
 					</label>
 				</div>
@@ -458,7 +461,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 							</div>',
 						$image_path,
 						__( 'Astra Works Seamlessly with WooCommerce!', 'astra' ),
-						__( 'With Astra Pro get your store the foundation it needs to load fast, convert higher, and bring in more revenue.', 'astra' ),
+						__( 'Use every tool at your disposal to optimize your online store for conversion. All the advantages you need to make more profit!', 'astra' ),
 						esc_attr( 'button button-primary' ),
 						'href="' . ASTRA_PRO_UPGRADE_URL . '" target="_blank"',
 						__( 'Upgrade Now', 'astra' )
