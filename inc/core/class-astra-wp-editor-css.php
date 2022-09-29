@@ -493,6 +493,11 @@ class Astra_WP_Editor_CSS {
 				'background-color' => esc_attr( $btn_bg_h_color ),
 				'border-color'     => empty( $btn_border_h_color ) ? esc_attr( $btn_bg_h_color ) : esc_attr( $btn_border_h_color ),
 			),
+
+			// Margin bottom same as applied on frontend.
+			'.editor-styles-wrapper .is-root-container.block-editor-block-list__layout > .wp-block-heading' => array(
+				'margin-bottom' => '20px',
+			),
 		);
 
 		$content_links_underline = astra_get_option( 'underline-content-links' );
