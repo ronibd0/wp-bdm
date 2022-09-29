@@ -690,6 +690,35 @@ function astra_builder_visibility_css( section, selector, default_property = 'fl
     var tablet_break_point    = astraBuilderPreview.tablet_break_point || 768,
 		mobile_break_point    = astraBuilderPreview.mobile_break_point || 544;
 
+	wp.customize( 'astra-settings[' + section + '-visibility-responsive]', function( setting ) {
+		setting.bind( function( visibility ) {
+
+			let dynamicStyle = '';
+			let is_desktop = ( ! visibility['desktop'] ) ? 'none' : default_property ;
+			let is_tablet = ( ! visibility['tablet'] ) ? 'none' : default_property ;
+			let is_mobile = ( ! visibility['mobile'] ) ? 'none' : default_property ;
+
+			dynamicStyle += selector + ' {';
+			dynamicStyle += 'display: ' + is_desktop + ';';
+			dynamicStyle += '} ';
+
+			dynamicStyle +=  '@media (min-width: ' + mobile_break_point + 'px) and (max-width: ' + tablet_break_point + 'px) {';
+			dynamicStyle += '.ast-header-break-point ' + selector + ' {';
+			dynamicStyle += 'display: ' + is_tablet + ';';
+			dynamicStyle += '} ';
+			dynamicStyle += '} ';
+
+			dynamicStyle +=  '@media (max-width: ' + mobile_break_point + 'px) {';
+			dynamicStyle += '.ast-header-break-point ' + selector + ' {';
+			dynamicStyle += 'display: ' + is_mobile + ';';
+			dynamicStyle += '} ';
+			dynamicStyle += '} ';
+
+			astra_add_dynamic_css( section + '-visibility-responsive', dynamicStyle );
+		} );
+
+	} );
+
 	// Header Desktop visibility.
 	wp.customize( 'astra-settings[' + section + '-hide-desktop]', function( setting ) {
 		setting.bind( function( desktop_visible ) {

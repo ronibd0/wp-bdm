@@ -224,10 +224,15 @@ final class Astra_Builder_Base_Configuration {
 	 */
 	public static function prepare_visibility_tab( $_section, $builder_type = 'header' ) {
 
-		$configs = array(
+		$configs = array();
 
-			array(
-				'name'      => ASTRA_THEME_SETTINGS . '[' . $_section . '-copyright-responsive]',
+		if ( 'footer' === $builder_type ) {
+			/**
+			 * Option: Visibility
+			 */
+
+			$configs[] = array(
+				'name'      => ASTRA_THEME_SETTINGS . '[' . $_section . '-visibility-responsive]',
 				'default'   => astra_get_option(
 					'section-visibility-settings',
 					array(
@@ -248,54 +253,6 @@ final class Astra_Builder_Base_Configuration {
 					'tablet'  => 'customizer-tablet',
 					'mobile'  => 'customizer-mobile',
 				),
-				'divider'   => array( 'ast_class' => 'ast-top-section-divider' ),
-			),
-
-			/**
-			 * Option: Hide on tablet
-			 */
-			array(
-				'name'      => ASTRA_THEME_SETTINGS . '[' . $_section . '-hide-tablet]',
-				'type'      => 'control',
-				'control'   => 'ast-toggle-control',
-				'default'   => astra_get_option( $_section . '-hide-tablet' ),
-				'section'   => $_section,
-				'priority'  => 320,
-				'title'     => __( 'Hide on Tablet', 'astra' ),
-				'transport' => 'postMessage',
-				'context'   => Astra_Builder_Helper::$tablet_general_tab,
-			),
-
-			/**
-			 * Option: Hide on mobile
-			 */
-			array(
-				'name'      => ASTRA_THEME_SETTINGS . '[' . $_section . '-hide-mobile]',
-				'type'      => 'control',
-				'control'   => 'ast-toggle-control',
-				'default'   => astra_get_option( $_section . '-hide-mobile' ),
-				'section'   => $_section,
-				'priority'  => 330,
-				'title'     => __( 'Hide on Mobile', 'astra' ),
-				'transport' => 'postMessage',
-				'context'   => Astra_Builder_Helper::$mobile_general_tab,
-			),
-		);
-
-		if ( 'footer' === $builder_type ) {
-			/**
-			 * Option: Hide on desktop
-			 */
-			$configs[] = array(
-				'name'      => ASTRA_THEME_SETTINGS . '[' . $_section . '-hide-desktop]',
-				'type'      => 'control',
-				'control'   => 'ast-toggle-control',
-				'default'   => astra_get_option( $_section . '-hide-desktop' ),
-				'section'   => $_section,
-				'priority'  => 320,
-				'title'     => __( 'Hide on Desktop', 'astra' ),
-				'transport' => 'postMessage',
-				'context'   => Astra_Builder_Helper::$desktop_general_tab,
 				'divider'   => array( 'ast_class' => 'ast-top-section-divider' ),
 			);
 		}
