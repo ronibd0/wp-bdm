@@ -67,7 +67,7 @@ const ItemComponent = props => {
 				</Button>
 			}
 
-			<span className="ahfb-sorter-title"><span className='feature-label'> { props.item.label ? props.item.label : __('Feature Item', 'astra') } </span></span>
+			<span className="ahfb-sorter-title"><span className='feature-label'> { props.item.label ? props.item.label : __('Featured item', 'astra') } </span></span>
 			<Button className={`ast-sorter-item-expand ${props.item.enabled ? 'item-is-visible' : 'item-is-hidden'}`}
 					onClick={e => {
 						e.stopPropagation();
