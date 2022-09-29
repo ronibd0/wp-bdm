@@ -2738,6 +2738,10 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 						fill: var(--ast-global-color-3);
 					}
 
+					.ast-single-product-payments.ast-text-color-version img {
+						filter: grayscale(100%);
+					}
+
 					.ast-single-product-payments legend {
 						padding: 0 8px;
 						margin-bottom: 0;
@@ -3445,7 +3449,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 													?>
 															<li class="ast-custom-payment">
 																<img src="<?php echo esc_attr( $single['image'] ); ?>" />
-															<li>
+												</li>
 														<?php
 												}
 											} else {
