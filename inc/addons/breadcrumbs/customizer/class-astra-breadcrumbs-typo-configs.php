@@ -131,50 +131,6 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Typo_Configs' ) ) {
 				),
 
 				/**
-				 * Option: Text Transform
-				 */
-				array(
-					'name'      => 'breadcrumb-text-transform',
-					'control'   => 'ast-select',
-					'type'      => 'sub-control',
-					'parent'    => ASTRA_THEME_SETTINGS . '[section-breadcrumb-typo]',
-					'section'   => 'section-breadcrumb',
-					'default'   => astra_get_option( 'breadcrumb-text-transform' ),
-					'title'     => __( 'Text Transform', 'astra' ),
-					'transport' => 'postMessage',
-					'priority'  => 20,
-					'choices'   => array(
-						''           => __( 'Inherit', 'astra' ),
-						'none'       => __( 'None', 'astra' ),
-						'capitalize' => __( 'Capitalize', 'astra' ),
-						'uppercase'  => __( 'Uppercase', 'astra' ),
-						'lowercase'  => __( 'Lowercase', 'astra' ),
-					),
-				),
-
-				/**
-				 * Option: Line Height
-				 */
-				array(
-					'name'              => 'breadcrumb-line-height',
-					'control'           => 'ast-slider',
-					'transport'         => 'postMessage',
-					'type'              => 'sub-control',
-					'default'           => astra_get_option( 'breadcrumb-line-height' ),
-					'parent'            => ASTRA_THEME_SETTINGS . '[section-breadcrumb-typo]',
-					'section'           => 'section-breadcrumb',
-					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
-					'title'             => __( 'Line Height', 'astra' ),
-					'suffix'            => 'em',
-					'priority'          => 25,
-					'input_attrs'       => array(
-						'min'  => 1,
-						'step' => 0.01,
-						'max'  => 5,
-					),
-				),
-
-				/**
 				 * Option: Breadcrumb Content Font Extras
 				 */
 				array(
