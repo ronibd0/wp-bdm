@@ -70,7 +70,7 @@
 }
 
 .components-base-control .components-base-control__field .components-input-control__backdrop {
-  border-color: #ddd;
+  border-color: #D1D5DB !important;
 }
 
 .customize-control .customize-inside-control-row {

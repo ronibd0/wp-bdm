@@ -1362,7 +1362,7 @@
 }
 
 .customize-control-ast-selector .ast-alignment-wrapper .ast-alignment-inner-wrap.active {
-    flex: 1 1 0;
+    flex: 1 1 auto;
     display: flex;
 }
 .customize-control-ast-selector .components-button.has-icon {
@@ -2807,7 +2807,7 @@ input[type="text"], input[type="password"], input[type="color"], input[type="dat
 }
 
 .components-base-control .components-base-control__field .components-input-control__backdrop {
-  border-color: #ddd;
+  border-color: #D1D5DB !important;
 }
 
 .customize-control .customize-inside-control-row {
@@ -5606,7 +5606,7 @@ input[type="text"], input[type="password"], input[type="color"], input[type="dat
 }
 
 .components-base-control .components-base-control__field .components-input-control__backdrop {
-  border-color: #ddd;
+  border-color: #D1D5DB !important;
 }
 
 .customize-control .customize-inside-control-row {
