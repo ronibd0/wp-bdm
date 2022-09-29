@@ -49,32 +49,32 @@ if ( ! class_exists( 'Astra_Single_Typo_Configs' ) ) {
 						'renderAs' => 'list',
 						'choices'  => array(
 							'one'   => array(
-								'title' => __( 'Author Info', 'astra' ),
+								'title' => __( 'Author info', 'astra' ),
 							),
 							'two'   => array(
-								'title' => __( 'Auto Load Previous Posts', 'astra' ),
+								'title' => __( 'Auto load previous posts', 'astra' ),
 							),
 							'three' => array(
-								'title' => __( 'Single Post Navigation Control', 'astra' ),
+								'title' => __( 'Single post navigation control', 'astra' ),
 							),
 							'four'  => array(
-								'title' => __( 'Custom Featured Images Size', 'astra' ),
+								'title' => __( 'Custom featured images size', 'astra' ),
 							),
-							'seven'   => array(
-								'title' => __( 'Single Post Read Time', 'astra' ),
+							'seven' => array(
+								'title' => __( 'Single post read time', 'astra' ),
 							),
 							'five'  => array(
-								'title' => __( 'Extended Typography Options', 'astra' ),
+								'title' => __( 'Extended typography options', 'astra' ),
 							),
 							'six'   => array(
-								'title' => __( 'Extended Spacing Options', 'astra' ),
+								'title' => __( 'Extended spacing options', 'astra' ),
 							),
 						),
 						'section'  => 'section-blog-single',
 						'default'  => '',
 						'priority' => 999,
 						'context'  => array(),
-						'title'    => __( 'With Astra Pro get more features for your Single Post!', 'astra' ),
+						'title'    => __( 'Extensive range of tools to help blog pages stand out', 'astra' ),
 						'divider'  => array( 'ast_class' => 'ast-top-section-divider' ),
 					),
 				);

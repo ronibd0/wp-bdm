@@ -47,38 +47,38 @@ if ( ! class_exists( 'Astra_Archive_Typo_Configs' ) ) {
 						'renderAs' => 'list',
 						'choices'  => array(
 							'one'   => array(
-								'title' => __( 'Archive Blog Layout', 'astra' ),
+								'title' => __( 'Archive blog layout', 'astra' ),
 							),
 							'two'   => array(
-								'title' => __( 'Grid, Masonry Layout', 'astra' ),
+								'title' => __( 'Grid, Masonry layout', 'astra' ),
 							),
 							'three' => array(
-								'title' => __( 'Custom Featured Images Size', 'astra' ),
+								'title' => __( 'Custom featured images size', 'astra' ),
 							),
 							'four'  => array(
-								'title' => __( 'Archive Pagination Options', 'astra' ),
+								'title' => __( 'Archive pagination options', 'astra' ),
 							),
 							'six'   => array(
-								'title' => __( 'Extended Typography Options', 'astra' ),
+								'title' => __( 'Extended typography options', 'astra' ),
 							),
 							'seven' => array(
-								'title' => __( 'Extended Spacing Options', 'astra' ),
+								'title' => __( 'Extended spacing options', 'astra' ),
 							),
 							'eight' => array(
-								'title' => __( 'Archive Read Time', 'astra' ),
+								'title' => __( 'Archive read time', 'astra' ),
 							),
-							'nine' => array(
-								'title' => __( 'Archive Excerpt Options', 'astra' ),
+							'nine'  => array(
+								'title' => __( 'Archive excerpt options', 'astra' ),
 							),
-							'ten' => array(
-								'title' => __( 'Extended Spacing Options', 'astra' ),
+							'ten'   => array(
+								'title' => __( 'Extended spacing options', 'astra' ),
 							),
 						),
 						'section'  => 'section-blog',
 						'default'  => '',
 						'priority' => 999,
 						'context'  => array(),
-						'title'    => __( 'With Astra Pro get more features for your blog!', 'astra' ),
+						'title'    => __( 'Take your blog to the next level with powerful design features', 'astra' ),
 						'divider'  => array( 'ast_class' => 'ast-top-section-divider' ),
 					),
 				);
