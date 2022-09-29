@@ -93,19 +93,19 @@ if ( ! class_exists( 'Astra_Woo_Shop_Cart_Layout_Configs' ) ) {
 					'renderAs' => 'list',
 					'choices'  => array(
 						'two'   => array(
-							'title' => __( 'Modern Cart Layout', 'astra' ),
+							'title' => __( 'Modern cart layout', 'astra' ),
 						),
 						'one'   => array(
-							'title' => __( 'Sticky Cart Totals', 'astra' ),
+							'title' => __( 'Sticky cart totals', 'astra' ),
 						),
 						'three' => array(
-							'title' => __( 'Real-Time Quantity Updater', 'astra' ),
+							'title' => __( 'Real-time quantity updater', 'astra' ),
 						),
 					),
 					'section'  => 'section-woo-shop-cart',
 					'default'  => '',
 					'priority' => 999,
-					'title'    => __( 'With Astra Pro get more features for your Ecommerce Cart!', 'astra' ),
+					'title'    => __( 'Convert more, earn more with extensive cart conversion features', 'astra' ),
 					'divider'  => array( 'ast_class' => 'ast-top-section-divider' ),
 					'context'  => array(),
 				);
@@ -117,40 +117,40 @@ if ( ! class_exists( 'Astra_Woo_Shop_Cart_Layout_Configs' ) ) {
 					'renderAs' => 'list',
 					'choices'  => array(
 						'two'   => array(
-							'title' => __( 'Modern Layout', 'astra' ),
+							'title' => __( 'Modern layout', 'astra' ),
 						),
 						'one'   => array(
-							'title' => __( 'Multi-column Layouts', 'astra' ),
+							'title' => __( 'Multi-column layouts', 'astra' ),
 						),
 						'three' => array(
-							'title' => __( 'Modern Order Received Layout', 'astra' ),
+							'title' => __( 'Modern order received layout', 'astra' ),
 						),
 						'four'  => array(
-							'title' => __( 'Sticky Order Review', 'astra' ),
+							'title' => __( 'Sticky order review', 'astra' ),
 						),
 						'five'  => array(
-							'title' => __( 'Two Step Checkout', 'astra' ),
+							'title' => __( 'Two-step checkout', 'astra' ),
 						),
 						'six'   => array(
-							'title' => __( 'Order Note, Coupon Field Control', 'astra' ),
+							'title' => __( 'Order note, Coupon field control', 'astra' ),
 						),
 						'seven' => array(
-							'title' => __( 'Distraction Free Checkout', 'astra' ),
+							'title' => __( 'Distraction free checkout', 'astra' ),
 						),
 						'eight' => array(
-							'title' => __( 'Persistent Checkout Form Data', 'astra' ),
+							'title' => __( 'Persistent checkout form data', 'astra' ),
 						),
 						'nine'  => array(
-							'title' => __( 'Text Form Options', 'astra' ),
+							'title' => __( 'Text form options', 'astra' ),
 						),
 						'ten'   => array(
-							'title' => __( 'Summary, Payment Background', 'astra' ),
+							'title' => __( 'Summary, Payment background', 'astra' ),
 						),
 					),
 					'section'  => 'woocommerce_checkout',
 					'default'  => '',
 					'priority' => 999,
-					'title'    => __( 'With Astra Pro get more features for your Ecommerce Checkout!', 'astra' ),
+					'title'    => __( 'Encourage last-minute purchases with extra conversion options at checkout', 'astra' ),
 					'divider'  => array( 'ast_class' => 'ast-top-section-divider' ),
 					'context'  => array(),
 				);

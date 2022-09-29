@@ -66,7 +66,7 @@
 .customize-control-ast-selector .ast-alignment-inner-wrap .components-button {
     border-radius: unset;
     font-size: 12px;
-    padding: 9px 12px;
+    padding: 9px 0;
 }
 .customize-control-ast-selector .ast-selector-responsive-wrap.active {
     display: flex;
@@ -1418,7 +1418,7 @@
 .customize-control-ast-selector .ast-alignment-inner-wrap .components-button {
     border-radius: unset;
     font-size: 12px;
-    padding: 9px 12px;
+    padding: 9px 0;
 }
 .customize-control-ast-selector .ast-selector-responsive-wrap.active {
     display: flex;
@@ -2807,7 +2807,7 @@ input[type="text"], input[type="password"], input[type="color"], input[type="dat
 }
 
 .components-base-control .components-base-control__field .components-input-control__backdrop {
-  border-color: #ddd;
+  border-color: #D1D5DB !important;
 }
 
 .customize-control .customize-inside-control-row {
@@ -5105,6 +5105,8 @@ span.customize-control-title.ast-group-section-title {
 .customize-control-ast-list-icons span.feature-label {
     max-width: 100px;
     text-overflow: ellipsis;
+	font-size: 14px;
+	line-height: 18px;
 }
 .ast-sortable-subfields-wrap .customize-control-ast-list-icons .dashicons-admin-page {
     color: #556068;
@@ -5609,7 +5611,7 @@ input[type="text"], input[type="password"], input[type="color"], input[type="dat
 }
 
 .components-base-control .components-base-control__field .components-input-control__backdrop {
-  border-color: #ddd;
+  border-color: #D1D5DB !important;
 }
 
 .customize-control .customize-inside-control-row {

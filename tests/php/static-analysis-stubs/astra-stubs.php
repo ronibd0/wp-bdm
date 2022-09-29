@@ -5393,6 +5393,20 @@ namespace {
         {
         }
         /**
+         * Add active filter widget class when "chip" toggle enabled.
+         *
+         * @since x.x.x
+         * @access public
+         *
+         * @param string $block_content Rendered block content.
+         * @param array  $block         Block object.
+         *
+         * @return string Active filter block content.
+         */
+        public function add_active_filter_widget_class($block_content, $block)
+        {
+        }
+        /**
          * As WooCommerce-Astra pro options moved to theme, decide here to load from theme's end after 3.9.2 version.
          *
          * @since 3.9.2
@@ -6108,6 +6122,14 @@ namespace {
         public function migrate_to_builder()
         {
         }
+        /**
+         * Disable pro upgrade notice from all over in Astra.
+         *
+         * @since x.x.x
+         */
+        public function disable_astra_pro_notices()
+        {
+        }
     }
     /**
      * Class Astra_Builder_Helper.
@@ -6568,6 +6590,21 @@ namespace {
         {
         }
         /**
+         * Add custom megamenu fields data to the menu.
+         *
+         * @access public
+         * @param int    $id menu item id.
+         * @param object $item A single menu item.
+         * @param int    $depth menu item depth.
+         * @param array  $args menu item arguments.
+         * @return void
+         *
+         * @since x.x.x
+         */
+        public static function add_custom_fields($id, $item, $depth, $args)
+        {
+        }
+        /**
          * Register Custom Layout & Page Header Pro sub-menus.
          *
          * Add new admin pages as sub-menu under the main Astra Options menu.
@@ -6596,6 +6633,14 @@ namespace {
          * @access public
          */
         public static function preview_page_header()
+        {
+        }
+        /**
+         * Astra upgrade to pro postbox.
+         *
+         * @since x.x.x
+         */
+        public static function astra_upgrade_pro_postbox()
         {
         }
         /**
@@ -10009,7 +10054,7 @@ namespace {
          * @var array Notices.
          * @since 1.0.0
          */
-        private static $version = '1.1.9';
+        private static $version = '1.1.11';
         /**
          * Notices
          *
@@ -12384,7 +12429,7 @@ namespace {
     /**
      * Define Constants
      */
-    \define('ASTRA_THEME_VERSION', '3.9.2');
+    \define('ASTRA_THEME_VERSION', '3.9.3');
     \define('ASTRA_THEME_SETTINGS', 'astra-settings');
     \define('ASTRA_THEME_DIR', \trailingslashit(\get_template_directory()));
     \define('ASTRA_THEME_URI', \trailingslashit(\esc_url(\get_template_directory_uri())));
@@ -15654,6 +15699,16 @@ namespace {
      * @since 3.9.0
      */
     function astra_skip_elementor_onboarding($network_wide)
+    {
+    }
+    /**
+     * Footer disable on archive pages.
+     *
+     * @param bool $display_footer for controling the header and footer enable/disable options.
+     *
+     * @since x.x.x
+     */
+    function astra_footer_bar_display_cb($display_footer)
     {
     }
     \define('ASTRA_RELATED_POSTS_DIR', \ASTRA_THEME_DIR . 'inc/modules/related-posts/');
