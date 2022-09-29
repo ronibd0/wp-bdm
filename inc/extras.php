@@ -964,7 +964,7 @@ function astra_search_static_css() {
  * Function which will return CSS for font-extras control.
  * It includes - line-height, letter-spacing, text-decoration, font-style.
  *
- * @param array $config contins extra font settings.
+ * @param array  $config contins extra font settings.
  * @param string $setting basis on this setting will return.
  * @param string $unit Unit.
  *
@@ -973,8 +973,8 @@ function astra_search_static_css() {
 function astra_get_font_extras( $config, $setting, $unit = false ) {
 	$css = isset( $config[ $setting ] ) ? $config[ $setting ] : '';
 
-	if( $unit ) {
-		$css .= $config[ $unit ];
+	if ( $unit ) {
+		$css .= isset( $config[ $unit ] ) ? $config[ $unit ] : '';
 	}
 
 	return $css;
