@@ -48,7 +48,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 			$theme_color                 = astra_get_option( 'theme-color' );
 			$link_color                  = astra_get_option( 'link-color', $theme_color );
 			$heading_base_color          = astra_get_option( 'heading-base-color' );
-			$highlight_theme_color = astra_get_foreground_color( $theme_color );
+			$highlight_theme_color       = astra_get_foreground_color( $theme_color );
 
 			$body_font_weight    = astra_get_option( 'body-font-weight' );
 			$body_font_size      = astra_get_option( 'font-size-body' );
@@ -468,7 +468,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 				'margin-' . $ltr_left => '0 !important',
 			);
 			$desktop_css['.ast-page-builder-template .edit-post-visual-editor .editor-styles-wrapper .block-editor-block-list__layout.is-root-container > :where(:not(.alignleft):not(.alignright))'] = array(
-				'margin-left' => '0 !important',
+				'margin-left'  => '0 !important',
 				'margin-right' => '0 !important',
 			);
 
@@ -1225,8 +1225,8 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 					'margin-right' => '0',
 				),
 				'.ast-separate-container .edit-post-visual-editor__post-title-wrapper' => array(
-					'padding-left' => 'calc( 6.67em - 28px )',
-					'padding-right' => 'calc( 6.67em - 28px )'  
+					'padding-left'  => 'calc( 6.67em - 28px )',
+					'padding-right' => 'calc( 6.67em - 28px )',  
 				),
 			);
 
