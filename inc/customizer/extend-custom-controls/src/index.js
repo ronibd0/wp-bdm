@@ -22,7 +22,6 @@ import { responsiveSpacingControl }  from './responsive-spacing/control';
 import { selectControl } from './select/control';
 import { astFontFamilyControl } from './ast-font-family/control';
 import { astFontWeightControl } from './ast-font-weight/control';
-import { responsiveSelectControl } from './responsive-select/control';
 import { BuilderHeaderControl } from './builder-layout/builder-header-control'
 import { BuilderControl } from './builder-layout/control';
 import { SocialControl } from './social-icons/control';
@@ -64,7 +63,6 @@ wp.customize.controlConstructor['ast-builder-header-control'] = BuilderHeaderCon
 wp.customize.controlConstructor['ast-sortable'] = sortableControl;
 wp.customize.controlConstructor['ast-font-family'] = astFontFamilyControl;
 wp.customize.controlConstructor['ast-font-weight'] = astFontWeightControl;
-wp.customize.controlConstructor['ast-responsive-select'] = responsiveSelectControl;
 wp.customize.controlConstructor['ast-responsive-slider'] = responsiveSliderControl;
 wp.customize.controlConstructor['ast-responsive-spacing'] = responsiveSpacingControl;
 wp.customize.controlConstructor['ast-border'] = borderControl;
