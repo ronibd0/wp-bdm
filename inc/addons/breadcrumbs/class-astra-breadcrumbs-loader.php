@@ -75,9 +75,8 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Loader' ) ) {
 			/**
 			 * Breadcrumb Typography
 			 */
-			$defaults['breadcrumb-font-family']    = 'inherit';
-			$defaults['breadcrumb-font-weight']    = 'inherit';
-			$defaults['breadcrumb-text-transform'] = 'inherit';
+			$defaults['breadcrumb-font-family'] = 'inherit';
+			$defaults['breadcrumb-font-weight'] = 'inherit';
 
 			/**
 			 * Breadcrumb Responsive Colors
@@ -139,10 +138,9 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Loader' ) ) {
 			/**
 			 * Breadcrumb Font Defaults
 			 */
-			$defaults['breadcrumb-font-family']    = 'inherit';
-			$defaults['breadcrumb-font-weight']    = 'inherit';
-			$defaults['breadcrumb-text-transform'] = '';
-			$defaults['breadcrumb-font-size']      = array(
+			$defaults['breadcrumb-font-family'] = 'inherit';
+			$defaults['breadcrumb-font-weight'] = 'inherit';
+			$defaults['breadcrumb-font-size']   = array(
 				'desktop'      => '',
 				'tablet'       => '',
 				'mobile'       => '',
@@ -150,7 +148,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Loader' ) ) {
 				'tablet-unit'  => 'px',
 				'mobile-unit'  => 'px',
 			);
-			$defaults['breadcrumb-font-extras']    = array(
+			$defaults['breadcrumb-font-extras'] = array(
 				'line-height'         => ! isset( $astra_options['breadcrumb-font-extras'] ) && isset( $astra_options['breadcrumb-line-height'] ) ? $astra_options['breadcrumb-line-height'] : '',
 				'line-height-unit'    => 'em',
 				'letter-spacing'      => '',
