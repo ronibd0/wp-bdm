@@ -38,11 +38,8 @@ require_once ASTRA_THEME_DIR . 'inc/core/class-astra-icons.php';
 /**
  * Update theme
  */
-require_once ASTRA_THEME_DIR . 'inc/theme-update/class-astra-theme-update.php';
 require_once ASTRA_THEME_DIR . 'inc/theme-update/astra-update-functions.php';
 require_once ASTRA_THEME_DIR . 'inc/theme-update/class-astra-theme-background-updater.php';
-require_once ASTRA_THEME_DIR . 'inc/theme-update/class-astra-pb-compatibility.php';
-
 
 /**
  * Fonts Files
@@ -106,13 +103,11 @@ require_once ASTRA_THEME_DIR . 'inc/core/class-astra-admin-helper.php';
 require_once ASTRA_THEME_DIR . 'inc/schema/class-astra-schema.php';
 
 if ( is_admin() ) {
-
 	/**
 	 * Admin Menu Settings
 	 */
 	require_once ASTRA_THEME_DIR . 'inc/core/class-astra-admin-settings.php';
 	require_once ASTRA_THEME_DIR . 'inc/lib/astra-notices/class-astra-notices.php';
-
 }
 
 /**
