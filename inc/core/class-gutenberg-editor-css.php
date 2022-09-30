@@ -471,11 +471,6 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 				'margin-left' => '0 !important',
 				'margin-right' => '0 !important',
 			);
-			$desktop_css['.ast-page-builder-template .edit-post-visual-editor .editor-styles-wrapper'] = array(
-				'padding-top' => '2em',
-				'padding-left' => '20px',
-				'padding-right' => '20px',
-			);
 
 			if ( astra_wp_version_compare( '5.7', '>=' ) ) {
 
@@ -1229,9 +1224,6 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 					'margin-left'  => '0',
 					'margin-right' => '0',
 				),
-				/**
-				 * For other general templates
-				 */
 				'.ast-separate-container .edit-post-visual-editor__post-title-wrapper' => array(
 					'padding-left' => 'calc( 6.67em - 28px )',
 					'padding-right' => 'calc( 6.67em - 28px )'  

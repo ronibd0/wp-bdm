@@ -513,11 +513,6 @@ class Astra_WP_Editor_CSS {
 			'margin-left' => '0 !important',
 			'margin-right' => '0 !important',
 		);
-		$desktop_css['.ast-page-builder-template .edit-post-visual-editor .editor-styles-wrapper'] = array(
-			'padding-top' => '2em',
-			'padding-left' => '20px',
-			'padding-right' => '20px',
-		);
 
 		$content_links_underline = astra_get_option( 'underline-content-links' );
 
