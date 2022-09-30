@@ -9,7 +9,7 @@ const FontHeightComponent = ( props ) => {
 	const changeFontSetting = ( data ) => {
 		const newProps = { ...propsValue };
 		if ( data.type === 'text-transform' ) {
-			newProps[ 'text-transform' ] = data.value;
+			newProps[ 'text-transform' ] = newProps[ 'text-transform' ] === data.value ? '' : data.value;
 		}
 		if ( data.type === 'text-decoration' ) {
 			newProps[ 'text-decoration' ] = data.value;
@@ -29,38 +29,6 @@ const FontHeightComponent = ( props ) => {
 		setPropsValue( newProps );
 		props.control.setting.set( newProps );
 	};
-
-	// const changeFontTransform = (value) => {
-	// 	const newProps = {...propsValue};
-	// 	newProps['text-transform'] = value;
-	// 	console.log(newProps);
-	// 	setPropsValue(newProps);
-	// 	props.control.setting.set(newProps);
-	// }
-
-	// const changeFontDecoration = (value) => {
-	// 	const newProps = {...propsValue};
-	// 	newProps['text-decoration'] = value;
-	// 	console.log(newProps);
-	// 	setPropsValue(newProps);
-	// 	props.control.setting.set(newProps);
-	// }
-
-	// const changeFontHeight = (value) => {
-	// 	const newProps = {...propsValue};
-	// 	newProps['font-height'] = value;
-	// 	console.log(newProps);
-	// 	setPropsValue(newProps);
-	// 	props.control.setting.set(newProps);
-	// }
-
-	// const changeFontSpacing = (value) => {
-	// 	const newProps = {...propsValue};
-	// 	newProps['font-spacing'] = value;
-	// 	console.log(newProps);
-	// 	setPropsValue(newProps);
-	// 	props.control.setting.set(newProps);
-	// }
 
 	return (
 		<Fragment>

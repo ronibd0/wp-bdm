@@ -286,30 +286,6 @@ if ( ! class_exists( 'Astra_Body_Typo_Configs' ) ) {
 				),
 
 				/**
-				 * Option: Heading <H1> Line Height
-				 */
-				array(
-					'name'              => 'headings-line-height',
-					'section'           => $typo_section,
-					'default'           => astra_get_option( 'headings-line-height' ),
-					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
-					'type'              => 'sub-control',
-					'parent'            => ASTRA_THEME_SETTINGS . '[ast-headings-font-settings]',
-					'lazy'              => true,
-					'control'           => 'ast-slider',
-					'title'             => __( 'Line Height', 'astra' ),
-					'transport'         => 'postMessage',
-					'priority'          => 26,
-					'suffix'            => 'em',
-					'input_attrs'       => array(
-						'min'  => 1,
-						'step' => 0.01,
-						'max'  => 5,
-					),
-					'divider'           => array( 'ast_class' => 'ast-bottom-divider' ),
-				),
-
-				/**
 				 * Option: Paragraph Margin Bottom
 				 */
 				array(

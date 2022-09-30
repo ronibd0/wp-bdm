@@ -438,7 +438,7 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 						'text-transform'      => ! isset( $astra_options['body-font-extras'] ) && isset( $astra_options['body-text-transform'] ) ? $astra_options['body-text-transform'] : '',
 						'text-decoration'     => '',
 					),
-					'headings-font-extras'                 => array(
+					'headings-font-height-settings'        => array(
 						'line-height'         => ! isset( $astra_options['headings-font-extras'] ) && isset( $astra_options['headings-line-height'] ) ? $astra_options['headings-line-height'] : '',
 						'line-height-unit'    => 'em',
 						'letter-spacing'      => '',
