@@ -125,6 +125,11 @@ function astra_container_layout_css() {
             max-width: 100%;
           }';
 
+		  // Full Width Stretched layout page title alignment with page container.
+		  $page_container_css .= '.ast-page-builder-template .entry-header {
+			padding-left: 0;
+		  }';
+
 		if ( true === $customizer_default_update ) {
 			$page_container_css .= '
 				.ast-page-builder-template .entry-header {
@@ -143,10 +148,6 @@ function astra_container_layout_css() {
 						padding-right: 20px;
 					}
 				';
-				// Full Width Stretched layout page title alignment with page container.
-				$page_container_css .= '.ast-page-builder-template .entry-header {
-					padding-left: 0;
-				}';
 			}
 		} else {
 			$page_container_css .= '
