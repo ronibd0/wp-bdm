@@ -34,6 +34,8 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 			global $post;
 			$post_id     = astra_get_post_id();
 			$is_site_rtl = is_rtl();
+			$ltr_left    = $is_site_rtl ? 'right' : 'left';
+			$ltr_right   = $is_site_rtl ? 'left' : 'right';
 
 			$site_content_width          = astra_get_option( 'site-content-width', 1200 ) + 56;
 			$headings_font_family        = astra_get_option( 'headings-font-family' );
@@ -46,8 +48,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 			$theme_color                 = astra_get_option( 'theme-color' );
 			$link_color                  = astra_get_option( 'link-color', $theme_color );
 			$heading_base_color          = astra_get_option( 'heading-base-color' );
-
-			$highlight_theme_color = astra_get_foreground_color( $theme_color );
+			$highlight_theme_color       = astra_get_foreground_color( $theme_color );
 
 			$body_font_weight    = astra_get_option( 'body-font-weight' );
 			$body_font_size      = astra_get_option( 'font-size-body' );
@@ -328,6 +329,10 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 				'.block-editor-block-list__block'         => array(
 					'color' => esc_attr( $text_color ),
 				),
+				'.ast-page-builder-template .edit-post-visual-editor__post-title-wrapper, .ast-stacked-title-visibility .edit-post-visual-editor__post-title-wrapper' => array(
+					'padding' => '0',
+				),
+
 				/**
 				 * Content base heading color.
 				 */
@@ -396,6 +401,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 				'.wp-block-separator:not(.is-style-wide):not(.is-style-dots)' => array(
 					'width' => '100px !important',
 				),
+
 				/**
 				 * WooCommerce Grid Products compatibility.
 				 */
@@ -456,6 +462,16 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 					'background-color' => '#ffffff',
 				);
 			}
+
+			// Full-Width/Stretched Layout.
+			$desktop_css['.ast-page-builder-template .editor-styles-wrapper .edit-post-visual-editor__post-title-wrapper > :where(:not(.alignleft):not(.alignright)), .editor-styles-wrapper .block-editor-block-list__layout.is-root-container > :where(:not(.alignleft):not(.alignright))'] = array(
+				'margin-' . $ltr_left => '0 !important',
+			);
+			$desktop_css['.ast-page-builder-template .edit-post-visual-editor .editor-styles-wrapper .block-editor-block-list__layout.is-root-container > :where(:not(.alignleft):not(.alignright))'] = array(
+				'margin-left'  => '0 !important',
+				'margin-right' => '0 !important',
+			);
+
 			if ( astra_wp_version_compare( '5.7', '>=' ) ) {
 
 				if ( true === $improve_gb_ui ) {
@@ -1207,6 +1223,10 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 				'.ast-separate-container .block-editor-block-list__layout .block-editor-block-list__block[data-align="full"], .ast-separate-container .block-editor-block-list__layout .editor-block-list__block[data-align="full"] > .block-editor-block-list__block-edit, .ast-two-container .block-editor-block-list__layout .editor-block-list__block[data-align="full"], .ast-two-container .block-editor-block-list__layout .editor-block-list__block[data-align="full"] > .block-editor-block-list__block-edit' => array(
 					'margin-left'  => '0',
 					'margin-right' => '0',
+				),
+				'.ast-separate-container .edit-post-visual-editor__post-title-wrapper' => array(
+					'padding-left'  => 'calc( 6.67em - 28px )',
+					'padding-right' => 'calc( 6.67em - 28px )',  
 				),
 			);
 
