@@ -473,7 +473,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 			);
 
 			// Visibility icon alignment with page title.
-			$desktop_css['.ast-separate-container .edit-post-visual-editor__post-title-wrapper'] = array(
+			$desktop_css['.ast-separate-container .edit-post-visual-editor__post-title-wrapper']                        = array(
 				'max-width' => 'calc(var(--wp--custom--ast-content-width-size) + 10px) !important',
 			);
 			$desktop_css['.ast-separate-container .edit-post-visual-editor__post-title-wrapper > .wp-block-post-title'] = array(
