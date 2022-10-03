@@ -564,27 +564,6 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'context'           => Astra_Builder_Helper::$general_tab,
 					),
 
-					// Option: Menu Text Transform.
-					array(
-						'name'      => 'header-' . $_prefix . '-text-transform',
-						'default'   => astra_get_option( 'header-' . $_prefix . '-text-transform' ),
-						'parent'    => ASTRA_THEME_SETTINGS . '[header-' . $_prefix . '-header-menu-typography]',
-						'section'   => $_section,
-						'type'      => 'sub-control',
-						'control'   => 'ast-select',
-						'transport' => 'postMessage',
-						'title'     => __( 'Text Transform', 'astra' ),
-						'priority'  => 25,
-						'choices'   => array(
-							''           => __( 'Inherit', 'astra' ),
-							'none'       => __( 'None', 'astra' ),
-							'capitalize' => __( 'Capitalize', 'astra' ),
-							'uppercase'  => __( 'Uppercase', 'astra' ),
-							'lowercase'  => __( 'Lowercase', 'astra' ),
-						),
-						'context'   => Astra_Builder_Helper::$general_tab,
-					),
-
 					// Option: Menu Font Size.
 					array(
 						'name'              => 'header-' . $_prefix . '-font-size',
@@ -611,27 +590,6 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 								'max'  => 20,
 							),
 						),
-					),
-
-					// Option: Menu Line Height.
-					array(
-						'name'              => 'header-' . $_prefix . '-line-height',
-						'parent'            => ASTRA_THEME_SETTINGS . '[header-' . $_prefix . '-header-menu-typography]',
-						'section'           => $_section,
-						'type'              => 'sub-control',
-						'priority'          => 26,
-						'title'             => __( 'Line Height', 'astra' ),
-						'transport'         => 'postMessage',
-						'default'           => astra_get_option( 'header-' . $_prefix . '-line-height' ),
-						'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
-						'control'           => 'ast-slider',
-						'suffix'            => 'em',
-						'input_attrs'       => array(
-							'min'  => 1,
-							'step' => 0.01,
-							'max'  => 10,
-						),
-						'context'           => Astra_Builder_Helper::$general_tab,
 					),
 
 					/**
