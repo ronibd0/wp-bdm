@@ -472,6 +472,14 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 				'margin-right' => '0 !important',
 			);
 
+			// Visibility icon alignment with page title.
+			$desktop_css['.ast-separate-container .edit-post-visual-editor__post-title-wrapper'] = array(
+				'max-width' => 'calc(var(--wp--custom--ast-content-width-size) + 10px) !important',
+			);
+			$desktop_css['.ast-separate-container .edit-post-visual-editor__post-title-wrapper > .wp-block-post-title'] = array(
+				'max-width' => '100% !important',
+			);
+
 			if ( astra_wp_version_compare( '5.7', '>=' ) ) {
 
 				if ( true === $improve_gb_ui ) {
