@@ -779,8 +779,6 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	);
 	$defaults['footer-menu-font-weight']    = 'inherit';
 	$defaults['footer-menu-font-family']    = 'inherit';
-	$defaults['footer-menu-text-transform'] = '';
-	$defaults['footer-menu-line-height']    = '';
 	$defaults['footer-menu-font-extras']    = array(
 		'line-height'         => ! isset( $astra_options['footer-menu-font-extras'] ) && isset( $astra_options['footer-menu-line-height'] ) ? $astra_options['footer-menu-line-height'] : '',
 		'line-height-unit'    => 'em',

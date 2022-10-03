@@ -1,10 +1,36 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { Fragment } from '@wordpress/element';
+import { useEffect } from 'react';
 
 const FontHeightComponent = ( props ) => {
 
-	const [ propsValue, setPropsValue ] = useState( props.control.setting.get() );
+	const defaultValue = {
+		"letter-spacing": '',
+		"letter-spacing-unit": 'px',
+		"line-height": '',
+		"line-height-unit": 'em',
+		"text-decoration" : 'initial',
+		"text-transform" : '',
+	}
+
+	const [ propsValue, setPropsValue ] = useState( defaultValue );
+
+	useEffect(() => {
+		if( props.control.setting.get() ) {
+			const newProps = { ...propsValue };
+			setPropsValue( props.control.setting.get() );
+
+			//Set default values,
+			newProps[ 'text-decoration' ] = newProps[ 'text-decoration' ] ?  newProps[ 'text-decoration' ] : 'initial';
+			newProps[ 'line-height-unit' ] = newProps[ 'line-height-unit' ] ?  newProps[ 'line-height-unit' ] : 'em';
+			newProps[ 'letter-spacing-unit' ] = newProps[ 'letter-spacing-unit' ] ?  newProps[ 'letter-spacing-unit' ] : 'px';
+
+			setPropsValue( newProps );
+			props.control.setting.set( newProps );
+		}
+		
+	}, []);
 
 	const changeFontSetting = ( data ) => {
 		const newProps = { ...propsValue };
@@ -58,7 +84,6 @@ const FontHeightComponent = ( props ) => {
 					</div>
 					<div className="ast-font-unit-wrapper">
 						<span className={`${propsValue['letter-spacing-unit'] === 'px' ? 'active' : ''}`} onClick={ ( e ) => changeFontSetting( { type: 'letter-spacing-unit', value: 'px' } ) }>PX</span>
-						<span className={`${propsValue['letter-spacing-unit'] === '%' ? 'active' : ''}`} onClick={ ( e ) => changeFontSetting( { type: 'letter-spacing-unit', value: '%' } ) }>%</span>
 					</div>
 				</div>
 			</div>
@@ -77,8 +102,8 @@ const FontHeightComponent = ( props ) => {
 						onClick={() => changeFontSetting( { type: 'text-transform', value:'uppercase' } )}>AA</div>
 				</div>
 				<div className="ast-font-decoration-wrapper">
-					<div className={`ast-font-item-type ast-font-deco-default ${propsValue['text-decoration'] === '' ? 'active' : ''} `}
-						onClick={() => changeFontSetting( { type: 'text-decoration', value:''} ) } >Aa</div>
+					<div className={`ast-font-item-type ast-font-deco-default ${propsValue['text-decoration'] === 'initial' ? 'active' : ''} `}
+						onClick={() => changeFontSetting( { type: 'text-decoration', value:'initial'} ) } >Aa</div>
 					<div className={`ast-font-item-type ast-font-deco-underline ${propsValue['text-decoration'] === 'underline' ? 'active' : ''} `}
 						onClick={() => changeFontSetting( { type: 'text-decoration', value:'underline'} ) } >Aa</div>
 					<div className={`ast-font-item-type ast-font-deco-linethrough ${propsValue['text-decoration'] === 'line-through' ? 'active' : ''} `}
