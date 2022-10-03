@@ -451,11 +451,13 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 		
 		if ( ! astra_has_pro_woocommerce_addon() && 'outline' === $header_cart_icon_style && 'default' !== $header_woo_cart_list ) {
 
+			$border_width = astra_get_option( 'woo-header-cart-border-width' );
+			
 			$header_cart_icon_outline = array(
 				'.ast-menu-cart-outline .ast-cart-menu-wrap .count, .ast-menu-cart-outline .ast-addon-cart-wrap'  => array(
-					'border-width' => '2px',
 					'border-style' => 'solid',
 					'border-color' => esc_attr( $icon_color ),
+					'border-width' => astra_get_css_value( $border_width, 'px' ),
 				),
 			);
 
@@ -484,7 +486,7 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 			),
 
 		);
-
+		
 		// We adding this conditional CSS only to maintain backwards. Remove this condition after 2-3 updates of add-on.
 		if ( defined( 'ASTRA_EXT_VER' ) && version_compare( ASTRA_EXT_VER, '3.4.2', '<' ) ) {
 			// Outline cart style border.

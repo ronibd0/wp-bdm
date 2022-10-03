@@ -136,25 +136,25 @@ if ( ! class_exists( 'Astra_Sidebar_Layout_Configs' ) ) {
 					'renderAs' => 'list',
 					'choices'  => array(
 						'one'   => array(
-							'title' => __( 'Sidebar Spacings', 'astra' ),
+							'title' => __( 'Sidebar spacing', 'astra' ),
 						),
 						'two'   => array(
-							'title' => __( 'Sidebar Color Options', 'astra' ),
+							'title' => __( 'Sidebar color options', 'astra' ),
 						),
 						'three' => array(
-							'title' => __( 'Widget Color Options', 'astra' ),
+							'title' => __( 'Widget color options', 'astra' ),
 						),
 						'four'  => array(
-							'title' => __( 'Widget Title Typography', 'astra' ),
+							'title' => __( 'Widget title typography', 'astra' ),
 						),
 						'five'  => array(
-							'title' => __( 'Widget Content Typography', 'astra' ),
+							'title' => __( 'Widget content typography', 'astra' ),
 						),
 					),
 					'section'  => 'section-sidebars',
 					'default'  => '',
 					'priority' => 999,
-					'title'    => __( 'With Astra Pro get design options for your sidebar!', 'astra' ),
+					'title'    => __( 'Make sidebars work harder to engage with Astra Pro', 'astra' ),
 					'divider'  => array( 'ast_class' => 'ast-top-section-divider' ),
 				);
 			}
