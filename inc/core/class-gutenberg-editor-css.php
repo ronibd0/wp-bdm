@@ -479,9 +479,8 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 			$desktop_css['.ast-separate-container .edit-post-visual-editor__post-title-wrapper > .wp-block-post-title'] = array(
 				'max-width' => '100% !important',
 			);
-			$desktop_css['.edit-post-visual-editor__post-title-wrapper h1.editor-post-title__input']                    = array(
-				'padding-top'    => '25px',
-				'padding-bottom' => '25px',
+			$desktop_css['.edit-post-visual-editor.editor-styles-wrapper p, .block-editor-block-list__block p, .wp-block-latest-posts a, .editor-default-block-appender textarea.editor-default-block-appender__content, .block-editor-block-list__block, .block-editor-block-list__block h1, .block-editor-block-list__block h2, .block-editor-block-list__block h3, .block-editor-block-list__block h4, .block-editor-block-list__block h5, .block-editor-block-list__block h6, .edit-post-visual-editor .editor-styles-wrapper'] = array(
+				'line-height' => 'normal !important',
 			);
 
 			if ( astra_wp_version_compare( '5.7', '>=' ) ) {
