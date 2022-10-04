@@ -479,6 +479,10 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 			$desktop_css['.ast-separate-container .edit-post-visual-editor__post-title-wrapper > .wp-block-post-title'] = array(
 				'max-width' => '100% !important',
 			);
+			$desktop_css['.edit-post-visual-editor__post-title-wrapper h1.editor-post-title__input']                    = array(
+				'padding-top'    => '25px',
+				'padding-bottom' => '25px',
+			);
 
 			if ( astra_wp_version_compare( '5.7', '>=' ) ) {
 
