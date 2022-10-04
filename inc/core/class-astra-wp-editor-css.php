@@ -177,35 +177,47 @@ class Astra_WP_Editor_CSS {
 		/**
 		 * Headings typography.
 		 */
-		$h1_font_family    = astra_get_option( 'font-family-h1' );
-		$h1_font_weight    = astra_get_option( 'font-weight-h1' );
-		$h1_line_height    = astra_get_option( 'line-height-h1' );
-		$h1_text_transform = astra_get_option( 'text-transform-h1' );
+		$h1_font_family     = astra_get_option( 'font-family-h1' );
+		$h1_font_weight     = astra_get_option( 'font-weight-h1' );
+		$h1_line_height     = astra_get_font_extras( astra_get_option( 'font-extras-h1' ), 'line-height', 'line-height-unit' );
+		$h1_text_transform  = astra_get_font_extras( astra_get_option( 'font-extras-h1' ), 'text-transform' );
+		$h1_letter_spacing  = astra_get_font_extras( astra_get_option( 'font-extras-h1' ), 'letter-spacing', 'letter-spacing-unit' );
+		$h1_text_decoration = astra_get_font_extras( astra_get_option( 'font-extras-h1' ), 'text-decoration' );
 
-		$h2_font_family    = astra_get_option( 'font-family-h2' );
-		$h2_font_weight    = astra_get_option( 'font-weight-h2' );
-		$h2_line_height    = astra_get_option( 'line-height-h2' );
-		$h2_text_transform = astra_get_option( 'text-transform-h2' );
+		$h2_font_family     = astra_get_option( 'font-family-h2' );
+		$h2_font_weight     = astra_get_option( 'font-weight-h2' );
+		$h2_line_height     = astra_get_font_extras( astra_get_option( 'font-extras-h2' ), 'line-height', 'line-height-unit' );
+		$h2_text_transform  = astra_get_font_extras( astra_get_option( 'font-extras-h2' ), 'text-transform' );
+		$h2_letter_spacing  = astra_get_font_extras( astra_get_option( 'font-extras-h2' ), 'letter-spacing', 'letter-spacing-unit' );
+		$h2_text_decoration = astra_get_font_extras( astra_get_option( 'font-extras-h2' ), 'text-decoration' );
 
-		$h3_font_family    = astra_get_option( 'font-family-h3' );
-		$h3_font_weight    = astra_get_option( 'font-weight-h3' );
-		$h3_line_height    = astra_get_option( 'line-height-h3' );
-		$h3_text_transform = astra_get_option( 'text-transform-h3' );
+		$h3_font_family     = astra_get_option( 'font-family-h3' );
+		$h3_font_weight     = astra_get_option( 'font-weight-h3' );
+		$h3_line_height     = astra_get_font_extras( astra_get_option( 'font-extras-h3' ), 'line-height', 'line-height-unit' );
+		$h3_text_transform  = astra_get_font_extras( astra_get_option( 'font-extras-h3' ), 'text-transform' );
+		$h3_letter_spacing  = astra_get_font_extras( astra_get_option( 'font-extras-h3' ), 'letter-spacing', 'letter-spacing-unit' );
+		$h3_text_decoration = astra_get_font_extras( astra_get_option( 'font-extras-h3' ), 'text-decoration' );
 
-		$h4_font_family    = astra_get_option( 'font-family-h4' );
-		$h4_font_weight    = astra_get_option( 'font-weight-h4' );
-		$h4_line_height    = astra_get_option( 'line-height-h4' );
-		$h4_text_transform = astra_get_option( 'text-transform-h4' );
+		$h4_font_family     = astra_get_option( 'font-family-h4' );
+		$h4_font_weight     = astra_get_option( 'font-weight-h4' );
+		$h4_line_height     = astra_get_font_extras( astra_get_option( 'font-extras-h4' ), 'line-height', 'line-height-unit' );
+		$h4_text_transform  = astra_get_font_extras( astra_get_option( 'font-extras-h4' ), 'text-transform' );
+		$h4_letter_spacing  = astra_get_font_extras( astra_get_option( 'font-extras-h4' ), 'letter-spacing', 'letter-spacing-unit' );
+		$h4_text_decoration = astra_get_font_extras( astra_get_option( 'font-extras-h4' ), 'text-decoration' );
 
-		$h5_font_family    = astra_get_option( 'font-family-h5' );
-		$h5_font_weight    = astra_get_option( 'font-weight-h5' );
-		$h5_line_height    = astra_get_option( 'line-height-h5' );
-		$h5_text_transform = astra_get_option( 'text-transform-h5' );
+		$h5_font_family     = astra_get_option( 'font-family-h5' );
+		$h5_font_weight     = astra_get_option( 'font-weight-h5' );
+		$h5_line_height     = astra_get_font_extras( astra_get_option( 'font-extras-h5' ), 'line-height', 'line-height-unit' );
+		$h5_text_transform  = astra_get_font_extras( astra_get_option( 'font-extras-h5' ), 'text-transform' );
+		$h5_letter_spacing  = astra_get_font_extras( astra_get_option( 'font-extras-h5' ), 'letter-spacing', 'letter-spacing-unit' );
+		$h5_text_decoration = astra_get_font_extras( astra_get_option( 'font-extras-h5' ), 'text-decoration' );
 
-		$h6_font_family    = astra_get_option( 'font-family-h6' );
-		$h6_font_weight    = astra_get_option( 'font-weight-h6' );
-		$h6_line_height    = astra_get_option( 'line-height-h6' );
-		$h6_text_transform = astra_get_option( 'text-transform-h6' );
+		$h6_font_family     = astra_get_option( 'font-family-h6' );
+		$h6_font_weight     = astra_get_option( 'font-weight-h6' );
+		$h6_line_height     = astra_get_font_extras( astra_get_option( 'font-extras-h6' ), 'line-height', 'line-height-unit' );
+		$h6_text_transform  = astra_get_font_extras( astra_get_option( 'font-extras-h6' ), 'text-transform' );
+		$h6_letter_spacing  = astra_get_font_extras( astra_get_option( 'font-extras-h6' ), 'letter-spacing', 'letter-spacing-unit' );
+		$h6_text_decoration = astra_get_font_extras( astra_get_option( 'font-extras-h6' ), 'text-decoration' );
 
 		// Fallback for H1 - headings typography.
 		if ( 'inherit' === $h1_font_family ) {
@@ -418,46 +430,58 @@ class Astra_WP_Editor_CSS {
 
 			// Headings H1 - H6 typography.
 			'.editor-styles-wrapper h1'        => array(
-				'font-size'      => astra_responsive_font( $heading_h1_font_size, 'desktop' ),
-				'font-family'    => astra_get_css_value( $h1_font_family, 'font' ),
-				'font-weight'    => astra_get_css_value( $h1_font_weight, 'font' ),
-				'line-height'    => esc_attr( $h1_line_height ),
-				'text-transform' => esc_attr( $h1_text_transform ),
+				'font-size'       => astra_responsive_font( $heading_h1_font_size, 'desktop' ),
+				'font-family'     => astra_get_css_value( $h1_font_family, 'font' ),
+				'font-weight'     => astra_get_css_value( $h1_font_weight, 'font' ),
+				'line-height'     => esc_attr( $h1_line_height ),
+				'text-transform'  => esc_attr( $h1_text_transform ),
+				'text-decoration' => esc_attr( $h1_text_decoration ),
+				'letter-spacing'  => esc_attr( $h1_letter_spacing ),
 			),
 			'.editor-styles-wrapper h2'        => array(
-				'font-size'      => astra_responsive_font( $heading_h2_font_size, 'desktop' ),
-				'font-family'    => astra_get_css_value( $h2_font_family, 'font' ),
-				'font-weight'    => astra_get_css_value( $h2_font_weight, 'font' ),
-				'line-height'    => esc_attr( $h2_line_height ),
-				'text-transform' => esc_attr( $h2_text_transform ),
+				'font-size'       => astra_responsive_font( $heading_h2_font_size, 'desktop' ),
+				'font-family'     => astra_get_css_value( $h2_font_family, 'font' ),
+				'font-weight'     => astra_get_css_value( $h2_font_weight, 'font' ),
+				'line-height'     => esc_attr( $h2_line_height ),
+				'text-transform'  => esc_attr( $h2_text_transform ),
+				'text-decoration' => esc_attr( $h2_text_decoration ),
+				'letter-spacing'  => esc_attr( $h2_letter_spacing ),
 			),
 			'.editor-styles-wrapper h3, #customize-controls .editor-styles-wrapper h3' => array(
-				'font-size'      => astra_responsive_font( $heading_h3_font_size, 'desktop' ),
-				'font-family'    => astra_get_css_value( $h3_font_family, 'font' ),
-				'font-weight'    => astra_get_css_value( $h3_font_weight, 'font' ),
-				'line-height'    => esc_attr( $h3_line_height ),
-				'text-transform' => esc_attr( $h3_text_transform ),
+				'font-size'       => astra_responsive_font( $heading_h3_font_size, 'desktop' ),
+				'font-family'     => astra_get_css_value( $h3_font_family, 'font' ),
+				'font-weight'     => astra_get_css_value( $h3_font_weight, 'font' ),
+				'line-height'     => esc_attr( $h3_line_height ),
+				'text-transform'  => esc_attr( $h3_text_transform ),
+				'text-decoration' => esc_attr( $h3_text_decoration ),
+				'letter-spacing'  => esc_attr( $h3_letter_spacing ),
 			),
 			'.editor-styles-wrapper h4'        => array(
-				'font-size'      => astra_responsive_font( $heading_h4_font_size, 'desktop' ),
-				'font-family'    => astra_get_css_value( $h4_font_family, 'font' ),
-				'font-weight'    => astra_get_css_value( $h4_font_weight, 'font' ),
-				'line-height'    => esc_attr( $h4_line_height ),
-				'text-transform' => esc_attr( $h4_text_transform ),
+				'font-size'       => astra_responsive_font( $heading_h4_font_size, 'desktop' ),
+				'font-family'     => astra_get_css_value( $h4_font_family, 'font' ),
+				'font-weight'     => astra_get_css_value( $h4_font_weight, 'font' ),
+				'line-height'     => esc_attr( $h4_line_height ),
+				'text-transform'  => esc_attr( $h4_text_transform ),
+				'text-decoration' => esc_attr( $h4_text_decoration ),
+				'letter-spacing'  => esc_attr( $h4_letter_spacing ),
 			),
 			'.editor-styles-wrapper h5'        => array(
-				'font-size'      => astra_responsive_font( $heading_h5_font_size, 'desktop' ),
-				'font-family'    => astra_get_css_value( $h5_font_family, 'font' ),
-				'font-weight'    => astra_get_css_value( $h5_font_weight, 'font' ),
-				'line-height'    => esc_attr( $h5_line_height ),
-				'text-transform' => esc_attr( $h5_text_transform ),
+				'font-size'       => astra_responsive_font( $heading_h5_font_size, 'desktop' ),
+				'font-family'     => astra_get_css_value( $h5_font_family, 'font' ),
+				'font-weight'     => astra_get_css_value( $h5_font_weight, 'font' ),
+				'line-height'     => esc_attr( $h5_line_height ),
+				'text-transform'  => esc_attr( $h5_text_transform ),
+				'text-decoration' => esc_attr( $h5_text_decoration ),
+				'letter-spacing'  => esc_attr( $h5_letter_spacing ),
 			),
 			'.editor-styles-wrapper h6'        => array(
-				'font-size'      => astra_responsive_font( $heading_h6_font_size, 'desktop' ),
-				'font-family'    => astra_get_css_value( $h6_font_family, 'font' ),
-				'font-weight'    => astra_get_css_value( $h6_font_weight, 'font' ),
-				'line-height'    => esc_attr( $h6_line_height ),
-				'text-transform' => esc_attr( $h6_text_transform ),
+				'font-size'       => astra_responsive_font( $heading_h6_font_size, 'desktop' ),
+				'font-family'     => astra_get_css_value( $h6_font_family, 'font' ),
+				'font-weight'     => astra_get_css_value( $h6_font_weight, 'font' ),
+				'line-height'     => esc_attr( $h6_line_height ),
+				'text-transform'  => esc_attr( $h6_text_transform ),
+				'text-decoration' => esc_attr( $h6_text_decoration ),
+				'letter-spacing'  => esc_attr( $h6_letter_spacing ),
 			),
 			'.editor-styles-wrapper .block-editor-block-list__layout.is-root-container p' => array(
 				'margin-bottom' => astra_get_css_value( $para_margin_bottom, 'em' ),
