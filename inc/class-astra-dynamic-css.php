@@ -3437,6 +3437,10 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'margin-right' => '0',
 						'padding-left' => '0',
 					),
+					'.ast-plain-container.ast-no-sidebar .entry-content > .alignfull, .ast-page-builder-template .ast-no-sidebar .entry-content > .alignfull' => array(
+						'margin-left'  => '0',
+						'margin-right' => '0',
+					),
 
 					// Compatibility for Spectra Content Block to align with Full-Width/Stretched layout.
 					'.entry-content .wp-block-uagb-container.alignfull.uagb-is-root-container .uagb-container-inner-blocks-wrap' => array(
