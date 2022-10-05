@@ -142,6 +142,7 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 			),
 			'3.9.3' => array(
 				'astra_slide_in_cart_width_responsive_slider',
+				'astra_page_title_container_alignment_compatibility',
 			),
 		);
 

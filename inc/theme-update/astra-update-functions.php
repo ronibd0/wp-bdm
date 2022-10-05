@@ -1078,3 +1078,19 @@ function astra_slide_in_cart_width_responsive_slider() {
 		update_option( 'astra-settings', $theme_options );
 	}
 }
+
+/**
+ * Do not apply new page title alignment CSS for existing users.
+ *
+ * @since x.x.x
+ *
+ * @return void
+ */
+function astra_page_title_container_alignment_compatibility() {
+	$theme_options = get_option( 'astra-settings', array() );
+
+	if ( ! isset( $theme_options['page-title-container-alignment-css'] ) ) {
+		$theme_options['page-title-container-alignment-css'] = false;
+		update_option( 'astra-settings', $theme_options );
+	}
+}

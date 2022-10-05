@@ -784,12 +784,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$parse_css = '';
 			if ( $block_editor_legacy_setup ) {
 				$parse_css .= '
-					.ast-no-sidebar .entry-content .alignfull {
-						margin-left: calc( -50vw + 50%);
-						margin-right: calc( -50vw + 50%);
-						max-width: 100vw;
-						width: 100vw;
-					}
 					.ast-no-sidebar .entry-content .alignwide {
 						margin-left: calc(-41vw + 50%);
 						margin-right: calc(-41vw + 50%);
@@ -2749,7 +2743,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					/* Parse CSS from array -> min-width(mobile-breakpoint + 1) */
 					$parse_css .= astra_parse_css( $core_blocks_min_width_mobile_ui_css, astra_get_mobile_breakpoint( '', 1 ) );
 				} else {
-
 					$astra_no_sidebar_layout_css =
 						'.ast-no-sidebar.ast-separate-container ' . $entry_content_selector . ' .alignfull {
 							margin-left: -6.67em;
@@ -3426,6 +3419,39 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				$parse_css .= astra_parse_css( $transparent_header_builder_mobile_css, '', astra_get_mobile_breakpoint() );
 			}
 
+			/**
+			 * Page title container alignment css support.
+			 * For existing users css will not trigger, only for new users.
+			 * Filter available for old users - astra_page_title_container_alignment_compatibility.
+			 */
+			if ( self::page_title_container_alignment_compatibility() ) {
+
+				$page_title_container_alignment_css = array(
+					'.ast-no-sidebar.ast-separate-container .entry-content .alignfull' => array(
+						'margin-left'  => '0',
+						'margin-right' => '0',
+						'padding-left' => '0',
+					),
+					'.ast-no-sidebar .entry-content .alignfull' => array(
+						'margin-left'  => '0',
+						'margin-right' => '0',
+						'padding-left' => '0',
+					),
+
+					// Compatibility for Spectra Content Block to align with Full-Width/Stretched layout.
+					'.entry-content .wp-block-uagb-container.alignfull.uagb-is-root-container .uagb-container-inner-blocks-wrap' => array(
+						'margin-left'  => '0 !important',
+						'margin-right' => '0 !important',
+					),
+					'.ast-page-builder-template .site-main .entry-header' => array(
+						'padding-left' => '0',
+					),
+				);
+
+				$parse_css .= astra_parse_css( $page_title_container_alignment_css );
+
+			}
+
 			$parse_css .= $dynamic_css;
 			$custom_css = astra_get_option( 'custom-css' );
 
@@ -4090,6 +4116,18 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			}
 
 			return $sidebar_static_css;
+		}
+
+		/**
+		 * Do not apply new Page title alignment CSS for existing users.
+		 *
+		 * @since x.x.x
+		 * @return boolean false if it is an existing user , true if not.
+		 */
+		public static function page_title_container_alignment_compatibility() {
+			$astra_settings                                       = get_option( ASTRA_THEME_SETTINGS );
+			$astra_settings['page-title-container-alignment-css'] = isset( $astra_settings['page-title-container-alignment-css'] ) ? false : true;
+			return apply_filters( 'astra_page_title_container_alignment_compatibility', $astra_settings['page-title-container-alignment-css'] );
 		}
 
 		/**
