@@ -784,6 +784,12 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$parse_css = '';
 			if ( $block_editor_legacy_setup ) {
 				$parse_css .= '
+					.ast-no-sidebar .entry-content .alignfull {
+						margin-left: calc( -50vw + 50%);
+						margin-right: calc( -50vw + 50%);
+						max-width: 100vw;
+						width: 100vw;
+					}
 					.ast-no-sidebar .entry-content .alignwide {
 						margin-left: calc(-41vw + 50%);
 						margin-right: calc(-41vw + 50%);
