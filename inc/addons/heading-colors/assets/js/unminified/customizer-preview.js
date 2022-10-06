@@ -40,11 +40,8 @@
 			astra_generate_outside_font_family_css( 'astra-settings[font-family-'+ slug +']', slug + ', .entry-content ' + slug + anchorSupport );
 			astra_generate_font_weight_css( 'astra-settings[font-family-'+ slug +']', 'astra-settings[font-weight-'+ slug +']', 'font-weight', slug + ', .entry-content ' + slug + anchorSupport + WidthTitleSupport );
 		}
-		
-		console.log('astra-settings[font-extras-'+ slug +']');
 
 		wp.customize( 'astra-settings[font-extras-'+ slug +']', function( value ) {
-			console.log('asdasd');
 
 			value.bind( function( data ) {
 				let elementorSupport = '';

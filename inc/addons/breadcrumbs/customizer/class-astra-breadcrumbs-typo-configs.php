@@ -85,6 +85,24 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Typo_Configs' ) ) {
 				),
 
 				/**
+				 * Option: Font Weight
+				 */
+				array(
+					'name'              => 'breadcrumb-font-weight',
+					'control'           => 'ast-font',
+					'type'              => 'sub-control',
+					'parent'            => ASTRA_THEME_SETTINGS . '[section-breadcrumb-typo]',
+					'section'           => 'section-breadcrumb',
+					'font_type'         => 'ast-font-weight',
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_font_weight' ),
+					'default'           => astra_get_option( 'breadcrumb-font-weight' ),
+					'title'             => __( 'Font Weight', 'astra' ),
+					'connect'           => 'breadcrumb-font-family',
+					'priority'          => 10,
+					'divider'           => array( 'ast_class' => 'ast-sub-bottom-dotted-divider' ),
+				),
+
+				/**
 				 * Option: Font Size
 				 */
 
@@ -96,7 +114,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Typo_Configs' ) ) {
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
 					'section'           => 'section-breadcrumb',
 					'transport'         => 'postMessage',
-					'title'             => __( 'Size', 'astra' ),
+					'title'             => __( 'Font Size', 'astra' ),
 					'priority'          => 10,
 					'default'           => astra_get_option( 'breadcrumb-font-size' ),
 					'suffix'            => array( 'px', 'em' ),
@@ -112,23 +130,6 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Typo_Configs' ) ) {
 							'max'  => 20,
 						),
 					),
-				),
-
-				/**
-				 * Option: Font Weight
-				 */
-				array(
-					'name'              => 'breadcrumb-font-weight',
-					'control'           => 'ast-font',
-					'type'              => 'sub-control',
-					'parent'            => ASTRA_THEME_SETTINGS . '[section-breadcrumb-typo]',
-					'section'           => 'section-breadcrumb',
-					'font_type'         => 'ast-font-weight',
-					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_font_weight' ),
-					'default'           => astra_get_option( 'breadcrumb-font-weight' ),
-					'title'             => __( 'Weight', 'astra' ),
-					'connect'           => 'breadcrumb-font-family',
-					'priority'          => 15,
 				),
 
 				/**

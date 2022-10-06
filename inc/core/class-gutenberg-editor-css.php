@@ -38,8 +38,8 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 			$site_content_width          = astra_get_option( 'site-content-width', 1200 ) + 56;
 			$headings_font_family        = astra_get_option( 'headings-font-family' );
 			$headings_font_weight        = astra_get_option( 'headings-font-weight' );
-			$headings_text_transform     = astra_get_option( 'headings-text-transform' );
-			$headings_line_height        = astra_get_option( 'headings-line-height' );
+			$headings_text_transform     = astra_get_font_extras( astra_get_option( 'headings-font-extras' ), 'text-transform' );
+			$headings_line_height        = astra_get_font_extras( astra_get_option( 'headings-font-extras' ), 'line-height', 'line-height-unit' );
 			$single_post_title_font_size = astra_get_option( 'font-size-entry-title' );
 			$body_font_family            = astra_body_font_family();
 			$para_margin_bottom          = astra_get_option( 'para-margin-bottom' );

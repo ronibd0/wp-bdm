@@ -541,10 +541,11 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'transport' => 'postMessage',
 						'control'   => 'ast-font',
 						'font_type' => 'ast-font-family',
-						'title'     => __( 'Family', 'astra' ),
+						'title'     => __( 'Font Family', 'astra' ),
 						'priority'  => 22,
 						'connect'   => 'header-' . $_prefix . '-font-weight',
 						'context'   => Astra_Builder_Helper::$general_tab,
+						'divider'   => array( 'ast_class' => 'ast-sub-bottom-dotted-divider' ),
 					),
 
 					// Option: Menu Font Weight.
@@ -558,11 +559,13 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'transport'         => 'postMessage',
 						'font_type'         => 'ast-font-weight',
 						'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_font_weight' ),
-						'title'             => __( 'Weight', 'astra' ),
-						'priority'          => 24,
+						'title'             => __( 'Font Weight', 'astra' ),
+						'priority'          => 23,
 						'connect'           => 'header-' . $_prefix . '-font-family',
 						'context'           => Astra_Builder_Helper::$general_tab,
+						'divider'           => array( 'ast_class' => 'ast-sub-bottom-dotted-divider' ),
 					),
+
 
 					// Option: Menu Font Size.
 					array(
@@ -572,7 +575,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'section'           => $_section,
 						'type'              => 'sub-control',
 						'priority'          => 23,
-						'title'             => __( 'Size', 'astra' ),
+						'title'             => __( 'Font Size', 'astra' ),
 						'control'           => 'ast-responsive-slider',
 						'transport'         => 'postMessage',
 						'context'           => Astra_Builder_Helper::$general_tab,
@@ -592,6 +595,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						),
 					),
 
+	
 					/**
 					 * Option: Primary Menu Font Extras
 					 */

@@ -223,7 +223,11 @@
 }
 
 .ast-field-settings-modal .customize-control {
-  margin-top: 5px;
+  margin-top: 2px;
+}
+
+#customize-control-headings-font-extras.ast-sub-top-dotted-divider {
+  margin-top: 12px;
 }
 
 /**

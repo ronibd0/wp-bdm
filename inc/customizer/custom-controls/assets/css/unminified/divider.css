@@ -224,13 +224,3 @@
 [ID*="customize-control-astra-settings-footer-button"][ID*="-text"] {
     margin-top: 32px;
 }
-
-#customize-control-body-font-variant,
-#customize-control-headings-font-variant {
-    margin-top: 0;
-}
-
-#customize-control-body-font-variant .customize-control-title,
-#customize-control-headings-font-variant .customize-control-title {
-    margin-top: 23px;
-}

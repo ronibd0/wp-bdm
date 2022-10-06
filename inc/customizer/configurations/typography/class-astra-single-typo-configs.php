@@ -99,8 +99,8 @@ if ( ! class_exists( 'Astra_Single_Typo_Configs' ) ) {
 						'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
 						'section'           => 'section-blog-single',
 						'transport'         => 'postMessage',
-						'title'             => __( 'Size', 'astra' ),
-						'priority'          => 8,
+						'title'             => __( 'Font Size', 'astra' ),
+						'priority'          => 10,
 						'default'           => astra_get_option( 'font-size-entry-title' ),
 						'suffix'            => array( 'px', 'em' ),
 						'input_attrs'       => array(

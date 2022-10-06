@@ -79,6 +79,7 @@ if ( ! class_exists( 'Astra_Body_Typo_Configs' ) ) {
 					'title'       => __( 'Font Family', 'astra' ),
 					'connect'     => ASTRA_THEME_SETTINGS . '[body-font-weight]',
 					'variant'     => ASTRA_THEME_SETTINGS . '[body-font-variant]',
+					'divider'     => array( 'ast_class' => 'ast-sub-bottom-dotted-divider' ),
 				),
 
 				/**
@@ -120,8 +121,9 @@ if ( ! class_exists( 'Astra_Body_Typo_Configs' ) ) {
 					'ast_inherit'       => __( 'Default', 'astra' ),
 					'section'           => $typo_section,
 					'priority'          => 15,
-					'title'             => __( 'Weight', 'astra' ),
+					'title'             => __( 'Font Weight', 'astra' ),
 					'connect'           => 'body-font-family',
+					'divider'           => array( 'ast_class' => 'ast-sub-bottom-dotted-divider' ),
 				),
 
 				/**
@@ -134,9 +136,9 @@ if ( ! class_exists( 'Astra_Body_Typo_Configs' ) ) {
 					'control'     => 'ast-responsive-slider',
 					'section'     => $typo_section,
 					'default'     => astra_get_option( 'font-size-body' ),
-					'priority'    => 10,
+					'priority'    => 15,
 					'lazy'        => true,
-					'title'       => __( 'Size', 'astra' ),
+					'title'       => __( 'Font Size', 'astra' ),
 					'suffix'      => 'px',
 					'input_attrs' => array(
 						'min' => 0,
@@ -198,13 +200,13 @@ if ( ! class_exists( 'Astra_Body_Typo_Configs' ) ) {
 					'parent'    => ASTRA_THEME_SETTINGS . '[ast-headings-font-settings]',
 					'control'   => 'ast-font',
 					'font_type' => 'ast-font-family',
-					'divider'   => array( 'ast_class' => 'ast-top-divider' ),
 					'default'   => astra_get_option( 'headings-font-family' ),
 					'title'     => __( 'Font Family', 'astra' ),
 					'section'   => $typo_section,
 					'priority'  => 26,
 					'connect'   => ASTRA_THEME_SETTINGS . '[headings-font-weight]',
 					'variant'   => ASTRA_THEME_SETTINGS . '[headings-font-variant]',
+					'divider'   => array( 'ast_class' => 'ast-sub-bottom-dotted-divider' ),
 				),
 
 				/**
@@ -243,32 +245,10 @@ if ( ! class_exists( 'Astra_Body_Typo_Configs' ) ) {
 					'font_type'         => 'ast-font-weight',
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_font_weight' ),
 					'default'           => astra_get_option( 'headings-font-weight' ),
-					'title'             => __( 'Weight', 'astra' ),
+					'title'             => __( 'Font Weight', 'astra' ),
 					'section'           => $typo_section,
 					'priority'          => 26,
 					'connect'           => 'headings-font-family',
-				),
-
-				/**
-				 * Option: Headings Text Transform
-				 */
-				array(
-					'name'     => 'headings-text-transform',
-					'type'     => 'sub-control',
-					'parent'   => ASTRA_THEME_SETTINGS . '[ast-headings-font-settings]',
-					'control'  => 'ast-select',
-					'section'  => $typo_section,
-					'title'    => __( 'Text Transform', 'astra' ),
-					'lazy'     => true,
-					'default'  => astra_get_option( 'headings-text-transform' ),
-					'priority' => 26,
-					'choices'  => array(
-						''           => __( 'Inherit', 'astra' ),
-						'none'       => __( 'None', 'astra' ),
-						'capitalize' => __( 'Capitalize', 'astra' ),
-						'uppercase'  => __( 'Uppercase', 'astra' ),
-						'lowercase'  => __( 'Lowercase', 'astra' ),
-					),
 				),
 
 				/**
@@ -283,6 +263,7 @@ if ( ! class_exists( 'Astra_Body_Typo_Configs' ) ) {
 					'priority' => 26,
 					'default'  => astra_get_option( 'headings-font-height-settings' ),
 					'title'    => __( 'Font Extras', 'astra' ),
+					'divider'  => array( 'ast_class' => 'ast-sub-top-dotted-divider' ),
 				),
 
 				/**

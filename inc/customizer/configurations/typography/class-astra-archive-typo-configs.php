@@ -101,8 +101,8 @@ if ( ! class_exists( 'Astra_Archive_Typo_Configs' ) ) {
 						'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
 						'section'           => 'section-blog',
 						'transport'         => 'postMessage',
-						'title'             => __( 'Size', 'astra' ),
-						'priority'          => 8,
+						'title'             => __( 'Font Size', 'astra' ),
+						'priority'          => 12,
 						'default'           => astra_get_option( 'font-size-archive-summary-title' ),
 						'suffix'            => array( 'px', 'em' ),
 						'input_attrs'       => array(
@@ -117,7 +117,6 @@ if ( ! class_exists( 'Astra_Archive_Typo_Configs' ) ) {
 								'max'  => 20,
 							),
 						),
-						'divider'           => array( 'ast_class' => 'ast-bottom-divider ast-top-divider' ),
 					),
 
 					array(
@@ -145,8 +144,8 @@ if ( ! class_exists( 'Astra_Archive_Typo_Configs' ) ) {
 						'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
 						'section'           => 'section-blog',
 						'transport'         => 'postMessage',
-						'title'             => __( 'Size', 'astra' ),
-						'priority'          => 2,
+						'title'             => __( 'Font Size', 'astra' ),
+						'priority'          => 4,
 						'default'           => astra_get_option( 'font-size-page-title' ),
 						'suffix'            => array( 'px', 'em' ),
 						'input_attrs'       => array(

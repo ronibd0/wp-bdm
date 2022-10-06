@@ -3149,17 +3149,6 @@ input[type="text"].select2-search__field {
 [ID*="customize-control-astra-settings-footer-button"][ID*="-text"] {
     margin-top: 32px;
 }
-
-#customize-control-body-font-variant,
-#customize-control-headings-font-variant {
-    margin-top: 0;
-}
-
-#customize-control-body-font-variant .customize-control-title,
-#customize-control-headings-font-variant .customize-control-title {
-    margin-top: 23px;
-}
-
 .ast-typo-presets {
 	width: 100%;
     display: flex;
@@ -3238,7 +3227,7 @@ input[type="text"].select2-search__field {
 	justify-content: space-between;
 	gap: 20px;
 	align-items: center;
-	padding-bottom: 20px;
+	padding-bottom: 12px;
 	border-bottom: 1px dashed #D4D4D4;
 }
 
@@ -3298,7 +3287,7 @@ input[type="text"].select2-search__field {
 	justify-content: space-between;
 	align-items: center;
 	gap: 10px;
-	padding-top: 20px;
+	padding-top: 12px;
 }
 
 .ast-font-transform-wrapper, .ast-font-decoration-wrapper {
@@ -4817,6 +4806,10 @@ span.customize-control-title.ast-group-section-title {
 }
 
 .ast-field-settings-modal .customize-control {
+  margin-top: 2px;
+}
+
+#customize-control-headings-font-extras .ast-sub-top-dotted-divider {
   margin-top: 12px;
 }
 
@@ -5876,17 +5869,6 @@ input[type="text"].select2-search__field {
 [ID*="customize-control-astra-settings-footer-button"][ID*="-text"] {
     margin-top: 32px;
 }
-
-#customize-control-body-font-variant,
-#customize-control-headings-font-variant {
-    margin-top: 0;
-}
-
-#customize-control-body-font-variant .customize-control-title,
-#customize-control-headings-font-variant .customize-control-title {
-    margin-top: 23px;
-}
-
 .ast-typo-presets {
 	width: 100%;
     display: flex;
@@ -5965,7 +5947,7 @@ input[type="text"].select2-search__field {
 	justify-content: space-between;
 	gap: 20px;
 	align-items: center;
-	padding-bottom: 20px;
+	padding-bottom: 12px;
 	border-bottom: 1px dashed #D4D4D4;
 }
 
@@ -6025,7 +6007,7 @@ input[type="text"].select2-search__field {
 	justify-content: space-between;
 	align-items: center;
 	gap: 10px;
-	padding-top: 20px;
+	padding-top: 12px;
 }
 
 .ast-font-transform-wrapper, .ast-font-decoration-wrapper {
@@ -7544,7 +7526,11 @@ span.customize-control-title.ast-group-section-title {
 }
 
 .ast-field-settings-modal .customize-control {
-  margin-top: 5px;
+  margin-top: 2px;
+}
+
+#customize-control-headings-font-extras.ast-sub-top-dotted-divider {
+  margin-top: 12px;
 }
 
 /**

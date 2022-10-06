@@ -157,8 +157,8 @@ final class Astra_Builder_Base_Configuration {
 					'control'           => 'ast-responsive-slider',
 					'default'           => astra_get_option( 'font-size-' . $section_id ),
 					'transport'         => 'postMessage',
-					'priority'          => 14,
-					'title'             => __( 'Size', 'astra' ),
+					'priority'          => 15,
+					'title'             => __( 'Font Size', 'astra' ),
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
 					'suffix'            => array( 'px', 'em' ),
 					'input_attrs'       => array(
