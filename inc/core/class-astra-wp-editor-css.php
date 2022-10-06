@@ -524,7 +524,7 @@ class Astra_WP_Editor_CSS {
 		);
 		// Full Width/Stretched.
 		$desktop_css['.editor-styles-wrapper .wp-block-uagb-container.alignfull.uagb-is-root-container .uagb-container-inner-blocks-wrap'] = array(
-			'margin-left' => '0 !important',
+			'margin-' . $ltr_left => '0 !important',
 		);
 
 		$content_links_underline = astra_get_option( 'underline-content-links' );

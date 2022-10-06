@@ -482,7 +482,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 			);
 			// Full Width/Stretched.
 			$desktop_css['.editor-styles-wrapper .wp-block-uagb-container.alignfull.uagb-is-root-container .uagb-container-inner-blocks-wrap'] = array(
-				'margin-left' => '0 !important',
+				'margin-' . $ltr_left => '0 !important',
 			);
 
 			if ( astra_wp_version_compare( '5.7', '>=' ) ) {
