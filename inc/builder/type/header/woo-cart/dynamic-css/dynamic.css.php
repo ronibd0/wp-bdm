@@ -173,7 +173,7 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 			'height' => astra_get_css_value( $cart_icon_size_desktop, 'px' ),
 			'width'  => astra_get_css_value( $cart_icon_size_desktop, 'px' ),
 		),
-		'.ast-cart-menu-wrap, i.astra-icon.ast-icon-shopping-bag, i.astra-icon.ast-icon-shopping-cart, i.astra-icon.ast-icon-shopping-basket'                         => array(
+		'.ast-cart-menu-wrap, i.astra-icon.ast-icon-shopping-bag, i.astra-icon.ast-icon-shopping-cart, i.astra-icon.ast-icon-shopping-basket' => array(
 			'font-size' => astra_get_css_value( $cart_icon_size_desktop, 'px' ),
 		),
 		$selector . ' a.cart-container *'             => array(
