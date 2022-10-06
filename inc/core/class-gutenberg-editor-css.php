@@ -261,7 +261,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 				$site_title_font_weight = $headings_font_weight;
 			}
 			if ( '' == $site_title_text_transform ) {
-				$site_title_text_transform = $headings_text_transform;
+				$site_title_text_transform = '' === $headings_text_transform ? 'capitalize' : $headings_text_transform;
 			}
 			if ( '' == $site_title_line_height ) {
 				$site_title_line_height = $headings_line_height;
@@ -485,6 +485,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 			$desktop_css['.editor-styles-wrapper .wp-block-uagb-container.alignfull.uagb-is-root-container .uagb-container-inner-blocks-wrap'] = array(
 				'margin-' . $ltr_left => '0 !important',
 			);
+
 
 			if ( astra_wp_version_compare( '5.7', '>=' ) ) {
 
