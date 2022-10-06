@@ -3432,18 +3432,25 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 				$page_title_container_alignment_css = array(
 
-					// Boxed & Content Boxed
-					'.ast-no-sidebar.ast-separate-container .entry-content .alignfull' => array(
+					// Boxed & Content Boxed.
+					'.ast-separate-container .entry-content .alignfull' => array(
 						'margin-left'          => '0',
 						'margin-right'         => '0',
 						'padding-' . $ltr_left => '0',
 					),
+					'.ast-no-sidebar.ast-separate-container .entry-content .alignfull' => array(
+						'margin-left'  => '0',
+						'margin-right' => '0',
+					),
 
 					// Full Width Contained.
-					'.ast-plain-container.ast-plain-container.ast-plain-container.ast-no-sidebar .entry-content > .alignfull, .ast-page-builder-template .ast-no-sidebar .entry-content > .alignfull' => array(
+					'.ast-plain-container.ast-plain-container.ast-plain-container.entry-content > .alignfull, .ast-page-builder-template .ast-no-sidebar .entry-content > .alignfull' => array(
 						'margin-left'          => '0',
 						'margin-right'         => '0',
 						'padding-' . $ltr_left => '0',
+					),
+					'.ast-plain-container.ast-plain-container.ast-plain-container .entry-content .wp-block-uagb-container' => array(
+						'padding-' . $ltr_left => '0',              
 					),
 
 					// Full Width Stretched.
@@ -3458,10 +3465,13 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'.ast-page-builder-template .site-main .entry-header' => array(
 						'padding-' . $ltr_left => '0',
 					),
-					'.ast-page-builder-template .ast-no-sidebar .entry-content .alignfull' => array(
+					'.ast-page-builder-template .entry-content .alignfull' => array(
 						'margin-left'          => '0',
 						'margin-right'         => '0',
 						'padding-' . $ltr_left => '0',
+					),
+					'.ast-page-builder-template .entry-content .wp-block-uagb-container' => array(
+						'padding-' . $ltr_left => '0',              
 					),
 
 				);
