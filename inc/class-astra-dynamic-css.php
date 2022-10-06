@@ -3426,6 +3426,10 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			 */
 			if ( self::page_title_container_alignment_compatibility() ) {
 
+				$is_site_rtl = is_rtl();
+				$ltr_left    = $is_site_rtl ? 'right' : 'left';
+				$ltr_right   = $is_site_rtl ? 'left' : 'right';
+
 				$page_title_container_alignment_css = array(
 					'.ast-no-sidebar.ast-separate-container .entry-content .alignfull' => array(
 						'margin-left'  => '0',
