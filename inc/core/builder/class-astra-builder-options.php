@@ -938,7 +938,7 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 		/**
 		 * Menu - Typography.
 		*/
-	$defaults['header-mobile-menu-font-size']      = array(
+	$defaults['header-mobile-menu-font-size'] = array(
 		'desktop'      => '',
 		'tablet'       => '',
 		'mobile'       => '',
@@ -946,10 +946,15 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 		'tablet-unit'  => 'px',
 		'mobile-unit'  => 'px',
 	);
-	$defaults['header-mobile-menu-font-weight']    = 'inherit';
-	$defaults['header-mobile-menu-font-family']    = 'inherit';
-	$defaults['header-mobile-menu-text-transform'] = '';
-	$defaults['header-mobile-menu-line-height']    = '';
+
+	$defaults['font-extras-header-mobile-menu'] = array(
+		'line-height'         => ! isset( $astra_options['font-extras-header-mobile-menu'] ) && isset( $astra_options['header-mobile-menu-line-height'] ) ? $astra_options['header-mobile-menu-line-height'] : '',
+		'line-height-unit'    => 'em',
+		'letter-spacing'      => '',
+		'letter-spacing-unit' => 'px',
+		'text-transform'      => ! isset( $astra_options['font-extras-header-mobile-menu'] ) && isset( $astra_options['header-mobile-menu-text-transform'] ) ? $astra_options['header-mobile-menu-text-transform'] : '',
+		'text-decoration'     => '',
+	);
 
 	/**
 	 * Woo-Cart.

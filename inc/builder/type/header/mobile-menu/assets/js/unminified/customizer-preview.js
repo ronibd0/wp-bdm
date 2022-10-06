@@ -34,26 +34,26 @@
             'font-weight',
             selector + ' .menu-item > .menu-link'
         );
-        astra_css(
-            'astra-settings[header-mobile-menu-text-transform]',
-            'text-transform',
-            selector + ' .menu-item > .menu-link'
-        );
+
         astra_responsive_font_size(
             'astra-settings[header-mobile-menu-font-size]',
             selector + ' .menu-item > .menu-link'
         );
-        astra_css(
-            'astra-settings[header-mobile-menu-line-height]',
-            'line-height',
-            selector + ' .menu-item > .menu-link, ' + selector + ' .menu-item > .ast-menu-toggle'
-        );
-        astra_css(
-            'astra-settings[header-mobile-menu-letter-spacing]',
-            'letter-spacing',
-            selector + ' .menu-item > .menu-link',
-            'px'
-        );
+
+        wp.customize( 'astra-settings[font-extras-header-mobile-menu]', function( value ) {
+            value.bind( function( data ) {
+                const selectorParent = '.ast-builder-menu-mobile .main-navigation';
+
+                let dynamicStyle = selectorParent + ' .menu-item > .menu-link { ';
+                dynamicStyle += 'letter-spacing : ' + data['letter-spacing'] + data['letter-spacing-unit'] + ";" ;
+                dynamicStyle += 'text-decoration : ' + data['text-decoration'] + ";";
+                dynamicStyle += 'text-transform : ' + data['text-transform']  + ';}' ;
+                astra_add_dynamic_css( 'font-extras-header-mobile-menu', dynamicStyle );
+                
+                let lineHeightStyle =  ' .menu-item > .menu-link, ' + selectorParent + ' .menu-item > .ast-menu-toggle { line-height : ' + data['line-height'] + data['line-height-unit'] + ";}";
+                astra_add_dynamic_css( 'font-extras-header-mobile-menu-line-height', lineHeightStyle );
+            });
+        });
 
     /**
      * Color CSS.
