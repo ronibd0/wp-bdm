@@ -3448,10 +3448,10 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'margin-right' => '0 !important',
 					),
 					'.ast-page-builder-template .site-main .entry-content[ast-blocks-layout] > .inherit-container-width > *, .ast-page-builder-template .site-main .entry-content[ast-blocks-layout] > * > *, .site-main .entry-content[ast-blocks-layout] > .wp-block-cover .wp-block-cover__inner-container' => array(
-						'margin-left' => '0',
+						'margin-' . $ltr_left => '0',
 					),
 					'.ast-page-builder-template .site-main .entry-header' => array(
-						'padding-left' => '0',
+						'padding-' . $ltr_left => '0',
 					),
 				);
 
