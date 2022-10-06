@@ -485,6 +485,10 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 			$desktop_css['.editor-styles-wrapper .wp-block-uagb-container.alignfull.uagb-is-root-container .uagb-container-inner-blocks-wrap'] = array(
 				'margin-' . $ltr_left => '0 !important',
 			);
+			$desktop_css['.editor-styles-wrapper .is-root-container'] = array(
+				'margin-left'  => '0',
+				'margin-right' => '0',
+			);
 
 
 			if ( astra_wp_version_compare( '5.7', '>=' ) ) {

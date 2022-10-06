@@ -3431,21 +3431,22 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				$ltr_right   = $is_site_rtl ? 'left' : 'right';
 
 				$page_title_container_alignment_css = array(
+
+					// Boxed & Content Boxed
 					'.ast-no-sidebar.ast-separate-container .entry-content .alignfull' => array(
-						'margin-left'  => '0',
-						'margin-right' => '0',
-						'padding-left' => '0',
-					),
-					'.ast-no-sidebar .entry-content .alignfull' => array(
-						'margin-left'  => '0',
-						'margin-right' => '0',
-						'padding-left' => '0',
-					),
-					'.ast-plain-container.ast-plain-container.ast-plain-container.ast-no-sidebar .entry-content > .alignfull, .ast-page-builder-template .ast-no-sidebar .entry-content > .alignfull' => array(
-						'margin-left'  => '0',
-						'margin-right' => '0',
+						'margin-left'          => '0',
+						'margin-right'         => '0',
+						'padding-' . $ltr_left => '0',
 					),
 
+					// Full Width Contained.
+					'.ast-plain-container.ast-plain-container.ast-plain-container.ast-no-sidebar .entry-content > .alignfull, .ast-page-builder-template .ast-no-sidebar .entry-content > .alignfull' => array(
+						'margin-left'          => '0',
+						'margin-right'         => '0',
+						'padding-' . $ltr_left => '0',
+					),
+
+					// Full Width Stretched.
 					// Compatibility for Spectra Content Block to align with Full-Width/Stretched layout.
 					'.entry-content .wp-block-uagb-container.alignfull.uagb-is-root-container .uagb-container-inner-blocks-wrap' => array(
 						'margin-left'  => '0 !important',
@@ -3457,6 +3458,12 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'.ast-page-builder-template .site-main .entry-header' => array(
 						'padding-' . $ltr_left => '0',
 					),
+					'.ast-page-builder-template .ast-no-sidebar .entry-content .alignfull' => array(
+						'margin-left'          => '0',
+						'margin-right'         => '0',
+						'padding-' . $ltr_left => '0',
+					),
+
 				);
 
 				$parse_css .= astra_parse_css( $page_title_container_alignment_css );
