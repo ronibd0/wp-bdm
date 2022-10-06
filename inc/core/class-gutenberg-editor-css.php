@@ -463,13 +463,26 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 				);
 			}
 
-			// Full-Width/Stretched Layout.
+			// Full-Width/Stretched Layout Page title alignment CSS.
 			$desktop_css['.ast-page-builder-template .editor-styles-wrapper .edit-post-visual-editor__post-title-wrapper > :where(:not(.alignleft):not(.alignright)), .editor-styles-wrapper .block-editor-block-list__layout.is-root-container > :where(:not(.alignleft):not(.alignright))'] = array(
 				'margin-' . $ltr_left => '0 !important',
 			);
 			$desktop_css['.ast-page-builder-template .edit-post-visual-editor .editor-styles-wrapper .block-editor-block-list__layout.is-root-container > :where(:not(.alignleft):not(.alignright))'] = array(
 				'margin-left'  => '0 !important',
 				'margin-right' => '0 !important',
+			);
+
+			/**
+			 * Spectra Container Block Alignment with Page Title in Editor Compatibility CSS.
+			 */
+
+			// Boxed, Content Boxed, Contained.
+			$desktop_css['body .editor-styles-wrapper.editor-styles-wrapper .edit-post-visual-editor__post-title-wrapper > .alignfull, body .editor-styles-wrapper.editor-styles-wrapper .block-editor-block-list__layout.is-root-container > .alignfull'] = array(
+				'max-width' => 'var(--wp--custom--ast-content-width-size)',
+			);
+			// Full Width/Stretched.
+			$desktop_css['.editor-styles-wrapper .wp-block-uagb-container.alignfull.uagb-is-root-container .uagb-container-inner-blocks-wrap'] = array(
+				'margin-left' => '0 !important',
 			);
 
 			if ( astra_wp_version_compare( '5.7', '>=' ) ) {
