@@ -520,7 +520,8 @@ class Astra_WP_Editor_CSS {
 
 		// Boxed, Content Boxed, Contained.
 		$desktop_css['body .editor-styles-wrapper.editor-styles-wrapper .edit-post-visual-editor__post-title-wrapper > .alignfull, body .editor-styles-wrapper.editor-styles-wrapper .block-editor-block-list__layout.is-root-container > .alignfull'] = array(
-			'max-width' => 'var(--wp--custom--ast-content-width-size)',
+			'max-width'            => 'var(--wp--custom--ast-content-width-size)',
+			'padding-' . $ltr_left => '0 !important',
 		);
 		// Full Width/Stretched.
 		$desktop_css['.editor-styles-wrapper .wp-block-uagb-container.alignfull.uagb-is-root-container .uagb-container-inner-blocks-wrap'] = array(
