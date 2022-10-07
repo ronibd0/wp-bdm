@@ -46,7 +46,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		 * Tabful sections.
 		 *
 		 * @access private
-		 * @var object
+		 * @var array
 		 */
 		private static $tabbed_sections = array();
 

@@ -75,12 +75,12 @@ class Astra_Posts_Strctures_Markup {
 		$layout_type = ( 'single' === $type ) ? astra_get_option( 'ast-dynamic-single-title-' . $post_type . '-layout', 'layout-1' ) : astra_get_option( 'ast-dynamic-archive-title-' . $post_type . '-layout', 'default' );
 
 		if ( 'single' === $type ) {
-			if ( false === astra_get_option( 'ast-single-' . $post_type . '-title', false ) ) {
+			if ( false === astra_get_option( 'ast-single-' . $post_type . '-title', true ) ) {
 				add_filter( 'astra_display_single_layout1_header_banner', '__return_false' );
 				return;
 			}
 		} else {
-			if ( false === astra_get_option( 'ast-archive-' . $post_type . '-title', false ) ) {
+			if ( false === astra_get_option( 'ast-archive-' . $post_type . '-title', true ) ) {
 				add_filter( 'astra_the_title_enabled', '__return_false' );
 				return;
 			}

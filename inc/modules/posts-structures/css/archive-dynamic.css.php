@@ -32,7 +32,7 @@ function astra_post_archive_strcture_dynamic_css( $dynamic_css, $dynamic_css_fil
 	if ( ! in_array( $current_post_type, $supported_post_types ) ) {
 		return $dynamic_css;
 	}
-	if ( false === astra_get_option( 'ast-archive-' . $current_post_type . '-title', false ) ) {
+	if ( false === astra_get_option( 'ast-archive-' . $current_post_type . '-title', true ) ) {
 		return $dynamic_css;
 	}
 

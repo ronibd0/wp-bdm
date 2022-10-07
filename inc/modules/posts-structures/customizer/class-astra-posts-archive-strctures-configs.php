@@ -37,7 +37,7 @@ class Astra_Posts_Archive_Strctures_Configs extends Astra_Customizer_Config_Base
 	 * @return array Customizer Configurations.
 	 */
 	public function get_layout_configuration( $parent_section, $post_type, $post_type_object ) {
-		if ( 'post' === $post_type || 'product' === $post_type || 'page' === $post_type ) {
+		if ( 'page' === $post_type ) {
 			return array();
 		}
 		return array(
@@ -101,7 +101,6 @@ class Astra_Posts_Archive_Strctures_Configs extends Astra_Customizer_Config_Base
 						'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'right-sidebar', false ) : '',
 					),
 				),
-				'divider'           => array( 'ast_class' => 'ast-bottom-divider' ),
 			),
 		);
 	}
@@ -173,12 +172,12 @@ class Astra_Posts_Archive_Strctures_Configs extends Astra_Customizer_Config_Base
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[ast-archive-' . $post_type . '-title]',
 					'type'     => 'control',
-					'default'  => astra_get_option( 'ast-archive-' . $post_type . '-title', false ),
+					'default'  => astra_get_option( 'ast-archive-' . $post_type . '-title', true ),
 					'control'  => 'ast-section-toggle',
 					'section'  => $parent_section,
 					'priority' => 2,
 					'linked'   => $title_section,
-					'linkText' => __( 'Title Banner', 'astra' ),
+					'linkText' => ucfirst( $post_type ) . __( ' Title', 'astra' ),
 				),
 
 				/**

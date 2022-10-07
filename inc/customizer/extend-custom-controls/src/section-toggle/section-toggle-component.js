@@ -12,6 +12,11 @@ const SectionToggleComponent = ( props ) => {
 			linked,
 		} = props.control.params;
 
+		if( ! isStateToggle ) {
+			setIsStateToggle( ! isStateToggle );
+			props.control.setting.set( ! isStateToggle );
+		}
+
 		const section = wp.customize.section(linked);
 		section.expand();
 	};
@@ -21,8 +26,11 @@ const SectionToggleComponent = ( props ) => {
 		linkText,
 	} = props.control.params;
 
-	return <div className="ast-section-toggle" data-customizer-linked={ linked } >
-		<label htmlFor="inspector-toggle-control-1">{ linkText }</label>
+	return <div className="ast-section-toggle" data-customizer-linked={ linked }>
+		<label onClick={(e) => {
+			e.preventDefault();
+			onLinkClick();
+		}}> { linkText } </label>
 		<ToggleControl
 			checked={ isStateToggle }
 			onChange={ () => {
@@ -39,7 +47,7 @@ const SectionToggleComponent = ( props ) => {
 			</span>
 			: <></>
 		}
-		</div>;
+	</div>;
 };
 
 SectionToggleComponent.propTypes = {

@@ -3004,6 +3004,7 @@ input[type="text"].select2-search__field {
 .ast-section-toggle-icon {
   color: var(--wp-admin-theme-color);
   cursor: pointer;
+  margin-bottom: -4px;
 }
 
 .ast-section-toggle-icon span {
@@ -5819,6 +5820,7 @@ input[type="text"].select2-search__field {
 .ast-section-toggle-icon {
   color: var(--wp-admin-theme-color);
   cursor: pointer;
+  margin-bottom: -4px;
 }
 
 .ast-section-toggle-icon span {
