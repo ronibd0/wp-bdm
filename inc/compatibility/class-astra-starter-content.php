@@ -179,7 +179,7 @@ class Astra_Starter_Content {
 				'url'   => '{{' . self::ABOUT_SLUG . '}}',
 			),
 			'services' => array(
-				'title' => __( 'Services' ),
+				'title' => __( 'Services', 'astra' ),
 				'type'  => 'custom',
 				'url'   => '{{' . self::SERVICES_SLUG . '}}',
 			),
