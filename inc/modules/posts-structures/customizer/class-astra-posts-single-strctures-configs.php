@@ -45,7 +45,7 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 				'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
 				'section'           => $parent_section,
 				'default'           => astra_get_option( 'single-' . $post_type . '-content-layout', 'default' ),
-				'priority'          => 5,
+				'priority'          => 3,
 				'title'             => __( 'Container Layout', 'astra' ),
 				'choices'           => array(
 					'default'                 => array(
@@ -78,7 +78,7 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 				'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
 				'section'           => $parent_section,
 				'default'           => astra_get_option( 'single-' . $post_type . '-sidebar-layout', 'default' ),
-				'priority'          => 5,
+				'priority'          => 3,
 				'title'             => __( 'Sidebar Layout', 'astra' ),
 				'choices'           => array(
 					'default'       => array(
