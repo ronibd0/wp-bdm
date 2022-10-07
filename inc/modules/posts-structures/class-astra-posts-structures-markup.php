@@ -65,7 +65,7 @@ class Astra_Posts_Strctures_Markup {
 		}
 
 		$post_type = $post->post_type;
-		$type      = is_single() ? 'single' : 'archive';
+		$type      = is_singular( $post_type ) ? 'single' : 'archive';
 
 		$supported_post_types = Astra_Posts_Strctures_Loader::get_supported_post_types();
 		if ( ! in_array( $post_type, $supported_post_types ) ) {
