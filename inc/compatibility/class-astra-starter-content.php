@@ -194,7 +194,7 @@ class Astra_Starter_Content {
 				'url'   => '{{' . self::FAQ_SLUG . '}}',
 			),
 			'contact'  => array(
-				'title' => __( 'Contact' ),
+				'title' => __( 'Contact', 'astra' ),
 				'type'  => 'custom',
 				'url'   => '{{' . self::CONTACT_SLUG . '}}',
 			),
