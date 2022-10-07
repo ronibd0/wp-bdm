@@ -108,6 +108,7 @@ class Astra_Starter_Content {
 		/**
 		 * @psalm-suppress PossiblyNullReference
 		 * @psalm-suppress UndefinedMethod
+		 * @psalm-suppress PossiblyNullArrayAccess
 		 * @psalm-suppress PossiblyNullArgument
 		 * @psalm-suppress InvalidScalarArgument
 		 */
