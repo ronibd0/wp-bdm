@@ -184,7 +184,7 @@ class Astra_Starter_Content {
 				'url'   => '{{' . self::SERVICES_SLUG . '}}',
 			),
 			'reviews'  => array(
-				'title' => __( 'Reviews' ),
+				'title' => __( 'Reviews', 'astra' ),
 				'type'  => 'custom',
 				'url'   => '{{' . self::REVIEWS_SLUG . '}}',
 			),
