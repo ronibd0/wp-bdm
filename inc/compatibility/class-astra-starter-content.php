@@ -227,7 +227,7 @@ class Astra_Starter_Content {
 				'blogname'      => 'Astra',
 			),
 			'posts'       => array(
-				self::HOME_SLUG => require dirname( __FILE__ ) . '/starter-content/home.php', // PHPCS:ignore WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
+				self::HOME_SLUG => require ASTRA_THEME_DIR . 'inc/compatibility/starter-content/home.php', // PHPCS:ignore WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 			),
 		);
 
