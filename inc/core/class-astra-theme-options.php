@@ -109,18 +109,9 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 				'astra_theme_defaults',
 				array(
 					// Blog Single.
-					'blog-single-post-structure'           => array(
-						'single-image',
-						'single-title-meta',
-					),
-
 					'blog-single-width'                    => 'default',
 					'blog-single-max-width'                => 1200,
-					'blog-single-meta'                     => array(
-						'comments',
-						'category',
-						'author',
-					),
+
 					// Blog.
 					'blog-post-structure'                  => array(
 						'image',
