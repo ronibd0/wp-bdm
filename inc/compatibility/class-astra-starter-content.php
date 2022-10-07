@@ -174,7 +174,7 @@ class Astra_Starter_Content {
 				'object_id' => '{{' . self::HOME_SLUG . '}}',
 			),
 			'about'    => array(
-				'title' => __( 'About' ),
+				'title' => __( 'About', 'astra' ),
 				'type'  => 'custom',
 				'url'   => '{{' . self::ABOUT_SLUG . '}}',
 			),
