@@ -103,9 +103,16 @@ class Astra_Starter_Content {
 		if ( is_wp_error( $request ) ) {
 			return false; // Bail early.
 		}
-
+		
+		// @codingStandardsIgnoreStart
+		/**
+		 * @psalm-suppress PossiblyNullReference
+		 * @psalm-suppress UndefinedMethod
+		 * @psalm-suppress PossiblyNullArgument
+		 * @psalm-suppress InvalidScalarArgument
+		 */
 		return json_decode( $request['body'], 1 );
-
+		// @codingStandardsIgnoreEnd
 	}
 
 	/**
