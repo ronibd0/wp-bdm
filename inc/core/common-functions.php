@@ -836,9 +836,9 @@ if ( ! function_exists( 'astra_the_title' ) ) {
 
 		$title             = '';
 		$blog_post_title   = astra_get_option( 'blog-post-structure' );
-		$single_post_title = astra_get_option( 'blog-single-post-structure' );
+		$single_post_title = astra_get_option( 'ast-single-post-structure' );
 
-		if ( ( ! is_singular() && in_array( 'title-meta', $blog_post_title ) ) || ( is_single() && in_array( 'single-title-meta', $single_post_title ) ) || is_page() ) {
+		if ( ( ! is_singular() && in_array( 'title-meta', $blog_post_title ) ) || ( is_single() && ( in_array( 'ast-single-post-title', $single_post_title ) || in_array( 'ast-single-post-meta', $single_post_title ) ) ) || is_page() ) {
 			if ( apply_filters( 'astra_the_title_enabled', true ) ) {
 
 				$title  = astra_get_the_title( $post_id );
@@ -924,7 +924,7 @@ if ( ! function_exists( 'astra_get_the_title' ) ) {
  */
 function astra_use_dynamic_blog_layouts() {
 	$astra_settings                         = get_option( ASTRA_THEME_SETTINGS );
-	$astra_settings['dynamic-blog-layouts'] = isset( $astra_settings['dynamic-blog-layouts'] ) ? false : true;
+	$astra_settings['dynamic-blog-layouts'] = isset( $astra_settings['dynamic-blog-layouts'] ) ? $astra_settings['dynamic-blog-layouts'] : true;
 	return apply_filters( 'astra_get_option_dynamic-blog-layouts', $astra_settings['dynamic-blog-layouts'] );
 }
 

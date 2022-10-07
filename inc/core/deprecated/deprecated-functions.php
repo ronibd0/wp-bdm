@@ -13,21 +13,40 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+if ( ! function_exists( 'astra_blog_post_thumbnail_and_title_order' ) ) :
+
+	/**
+	 * Content parts order for banner section.
+	 *
+	 * @since x.x.x
+	 * @deprecated x.x.x Use astra_banner_elements_order()
+	 * @see astra_banner_elements_order()
+	 *
+	 * @return void
+	 */
+	function astra_blog_post_thumbnail_and_title_order() {
+		_deprecated_function( __FUNCTION__, 'x.x.x', 'astra_banner_elements_order()' );
+
+		astra_banner_elements_order();
+	}
+
+endif;
+
 if ( ! function_exists( 'astra_blog_post_thumbnai_and_title_order' ) ) :
 
 	/**
 	 * Blog post thumbnail & title order
 	 *
 	 * @since 1.4.9
-	 * @deprecated 1.4.9 Use astra_blog_post_thumbnail_and_title_order()
-	 * @see astra_blog_post_thumbnail_and_title_order()
+	 * @deprecated 1.4.9 Use astra_banner_elements_order()
+	 * @see astra_banner_elements_order()
 	 *
 	 * @return void
 	 */
 	function astra_blog_post_thumbnai_and_title_order() {
-		_deprecated_function( __FUNCTION__, '1.4.9', 'astra_blog_post_thumbnail_and_title_order()' );
+		_deprecated_function( __FUNCTION__, '1.4.9', 'astra_banner_elements_order()' );
 
-		astra_blog_post_thumbnail_and_title_order();
+		astra_banner_elements_order();
 	}
 
 endif;

@@ -21,7 +21,7 @@
 
 			<?php astra_single_header_top(); ?>
 
-			<?php astra_blog_post_thumbnail_and_title_order(); ?>
+			<?php astra_banner_elements_order(); ?>
 
 			<?php astra_single_header_bottom(); ?>
 
