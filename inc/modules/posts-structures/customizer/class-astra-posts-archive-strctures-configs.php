@@ -281,7 +281,7 @@ class Astra_Posts_Archive_Strctures_Configs extends Astra_Customizer_Config_Base
 					'default'           => astra_get_option( $title_section . '-structure', array( $title_section . '-title', $title_section . '-description' ) ),
 					'priority'          => 20,
 					'title'             => __( 'Elements', 'astra' ),
-					'divider'           => array( 'ast_class' => 'ast-top-divider' ),
+					'divider'           => ( 'post' !== $post_type ) ? array( 'ast_class' => 'ast-top-divider' ) : array(),
 					'choices'           => array(
 						$title_section . '-title'       => __( 'Title', 'astra' ),
 						$title_section . '-description' => __( 'Description', 'astra' ),
@@ -847,11 +847,10 @@ class Astra_Posts_Archive_Strctures_Configs extends Astra_Customizer_Config_Base
 							'value'    => 'default',
 						),
 					),
-					'title'       => __( 'Blog or Latest Posts Page?', 'astra' ),
-					'description' => __( "Latest Posts page is your site's front page when the latest posts are displayed on the home page.", 'astra' ),
+					'title'       => __( 'Enable on Blog / Posts Page?', 'astra' ),
 					'priority'    => 7,
 					'control'     => 'ast-toggle-control',
-					'divider'     => array( 'ast_class' => 'ast-top-divider' ),
+					'divider'     => array( 'ast_class' => 'ast-top-divider ast-bottom-divider' ),
 				);
 			}
 

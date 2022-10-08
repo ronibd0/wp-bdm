@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import { ToggleControl } from '@wordpress/components';
+import FormToggle from "../ast-toggle/form-toggle";
 import { useState } from '@wordpress/element';
 
 const { Dashicon } = wp.components;
@@ -31,7 +32,7 @@ const SectionToggleComponent = ( props ) => {
 			e.preventDefault();
 			onLinkClick();
 		}}> { linkText } </label>
-		<ToggleControl
+		<FormToggle
 			checked={ isStateToggle }
 			onChange={ () => {
 				setIsStateToggle( ! isStateToggle );

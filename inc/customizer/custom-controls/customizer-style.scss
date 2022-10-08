@@ -277,7 +277,7 @@ input[type="text"] {
 /* Toggle Section Control */
 .ast-section-toggle {
 	display: grid;
-	grid-template-columns: 75% 1fr 1fr;
+	grid-template-columns: 80% 1fr 1fr;
 	label {
 		font-size: 14px;
 		line-height: 1;
@@ -289,6 +289,7 @@ input[type="text"] {
     color: var(--wp-admin-theme-color);
     cursor: pointer;
 	margin-bottom: -4px;
+	margin-left: 10px;
 	span {
 		font-size: 16px;
 		line-height: 16px;

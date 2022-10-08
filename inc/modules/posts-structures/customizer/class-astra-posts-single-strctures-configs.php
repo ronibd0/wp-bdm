@@ -354,6 +354,15 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 					'priority'  => 5,
 					'title'     => __( 'Use as Background', 'astra' ),
 					'transport' => 'postMessage',
+					'context'    => array(
+						Astra_Builder_Helper::$general_tab_config,
+						'relation' => 'AND',
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[' . $title_section . '-layout]',
+							'operator' => '===',
+							'value'    => 'layout-2',
+						),
+					),
 				),
 
 				/**
@@ -369,6 +378,27 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 					'section'  => $title_section,
 					'priority' => 5,
 					'title'    => __( 'Overlay Color', 'astra' ),
+					'context'    => array(
+						Astra_Builder_Helper::$general_tab_config,
+						'relation' => 'AND',
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[' . $title_section . '-layout]',
+							'operator' => '===',
+							'value'    => 'layout-2',
+						),
+					),
+				),
+
+				array(
+					'name'     => $title_section . '-featured-help-notice',
+					'parent'   => ASTRA_THEME_SETTINGS . '[' . $title_section . '-structure]',
+					'linked'   => $title_section . '-image',
+					'type'     => 'sub-control',
+					'control'  => 'ast-description',
+					'section'  => $title_section,
+					'priority' => 10,
+					'label'    => '',
+					'help'     => __( 'Note: These featured settings will only work for Layout 2 banner design.', 'astra' ),
 				),
 
 				array(
@@ -521,13 +551,10 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 				array(
 					'name'       => ASTRA_THEME_SETTINGS . '[' . $title_section . '-banner-background]',
 					'type'       => 'control',
-					'default'    => astra_get_option( $title_section . '-banner-background', Astra_Posts_Strctures_Loader::get_customizer_default( 'responsive-color' ) ),
+					'default'    => astra_get_option( $title_section . '-banner-background', Astra_Posts_Strctures_Loader::get_customizer_default( 'responsive-background' ) ),
 					'section'    => $title_section,
-					'transport'  => 'postMessage',
-					'control'    => 'ast-responsive-color',
+					'control'    => 'ast-responsive-background',
 					'title'      => __( 'Background', 'astra' ),
-					'responsive' => true,
-					'rgba'       => true,
 					'context'    => array(
 						Astra_Builder_Helper::$design_tab_config,
 						'relation' => 'AND',
@@ -535,6 +562,11 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 							'setting'  => ASTRA_THEME_SETTINGS . '[' . $title_section . '-featured-as-background]',
 							'operator' => '!=',
 							'value'    => true,
+						),
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[' . $title_section . '-layout]',
+							'operator' => '===',
+							'value'    => 'layout-2',
 						),
 					),
 					'priority'   => 5,

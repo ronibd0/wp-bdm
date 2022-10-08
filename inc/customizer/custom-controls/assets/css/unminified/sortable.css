@@ -234,3 +234,6 @@
     position: relative;
     top: 8px;
 }
+.ast-sortable-subfields-wrap .customize-control-ast-description {
+    line-height: 1;
+}

@@ -1103,11 +1103,11 @@ function astra_post_strctures_meta_migration() {
 
 				foreach ( $single_post_strcture as $key ) {
 					if ( 'single-title-meta' === $key ) {
-						$migrated_post_strcture[] = 'ast-single-post-title';
-						$migrated_post_strcture[] = 'ast-single-post-meta';
+						$migrated_post_strcture[] = 'ast-dynamic-single-title-post-title';
+						$migrated_post_strcture[] = 'ast-dynamic-single-title-post-meta';
 					}
 					if ( 'single-image' === $key ) {
-						$migrated_post_strcture[] = 'ast-single-post-image';
+						$migrated_post_strcture[] = 'ast-dynamic-single-title-post-image';
 					}
 				}
 
@@ -1116,7 +1116,7 @@ function astra_post_strctures_meta_migration() {
 		}
 
 		// Single post meta.
-		if ( ! empty( $theme_options['ast-single-post-metadata'] ) ) {
+		if ( ! empty( $theme_options['ast-dynamic-single-title-post-metadata'] ) ) {
 			$single_post_meta       = isset( $theme_options['blog-single-meta'] ) ? $theme_options['blog-single-meta'] : array(
 				'comments',
 				'category',
@@ -1152,7 +1152,7 @@ function astra_post_strctures_meta_migration() {
 					$migrated_post_metadata[] = 'comments';
 				}
 
-				$theme_options['ast-single-post-metadata'] = $migrated_post_metadata;
+				$theme_options['ast-dynamic-single-title-post-metadata'] = $migrated_post_metadata;
 			}
 		}
 
