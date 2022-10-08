@@ -850,7 +850,7 @@ class Astra_Posts_Archive_Strctures_Configs extends Astra_Customizer_Config_Base
 					'title'       => __( 'Enable on Blog / Posts Page?', 'astra' ),
 					'priority'    => 7,
 					'control'     => 'ast-toggle-control',
-					'divider'     => array( 'ast_class' => 'ast-top-divider ast-bottom-divider' ),
+					'divider'     => array( 'ast_class' => 'ast-top-divider ast-bottom-spacing' ),
 				);
 			}
 
