@@ -3496,18 +3496,27 @@ span.customize-control-title.ast-group-section-title {
 	display: flex;
 	justify-content: center;
 	flex: 1 1 0;
-	background: #fff;
-	border: 1px solid #ddd;
-	padding: 10px 0;
+	background: var(--ast-customizer-color-9);
+	border: 1px solid var(--ast-customizer-color-7);
+	padding: .6em 0;
 	cursor: pointer;
-	--ast-customizer-multiselect-icon-color: #9CA3AF;
+	--ast-customizer-multiselect-icon-color: var(--ast-customizer-color-6);
 }
+
+.customize-control-ast-multi-selector .ast-multiselector-inner-wrap:nth-child(1) {
+	border-left-color: 0;
+}
+
+.customize-control-ast-multi-selector .ast-multiselector-inner-wrap:nth-child(3) {
+	border-right-color: 0;
+}
+
 .customize-control-ast-multi-selector .ast-multiselector-inner-wrap.active {
-	--ast-customizer-multiselect-icon-color: #0284C7;
-	border-color: #2271B1;
+	--ast-customizer-multiselect-icon-color: var(--ast-customizer-color-1);
+	border-color: var(--ast-customizer-color-3);
 }
 .customize-control-ast-multi-selector .ast-multiselector-inner-wrap svg {
-	fill: #fff;
+	fill: var(--ast-customizer-color-10);
 }
 .ast-multiselector-inner-wrap .ahfb-icon-set {
 	line-height: 1;
@@ -6329,18 +6338,21 @@ span.customize-control-title.ast-group-section-title {
 	display: flex;
 	justify-content: center;
 	flex: 1 1 0;
-	background: #fff;
-	border: 1px solid #ddd;
-	padding: 10px 0;
+	background: var(--ast-customizer-color-9);
+	border: 1px solid var(--ast-customizer-color-7);
+	padding: .6em 0;
 	cursor: pointer;
-	--ast-customizer-multiselect-icon-color: #9CA3AF;
+	--ast-customizer-multiselect-icon-color: var(--ast-customizer-color-6);
+	margin-right: -1px;
 }
+
 .customize-control-ast-multi-selector .ast-multiselector-inner-wrap.active {
-	--ast-customizer-multiselect-icon-color: #0284C7;
-	border-color: #2271B1;
+	--ast-customizer-multiselect-icon-color: var(--ast-customizer-color-1);
+	border-color: var(--ast-customizer-color-3);
+	z-index: 1;
 }
 .customize-control-ast-multi-selector .ast-multiselector-inner-wrap svg {
-	fill: #fff;
+	fill: var(--ast-customizer-color-10);
 }
 .ast-multiselector-inner-wrap .ahfb-icon-set {
 	line-height: 1;
