@@ -141,7 +141,7 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 				'astra_shop_style_design_layout',
 			),
 			'3.9.3' => array(
-				'astra_theme_bg_updater_3_9_3',
+				'astra_theme_background_updater_3_9_3',
 			),
 		);
 
