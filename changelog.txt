@@ -1,6 +1,6 @@
 v3.9.3 (Unreleased)
 - New: WooCommerce Cart - "Cart Page" click action introduced to redirect user on cart page.
-- New: Introduced toggle to remove dotted border on focus.
+- New: Global - Typography - Introduced an option to remove dotted border on focus of input fields.
 - Improvement: WooCommerce - Moved border width option for cart icon from addon to theme.
 - Improvement: WooCommerce - Clear button is aligned on top for woocommerce active filter widget when "Chips" option is enabled.
 - Improvement: Customizer - Edit shortcut link assigned to sticky add to cart for easy navigation in respective customizer section.
