@@ -11,7 +11,7 @@ v3.9.3 (Unreleased)
 - Fix: Two search buttons visible on the empty archive search result page.
 - Fix: Disabled Astra meta setting for Blog page which does not not work from metabox, as it acts like a archive page on the frontend.
 - Fix: Megamenu spacing conflict with primary menu top offset option on mobile devices.
-- Fix: Border showing up for related post on single post page.
+- Fix: Top border showing up for related post section on single post when Boxed & Content Boxed layout is active.
 
 v3.9.2
 - Improvement: WooCommerce - Admin bar's customize link updated on WooCommerce pages for quick landing to it's respected customizer section.
