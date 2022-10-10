@@ -133,7 +133,7 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 			$taxonomies = array_reverse( $taxonomies );
 
 			$section          = 'single-posttype-' . $post_type;
-			$title_section    = 'ast-dynamic-single-title-' . $post_type;
+			$title_section    = 'ast-dynamic-single-' . $post_type;
 			$post_type_object = get_post_type_object( $post_type );
 
 			if ( 'product' === $post_type ) {

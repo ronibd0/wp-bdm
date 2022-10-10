@@ -301,7 +301,7 @@ input[type="text"] {
     padding-bottom: 16px;
 }
 
-li[ID*="ast-dynamic-single-title-"].control-section-ast_section,
-li[ID*="ast-dynamic-archive-title-"].control-section-ast_section {
+li[ID*="accordion-section-ast-dynamic-single-"].control-section-ast_section,
+li[ID*="accordion-section-ast-dynamic-archive-"].control-section-ast_section {
     display: none !important;
 }

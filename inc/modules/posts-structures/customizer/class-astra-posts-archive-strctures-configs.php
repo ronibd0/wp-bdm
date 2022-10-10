@@ -124,7 +124,7 @@ class Astra_Posts_Archive_Strctures_Configs extends Astra_Customizer_Config_Base
 			}
 
 			$section          = 'archive-posttype-' . $post_type;
-			$title_section    = 'ast-dynamic-archive-title-' . $post_type;
+			$title_section    = 'ast-dynamic-archive-' . $post_type;
 			$post_type_object = get_post_type_object( $post_type );
 
 			$background_choices = array(
@@ -835,8 +835,8 @@ class Astra_Posts_Archive_Strctures_Configs extends Astra_Customizer_Config_Base
 				 * Option: Disable Transparent Header on Your latest posts index Page
 				 */
 				$_configs[] = array(
-					'name'        => ASTRA_THEME_SETTINGS . '[' . $title_section . '-disable-on-blog]',
-					'default'     => astra_get_option( $title_section . '-disable-on-blog', false ),
+					'name'        => ASTRA_THEME_SETTINGS . '[' . $title_section . '-banner-on-blog]',
+					'default'     => astra_get_option( $title_section . '-banner-on-blog', false ),
 					'type'        => 'control',
 					'section'     => $title_section,
 					'context'     => array(

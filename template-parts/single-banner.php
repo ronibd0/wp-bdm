@@ -10,7 +10,7 @@
 
 global $post;
 $post_type      = $post->post_type;
-$banner_control = 'ast-dynamic-single-title-' . esc_attr( $post_type );
+$banner_control = 'ast-dynamic-single-' . esc_attr( $post_type );
 
 // Conditionally updating data section & class.
 $attr = 'class="ast-single-entry-banner"';
