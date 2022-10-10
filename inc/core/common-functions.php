@@ -1597,7 +1597,7 @@ function astra_block_based_legacy_setup() {
 function astra_check_is_structural_setup() {
 	$astra_settings = get_option( ASTRA_THEME_SETTINGS );
 	// phpcs:ignore WordPress.NamingConventions.ValidHookName.UseUnderscores
-	return apply_filters( 'astra_get_option_customizer-default-layout-update', isset( $astra_settings['customizer-default-layout-update'] ) ? false : true );
+	return apply_filters( 'astra_get_option_customizer-default-layout-update', isset( $astra_settings['customizer-default-layout-update'] ) ? false : true ); // phpcs:ignore WordPress.NamingConventions.ValidHookName.UseUnderscores
 }
 
 /**
