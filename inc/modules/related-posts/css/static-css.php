@@ -69,7 +69,6 @@ function astra_related_posts_static_css( $dynamic_css ) {
 					border-top: 1px solid var(--ast-border-color);
 					margin: 2em 0 0;
 				}
-
 				.ast-separate-container .ast-single-related-posts-container {
 					border-top: 0;
 				}
