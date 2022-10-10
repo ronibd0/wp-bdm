@@ -375,7 +375,7 @@ if ( ! class_exists( 'Astra_Body_Typo_Configs' ) ) {
 					'section'  => $typo_section,
 					'priority' => 32,
 					'divider'  => array( 'ast_class' => 'ast-top-dotted-divider' ),
-					'title'    => __( 'Disable Dotted Focus', 'astra' ),
+					'title'    => __( 'Enable Dotted Focus', 'astra' ),
 				),
 			);
 
