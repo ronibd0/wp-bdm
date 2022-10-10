@@ -97,13 +97,21 @@ final class Astra_Builder_Admin {
 						<?php
 							printf(
 								/* translators: %1$s: Theme name. */
-								esc_html__( 'Latest features and options of %1$s customizer will no longer support to the old Header footer,we will disable this old header footer in the future release ', 'astra' ),
+								esc_html__( 'After years of evolution and updates, the old header footer builder is at the point where it can no longer handle all of the new features. ', 'astra' ),
+								esc_html( $astra_theme_title )
+							);
+						?>
+					</p>
+					<p>
+						<?php
+							printf(
+								/* translators: %1$s: Theme name. */
+								esc_html__( 'We recommend that you upgrade to the new header footer builder which has an assortment of new features and provides a more seamless experience. ', 'astra' ),
 								esc_html( $astra_theme_title )
 							);
 						?>
 					</p>
 					<p><?php esc_html_e( 'Note: The header/footer builder will replace the existing header/footer settings in the customizer. This might make your header/footer look a bit different. You can configure header/footer builder settings from customizer to give it a nice look. You can always come back here and switch to your old header/footer. ', 'astra' ); ?></p>
-					
 					<div class="ast-actions-wrap" style="justify-content: space-between;display: flex;align-items: center;" >
 						<a href="<?php echo esc_url( admin_url( '/customize.php' ) ); ?>" class="ast-go-to-customizer"><?php esc_html_e( 'Go to Customizer', 'astra' ); ?></a>
 						<div class="ast-actions" style="display: inline-flex;">
