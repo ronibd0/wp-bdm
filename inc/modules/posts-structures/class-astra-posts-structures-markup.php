@@ -72,6 +72,8 @@ class Astra_Posts_Strctures_Markup {
 			return;
 		}
 
+		$layout_type = ( 'single' === $type ) ? astra_get_option( 'ast-dynamic-single-' . $post_type . '-layout', 'layout-1' ) : astra_get_option( 'ast-dynamic-archive-' . $post_type . '-layout', 'layout-1' );
+
 		// If banner title section is disabled then halt further processing.
 		if ( 'single' === $type ) {
 			if ( false === astra_get_option( 'ast-single-' . $post_type . '-title', true ) ) {
@@ -79,13 +81,17 @@ class Astra_Posts_Strctures_Markup {
 				return;
 			}
 		} else {
+			// If layout-1 is set then no need to process further.
 			if ( false === astra_get_option( 'ast-archive-' . $post_type . '-title', true ) ) {
 				add_filter( 'astra_the_title_enabled', '__return_false' );
 				return;
 			}
-		}
+			if ( 'layout-1' === $layout_type ) {
+				return;
+			}
 
-		$layout_type = ( 'single' === $type ) ? astra_get_option( 'ast-dynamic-single-' . $post_type . '-layout', 'layout-1' ) : astra_get_option( 'ast-dynamic-archive-' . $post_type . '-layout', 'default' );
+			add_filter( 'astra_the_title_enabled', '__return_false' );
+		}
 
 		if ( 'single' === $type && 'layout-2' === $layout_type ) {
 

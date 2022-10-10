@@ -240,6 +240,7 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 					'priority'          => 5,
 					'context'           => Astra_Builder_Helper::$general_tab,
 					'title'             => __( 'Banner Layout', 'astra-addon' ),
+					'divider'           => array( 'ast_class' => 'ast-section-spacing ast-bottom-spacing' ),
 					'choices'           => array(
 						'layout-1' => array(
 							'label' => __( 'Layout 1', 'astra' ),
@@ -267,7 +268,7 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 						'fullwidth' => __( 'Full Width', 'astra' ),
 						'custom'    => __( 'Custom', 'astra' ),
 					),
-					'divider'    => array( 'ast_class' => 'ast-top-divider' ),
+					'divider'    => array( 'ast_class' => 'ast-top-divider ast-bottom-spacing' ),
 					'responsive' => false,
 					'renderAs'   => 'text',
 					'context'    => array(
@@ -327,8 +328,8 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 					'context'           => Astra_Builder_Helper::$general_tab,
 					'default'           => astra_get_option( $title_section . '-structure', array( $title_section . '-title', $title_section . '-breadcrumb' ) ),
 					'priority'          => 20,
-					'title'             => __( 'Elements', 'astra' ),
-					'divider'           => array( 'ast_class' => 'ast-top-divider' ),
+					'title'             => __( 'Structure', 'astra' ),
+					'divider'           => array( 'ast_class' => 'ast-top-divider ast-bottom-spacing' ),
 					'choices'           => array_merge(
 						array(
 							$title_section . '-title'      => __( 'Title', 'astra' ),
@@ -429,6 +430,7 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 					),
 					'section'           => $title_section,
 					'priority'          => 25,
+					'divider'           => array( 'ast_class' => 'ast-bottom-spacing' ),
 					'title'             => __( 'Meta', 'astra' ),
 					'choices'           => array_merge(
 						array(
@@ -477,7 +479,7 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 						'center'     => __( 'Middle', 'astra' ),
 						'flex-end'   => __( 'Bottom', 'astra' ),
 					),
-					'divider'    => array( 'ast_class' => 'ast-top-divider' ),
+					'divider'    => array( 'ast_class' => 'ast-top-divider ast-section-spacing' ),
 					'context'    => array(
 						Astra_Builder_Helper::$general_tab_config,
 						'relation' => 'AND',
@@ -520,7 +522,7 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 						'step' => 1,
 						'max'  => 1000,
 					),
-					'divider'           => array( 'ast_class' => 'ast-bottom-divider' ),
+					'divider'           => array( 'ast_class' => 'ast-bottom-divider ast-section-spacing' ),
 				),
 
 				/**
@@ -542,7 +544,7 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 						'step' => 1,
 						'max'  => 100,
 					),
-					'divider'     => array( 'ast_class' => 'ast-bottom-divider' ),
+					'divider'     => array( 'ast_class' => 'ast-bottom-divider ast-section-spacing' ),
 				),
 
 				/**
@@ -581,6 +583,7 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 					'control'   => 'ast-color',
 					'section'   => $title_section,
 					'default'   => astra_get_option( $title_section . '-banner-title-color' ),
+					'divider'   => array( 'ast_class' => 'ast-section-spacing' ),
 					'transport' => 'postMessage',
 					'priority'  => 5,
 					'title'     => __( 'Title Color', 'astra' ),
@@ -629,6 +632,7 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 					'transport' => 'postMessage',
 					'priority'  => 20,
 					'title'     => __( 'Link Hover Color', 'astra' ),
+					'divider'   => array( 'ast_class' => 'ast-bottom-spacing' ),
 					'context'   => Astra_Builder_Helper::$design_tab,
 				),
 
@@ -881,6 +885,7 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 						),
 					),
 					'title'     => __( 'Meta Font', 'astra' ),
+					'divider'   => array( 'ast_class' => 'ast-bottom-spacing' ),
 					'section'   => $title_section,
 					'transport' => 'postMessage',
 				),
@@ -903,8 +908,6 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 				/**
 				 * Option: Meta Font Size
 				 */
-
-
 				array(
 					'name'              => $title_section . '-meta-font-size',
 					'parent'            => ASTRA_THEME_SETTINGS . '[' . $title_section . '-banner-meta-typography-group]',

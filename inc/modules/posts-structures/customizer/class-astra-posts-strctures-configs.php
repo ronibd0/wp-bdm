@@ -45,7 +45,7 @@ class Astra_Posts_Strctures_Configs extends Astra_Customizer_Config_Base {
 					'name'     => 'section-posts-structure',
 					'type'     => 'section',
 					'priority' => 69,
-					'title'    => __( 'Custom Posts Types', 'astra' ),
+					'title'    => __( 'Custom Post Types', 'astra' ),
 				),
 			);
 
@@ -79,20 +79,20 @@ class Astra_Posts_Strctures_Configs extends Astra_Customizer_Config_Base {
 					'priority' => 69,
 				);
 
-				if ( ! in_array( $label, $ignore_single_for_posttypes ) ) {
-					$_configs[] = array(
-						'name'     => 'single-posttype-' . $label,
-						'type'     => 'section',
-						'title'    => __( 'Single', 'astra' ) . ' ' . ucfirst( $label ),
-						'section'  => 'section-posttype-' . $label,
-						'priority' => 5,
-					);
-				}
 				if ( ! in_array( $label, $ignore_archive_for_posttypes ) ) {
 					$_configs[] = array(
 						'name'     => 'archive-posttype-' . $label,
 						'type'     => 'section',
 						'title'    => __( 'Archive', 'astra' ) . ' ' . ucfirst( $label ),
+						'section'  => 'section-posttype-' . $label,
+						'priority' => 5,
+					);
+				}
+				if ( ! in_array( $label, $ignore_single_for_posttypes ) ) {
+					$_configs[] = array(
+						'name'     => 'single-posttype-' . $label,
+						'type'     => 'section',
+						'title'    => __( 'Single', 'astra' ) . ' ' . ucfirst( $label ),
 						'section'  => 'section-posttype-' . $label,
 						'priority' => 10,
 					);

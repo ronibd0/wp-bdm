@@ -125,7 +125,34 @@ class Astra_Posts_Strctures_Loader {
 	 * @since x.x.x
 	 */
 	public function add_fonts() {
+		$post_types = self::get_supported_post_types();
+		foreach ( $post_types as $index => $post_type ) {
+			// Single Banner - Font Support.
+			$title_section = 'ast-dynamic-single-' . $post_type;
 
+			$single_title_font_family = astra_get_option( $title_section . '-title-font-family' );
+			$single_title_font_weight = astra_get_option( $title_section . '-title-font-weight' );
+			Astra_Fonts::add_font( $single_title_font_family, $single_title_font_weight );
+
+			$single_text_font_family = astra_get_option( $title_section . '-text-font-family' );
+			$single_text_font_weight = astra_get_option( $title_section . '-text-font-weight' );
+			Astra_Fonts::add_font( $single_text_font_family, $single_text_font_weight );
+
+			$single_meta_font_family = astra_get_option( $title_section . '-meta-font-family' );
+			$single_meta_font_weight = astra_get_option( $title_section . '-meta-font-weight' );
+			Astra_Fonts::add_font( $single_meta_font_family, $single_meta_font_weight );
+
+			// Archive Banner - Font Support.
+			$title_section = 'ast-dynamic-archive-' . $post_type;
+
+			$archive_text_font_family = astra_get_option( $title_section . '-text-font-family' );
+			$archive_text_font_weight = astra_get_option( $title_section . '-text-font-weight' );
+			Astra_Fonts::add_font( $archive_text_font_family, $archive_text_font_weight );
+
+			$archive_title_font_family = astra_get_option( $title_section . '-title-font-family' );
+			$archive_title_font_weight = astra_get_option( $title_section . '-title-font-weight' );
+			Astra_Fonts::add_font( $archive_title_font_family, $archive_title_font_weight );
+		}
 	}
 
 	/**

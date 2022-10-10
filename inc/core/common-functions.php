@@ -1024,9 +1024,7 @@ if ( ! function_exists( 'astra_archive_page_info' ) ) {
 		}
 	}
 
-	if ( false === astra_use_dynamic_blog_layouts() ) {
-		add_action( 'astra_archive_header', 'astra_archive_page_info' );
-	}
+	add_action( 'astra_archive_header', 'astra_archive_page_info' );
 }
 
 /**
