@@ -1064,7 +1064,7 @@ function astra_apply_woocommerce_show_password_icon_css() {
  * @since x.x.x
  * @return void
  */
-function astra_theme_bg_updater_3_9_3() {
+function astra_theme_background_updater_3_9_3() {
 	$theme_options = get_option( 'astra-settings', array() );
 
 	// Check if user is a old global sidebar user.
