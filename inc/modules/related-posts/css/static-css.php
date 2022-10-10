@@ -72,7 +72,6 @@ function astra_related_posts_static_css( $dynamic_css ) {
 				.ast-separate-container .ast-single-related-posts-container {
 					border-top: 0;
 				}
-
 				.ast-single-related-posts-container {
 					padding-top: 2em;
 				}
