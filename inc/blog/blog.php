@@ -410,7 +410,7 @@ function astra_banner_elements_order( $structure = array() ) {
 	}
 
 	// If Blog / Latest Post page is active then looping required strctural order.
-	if( ( ! is_front_page() && is_home() ) && false === astra_get_option( 'ast-dynamic-archive-post-banner-on-blog', false ) ) {
+	if ( ( ! is_front_page() && is_home() ) && false === astra_get_option( 'ast-dynamic-archive-post-banner-on-blog', false ) ) {
 		return astra_blog_post_thumbnail_and_title_order();
 	}
 
@@ -468,7 +468,7 @@ function astra_banner_elements_order( $structure = array() ) {
 				break;
 
 			case 'single-image':
-				$layout_type = astra_get_option( 'ast-dynamic-single-' . $post_type . '-layout', 'layout-1' );
+				$layout_type         = astra_get_option( 'ast-dynamic-single-' . $post_type . '-layout', 'layout-1' );
 				$featured_background = astra_get_option( 'ast-dynamic-single-' . $post_type . '-featured-as-background', false );
 
 				if ( ( 'layout-2' === $layout_type && false === $featured_background ) || 'layout-1' === $layout_type ) {

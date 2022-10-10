@@ -835,11 +835,11 @@ class Astra_Posts_Archive_Strctures_Configs extends Astra_Customizer_Config_Base
 				 * Option: Disable Transparent Header on Your latest posts index Page
 				 */
 				$_configs[] = array(
-					'name'        => ASTRA_THEME_SETTINGS . '[' . $title_section . '-banner-on-blog]',
-					'default'     => astra_get_option( $title_section . '-banner-on-blog', false ),
-					'type'        => 'control',
-					'section'     => $title_section,
-					'context'     => array(
+					'name'     => ASTRA_THEME_SETTINGS . '[' . $title_section . '-banner-on-blog]',
+					'default'  => astra_get_option( $title_section . '-banner-on-blog', false ),
+					'type'     => 'control',
+					'section'  => $title_section,
+					'context'  => array(
 						Astra_Builder_Helper::$general_tab_config,
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[' . $title_section . '-layout]',
@@ -847,10 +847,10 @@ class Astra_Posts_Archive_Strctures_Configs extends Astra_Customizer_Config_Base
 							'value'    => 'default',
 						),
 					),
-					'title'       => __( 'Enable on Blog / Posts Page?', 'astra' ),
-					'priority'    => 7,
-					'control'     => 'ast-toggle-control',
-					'divider'     => array( 'ast_class' => 'ast-top-divider ast-bottom-spacing' ),
+					'title'    => __( 'Enable on Blog / Posts Page?', 'astra' ),
+					'priority' => 7,
+					'control'  => 'ast-toggle-control',
+					'divider'  => array( 'ast_class' => 'ast-top-divider ast-bottom-spacing' ),
 				);
 			}
 

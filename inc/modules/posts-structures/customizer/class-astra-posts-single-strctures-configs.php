@@ -354,7 +354,7 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 					'priority'  => 5,
 					'title'     => __( 'Use as Background', 'astra' ),
 					'transport' => 'postMessage',
-					'context'    => array(
+					'context'   => array(
 						Astra_Builder_Helper::$general_tab_config,
 						'relation' => 'AND',
 						array(
@@ -378,7 +378,7 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 					'section'  => $title_section,
 					'priority' => 5,
 					'title'    => __( 'Overlay Color', 'astra' ),
-					'context'    => array(
+					'context'  => array(
 						Astra_Builder_Helper::$general_tab_config,
 						'relation' => 'AND',
 						array(
@@ -549,13 +549,13 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 				 * Option: Featured Image Custom Banner BG.
 				 */
 				array(
-					'name'       => ASTRA_THEME_SETTINGS . '[' . $title_section . '-banner-background]',
-					'type'       => 'control',
-					'default'    => astra_get_option( $title_section . '-banner-background', Astra_Posts_Strctures_Loader::get_customizer_default( 'responsive-background' ) ),
-					'section'    => $title_section,
-					'control'    => 'ast-responsive-background',
-					'title'      => __( 'Background', 'astra' ),
-					'context'    => array(
+					'name'     => ASTRA_THEME_SETTINGS . '[' . $title_section . '-banner-background]',
+					'type'     => 'control',
+					'default'  => astra_get_option( $title_section . '-banner-background', Astra_Posts_Strctures_Loader::get_customizer_default( 'responsive-background' ) ),
+					'section'  => $title_section,
+					'control'  => 'ast-responsive-background',
+					'title'    => __( 'Background', 'astra' ),
+					'context'  => array(
 						Astra_Builder_Helper::$design_tab_config,
 						'relation' => 'AND',
 						array(
@@ -569,7 +569,7 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 							'value'    => 'layout-2',
 						),
 					),
-					'priority'   => 5,
+					'priority' => 5,
 				),
 
 				/**
