@@ -1618,5 +1618,5 @@ function astra_check_old_sidebar_user() {
 function astra_load_woocommerce_login_form_password_icon() {
 	$astra_settings = get_option( ASTRA_THEME_SETTINGS );
 	// phpcs:ignore WordPress.NamingConventions.ValidHookName.UseUnderscores
-	return apply_filters( 'astra_get_option_woo-show-password-icon', isset( $astra_settings['woo-show-password-icon'] ) ? false : true );
+	return apply_filters( 'astra_get_option_woo-show-password-icon', isset( $astra_settings['woo-show-password-icon'] ) ? false : true ); // phpcs:ignore WordPress.NamingConventions.ValidHookName.UseUnderscores
 }
