@@ -462,8 +462,8 @@ function astra_load_modern_block_editor_ui( $dynamic_css ) {
 		}
 	';
 	
-	// Spectra Compatibility - Container Block alignment with page title for Boxed & Content Boxed Layout.
-	if( ASTRA_DYNAMIC_CSS::page_title_container_alignment_compatibility() ) {
+	// Spectra Compatibility - Container nlock alignment with page title for Boxed & Content Boxed Layouts.
+	if ( ASTRA_DYNAMIC_CSS::page_title_container_alignment_compatibility() ) {
 		$dynamic_css .= '
 			.ast-separate-container .entry-content .wp-block-uagb-container {
 				padding-left: 0;
