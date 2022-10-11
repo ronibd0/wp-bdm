@@ -1075,7 +1075,7 @@ function astra_theme_background_updater_3_9_3() {
 
 	// Check if old user and keep the dotted border on focus enabled.
 	if ( ! isset( $theme_options['enable-dotted-focus'] ) ) {
-		$theme_options['enable-dotted-focus'] = false;
+		$theme_options['enable-dotted-focus'] = true;
 		update_option( 'astra-settings', $theme_options );
 	}
 
