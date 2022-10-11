@@ -435,6 +435,11 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 					'margin-bottom' => '20px',
 				),
 
+				// Overriding padding for page title on Full Width Layout for better alignment.
+				'.ast-page-builder-template .edit-post-visual-editor__post-title-wrapper, .ast-stacked-title-visibility .edit-post-visual-editor__post-title-wrapper' => array(
+					'padding' => '0',
+				),
+
 				/**
 				 * Site title (Page Title) on Block Editor.
 				 */
@@ -468,8 +473,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 				'margin-' . $ltr_left => '0 !important',
 			);
 			$desktop_css['.ast-page-builder-template .edit-post-visual-editor .editor-styles-wrapper .block-editor-block-list__layout.is-root-container > :where(:not(.alignleft):not(.alignright))'] = array(
-				'margin-left'  => '0 !important',
-				'margin-right' => '0 !important',
+				'max-width' => '100%',
 			);
 
 			/**
