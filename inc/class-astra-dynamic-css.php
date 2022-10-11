@@ -3456,10 +3456,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'margin-right'         => '0',
 						'padding-' . $ltr_left => '0',
 					),
-					'.ast-plain-container.ast-plain-container.ast-plain-container .entry-content .wp-block-uagb-container' => array(
-						'padding-' . $ltr_left => '0',              
-					),
-					'.ast-plain-container.ast-no-sidebar.ast-plain-container.ast-no-sidebar .entry-content > .alignfull, .ast-plain-container .entry-content .alignfull' => array(
+					'.ast-plain-container.ast-no-sidebar .entry-content > .alignfull, .ast-plain-container .entry-content .alignfull, .ast-plain-container.ast-no-sidebar.ast-plain-container.ast-no-sidebar .entry-content > .wp-block-uagb-container' => array(
 						'margin-left'          => '0',
 						'margin-right'         => '0',
 						'width'                => 'initial',
