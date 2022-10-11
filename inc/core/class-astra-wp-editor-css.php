@@ -515,17 +515,13 @@ class Astra_WP_Editor_CSS {
 		);
 
 		/**
-		 * Spectra Container Block Alignment with Page Title in Editor Compatibility CSS.
+		 * Spectra Container Block alignment with page title.
 		 */
 
 		// Boxed, Content Boxed, Contained.
 		$desktop_css['body .editor-styles-wrapper .edit-post-visual-editor__post-title-wrapper > .alignfull, body .editor-styles-wrapper .block-editor-block-list__layout.is-root-container > .alignfull'] = array(
 			'max-width'            => 'var(--wp--custom--ast-content-width-size)',
 			'padding-' . $ltr_left => '0 !important',
-		);
-		// Full Width/Stretched.
-		$desktop_css['.editor-styles-wrapper .wp-block-uagb-container.alignfull.uagb-is-root-container .uagb-container-inner-blocks-wrap'] = array(
-			'margin-' . $ltr_left => '0 !important',
 		);
 
 		$content_links_underline = astra_get_option( 'underline-content-links' );

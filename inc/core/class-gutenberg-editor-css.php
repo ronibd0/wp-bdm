@@ -483,13 +483,13 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 				'padding-' . $ltr_left => '0 !important',
 			);
 			// Full Width/Stretched.
-			$desktop_css['.editor-styles-wrapper .wp-block-uagb-container.alignfull.uagb-is-root-container .uagb-container-inner-blocks-wrap'] = array(
-				'margin-' . $ltr_left => '0 !important',
-			);
-			$desktop_css['.editor-styles-wrapper .is-root-container'] = array(
-				'margin-left'  => '0',
-				'margin-right' => '0',
-			);
+			// $desktop_css['.editor-styles-wrapper .wp-block-uagb-container.alignfull.uagb-is-root-container .uagb-container-inner-blocks-wrap'] = array(
+			// 	'margin-' . $ltr_left => '0 !important',
+			// );
+			// $desktop_css['.editor-styles-wrapper .is-root-container'] = array(
+			// 	'margin-left'  => '0',
+			// 	'margin-right' => '0',
+			// );
 
 
 			// Visibility icon alignment with page title.
