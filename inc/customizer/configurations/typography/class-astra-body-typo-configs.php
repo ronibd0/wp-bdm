@@ -368,8 +368,8 @@ if ( ! class_exists( 'Astra_Body_Typo_Configs' ) ) {
 				 * Option: Remove input dotted focus.
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[disable-dotted-focus]',
-					'default'  => astra_get_option( 'disable-dotted-focus' ),
+					'name'     => ASTRA_THEME_SETTINGS . '[enable-dotted-focus]',
+					'default'  => astra_get_option( 'enable-dotted-focus' ),
 					'type'     => 'control',
 					'control'  => 'ast-toggle-control',
 					'section'  => $typo_section,

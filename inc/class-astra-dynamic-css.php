@@ -732,9 +732,9 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			}
 
 			// Removes all dotted border on focus.
-			$disable_dotted_border = astra_get_option( 'disable-dotted-focus' );
+			$enable_dotted_border = astra_get_option( 'enable-dotted-focus' );
 
-			if ( ! $disable_dotted_border ) {
+			if ( ! $enable_dotted_border ) {
 				$html_selectors = 'input[type="search"]:focus, a:focus, .ast-menu-toggle:focus, .site .skip-link:focus, .wp-block-loginout input:focus, .wp-block-search.wp-block-search__button-inside .wp-block-search__inside-wrapper .wp-block-search__input:focus';
 				
 				// Apply filter so that users can change the selectors.
