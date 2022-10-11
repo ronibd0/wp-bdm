@@ -211,6 +211,9 @@ function astra_load_modern_block_editor_ui( $dynamic_css ) {
 	$ast_content_width = apply_filters( 'astra_block_content_width', $astra_block_editor_v2_ui ? $ast_container_width : '910px' );
 	$ast_wide_width    = apply_filters( 'astra_block_wide_width', $astra_block_editor_v2_ui ? 'calc(' . esc_attr( $ast_container_width ) . ' + var(--wp--custom--ast-default-block-left-padding) + var(--wp--custom--ast-default-block-right-padding))' : $ast_container_width );
 
+	// Spectra Compatibility - page title alignment with page container layouts.
+	$page_title_container_alignment_compatibility = ASTRA_DYNAMIC_CSS::page_title_container_alignment_compatibility();
+
 	$dynamic_css .= '
 		html body {
 			--wp--custom--ast-default-block-top-padding: ' . $desktop_top_spacing . ';
@@ -276,8 +279,8 @@ function astra_load_modern_block_editor_ui( $dynamic_css ) {
 	}
 	.entry-content[ast-blocks-layout] > * {
 		max-width: var(--wp--custom--ast-content-width-size);
-		margin-left: auto;
-		margin-right: auto;
+		margin-left: ' . ( $page_title_container_alignment_compatibility ? 0 : 'auto' ) . ' ;
+		margin-right: ' . ( $page_title_container_alignment_compatibility ? 0 : 'auto' ) . ' ;
 	}
 	' . $astra_wide_particular_selector . ' {
 		max-width: var(--wp--custom--ast-wide-width-size);
@@ -396,7 +399,7 @@ function astra_load_modern_block_editor_ui( $dynamic_css ) {
 			}
 			@media(min-width: 1201px) {
 				.ast-separate-container .entry-content > .alignfull {
-					margin-left: ' . ASTRA_DYNAMIC_CSS::page_title_container_alignment_compatibility() ? 0 : $alignwide_1200_left_negative_margin . ' ;
+					margin-left: ' . $page_title_container_alignment_compatibility ? 0 : $alignwide_1200_left_negative_margin . ' ;
 					margin-right: calc(-1 * ' . $astra_continer_right_spacing . ' );
 				}
 				.ast-separate-container .entry-content[ast-blocks-layout] > .alignwide, .ast-plain-container .entry-content[ast-blocks-layout] > .alignwide {
@@ -462,11 +465,14 @@ function astra_load_modern_block_editor_ui( $dynamic_css ) {
 		}
 	';
 	
-	// Spectra Compatibility - Container nlock alignment with page title for Boxed & Content Boxed Layouts.
-	if ( ASTRA_DYNAMIC_CSS::page_title_container_alignment_compatibility() ) {
+	// Spectra Compatibility - Container block alignment with page title for Boxed & Content Boxed Layouts.
+	if ( $page_title_container_alignment_compatibility ) {
 		$dynamic_css .= '
 			.ast-separate-container .entry-content .wp-block-uagb-container {
-				padding-left: 0;
+				padding-' . esc_attr( $ltr_left ) . ': 0;
+			}
+			.entry-content[ast-blocks-layout] > * {
+				padding-' . esc_attr( $ltr_left ) . ': 20px;
 			}
 		';
 	}
