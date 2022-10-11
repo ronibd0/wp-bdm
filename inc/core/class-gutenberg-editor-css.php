@@ -251,7 +251,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 			$site_title_font_weight    = astra_get_option( 'font-weight-entry-title' );
 			$site_title_line_height    = astra_get_option( 'line-height-entry-title' );
 			$site_title_font_size      = astra_get_option( 'font-size-entry-title' );
-			$site_title_text_transform = astra_get_option( 'text-transform-h1' );
+			$site_title_text_transform = astra_get_option( 'text-transform-entry-title', $headings_text_transform );
 
 			// Fallback for Site title (Page Title).
 			if ( 'inherit' == $site_title_font_family ) {
@@ -261,7 +261,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 				$site_title_font_weight = $headings_font_weight;
 			}
 			if ( '' == $site_title_text_transform ) {
-				$site_title_text_transform = 'capitalize';
+				$site_title_text_transform = '' === $headings_text_transform ? astra_get_option( 'text-transform-h1' ) : $headings_text_transform;
 			}
 			if ( '' == $site_title_line_height ) {
 				$site_title_line_height = $headings_line_height;
@@ -477,6 +477,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 			 */
 
 			// Boxed, Content Boxed, Contained.
+
 			$desktop_css['body .editor-styles-wrapper .edit-post-visual-editor__post-title-wrapper > .alignfull, body .editor-styles-wrapper .block-editor-block-list__layout.is-root-container > .alignfull'] = array(
 				'max-width'            => 'var(--wp--custom--ast-content-width-size)',
 				'padding-' . $ltr_left => '0 !important',
