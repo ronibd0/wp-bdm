@@ -172,3 +172,9 @@ require_once ASTRA_THEME_DIR . 'inc/core/markup/class-astra-markup.php';
 require_once ASTRA_THEME_DIR . 'inc/core/deprecated/deprecated-filters.php';
 require_once ASTRA_THEME_DIR . 'inc/core/deprecated/deprecated-hooks.php';
 require_once ASTRA_THEME_DIR . 'inc/core/deprecated/deprecated-functions.php';
+
+add_filter('astra_page_title_container_alignment_compatibility', 'enable_page_title_alignment');
+
+function enable_page_title_alignment() {
+	return true;
+}

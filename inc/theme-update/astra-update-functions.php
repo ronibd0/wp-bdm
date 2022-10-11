@@ -1059,13 +1059,21 @@ function astra_apply_woocommerce_show_password_icon_css() {
 }
 
 /**
- * Slide In Cart compatibility for responsive width slider
+ * Handle backward compatibility on version 3.9.3
  * 
  * @since x.x.x
  * @return void
  */
-function astra_slide_in_cart_width_responsive_slider() {
+function astra_theme_background_updater_3_9_3() {
 	$theme_options = get_option( 'astra-settings', array() );
+
+	// Check if user is a old global sidebar user.
+	if ( ! isset( $theme_options['astra-old-global-sidebar-default'] ) ) {
+		$theme_options['astra-old-global-sidebar-default'] = false;
+		update_option( 'astra-settings', $theme_options );
+	}
+
+	// Slide in cart width responsive control backwards compatibility.
 	if ( isset( $theme_options['woo-desktop-cart-flyout-width'] ) && ! isset( $theme_options['woo-slide-in-cart-width'] ) ) {
 		$theme_options['woo-slide-in-cart-width'] = array(
 			'desktop'      => $theme_options['woo-desktop-cart-flyout-width'],
@@ -1077,20 +1085,11 @@ function astra_slide_in_cart_width_responsive_slider() {
 		);
 		update_option( 'astra-settings', $theme_options );
 	}
-}
 
-/**
- * Do not apply new page title alignment CSS for existing users.
- *
- * @since x.x.x
- *
- * @return void
- */
-function astra_page_title_container_alignment_compatibility() {
-	$theme_options = get_option( 'astra-settings', array() );
-
+	// Do not apply new page title alignment CSS for existing users.
 	if ( ! isset( $theme_options['page-title-container-alignment-css'] ) ) {
 		$theme_options['page-title-container-alignment-css'] = false;
 		update_option( 'astra-settings', $theme_options );
 	}
+
 }
