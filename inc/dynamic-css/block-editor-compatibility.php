@@ -471,7 +471,7 @@ function astra_load_modern_block_editor_ui( $dynamic_css ) {
 			.ast-separate-container .entry-content .wp-block-uagb-container {
 				padding-' . esc_attr( $ltr_left ) . ': 0;
 			}
-			.entry-content[ast-blocks-layout] > * {
+			.ast-page-builder-template .entry-content[ast-blocks-layout] > * {
 				padding-' . esc_attr( $ltr_left ) . ': 20px;
 			}
 		';
