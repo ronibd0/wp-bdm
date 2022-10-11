@@ -477,7 +477,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 			 */
 
 			// Boxed, Content Boxed, Contained.
-			//Removed Duplicate Selectors.
+			// Removed Duplicate Selectors.
 			$desktop_css['body .editor-styles-wrapper .edit-post-visual-editor__post-title-wrapper > .alignfull, body .editor-styles-wrapper .block-editor-block-list__layout.is-root-container > .alignfull'] = array(
 				'max-width'            => 'var(--wp--custom--ast-content-width-size)',
 				'padding-' . $ltr_left => '0 !important',
