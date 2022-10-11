@@ -735,8 +735,12 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$disable_dotted_border = astra_get_option( 'disable-dotted-focus' );
 
 			if ( ! $disable_dotted_border ) {
+				$html_selectors = 'input[type="search"]:focus, a:focus, .ast-menu-toggle:focus, .site .skip-link:focus, .wp-block-loginout input:focus, .wp-block-search.wp-block-search__button-inside .wp-block-search__inside-wrapper .wp-block-search__input:focus';
+				
+				// Apply filter so that users can change the selectors.
+				$target = apply_filters( 'astra_dotted_border_on_focus_selectors', $html_selectors );
 
-				$css_output['input[type="search"]:focus, a:focus, .ast-menu-toggle:focus, .site .skip-link:focus, .wp-block-loginout input:focus, .wp-block-search.wp-block-search__button-inside .wp-block-search__inside-wrapper .wp-block-search__input:focus'] = array(
+				$css_output[ $target ] = array(
 					'outline' => 'none !important', // !important used to remove css globally.
 				);
 			}
