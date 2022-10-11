@@ -396,7 +396,7 @@ function astra_load_modern_block_editor_ui( $dynamic_css ) {
 			}
 			@media(min-width: 1201px) {
 				.ast-separate-container .entry-content > .alignfull {
-					margin-left: calc(-1 * ' . $astra_continer_left_spacing . ' );
+					margin-left: ' . ASTRA_DYNAMIC_CSS::page_title_container_alignment_compatibility() ? 0 : $alignwide_1200_left_negative_margin . ' ;
 					margin-right: calc(-1 * ' . $astra_continer_right_spacing . ' );
 				}
 				.ast-separate-container .entry-content[ast-blocks-layout] > .alignwide, .ast-plain-container .entry-content[ast-blocks-layout] > .alignwide {
@@ -422,6 +422,7 @@ function astra_load_modern_block_editor_ui( $dynamic_css ) {
 				}
 			}
 		';
+
 	} else {
 		$dynamic_css .= '
 			.wp-block-latest-posts > li > a {
@@ -460,6 +461,15 @@ function astra_load_modern_block_editor_ui( $dynamic_css ) {
 			}
 		}
 	';
+	
+	// Spectra Compatibility - Container Block alignment with page title for Boxed & Content Boxed Layout.
+	if( ASTRA_DYNAMIC_CSS::page_title_container_alignment_compatibility() ) {
+		$dynamic_css .= '
+			.ast-separate-container .entry-content .wp-block-uagb-container {
+				padding-left: 0;
+			}
+		';
+	}
 
 	return $dynamic_css;
 }
