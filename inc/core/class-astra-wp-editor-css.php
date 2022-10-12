@@ -565,6 +565,11 @@ class Astra_WP_Editor_CSS {
 			'padding-' . $ltr_left => '0 !important',
 		);
 
+		// Editor cursor misalignment out of block fix.
+		$desktop_css['.edit-post-visual-editor.editor-styles-wrapper p, .block-editor-block-list__block p, .wp-block-latest-posts a, .editor-default-block-appender textarea.editor-default-block-appender__content, .block-editor-block-list__block, .block-editor-block-list__block h1, .block-editor-block-list__block h2, .block-editor-block-list__block h3, .block-editor-block-list__block h4, .block-editor-block-list__block h5, .block-editor-block-list__block h6, .edit-post-visual-editor .editor-styles-wrapper'] = array(
+			'line-height' => 'normal !important',
+		);
+
 		$content_links_underline = astra_get_option( 'underline-content-links' );
 
 		if ( $content_links_underline ) {
