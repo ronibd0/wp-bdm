@@ -16099,16 +16099,6 @@ namespace {
     {
     }
     /**
-     * Do not apply new page title alignment CSS for existing users.
-     *
-     * @since x.x.x
-     *
-     * @return void
-     */
-    function astra_page_title_container_alignment_compatibility()
-    {
-    }
-    /**
      * WordPress filter - Widget Tags
      *
      * @param  array $args Tag arguments.
