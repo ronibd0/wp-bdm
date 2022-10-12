@@ -329,9 +329,6 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 				'.block-editor-block-list__block'         => array(
 					'color' => esc_attr( $text_color ),
 				),
-				'.ast-page-builder-template .edit-post-visual-editor__post-title-wrapper, .ast-stacked-title-visibility .edit-post-visual-editor__post-title-wrapper' => array(
-					'padding' => '0',
-				),
 
 				/**
 				 * Content base heading color.
@@ -435,7 +432,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 					'margin-bottom' => '20px',
 				),
 
-				// Overriding padding for page title on Full Width Layout for better alignment.
+				// Padding for page title on Full Width Layout for better alignment.
 				'.ast-page-builder-template .edit-post-visual-editor__post-title-wrapper, .ast-stacked-title-visibility .edit-post-visual-editor__post-title-wrapper' => array(
 					'padding' => '0',
 				),
