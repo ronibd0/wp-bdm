@@ -39,7 +39,7 @@ final class Astra_Builder_Base_Configuration {
 	 * Constructor
 	 */
 	public function __construct() {
-
+		
 	}
 
 	/**
@@ -216,6 +216,15 @@ final class Astra_Builder_Base_Configuration {
 	}
 
 	/**
+	 * Get astra-options DB values.
+	 *
+	 * @since x.x.x
+	 */
+	public static function get_astra_options() {
+		return get_option( ASTRA_THEME_SETTINGS );
+	}
+
+	/**
 	 * Prepare Visibility options.
 	 *
 	 * @param string $_section section id.
@@ -224,23 +233,22 @@ final class Astra_Builder_Base_Configuration {
 	 */
 	public static function prepare_visibility_tab( $_section, $builder_type = 'header' ) {
 
+		$astra_options = Astra_Theme_Options::get_astra_options();
+
 		$configs = array();
 
 		if ( 'footer' === $builder_type ) {
+
 			/**
 			 * Option: Visibility
 			 */
-
 			$configs[] = array(
 				'name'      => ASTRA_THEME_SETTINGS . '[' . $_section . '-visibility-responsive]',
-				'default'   => astra_get_option(
-					'section-visibility-settings',
-					array(
-						'desktop' => astra_get_option( $_section . '-hide-desktop' ) ? 0 : 1,
-						'tablet'  => astra_get_option( $_section . '-hide-tablet' ) ? 0 : 1,
-						'mobile'  => astra_get_option( $_section . '-hide-mobile' ) ? 0 : 1,
-					)
-				),
+				'default'   => astra_get_option( ''. $_section  .'-visibility-responsive', array(
+					'desktop' => ! isset( $astra_options[''. $_section  .'-visibility-responsive'] ) && isset( $astra_options[''. $_section . '-hide-desktop'] ) ? $astra_options[''. $_section . '-hide-desktop']  === 0 ? 1 : 0 : 1,
+					'tablet'  => ! isset( $astra_options[''. $_section  .'-visibility-responsive'] ) && isset( $astra_options[''. $_section . '-hide-tablet'] ) ? $astra_options[''. $_section . '-hide-tablet']  === 0 ? 1 : 0 : 1 ,
+					'mobile'  => ! isset( $astra_options[''. $_section  .'-visibility-responsive'] ) && isset( $astra_options[''. $_section . '-hide-mobile'] ) ? $astra_options[''. $_section . '-hide-mobile']  === 0 ? 1 : 0 : 1 ,
+				)),
 				'type'      => 'control',
 				'control'   => 'ast-multi-selector',
 				'section'   => $_section,
