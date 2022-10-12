@@ -1211,9 +1211,33 @@ function astra_prepare_button_defaults( $defaults, $index ) {
 		'mobile-unit'  => 'px',
 	);
 
-	$defaults[ 'section-hb-button-' . $index . '-padding' ]   = Astra_Builder_Helper::$default_responsive_spacing;
-	$defaults[ 'section-hb-button-' . $index . '-margin' ]    = Astra_Builder_Helper::$default_responsive_spacing;
-	$defaults[ 'sticky-header-button' . $index . '-padding' ] = Astra_Builder_Helper::$default_responsive_spacing;
+	$defaults[ 'section-hb-button-' . $index . '-padding' ]                = Astra_Builder_Helper::$default_responsive_spacing;
+	$defaults[ 'section-hb-button-' . $index . '-margin' ]                 = Astra_Builder_Helper::$default_responsive_spacing;
+	$defaults[ 'sticky-header-button' . $index . '-padding' ]              = Astra_Builder_Helper::$default_responsive_spacing;
+	$defaults[ 'sticky-header-button' . $index . '-border-radius-fields' ] = array(
+		'desktop'      => array(
+			'top'    => ! isset( $astra_options[ 'sticky-header-button' . $index . '-border-radius' ] ) ? '' : $astra_options[ 'sticky-header-button' . $index . '-border-radius' ],
+			'right'  => ! isset( $astra_options[ 'sticky-header-button' . $index . '-border-radius' ] ) ? '' : $astra_options[ 'sticky-header-button' . $index . '-border-radius' ],
+			'bottom' => ! isset( $astra_options[ 'sticky-header-button' . $index . '-border-radius' ] ) ? '' : $astra_options[ 'sticky-header-button' . $index . '-border-radius' ],
+			'left'   => ! isset( $astra_options[ 'sticky-header-button' . $index . '-border-radius' ] ) ? '' : $astra_options[ 'sticky-header-button' . $index . '-border-radius' ],
+		),
+		'tablet'       => array(
+			'top'    => ! isset( $astra_options[ 'sticky-header-button' . $index . '-border-radius' ] ) ? '' : $astra_options[ 'sticky-header-button' . $index . '-border-radius' ],
+			'right'  => ! isset( $astra_options[ 'sticky-header-button' . $index . '-border-radius' ] ) ? '' : $astra_options[ 'sticky-header-button' . $index . '-border-radius' ],
+			'bottom' => ! isset( $astra_options[ 'sticky-header-button' . $index . '-border-radius' ] ) ? '' : $astra_options[ 'sticky-header-button' . $index . '-border-radius' ],
+			'left'   => ! isset( $astra_options[ 'sticky-header-button' . $index . '-border-radius' ] ) ? '' : $astra_options[ 'sticky-header-button' . $index . '-border-radius' ],
+		),
+		'mobile'       => array(
+			'top'    => ! isset( $astra_options[ 'sticky-header-button' . $index . '-border-radius' ] ) ? '' : $astra_options[ 'sticky-header-button' . $index . '-border-radius' ],
+			'right'  => ! isset( $astra_options[ 'sticky-header-button' . $index . '-border-radius' ] ) ? '' : $astra_options[ 'sticky-header-button' . $index . '-border-radius' ],
+			'bottom' => ! isset( $astra_options[ 'sticky-header-button' . $index . '-border-radius' ] ) ? '' : $astra_options[ 'sticky-header-button' . $index . '-border-radius' ],
+			'left'   => ! isset( $astra_options[ 'sticky-header-button' . $index . '-border-radius' ] ) ? '' : $astra_options[ 'sticky-header-button' . $index . '-border-radius' ],
+		),
+		'desktop-unit' => 'px',
+		'tablet-unit'  => 'px',
+		'mobile-unit'  => 'px',
+	);
+
 
 
 	$_prefix = 'button' . $index;

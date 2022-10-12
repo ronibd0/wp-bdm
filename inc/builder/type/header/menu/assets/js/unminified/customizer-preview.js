@@ -367,7 +367,7 @@
 						var tabletBreakPoint    = astraBuilderPreview.tablet_break_point || 768,
 							mobileBreakPoint    = astraBuilderPreview.mobile_break_point || 544;
 
-						var globalSelector = '.ast-builder-menu-' + index + ' li.menu-item .sub-menu, .ast-builder-menu-' + index + ' ul.inline-on-mobile li.menu-item .sub-menu {';
+						var globalSelector = '.ast-builder-menu-' + index + ' li.menu-item .sub-menu, .ast-builder-menu-' + index + ' ul.inline-on-mobile li.menu-item .sub-menu';
 
 						var dynamicStyle = globalSelector + '{ border-top-left-radius :' + border['desktop']['top'] + border['desktop-unit']
 							+ '; border-bottom-right-radius :' + border['desktop']['bottom'] + border['desktop-unit'] + '; border-bottom-left-radius :'

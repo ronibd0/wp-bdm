@@ -418,35 +418,6 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 			),
 
 			/**
-			 * Option: Border Radius
-			 */
-			array(
-				'name'        => ASTRA_THEME_SETTINGS . '[woo-header-cart-icon-radius]',
-				'default'     => astra_get_option( 'woo-header-cart-icon-radius' ),
-				'type'        => 'control',
-				'transport'   => 'postMessage',
-				'section'     => $_section,
-				'context'     => array(
-					Astra_Builder_Helper::$design_tab_config,
-					array(
-						'setting'  => ASTRA_THEME_SETTINGS . '[woo-header-cart-icon-style]',
-						'operator' => '!=',
-						'value'    => 'none',
-					),
-				),
-				'title'       => __( 'Border Radius', 'astra' ),
-				'control'     => 'ast-slider',
-				'suffix'      => 'px',
-				'priority'    => 47,
-				'input_attrs' => array(
-					'min'  => 0,
-					'step' => 1,
-					'max'  => 200,
-				),
-				'divider'     => array( 'ast_class' => 'ast-bottom-section-divider' ),
-			),
-
-			/**
 			* Option: Border Radius Fields
 			*/
 			array(
