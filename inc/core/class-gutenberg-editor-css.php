@@ -437,6 +437,11 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 					'padding' => '0',
 				),
 
+				// Margin bottom mismatch for page title in backend editor and frontend fix.
+				'.edit-post-visual-editor__post-title-wrapper' => array(
+					'margin-bottom' => '0',
+				),
+
 				/**
 				 * Site title (Page Title) on Block Editor.
 				 */
