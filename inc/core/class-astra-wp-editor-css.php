@@ -602,10 +602,6 @@ class Astra_WP_Editor_CSS {
 				'margin-left'  => $alignwide_left_negative_margin,
 				'margin-right' => $alignwide_right_negative_margin,
 			);
-			$desktop_css['.ast-separate-container .editor-styles-wrapper .block-editor-block-list__layout.is-root-container .alignfull'] = array(
-				'margin-left'  => $astra_continer_left_spacing,
-				'margin-right' => $astra_continer_right_spacing,
-			);
 			$desktop_css['.ast-page-builder-template .editor-styles-wrapper .block-editor-block-list__layout.is-root-container > *.wp-block, .ast-page-builder-template .is-root-container > .alignfull > :where(:not(.alignleft):not(.alignright)), .editor-styles-wrapper .is-root-container > .wp-block-cover.alignfull .wp-block-cover__image-background'] = array(
 				'max-width' => 'none',
 			);
