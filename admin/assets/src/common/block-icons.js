@@ -496,6 +496,16 @@ const Astra_Admin_Icons = {
 			strokeWidth: 1.4,
 		} ),
 	),
+	'redirect': el(
+		'svg',
+		{ width: 20, height: 20, viewBox: '0 0 24 24', fill: 'none' },
+		el( 'path', {
+			d: 'M9 3H17V11L15 10V6.92L9.4 12.51L7.99 11.1L14.08 5H10L9 3ZM12 15V12L14 10V17H3V6H11L9 8H5V15H12Z',
+			stroke: iconColor,
+			strokeWidth: 1.4,
+		} ),
+	),
+
 };
 
 export default Astra_Admin_Icons;
