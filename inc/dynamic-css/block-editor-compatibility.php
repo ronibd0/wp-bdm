@@ -212,7 +212,7 @@ function astra_load_modern_block_editor_ui( $dynamic_css ) {
 	$ast_wide_width    = apply_filters( 'astra_block_wide_width', $astra_block_editor_v2_ui ? 'calc(' . esc_attr( $ast_container_width ) . ' + var(--wp--custom--ast-default-block-left-padding) + var(--wp--custom--ast-default-block-right-padding))' : $ast_container_width );
 
 	// Spectra Compatibility - page title alignment with page container layouts.
-	$page_title_container_alignment_compatibility = ASTRA_DYNAMIC_CSS::page_title_container_alignment_compatibility();
+	$page_title_container_alignment_compatibility = Astra_Dynamic_CSS::page_title_container_alignment_compatibility();
 
 	$dynamic_css .= '
 		html body {
