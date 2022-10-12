@@ -321,6 +321,32 @@ class Astra_WP_Editor_CSS {
 			);
 		}
 
+		// Site title (Page Title) on Block Editor.
+		$site_title_font_family              = astra_get_option( 'font-family-entry-title' );
+		$site_title_font_weight              = astra_get_option( 'font-weight-entry-title' );
+		$site_title_line_height              = astra_get_option( 'line-height-entry-title' );
+		$site_title_font_size                = astra_get_option( 'font-size-entry-title' );
+		$site_title_text_transform           = astra_get_option( 'text-transform-entry-title', $headings_text_transform );
+		$is_widget_title_support_font_weight = Astra_Dynamic_CSS::support_font_css_to_widget_and_in_editor();
+		$font_weight_prop                    = ( $is_widget_title_support_font_weight ) ? 'inherit' : 'normal';
+
+		// Fallback for Site title (Page Title).
+		if ( 'inherit' == $site_title_font_family ) {
+			$site_title_font_family = $headings_font_family;
+		}
+		if ( $font_weight_prop === $site_title_font_weight ) {
+			$site_title_font_weight = $headings_font_weight;
+		}
+		if ( '' == $site_title_text_transform ) {
+			$site_title_text_transform = '' === $headings_text_transform ? astra_get_option( 'text-transform-h1' ) : $headings_text_transform;
+		}
+		if ( '' == $site_title_line_height ) {
+			$site_title_line_height = $headings_line_height;
+		}
+		if ( 'inherit' == $site_title_font_weight || '' == $site_title_font_weight ) {
+			$site_title_font_weight = 'normal';
+		}
+
 		// check the selection color in-case of empty/no theme color.
 		$selection_text_color = ( 'transparent' === $highlight_theme_color ) ? '' : $highlight_theme_color;
 
@@ -507,6 +533,17 @@ class Astra_WP_Editor_CSS {
 			// Margin bottom mismatch for page title in backend editor and frontend fix.
 			'.edit-post-visual-editor__post-title-wrapper' => array(
 				'margin-bottom' => '0',
+			),
+
+			/**
+			 * Site title (Page Title) on Block Editor.
+			 */
+			'body .edit-post-visual-editor__post-title-wrapper > h1:first-of-type' => array(
+				'font-size'      => astra_responsive_font( $site_title_font_size, 'desktop' ),
+				'font-weight'    => astra_get_css_value( $site_title_font_weight, 'font' ),
+				'font-family'    => astra_get_css_value( $site_title_font_family, 'font', $body_font_family ),
+				'line-height'    => esc_attr( $site_title_line_height ),
+				'text-transform' => esc_attr( $site_title_text_transform ),
 			),
 		);
 
