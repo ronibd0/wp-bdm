@@ -1073,6 +1073,12 @@ function astra_theme_background_updater_3_9_3() {
 		update_option( 'astra-settings', $theme_options );
 	}
 
+	// Check if old user and keep the dotted border on focus enabled.
+	if ( ! isset( $theme_options['enable-dotted-focus'] ) ) {
+		$theme_options['enable-dotted-focus'] = true;
+		update_option( 'astra-settings', $theme_options );
+	}
+
 	if ( isset( $theme_options['woo-desktop-cart-flyout-width'] ) && ! isset( $theme_options['woo-slide-in-cart-width'] ) ) {
 		$theme_options['woo-slide-in-cart-width'] = array(
 			'desktop'      => $theme_options['woo-desktop-cart-flyout-width'],
