@@ -1598,6 +1598,7 @@ function astra_check_is_structural_setup() {
 	$astra_settings = get_option( ASTRA_THEME_SETTINGS );
 	return apply_filters( 'astra_get_option_customizer-default-layout-update', isset( $astra_settings['customizer-default-layout-update'] ) ? false : true ); // phpcs:ignore WordPress.NamingConventions.ValidHookName.UseUnderscores
 }
+
 /**
  * Check if the user is old sidebar user.
  * @since x.x.x
