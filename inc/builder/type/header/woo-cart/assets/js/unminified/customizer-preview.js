@@ -409,17 +409,17 @@
 				dynamicStyle += '} ';
 				
 
-				dynamicStyle += '.ast-cart-menu-wrap {';
+				dynamicStyle += '.ast-cart-menu-wrap, .ast-site-header-cart i.astra-icon {';
 				dynamicStyle += 'font-size: ' + size.desktop + 'px' + ';';
 				dynamicStyle += '} ';
 				dynamicStyle += '@media (max-width: ' + tablet_break_point + 'px) {';
-				dynamicStyle += '.ast-header-break-point.ast-hfb-header .ast-cart-menu-wrap {';
+				dynamicStyle += '.ast-header-break-point.ast-hfb-header .ast-cart-menu-wrap, .ast-site-header-cart i.astra-icon {';
 				dynamicStyle += 'font-size: ' + size.tablet + 'px' + ';';
 				dynamicStyle += '} ';
 				dynamicStyle += '} ';
 
 				dynamicStyle += '@media (max-width: ' + mobile_break_point + 'px) {';
-				dynamicStyle += '.ast-header-break-point.ast-hfb-header .ast-cart-menu-wrap {';
+				dynamicStyle += '.ast-header-break-point.ast-hfb-header .ast-cart-menu-wrap, .ast-site-header-cart i.astra-icon {';
 				dynamicStyle += 'font-size:' + size.mobile + 'px' + ';';
 				dynamicStyle += '} ';
 				dynamicStyle += '} ';
