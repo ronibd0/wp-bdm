@@ -78,9 +78,10 @@ function astra_hb_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 		$menu_resp_bg_color_active_mobile  = ( isset( $menu_resp_bg_color_active['mobile'] ) ) ? $menu_resp_bg_color_active['mobile'] : '';
 
 		// Typography.
-		$menu_font_family     = astra_get_option( 'header-' . $_prefix . '-font-family' );
-		$menu_font_size       = astra_get_option( 'header-' . $_prefix . '-font-size' );
-		$menu_font_weight     = astra_get_option( 'header-' . $_prefix . '-font-weight' );
+		$menu_font_family = astra_get_option( 'header-' . $_prefix . '-font-family' );
+		$menu_font_size   = astra_get_option( 'header-' . $_prefix . '-font-size' );
+		$menu_font_weight = astra_get_option( 'header-' . $_prefix . '-font-weight' );
+		/** @psalm-suppress UndefinedFunction  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 		$menu_text_transform  = astra_get_font_extras( astra_get_option( 'header-' . $_prefix . '-font-extras' ), 'text-transform' );
 		$menu_line_height     = astra_get_font_extras( astra_get_option( 'header-' . $_prefix . '-font-extras' ), 'line-height', 'line-height-unit' );
 		$menu_letter_spacing  = astra_get_font_extras( astra_get_option( 'header-' . $_prefix . '-font-extras' ), 'letter-spacing', 'letter-spacing-unit' );

@@ -69,9 +69,10 @@ function astra_hb_mobile_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered =
 	$menu_resp_bg_color_active_mobile  = ( isset( $menu_resp_bg_color_active['mobile'] ) ) ? $menu_resp_bg_color_active['mobile'] : '';
 
 	// Typography.
-	$menu_font_family     = astra_get_option( 'header-mobile-menu-font-family' );
-	$menu_font_size       = astra_get_option( 'header-mobile-menu-font-size' );
-	$menu_font_weight     = astra_get_option( 'header-mobile-menu-font-weight' );
+	$menu_font_family = astra_get_option( 'header-mobile-menu-font-family' );
+	$menu_font_size   = astra_get_option( 'header-mobile-menu-font-size' );
+	$menu_font_weight = astra_get_option( 'header-mobile-menu-font-weight' );
+	/** @psalm-suppress UndefinedFunction  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 	$menu_text_transform  = astra_get_font_extras( astra_get_option( 'font-extras-h1' ), 'text-transform' );
 	$menu_line_height     = astra_get_font_extras( astra_get_option( 'font-extras-h1' ), 'line-height', 'line-height-unit' );
 	$menu_letter_spacing  = astra_get_font_extras( astra_get_option( 'font-extras-header-mobile-menu' ), 'letter-spacing', 'letter-spacing-unit' );

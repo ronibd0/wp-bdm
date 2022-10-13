@@ -88,6 +88,8 @@ class Astra_Heading_Colors_Loader {
 	 */
 	public function theme_defaults( $defaults ) {
 
+		$astra_options = Astra_Theme_Options::get_astra_options();
+
 		/**
 		* Heading Tags <h1> to <h6>
 		*/

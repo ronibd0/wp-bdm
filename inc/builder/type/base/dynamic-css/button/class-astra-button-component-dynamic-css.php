@@ -78,8 +78,9 @@ class Astra_Button_Component_Dynamic_CSS {
 			$button_border_h_color_mobile  = astra_get_prop( astra_get_option( $builder_type . '-' . $_prefix . '-border-h-color' ), 'mobile' );
 
 			// Typography controls.
-			$button_font_family     = astra_get_option( $builder_type . '-' . $_prefix . '-font-family', 'inherit' );
-			$button_font_weight     = astra_get_option( $builder_type . '-' . $_prefix . '-font-weight', 'inherit' );
+			$button_font_family = astra_get_option( $builder_type . '-' . $_prefix . '-font-family', 'inherit' );
+			$button_font_weight = astra_get_option( $builder_type . '-' . $_prefix . '-font-weight', 'inherit' );
+			/** @psalm-suppress UndefinedFunction  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			$button_text_transform  = astra_get_font_extras( astra_get_option( $builder_type . '-' . $_prefix . '-font-extras' ), 'text-transform' );
 			$button_line_height     = astra_get_font_extras( astra_get_option( $builder_type . '-' . $_prefix . '-font-extras' ), 'line-height', 'line-height-unit' );
 			$button_letter_spacing  = astra_get_font_extras( astra_get_option( $builder_type . '-' . $_prefix . '-font-extras' ), 'letter-spacing', 'letter-spacing-unit' );

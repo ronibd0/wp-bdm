@@ -117,22 +117,25 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			 */
 			$headings_font_transform = astra_get_option( 'headings-text-transform', $body_text_transform );
 
-			$h1_font_family     = astra_get_option( 'font-family-h1' );
-			$h1_font_weight     = astra_get_option( 'font-weight-h1' );
+			$h1_font_family = astra_get_option( 'font-family-h1' );
+			$h1_font_weight = astra_get_option( 'font-weight-h1' );
+			/** @psalm-suppress UndefinedFunction  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			$h1_line_height     = astra_get_font_extras( astra_get_option( 'font-extras-h1' ), 'line-height', 'line-height-unit' );
 			$h1_text_transform  = astra_get_font_extras( astra_get_option( 'font-extras-h1' ), 'text-transform' );
 			$h1_letter_spacing  = astra_get_font_extras( astra_get_option( 'font-extras-h1' ), 'letter-spacing', 'letter-spacing-unit' );
 			$h1_text_decoration = astra_get_font_extras( astra_get_option( 'font-extras-h1' ), 'text-decoration' );
 
-			$h2_font_family     = astra_get_option( 'font-family-h2' );
-			$h2_font_weight     = astra_get_option( 'font-weight-h2' );
+			$h2_font_family = astra_get_option( 'font-family-h2' );
+			$h2_font_weight = astra_get_option( 'font-weight-h2' );
+			/** @psalm-suppress UndefinedFunction  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			$h2_line_height     = astra_get_font_extras( astra_get_option( 'font-extras-h2' ), 'line-height', 'line-height-unit' );
 			$h2_text_transform  = astra_get_font_extras( astra_get_option( 'font-extras-h2' ), 'text-transform' );
 			$h2_letter_spacing  = astra_get_font_extras( astra_get_option( 'font-extras-h2' ), 'letter-spacing', 'letter-spacing-unit' );
 			$h2_text_decoration = astra_get_font_extras( astra_get_option( 'font-extras-h2' ), 'text-decoration' );
 
-			$h3_font_family     = astra_get_option( 'font-family-h3' );
-			$h3_font_weight     = astra_get_option( 'font-weight-h3' );
+			$h3_font_family = astra_get_option( 'font-family-h3' );
+			$h3_font_weight = astra_get_option( 'font-weight-h3' );
+			/** @psalm-suppress UndefinedFunction  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			$h3_line_height     = astra_get_font_extras( astra_get_option( 'font-extras-h3' ), 'line-height', 'line-height-unit' );
 			$h3_text_transform  = astra_get_font_extras( astra_get_option( 'font-extras-h3' ), 'text-transform' );
 			$h3_letter_spacing  = astra_get_font_extras( astra_get_option( 'font-extras-h3' ), 'letter-spacing', 'letter-spacing-unit' );

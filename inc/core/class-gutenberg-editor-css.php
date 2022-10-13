@@ -92,43 +92,49 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 			$theme_btn_line_height    = astra_get_option( 'theme-btn-line-height' );
 			$theme_btn_letter_spacing = astra_get_option( 'theme-btn-letter-spacing' );
 
-			$h1_font_family     = astra_get_option( 'font-family-h1' );
-			$h1_font_weight     = astra_get_option( 'font-weight-h1' );
+			$h1_font_family = astra_get_option( 'font-family-h1' );
+			$h1_font_weight = astra_get_option( 'font-weight-h1' );
+			/** @psalm-suppress UndefinedFunction  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			$h1_line_height     = astra_get_font_extras( astra_get_option( 'font-extras-h1' ), 'line-height', 'line-height-unit' );
 			$h1_text_transform  = astra_get_font_extras( astra_get_option( 'font-extras-h1' ), 'text-transform' );
 			$h1_letter_spacing  = astra_get_font_extras( astra_get_option( 'font-extras-h1' ), 'letter-spacing', 'letter-spacing-unit' );
 			$h1_text_decoration = astra_get_font_extras( astra_get_option( 'font-extras-h1' ), 'text-decoration' );
 
-			$h2_font_family     = astra_get_option( 'font-family-h2' );
-			$h2_font_weight     = astra_get_option( 'font-weight-h2' );
+			$h2_font_family = astra_get_option( 'font-family-h2' );
+			$h2_font_weight = astra_get_option( 'font-weight-h2' );
+			/** @psalm-suppress UndefinedFunction  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			$h2_line_height     = astra_get_font_extras( astra_get_option( 'font-extras-h2' ), 'line-height', 'line-height-unit' );
 			$h2_text_transform  = astra_get_font_extras( astra_get_option( 'font-extras-h2' ), 'text-transform' );
 			$h2_letter_spacing  = astra_get_font_extras( astra_get_option( 'font-extras-h2' ), 'letter-spacing', 'letter-spacing-unit' );
 			$h2_text_decoration = astra_get_font_extras( astra_get_option( 'font-extras-h2' ), 'text-decoration' );
 
-			$h3_font_family     = astra_get_option( 'font-family-h3' );
-			$h3_font_weight     = astra_get_option( 'font-weight-h3' );
+			$h3_font_family = astra_get_option( 'font-family-h3' );
+			$h3_font_weight = astra_get_option( 'font-weight-h3' );
+			/** @psalm-suppress UndefinedFunction  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			$h3_line_height     = astra_get_font_extras( astra_get_option( 'font-extras-h3' ), 'line-height', 'line-height-unit' );
 			$h3_text_transform  = astra_get_font_extras( astra_get_option( 'font-extras-h3' ), 'text-transform' );
 			$h3_letter_spacing  = astra_get_font_extras( astra_get_option( 'font-extras-h3' ), 'letter-spacing', 'letter-spacing-unit' );
 			$h3_text_decoration = astra_get_font_extras( astra_get_option( 'font-extras-h3' ), 'text-decoration' );
 
-			$h4_font_family     = astra_get_option( 'font-family-h4' );
-			$h4_font_weight     = astra_get_option( 'font-weight-h4' );
+			$h4_font_family = astra_get_option( 'font-family-h4' );
+			$h4_font_weight = astra_get_option( 'font-weight-h4' );
+			/** @psalm-suppress UndefinedFunction  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			$h4_line_height     = astra_get_font_extras( astra_get_option( 'font-extras-h4' ), 'line-height', 'line-height-unit' );
 			$h4_text_transform  = astra_get_font_extras( astra_get_option( 'font-extras-h4' ), 'text-transform' );
 			$h4_letter_spacing  = astra_get_font_extras( astra_get_option( 'font-extras-h4' ), 'letter-spacing', 'letter-spacing-unit' );
 			$h4_text_decoration = astra_get_font_extras( astra_get_option( 'font-extras-h4' ), 'text-decoration' );
 
-			$h5_font_family     = astra_get_option( 'font-family-h5' );
-			$h5_font_weight     = astra_get_option( 'font-weight-h5' );
+			$h5_font_family = astra_get_option( 'font-family-h5' );
+			$h5_font_weight = astra_get_option( 'font-weight-h5' );
+			/** @psalm-suppress UndefinedFunction  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			$h5_line_height     = astra_get_font_extras( astra_get_option( 'font-extras-h5' ), 'line-height', 'line-height-unit' );
 			$h5_text_transform  = astra_get_font_extras( astra_get_option( 'font-extras-h5' ), 'text-transform' );
 			$h5_letter_spacing  = astra_get_font_extras( astra_get_option( 'font-extras-h5' ), 'letter-spacing', 'letter-spacing-unit' );
 			$h5_text_decoration = astra_get_font_extras( astra_get_option( 'font-extras-h5' ), 'text-decoration' );
 
-			$h6_font_family     = astra_get_option( 'font-family-h6' );
-			$h6_font_weight     = astra_get_option( 'font-weight-h6' );
+			$h6_font_family = astra_get_option( 'font-family-h6' );
+			$h6_font_weight = astra_get_option( 'font-weight-h6' );
+			/** @psalm-suppress UndefinedFunction  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			$h6_line_height     = astra_get_font_extras( astra_get_option( 'font-extras-h6' ), 'line-height', 'line-height-unit' );
 			$h6_text_transform  = astra_get_font_extras( astra_get_option( 'font-extras-h6' ), 'text-transform' );
 			$h6_letter_spacing  = astra_get_font_extras( astra_get_option( 'font-extras-h6' ), 'letter-spacing', 'letter-spacing-unit' );
