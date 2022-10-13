@@ -73,9 +73,12 @@ function astra_hb_mobile_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered =
 	$menu_font_size   = astra_get_option( 'header-mobile-menu-font-size' );
 	$menu_font_weight = astra_get_option( 'header-mobile-menu-font-weight' );
 	/** @psalm-suppress UndefinedFunction  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-	$menu_text_transform  = astra_get_font_extras( astra_get_option( 'font-extras-h1' ), 'text-transform' );
-	$menu_line_height     = astra_get_font_extras( astra_get_option( 'font-extras-h1' ), 'line-height', 'line-height-unit' );
-	$menu_letter_spacing  = astra_get_font_extras( astra_get_option( 'font-extras-header-mobile-menu' ), 'letter-spacing', 'letter-spacing-unit' );
+	$menu_text_transform = astra_get_font_extras( astra_get_option( 'font-extras-h1' ), 'text-transform' );
+	/** @psalm-suppress UndefinedFunction  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+	$menu_line_height = astra_get_font_extras( astra_get_option( 'font-extras-h1' ), 'line-height', 'line-height-unit' );
+	/** @psalm-suppress UndefinedFunction  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+	$menu_letter_spacing = astra_get_font_extras( astra_get_option( 'font-extras-header-mobile-menu' ), 'letter-spacing', 'letter-spacing-unit' );
+	/** @psalm-suppress UndefinedFunction  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 	$menu_text_decoration = astra_get_font_extras( astra_get_option( 'font-extras-header-mobile-menu' ), 'text-decoration' );
 
 	$menu_font_size_desktop      = ( isset( $menu_font_size['desktop'] ) ) ? $menu_font_size['desktop'] : '';

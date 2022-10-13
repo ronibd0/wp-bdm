@@ -81,9 +81,12 @@ class Astra_Button_Component_Dynamic_CSS {
 			$button_font_family = astra_get_option( $builder_type . '-' . $_prefix . '-font-family', 'inherit' );
 			$button_font_weight = astra_get_option( $builder_type . '-' . $_prefix . '-font-weight', 'inherit' );
 			/** @psalm-suppress UndefinedFunction  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-			$button_text_transform  = astra_get_font_extras( astra_get_option( $builder_type . '-' . $_prefix . '-font-extras' ), 'text-transform' );
-			$button_line_height     = astra_get_font_extras( astra_get_option( $builder_type . '-' . $_prefix . '-font-extras' ), 'line-height', 'line-height-unit' );
-			$button_letter_spacing  = astra_get_font_extras( astra_get_option( $builder_type . '-' . $_prefix . '-font-extras' ), 'letter-spacing', 'letter-spacing-unit' );
+			$button_text_transform = astra_get_font_extras( astra_get_option( $builder_type . '-' . $_prefix . '-font-extras' ), 'text-transform' );
+			/** @psalm-suppress UndefinedFunction  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+			$button_line_height = astra_get_font_extras( astra_get_option( $builder_type . '-' . $_prefix . '-font-extras' ), 'line-height', 'line-height-unit' );
+			/** @psalm-suppress UndefinedFunction  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+			$button_letter_spacing = astra_get_font_extras( astra_get_option( $builder_type . '-' . $_prefix . '-font-extras' ), 'letter-spacing', 'letter-spacing-unit' );
+			/** @psalm-suppress UndefinedFunction  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			$button_text_decoration = astra_get_font_extras( astra_get_option( $builder_type . '-' . $_prefix . '-font-extras' ), 'text-decoration' );
 
 			/**
