@@ -2722,7 +2722,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 			// Single product payment.
 			$single_product_payment_array = astra_get_option( 'single-product-structure' );
-			if ( is_product() && is_array( $single_product_payment_array ) && ! empty( $single_product_payment_array ) && in_array( 'single-product-payments', $single_product_payment_array ) ) {
+			if ( is_array( $single_product_payment_array ) && ! empty( $single_product_payment_array ) && in_array( 'single-product-payments', $single_product_payment_array ) ) {
 				$css_output .= '
 					.ast-single-product-payments {
 						margin-bottom: 1em;

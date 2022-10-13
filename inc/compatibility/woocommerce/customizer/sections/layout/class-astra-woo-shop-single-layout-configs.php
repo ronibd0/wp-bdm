@@ -724,34 +724,34 @@ if ( ! class_exists( 'Astra_Woo_Shop_Single_Layout_Configs' ) ) {
 						'renderAs' => 'list',
 						'choices'  => array(
 							'two'   => array(
-								'title' => __( 'Product Gallery', 'astra' ),
+								'title' => __( 'More product galleries', 'astra' ),
 							),
 							'three' => array(
-								'title' => __( 'Sticky Product Summary', 'astra' ),
+								'title' => __( 'Sticky product summary', 'astra' ),
 							),
 							'five'  => array(
-								'title' => __( 'Product Description Layouts', 'astra' ),
+								'title' => __( 'Product description layouts', 'astra' ),
 							),
 							'six'   => array(
-								'title' => __( 'Related, Upsell Products Controls', 'astra' ),
+								'title' => __( 'Related, Upsell product controls', 'astra' ),
 							),
 							'seven' => array(
-								'title' => __( 'Extras Option In Product Structure', 'astra' ),
+								'title' => __( 'Extras option for product structure', 'astra' ),
 							),
 							'eight' => array(
-								'title' => __( 'More Typography Options', 'astra' ),
+								'title' => __( 'More typography options', 'astra' ),
 							),
 							'nine'  => array(
-								'title' => __( 'More Color Options', 'astra' ),
+								'title' => __( 'More color options', 'astra' ),
 							),
 							'one'   => array(
-								'title' => __( 'More Design Controls', 'astra' ),
+								'title' => __( 'More design controls', 'astra' ),
 							),
 						),
 						'section'  => 'section-woo-shop-single',
 						'default'  => '',
 						'priority' => 999,
-						'title'    => __( 'With Astra Pro get more features for your Ecommerce Product!', 'astra' ),
+						'title'    => __( 'Extra conversion options for store product pages means extra profit!', 'astra' ),
 						'divider'  => array( 'ast_class' => 'ast-top-section-divider' ),
 						'context'  => array(),
 					);

@@ -205,7 +205,7 @@ class Astra_Customizer_Footer_Builder_Configs extends Astra_Customizer_Config_Ba
 				'control'     => 'ast-builder-header-control',
 				'priority'    => 20,
 				'description' => '',
-				'context'   => array(),
+				'context'     => array(),
 				'divider'     => ( astra_showcase_upgrade_notices() ) ? array() : array( 'ast_class' => 'ast-pro-available' ),
 			),
 
@@ -312,26 +312,26 @@ class Astra_Customizer_Footer_Builder_Configs extends Astra_Customizer_Config_Ba
 				'renderAs' => 'list',
 				'choices'  => array(
 					'two'   => array(
-						'title' => __( 'Divider Element', 'astra' ),
+						'title' => __( 'Divider element', 'astra' ),
 					),
 					'three' => array(
-						'title' => __( 'Language Switcher Element', 'astra' ),
+						'title' => __( 'Language Switcher element', 'astra' ),
 					),
 					'five'  => array(
-						'title' => __( 'Clone, Delete Element Options', 'astra' ),
+						'title' => __( 'Clone, Delete element options', 'astra' ),
 					),
 					'six'   => array(
-						'title' => __( 'Increased Element Count', 'astra' ),
+						'title' => __( 'Increased element count', 'astra' ),
 					),
 					'seven' => array(
-						'title' => __( 'More Design Options', 'astra' ),
+						'title' => __( 'More design options', 'astra' ),
 					),
 				),
 				'section'  => 'section-footer-builder-layout',
 				'default'  => '',
 				'context'  => array(),
 				'priority' => 999,
-				'title'    => __( 'With Astra Pro get more features for your site footer!', 'astra' ),
+				'title'    => __( 'Finish your page on a high with amazing website footers', 'astra' ),
 				'divider'  => array( 'ast_class' => 'ast-top-section-divider' ),
 			);
 		}

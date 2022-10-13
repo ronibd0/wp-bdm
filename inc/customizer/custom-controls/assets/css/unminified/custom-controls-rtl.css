@@ -66,7 +66,7 @@
 .customize-control-ast-selector .ast-alignment-inner-wrap .components-button {
     border-radius: unset;
     font-size: 12px;
-    padding: 9px 12px;
+    padding: 9px 0;
 }
 .customize-control-ast-selector .ast-selector-responsive-wrap.active {
     display: flex;
@@ -1418,7 +1418,7 @@
 .customize-control-ast-selector .ast-alignment-inner-wrap .components-button {
     border-radius: unset;
     font-size: 12px;
-    padding: 9px 12px;
+    padding: 9px 0;
 }
 .customize-control-ast-selector .ast-selector-responsive-wrap.active {
     display: flex;
@@ -2808,7 +2808,7 @@ input[type="text"], input[type="password"], input[type="color"], input[type="dat
 }
 
 .components-base-control .components-base-control__field .components-input-control__backdrop {
-  border-color: #ddd;
+  border-color: #D1D5DB !important;
 }
 
 .customize-control .customize-inside-control-row {
@@ -2905,9 +2905,6 @@ input[type="text"].select2-search__field {
       color: #000000;
       opacity: .75;
     }
-    .ast-field-settings-modal .customize-control-ast-responsive .input-wrapper .ast-responsive-input.active + .ast-responsive-select {
-      width: 20%;
-    }
     .ast-reset-btn.components-button svg {
       padding: 0px;
       height: 13px;
@@ -2995,6 +2992,10 @@ input[type="text"].select2-search__field {
 
 .customize-control-ast-description .ast-description {
   font-style: italic;
+  color: #9CA3AF;
+  font-size: 11px;
+  line-height: 16px;
+  font-weight: 400;
 }
 
 .customize-control-ast-description a.button {
@@ -3005,6 +3006,9 @@ input[type="text"].select2-search__field {
 .customize-control-ast-description p {
   margin: 0;
   cursor: initial;
+  font-size: 11px;
+  line-height: 16px;
+  font-weight: 400;
 }
 
 .customize-control-ast-divider hr {
@@ -4030,34 +4034,6 @@ span.customize-control-title.ast-group-section-title {
   }
 }
 
-.ast-responsive-select-container {
-  display: none;
-}
-
-.ast-responsive-select-container.active {
-  display: block;
-}
-
-.ast-variant-select > div {
-  border-color: #dddddd;
-}
-
-.customize-control select, .ast-variant-select > div, .customize-control input, .customize-control-content .components-text-control__input {
-	border-color: var(--ast-customizer-color-7);
-	color: var(--ast-customizer-color-5);
-	padding-top: 1px;
-    padding-bottom: 1px;
-}
-
-.customize-control select:focus, .ast-variant-select > div:focus, .customize-control input:focus {
-	border-color: var(--ast-customizer-color-1);
-	color: #0a4b78;
-	box-shadow: 0 0 0 1px var(--ast-customizer-color-1);
-}
-
-
-
-
 .customize-control-ast-responsive-slider .wrapper, .customize-control-ast-slider .wrapper {
   position: relative;
   display: flex;
@@ -4457,12 +4433,6 @@ span.customize-control-title.ast-group-section-title {
   vertical-align: top;
 }
 
-.customize-control-ast-responsive-select .ast-responsive-btns {
-  position: relative;
-  top: -1px;
-  left: -5px;
-}
-
 .ast-responsive-btns > li {
   margin-bottom: 0;
   display: none;
@@ -4513,22 +4483,6 @@ span.customize-control-title.ast-group-section-title {
   display: block;
 }
 
-.customize-control-ast-responsive .input-wrapper .ast-responsive-select {
-  width: 50px;
-  margin: 0;
-  margin-right: 2px;
-  padding: 0 8px 0 24px;
-  font-size: 13px;
-  text-transform: uppercase;
-  float: none;
-  display: none;
-}
-
-.customize-control-ast-responsive .input-wrapper .ast-responsive-input.active + .ast-responsive-select {
-  display: block;
-  width: 25%;
-  float: none;
-}
 
 .customize-control-ast-responsive .input-wrapper .ast-non-reponsive.ast-responsive-input {
   display: inline-block;
@@ -4538,16 +4492,8 @@ span.customize-control-title.ast-group-section-title {
   display: inline-block;
 }
 
-.customize-control-ast-responsive .input-wrapper .ast-non-reponsive.ast-responsive-select {
-  display: inline-block;
-}
-
 #customize-control-astra-settings-font-size-body.customize-control-ast-responsive .input-wrapper {
   display: inline-block;
-}
-
-#customize-control-astra-settings-font-size-body.customize-control-ast-responsive .input-wrapper .ast-responsive-select {
-  display: none;
 }
 
 #customize-control-astra-settings-font-size-body.customize-control-ast-responsive .input-wrapper .ast-responsive-input {
@@ -4566,6 +4512,21 @@ span.customize-control-title.ast-group-section-title {
   position: absolute;
   left: 0px;
   top: 1px;
+}
+
+.ast-variant-select > div {
+	border-color: #dddddd;
+}
+.customize-control select, .ast-variant-select > div, .customize-control input, .customize-control-content .components-text-control__input {
+	border-color: var(--ast-customizer-color-7);
+	color: var(--ast-customizer-color-5);
+	padding-top: 1px;
+	padding-bottom: 1px;
+}
+.customize-control select:focus, .ast-variant-select > div:focus, .customize-control input:focus {
+	border-color: var(--ast-customizer-color-1);
+	color: #0a4b78;
+	box-shadow: 0 0 0 1px var(--ast-customizer-color-1);
 }
 
 .ast-adv-toggle-icon {
@@ -5054,19 +5015,19 @@ span.customize-control-title.ast-group-section-title {
 }
 
 .customize-control-ast-sortable .sortable .ast-sortable-item, .customize-control-ast-sortable .sortable .ast-sortable-subcontrols {
-  padding: 0 12px 0 0;
-  border: 1px solid #dddddd;
-  color: #556068;
+  padding: 1px 12px 1px 3px;
+  border: 1px solid #D1D5DB;
+  color: #334155;
   background: #ffffff;
   cursor: move;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 38px;
   margin: 0 0 10px;
-  border-radius: 3px;
+  border-radius: 4px;
 }
 .customize-control-ast-sortable .sortable .ast-sortable-subcontrols {
     border: none;
-    border-top: 1px solid #ddd;
+    border-top: 1px solid #d1d5db;
     border-radius: 0 0 3px 3px;
 }
 .customize-control-ast-sortable .sortable div:last-child {
@@ -5079,7 +5040,7 @@ span.customize-control-title.ast-group-section-title {
   font-size: 16px;
   padding: 9px;
   line-height: 20px;
-  border-right: 1px solid #ddd;
+  border-right: none;
 }
 
 .customize-control-ast-sortable .sortable div.invisible {
@@ -5111,6 +5072,9 @@ span.customize-control-title.ast-group-section-title {
 .ast-sortable-item.show:hover {
   opacity: 1;
 }
+.ast-sortable-item .dashicons-arrow-down-alt2 {
+	margin-left: -6px;
+}
 .ast-sortable-item .dashicons-admin-page, .ast-sortable-item .dashicons-arrow-down-alt2, .ast-sortable-item .dashicons-remove {
     cursor: pointer;
 }
@@ -5118,10 +5082,11 @@ span.customize-control-title.ast-group-section-title {
 	display: none;
 	padding: 12px 0;
     margin-right: -12px !important;
-    border-top: 1px solid #ddd;
+    border-top: 1px solid #d1d5db;
+	margin-left: -3px!important;
 }
 .ast-sortable-subcontrols > * {
-	padding-left: 12px;
+	padding-left: 9px;
 	padding-bottom: 12px;
 }
 .show .ast-sortable-subcontrols {
@@ -5137,11 +5102,11 @@ span.customize-control-title.ast-group-section-title {
  */
 .ast-sortable-item.show i.ast-accordion {
 	transform: rotate(-180deg);
-	border-right: none;border-left: 1px solid #ddd;
+	border-right: none;border-left: none;
 }
 .ast-sortable-subfields-wrap .customize-control-ast-list-icons .components-button {
     padding: 6px 8px;
-	height: 38px;
+	height: 40px;
 	background: white;
 }
 
@@ -5158,6 +5123,8 @@ span.customize-control-title.ast-group-section-title {
 .customize-control-ast-list-icons span.feature-label {
     max-width: 100px;
     text-overflow: ellipsis;
+	font-size: 14px;
+	line-height: 18px;
 }
 .ast-sortable-subfields-wrap .customize-control-ast-list-icons .dashicons-admin-page {
     color: #556068;
@@ -5169,17 +5136,25 @@ span.customize-control-title.ast-group-section-title {
     border-bottom: 0;
 	overflow: hidden;
 }
+
 .ast-sortable-subfields-wrap .customize-control-ast-list-icons .ahfb-sorter-visiblity svg, 
 .ast-sortable-subfields-wrap .customize-control-ast-list-icons .ahfb-sorter-visiblity .ast-media-image-preview {
     height: 14px;
     width: 14px;
+}
+.ast-sortable-subfields-wrap .customize-control-ast-list-icons .ahfb-sorter-visiblity span {
+    display: flex;
+}
+.ast-sortable-subfields-wrap .customize-control-ast-list-icons .ahfb-sorter-visiblity svg {
+    height: 16px;
+    width: 16px;
 	fill: #556068;
 }
 .ast-sortable-subfields-wrap .customize-control-ast-list-icons .ast-sorter-item-expand {
-	border-right: 1px solid #ddd;
+	border-right: none;
 }
 .ast-sortable-subfields-wrap .customize-control-ast-list-icons .ahfb-sorter-visiblity {
-	border-left: 1px solid #ddd;
+	border-left: none;
 }
 .ast-sortable-subfields-wrap .customize-control-ast-list-icons .ahfb-sorter-item {
 	border: 1px solid #ddd;
@@ -5662,7 +5637,7 @@ input[type="text"], input[type="password"], input[type="color"], input[type="dat
 }
 
 .components-base-control .components-base-control__field .components-input-control__backdrop {
-  border-color: #ddd;
+  border-color: #D1D5DB !important;
 }
 
 .customize-control .customize-inside-control-row {
@@ -5759,9 +5734,6 @@ input[type="text"].select2-search__field {
       color: #000000;
       opacity: .75;
     }
-    .ast-field-settings-modal .customize-control-ast-responsive .input-wrapper .ast-responsive-input.active + .ast-responsive-select {
-      width: 20%;
-    }
     .ast-reset-btn.components-button svg {
       padding: 0px;
       height: 13px;
@@ -5849,6 +5821,10 @@ input[type="text"].select2-search__field {
 
 .customize-control-ast-description .ast-description {
   font-style: italic;
+  color: #9CA3AF;
+  font-size: 11px;
+  line-height: 16px;
+  font-weight: 400;
 }
 
 .customize-control-ast-description a.button {
@@ -5859,6 +5835,9 @@ input[type="text"].select2-search__field {
 .customize-control-ast-description p {
   margin: 0;
   cursor: initial;
+  font-size: 11px;
+  line-height: 16px;
+  font-weight: 400;
 }
 
 .customize-control-ast-divider hr {
@@ -6890,12 +6869,6 @@ span.customize-control-title.ast-group-section-title {
   vertical-align: top;
 }
 
-.customize-control-ast-responsive-select .ast-responsive-btns {
-  position: relative;
-  top: -1px;
-  left: -5px;
-}
-
 .ast-responsive-btns > li {
   margin-bottom: 0;
   display: none;
@@ -6946,22 +6919,6 @@ span.customize-control-title.ast-group-section-title {
   display: block;
 }
 
-.customize-control-ast-responsive .input-wrapper .ast-responsive-select {
-  width: 50px;
-  margin: 0;
-  margin-right: 2px;
-  padding: 0 8px 0 24px;
-  font-size: 13px;
-  text-transform: uppercase;
-  float: none;
-  display: none;
-}
-
-.customize-control-ast-responsive .input-wrapper .ast-responsive-input.active + .ast-responsive-select {
-  display: block;
-  width: 25%;
-  float: none;
-}
 
 .customize-control-ast-responsive .input-wrapper .ast-non-reponsive.ast-responsive-input {
   display: inline-block;
@@ -6971,16 +6928,8 @@ span.customize-control-title.ast-group-section-title {
   display: inline-block;
 }
 
-.customize-control-ast-responsive .input-wrapper .ast-non-reponsive.ast-responsive-select {
-  display: inline-block;
-}
-
 #customize-control-astra-settings-font-size-body.customize-control-ast-responsive .input-wrapper {
   display: inline-block;
-}
-
-#customize-control-astra-settings-font-size-body.customize-control-ast-responsive .input-wrapper .ast-responsive-select {
-  display: none;
 }
 
 #customize-control-astra-settings-font-size-body.customize-control-ast-responsive .input-wrapper .ast-responsive-input {
@@ -7000,34 +6949,6 @@ span.customize-control-title.ast-group-section-title {
   left: 0px;
   top: 1px;
 }
-
-.ast-responsive-select-container {
-  display: none;
-}
-
-.ast-responsive-select-container.active {
-  display: block;
-}
-
-.ast-variant-select > div {
-  border-color: #dddddd;
-}
-
-.customize-control select, .ast-variant-select > div, .customize-control input, .customize-control-content .components-text-control__input {
-	border-color: var(--ast-customizer-color-7);
-	color: var(--ast-customizer-color-5);
-	padding-top: 1px;
-    padding-bottom: 1px;
-}
-
-.customize-control select:focus, .ast-variant-select > div:focus, .customize-control input:focus {
-	border-color: var(--ast-customizer-color-1);
-	color: #0a4b78;
-	box-shadow: 0 0 0 1px var(--ast-customizer-color-1);
-}
-
-
-
 
 .customize-control-ast-responsive-slider .wrapper, .customize-control-ast-slider .wrapper {
   position: relative;
@@ -7420,6 +7341,21 @@ span.customize-control-title.ast-group-section-title {
     width: 15px;
     height: 15px;
     font-size: 15px;
+}
+
+.ast-variant-select > div {
+	border-color: #dddddd;
+}
+.customize-control select, .ast-variant-select > div, .customize-control input, .customize-control-content .components-text-control__input {
+	border-color: var(--ast-customizer-color-7);
+	color: var(--ast-customizer-color-5);
+	padding-top: 1px;
+	padding-bottom: 1px;
+}
+.customize-control select:focus, .ast-variant-select > div:focus, .customize-control input:focus {
+	border-color: var(--ast-customizer-color-1);
+	color: #0a4b78;
+	box-shadow: 0 0 0 1px var(--ast-customizer-color-1);
 }
 
 .ast-adv-toggle-icon {
@@ -7908,19 +7844,19 @@ span.customize-control-title.ast-group-section-title {
 }
 
 .customize-control-ast-sortable .sortable .ast-sortable-item, .customize-control-ast-sortable .sortable .ast-sortable-subcontrols {
-  padding: 0 12px 0 0;
-  border: 1px solid #dddddd;
-  color: #556068;
+  padding: 1px 12px 1px 3px;
+  border: 1px solid #D1D5DB;
+  color: #334155;
   background: #ffffff;
   cursor: move;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 38px;
   margin: 0 0 10px;
-  border-radius: 3px;
+  border-radius: 4px;
 }
 .customize-control-ast-sortable .sortable .ast-sortable-subcontrols {
     border: none;
-    border-top: 1px solid #ddd;
+    border-top: 1px solid #d1d5db;
     border-radius: 0 0 3px 3px;
 }
 .customize-control-ast-sortable .sortable div:last-child {
@@ -7933,7 +7869,7 @@ span.customize-control-title.ast-group-section-title {
   font-size: 16px;
   padding: 9px;
   line-height: 20px;
-  border-right: 1px solid #ddd;
+  border-right: none;
 }
 
 .customize-control-ast-sortable .sortable div.invisible {
@@ -7965,6 +7901,9 @@ span.customize-control-title.ast-group-section-title {
 .ast-sortable-item.show:hover {
   opacity: 1;
 }
+.ast-sortable-item .dashicons-arrow-down-alt2 {
+	margin-left: -6px;
+}
 .ast-sortable-item .dashicons-admin-page, .ast-sortable-item .dashicons-arrow-down-alt2, .ast-sortable-item .dashicons-remove {
     cursor: pointer;
 }
@@ -7972,10 +7911,11 @@ span.customize-control-title.ast-group-section-title {
 	display: none;
 	padding: 12px 0;
     margin-right: -12px !important;
-    border-top: 1px solid #ddd;
+    border-top: 1px solid #d1d5db;
+	margin-left: -3px!important;
 }
 .ast-sortable-subcontrols > * {
-	padding-left: 12px;
+	padding-left: 9px;
 	padding-bottom: 12px;
 }
 .show .ast-sortable-subcontrols {
@@ -7991,11 +7931,11 @@ span.customize-control-title.ast-group-section-title {
  */
 .ast-sortable-item.show i.ast-accordion {
 	transform: rotate(-180deg);
-	border-right: none;border-left: 1px solid #ddd;
+	border-right: none;border-left: none;
 }
 .ast-sortable-subfields-wrap .customize-control-ast-list-icons .components-button {
     padding: 6px 8px;
-	height: 38px;
+	height: 40px;
 	background: white;
 }
 
@@ -8012,6 +7952,8 @@ span.customize-control-title.ast-group-section-title {
 .customize-control-ast-list-icons span.feature-label {
     max-width: 100px;
     text-overflow: ellipsis;
+	font-size: 14px;
+	line-height: 18px;
 }
 .ast-sortable-subfields-wrap .customize-control-ast-list-icons .dashicons-admin-page {
     color: #556068;
@@ -8023,17 +7965,25 @@ span.customize-control-title.ast-group-section-title {
     border-bottom: 0;
 	overflow: hidden;
 }
+
 .ast-sortable-subfields-wrap .customize-control-ast-list-icons .ahfb-sorter-visiblity svg, 
 .ast-sortable-subfields-wrap .customize-control-ast-list-icons .ahfb-sorter-visiblity .ast-media-image-preview {
     height: 14px;
     width: 14px;
+}
+.ast-sortable-subfields-wrap .customize-control-ast-list-icons .ahfb-sorter-visiblity span {
+    display: flex;
+}
+.ast-sortable-subfields-wrap .customize-control-ast-list-icons .ahfb-sorter-visiblity svg {
+    height: 16px;
+    width: 16px;
 	fill: #556068;
 }
 .ast-sortable-subfields-wrap .customize-control-ast-list-icons .ast-sorter-item-expand {
-	border-right: 1px solid #ddd;
+	border-right: none;
 }
 .ast-sortable-subfields-wrap .customize-control-ast-list-icons .ahfb-sorter-visiblity {
-	border-left: 1px solid #ddd;
+	border-left: none;
 }
 .ast-sortable-subfields-wrap .customize-control-ast-list-icons .ahfb-sorter-item {
 	border: 1px solid #ddd;
