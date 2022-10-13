@@ -81,11 +81,15 @@ function astra_breadcrumb_section_dynamic_css( $dynamic_css, $dynamic_css_filter
 	$breadcrumb_font_family = astra_get_option( 'breadcrumb-font-family' );
 	$breadcrumb_font_weight = astra_get_option( 'breadcrumb-font-weight' );
 	$breadcrumb_font_size   = astra_get_option( 'breadcrumb-font-size' );
-	/** @psalm-suppress UndefinedFunction  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+	// @codingStandardsIgnoreStart
+	/**
+	 * @psalm-suppress UndefinedFunction 
+	 */
 	$breadcrumb_line_height     = astra_get_font_extras( astra_get_option( 'breadcrumb-font-extras' ), 'line-height', 'line-height-unit' );
 	$breadcrumb_text_transform  = astra_get_font_extras( astra_get_option( 'breadcrumb-font-extras' ), 'text-transform' );
 	$breadcrumb_letter_spacing  = astra_get_font_extras( astra_get_option( 'breadcrumb-font-extras' ), 'letter-spacing', 'letter-spacing-unit' );
 	$breadcrumb_text_decoration = astra_get_font_extras( astra_get_option( 'breadcrumb-font-extras' ), 'text-decoration' );
+	// @codingStandardsIgnoreEnd
 
 	$breadcrumb_spacing = astra_get_option( 'breadcrumb-spacing' );
 
