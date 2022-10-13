@@ -2099,10 +2099,14 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 					$ele_btn_default_tablet = array(
 						'.elementor-button-wrapper .elementor-button.elementor-size-sm, .elementor-button-wrapper .elementor-button.elementor-size-xs, .elementor-button-wrapper .elementor-button.elementor-size-md, .elementor-button-wrapper .elementor-button.elementor-size-lg, .elementor-button-wrapper .elementor-button.elementor-size-xl, .elementor-button-wrapper .elementor-button' => array(
-							'padding-top'    => astra_responsive_spacing( $theme_btn_padding, 'top', 'tablet' ),
-							'padding-right'  => astra_responsive_spacing( $theme_btn_padding, 'right', 'tablet' ),
-							'padding-bottom' => astra_responsive_spacing( $theme_btn_padding, 'bottom', 'tablet' ),
-							'padding-left'   => astra_responsive_spacing( $theme_btn_padding, 'left', 'tablet' ),
+							'padding-top'                => astra_responsive_spacing( $theme_btn_padding, 'top', 'tablet' ),
+							'padding-right'              => astra_responsive_spacing( $theme_btn_padding, 'right', 'tablet' ),
+							'padding-bottom'             => astra_responsive_spacing( $theme_btn_padding, 'bottom', 'tablet' ),
+							'padding-left'               => astra_responsive_spacing( $theme_btn_padding, 'left', 'tablet' ),
+							'border-top-left-radius'     => astra_responsive_spacing( $btn_border_radius_fields, 'top', 'tablet' ),
+							'border-top-right-radius'    => astra_responsive_spacing( $btn_border_radius_fields, 'right', 'tablet' ),
+							'border-bottom-right-radius' => astra_responsive_spacing( $btn_border_radius_fields, 'bottom', 'tablet' ),
+							'border-bottom-left-radius'  => astra_responsive_spacing( $btn_border_radius_fields, 'left', 'tablet' ),
 						),
 					);
 
@@ -2111,10 +2115,14 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 					$ele_btn_default_mobile = array(
 						'.elementor-button-wrapper .elementor-button.elementor-size-sm, .elementor-button-wrapper .elementor-button.elementor-size-xs, .elementor-button-wrapper .elementor-button.elementor-size-md, .elementor-button-wrapper .elementor-button.elementor-size-lg, .elementor-button-wrapper .elementor-button.elementor-size-xl, .elementor-button-wrapper .elementor-button' => array(
-							'padding-top'    => astra_responsive_spacing( $theme_btn_padding, 'top', 'mobile' ),
-							'padding-right'  => astra_responsive_spacing( $theme_btn_padding, 'right', 'mobile' ),
-							'padding-bottom' => astra_responsive_spacing( $theme_btn_padding, 'bottom', 'mobile' ),
-							'padding-left'   => astra_responsive_spacing( $theme_btn_padding, 'left', 'mobile' ),
+							'padding-top'                => astra_responsive_spacing( $theme_btn_padding, 'top', 'mobile' ),
+							'padding-right'              => astra_responsive_spacing( $theme_btn_padding, 'right', 'mobile' ),
+							'padding-bottom'             => astra_responsive_spacing( $theme_btn_padding, 'bottom', 'mobile' ),
+							'padding-left'               => astra_responsive_spacing( $theme_btn_padding, 'left', 'mobile' ),
+							'border-top-left-radius'     => astra_responsive_spacing( $btn_border_radius_fields, 'top', 'mobile' ),
+							'border-top-right-radius'    => astra_responsive_spacing( $btn_border_radius_fields, 'right', 'mobile' ),
+							'border-bottom-right-radius' => astra_responsive_spacing( $btn_border_radius_fields, 'bottom', 'mobile' ),
+							'border-bottom-left-radius'  => astra_responsive_spacing( $btn_border_radius_fields, 'left', 'mobile' ),
 						),
 					);
 
@@ -2306,21 +2314,29 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 					$global_button_page_builder_tablet = array(
 						$selector => array(
-							'font-size'      => astra_responsive_font( $theme_btn_font_size, 'tablet' ),
-							'padding-top'    => astra_responsive_spacing( $theme_btn_padding, 'top', 'tablet' ),
-							'padding-right'  => astra_responsive_spacing( $theme_btn_padding, 'right', 'tablet' ),
-							'padding-bottom' => astra_responsive_spacing( $theme_btn_padding, 'bottom', 'tablet' ),
-							'padding-left'   => astra_responsive_spacing( $theme_btn_padding, 'left', 'tablet' ),
+							'font-size'                  => astra_responsive_font( $theme_btn_font_size, 'tablet' ),
+							'padding-top'                => astra_responsive_spacing( $theme_btn_padding, 'top', 'tablet' ),
+							'padding-right'              => astra_responsive_spacing( $theme_btn_padding, 'right', 'tablet' ),
+							'padding-bottom'             => astra_responsive_spacing( $theme_btn_padding, 'bottom', 'tablet' ),
+							'padding-left'               => astra_responsive_spacing( $theme_btn_padding, 'left', 'tablet' ),
+							'border-top-left-radius'     => astra_responsive_spacing( $btn_border_radius_fields, 'top', 'tablet' ),
+							'border-top-right-radius'    => astra_responsive_spacing( $btn_border_radius_fields, 'right', 'tablet' ),
+							'border-bottom-right-radius' => astra_responsive_spacing( $btn_border_radius_fields, 'bottom', 'tablet' ),
+							'border-bottom-left-radius'  => astra_responsive_spacing( $btn_border_radius_fields, 'left', 'tablet' ),
 						),
 					);
 
 					$global_button_page_builder_mobile = array(
 						$selector => array(
-							'font-size'      => astra_responsive_font( $theme_btn_font_size, 'mobile' ),
-							'padding-top'    => astra_responsive_spacing( $theme_btn_padding, 'top', 'mobile' ),
-							'padding-right'  => astra_responsive_spacing( $theme_btn_padding, 'right', 'mobile' ),
-							'padding-bottom' => astra_responsive_spacing( $theme_btn_padding, 'bottom', 'mobile' ),
-							'padding-left'   => astra_responsive_spacing( $theme_btn_padding, 'left', 'mobile' ),
+							'font-size'                  => astra_responsive_font( $theme_btn_font_size, 'mobile' ),
+							'padding-top'                => astra_responsive_spacing( $theme_btn_padding, 'top', 'mobile' ),
+							'padding-right'              => astra_responsive_spacing( $theme_btn_padding, 'right', 'mobile' ),
+							'padding-bottom'             => astra_responsive_spacing( $theme_btn_padding, 'bottom', 'mobile' ),
+							'padding-left'               => astra_responsive_spacing( $theme_btn_padding, 'left', 'mobile' ),
+							'border-top-left-radius'     => astra_responsive_spacing( $btn_border_radius_fields, 'top', 'mobile' ),
+							'border-top-right-radius'    => astra_responsive_spacing( $btn_border_radius_fields, 'right', 'mobile' ),
+							'border-bottom-right-radius' => astra_responsive_spacing( $btn_border_radius_fields, 'bottom', 'mobile' ),
+							'border-bottom-left-radius'  => astra_responsive_spacing( $btn_border_radius_fields, 'left', 'mobile' ),
 						),
 					);
 				}
@@ -2397,6 +2413,47 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				),
 			);
 
+			/**
+			 * Global button CSS - -> max-width: (tablet-breakpoint) px.
+			 */
+			$global_button_tablet = array(
+				'.menu-toggle, button, .ast-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"]' => array(
+					'font-size' => astra_get_font_css_value( $theme_btn_font_size['tablet'], $theme_btn_font_size['tablet-unit'] ),
+				),
+				'.menu-toggle, button, .ast-button, .ast-custom-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"]' => array(
+					'padding-top'                => astra_responsive_spacing( $theme_btn_padding, 'top', 'tablet' ),
+					'padding-right'              => astra_responsive_spacing( $theme_btn_padding, 'right', 'tablet' ),
+					'padding-bottom'             => astra_responsive_spacing( $theme_btn_padding, 'bottom', 'tablet' ),
+					'padding-left'               => astra_responsive_spacing( $theme_btn_padding, 'left', 'tablet' ),
+					'font-size'                  => astra_responsive_font( $theme_btn_font_size, 'tablet' ),
+					'border-top-left-radius'     => astra_responsive_spacing( $btn_border_radius_fields, 'top', 'tablet' ),
+					'border-top-right-radius'    => astra_responsive_spacing( $btn_border_radius_fields, 'right', 'tablet' ),
+					'border-bottom-right-radius' => astra_responsive_spacing( $btn_border_radius_fields, 'bottom', 'tablet' ),
+					'border-bottom-left-radius'  => astra_responsive_spacing( $btn_border_radius_fields, 'left', 'tablet' ),
+				),
+				'.ast-mobile-header-stack .main-header-bar .ast-search-menu-icon' => array(
+					'display' => 'inline-block',
+				),
+				'.ast-header-break-point.ast-header-custom-item-outside .ast-mobile-header-stack .main-header-bar .ast-search-icon' => array(
+					'margin' => '0',
+				),
+				'.ast-comment-avatar-wrap img'             => array(
+					'max-width' => '2.5em',
+				),
+				'.ast-separate-container .ast-comment-list li.depth-1' => array(
+					'padding' => '1.5em 2.14em',
+				),
+				'.ast-separate-container .comment-respond' => array(
+					'padding' => '2em 2.14em',
+				),
+				'.ast-comment-meta'                        => array(
+					'padding' => '0 1.8888em 1.3333em',
+				),
+			);
+
+			/* Parse CSS from array() -> max-width: (tablet-breakpoint) px CSS */
+			$parse_css .= astra_parse_css( $global_button_tablet, '', astra_get_tablet_breakpoint() );
+
 			/* Parse CSS from array() -> min-width: (mobile-breakpoint) px CSS  */
 			$parse_css .= astra_parse_css( $container_min_mobile_css, astra_get_mobile_breakpoint() );
 
@@ -2455,46 +2512,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			/* Parse CSS from array() -> max-width: (mobile-breakpoint) px  */
 			$parse_css .= astra_parse_css( $global_button_mobile, '', astra_get_mobile_breakpoint() );
 
-			/**
-			 * Global button CSS - -> max-width: (tablet-breakpoint) px.
-			 */
-			$global_button_tablet = array(
-				'.menu-toggle, button, .ast-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"]' => array(
-					'font-size' => astra_get_font_css_value( $theme_btn_font_size['tablet'], $theme_btn_font_size['tablet-unit'] ),
-				),
-				'.menu-toggle, button, .ast-button, .ast-custom-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"]' => array(
-					'padding-top'                => astra_responsive_spacing( $theme_btn_padding, 'top', 'tablet' ),
-					'padding-right'              => astra_responsive_spacing( $theme_btn_padding, 'right', 'tablet' ),
-					'padding-bottom'             => astra_responsive_spacing( $theme_btn_padding, 'bottom', 'tablet' ),
-					'padding-left'               => astra_responsive_spacing( $theme_btn_padding, 'left', 'tablet' ),
-					'font-size'                  => astra_responsive_font( $theme_btn_font_size, 'tablet' ),
-					'border-top-left-radius'     => astra_responsive_spacing( $btn_border_radius_fields, 'top', 'tablet' ),
-					'border-top-right-radius'    => astra_responsive_spacing( $btn_border_radius_fields, 'right', 'tablet' ),
-					'border-bottom-right-radius' => astra_responsive_spacing( $btn_border_radius_fields, 'bottom', 'tablet' ),
-					'border-bottom-left-radius'  => astra_responsive_spacing( $btn_border_radius_fields, 'left', 'tablet' ),
-				),
-				'.ast-mobile-header-stack .main-header-bar .ast-search-menu-icon' => array(
-					'display' => 'inline-block',
-				),
-				'.ast-header-break-point.ast-header-custom-item-outside .ast-mobile-header-stack .main-header-bar .ast-search-icon' => array(
-					'margin' => '0',
-				),
-				'.ast-comment-avatar-wrap img'             => array(
-					'max-width' => '2.5em',
-				),
-				'.ast-separate-container .ast-comment-list li.depth-1' => array(
-					'padding' => '1.5em 2.14em',
-				),
-				'.ast-separate-container .comment-respond' => array(
-					'padding' => '2em 2.14em',
-				),
-				'.ast-comment-meta'                        => array(
-					'padding' => '0 1.8888em 1.3333em',
-				),
-			);
-
-			/* Parse CSS from array() -> max-width: (tablet-breakpoint) px CSS */
-			$parse_css .= astra_parse_css( $global_button_tablet, '', astra_get_tablet_breakpoint() );
 
 			if ( Astra_Builder_Helper::is_component_loaded( 'search', 'header', 'mobile' ) ) {
 

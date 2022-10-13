@@ -110,7 +110,7 @@ function astra_mobile_trigger_row_setting( $dynamic_css, $dynamic_css_filtered =
 			}
 
 		case 'fill': // phpcs:ignore PSR2.ControlStructures.SwitchDeclaration.TerminatingComment
-			$css_output_fill = array(
+			$css_output_fill        = array(
 				$selector . ' .ast-button-wrap .ast-mobile-menu-trigger-fill' => array(
 					// Color & Border.
 					'color'                      => esc_attr( $icon_color ),
@@ -122,13 +122,31 @@ function astra_mobile_trigger_row_setting( $dynamic_css, $dynamic_css_filtered =
 					'border-bottom-left-radius'  => astra_responsive_spacing( $trigger_border_radius_fields, 'left', 'desktop' ),
 				),
 			);
-			$dynamic_css    .= astra_parse_css( $css_output_fill );
+			$css_output_fill_tablet = array(
+				$selector . ' .ast-button-wrap .ast-mobile-menu-trigger-fill' => array(
+					'border-top-left-radius'     => astra_responsive_spacing( $trigger_border_radius_fields, 'top', 'tablet' ),
+					'border-top-right-radius'    => astra_responsive_spacing( $trigger_border_radius_fields, 'right', 'tablet' ),
+					'border-bottom-right-radius' => astra_responsive_spacing( $trigger_border_radius_fields, 'bottom', 'tablet' ),
+					'border-bottom-left-radius'  => astra_responsive_spacing( $trigger_border_radius_fields, 'left', 'tablet' ),
+				),
+			);
+			$css_output_fill_mobile = array(
+				$selector . ' .ast-button-wrap .ast-mobile-menu-trigger-fill' => array(
+					'border-top-left-radius'     => astra_responsive_spacing( $trigger_border_radius_fields, 'top', 'mobile' ),
+					'border-top-right-radius'    => astra_responsive_spacing( $trigger_border_radius_fields, 'right', 'mobile' ),
+					'border-bottom-right-radius' => astra_responsive_spacing( $trigger_border_radius_fields, 'bottom', 'mobile' ),
+					'border-bottom-left-radius'  => astra_responsive_spacing( $trigger_border_radius_fields, 'left', 'mobile' ),
+				),
+			);
+			$dynamic_css           .= astra_parse_css( $css_output_fill );
+			$dynamic_css           .= astra_parse_css( $css_output_fill_tablet, '', astra_get_tablet_breakpoint() );
+			$dynamic_css           .= astra_parse_css( $css_output_fill_mobile, '', astra_get_mobile_breakpoint() );
 			if ( false === $is_customizer ) {
 				break;
 			}
 
 		case 'outline': // phpcs:ignore PSR2.ControlStructures.SwitchDeclaration.TerminatingComment
-			$css_output_outline = array(
+			$css_output_outline        = array(
 				$selector . ' .ast-button-wrap .ast-mobile-menu-trigger-outline' => array(
 					'background'                 => 'transparent',
 					'color'                      => esc_attr( $icon_color ),
@@ -144,7 +162,25 @@ function astra_mobile_trigger_row_setting( $dynamic_css, $dynamic_css_filtered =
 					'border-bottom-left-radius'  => astra_responsive_spacing( $trigger_border_radius_fields, 'left', 'desktop' ),
 				),
 			);
-			$dynamic_css       .= astra_parse_css( $css_output_outline );
+			$css_output_outline_tablet = array(
+				$selector . ' .ast-button-wrap .ast-mobile-menu-trigger-outline' => array(
+					'border-top-left-radius'     => astra_responsive_spacing( $trigger_border_radius_fields, 'top', 'tablet' ),
+					'border-top-right-radius'    => astra_responsive_spacing( $trigger_border_radius_fields, 'right', 'tablet' ),
+					'border-bottom-right-radius' => astra_responsive_spacing( $trigger_border_radius_fields, 'bottom', 'tablet' ),
+					'border-bottom-left-radius'  => astra_responsive_spacing( $trigger_border_radius_fields, 'left', 'tablet' ),
+				),
+			);
+			$css_output_outline_mobile = array(
+				$selector . ' .ast-button-wrap .ast-mobile-menu-trigger-outline' => array(
+					'border-top-left-radius'     => astra_responsive_spacing( $trigger_border_radius_fields, 'top', 'mobile' ),
+					'border-top-right-radius'    => astra_responsive_spacing( $trigger_border_radius_fields, 'right', 'mobile' ),
+					'border-bottom-right-radius' => astra_responsive_spacing( $trigger_border_radius_fields, 'bottom', 'mobile' ),
+					'border-bottom-left-radius'  => astra_responsive_spacing( $trigger_border_radius_fields, 'left', 'mobile' ),
+				),
+			);
+			$dynamic_css              .= astra_parse_css( $css_output_outline );
+			$dynamic_css              .= astra_parse_css( $css_output_outline_tablet, '', astra_get_tablet_breakpoint() );
+			$dynamic_css              .= astra_parse_css( $css_output_outline_mobile, '', astra_get_tablet_breakpoint() );
 			if ( false === $is_customizer ) {
 				break;
 			}

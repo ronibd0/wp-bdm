@@ -173,8 +173,14 @@ class Astra_Social_Component_Dynamic_CSS {
 				),
 				$selector . ' .ast-builder-social-element' => array(
 					// Icon Spacing.
-					'margin-left'  => astra_get_css_value( $icon_spacing_tablet, 'px' ),
-					'margin-right' => astra_get_css_value( $icon_spacing_tablet, 'px' ),
+					'margin-left'                => astra_get_css_value( $icon_spacing_tablet, 'px' ),
+					'margin-right'               => astra_get_css_value( $icon_spacing_tablet, 'px' ),
+
+					// Border Radius.
+					'border-top-left-radius'     => astra_responsive_spacing( $icon_radius_fields, 'top', 'tablet' ),
+					'border-top-right-radius'    => astra_responsive_spacing( $icon_radius_fields, 'right', 'tablet' ),
+					'border-bottom-right-radius' => astra_responsive_spacing( $icon_radius_fields, 'bottom', 'tablet' ),
+					'border-bottom-left-radius'  => astra_responsive_spacing( $icon_radius_fields, 'left', 'tablet' ),
 				),
 				$selector                                  => array(
 					// Margin CSS.
@@ -223,8 +229,14 @@ class Astra_Social_Component_Dynamic_CSS {
 				),
 				$selector . ' .ast-builder-social-element' => array(
 					// Icon Spacing.
-					'margin-left'  => astra_get_css_value( $icon_spacing_mobile, 'px' ),
-					'margin-right' => astra_get_css_value( $icon_spacing_mobile, 'px' ),
+					'margin-left'                => astra_get_css_value( $icon_spacing_mobile, 'px' ),
+					'margin-right'               => astra_get_css_value( $icon_spacing_mobile, 'px' ),
+
+					// Border Radius.
+					'border-top-left-radius'     => astra_responsive_spacing( $icon_radius_fields, 'top', 'mobile' ),
+					'border-top-right-radius'    => astra_responsive_spacing( $icon_radius_fields, 'right', 'mobile' ),
+					'border-bottom-right-radius' => astra_responsive_spacing( $icon_radius_fields, 'bottom', 'mobile' ),
+					'border-bottom-left-radius'  => astra_responsive_spacing( $icon_radius_fields, 'left', 'mobile' ),
 				),
 				$selector                                  => array(
 					// Margin CSS.
