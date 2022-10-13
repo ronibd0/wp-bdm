@@ -158,20 +158,27 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			/** @psalm-suppress UndefinedFunction */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			$h3_text_decoration = astra_get_font_extras( astra_get_option( 'font-extras-h3' ), 'text-decoration' );
 
-			$h4_font_family    = '';
-			$h4_font_weight    = '';
-			$h4_line_height    = '';
-			$h4_text_transform = '';
+			$h4_font_family     = '';
+			$h4_font_weight     = '';
+			$h4_line_height     = '';
+			$h4_text_transform  = '';
+			$h4_letter_spacing  = '';
+			$h4_text_decoration = '';
+			
 
-			$h5_font_family    = '';
-			$h5_font_weight    = '';
-			$h5_line_height    = '';
-			$h5_text_transform = '';
+			$h5_font_family     = '';
+			$h5_font_weight     = '';
+			$h5_line_height     = '';
+			$h5_text_transform  = '';
+			$h5_letter_spacing  = '';
+			$h5_text_decoration = '';
 
-			$h6_font_family    = '';
-			$h6_font_weight    = '';
-			$h6_line_height    = '';
-			$h6_text_transform = '';
+			$h6_font_family     = '';
+			$h6_font_weight     = '';
+			$h6_line_height     = '';
+			$h6_text_transform  = '';
+			$h6_letter_spacing  = '';
+			$h6_text_decoration = '';
 
 			$is_widget_title_support_font_weight = self::support_font_css_to_widget_and_in_editor();
 			$font_weight_prop                    = ( $is_widget_title_support_font_weight ) ? 'inherit' : 'normal';
