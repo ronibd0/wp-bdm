@@ -8,6 +8,7 @@ v3.9.3 (Unreleased)
 - Improvement: To have elegant fresh setup UI, updated the customizer sidebar layout by default to No-Sideebar.
 - Fix: WooCommerce - Content background color preview not working in customizer preview.
 - Fix: WooCommerce - Shop - Sale badge text is misaligned on the frontend.
+- Fix: WooCommerce - Custom image and icon support for payment section.
 - Fix: WooCommerce - Payment list styling broken inside quick view.
 - Fix: Block Editor - Astra Meta settings does not save when Custom Fields option is enabled from the preferences.
 - Fix: Two search buttons visible on the empty archive search result page.
