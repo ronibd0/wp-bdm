@@ -3471,7 +3471,14 @@ span.customize-control-title.ast-group-section-title {
 
 }
 .ast-link-open-in-new-tab-wrapper {
-  margin: 25px 0;
+  margin: 24px 0 0;
+  border-top: 1px dashed var(--ast-customizer-color-7);
+}
+
+.ast-link-label-wrapper {
+  margin: 24px 0;
+  padding-top: 24px;
+  border-top: 1px dashed var(--ast-customizer-color-7);
 }
 
 .ast-menu-setting-wrap {
@@ -4378,6 +4385,8 @@ span.customize-control-title.ast-group-section-title {
 .customize-control-ast-responsive-toggle-control .components-toggle-control .components-toggle-control__label, .ast-responsive-toggle-control label {
     display: flex;
     flex: 1 1 auto;
+	font-size: 14px;
+  	font-weight: 600;
 }
 
 .customize-control-ast-responsive-toggle-control .ast-responsive-toggle-control-wrapper .ast-responsive-toggle-control {
@@ -5186,16 +5195,19 @@ span.customize-control-title.ast-group-section-title {
 }
 
 .customize-control-ast-link .ast-togglecontrol-wrapper .components-base-control__field {
-  margin: 20px 0;
+  margin: 24px 0 0;
 }
 
-.ast-togglecontrol-wrapper .toggle-control-label {
+.ast-togglecontrol-wrapper .toggle-control-label, .ast-togglecontrol-wrapper .components-toggle-control__label {
   font-size: 14px;
+  font-weight: 600;
 }
 
 .customize-control-ast-toggle-control .components-toggle-control .components-toggle-control__label, .ast-togglecontrol-wrapper label {
   display: flex;
   flex: 1 1 auto;
+  font-size: 14px;
+  font-weight: 600;
 }
 
 .ast-switch ~ label {
@@ -5240,6 +5252,7 @@ span.customize-control-title.ast-group-section-title {
 .ast-switch:not(:checked), .ast-switch:checked {
   opacity: 0;
 }
+
 .dashicons-editor-help[data-title]{
 	z-index: 10;
 }
@@ -6240,7 +6253,14 @@ span.customize-control-title.ast-group-section-title {
 
 }
 .ast-link-open-in-new-tab-wrapper {
-  margin: 25px 0;
+  margin: 24px 0 0;
+  border-top: 1px dashed var(--ast-customizer-color-7);
+}
+
+.ast-link-label-wrapper {
+  margin: 24px 0;
+  padding-top: 24px;
+  border-top: 1px dashed var(--ast-customizer-color-7);
 }
 
 .ast-menu-setting-wrap {
@@ -7234,6 +7254,8 @@ span.customize-control-title.ast-group-section-title {
 .customize-control-ast-responsive-toggle-control .components-toggle-control .components-toggle-control__label, .ast-responsive-toggle-control label {
     display: flex;
     flex: 1 1 auto;
+	font-size: 14px;
+  	font-weight: 600;
 }
 
 .customize-control-ast-responsive-toggle-control .ast-responsive-toggle-control-wrapper .ast-responsive-toggle-control {
@@ -7955,16 +7977,19 @@ span.customize-control-title.ast-group-section-title {
 }
 
 .customize-control-ast-link .ast-togglecontrol-wrapper .components-base-control__field {
-  margin: 20px 0;
+  margin: 24px 0 0;
 }
 
-.ast-togglecontrol-wrapper .toggle-control-label {
+.ast-togglecontrol-wrapper .toggle-control-label, .ast-togglecontrol-wrapper .components-toggle-control__label {
   font-size: 14px;
+  font-weight: 600;
 }
 
 .customize-control-ast-toggle-control .components-toggle-control .components-toggle-control__label, .ast-togglecontrol-wrapper label {
   display: flex;
   flex: 1 1 auto;
+  font-size: 14px;
+  font-weight: 600;
 }
 
 .ast-switch ~ label {
@@ -8009,6 +8034,7 @@ span.customize-control-title.ast-group-section-title {
 .ast-switch:not(:checked), .ast-switch:checked {
   opacity: 0;
 }
+
 .dashicons-editor-help[data-title]{
 	z-index: 10;
 }
