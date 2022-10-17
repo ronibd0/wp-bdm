@@ -171,14 +171,6 @@ function astra_builder_button_css( builder_type = 'header', button_count ) {
 			'px'
 		);
 
-		// Border Radius.
-		astra_css(
-			'astra-settings[' + builder_type + '-' + prefix + '-border-radius]',
-			'border-radius',
-			selector + ' .ast-custom-button',
-			'px'
-		);
-
 		// Border Color.
 		astra_color_responsive_css(
 			context + '-button-border-color',
@@ -203,8 +195,8 @@ function astra_builder_button_css( builder_type = 'header', button_count ) {
 			// Builder Type Border Radius Fields
 			wp.customize('astra-settings[' + builder_type + '-button' + index + '-border-radius-fields]', function (setting) {
 				setting.bind(function (border) {
-					var globalSelector = '.ast-' + builder_type + '-button-'+ index +' .ast-custom-button';
-					var dynamicStyle = globalSelector + '{ border-top-left-radius :' + border['desktop']['top'] + border['desktop-unit']
+					let globalSelector = '.ast-' + builder_type + '-button-'+ index +' .ast-custom-button';
+					let dynamicStyle = globalSelector + '{ border-top-left-radius :' + border['desktop']['top'] + border['desktop-unit']
 							+ '; border-bottom-right-radius :' + border['desktop']['bottom'] + border['desktop-unit'] + '; border-bottom-left-radius :'
 							+ border['desktop']['left'] + border['desktop-unit'] + '; border-top-right-radius :' + border['desktop']['right'] + border['desktop-unit'] + '; } ';
 
@@ -355,20 +347,12 @@ function astra_builder_social_css( builder_type = 'header', social_count ) {
 			'px'
 		);
 
-		// Icon Border Radius.
-		astra_css(
-			'astra-settings[' + builder_type + '-social-' + index + '-radius]',
-			'border-radius',
-			selector + ' .' + builder_type + '-social-inner-wrap .ast-builder-social-element',
-			'px'
-		);
-
 		// Icon Border Radius Fields
 		wp.customize('astra-settings[' + builder_type + '-social-' + index + '-radius-fields]', function (setting) {
 			setting.bind(function (border) {
 
-				var globalSelector = selector + ' .' + builder_type + '-social-inner-wrap .ast-builder-social-element';
-				var dynamicStyle = globalSelector + '{ border-top-left-radius :' + border['desktop']['top'] + border['desktop-unit']
+				let globalSelector = selector + ' .' + builder_type + '-social-inner-wrap .ast-builder-social-element';
+				let dynamicStyle = globalSelector + '{ border-top-left-radius :' + border['desktop']['top'] + border['desktop-unit']
 						+ '; border-bottom-right-radius :' + border['desktop']['bottom'] + border['desktop-unit'] + '; border-bottom-left-radius :'
 						+ border['desktop']['left'] + border['desktop-unit'] + '; border-top-right-radius :' + border['desktop']['right'] + border['desktop-unit'] + '; } ';
 

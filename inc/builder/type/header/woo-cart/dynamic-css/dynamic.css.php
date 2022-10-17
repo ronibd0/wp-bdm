@@ -36,7 +36,6 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 	$icon_color            = esc_attr( astra_get_option( 'header-woo-cart-icon-color', $theme_color ) );
 	$icon_hover_color      = esc_attr( astra_get_option( 'header-woo-cart-icon-hover-color' ) ); // icon cart hover color.
 
-	$header_cart_icon_radius         = astra_get_option( 'woo-header-cart-icon-radius' );
 	$header_cart_icon_radius_fields  = astra_get_option( 'woo-header-cart-icon-radius-fields' );
 	$cart_h_color                    = astra_get_foreground_color( $icon_color );
 	$header_cart_icon_style          = astra_get_option( 'woo-header-cart-icon-style' );

@@ -51,7 +51,6 @@ class Astra_Button_Component_Dynamic_CSS {
 			$selector                    = '.ast-' . $builder_type . '-button-' . $index;
 			$button_font_size            = astra_get_option( $builder_type . '-' . $_prefix . '-font-size' );
 			$button_border_width         = astra_get_option( $builder_type . '-' . $_prefix . '-border-size' );
-			$button_border_radius        = astra_get_option( $builder_type . '-' . $_prefix . '-border-radius' );
 			$button_border_radius_fields = astra_get_option( $builder_type . '-' . $_prefix . '-border-radius-fields' );
 
 			// Normal Responsive Colors.
@@ -118,7 +117,6 @@ class Astra_Button_Component_Dynamic_CSS {
 					'border-bottom-width'        => astra_get_css_value( $button_border_width['bottom'], 'px' ),
 					'border-left-width'          => astra_get_css_value( $button_border_width['left'], 'px' ),
 					'border-right-width'         => astra_get_css_value( $button_border_width['right'], 'px' ),
-					'border-radius'              => astra_get_css_value( $button_border_radius, 'px' ),
 					'border-top-left-radius'     => astra_responsive_spacing( $button_border_radius_fields, 'top', 'desktop' ),
 					'border-top-right-radius'    => astra_responsive_spacing( $button_border_radius_fields, 'right', 'desktop' ),
 					'border-bottom-right-radius' => astra_responsive_spacing( $button_border_radius_fields, 'bottom', 'desktop' ),

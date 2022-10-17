@@ -45,7 +45,6 @@ function astra_hb_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 		$sub_menu_divider_toggle       = astra_get_option( 'header-' . $_prefix . '-submenu-item-border' );
 		$sub_menu_divider_size         = astra_get_option( 'header-' . $_prefix . '-submenu-item-b-size' );
 		$sub_menu_divider_color        = astra_get_option( 'header-' . $_prefix . '-submenu-item-b-color' );
-		$sub_menu_border_radius        = astra_get_option( 'header-' . $_prefix . '-submenu-border-radius' );
 		$sub_menu_border_radius_fields = astra_get_option( 'header-' . $_prefix . '-submenu-border-radius-fields' );
 		$sub_menu_top_offset           = astra_get_option( 'header-' . $_prefix . '-submenu-top-offset' );
 		$sub_menu_width                = astra_get_option( 'header-' . $_prefix . '-submenu-width' );
@@ -103,9 +102,6 @@ function astra_hb_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 		$sub_menu_border_right = ( isset( $sub_menu_border ) && ! empty( $sub_menu_border['right'] ) ) ? $sub_menu_border['right'] : 0;
 
 		$sub_menu_border_left = ( isset( $sub_menu_border ) && ! empty( $sub_menu_border['left'] ) ) ? $sub_menu_border['left'] : 0;
-
-		// Border-Radius.
-		$sub_menu_border_radius = ! empty( $sub_menu_border_radius ) ? $sub_menu_border_radius : 0;
 
 		// Top offset position.
 		$sub_menu_top_offset = ! empty( $sub_menu_top_offset ) ? $sub_menu_top_offset : 0;

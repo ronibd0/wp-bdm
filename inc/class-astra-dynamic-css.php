@@ -251,7 +251,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			}
 
 			// Button Styling.
-			$btn_border_radius        = astra_get_option( 'button-radius' );
 			$btn_border_radius_fields = astra_get_option( 'button-radius-fields' );
 			$theme_btn_padding        = astra_get_option( 'theme-button-padding' );
 			$highlight_theme_color    = astra_get_foreground_color( $theme_color );

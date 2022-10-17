@@ -48,7 +48,6 @@ class Astra_Social_Component_Dynamic_CSS {
 			$icon_spacing       = astra_get_option( $builder_type . '-social-' . $index . '-space' );
 			$icon_bg_spacing    = astra_get_option( $builder_type . '-social-' . $index . '-bg-space' );
 			$icon_size          = astra_get_option( $builder_type . '-social-' . $index . '-size' );
-			$icon_radius        = astra_get_option( $builder_type . '-social-' . $index . '-radius' );
 			$icon_radius_fields = astra_get_option( $builder_type . '-social-' . $index . '-radius-fields' );
 
 			$icon_spacing_desktop = ( isset( $icon_spacing['desktop'] ) && '' !== $icon_spacing['desktop'] ) ? (int) $icon_spacing['desktop'] / 2 : '';
@@ -59,7 +58,6 @@ class Astra_Social_Component_Dynamic_CSS {
 			$icon_size_tablet  = ( isset( $icon_size['tablet'] ) && '' !== $icon_size['tablet'] ) ? (int) $icon_size['tablet'] : '';
 			$icon_size_mobile  = ( isset( $icon_size['mobile'] ) && '' !== $icon_size['mobile'] ) ? (int) $icon_size['mobile'] : '';
 
-			$icon_radius     = ( isset( $icon_radius ) && '' !== $icon_radius ) ? (int) $icon_radius : '';
 			$icon_bg_spacing = ( isset( $icon_bg_spacing ) && '' !== $icon_bg_spacing ) ? (int) $icon_bg_spacing : '';
 
 			// Normal Responsive Colors.
