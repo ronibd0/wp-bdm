@@ -25,6 +25,7 @@ module.exports = {
 				'overlay-right': '16px 0px 80px -24px rgba(0, 0, 0, 0.16)',
 				'hover': '0px 12px 24px -12px rgba(0, 0, 0, 0.12)',
 				'overlay-light': '0px 2px 4px -2px rgba(16, 24, 40, 0.06)',
+				'overlay-modal': '0px 32px 64px -24px rgba(0, 0, 0, 0.24)',
 			},
 		},
 	},
