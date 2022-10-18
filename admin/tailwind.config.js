@@ -14,7 +14,7 @@ module.exports = {
 				},
 				astra: {
 					DEFAULT: '#046BD2',
-					hover: '#5300E0',
+					hover: '#045CB4',
 				},
 			},
 			fontFamily: {
@@ -28,6 +28,9 @@ module.exports = {
 				'overlay-modal': '0px 32px 64px -24px rgba(0, 0, 0, 0.24)',
 			},
 		},
+		borderColor: (theme) => ({
+			...theme('colors'),
+		}),
 	},
 	variants: {
 		extend: {},

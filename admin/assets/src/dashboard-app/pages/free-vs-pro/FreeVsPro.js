@@ -1,13 +1,14 @@
 import { __ } from "@wordpress/i18n";
 import { features } from "./data";
-import { XIcon, CheckIcon } from "@heroicons/react/outline";
+import Astra_Admin_Icons from '@Common/block-icons';
+
 
 const FreeVsPro = () => {
 	const checkStatus = (value) => {
 		if (value === "yes") {
-			return <CheckIcon className="h-3.5 w-3.5 mx-auto" stroke="#22C55E" />;
+			return Astra_Admin_Icons['check'];
 		} else if (value === "no") {
-			return <XIcon className="h-3.5 w-3.5 mx-auto" stroke="#F87171" />;
+			return Astra_Admin_Icons['xclose'];
 		} else {
 			return value;
 		}
@@ -67,10 +68,14 @@ const FreeVsPro = () => {
 													{ feature.name }
 												</td>
 												<td className="whitespace-nowrap capitalize px-3 py-4 text-base text-center text-slate-600">
-													{ checkStatus(feature.free) }
+													<div className="flex justify-center">
+														{ checkStatus(feature.free) }
+													</div>
 												</td>
 												<td className="whitespace-nowrap capitalize px-3 py-4 text-base text-center text-slate-600">
-													{ checkStatus(feature.pro) }
+													<div className="flex justify-center">
+														{ checkStatus(feature.pro) }
+													</div>
 												</td>
 											</tr>
 										) ) }
@@ -84,18 +89,7 @@ const FreeVsPro = () => {
 												"astra"
 											)}
 										</span>
-										<svg
-											width="20"
-											height="20"
-											viewBox="0 0 20 20"
-											fill="none"
-											xmlns="http://www.w3.org/2000/svg"
-										>
-											<path
-												d="M9 3H17V11L15 10V6.92L9.4 12.51L7.99 11.1L14.08 5H10L9 3ZM12 15V12L14 10V17H3V6H11L9 8H5V15H12Z"
-												fill="currentColor"
-											/>
-										</svg>
+										{ Astra_Admin_Icons['redirect'] }
 									</button>
 								</div>
 							</div>
@@ -103,10 +97,10 @@ const FreeVsPro = () => {
 					</div>
 				</div>
 
-				<section className="mt-6 py-10 flex flex-col bg-white items-center justify-center shadow-overlay-light rounded-md">
+				<section className="mt-6 py-10 flex flex-col bg-slate-200 items-center justify-center shadow-overlay-light rounded-md">
 					<div className="mb-3">
 						<span className="py-0.5 px-1 text-[0.625rem] text-white bg-slate-800 rounded-[0.1875rem]">
-						{__("PRO", "astra")}
+							{__("PRO", "astra")}
 						</span>
 					</div>
 					<h4 className="text-2xl font-semibold text-slate-800 mb-3">
