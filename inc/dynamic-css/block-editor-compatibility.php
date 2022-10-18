@@ -463,7 +463,7 @@ function astra_load_modern_block_editor_ui( $dynamic_css ) {
 	';
 	
 	/* Astra Spectra Gutenberg compatibility css. */
-	if ( $ast_spect_comp ) {
+	if ( $list_blocks_space ) {
 
 		// List bullets alignment with page container.
 		$dynamic_css .= '
