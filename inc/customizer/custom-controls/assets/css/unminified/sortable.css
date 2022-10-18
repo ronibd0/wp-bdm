@@ -121,11 +121,18 @@
 .ast-sortable-subfields-wrap .customize-control-ast-list-icons .dashicons-admin-page {
     color: #556068;
 }
+
 .customize-control-ast-sortable .ast-sortable-subfields-wrap .customize-control-ast-list-icons .ahfb-sorter-item-panel-header {
     border: 1px solid #ddd;
 	border-left: 0;
     border-bottom: 0;
 	overflow: hidden;
+}
+
+.ast-sortable-subfields-wrap .customize-control-ast-list-icons .ahfb-sorter-visiblity svg, 
+.ast-sortable-subfields-wrap .customize-control-ast-list-icons .ahfb-sorter-visiblity .ast-media-image-preview {
+    height: 14px;
+    width: 14px;
 }
 .ast-sortable-subfields-wrap .customize-control-ast-list-icons .ahfb-sorter-visiblity span {
     display: flex;

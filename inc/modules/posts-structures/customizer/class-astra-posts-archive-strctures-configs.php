@@ -197,11 +197,11 @@ class Astra_Posts_Archive_Strctures_Configs extends Astra_Customizer_Config_Base
 					'choices'           => array(
 						'layout-1' => array(
 							'label' => __( 'Layout 1', 'astra' ),
-							'path'  => Astra_Builder_UI_Controller::fetch_svg_icon( 'post-banner' ),
+							'path'  => Astra_Builder_UI_Controller::fetch_svg_icon( 'post-layout' ),
 						),
 						'layout-2' => array(
 							'label' => __( 'Layout 2', 'astra-addon' ),
-							'path'  => Astra_Builder_UI_Controller::fetch_svg_icon( 'post-banner', false ),
+							'path'  => Astra_Builder_UI_Controller::fetch_svg_icon( 'banner-layout', false ),
 						),
 					),
 				),
