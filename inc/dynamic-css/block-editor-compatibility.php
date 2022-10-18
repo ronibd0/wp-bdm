@@ -467,7 +467,7 @@ function astra_load_modern_block_editor_ui( $dynamic_css ) {
 
 		// List bullets alignment with page container.
 		$dynamic_css .= '
-			.entry-content[ast-blocks-layout] > ul {
+			.entry-content[ast-blocks-layout] > ul, .entry-content[ast-blocks-layout] > ol {
 				margin-' . esc_attr( $ltr_left ) . ': 1em;
 			}
 		';
