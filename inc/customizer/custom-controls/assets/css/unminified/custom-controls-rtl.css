@@ -3501,19 +3501,13 @@ span.customize-control-title.ast-group-section-title {
 	padding: .6em 0;
 	cursor: pointer;
 	--ast-customizer-multiselect-icon-color: var(--ast-customizer-color-6);
-}
-
-.customize-control-ast-multi-selector .ast-multiselector-inner-wrap:nth-child(1) {
-	border-left-color: 0;
-}
-
-.customize-control-ast-multi-selector .ast-multiselector-inner-wrap:nth-child(3) {
-	border-right-color: 0;
+	margin-right: -1px;
 }
 
 .customize-control-ast-multi-selector .ast-multiselector-inner-wrap.active {
 	--ast-customizer-multiselect-icon-color: var(--ast-customizer-color-1);
 	border-color: var(--ast-customizer-color-3);
+	z-index: 1;
 }
 .customize-control-ast-multi-selector .ast-multiselector-inner-wrap svg {
 	fill: var(--ast-customizer-color-10);
