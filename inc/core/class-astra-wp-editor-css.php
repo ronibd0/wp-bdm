@@ -553,6 +553,19 @@ class Astra_WP_Editor_CSS {
 			'padding-' . $ltr_left => '0 !important',
 		);
 
+		// Full-Width Stretched Layout page title alignment.
+		$desktop_css['.ast-page-builder-template .edit-post-visual-editor__post-title-wrapper'] = array(
+			'max-width'            => 'var(--wp--custom--ast-wide-width-size) !important',
+			'margin-left'          => '0 !important',
+			'margin-right'         => '0 !important',
+			'padding-' . $ltr_left => '14px',
+		);
+
+		// Full-Width Stretched Layout Root block padding to match frontend.
+		$desktop_css['.ast-page-builder-template .edit-post-visual-editor .editor-styles-wrapper > .is-root-container'] = array(
+			'padding-' . $ltr_left => '10px',
+		);
+
 		$content_links_underline = astra_get_option( 'underline-content-links' );
 
 		if ( $content_links_underline ) {

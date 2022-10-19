@@ -1086,9 +1086,9 @@ function astra_theme_background_updater_3_9_3() {
 		update_option( 'astra-settings', $theme_options );
 	}
 
-	// Do not apply new page title alignment CSS for existing users.
-	if ( ! isset( $theme_options['page-title-container-alignment-css'] ) ) {
-		$theme_options['page-title-container-alignment-css'] = false;
+	// Astra + Gutenberg + Spectra Compatibility CSS.
+	if ( ! isset( $theme_options['astra-gutenberg-spectra-compatibility-css'] ) ) {
+		$theme_options['astra-gutenberg-spectra-compatibility-css'] = false;
 		update_option( 'astra-settings', $theme_options );
 	}
 

@@ -4099,8 +4099,8 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		 */
 		public static function page_title_container_alignment_compatibility() {
 			$astra_settings                                       = get_option( ASTRA_THEME_SETTINGS );
-			$astra_settings['page-title-container-alignment-css'] = isset( $astra_settings['page-title-container-alignment-css'] ) ? false : true;
-			return apply_filters( 'astra_page_title_container_alignment_compatibility', $astra_settings['page-title-container-alignment-css'] );
+			$astra_settings['astra-gutenberg-spectra-compatibility-css'] = isset( $astra_settings['astra-gutenberg-spectra-compatibility-css'] ) ? false : true;
+			return apply_filters( 'astra-gutenberg-spectra-compatibility-css', $astra_settings['astra-gutenberg-spectra-compatibility-css'] );
 		}
 
 		/**
