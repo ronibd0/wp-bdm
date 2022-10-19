@@ -27,10 +27,10 @@ module.exports = {
 				'overlay-light': '0px 2px 4px -2px rgba(16, 24, 40, 0.06)',
 				'overlay-modal': '0px 32px 64px -24px rgba(0, 0, 0, 0.24)',
 			},
+			borderColor: (theme) => ({
+				...theme('colors'),
+			}),
 		},
-		borderColor: (theme) => ({
-			...theme('colors'),
-		}),
 	},
 	variants: {
 		extend: {},

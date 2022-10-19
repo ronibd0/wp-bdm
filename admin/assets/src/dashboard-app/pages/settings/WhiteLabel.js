@@ -7,7 +7,7 @@ function classNames( ...classes ) {
     return classes.filter( Boolean ).join( ' ' )
 }
 
-const LoadFontsLocally = () => {
+const WhiteLabel = () => {
 
     const dispatch = useDispatch();
 
@@ -47,7 +47,7 @@ const LoadFontsLocally = () => {
         <section className='block border-b border-solid border-slate-200 px-12 py-8 justify-between'>
             <div className='mr-16 w-full flex items-center'>
                 <h3 className="p-0 flex-1 justify-right inline-flex text-xl leading-8 font-semibold text-slate-800">
-                    { __( 'Load Google Fonts Locally', 'astra' ) }
+                    { __( 'Enable White Label', 'astra' ) }
                 </h3>
                 <Switch
                     checked={ enableLoadFontsLocallyStatus }
@@ -67,10 +67,10 @@ const LoadFontsLocally = () => {
                 </Switch>
             </div>
             <p className="mt-2 w-9/12 text-sm text-slate-500">
-                { __( 'Enable this option to download Google fonts and save them on your server. This can be great for improving speed of your website and to comply with GDPR laws.', 'astra' ) }
+                { __( 'White Label removes any links to Astra website and change the identity in the dashboard. This setting is mostly used by agencies and developers who are building websites for clients.', 'astra' ) }
             </p>
         </section>
     );
 };
 
-export default LoadFontsLocally;
+export default WhiteLabel;
