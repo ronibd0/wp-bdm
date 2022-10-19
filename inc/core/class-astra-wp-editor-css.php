@@ -393,18 +393,18 @@ class Astra_WP_Editor_CSS {
 		/** @psalm-suppress InvalidScalarArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 
 		$desktop_css = array(
-			':root'                                        => Astra_Global_Palette::generate_global_palette_style(),
-			'html'                                         => array(
+			':root'                            => Astra_Global_Palette::generate_global_palette_style(),
+			'html'                             => array(
 				'font-size' => $html_font_size,
 			),
-			$astra_wide_particular_selector                => array(
+			$astra_wide_particular_selector    => array(
 				'max-width' => esc_attr( $block_appender_width ),
 				'margin'    => '0 auto',
 			),
-			'.editor-styles-wrapper a'                     => array(
+			'.editor-styles-wrapper a'         => array(
 				'color' => esc_attr( $link_color ),
 			),
-			'.block-editor-block-list__block'              => array(
+			'.block-editor-block-list__block'  => array(
 				'color' => esc_attr( $text_color ),
 			),
 			'.block-editor-block-list__layout.is-root-container > .wp-block-group, .block-editor-block-list__layout.is-root-container > [data-align="wide"] > .wp-block-group, .block-editor-block-list__layout.is-root-container > [data-align="full"] > .wp-block-group, .block-editor-block-list__layout.is-root-container > .wp-block-cover, .block-editor-block-list__layout.is-root-container > [data-align="wide"] > .wp-block-cover, .block-editor-block-list__layout.is-root-container > [data-align="full"] > .wp-block-cover, .block-editor-block-list__layout.is-root-container > .wp-block-columns, .block-editor-block-list__layout.is-root-container > [data-align="wide"] > .wp-block-columns, .block-editor-block-list__layout.is-root-container > [data-align="full"] > .wp-block-columns' => array(
@@ -421,7 +421,7 @@ class Astra_WP_Editor_CSS {
 				'color' => esc_attr( $selection_text_color ),
 			),
 
-			'#editor .edit-post-visual-editor'             => $background_style_data,
+			'#editor .edit-post-visual-editor' => $background_style_data,
 			'.edit-post-visual-editor .editor-styles-wrapper' => astra_get_responsive_background_obj( $content_background, 'desktop' ),
 
 			'.editor-styles-wrapper, #customize-controls .editor-styles-wrapper' => array(
@@ -443,14 +443,14 @@ class Astra_WP_Editor_CSS {
 			),
 
 			// Headings H1 - H6 typography.
-			'.editor-styles-wrapper h1'                    => array(
+			'.editor-styles-wrapper h1'        => array(
 				'font-size'      => astra_responsive_font( $heading_h1_font_size, 'desktop' ),
 				'font-family'    => astra_get_css_value( $h1_font_family, 'font' ),
 				'font-weight'    => astra_get_css_value( $h1_font_weight, 'font' ),
 				'line-height'    => esc_attr( $h1_line_height ),
 				'text-transform' => esc_attr( $h1_text_transform ),
 			),
-			'.editor-styles-wrapper h2'                    => array(
+			'.editor-styles-wrapper h2'        => array(
 				'font-size'      => astra_responsive_font( $heading_h2_font_size, 'desktop' ),
 				'font-family'    => astra_get_css_value( $h2_font_family, 'font' ),
 				'font-weight'    => astra_get_css_value( $h2_font_weight, 'font' ),
@@ -464,21 +464,21 @@ class Astra_WP_Editor_CSS {
 				'line-height'    => esc_attr( $h3_line_height ),
 				'text-transform' => esc_attr( $h3_text_transform ),
 			),
-			'.editor-styles-wrapper h4'                    => array(
+			'.editor-styles-wrapper h4'        => array(
 				'font-size'      => astra_responsive_font( $heading_h4_font_size, 'desktop' ),
 				'font-family'    => astra_get_css_value( $h4_font_family, 'font' ),
 				'font-weight'    => astra_get_css_value( $h4_font_weight, 'font' ),
 				'line-height'    => esc_attr( $h4_line_height ),
 				'text-transform' => esc_attr( $h4_text_transform ),
 			),
-			'.editor-styles-wrapper h5'                    => array(
+			'.editor-styles-wrapper h5'        => array(
 				'font-size'      => astra_responsive_font( $heading_h5_font_size, 'desktop' ),
 				'font-family'    => astra_get_css_value( $h5_font_family, 'font' ),
 				'font-weight'    => astra_get_css_value( $h5_font_weight, 'font' ),
 				'line-height'    => esc_attr( $h5_line_height ),
 				'text-transform' => esc_attr( $h5_text_transform ),
 			),
-			'.editor-styles-wrapper h6'                    => array(
+			'.editor-styles-wrapper h6'        => array(
 				'font-size'      => astra_responsive_font( $heading_h6_font_size, 'desktop' ),
 				'font-family'    => astra_get_css_value( $h6_font_family, 'font' ),
 				'font-weight'    => astra_get_css_value( $h6_font_weight, 'font' ),
@@ -555,10 +555,9 @@ class Astra_WP_Editor_CSS {
 
 		// Full-Width Stretched Layout page title alignment.
 		$desktop_css['.ast-page-builder-template .edit-post-visual-editor__post-title-wrapper'] = array(
-			'max-width'            => 'var(--wp--custom--ast-wide-width-size) !important',
-			'margin-left'          => '0 !important',
-			'margin-right'         => '0 !important',
-			'padding-' . $ltr_left => '14px',
+			'max-width'    => '100% !important',
+			'margin-left'  => '0 !important',
+			'margin-right' => '0 !important',
 		);
 
 		// Full-Width Stretched Layout Root block padding to match frontend.

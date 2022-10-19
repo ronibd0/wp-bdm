@@ -4097,8 +4097,8 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		 * @since x.x.x
 		 * @return boolean false if it is an existing user , true if not.
 		 */
-		public static function page_title_container_alignment_compatibility() {
-			$astra_settings                                       = get_option( ASTRA_THEME_SETTINGS );
+		public static function astra_gutenberg_compatibility_css() {
+			$astra_settings = get_option( ASTRA_THEME_SETTINGS );
 			$astra_settings['astra-gutenberg-spectra-compatibility-css'] = isset( $astra_settings['astra-gutenberg-spectra-compatibility-css'] ) ? false : true;
 			return apply_filters( 'astra-gutenberg-spectra-compatibility-css', $astra_settings['astra-gutenberg-spectra-compatibility-css'] );
 		}
