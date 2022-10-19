@@ -525,9 +525,14 @@ class Astra_WP_Editor_CSS {
 				'margin-bottom' => '20px',
 			),
 
-			// Overriding padding for page title on Full Width Layout for better alignment.
-			'.ast-page-builder-template .edit-post-visual-editor__post-title-wrapper, .ast-stacked-title-visibility .edit-post-visual-editor__post-title-wrapper' => array(
-				'padding' => '0',
+			// Overriding padding for page title on Boxed, Content Boxed for better alignment when stacked.
+			'.ast-separate-container .ast-stacked-title-visibility .edit-post-visual-editor__post-title-wrapper' => array(
+				'padding-left' => '4px',
+			),
+
+			// Overriding padding for page title on FW Contained for better alignment when stacked.
+			'.ast-plain-container .ast-stacked-title-visibility .edit-post-visual-editor__post-title-wrapper' => array(
+				'padding-left' => '0',
 			),
 
 			// Margin bottom mismatch for page title in backend editor and frontend fix.
@@ -547,27 +552,10 @@ class Astra_WP_Editor_CSS {
 			),
 		);
 
-		// Full-Width/Stretched Layout.
-		$desktop_css['.ast-page-builder-template .editor-styles-wrapper .edit-post-visual-editor__post-title-wrapper'] = array(
-			'margin-' . $ltr_left => '0 !important',
-		);
-		$desktop_css['.ast-page-builder-template .edit-post-visual-editor .editor-styles-wrapper .block-editor-block-list__layout.is-root-container > :where(:not(.alignleft):not(.alignright))'] = array(
-			'max-width' => '100%',
-		);
-
-		/**
-		 * Spectra Container Block alignment with page title.
-		 */
-
-		// Boxed, Content Boxed, Contained.
-		$desktop_css['body .editor-styles-wrapper .edit-post-visual-editor__post-title-wrapper > .alignfull, body .editor-styles-wrapper .block-editor-block-list__layout.is-root-container > .alignfull'] = array(
+		// Boxed, Content-Boxed, Full-Width Contained page title alignment with Spectra Container Blocks.
+		$desktop_css['body .editor-styles-wrapper .block-editor-block-list__layout.is-root-container > .uagb-is-root-container'] = array(
 			'max-width'            => 'var(--wp--custom--ast-content-width-size)',
 			'padding-' . $ltr_left => '0 !important',
-		);
-
-		// Editor cursor misalignment out of block fix.
-		$desktop_css['.edit-post-visual-editor.editor-styles-wrapper p, .block-editor-block-list__block p, .wp-block-latest-posts a, .editor-default-block-appender textarea.editor-default-block-appender__content, .block-editor-block-list__block, .block-editor-block-list__block h1, .block-editor-block-list__block h2, .block-editor-block-list__block h3, .block-editor-block-list__block h4, .block-editor-block-list__block h5, .block-editor-block-list__block h6, .edit-post-visual-editor .editor-styles-wrapper'] = array(
-			'line-height' => 'normal !important',
 		);
 
 		$content_links_underline = astra_get_option( 'underline-content-links' );
