@@ -1086,7 +1086,7 @@ function astra_theme_background_updater_3_9_3() {
 		update_option( 'astra-settings', $theme_options );
 	}
 
-	// Astra + Gutenberg + Spectra Compatibility CSS.
+	// Astra Spectra Gutenberg Compatibility CSS.
 	if ( ! isset( $theme_options['spectra-gutenberg-compat-css'] ) ) {
 		$theme_options['spectra-gutenberg-compat-css'] = false;
 		update_option( 'astra-settings', $theme_options );

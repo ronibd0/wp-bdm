@@ -4092,7 +4092,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		}
 
 		/**
-		 * Do not apply new Page title alignment CSS for existing users.
+		 * Astra Spectra Gutenberg Compatibility CSS.
 		 *
 		 * @since x.x.x
 		 * @return boolean false if it is an existing user , true if not.
@@ -4100,7 +4100,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		public static function spectra_gutenberg_compat_css() {
 			$astra_settings = get_option( ASTRA_THEME_SETTINGS );
 			$astra_settings['spectra-gutenberg-compat-css'] = isset( $astra_settings['spectra-gutenberg-compat-css'] ) ? false : true;
-			return apply_filters( 'spectra-gutenberg-compat-css', $astra_settings['spectra-gutenberg-compat-css'] );
+			return apply_filters( 'astra_spectra_gutenberg_compat_css', $astra_settings['spectra-gutenberg-compat-css'] );
 		}
 
 		/**
