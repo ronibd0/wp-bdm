@@ -14,7 +14,7 @@ const WhiteLabelForm = () => {
 							htmlFor="author-name"
 							className="block text-sm font-medium text-slate-600"
 						>
-							Agency author name:
+							{__("Agency author name:", "astra")}
 						</label>
 						<div className="mt-2">
 							<input
@@ -31,7 +31,7 @@ const WhiteLabelForm = () => {
 							htmlFor="author-url"
 							className="block text-sm font-medium text-slate-600"
 						>
-							Agency author URL:
+							{__("Agency author URL:", "astra")}
 						</label>
 						<div className="mt-2">
 							<input
@@ -48,7 +48,7 @@ const WhiteLabelForm = () => {
 							htmlFor="author-license"
 							className="block text-sm font-medium text-slate-600"
 						>
-							Agency license link:
+							{__("Agency license link:", "astra")}
 						</label>
 						<div className="mt-2">
 							<input
@@ -60,8 +60,10 @@ const WhiteLabelForm = () => {
 							/>
 						</div>
 						<p className="mt-2 text-sm text-slate-600">
-							Get license link will be displayed in the license
-							form when the purchase key is expired/not valid
+							{__(
+								"Get license link will be displayed in the license form when the purchase key is expired/not valid",
+								"astra"
+							)}
 						</p>
 					</div>
 				</div>
@@ -74,16 +76,16 @@ const WhiteLabelForm = () => {
 					</h3>
 					<div className="mb-6">
 						<label
-							htmlFor="author-name"
+							htmlFor="theme-name"
 							className="block text-sm font-medium text-slate-600"
 						>
-							Theme Name:
+							{__("Theme Name:", "astra")}
 						</label>
 						<div className="mt-2">
 							<input
 								type="text"
-								name="author-name"
-								id="author-name"
+								name="theme-name"
+								id="theme-name"
 								className="ast-admin_input-field h-10 block w-4/5 shadow-sm focus:border-astra focus:ring-astra sm:text-sm"
 								placeholder=""
 							/>
@@ -91,33 +93,32 @@ const WhiteLabelForm = () => {
 					</div>
 					<div className="mb-6">
 						<label
-							htmlFor="author-url"
+							htmlFor="theme-description"
 							className="block text-sm font-medium text-slate-600"
 						>
-							Theme Description:
+							{__("Theme Description:", "astra")}
 						</label>
 						<div className="mt-2">
-							<input
-								type="text"
-								name="author-url"
-								id="author-url"
-								className="ast-admin_input-field h-10 block w-4/5 shadow-sm focus:border-astra focus:ring-astra sm:text-sm"
-								placeholder=""
-							/>
+							<textarea
+								name="theme-description"
+								id="theme-description"
+								rows="4"
+								className="ast-admin_input-field block w-4/5 shadow-sm focus:border-astra focus:ring-astra sm:text-sm"
+							></textarea>
 						</div>
 					</div>
 					<div className="">
 						<label
-							htmlFor="author-license"
+							htmlFor="theme-screenshot"
 							className="block text-sm font-medium text-slate-600"
 						>
-							Theme Screenshot URL:
+							{__("Theme Screenshot URL:", "astra")}
 						</label>
 						<div className="mt-2">
 							<input
 								type="text"
-								name="author-license"
-								id="author-license"
+								name="theme-screenshot"
+								id="theme-screenshot"
 								className="ast-admin_input-field h-10 block w-4/5 shadow-sm focus:border-astra focus:ring-astra sm:text-sm"
 								placeholder=""
 							/>
@@ -133,16 +134,16 @@ const WhiteLabelForm = () => {
 					</h3>
 					<div className="mb-6">
 						<label
-							htmlFor="author-name"
+							htmlFor="plugin-name"
 							className="block text-sm font-medium text-slate-600"
 						>
-							Plugin Name:
+							{__("Plugin Name:", "astra")}
 						</label>
 						<div className="mt-2">
 							<input
 								type="text"
-								name="author-name"
-								id="author-name"
+								name="plugin-name"
+								id="plugin-name"
 								className="ast-admin_input-field h-10 block w-4/5 shadow-sm focus:border-astra focus:ring-astra sm:text-sm"
 								placeholder=""
 							/>
@@ -150,16 +151,16 @@ const WhiteLabelForm = () => {
 					</div>
 					<div className="">
 						<label
-							htmlFor="author-url"
+							htmlFor="plugin-description"
 							className="block text-sm font-medium text-slate-600"
 						>
-							Plugin Description:
+							{__("Plugin Description:", "astra")}
 						</label>
 						<div className="mt-2">
 							<input
 								type="text"
-								name="author-url"
-								id="author-url"
+								name="plugin-description"
+								id="plugin-description"
 								className="ast-admin_input-field h-10 block w-4/5 shadow-sm focus:border-astra focus:ring-astra sm:text-sm"
 								placeholder=""
 							/>
