@@ -84,7 +84,7 @@ class Astra_Menu {
 
 		add_action( 'after_setup_theme', array( $this, 'init_admin_settings' ), 99 );
 
-		/* Start dashboard view. */
+		// Start dashboard view.
 		add_action( 'astra_render_admin_page_content', array( $this, 'render_content' ), 10, 2 );
 	}
 

@@ -2,7 +2,7 @@ import apiFetch from '@wordpress/api-fetch';
 
 const setInitialState = ( store ) => {
 	apiFetch( {
-		path: '/uag/v1/admin/commonsettings/',
+		path: '/astra/v1/admin/commonsettings/',
 	} ).then( ( data ) => {
 		const initialState = {
 			initialStateSetFlag : true,

@@ -102,6 +102,9 @@ require_once ASTRA_THEME_DIR . 'inc/core/class-astra-admin-helper.php';
 
 require_once ASTRA_THEME_DIR . 'inc/schema/class-astra-schema.php';
 
+/* Setup API */
+require_once ASTRA_THEME_DIR . 'admin/includes/class-astra-api-init.php';
+
 if ( is_admin() ) {
 	/**
 	 * Admin Menu Settings
