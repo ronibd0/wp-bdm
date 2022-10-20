@@ -3,8 +3,8 @@ import { useLocation } from 'react-router-dom';
 import Welcome from '@DashboardApp/pages/welcome/Welcome';
 import Modules from '@DashboardApp/pages/modules/Modules';
 import FreeVsPro from '@DashboardApp/pages/free-vs-pro/FreeVsPro';
-// import Settings from '@DashboardApp/pages/settings/Settings';
-// import StarterTemplates from '@DashboardApp/pages/settings/StarterTemplates';
+import Settings from '@DashboardApp/pages/settings/Settings';
+import StarterTemplates from '@DashboardApp/pages/starter-templates/StarterTemplates';
 
 function SettingsRoute() {
 	const query = new URLSearchParams( useLocation().search );
@@ -23,12 +23,11 @@ function SettingsRoute() {
 					routePage = <Modules/>;
 					break;
 				case 'starter-templates':
-					// routePage = <StarterTemplates/>;
-					routePage = <Welcome/>;
+					routePage = <StarterTemplates/>;
 					break;
 				case 'settings':
-					// routePage = <Settings/>;
-					routePage = <Welcome/>;
+					routePage = <Settings/>;
+					//routePage = <Welcome/>;
 					break;
 				case 'free-vs-pro':
 					routePage = <FreeVsPro/>;

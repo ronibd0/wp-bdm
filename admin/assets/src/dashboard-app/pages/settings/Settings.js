@@ -24,6 +24,11 @@ import ContainerGlobalPadding from '@DashboardApp/pages/settings/ContainerGlobal
 import ContainerGlobalElementsGap from '@DashboardApp/pages/settings/ContainerGlobalElementsGap';
 import { Link, useLocation } from 'react-router-dom';
 import{ useEffect } from 'react';
+import LicenseKey from './LicenseKey';
+import CssGeneration from './CssGeneration';
+import FlushLocalFonts from './FlushLocalFonts';
+import WhiteLabel from './WhiteLabel';
+import WhiteLabelForm from './WhiteLabelForm';
 
 function classNames( ...classes ) {
     return classes.filter( Boolean ).join( ' ' )
@@ -36,13 +41,10 @@ const Settings = () => {
 	const activeSettingsNavigationTab = useSelector( ( state ) => state.activeSettingsNavigationTab );
     const initialStateSetFlag = useSelector( ( state ) => state.initialStateSetFlag );
 	const navigation = [
-		{ name: __( 'Editor Options', 'astra' ), slug: 'global-settings', icon: SettingsIcons['global-settings'] },
-        { name: __( 'Asset Generation', 'astra' ), slug: 'asset-generation', icon: SettingsIcons['asset-generation'] },
-        { name: __( 'Templates', 'astra' ), slug: 'templates', icon: SettingsIcons.templates },
-        { name: __( 'Version Control', 'astra' ), slug: 'version-control', icon: SettingsIcons['version-control'] },
+		{ name: __( 'General', 'astra' ), slug: 'global-settings', icon: SettingsIcons['global-settings'] },
         { name: __( 'Performance', 'astra' ), slug: 'fonts-performance', icon: SettingsIcons['fonts-performance'] },
-		{ name: __( 'Block Settings', 'astra' ), slug: 'block-settings', icon: SettingsIcons['block-settings'] },
-		{ name: __( 'Coming Soon', 'astra' ), slug: 'coming-soon', icon: SettingsIcons['coming-soon'] },
+        { name: __( 'Version Control', 'astra' ), slug: 'version-control', icon: SettingsIcons['version-control'] },
+		{ name: __( 'White Label', 'astra' ), slug: 'white-label', icon: SettingsIcons['white-label'] },
     ];
 
 	useEffect( () => {
@@ -69,12 +71,12 @@ const Settings = () => {
                             <Link // eslint-disable-line
                                 to={ {
                                     pathname: 'admin.php',
-                                    search: `?page=spectra&path=settings&settings=${item.slug}`,
+                                    search: `?page=astra&path=settings&settings=${item.slug}`,
                                 } }
                                 key={item.name}
                                 className={ classNames(
                                     activeSettingsNavigationTab === item.slug
-                                        ? 'border-spectra text-spectra focus:text-spectra-hover active:text-spectra hover:text-spectra-hover stroke-spectra fill-spectra focus:stroke-spectra focus:fill-spectra hover:stroke-spectra hover:fill-spectra'
+                                        ? 'border-astra text-astra focus:text-astra-hover active:text-astra hover:text-astra-hover stroke-astra fill-astra focus:stroke-astra focus:fill-astra hover:stroke-astra hover:fill-astra'
                                         : 'border-white text-slate-800 stroke-slate-800 fill-slate-800 focus:text-slate-900 focus:border-slate-200 focus:stroke-slate-900 focus:fill-slate-900 hover:text-slate-900 hover:border-slate-200 hover:stroke-slate-900 hover:fill-slate-900',
                                     'border-l-4 group cursor-pointer py-3 pl-5 flex items-center text-base font-medium'
                                 ) }
@@ -88,26 +90,12 @@ const Settings = () => {
                         ) )}
                         </nav>
                     </aside>
-                    <div className='lg:col-span-9 border-l spectra__settings'>
+                    <div className='lg:col-span-9 border-l'>
                         { 'global-settings' === activeSettingsNavigationTab &&
                             <>
-                                <ContentWidth/>
-								<ContainerGlobalPadding/>
-								<ContainerGlobalElementsGap/>
-                                <BlocksEditorSpacing/>
-                                <CollapsePanels/>
-                                <CopyPasteStyles/>
-                                <AutoBlockRecovery/>
+								<LicenseKey />
+								<CssGeneration />
                             </>
-                        }
-                        { 'asset-generation' === activeSettingsNavigationTab &&
-                            <>
-                                <AssetsGeneration/>
-                                <RegenerateAssets/>
-                            </>
-                        }
-                        { 'templates' === activeSettingsNavigationTab &&
-                            <TemplatesButton/>
                         }
                         { 'version-control' === activeSettingsNavigationTab &&
                             <>
@@ -119,17 +107,14 @@ const Settings = () => {
                             <>
                                 <LoadFontsLocally/>
                                 <PreloadLocalFonts/>
-                            </>
-                        }
-                        { 'block-settings' === activeSettingsNavigationTab &&
-                            <>
-                                <BlockSettings/>
+								<FlushLocalFonts />
                             </>
                         }
                         {
-                            'coming-soon' === activeSettingsNavigationTab &&
+                            'white-label' === activeSettingsNavigationTab &&
                             <>
-                                <ComingSoon/>
+                                <WhiteLabel />
+								<WhiteLabelForm />
                             </>
                         }
                     </div>

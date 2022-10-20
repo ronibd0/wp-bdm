@@ -249,7 +249,8 @@ class Astra_Menu {
 				'home_slug'                => self::$plugin_slug,
 				'customize_url'                => admin_url( 'customize.php' ),
 				'astra_base_url' => admin_url( 'admin.php?page=' . self::$plugin_slug ),
-				'changelog_data' => self::get_changelog_feed_data(),
+				'astra_changelog_data' => self::get_astra_theme_changelog_feed_data(),
+				'astra_pro_changelog_data' => self::get_astra_pro_changelog_feed_data(),
 				'logo_url'       => ASTRA_THEME_URI . 'inc/assets/images/astra-logo.svg',
 			)
 		);
@@ -263,8 +264,33 @@ class Astra_Menu {
 	 * @since x.x.x
 	 * @return array $changelog_data Changelog Data.
 	 */
-	public static function get_changelog_feed_data() {
-		$posts          = json_decode( wp_remote_retrieve_body( wp_remote_get( 'https://wpastra.com/wp-json/wp/v2/changelog?per_page=3' ) ) );
+	public static function get_astra_theme_changelog_feed_data() {
+		$posts          = json_decode( wp_remote_retrieve_body( wp_remote_get( 'https://wpastra.com/wp-json/wp/v2/changelog?product=97&per_page=3' ) ) );
+		$changelog_data = array();
+
+		if ( isset( $posts ) && is_array( $posts ) ) {
+			foreach ( $posts as $post ) {
+
+				$changelog_data[] = array(
+					'title'       => $post->title->rendered,
+					'date'        => gmdate( 'l F j, Y', strtotime( $post->date ) ),
+					'description' => $post->content->rendered,
+					'link'        => $post->link,
+				);
+			}
+		}
+
+		return $changelog_data;
+	}
+
+	/**
+	 * Get Changelogs from API.
+	 *
+	 * @since x.x.x
+	 * @return array $changelog_data Changelog Data for Astra Addon.
+	 */
+	public static function get_astra_pro_changelog_feed_data() {
+		$posts          = json_decode( wp_remote_retrieve_body( wp_remote_get( 'https://wpastra.com/wp-json/wp/v2/changelog?product=98&per_page=3' ) ) );
 		$changelog_data = array();
 
 		if ( isset( $posts ) && is_array( $posts ) ) {

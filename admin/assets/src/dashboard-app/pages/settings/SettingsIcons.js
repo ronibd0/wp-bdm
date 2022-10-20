@@ -17,16 +17,16 @@ const SettingsIcons = {
         </svg>
     ),
     'fonts-performance' : (
-        <svg className="flex-shrink-0 mr-4 stroke-inherit" fill="none" width="18" height="20" viewBox="0 0 18 20" xmlns="http://www.w3.org/2000/svg">
-            <path d="M10 8V1L1 12H8L8 19L17 8L10 8Z" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-        </svg>
+		<svg className="flex-shrink-0 mr-4 stroke-inherit" width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<path d="M9 3V1M9 3C7.89543 3 7 3.89543 7 5C7 6.10457 7.89543 7 9 7M9 3C10.1046 3 11 3.89543 11 5C11 6.10457 10.1046 7 9 7M3 15C4.10457 15 5 14.1046 5 13C5 11.8954 4.10457 11 3 11M3 15C1.89543 15 1 14.1046 1 13C1 11.8954 1.89543 11 3 11M3 15V17M3 11V1M9 7V17M15 15C16.1046 15 17 14.1046 17 13C17 11.8954 16.1046 11 15 11M15 15C13.8954 15 13 14.1046 13 13C13 11.8954 13.8954 11 15 11M15 15V17M15 11V1" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+		</svg>
     ),
     'global-settings' : (
         <svg className="flex-shrink-0 mr-4 stroke-inherit" fill="none" width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
             <path d="M8.32463 2.31731C8.75103 0.560897 11.249 0.560897 11.6754 2.31731C11.9508 3.45193 13.2507 3.99038 14.2478 3.38285C15.7913 2.44239 17.5576 4.2087 16.6172 5.75218C16.0096 6.74925 16.5481 8.04918 17.6827 8.32463C19.4391 8.75103 19.4391 11.249 17.6827 11.6754C16.5481 11.9508 16.0096 13.2507 16.6172 14.2478C17.5576 15.7913 15.7913 17.5576 14.2478 16.6172C13.2507 16.0096 11.9508 16.5481 11.6754 17.6827C11.249 19.4391 8.75103 19.4391 8.32463 17.6827C8.04918 16.5481 6.74926 16.0096 5.75219 16.6172C4.2087 17.5576 2.44239 15.7913 3.38285 14.2478C3.99038 13.2507 3.45193 11.9508 2.31731 11.6754C0.560897 11.249 0.560897 8.75103 2.31731 8.32463C3.45193 8.04918 3.99037 6.74926 3.38285 5.75218C2.44239 4.2087 4.2087 2.44239 5.75219 3.38285C6.74926 3.99037 8.04918 3.45193 8.32463 2.31731Z" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
             <path d="M13 10C13 11.6569 11.6569 13 10 13C8.34315 13 7 11.6569 7 10C7 8.34315 8.34315 7 10 7C11.6569 7 13 8.34315 13 10Z" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
         </svg>
-        
+
     ),
 	'block-settings' : (
 		<svg className="flex-shrink-0 mr-4 stroke-inherit" fill="none" width="18" height="18" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
@@ -40,7 +40,12 @@ const SettingsIcons = {
 		<svg className="flex-shrink-0 mr-4 stroke-inherit" fill="none" width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
             <path d="M10 6V10L13 13M19 10C19 14.9706 14.9706 19 10 19C5.02944 19 1 14.9706 1 10C1 5.02944 5.02944 1 10 1C14.9706 1 19 5.02944 19 10Z" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
         </svg>
-	)
+	),
+	'white-label' : (
+		<svg className="flex-shrink-0 mr-4 stroke-inherit" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<path d="M6.99963 10.0006L8.99963 12.0006L12.9996 8.00061M5.83437 2.69766C6.55191 2.6404 7.23309 2.35824 7.78095 1.89136C9.05944 0.801839 10.9398 0.801839 12.2183 1.89136C12.7662 2.35824 13.4474 2.6404 14.1649 2.69766C15.8393 2.83128 17.169 4.16092 17.3026 5.83535C17.3598 6.55288 17.642 7.23407 18.1089 7.78193C19.1984 9.06042 19.1984 10.9408 18.1089 12.2193C17.642 12.7672 17.3598 13.4483 17.3026 14.1659C17.169 15.8403 15.8393 17.1699 14.1649 17.3036C13.4474 17.3608 12.7662 17.643 12.2183 18.1099C10.9398 19.1994 9.05944 19.1994 7.78095 18.1099C7.23309 17.643 6.55191 17.3608 5.83437 17.3036C4.15994 17.1699 2.8303 15.8403 2.69668 14.1659C2.63942 13.4483 2.35727 12.7672 1.89038 12.2193C0.800862 10.9408 0.800862 9.06042 1.89038 7.78193C2.35727 7.23407 2.63942 6.55288 2.69668 5.83535C2.8303 4.16092 4.15994 2.83128 5.83437 2.69766Z" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+		</svg>
+	),
 };
 
 export default SettingsIcons;
