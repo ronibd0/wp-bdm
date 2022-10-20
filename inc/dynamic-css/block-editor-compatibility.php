@@ -212,7 +212,7 @@ function astra_load_modern_block_editor_ui( $dynamic_css ) {
 	$ast_wide_width    = apply_filters( 'astra_block_wide_width', $astra_block_editor_v2_ui ? 'calc(' . esc_attr( $ast_container_width ) . ' + var(--wp--custom--ast-default-block-left-padding) + var(--wp--custom--ast-default-block-right-padding))' : $ast_container_width );
 
 	// Spectra Compatibility - page title alignment with page container layouts.
-	$astra_gutenberg_compatibility_css = Astra_Dynamic_CSS::astra_gutenberg_compatibility_css();
+	$spectra_gutenberg_compat_css = Astra_Dynamic_CSS::spectra_gutenberg_compat_css();
 
 	$dynamic_css .= '
 		html body {
@@ -466,7 +466,7 @@ function astra_load_modern_block_editor_ui( $dynamic_css ) {
 	';
 	
 	// Spectra Compatibility - Container block alignment with page title for Boxed & Content Boxed Layouts.
-	if ( $astra_gutenberg_compatibility_css ) {
+	if ( $spectra_gutenberg_compat_css ) {
 		$dynamic_css .= '
 			.ast-separate-container .entry-content .wp-block-uagb-container {
 				padding-' . esc_attr( $ltr_left ) . ': 0;
