@@ -1491,7 +1491,7 @@ body {
 }
 
 .submenu-with-border .sub-menu .sub-menu {
-  top: -1px;
+  top: -2px;
 }
 
 /* Remove the last anchor border for desktop devices */
