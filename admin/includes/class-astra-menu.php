@@ -106,17 +106,6 @@ class Astra_Menu {
 	 */
 	public function admin_submenu_css() {
 		echo '<style class="astra-menu-appearance-style">
-				#toplevel_page_astra li a[href^="admin.php?page=astra&path=settings"]:after {
-					border-bottom: 1px solid hsla(0,0%,100%,.2);
-					display: block;
-					float: left;
-					margin: 13px -15px 8px;
-					content: "";
-					width: calc(100% + 26px);
-				}
-				#adminmenu #toplevel_page_astra ul.wp-submenu-wrap li {
-					clear: both;
-				}
 				#toplevel_page_astra .wp-menu-image.svg {
 					background-size: 18px auto !important;
 				}
@@ -168,7 +157,7 @@ class Astra_Menu {
 			self::$plugin_slug,
 			array( $this, 'render_admin_dashboard' ),
 			$astra_icon,
-			2
+			59
 		);
 
 		// Add Customize submenu.
@@ -180,24 +169,6 @@ class Astra_Menu {
 			'customize.php'
 		);
 
-		// Add Modules submenu.
-		add_submenu_page(
-			self::$plugin_slug,
-			__( 'Modules', 'astra' ),
-			__( 'Modules', 'astra' ),
-			$capability,
-			'admin.php?page=' . self::$plugin_slug . '&path=modules'
-		);
-
-		// Add Settings submenu.
-		add_submenu_page(
-			self::$plugin_slug,
-			__( 'Settings', 'astra' ),
-			__( 'Settings', 'astra' ),
-			$capability,
-			'admin.php?page=' . self::$plugin_slug . '&path=settings'
-		);
-
 		// Add Custom Layout submenu.
 		add_submenu_page(
 			self::$plugin_slug,
@@ -207,22 +178,13 @@ class Astra_Menu {
 			'admin.php?page=' . self::$plugin_slug . '&path=custom-layouts'
 		);
 
-		// Add Page Header submenu.
+		// Add Spectra submenu.
 		add_submenu_page(
 			self::$plugin_slug,
-			__( 'Page Header', 'astra' ),
-			__( 'Page Header', 'astra' ),
+			__( 'Spectra', 'astra' ),
+			__( 'Spectra', 'astra' ),
 			$capability,
-			'admin.php?page=' . self::$plugin_slug . '&path=page-header'
-		);
-
-		// Add Starter Templates submenu.
-		add_submenu_page(
-			self::$plugin_slug,
-			__( 'Starter Templates', 'astra' ),
-			__( 'Starter Templates', 'astra' ),
-			$capability,
-			'admin.php?page=' . self::$plugin_slug . '&path=starter-templates'
+			'admin.php?page=' . self::$plugin_slug . '&path=spectra'
 		);
 
 		// Rename to Home menu.
