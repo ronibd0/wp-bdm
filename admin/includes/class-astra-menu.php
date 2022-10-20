@@ -82,8 +82,34 @@ class Astra_Menu {
 		add_action( 'admin_menu', array( $this, 'setup_menu' ) );
 		add_action( 'admin_init', array( $this, 'settings_admin_scripts' ) );
 
+		add_action( 'after_setup_theme', array( $this, 'init_admin_settings' ), 99 );
+
 		/* Start dashboard view. */
 		add_action( 'astra_render_admin_page_content', array( $this, 'render_content' ), 10, 2 );
+	}
+
+	/**
+	 * Admin settings init.
+	 *
+	 * @since x.x.x
+	 */
+	public function init_admin_settings() {
+		if ( ! is_customize_preview() ) {
+			add_action( 'admin_head', array( $this, 'admin_submenu_css' ) );
+		}
+	}
+
+	/**
+	 * Add custom CSS for admin area sub menu icons.
+	 *
+	 * @since x.x.x
+	 */
+	public function admin_submenu_css() {
+		echo '<style class="astra-menu-appearance-style">
+				#toplevel_page_astra .wp-menu-image.svg {
+					background-size: 18px auto !important;
+				}
+			</style>';
 	}
 
 	/**
@@ -122,14 +148,16 @@ class Astra_Menu {
 			return;
 		}
 
+		$astra_icon = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTQiIGhlaWdodD0iMTQiIHZpZXdCb3g9IjAgMCAxOCAxOCIgZmlsbD0iI2ZmZiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik05IDE4QzEzLjk3MDcgMTggMTggMTMuOTcwNyAxOCA5QzE4IDQuMDI5MyAxMy45NzA3IDAgOSAwQzQuMDI5MyAwIDAgNC4wMjkzIDAgOUMwIDEzLjk3MDcgNC4wMjkzIDE4IDkgMThaTTQgMTIuOTk4TDguMzk2IDRMOS40NDE0MSA2LjAzMTI1TDUuODgzNzkgMTIuOTk4SDRaTTguNTM0NjcgMTEuMzc1TDEwLjM0OTEgNy43MjA3TDEzIDEzSDEwLjk3NzFMMTAuMjc5MyAxMS40NDM0SDguNTM0NjdIOC41TDguNTM0NjcgMTEuMzc1WiIgZmlsbD0iI2ZmZiIvPgo8L3N2Zz4K';
+
 		add_menu_page(
 			self::$page_title,
 			self::$page_title,
 			$capability,
 			self::$plugin_slug,
 			array( $this, 'render_admin_dashboard' ),
-			'',
-			5
+			$astra_icon,
+			59
 		);
 
 		// Add Customize submenu.
@@ -141,24 +169,6 @@ class Astra_Menu {
 			'customize.php'
 		);
 
-		// Add Modules submenu.
-		add_submenu_page(
-			self::$plugin_slug,
-			__( 'Modules', 'astra' ),
-			__( 'Modules', 'astra' ),
-			$capability,
-			'admin.php?page=' . self::$plugin_slug . '&path=modules'
-		);
-
-		// Add Settings submenu.
-		add_submenu_page(
-			self::$plugin_slug,
-			__( 'Settings', 'astra' ),
-			__( 'Settings', 'astra' ),
-			$capability,
-			'admin.php?page=' . self::$plugin_slug . '&path=settings'
-		);
-
 		// Add Custom Layout submenu.
 		add_submenu_page(
 			self::$plugin_slug,
@@ -168,28 +178,17 @@ class Astra_Menu {
 			'admin.php?page=' . self::$plugin_slug . '&path=custom-layouts'
 		);
 
-		// Add Page Header submenu.
+		// Add Spectra submenu.
 		add_submenu_page(
 			self::$plugin_slug,
-			__( 'Page Header', 'astra' ),
-			__( 'Page Header', 'astra' ),
+			__( 'Spectra', 'astra' ),
+			__( 'Spectra', 'astra' ),
 			$capability,
-			'admin.php?page=' . self::$plugin_slug . '&path=page-header'
-		);
-
-		// Add Starter Templates submenu.
-		add_submenu_page(
-			self::$plugin_slug,
-			__( 'Starter Templates', 'astra' ),
-			__( 'Starter Templates', 'astra' ),
-			$capability,
-			'admin.php?page=' . self::$plugin_slug . '&path=starter-templates'
+			'admin.php?page=' . self::$plugin_slug . '&path=spectra'
 		);
 
 		// Rename to Home menu.
 		$submenu[self::$plugin_slug][0][0] = __('Dashboard', 'astra');
-
-		// 'data:image/svg+xml;base64,' . base64_encode(file_get_contents(CARTFLOWS_DIR . 'assets/images/cartflows-icon.svg')), //phpcs:ignore
 	}
 
 	/**
@@ -243,11 +242,12 @@ class Astra_Menu {
 				'admin_base_url'           => admin_url(),
 				'plugin_dir'               => ASTRA_THEME_URI,
 				'plugin_ver'               => ASTRA_THEME_VERSION,
-				'admin_url'                => admin_url( 'admin.php' ),
 				'ajax_url'                 => admin_url( 'admin-ajax.php' ),
-				'home_slug'                => self::$plugin_slug,
-				'is_whitelabel'	=> astra_is_white_labelled(),
+				'is_whitelabel'			   => astra_is_white_labelled(),
 
+				'admin_url'                => admin_url( 'admin.php' ),
+				'home_slug'                => self::$plugin_slug,
+				'customize_url'                => admin_url( 'customize.php' ),
 				'astra_base_url' => admin_url( 'admin.php?page=' . self::$plugin_slug ),
 				'astra_changelog_data' => self::get_astra_theme_changelog_feed_data(),
 				'astra_pro_changelog_data' => self::get_astra_pro_changelog_feed_data(),
