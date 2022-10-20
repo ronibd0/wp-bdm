@@ -1,8 +1,22 @@
-import { __ } from '@wordpress/i18n';
+import { __ } from "@wordpress/i18n";
+import { useSelector, useDispatch } from "react-redux";
 
 const FlushLocalFonts = () => {
-  return (
-	<section className="block border-b border-solid border-slate-200 px-12 py-8 justify-between">
+	const dispatch = useDispatch();
+
+	const enableLoadFontsLocally = useSelector(
+		(state) => state.enableLoadFontsLocally
+	);
+	const enablePreloadLocalFonts = useSelector(
+		(state) => state.enablePreloadLocalFonts
+	);
+	const enablePreloadLocalFontsStatus =
+		"disabled" === enablePreloadLocalFonts ? false : true;
+
+	return (
+		<section
+			className={`uag-font-select-${enableLoadFontsLocally} block border-b border-solid border-slate-200 px-12 py-8 justify-between`}
+		>
 			<div className="w-full flex justify-between">
 				<div>
 					<h3 className="p-0 text-xl leading-6 font-semibold text-slate-800">
@@ -19,7 +33,7 @@ const FlushLocalFonts = () => {
 				</div>
 			</div>
 		</section>
-  )
-}
+	);
+};
 
-export default FlushLocalFonts
+export default FlushLocalFonts;

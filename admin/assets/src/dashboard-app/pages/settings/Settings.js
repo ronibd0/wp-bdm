@@ -97,12 +97,6 @@ const Settings = () => {
 								<CssGeneration />
                             </>
                         }
-                        { 'asset-generation' === activeSettingsNavigationTab &&
-                            <>
-                                <AssetsGeneration/>
-                                <RegenerateAssets/>
-                            </>
-                        }
                         { 'version-control' === activeSettingsNavigationTab &&
                             <>
                                 <RollBack/>

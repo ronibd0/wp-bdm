@@ -55,7 +55,7 @@ const LicenseKey = () => {
 							</svg>
 						</div>
 
-						<button className="ml-4 px-5 h-10 bg-gray-50 rounded-md shadow-sm">
+						<button className="ml-4 px-5 h-10 bg-gray-50 text-gray-400 text rounded-md shadow-sm">
 							Activate
 						</button>
 					</div>
