@@ -4,9 +4,9 @@ import Astra_Admin_Icons from "@Common/block-icons";
 
 const spectraFeatures = [
 	{
-		title: "Super Fast and Stable",
+		title: __( 'Super Fast and Stable', 'astra' ),
 		description:
-			"Spectra works with the native WordPress editor with no dependency on external code. So, it is fast and stable.",
+			__( 'Spectra works with the native WordPress editor with no dependency on external code. So, it is fast and stable.', 'astra' ),
 		icon: "",
 	},
 	{
@@ -46,8 +46,8 @@ const SpectraScreen = () => {
 	const allowAutoPlay =
 		"1" === query.get("astra-activation-redirect") ? 1 : 0;
 
-	const onGetAstraPro = () => {
-		window.open("https://wpastra.com/pro", "_blank");
+	const onGetSpectra = () => {
+		window.open("http://wpspectra.com/", "_blank");
 	};
 
 	return (
@@ -63,7 +63,7 @@ const SpectraScreen = () => {
 						default WordPress block editor.
 					</p>
 					<button
-						onClick={onGetAstraPro}
+						onClick={onGetSpectra}
 						className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-spectra focus-visible:bg-spectra-hover hover:bg-spectra-hover focus:outline-none"
 					>
 						<span className="mr-3">
@@ -76,7 +76,7 @@ const SpectraScreen = () => {
 						{/* Added rel=0 query paramter at the end to disable YouTube recommendations */}
 						<iframe
 							className="absolute inset-0 w-full h-full rounded-md"
-							src={`https://www.youtube.com/embed/BAN-puzLheM?showinfo=0&autoplay=${allowAutoPlay}&mute=${allowAutoPlay}&rel=0`}
+							src={`https://www.youtube.com/embed/GLNzTxArR6Y?showinfo=0&autoplay=${allowAutoPlay}&mute=${allowAutoPlay}&rel=0`}
 							allow="autoplay"
 							title="YouTube video player"
 							frameBorder="0"
@@ -107,7 +107,7 @@ const SpectraScreen = () => {
 						)}
 					</h3>
 					<button
-						onClick={onGetAstraPro}
+						onClick={onGetSpectra}
 						className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-spectra focus-visible:bg-spectra-hover hover:bg-spectra-hover focus:outline-none"
 					>
 						<span className="mr-3">

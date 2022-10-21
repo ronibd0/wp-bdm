@@ -10,9 +10,9 @@ const tabs = [
 ];
 
 const ChangeLogPopup = () => {
-	// const dynamicAstraThemeChangelogRSSFeeds = astra_admin.astra_changelog_data;
 	const [open, setOpen] = useState(false);
 	const [activeTab, setActiveTab] = useState("astra-theme");
+
 	const [activeChangeLog, setActiveChangeLog] = useState(
 		astra_admin.astra_changelog_data
 	);
@@ -146,7 +146,7 @@ const ChangeLogPopup = () => {
 																index
 															].description;
 														const link =
-															"https://wpastra.com/changelog/astra-theme/";
+															"https://wpastra.com/changelog/";
 														const pubDate =
 															activeChangeLog[
 																index

@@ -81,7 +81,7 @@ const RollBackConfirmPopup = ( props ) => {
 									<p className="mt-2 text-sm text-slate-500">
 										{
 											// eslint-disable-next-line @wordpress/i18n-no-variables
-											__( `Are you sure you want to rollback to Spectra v${ previousVersionSelect }?`, 'astra' )
+											__( `Are you sure you want to rollback to ASTRA v${ previousVersionSelect }?`, 'astra' )
 										}
 									</p>
 								</div>

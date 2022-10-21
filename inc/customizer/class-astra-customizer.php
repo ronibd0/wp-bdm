@@ -198,8 +198,9 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		 * @since 3.6.0
 		 */
 		public function regenerate_astra_fonts_folder() {
-
-			check_ajax_referer( 'astra-regenerate-local-fonts', 'nonce' );
+			error_log( 'in clearing files' );
+			check_ajax_referer( 'astra_update_admin_setting', 'security' );
+			error_log( 'nonce check passed' );
 
 			if ( ! current_user_can( 'edit_theme_options' ) ) {
 				wp_send_json_error( 'invalid_permissions' );
@@ -210,12 +211,14 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 				$flushed           = $local_font_loader->astra_delete_fonts_folder();
 
 				if ( ! $flushed ) {
-					wp_send_json_error( 'failed_to_flush' );
+					$response_data = array( 'message' => __( 'Failed to Flush, try again later.', 'astra' ) );
+					wp_send_json_error( $response_data );
 				}
 				wp_send_json_success();
 			}
 
-			wp_send_json_error( 'no_font_loader' );
+			$response_data = array( 'message' => __( 'Local font files not present.', 'astra' ) );
+			wp_send_json_error( $response_data );
 		}
 
 		/**

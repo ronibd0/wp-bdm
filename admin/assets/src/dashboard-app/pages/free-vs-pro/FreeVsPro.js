@@ -2,7 +2,6 @@ import { __ } from "@wordpress/i18n";
 import { features } from "./data";
 import Astra_Admin_Icons from '@Common/block-icons';
 
-
 const FreeVsPro = () => {
 	const checkStatus = (value) => {
 		if (value === "yes") {
@@ -45,19 +44,19 @@ const FreeVsPro = () => {
 												scope="col"
 												className="py-3.5 pl-4 pr-3 text-left text-base font-medium text-slate-800 sm:pl-8"
 											>
-												Features
+												{__("Features", "astra")}
 											</th>
 											<th
 												scope="col"
 												className="px-3 py-3.5 text-center text-base font-medium text-slate-800"
 											>
-												Free
+												{__("Free", "astra")}
 											</th>
 											<th
 												scope="col"
 												className="px-3 py-3.5 text-center text-base font-medium text-slate-800"
 											>
-												Pro
+												{__("Pro", "astra")}
 											</th>
 										</tr>
 									</thead>

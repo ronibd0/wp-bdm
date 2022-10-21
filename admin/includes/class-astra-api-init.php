@@ -99,6 +99,7 @@ class Astra_API_Init extends WP_REST_Controller {
 			'self_hosted_gfonts' => false,
 			'preload_local_fonts' => false,
 			'enable_white_label'	=> false,
+			'enable_beta'		=> false,
 			'plugin_description' => '',
 			'plugin_name' => '',
 			'theme_screenshot_url' => '',

@@ -3,7 +3,6 @@ import { __ } from "@wordpress/i18n";
 import RollBackConfirmPopup from "./RollBackConfirmPopup";
 
 const RollBack = () => {
-	// const previousVersions = astra_admin.global_data.uag_previous_versions;
 	const previousVersions = [{ value: "2.2", label: "2.2" }];
 
 	const [previousVersionSelect, setPreviousVersion] = useState(

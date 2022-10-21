@@ -16,7 +16,7 @@ const SettingsWrap = () => {
 				</Route>
 			</Switch>
 		</Router>
-    );
+	);
 };
 
 export default SettingsWrap;

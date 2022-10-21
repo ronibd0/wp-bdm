@@ -4,7 +4,7 @@ import { Switch } from '@headlessui/react'
 import apiFetch from '@wordpress/api-fetch';
 
 function classNames( ...classes ) {
-    return classes.filter( Boolean ).join( ' ' )
+	return classes.filter( Boolean ).join( ' ' )
 }
 
 const WhiteLabel = () => {

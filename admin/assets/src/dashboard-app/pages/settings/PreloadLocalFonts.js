@@ -44,7 +44,7 @@ const PreloadLocalFonts = () => {
 	};
 
 	return (
-		<section className={ `uag-font-select-${ enableLoadFontsLocally } block border-b border-solid border-slate-200 px-12 py-8 justify-between` }>
+		<section className={ `astra-dep-field-${ enableLoadFontsLocally } block border-b border-solid border-slate-200 px-12 py-8 justify-between` }>
 			<div className='mr-16 w-full flex items-center'>
 				<h3 className="p-0 flex-1 justify-right inline-flex text-xl leading-8 font-semibold text-slate-800">
 					{ __( 'Preload Local Fonts', 'astra' ) }

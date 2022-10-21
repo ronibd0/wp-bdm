@@ -82,6 +82,7 @@ class Astra_Admin_Ajax {
 				'self_hosted_gfonts' => 'bool',
 				'preload_local_fonts' => 'bool',
 				'enable_white_label'	=> 'bool',
+				'enable_beta' => 'bool',
 				'plugin_description' => 'string',
 				'plugin_name' => 'string',
 				'theme_screenshot_url' => 'string',

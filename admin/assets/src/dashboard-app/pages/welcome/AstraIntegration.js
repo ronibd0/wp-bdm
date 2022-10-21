@@ -2,39 +2,6 @@ import { __ } from "@wordpress/i18n";
 import Astra_Admin_Icons from "@Common/block-icons";
 const classNames = (...classes) => classes.filter(Boolean).join(" ");
 
-const usefulPlugins = [
-	{
-		title: "Spectra",
-		subtitle: "Gutenberg blocks builder",
-		logoPath: Astra_Admin_Icons["spectra"],
-		status: "activated",
-	},
-	{
-		title: "Yoast SEO",
-		subtitle: "SEO plugin",
-		logoPath: Astra_Admin_Icons["yoast-seo"],
-		status: "install",
-	},
-	{
-		title: "Elementor",
-		subtitle: "Page builder",
-		logoPath: Astra_Admin_Icons["elementor"],
-		status: "installed",
-	},
-	{
-		title: "WooCommerce",
-		subtitle: "eCommerce plugin",
-		logoPath: Astra_Admin_Icons["woocommerce"],
-		status: "activated",
-	},
-	{
-		title: "WPForms Lite",
-		subtitle: "Form builder",
-		logoPath: Astra_Admin_Icons["wp-forms"],
-		status: "install",
-	},
-];
-
 const AstraIntegration = () => {
 	const AllAstraIntegration = [
 		{

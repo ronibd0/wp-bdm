@@ -1,12 +1,11 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
 import Welcome from '@DashboardApp/pages/welcome/Welcome';
-import Modules from '@DashboardApp/pages/modules/Modules';
 import FreeVsPro from '@DashboardApp/pages/free-vs-pro/FreeVsPro';
 import Settings from '@DashboardApp/pages/settings/Settings';
 import StarterTemplates from '@DashboardApp/pages/starter-templates/StarterTemplates';
 import CustomLayouts from '@DashboardApp/pages/custom-layouts/CustomLayouts';
-import SpectraScreen from './pages/spectra/SpectraScreen';
+import SpectraScreen from '@DashboardApp/pages/spectra/SpectraScreen';
 
 function SettingsRoute() {
 	const query = new URLSearchParams( useLocation().search );
@@ -21,15 +20,11 @@ function SettingsRoute() {
 			routePage = <Welcome/>;
 		} else {
 			switch ( path ) {
-				case 'modules':
-					routePage = <Modules />;
-					break;
 				case 'starter-templates':
 					routePage = <StarterTemplates />;
 					break;
 				case 'settings':
 					routePage = <Settings />;
-					//routePage = <Welcome/>;
 					break;
 				case 'free-vs-pro':
 					routePage = <FreeVsPro />;

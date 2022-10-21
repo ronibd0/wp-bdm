@@ -7,18 +7,17 @@ import { useSelector, useDispatch } from 'react-redux';
 
 export default function SettingsSavedNotification() {
 
-  const dispatch = useDispatch();
+	const dispatch = useDispatch();
 
-  const settingsSavedNotification = useSelector( ( state ) => state.settingsSavedNotification );
+	const settingsSavedNotification = useSelector( ( state ) => state.settingsSavedNotification );
 
-  useEffect( () => {
-
-    if ( '' !== settingsSavedNotification ) {
-      setTimeout( ()=>{
-        dispatch( {type: 'UPDATE_SETTINGS_SAVED_NOTIFICATION', payload: '' } );
-      }, 2000 );
-    }
-  }, [settingsSavedNotification] );
+	useEffect( () => {
+		if ( '' !== settingsSavedNotification ) {
+			setTimeout( ()=>{
+			dispatch( {type: 'UPDATE_SETTINGS_SAVED_NOTIFICATION', payload: '' } );
+			}, 2000 );
+		}
+	}, [settingsSavedNotification] );
 
 	return (
 		<>

@@ -2,7 +2,7 @@ import { TextSkeleton, RectSkeleton } from '@Skeleton';
 
 const SettingsSkeleton = () => {
 
-    return (
+	return (
 		<>
 			<div className="max-w-3xl mx-auto lg:max-w-[77rem] mt-10 mb-8 font-semibold text-2xl">
 				<RectSkeleton width="100px" height="32px" />
@@ -36,7 +36,7 @@ const SettingsSkeleton = () => {
 				</div>
 			</main>
 		</>
-    );
+	);
 };
 
 export default SettingsSkeleton;
