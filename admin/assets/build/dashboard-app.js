@@ -12232,6 +12232,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
 /* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _ToolTip__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ToolTip */ "./assets/src/dashboard-app/pages/welcome/ToolTip.js");
+
 
 
 const classNames = function () {
@@ -12315,7 +12317,7 @@ const ProModules = () => {
   const renderBlockCards = AllProModules.map((block, index) => {
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
       key: index,
-      className: classNames(block.isPro ? 'bg-slate-50' : 'bg-white', 'box-border relative border rounded-md h-20 px-4 py-3 flex items-start gap-x-4 snap-start hover:shadow-md transition spectra-icon-transition')
+      className: classNames(block.isPro ? 'bg-slate-50' : 'bg-white', 'box-border relative border rounded-md h-20 px-4 py-3 flex items-start gap-x-4 snap-start hover:shadow-md transition spectra-icon-transition group')
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
       className: "uagb-admin-block-card__title flex-1 min-w-0"
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
@@ -12326,13 +12328,42 @@ const ProModules = () => {
       rel: "noreferrer"
     }, block.type)), block.isPro && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
       className: "relative inline-flex flex-shrink-0 py-0.5 px-1 text-[0.625rem] leading-[0.625rem] text-white bg-slate-800 rounded-[0.1875rem]"
-    }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('PRO', 'astra')));
+    }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('PRO', 'astra')), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_ToolTip__WEBPACK_IMPORTED_MODULE_2__["default"], null));
   });
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "grid grid-flow-row auto-rows-min grid-cols-2 gap-6 sm:grid-cols-2 pt-6"
   }, renderBlockCards);
 };
 /* harmony default export */ __webpack_exports__["default"] = (ProModules);
+
+/***/ }),
+
+/***/ "./assets/src/dashboard-app/pages/welcome/ToolTip.js":
+/*!***********************************************************!*\
+  !*** ./assets/src/dashboard-app/pages/welcome/ToolTip.js ***!
+  \***********************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+
+
+const ToolTip = () => {
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "absolute right-2.5 -top-5 opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-opacity duration-300 ease-in-out"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    id: "tooltip-top",
+    role: "tooltip",
+    className: "inline-block z-10 py-1 px-3 text-[0.75rem] leading-[0.75rem] text-white bg-slate-800 rounded-sm shadow-sm opacity-1 tooltip"
+  }, "This option only available on Astra Pro"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "ml-auto w-2 h-2 flex -mt-1 rotate-45 bg-slate-800 mr-4 overflow-hidden"
+  }));
+};
+/* harmony default export */ __webpack_exports__["default"] = (ToolTip);
 
 /***/ }),
 

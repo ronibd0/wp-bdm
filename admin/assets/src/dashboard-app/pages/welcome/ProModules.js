@@ -1,4 +1,5 @@
 import { __ } from '@wordpress/i18n';
+import ToolTip from './ToolTip';
 const classNames = ( ...classes ) => ( classes.filter( Boolean ).join( ' ' ) );
 
 const ProModules = () => {
@@ -97,7 +98,7 @@ const ProModules = () => {
 				block.isPro
 				? 'bg-slate-50'
 				: 'bg-white',
-				'box-border relative border rounded-md h-20 px-4 py-3 flex items-start gap-x-4 snap-start hover:shadow-md transition spectra-icon-transition'
+				'box-border relative border rounded-md h-20 px-4 py-3 flex items-start gap-x-4 snap-start hover:shadow-md transition spectra-icon-transition group'
 			) }
 		>
 			<div className="uagb-admin-block-card__title flex-1 min-w-0">
@@ -120,6 +121,7 @@ const ProModules = () => {
 					{ __( 'PRO', 'astra' ) }
 				</div>
 			}
+			<ToolTip />
 		</div>
 	} );
 
