@@ -7,11 +7,6 @@ const FlushLocalFonts = () => {
 	const enableLoadFontsLocally = useSelector(
 		(state) => state.enableLoadFontsLocally
 	);
-	const enablePreloadLocalFonts = useSelector(
-		(state) => state.enablePreloadLocalFonts
-	);
-	const enablePreloadLocalFontsStatus =
-		"disabled" === enablePreloadLocalFonts ? false : true;
 
 	return (
 		<section

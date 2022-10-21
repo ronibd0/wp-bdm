@@ -3,38 +3,24 @@ import globalDataReducer from './globalDataReducer';
 
 const initialState = {
 	initialStateSetFlag : false,
-	activeBlocksFilterTab : 'all',
-	activeSettingsNavigationTab : '',
-	blocksStatuses : [],
-	enableFileGeneration : '',
-	enableTemplates : '',
-	enableBeta : '',
-	selectedFontFamilies : '',
-	enableLoadFontsLocally : '',
-	enablePreloadLocalFonts : '',
-	enableCollapsePanels : '',
-	enableCopyPasteStyles : '',
-	contentWidth: '',
-	siteKeyV2: '',
-	siteKeyV3: '',
-	secretKeyV2: '',
-	secretKeyV3: '',
-	settingsSavedNotification: '',
-	enableComingSoonMode: 'disabled',
-	comingSoonPage: '',
-	blocksEditorSpacing: '',
-	containerGlobalPadding: '',
-	containerGlobalElementsGap: 20,
-	enableFontAwesome5: 'disabled',
-	enableAutoBlockRecovery: 'disabled',
-	enableLegacyBlocks: 'no',
+	enableLoadFontsLocally : false,
+	enablePreloadLocalFonts : false,
+	enableWhiteLabel : false,
+	pluginDescription: '',
+	pluginName: '',
+	themeScreenshotURL: '',
+	themeDescription: '',
+	themeName: '',
+	agencyLicenseLink: '',
+	agencyAuthorURL: '',
+	agencyAuthorName: '',
 };
 
 const globalDataStore = createStore(
-    globalDataReducer,
-    initialState,
-    window.__REDUX_DEVTOOLS_EXTENSION__ &&
-    window.__REDUX_DEVTOOLS_EXTENSION__()
+	globalDataReducer,
+	initialState,
+	window.__REDUX_DEVTOOLS_EXTENSION__ &&
+	window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 
 export default globalDataStore;

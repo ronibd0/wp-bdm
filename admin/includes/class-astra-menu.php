@@ -84,7 +84,7 @@ class Astra_Menu {
 
 		add_action( 'after_setup_theme', array( $this, 'init_admin_settings' ), 99 );
 
-		/* Start dashboard view. */
+		// Start dashboard view.
 		add_action( 'astra_render_admin_page_content', array( $this, 'render_content' ), 10, 2 );
 	}
 
@@ -231,6 +231,10 @@ class Astra_Menu {
 	 */
 	public function styles_scripts() {
 
+		if ( is_customize_preview() ) {
+			return;
+		}
+
 		wp_enqueue_style( 'astra-admin-font', 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap', array(), ASTRA_THEME_VERSION ); // Styles.
 
 		wp_enqueue_style( 'wp-components' );
@@ -244,14 +248,14 @@ class Astra_Menu {
 				'plugin_ver'               => ASTRA_THEME_VERSION,
 				'ajax_url'                 => admin_url( 'admin-ajax.php' ),
 				'is_whitelabel'			   => astra_is_white_labelled(),
-
 				'admin_url'                => admin_url( 'admin.php' ),
 				'home_slug'                => self::$plugin_slug,
 				'customize_url'                => admin_url( 'customize.php' ),
 				'astra_base_url' => admin_url( 'admin.php?page=' . self::$plugin_slug ),
-				'astra_changelog_data' => self::get_astra_theme_changelog_feed_data(),
-				'astra_pro_changelog_data' => self::get_astra_pro_changelog_feed_data(),
+				'astra_changelog_data' => self::get_changelog_feed_data( 'astra-theme' ),
+				'astra_pro_changelog_data' => self::get_changelog_feed_data( 'astra-pro-addon' ),
 				'logo_url'       => ASTRA_THEME_URI . 'inc/assets/images/astra-logo.svg',
+				'update_nonce'   => wp_create_nonce( 'astra_update_admin_setting' )
 			)
 		);
 
@@ -262,40 +266,18 @@ class Astra_Menu {
 	 * Get Changelogs from API.
 	 *
 	 * @since x.x.x
+	 * @param string $product product name.
 	 * @return array $changelog_data Changelog Data.
 	 */
-	public static function get_astra_theme_changelog_feed_data() {
-		$posts          = json_decode( wp_remote_retrieve_body( wp_remote_get( 'https://wpastra.com/wp-json/wp/v2/changelog?product=97&per_page=3' ) ) );
+	public static function get_changelog_feed_data( $product ) {
 		$changelog_data = array();
-
-		if ( isset( $posts ) && is_array( $posts ) ) {
-			foreach ( $posts as $post ) {
-
-				$changelog_data[] = array(
-					'title'       => $post->title->rendered,
-					'date'        => gmdate( 'l F j, Y', strtotime( $post->date ) ),
-					'description' => $post->content->rendered,
-					'link'        => $post->link,
-				);
-			}
+		$posts          = json_decode( wp_remote_retrieve_body( wp_remote_get( 'https://wpastra.com/wp-json/wp/v2/changelog?product=97&per_page=3' ) ) ); // Astra theme.
+		if( 'astra-pro-addon' === $product ) {
+			$posts          = json_decode( wp_remote_retrieve_body( wp_remote_get( 'https://wpastra.com/wp-json/wp/v2/changelog?product=98&per_page=3' ) ) ); // Astra Pro.
 		}
 
-		return $changelog_data;
-	}
-
-	/**
-	 * Get Changelogs from API.
-	 *
-	 * @since x.x.x
-	 * @return array $changelog_data Changelog Data for Astra Addon.
-	 */
-	public static function get_astra_pro_changelog_feed_data() {
-		$posts          = json_decode( wp_remote_retrieve_body( wp_remote_get( 'https://wpastra.com/wp-json/wp/v2/changelog?product=98&per_page=3' ) ) );
-		$changelog_data = array();
-
 		if ( isset( $posts ) && is_array( $posts ) ) {
 			foreach ( $posts as $post ) {
-
 				$changelog_data[] = array(
 					'title'       => $post->title->rendered,
 					'date'        => gmdate( 'l F j, Y', strtotime( $post->date ) ),
@@ -336,7 +318,7 @@ class Astra_Menu {
 	 * @param array $localize Variable names.
 	 */
 	public function settings_app_scripts( $localize ) {
-		$handle            = 'astra-admin-settings';
+		$handle            = 'astra-admin-dashboard-app';
 		$build_path        = ASTRA_THEME_ADMIN_DIR . 'assets/build/';
 		$build_url         = ASTRA_THEME_ADMIN_URL . 'assets/build/';
 		$script_asset_path = $build_path . 'dashboard-app.asset.php';
@@ -356,6 +338,14 @@ class Astra_Menu {
 			true
 		);
 
+		wp_register_script(
+			'astra-admin-settings',
+			ASTRA_THEME_ADMIN_URL . 'assets/js/astra-admin-menu-settings.js',
+			array( 'jquery', 'wp-util', 'updates' ),
+			ASTRA_THEME_VERSION,
+			false
+		);
+
 		wp_register_style(
 			$handle,
 			$build_url . 'dashboard-app.css',
@@ -371,6 +361,7 @@ class Astra_Menu {
 		);
 
 		wp_enqueue_script( $handle );
+		wp_enqueue_script( 'astra-admin-settings' );
 
 		wp_set_script_translations( $handle, 'astra' );
 
