@@ -10,13 +10,18 @@ const QuickSettings = () => {
 			isPro: false,
 		},
 		{
-			name: __( 'Color Options', 'astra' ),
+			name: __( 'Color', 'astra' ),
 			section: astra_admin.customize_url + '?autofocus[section]=section-colors-background',
 			isPro: false,
 		},
 		{
 			name: __( 'Typography', 'astra' ),
 			section: astra_admin.customize_url + '?autofocus[section]=section-typography',
+			isPro: false,
+		},
+		{
+			name: __( 'Button', 'astra' ),
+			section: astra_admin.customize_url + '?autofocus[section]=section-buttons',
 			isPro: false,
 		},
 		{
@@ -30,29 +35,19 @@ const QuickSettings = () => {
 			isPro: false,
 		},
 		{
-			name: __( 'Button', 'astra' ),
-			section: astra_admin.customize_url + '?autofocus[section]=section-buttons',
+			name: __( 'Blog Options', 'astra' ),
+			section: astra_admin.admin_base_url + 'nav-menus.php',
 			isPro: false,
 		},
 		{
-			name: __( 'Nav Menu', 'astra' ),
-			section: astra_admin.admin_base_url + 'nav-menus.php',
-			isPro: true,
-		},
-		{
-			name: __( 'White Label', 'astra' ),
+			name: __( 'Menus', 'astra' ),
 			section: astra_admin.admin_url + '?page=' + astra_admin.home_slug + '&path=settings',
-			isPro: true,
+			isPro: false,
 		},
 		{
-			name: __( 'WooCommerce', 'astra' ),
+			name: __( 'Footer Builder', 'astra' ),
 			section: astra_admin.customize_url + '?autofocus[panel]=woocommerce',
-			isPro: true,
-		},
-		{
-			name: __( 'Sticky Headers', 'astra' ),
-			section: astra_admin.customize_url + '?autofocus[section]=section-sticky-header',
-			isPro: true,
+			isPro: false,
 		},
 	];
 
@@ -63,34 +58,34 @@ const QuickSettings = () => {
 				block.isPro
 				? 'bg-slate-50'
 				: 'bg-white',
-				'box-border relative border rounded-md h-20 p-4 flex items-center gap-x-4 snap-start hover:shadow-md transition spectra-icon-transition'
+				'box-border relative border rounded-md cursor-pointer h-20 px-4 py-3 flex items-start gap-x-4 snap-start hover:shadow-md transition spectra-icon-transition group'
 			) }
 		>
 			<div className="uagb-admin-block-card__title flex-1 min-w-0">
-				<p className="text-base font-medium text-slate-800 leading-7">
+				<div className="text-base font-medium text-slate-800 leading-7">
 					{ block.name }
-				</p>
+				</div>
 				<a
 					className={ classNames(
 						block.isPro
 						? 'pointer-events-none'
 						: '',
-						'focus:text-slate-400 text-slate-400 text-base truncate leading-7 focus:text-spectra focus-visible:text-spectra-hover active:text-spectra-hover hover:text-spectra-hover'
+						'focus:text-slate-300 text-slate-300 text-base truncate leading-7 focus:text-astra focus-visible:text-astra-hover active:text-astra-hover group-hover:text-astra-hover'
 					) }
 					href={ block.section } rel="noreferrer">{__( 'Customize', 'astra' )}
 				</a>
 			</div>
 
-			{
-				block.isPro && <div className="relative inline-flex flex-shrink-0 py-0.5 px-1 text-[0.625rem] text-white bg-slate-800 rounded-[0.1875rem]">
-					{ __( 'PRO', 'astra' ) }
-				</div>
-			}
+			<div className="relative inline-flex flex-shrink-0 py-0.5 px-1 text-[0.625rem] leading-[0.625rem] text-gray-50 rounded-[0.1875rem] group-hover:text-slate-300">
+				<svg width="15" height="16" viewBox="0 0 15 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path d="M3.79815 1.63672H13.6976M13.6976 1.63672V11.5362M13.6976 1.63672L0.969727 14.3646" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
+				</svg>
+			</div>
 		</div>
 	} );
 
 	return (
-		<div className="grid grid-flow-row auto-rows-min grid-cols-2 gap-6 sm:grid-cols-2 pt-6">
+		<div className="grid grid-flow-row auto-rows-min grid-cols-3 gap-6 sm:grid-cols-3 pt-6">
 			{ renderBlockCards }
 		</div>
 	);

@@ -2,12 +2,15 @@ import { __ } from '@wordpress/i18n';
 import { useLocation } from 'react-router-dom';
 import QuickSettings from '@DashboardApp/pages/Welcome/QuickSettings';
 import Astra_Admin_Icons from '@Common/block-icons';
+import ProModules from './ProModules';
+import UsefulPlugins from './UsefulPlugins';
+import AstraIntegration from './AstraIntegration';
 
 const Welcome = () => {
 
 	const query = new URLSearchParams( useLocation()?.search );
 
-	const allowAutoPlay = '1' === query.get( 'spectra-activation-redirect' ) ? 1 : 0;
+	const allowAutoPlay = '1' === query.get( 'astra-activation-redirect' ) ? 1 : 0;
 
 	const onCreateNewPageClick = () => {
 		window.open(
@@ -44,16 +47,16 @@ const Welcome = () => {
 									<span className="relative z-0 inline-flex justify-start w-full">
 										<button
 											type="button"
-											className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-spectra focus-visible:bg-spectra-hover hover:bg-spectra-hover focus:outline-none mr-4"
+											className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-astra focus-visible:bg-astra-hover hover:bg-astra-hover focus:outline-none mr-4"
 											onClick={ onCreateNewPageClick }
 										>
 											{__( 'Start Customising', 'astra' )}
 										</button>
 										<a
-											className='inline-flex items-center text-base font-medium text-spectra focus:text-spectra focus-visible:text-spectra-hover active:text-spectra-hover hover:text-spectra-hover'
+											className='inline-flex items-center text-base font-medium text-astra focus:text-astra focus-visible:text-astra-hover active:text-astra-hover hover:text-astra-hover'
 											href={ `https://www.youtube.com/watch?v=BAN-puzLheM` } target="_blank" rel="noreferrer">
-												<span className='pt-0.5 pl-4 pr-3'> { Astra_Admin_Icons['play'] } </span>
-												{__( 'What’s New in Astra 3.9.1', 'astra' )}
+											<span className='pt-0.5 pl-4 pr-3'> { Astra_Admin_Icons['play'] } </span>
+											{__( 'What’s New in Astra 3.9.1', 'astra' )}
 										</a>
 									</span>
 								</div>
@@ -79,8 +82,8 @@ const Welcome = () => {
 							</h2>
 							<div className="p-[2rem] rounded-md bg-white overflow-hidden shadow-sm flex flex-col justify-center h-full">
 								<div className="relative w-full lg:flex lg:items-center lg:justify-between">
-									<span className='font-medium text-base text-slate-800'> {__( 'Quick Settings', 'astra' )} </span>
-									<a className='lg:flex-shrink-0 text-sm text-spectra focus:text-spectra focus-visible:text-spectra-hover active:text-spectra-hover hover:text-spectra-hover no-underline' href={ astra_admin.customize_url } target='_self' rel="noreferrer">
+									<span className='font-semibold text-xl leading-6 text-slate-800'> {__( 'Quick Settings', 'astra' )} </span>
+									<a className='lg:flex-shrink-0 text-sm font-medium text-astra focus:text-astra focus-visible:text-astra-hover active:text-astra-hover hover:text-astra-hover no-underline' href={ astra_admin.customize_url } target='_self' rel="noreferrer">
 										{ __(
 											'Go to Customizer',
 											'astra'
@@ -88,37 +91,117 @@ const Welcome = () => {
 									</a>
 								</div>
 
-								<QuickSettings/>
+								<QuickSettings />
+							</div>
+						</section>
+
+						<section aria-labelledby="section-1-title h-full">
+							<h2 className="sr-only" id="section-1-title">
+								Do more with Astra Pro Modules
+							</h2>
+							<div className="p-[2rem] rounded-md bg-white overflow-hidden shadow-sm flex flex-col justify-center h-full">
+								<div className="relative w-full lg:flex lg:items-center lg:justify-between">
+									<span className='font-semibold text-xl leading-6 text-slate-800'> {__( 'Do more with Astra Pro Modules', 'astra' )} </span>
+									<a className='lg:flex-shrink-0 text-sm font-medium text-astra focus:text-astra focus-visible:text-astra-hover active:text-astra-hover hover:text-astra-hover no-underline' href={ astra_admin.customize_url } target='_self' rel="noreferrer">
+										{ __(
+											'Upgrade Now',
+											'astra'
+										) }
+									</a>
+								</div>
+
+								<ProModules />
+							</div>
+						</section>
+
+						<section aria-labelledby="section-1-title h-full">
+							<h2 className="sr-only" id="section-1-title">
+								Astra Integrations
+							</h2>
+							<div className="p-[2rem] rounded-md bg-white overflow-hidden shadow-sm flex flex-col justify-center h-full">
+								<div className="relative w-full lg:flex lg:items-center lg:justify-between">
+									<span className="font-semibold text-xl leading-6 text-slate-800"> {__( 'Astra Integrations', 'astra' )} </span>
+								</div>
+
+								<AstraIntegration />
+							</div>
+						</section>
+
+						<section aria-labelledby="section-1-title h-full">
+							<h2 className="sr-only" id="section-1-title">
+								Your License
+							</h2>
+							<div className="p-[2rem] rounded-md bg-white overflow-hidden shadow-sm flex flex-col justify-center h-full">
+								<div className="relative w-full lg:flex lg:items-center">
+									{ Astra_Admin_Icons['lock-open'] }
+									<span className="font-semibold text-base leading-5 text-slate-800 ml-2"> {__( 'Your License', 'astra' )} </span>
+								</div>
+
+								<p className="mt-4 text-sm text-slate-600">
+									You are using <span className="font-medium">Astra Theme Free</span>. No license needed!
+								</p>
+								<p className="text-sm text-slate-600">
+									Activate{" "}
+									<a href="/" className="text-astra font-medium underline">
+										Astra Pro Addon
+									</a>{" "}
+									to get professional support and automatic updates from your
+									WordPress dashboard.
+								</p>
+								<div className="mt-4">
+									<div className="flex">
+										<div className="relative">
+											<input
+												className="ast-admin_license-input-field h-10 block w-[28rem] shadow-sm focus:border-astra focus:ring-astra sm:text-sm text-slate-400"
+												id="license-key"
+												type="text"
+												placeholder="Paste your license key here"
+											/>
+											<svg
+												width="16"
+												height="16"
+												viewBox="0 0 16 16"
+												fill="none"
+												xmlns="http://www.w3.org/2000/svg"
+												className="absolute top-1/2 -translate-y-1/2 left-3"
+											>
+												<path
+													d="M10 4.66667C10.7364 4.66667 11.3333 5.26362 11.3333 6M14 6C14 8.20914 12.2091 10 10 10C9.59589 10 9.20577 9.94007 8.83805 9.82862L7.33333 11.3333H6V12.6667H4.66667V14H2.66667C2.29848 14 2 13.7015 2 13.3333V11.6095C2 11.4327 2.07024 11.2631 2.19526 11.1381L6.17138 7.16195C6.05993 6.79423 6 6.40412 6 6C6 3.79086 7.79086 2 10 2C12.2091 2 14 3.79086 14 6Z"
+													stroke="#94A3B8"
+													strokeWidth="1.4"
+													strokeLinecap="round"
+													strokeLinejoin="round"
+												/>
+											</svg>
+										</div>
+
+										<button className="ml-4 px-5 h-10 bg-gray-50 text-gray-400 text rounded-md shadow-sm">
+											Activate
+										</button>
+									</div>
+								</div>
+								<div className="mt-4">
+									<a href="/" className="text-sm font-medium text-astra hover:text-astra-hover leading-[0.875rem]">Need help?</a>
+								</div>
 							</div>
 						</section>
 					</div>
 
 					{/* Right Column */}
-					<div className="space-y-4 flex h-full flex-col justify-between">
+					<div className="space-y-4 flex h-full flex-col">
 						<section aria-labelledby="section-2-title">
 							<h2 className="sr-only" id="section-2-title">
-								Section title
+								Useful Plugins
 							</h2>
-							<div className="box-border rounded-md bg-white shadow-sm overflow-hidden transition hover:shadow-hover">
-								<div className="p-8 pr-10">
-									<h3 className='text-slate-800 text-base font-medium pb-2'>
+							<div className="box-border rounded-md shadow-sm overflow-hidden">
+								<div className="">
+									<h3 className="text-slate-800 text-base font-semibold leading-5 tracking-[0.0125rem] bg-white pt-6 pl-6 pb-4">
 										{ __(
-											'Knowledge Base',
+											'Useful Plugins',
 											'astra'
 										) }
 									</h3>
-									<p className='text-slate-500 text-sm pb-[20px] pr-2'>
-										{ __(
-											'Learn everything you need to know about the Astra Theme with our comprehensive documentation.',
-											'astra'
-										) }
-									</p>
-									<a className='text-sm text-spectra focus:text-spectra focus-visible:text-spectra-hover active:text-spectra-hover hover:text-spectra-hover no-underline' href='https://wpastra.com/docs/' target='_blank' rel="noreferrer">
-										{ __(
-											'Browse Now →',
-											'astra'
-										) }
-									</a>
+									<UsefulPlugins />
 								</div>
 							</div>
 						</section>
@@ -127,8 +210,8 @@ const Welcome = () => {
 							<h2 className="sr-only" id="section-2-title">
 								Section title
 							</h2>
-							<div className="relative box-border border border-blue-400 border-slate-50 rounded-md bg-slate-100 shadow-sm overflow-hidden transition hover:shadow-hover">
-								<div className="p-8 pr-10">
+							<div className="relative box-border border border-sky-500 rounded-md bg-white shadow-sm overflow-hidden transition hover:shadow-hover">
+								<div className="p-6">
 									<h3 className='relative flex items-center text-slate-800 text-base font-medium pb-2'>
 										<span className='flex-1'>
 											{ __(
@@ -140,13 +223,13 @@ const Welcome = () => {
 											{ __( 'PRO', 'astra' ) }
 										</span>
 									</h3>
-									<p className='text-slate-500 text-sm pb-[20px] pr-2'>
+									<p className='text-slate-500 text-sm pb-5 pr-12'>
 										{ __(
 											'We aim to answer all priority support requests within 2-3 hours.',
 											'astra'
 										) }
 									</p>
-									<a className='text-sm text-spectra focus:text-spectra focus-visible:text-spectra-hover active:text-spectra-hover hover:text-spectra-hover no-underline' href='https://wpastra.com/support/' target='_blank' rel="noreferrer">
+									<a className='text-sm text-astra focus:text-astra focus-visible:text-astra-hover active:text-astra-hover hover:text-astra-hover no-underline' href='https://wpastra.com/support/' target='_blank' rel="noreferrer">
 										{ __(
 											'Learn More →',
 											'astra'
@@ -161,20 +244,20 @@ const Welcome = () => {
 								Section title
 							</h2>
 							<div className="box-border rounded-md bg-white shadow-sm overflow-hidden transition hover:shadow-hover">
-								<div className="p-8 pr-10">
+								<div className="p-6">
 									<h3 className='text-slate-800 text-base font-medium pb-2'>
 										{ __(
 											'Join the Community',
 											'astra'
 										) }
 									</h3>
-									<p className='text-slate-500 text-sm pb-[20px] pr-2'>
+									<p className='text-slate-500 text-sm pb-5'>
 										{ __(
 											'Got a question about the plugin, want to share your awesome project or just say hi? Join our wonderful community!',
 											'astra'
 										) }
 									</p>
-									<a className='text-sm text-spectra focus:text-spectra focus-visible:text-spectra-hover active:text-spectra-hover hover:text-spectra-hover no-underline' href='https://www.facebook.com/groups/wpastra' target='_blank' rel="noreferrer">
+									<a className='text-sm text-astra focus:text-astra focus-visible:text-astra-hover active:text-astra-hover hover:text-astra-hover no-underline' href='https://www.facebook.com/groups/wpastra' target='_blank' rel="noreferrer">
 										{ __(
 											'Join Now →',
 											'astra'
@@ -189,24 +272,24 @@ const Welcome = () => {
 								Section title
 							</h2>
 							<div className="box-border rounded-md bg-white shadow-sm overflow-hidden transition hover:shadow-hover">
-								<div className="p-8 pr-10">
+								<div className="p-6">
 									<h3 className='text-slate-800 text-base font-medium pb-2'>
 										{ __(
 											'Rate Us',
 											'astra'
 										) }
 									</h3>
-									<p className='text-slate-500 text-sm pb-[10px] pr-2'>
+									<p className='text-slate-500 text-sm pb-2.5 pr-12'>
 										<span className='text-2xl text-slate-800'> ★★★★★ </span>
-										<span className='align-text-bottom text-slate-400'> { __( 'Based on 5k+ reviews', 'astra' ) } </span>
+										<span className='text-xs leading-4 align-text-bottom text-slate-400'> { __( 'Based on 5k+ reviews', 'astra' ) } </span>
 									</p>
-									<p className='text-slate-500 text-sm pb-[20px] pr-2'>
+									<p className='text-slate-500 text-sm pb-5'>
 										{ __(
 											'We love to hear from you, we would appreciate every single review.',
 											'astra'
 										) }
 									</p>
-									<a className='text-sm text-spectra focus:text-spectra focus-visible:text-spectra-hover active:text-spectra-hover hover:text-spectra-hover no-underline' href='https://wordpress.org/support/theme/astra/reviews/?rate=5#new-post' target='_blank' rel="noreferrer">
+									<a className='text-sm text-astra focus:text-astra focus-visible:text-astra-hover active:text-astra-hover hover:text-astra-hover no-underline' href='https://wordpress.org/support/theme/astra/reviews/?rate=5#new-post' target='_blank' rel="noreferrer">
 										{ __(
 											'Submit a Review →',
 											'astra'
