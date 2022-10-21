@@ -521,6 +521,17 @@ const Astra_Admin_Icons = {
 			strokeLinejoin:"round"
 		} ),
 	),
+	'download': el(
+		'svg',
+		{ width: 20, height: 20, viewBox: '0 0 20 20', fill: 'none' },
+		el( 'path', {
+			d: 'M3.8335 13.3346L3.8335 14.168C3.8335 15.5487 4.95278 16.668 6.3335 16.668L14.6668 16.668C16.0475 16.668 17.1668 15.5487 17.1668 14.168L17.1668 13.3346M13.8335 10.0013L10.5002 13.3346M10.5002 13.3346L7.16683 10.0013M10.5002 13.3346L10.5002 3.33464',
+			stroke: "currentColor",
+			strokeWidth: 2,
+			strokeLinecap:"round",
+			strokeLinejoin:"round"
+		} ),
+	),
 	'check': el(
 		'svg',
 		{ width: 24, height: 24, viewBox: '0 0 24 24', fill: 'none' },

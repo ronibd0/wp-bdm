@@ -6,6 +6,7 @@ import FreeVsPro from '@DashboardApp/pages/free-vs-pro/FreeVsPro';
 import Settings from '@DashboardApp/pages/settings/Settings';
 import StarterTemplates from '@DashboardApp/pages/starter-templates/StarterTemplates';
 import CustomLayouts from '@DashboardApp/pages/custom-layouts/CustomLayouts';
+import SpectraScreen from './pages/spectra/SpectraScreen';
 
 function SettingsRoute() {
 	const query = new URLSearchParams( useLocation().search );
@@ -35,6 +36,9 @@ function SettingsRoute() {
 					break;
 				case 'custom-layouts':
 					routePage = <CustomLayouts />;
+					break;
+				case 'spectra':
+					routePage = <SpectraScreen />;
 					break;
 				default:
 					routePage = <Welcome />;
