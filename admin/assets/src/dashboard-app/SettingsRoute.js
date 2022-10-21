@@ -5,6 +5,8 @@ import Modules from '@DashboardApp/pages/modules/Modules';
 import FreeVsPro from '@DashboardApp/pages/free-vs-pro/FreeVsPro';
 import Settings from '@DashboardApp/pages/settings/Settings';
 import StarterTemplates from '@DashboardApp/pages/starter-templates/StarterTemplates';
+import CustomLayouts from '@DashboardApp/pages/custom-layouts/CustomLayouts';
+import SpectraScreen from './pages/spectra/SpectraScreen';
 
 function SettingsRoute() {
 	const query = new URLSearchParams( useLocation().search );
@@ -20,20 +22,26 @@ function SettingsRoute() {
 		} else {
 			switch ( path ) {
 				case 'modules':
-					routePage = <Modules/>;
+					routePage = <Modules />;
 					break;
 				case 'starter-templates':
-					routePage = <StarterTemplates/>;
+					routePage = <StarterTemplates />;
 					break;
 				case 'settings':
-					routePage = <Settings/>;
+					routePage = <Settings />;
 					//routePage = <Welcome/>;
 					break;
 				case 'free-vs-pro':
-					routePage = <FreeVsPro/>;
+					routePage = <FreeVsPro />;
+					break;
+				case 'custom-layouts':
+					routePage = <CustomLayouts />;
+					break;
+				case 'spectra':
+					routePage = <SpectraScreen />;
 					break;
 				default:
-					routePage = <Welcome/>;
+					routePage = <Welcome />;
 					break;
 			}
 		}
