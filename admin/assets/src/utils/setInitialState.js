@@ -2,7 +2,7 @@ import apiFetch from '@wordpress/api-fetch';
 
 const setInitialState = ( store ) => {
 	apiFetch( {
-		path: '/astra/v1/admin/commonsettings/',
+		path: '/astra/v1/admin/settings/',
 	} ).then( ( data ) => {
 		const initialState = {
 			initialStateSetFlag : true,
@@ -15,8 +15,8 @@ const setInitialState = ( store ) => {
 			enableBeta : data.uagb_beta,
 			enableLegacyBlocks: data.uag_enable_legacy_blocks,
 			selectedFontFamilies :  data.uag_select_font_globally,
-			enableLoadFontsLocally : data.uag_load_gfonts_locally,
-			enablePreloadLocalFonts : data.uag_preload_local_fonts,
+			enableLoadFontsLocally : data.self_hosted_gfonts,
+			enablePreloadLocalFonts : data.preload_local_fonts,
 			enableCollapsePanels : data.uag_collapse_panels,
 			enableCopyPasteStyles : data.uag_copy_paste,
 			contentWidth: data.uag_content_width,

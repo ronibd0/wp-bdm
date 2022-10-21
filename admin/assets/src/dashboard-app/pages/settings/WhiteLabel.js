@@ -27,7 +27,7 @@ const WhiteLabel = () => {
 
 		const formData = new window.FormData();
 
-		formData.append( 'action', 'uag_load_gfonts_locally' );
+		formData.append( 'action', 'self_hosted_gfonts' );
 		formData.append(
 			'security',
 			astra_admin.load_gfonts_locally_nonce

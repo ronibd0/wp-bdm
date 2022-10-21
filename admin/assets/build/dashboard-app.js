@@ -9620,7 +9620,7 @@ const CssGeneration = () => {
   }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("CSS File Generation", "astra")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
     className: "mt-2 text-sm text-slate-600"
   }, "Enable this option to generate CSS files. Please read", " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
-    href: "/",
+    href: "https://wpastra.com/astra-2-1/?utm_source=welcome_page&utm_medium=sidebar&utm_campaign=astra_pro",
     className: "text-astra underline"
   }, "this article"), " ", "to know more.")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
     className: "px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-astra focus-visible:bg-astra-hover hover:bg-astra-hover focus:outline-none"
@@ -9921,21 +9921,22 @@ function classNames() {
 const LoadFontsLocally = () => {
   const dispatch = (0,react_redux__WEBPACK_IMPORTED_MODULE_2__.useDispatch)();
   const enableLoadFontsLocally = (0,react_redux__WEBPACK_IMPORTED_MODULE_2__.useSelector)(state => state.enableLoadFontsLocally);
-  const enableLoadFontsLocallyStatus = 'disabled' === enableLoadFontsLocally ? false : true;
+  const enableLoadFontsLocallyStatus = false === enableLoadFontsLocally ? false : true;
   const updateLoadFontsLocallyStatus = () => {
     let assetStatus;
-    if (enableLoadFontsLocally === 'disabled') {
-      assetStatus = 'enabled';
+    if (enableLoadFontsLocally === false) {
+      assetStatus = true;
     } else {
-      assetStatus = 'disabled';
+      assetStatus = false;
     }
     dispatch({
       type: 'UPDATE_ENABLE_LOAD_FONTS_LOCALLY',
       payload: assetStatus
     });
     const formData = new window.FormData();
-    formData.append('action', 'uag_load_gfonts_locally');
-    formData.append('security', astra_admin.load_gfonts_locally_nonce);
+    formData.append('action', 'astra_update_admin_setting');
+    formData.append('security', astra_admin.update_nonce);
+    formData.append('key', 'self_hosted_gfonts');
     formData.append('value', assetStatus);
     _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_3___default()({
       url: astra_admin.ajax_url,
@@ -10000,21 +10001,22 @@ const PreloadLocalFonts = () => {
   const dispatch = (0,react_redux__WEBPACK_IMPORTED_MODULE_2__.useDispatch)();
   const enableLoadFontsLocally = (0,react_redux__WEBPACK_IMPORTED_MODULE_2__.useSelector)(state => state.enableLoadFontsLocally);
   const enablePreloadLocalFonts = (0,react_redux__WEBPACK_IMPORTED_MODULE_2__.useSelector)(state => state.enablePreloadLocalFonts);
-  const enablePreloadLocalFontsStatus = 'disabled' === enablePreloadLocalFonts ? false : true;
+  const enablePreloadLocalFontsStatus = false === enablePreloadLocalFonts ? false : true;
   const updatePreloadLocalFontsStatus = () => {
     let assetStatus;
-    if (enablePreloadLocalFonts === 'disabled') {
-      assetStatus = 'enabled';
+    if (enablePreloadLocalFonts === false) {
+      assetStatus = true;
     } else {
-      assetStatus = 'disabled';
+      assetStatus = false;
     }
     dispatch({
       type: 'UPDATE_ENABLE_PRELOAD_LOCAL_FONTS',
       payload: assetStatus
     });
     const formData = new window.FormData();
-    formData.append('action', 'uag_preload_local_fonts');
-    formData.append('security', astra_admin.preload_local_fonts_nonce);
+    formData.append('action', 'astra_update_admin_setting');
+    formData.append('security', astra_admin.update_nonce);
+    formData.append('key', 'preload_local_fonts');
     formData.append('value', assetStatus);
     _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_3___default()({
       url: astra_admin.ajax_url,
@@ -10820,7 +10822,7 @@ const WhiteLabel = () => {
       payload: assetStatus
     });
     const formData = new window.FormData();
-    formData.append('action', 'uag_load_gfonts_locally');
+    formData.append('action', 'self_hosted_gfonts');
     formData.append('security', astra_admin.load_gfonts_locally_nonce);
     formData.append('value', assetStatus);
     _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_3___default()({
@@ -11400,13 +11402,13 @@ const initialState = {
   initialStateSetFlag: false,
   activeBlocksFilterTab: 'all',
   activeSettingsNavigationTab: '',
+  enableLoadFontsLocally: false,
+  enablePreloadLocalFonts: false,
   blocksStatuses: [],
   enableFileGeneration: '',
   enableTemplates: '',
   enableBeta: '',
   selectedFontFamilies: '',
-  enableLoadFontsLocally: '',
-  enablePreloadLocalFonts: '',
   enableCollapsePanels: '',
   enableCopyPasteStyles: '',
   contentWidth: '',
@@ -11442,7 +11444,7 @@ __webpack_require__.r(__webpack_exports__);
 
 const setInitialState = store => {
   _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_0___default()({
-    path: '/astra/v1/admin/commonsettings/'
+    path: '/astra/v1/admin/settings/'
   }).then(data => {
     const initialState = {
       initialStateSetFlag: true,
@@ -11455,8 +11457,8 @@ const setInitialState = store => {
       enableBeta: data.uagb_beta,
       enableLegacyBlocks: data.uag_enable_legacy_blocks,
       selectedFontFamilies: data.uag_select_font_globally,
-      enableLoadFontsLocally: data.uag_load_gfonts_locally,
-      enablePreloadLocalFonts: data.uag_preload_local_fonts,
+      enableLoadFontsLocally: data.self_hosted_gfonts,
+      enablePreloadLocalFonts: data.preload_local_fonts,
       enableCollapsePanels: data.uag_collapse_panels,
       enableCopyPasteStyles: data.uag_copy_paste,
       contentWidth: data.uag_content_width,

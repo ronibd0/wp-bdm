@@ -5,13 +5,13 @@ const initialState = {
 	initialStateSetFlag : false,
 	activeBlocksFilterTab : 'all',
 	activeSettingsNavigationTab : '',
+	enableLoadFontsLocally : false,
+	enablePreloadLocalFonts : false,
 	blocksStatuses : [],
 	enableFileGeneration : '',
 	enableTemplates : '',
 	enableBeta : '',
 	selectedFontFamilies : '',
-	enableLoadFontsLocally : '',
-	enablePreloadLocalFonts : '',
 	enableCollapsePanels : '',
 	enableCopyPasteStyles : '',
 	contentWidth: '',
@@ -31,10 +31,10 @@ const initialState = {
 };
 
 const globalDataStore = createStore(
-    globalDataReducer,
-    initialState,
-    window.__REDUX_DEVTOOLS_EXTENSION__ &&
-    window.__REDUX_DEVTOOLS_EXTENSION__()
+	globalDataReducer,
+	initialState,
+	window.__REDUX_DEVTOOLS_EXTENSION__ &&
+	window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 
 export default globalDataStore;

@@ -51,7 +51,7 @@ class Astra_API_Init extends WP_REST_Controller {
 	 *
 	 * @var string
 	 */
-	protected $rest_base = '/admin/commonsettings/';
+	protected $rest_base = '/admin/settings/';
 
 	/**
 	 * Constructor
@@ -106,7 +106,7 @@ class Astra_API_Init extends WP_REST_Controller {
 	 */
 	public function get_permissions_check( $request ) {
 
-		if ( ! current_user_can( 'manage_options' ) ) {
+		if ( ! current_user_can( 'edit_theme_options' ) ) {
 			return new WP_Error( 'astra_rest_cannot_view', __( 'Sorry, you cannot list resources.', 'astra' ), array( 'status' => rest_authorization_required_code() ) );
 		}
 

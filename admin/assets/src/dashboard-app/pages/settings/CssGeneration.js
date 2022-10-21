@@ -10,7 +10,7 @@ const CssGeneration = () => {
 					</h3>
 					<p className="mt-2 text-sm text-slate-600">
 						Enable this option to generate CSS files. Please read{" "}
-						<a href="/" className="text-astra underline">
+						<a href="https://wpastra.com/astra-2-1/?utm_source=welcome_page&utm_medium=sidebar&utm_campaign=astra_pro" className="text-astra underline">
 							this article
 						</a>{" "}
 						to know more.
