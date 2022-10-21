@@ -198,9 +198,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		 * @since 3.6.0
 		 */
 		public function regenerate_astra_fonts_folder() {
-			error_log( 'in clearing files' );
 			check_ajax_referer( 'astra_update_admin_setting', 'security' );
-			error_log( 'nonce check passed' );
 
 			if ( ! current_user_can( 'edit_theme_options' ) ) {
 				wp_send_json_error( 'invalid_permissions' );
