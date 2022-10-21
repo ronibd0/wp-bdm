@@ -1365,6 +1365,7 @@
     --ast-customizer-color-10: #fff; /* text invert / Icon invert */
     --ast-customizer-color-11: #F5F5F5; /* alt background*/
     --ast-customizer-color-12: #1e293b; /* alt background 2*/
+    --ast-customizer-color-13: #cc1818; /* danger color*/
 }
 
 input[type="text"], input[type="password"], input[type="color"], input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="email"], input[type="month"], input[type="number"], input[type="search"], input[type="tel"], input[type="time"], input[type="url"], input[type="week"], select, textarea {
@@ -1551,9 +1552,6 @@ input[type="text"].select2-search__field {
     .dashicons-desktop:before, .dashicons-tablet:before, .dashicons-smartphone:before {
       color: #000000;
       opacity: .75;
-    }
-    .ast-field-settings-modal .customize-control-ast-responsive .input-wrapper .ast-responsive-input.active + .ast-responsive-select {
-      width: 20%;
     }
     .ast-reset-btn.components-button svg {
       padding: 0px;
@@ -2122,7 +2120,14 @@ span.customize-control-title.ast-group-section-title {
 
 }
 .ast-link-open-in-new-tab-wrapper {
-  margin: 25px 0;
+  margin: 24px 0 0;
+  border-top: 1px dashed var(--ast-customizer-color-7);
+}
+
+.ast-link-label-wrapper {
+  margin: 24px 0;
+  padding-top: 24px;
+  border-top: 1px dashed var(--ast-customizer-color-7);
 }
 
 .ast-menu-setting-wrap {
@@ -2684,34 +2689,6 @@ span.customize-control-title.ast-group-section-title {
   }
 }
 
-.ast-responsive-select-container {
-  display: none;
-}
-
-.ast-responsive-select-container.active {
-  display: block;
-}
-
-.ast-variant-select > div {
-  border-color: #dddddd;
-}
-
-.customize-control select, .ast-variant-select > div, .customize-control input, .customize-control-content .components-text-control__input {
-	border-color: var(--ast-customizer-color-7);
-	color: var(--ast-customizer-color-5);
-	padding-top: 1px;
-    padding-bottom: 1px;
-}
-
-.customize-control select:focus, .ast-variant-select > div:focus, .customize-control input:focus {
-	border-color: var(--ast-customizer-color-1);
-	color: #0a4b78;
-	box-shadow: 0 0 0 1px var(--ast-customizer-color-1);
-}
-
-
-
-
 .customize-control-ast-responsive-slider .wrapper, .customize-control-ast-slider .wrapper {
   position: relative;
   display: flex;
@@ -3057,6 +3034,8 @@ span.customize-control-title.ast-group-section-title {
 .customize-control-ast-responsive-toggle-control .components-toggle-control .components-toggle-control__label, .ast-responsive-toggle-control label {
     display: flex;
     flex: 1 1 auto;
+	font-size: 14px;
+  	font-weight: 600;
 }
 
 .customize-control-ast-responsive-toggle-control .ast-responsive-toggle-control-wrapper .ast-responsive-toggle-control {
@@ -3111,12 +3090,6 @@ span.customize-control-title.ast-group-section-title {
   vertical-align: top;
 }
 
-.customize-control-ast-responsive-select .ast-responsive-btns {
-  position: relative;
-  top: -1px;
-  right: -5px;
-}
-
 .ast-responsive-btns > li {
   margin-bottom: 0;
   display: none;
@@ -3167,22 +3140,6 @@ span.customize-control-title.ast-group-section-title {
   display: block;
 }
 
-.customize-control-ast-responsive .input-wrapper .ast-responsive-select {
-  width: 50px;
-  margin: 0;
-  margin-left: 2px;
-  padding: 0 24px 0 8px;
-  font-size: 13px;
-  text-transform: uppercase;
-  float: none;
-  display: none;
-}
-
-.customize-control-ast-responsive .input-wrapper .ast-responsive-input.active + .ast-responsive-select {
-  display: block;
-  width: 25%;
-  float: none;
-}
 
 .customize-control-ast-responsive .input-wrapper .ast-non-reponsive.ast-responsive-input {
   display: inline-block;
@@ -3192,16 +3149,8 @@ span.customize-control-title.ast-group-section-title {
   display: inline-block;
 }
 
-.customize-control-ast-responsive .input-wrapper .ast-non-reponsive.ast-responsive-select {
-  display: inline-block;
-}
-
 #customize-control-astra-settings-font-size-body.customize-control-ast-responsive .input-wrapper {
   display: inline-block;
-}
-
-#customize-control-astra-settings-font-size-body.customize-control-ast-responsive .input-wrapper .ast-responsive-select {
-  display: none;
 }
 
 #customize-control-astra-settings-font-size-body.customize-control-ast-responsive .input-wrapper .ast-responsive-input {
@@ -3220,6 +3169,21 @@ span.customize-control-title.ast-group-section-title {
   position: absolute;
   right: 0px;
   top: 1px;
+}
+
+.ast-variant-select > div {
+	border-color: #dddddd;
+}
+.customize-control select, .ast-variant-select > div, .customize-control input, .customize-control-content .components-text-control__input {
+	border-color: var(--ast-customizer-color-7);
+	color: var(--ast-customizer-color-5);
+	padding-top: 1px;
+	padding-bottom: 1px;
+}
+.customize-control select:focus, .ast-variant-select > div:focus, .customize-control input:focus {
+	border-color: var(--ast-customizer-color-1);
+	color: #0a4b78;
+	box-shadow: 0 0 0 1px var(--ast-customizer-color-1);
 }
 
 .ast-adv-toggle-icon {
@@ -3515,6 +3479,58 @@ span.customize-control-title.ast-group-section-title {
   color: #ffffff;
 }
 
+.astra-popover-tabs.astra-media-tab .components-tab-panel__tabs,
+.astra-popover-tabs.astra-media-tab .components-tab-panel__tab-content {
+  padding: 0;
+}
+
+.astra-popover-tabs.astra-media-tab .components-tab-panel__tabs-item.active-tab {
+  border-color: var(--ast-customizer-color-3);
+  background: var(--ast-customizer-color-1);
+}
+
+.astra-popover-tabs.astra-media-tab .components-tab-panel__tab-content .ast-social-icon-picker-label {
+  text-align: left;
+}
+
+.astra-media-tab .astra-media-image {
+  width: 100%;
+  margin-bottom: 0;
+}
+
+.astra-media-tab .ast-media-btn {
+  display: block;
+  width: 100%;
+  border: 1px dashed var(--ast-customizer-color-7);
+  box-sizing: border-box;
+  box-shadow: unset;
+  padding: 9px 0;
+  line-height: 1.6;
+  text-decoration: none;
+}
+
+.astra-media-tab .ast-danger-btn {
+  color: var(--ast-customizer-color-13);
+  margin-top: 10px;
+}
+
+.astra-media-tab .ast-media-btn:hover {
+  border-color: var(--ast-customizer-color-3);
+}
+
+.astra-media-tab .ast-danger-btn:hover {
+  border-color: var(--ast-customizer-color-13);
+}
+
+.components-base-control.ast-text-control-input {
+  margin-bottom: 16px;
+}
+
+.components-base-control.ast-text-control-input input {
+  border-color: var(--ast-customizer-color-7);
+  color: var(--ast-customizer-color-5);
+}
+
 .astra-popover-color .astra-popover-tabs .components-tab-panel__tabs button.components-tab-panel__tabs-item.active-tab:not(.is-primary):not(.is-tertiary):not(.is-link):hover {
   color: #fff;
 }
@@ -3770,11 +3786,18 @@ span.customize-control-title.ast-group-section-title {
 .ast-sortable-subfields-wrap .customize-control-ast-list-icons .dashicons-admin-page {
     color: #556068;
 }
+
 .customize-control-ast-sortable .ast-sortable-subfields-wrap .customize-control-ast-list-icons .ahfb-sorter-item-panel-header {
     border: 1px solid #ddd;
 	border-left: 0;
     border-bottom: 0;
 	overflow: hidden;
+}
+
+.ast-sortable-subfields-wrap .customize-control-ast-list-icons .ahfb-sorter-visiblity svg, 
+.ast-sortable-subfields-wrap .customize-control-ast-list-icons .ahfb-sorter-visiblity .ast-media-image-preview {
+    height: 14px;
+    width: 14px;
 }
 .ast-sortable-subfields-wrap .customize-control-ast-list-icons .ahfb-sorter-visiblity span {
     display: flex;
@@ -3880,16 +3903,19 @@ span.customize-control-title.ast-group-section-title {
 }
 
 .customize-control-ast-link .ast-togglecontrol-wrapper .components-base-control__field {
-  margin: 20px 0;
+  margin: 24px 0 0;
 }
 
-.ast-togglecontrol-wrapper .toggle-control-label {
+.ast-togglecontrol-wrapper .toggle-control-label, .ast-togglecontrol-wrapper .components-toggle-control__label {
   font-size: 14px;
+  font-weight: 600;
 }
 
 .customize-control-ast-toggle-control .components-toggle-control .components-toggle-control__label, .ast-togglecontrol-wrapper label {
   display: flex;
   flex: 1 1 auto;
+  font-size: 14px;
+  font-weight: 600;
 }
 
 .ast-switch ~ label {
@@ -3934,6 +3960,7 @@ span.customize-control-title.ast-group-section-title {
 .ast-switch:not(:checked), .ast-switch:checked {
   opacity: 0;
 }
+
 .dashicons-editor-help[data-title]{
 	z-index: 10;
 }

@@ -498,6 +498,20 @@ class Astra_WP_Editor_CSS {
 			'.editor-styles-wrapper .is-root-container.block-editor-block-list__layout > .wp-block-heading' => array(
 				'margin-bottom' => '20px',
 			),
+
+			// Overriding padding for page title on Full Width Layout for better alignment.
+			'.ast-page-builder-template .edit-post-visual-editor__post-title-wrapper, .ast-stacked-title-visibility .edit-post-visual-editor__post-title-wrapper' => array(
+				'padding' => '0',
+			),
+		);
+
+		// Full-Width/Stretched Layout.
+		$desktop_css['.ast-page-builder-template .editor-styles-wrapper .edit-post-visual-editor__post-title-wrapper'] = array(
+			'margin-' . $ltr_left => '0 !important',
+		);
+		$desktop_css['.ast-page-builder-template .edit-post-visual-editor .editor-styles-wrapper .block-editor-block-list__layout.is-root-container > :where(:not(.alignleft):not(.alignright))'] = array(
+			'margin-left'  => '0 !important',
+			'margin-right' => '0 !important',
 		);
 
 		$content_links_underline = astra_get_option( 'underline-content-links' );
