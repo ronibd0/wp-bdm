@@ -9649,8 +9649,6 @@ __webpack_require__.r(__webpack_exports__);
 const FlushLocalFonts = () => {
   const dispatch = (0,react_redux__WEBPACK_IMPORTED_MODULE_2__.useDispatch)();
   const enableLoadFontsLocally = (0,react_redux__WEBPACK_IMPORTED_MODULE_2__.useSelector)(state => state.enableLoadFontsLocally);
-  const enablePreloadLocalFonts = (0,react_redux__WEBPACK_IMPORTED_MODULE_2__.useSelector)(state => state.enablePreloadLocalFonts);
-  const enablePreloadLocalFontsStatus = "disabled" === enablePreloadLocalFonts ? false : true;
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("section", {
     className: `uag-font-select-${enableLoadFontsLocally} block border-b border-solid border-slate-200 px-12 py-8 justify-between`
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
@@ -10808,22 +10806,23 @@ function classNames() {
 }
 const WhiteLabel = () => {
   const dispatch = (0,react_redux__WEBPACK_IMPORTED_MODULE_2__.useDispatch)();
-  const enableLoadFontsLocally = (0,react_redux__WEBPACK_IMPORTED_MODULE_2__.useSelector)(state => state.enableLoadFontsLocally);
-  const enableLoadFontsLocallyStatus = 'disabled' === enableLoadFontsLocally ? false : true;
+  const enableWhiteLabel = (0,react_redux__WEBPACK_IMPORTED_MODULE_2__.useSelector)(state => state.enableWhiteLabel);
+  const enableWhiteLabelStatus = false === enableWhiteLabel ? false : true;
   const updateLoadFontsLocallyStatus = () => {
     let assetStatus;
-    if (enableLoadFontsLocally === 'disabled') {
-      assetStatus = 'enabled';
+    if (enableWhiteLabel === false) {
+      assetStatus = true;
     } else {
-      assetStatus = 'disabled';
+      assetStatus = false;
     }
     dispatch({
-      type: 'UPDATE_ENABLE_LOAD_FONTS_LOCALLY',
+      type: 'UPDATE_ENABLE_WHITE_LABEL',
       payload: assetStatus
     });
     const formData = new window.FormData();
-    formData.append('action', 'self_hosted_gfonts');
-    formData.append('security', astra_admin.load_gfonts_locally_nonce);
+    formData.append('action', 'astra_update_admin_setting');
+    formData.append('security', astra_admin.update_nonce);
+    formData.append('key', 'enable_white_label');
     formData.append('value', assetStatus);
     _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_3___default()({
       url: astra_admin.ajax_url,
@@ -10843,12 +10842,12 @@ const WhiteLabel = () => {
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h3", {
     className: "p-0 flex-1 justify-right inline-flex text-xl leading-8 font-semibold text-slate-800"
   }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Enable White Label', 'astra')), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_headlessui_react__WEBPACK_IMPORTED_MODULE_4__.Switch, {
-    checked: enableLoadFontsLocallyStatus,
+    checked: enableWhiteLabelStatus,
     onChange: updateLoadFontsLocallyStatus,
-    className: classNames(enableLoadFontsLocallyStatus ? 'bg-astra' : 'bg-slate-200', 'relative inline-flex flex-shrink-0 h-5 w-[2.4rem] items-center border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none')
+    className: classNames(enableWhiteLabelStatus ? 'bg-astra' : 'bg-slate-200', 'relative inline-flex flex-shrink-0 h-5 w-[2.4rem] items-center border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none')
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
     "aria-hidden": "true",
-    className: classNames(enableLoadFontsLocallyStatus ? 'translate-x-5' : 'translate-x-0', 'pointer-events-none inline-block h-3.5 w-3.5 rounded-full bg-white shadow transform ring-0 transition ease-in-out duration-200')
+    className: classNames(enableWhiteLabelStatus ? 'translate-x-5' : 'translate-x-0', 'pointer-events-none inline-block h-3.5 w-3.5 rounded-full bg-white shadow transform ring-0 transition ease-in-out duration-200')
   }))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
     className: "mt-2 w-9/12 text-sm text-slate-500"
   }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('White Label removes any links to Astra website and change the identity in the dashboard. This setting is mostly used by agencies and developers who are building websites for clients.', 'astra')));
@@ -10869,9 +10868,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
 /* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/api-fetch */ "@wordpress/api-fetch");
+/* harmony import */ var _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_3__);
+
+
 
 
 const WhiteLabelForm = () => {
+  const dispatch = (0,react_redux__WEBPACK_IMPORTED_MODULE_2__.useDispatch)();
+  const agencyAuthorName = (0,react_redux__WEBPACK_IMPORTED_MODULE_2__.useSelector)(state => state.agencyAuthorName);
+  const agencyLicenseLink = (0,react_redux__WEBPACK_IMPORTED_MODULE_2__.useSelector)(state => state.agencyLicenseLink);
+  const agencyAuthorURL = (0,react_redux__WEBPACK_IMPORTED_MODULE_2__.useSelector)(state => state.agencyAuthorURL);
+  const themeName = (0,react_redux__WEBPACK_IMPORTED_MODULE_2__.useSelector)(state => state.themeName);
+  const themeDescription = (0,react_redux__WEBPACK_IMPORTED_MODULE_2__.useSelector)(state => state.themeDescription);
+  const themeScreenshotURL = (0,react_redux__WEBPACK_IMPORTED_MODULE_2__.useSelector)(state => state.themeScreenshotURL);
+  const pluginName = (0,react_redux__WEBPACK_IMPORTED_MODULE_2__.useSelector)(state => state.pluginName);
+  const pluginDescription = (0,react_redux__WEBPACK_IMPORTED_MODULE_2__.useSelector)(state => state.pluginDescription);
+  const updateWhitelabelForm = e => {
+    let value = e.target.value;
+    let name = e.target.name;
+    let type = '';
+    switch (name) {
+      case 'plugin_description':
+        type = 'UPDATE_PLUGIN_DESCRIPTION';
+        break;
+      case 'plugin_name':
+        type = 'UPDATE_PLUGIN_NAME';
+        break;
+      case 'theme_screenshot_url':
+        type = 'UPDATE_THEME_SCREENSHOT_URL';
+        break;
+      case 'theme_description':
+        type = 'UPDATE_THEME_DESCRIPTION';
+        break;
+      case 'theme_name':
+        type = 'UPDATE_THEME_NAME';
+        break;
+      case 'agency_license_link':
+        type = 'UPDATE_AGENCY_LICENSE_LINK';
+        break;
+      case 'agency_author_url':
+        type = 'UPDATE_AGENCY_AUTHOR_URL';
+        break;
+      case 'agency_author_name':
+        type = 'UPDATE_AGENCY_AUTHOR_NAME';
+        break;
+      default:
+        break;
+    }
+    dispatch({
+      type: type,
+      payload: value
+    });
+    const formData = new window.FormData();
+    formData.append('action', 'astra_update_admin_setting');
+    formData.append('security', astra_admin.update_nonce);
+    formData.append('key', name);
+    formData.append('value', value);
+    _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_3___default()({
+      url: astra_admin.ajax_url,
+      method: 'POST',
+      body: formData
+    }).then(() => {
+      dispatch({
+        type: 'UPDATE_SETTINGS_SAVED_NOTIFICATION',
+        payload: 'Successfully saved!'
+      });
+    });
+  };
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("section", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "block border-b border-solid border-slate-200 px-12 py-8 justify-between"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
@@ -10881,40 +10946,46 @@ const WhiteLabelForm = () => {
   }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Agency Details", "astra")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "mb-6"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", {
-    htmlFor: "author-name",
+    htmlFor: "agency_author_name",
     className: "block text-sm font-medium text-slate-600"
   }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Agency author name:", "astra")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "mt-2"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
+    onChange: updateWhitelabelForm,
+    value: agencyAuthorName,
     type: "text",
-    name: "author-name",
-    id: "author-name",
+    name: "agency_author_name",
+    id: "agency_author_name",
     className: "ast-admin_input-field h-10 block w-4/5 shadow-sm focus:border-astra focus:ring-astra sm:text-sm",
     placeholder: ""
   }))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "mb-6"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", {
-    htmlFor: "author-url",
+    htmlFor: "agency_author_url",
     className: "block text-sm font-medium text-slate-600"
   }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Agency author URL:", "astra")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "mt-2"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
+    onChange: updateWhitelabelForm,
     type: "text",
-    name: "author-url",
-    id: "author-url",
+    value: agencyAuthorURL,
+    name: "agency_author_url",
+    id: "agency_author_url",
     className: "ast-admin_input-field h-10 block w-4/5 shadow-sm focus:border-astra focus:ring-astra sm:text-sm",
     placeholder: ""
   }))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: ""
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", {
-    htmlFor: "author-license",
+    htmlFor: "agency_license_link",
     className: "block text-sm font-medium text-slate-600"
   }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Agency license link:", "astra")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "mt-2"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
+    onChange: updateWhitelabelForm,
     type: "text",
-    name: "author-license",
-    id: "author-license",
+    value: agencyLicenseLink,
+    name: "agency_license_link",
+    id: "agency_license_link",
     className: "ast-admin_input-field h-10 block w-4/5 shadow-sm focus:border-astra focus:ring-astra sm:text-sm",
     placeholder: ""
   })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
@@ -10928,39 +10999,45 @@ const WhiteLabelForm = () => {
   }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Astra Theme Branding", "astra")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "mb-6"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", {
-    htmlFor: "theme-name",
+    htmlFor: "theme_name",
     className: "block text-sm font-medium text-slate-600"
   }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Theme Name:", "astra")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "mt-2"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
+    onChange: updateWhitelabelForm,
     type: "text",
-    name: "theme-name",
-    id: "theme-name",
+    value: themeName,
+    name: "theme_name",
+    id: "theme_name",
     className: "ast-admin_input-field h-10 block w-4/5 shadow-sm focus:border-astra focus:ring-astra sm:text-sm",
     placeholder: ""
   }))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "mb-6"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", {
-    htmlFor: "theme-description",
+    htmlFor: "theme_description",
     className: "block text-sm font-medium text-slate-600"
   }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Theme Description:", "astra")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "mt-2"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("textarea", {
-    name: "theme-description",
-    id: "theme-description",
+    name: "theme_description",
+    id: "theme_description",
+    onChange: updateWhitelabelForm,
+    value: themeDescription,
     rows: "4",
     className: "ast-admin_input-field block w-4/5 shadow-sm focus:border-astra focus:ring-astra sm:text-sm"
   }))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: ""
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", {
-    htmlFor: "theme-screenshot",
+    htmlFor: "theme_screenshot_url",
     className: "block text-sm font-medium text-slate-600"
   }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Theme Screenshot URL:", "astra")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "mt-2"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
+    onChange: updateWhitelabelForm,
     type: "text",
-    name: "theme-screenshot",
-    id: "theme-screenshot",
+    value: themeScreenshotURL,
+    name: "theme_screenshot_url",
+    id: "theme_screenshot_url",
     className: "ast-admin_input-field h-10 block w-4/5 shadow-sm focus:border-astra focus:ring-astra sm:text-sm",
     placeholder: ""
   }))))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
@@ -10972,27 +11049,31 @@ const WhiteLabelForm = () => {
   }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Astra Pro Branding", "astra")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "mb-6"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", {
-    htmlFor: "plugin-name",
+    htmlFor: "plugin_name",
     className: "block text-sm font-medium text-slate-600"
   }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Plugin Name:", "astra")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "mt-2"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
+    onChange: updateWhitelabelForm,
     type: "text",
-    name: "plugin-name",
-    id: "plugin-name",
+    value: pluginName,
+    name: "plugin_name",
+    id: "plugin_name",
     className: "ast-admin_input-field h-10 block w-4/5 shadow-sm focus:border-astra focus:ring-astra sm:text-sm",
     placeholder: ""
   }))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: ""
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", {
-    htmlFor: "plugin-description",
+    htmlFor: "plugin_description",
     className: "block text-sm font-medium text-slate-600"
   }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Plugin Description:", "astra")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "mt-2"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
+    onChange: updateWhitelabelForm,
     type: "text",
-    name: "plugin-description",
-    id: "plugin-description",
+    value: pluginDescription,
+    name: "plugin_description",
+    id: "plugin_description",
     className: "ast-admin_input-field h-10 block w-4/5 shadow-sm focus:border-astra focus:ring-astra sm:text-sm",
     placeholder: ""
   }))))));
@@ -11258,20 +11339,70 @@ const globalDataReducer = function () {
         ...state,
         initialStateSetFlag: action.payload
       };
-    case 'UPDATE_BLOCK_STATUSES':
+    case 'UPDATE_ENABLE_LOAD_FONTS_LOCALLY':
       return {
         ...state,
-        blocksStatuses: action.payload
+        enableLoadFontsLocally: action.payload
       };
-    case 'UPDATE_SETTINGS_ACTIVE_NAVIGATION_TAB':
+    case 'UPDATE_ENABLE_PRELOAD_LOCAL_FONTS':
       return {
         ...state,
-        activeSettingsNavigationTab: action.payload
+        enablePreloadLocalFonts: action.payload
+      };
+    case 'UPDATE_ENABLE_WHITE_LABEL':
+      return {
+        ...state,
+        enableWhiteLabel: action.payload
+      };
+    case 'UPDATE_PLUGIN_DESCRIPTION':
+      return {
+        ...state,
+        pluginDescription: action.payload
+      };
+    case 'UPDATE_PLUGIN_NAME':
+      return {
+        ...state,
+        pluginName: action.payload
+      };
+    case 'UPDATE_THEME_SCREENSHOT_URL':
+      return {
+        ...state,
+        themeScreenshotURL: action.payload
+      };
+    case 'UPDATE_THEME_DESCRIPTION':
+      return {
+        ...state,
+        themeDescription: action.payload
+      };
+    case 'UPDATE_THEME_NAME':
+      return {
+        ...state,
+        themeName: action.payload
+      };
+    case 'UPDATE_AGENCY_LICENSE_LINK':
+      return {
+        ...state,
+        agencyLicenseLink: action.payload
+      };
+    case 'UPDATE_AGENCY_AUTHOR_URL':
+      return {
+        ...state,
+        agencyAuthorURL: action.payload
+      };
+    case 'UPDATE_AGENCY_AUTHOR_NAME':
+      return {
+        ...state,
+        agencyAuthorName: action.payload
       };
     case 'UPDATE_FILE_GENERATION':
       return {
         ...state,
         enableFileGeneration: action.payload
+      };
+    case 'UPDATE_SETTINGS_ACTIVE_NAVIGATION_TAB':
+      return {
+        ...state,
+        activeSettingsNavigationTab: action.payload
       };
     case 'UPDATE_TEMPLATES_BUTTON':
       return {
@@ -11293,21 +11424,6 @@ const globalDataReducer = function () {
         ...state,
         selectedFontFamilies: action.payload
       };
-    case 'UPDATE_ENABLE_LOAD_FONTS_LOCALLY':
-      return {
-        ...state,
-        enableLoadFontsLocally: action.payload
-      };
-    case 'UPDATE_ENABLE_PRELOAD_LOCAL_FONTS':
-      return {
-        ...state,
-        enablePreloadLocalFonts: action.payload
-      };
-    case 'UPDATE_ENABLE_COLLAPSE_PANELS':
-      return {
-        ...state,
-        enableCollapsePanels: action.payload
-      };
     case 'UPDATE_ENABLE_COPY_PASTE_STYLES':
       return {
         ...state,
@@ -11317,11 +11433,6 @@ const globalDataReducer = function () {
       return {
         ...state,
         contentWidth: action.payload
-      };
-    case 'UPDATE_RECAPTCHA_SITE_KEY_V2':
-      return {
-        ...state,
-        siteKeyV2: action.payload
       };
     case 'UPDATE_RECAPTCHA_SITE_KEY_V3':
       return {
@@ -11400,31 +11511,17 @@ __webpack_require__.r(__webpack_exports__);
 
 const initialState = {
   initialStateSetFlag: false,
-  activeBlocksFilterTab: 'all',
-  activeSettingsNavigationTab: '',
   enableLoadFontsLocally: false,
   enablePreloadLocalFonts: false,
-  blocksStatuses: [],
-  enableFileGeneration: '',
-  enableTemplates: '',
-  enableBeta: '',
-  selectedFontFamilies: '',
-  enableCollapsePanels: '',
-  enableCopyPasteStyles: '',
-  contentWidth: '',
-  siteKeyV2: '',
-  siteKeyV3: '',
-  secretKeyV2: '',
-  secretKeyV3: '',
-  settingsSavedNotification: '',
-  enableComingSoonMode: 'disabled',
-  comingSoonPage: '',
-  blocksEditorSpacing: '',
-  containerGlobalPadding: '',
-  containerGlobalElementsGap: 20,
-  enableFontAwesome5: 'disabled',
-  enableAutoBlockRecovery: 'disabled',
-  enableLegacyBlocks: 'no'
+  enableWhiteLabel: false,
+  pluginDescription: '',
+  pluginName: '',
+  themeScreenshotURL: '',
+  themeDescription: '',
+  themeName: '',
+  agencyLicenseLink: '',
+  agencyAuthorURL: '',
+  agencyAuthorName: ''
 };
 const globalDataStore = (0,redux__WEBPACK_IMPORTED_MODULE_1__.createStore)(_globalDataReducer__WEBPACK_IMPORTED_MODULE_0__["default"], initialState, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 /* harmony default export */ __webpack_exports__["default"] = (globalDataStore);
@@ -11448,31 +11545,17 @@ const setInitialState = store => {
   }).then(data => {
     const initialState = {
       initialStateSetFlag: true,
-      activeBlocksFilterTab: 'all',
-      activeSettingsNavigationTab: 'global-settings',
-      settingsSavedNotification: '',
-      blocksStatuses: data.blocks_activation_and_deactivation,
-      enableFileGeneration: data._uagb_allow_file_generation,
-      enableTemplates: data.uag_enable_templates_button,
-      enableBeta: data.uagb_beta,
-      enableLegacyBlocks: data.uag_enable_legacy_blocks,
-      selectedFontFamilies: data.uag_select_font_globally,
       enableLoadFontsLocally: data.self_hosted_gfonts,
       enablePreloadLocalFonts: data.preload_local_fonts,
-      enableCollapsePanels: data.uag_collapse_panels,
-      enableCopyPasteStyles: data.uag_copy_paste,
-      contentWidth: data.uag_content_width,
-      siteKeyV2: data.recaptcha_site_key_v2,
-      secretKeyV2: data.recaptcha_secret_key_v2,
-      siteKeyV3: data.recaptcha_site_key_v3,
-      secretKeyV3: data.recaptcha_secret_key_v3,
-      enableComingSoonMode: data.uag_enable_coming_soon_mode,
-      comingSoonPage: data.coming_soon_page,
-      blocksEditorSpacing: data.uag_blocks_editor_spacing,
-      containerGlobalPadding: data.uag_container_global_padding,
-      containerGlobalElementsGap: data.uag_container_global_elements_gap,
-      enableFontAwesome5: data.uag_load_font_awesome_5,
-      enableAutoBlockRecovery: data.uag_auto_block_recovery
+      enableWhiteLabel: data.enable_white_label,
+      pluginDescription: data.plugin_description,
+      pluginName: data.plugin_name,
+      themeScreenshotURL: data.theme_screenshot_url,
+      themeDescription: data.theme_description,
+      themeName: data.theme_name,
+      agencyLicenseLink: data.agency_license_link,
+      agencyAuthorURL: data.agency_author_url,
+      agencyAuthorName: data.agency_author_name
     };
     store.dispatch({
       type: 'UPDATE_INITIAL_STATE',

@@ -9,20 +9,72 @@ const globalDataReducer = ( state = {}, action ) => {
 				...state,
 				initialStateSetFlag: action.payload,
 			};
-		case 'UPDATE_BLOCK_STATUSES':
+		case 'UPDATE_ENABLE_LOAD_FONTS_LOCALLY':
 			return {
 				...state,
-				blocksStatuses: action.payload
+				enableLoadFontsLocally: action.payload,
 			};
-		case 'UPDATE_SETTINGS_ACTIVE_NAVIGATION_TAB':
+		case 'UPDATE_ENABLE_PRELOAD_LOCAL_FONTS':
 			return {
 				...state,
-				activeSettingsNavigationTab: action.payload
+				enablePreloadLocalFonts: action.payload,
+			};
+		case 'UPDATE_ENABLE_WHITE_LABEL':
+			return {
+				...state,
+				enableWhiteLabel: action.payload,
+			};
+		case 'UPDATE_PLUGIN_DESCRIPTION':
+			return {
+					...state,
+					pluginDescription: action.payload,
+				};
+		case 'UPDATE_PLUGIN_NAME':
+			return {
+					...state,
+					pluginName: action.payload,
+				};
+		case 'UPDATE_THEME_SCREENSHOT_URL':
+			return {
+					...state,
+					themeScreenshotURL: action.payload,
+				};
+		case 'UPDATE_THEME_DESCRIPTION':
+			return {
+					...state,
+					themeDescription: action.payload,
+				};
+		case 'UPDATE_THEME_NAME':
+			return {
+					...state,
+					themeName: action.payload,
+				};
+		case 'UPDATE_AGENCY_LICENSE_LINK':
+			return {
+					...state,
+					agencyLicenseLink: action.payload,
+				};
+		case 'UPDATE_AGENCY_AUTHOR_URL':
+			return {
+					...state,
+					agencyAuthorURL: action.payload,
+				};
+		case 'UPDATE_AGENCY_AUTHOR_NAME':
+			return {
+				...state,
+				agencyAuthorName: action.payload
 			};
 		case 'UPDATE_FILE_GENERATION':
 			return {
 				...state,
 				enableFileGeneration: action.payload,
+			};
+
+
+		case 'UPDATE_SETTINGS_ACTIVE_NAVIGATION_TAB':
+			return {
+				...state,
+				activeSettingsNavigationTab: action.payload
 			};
 		case 'UPDATE_TEMPLATES_BUTTON':
 			return {
@@ -44,21 +96,6 @@ const globalDataReducer = ( state = {}, action ) => {
 				...state,
 				selectedFontFamilies: action.payload,
 			};
-		case 'UPDATE_ENABLE_LOAD_FONTS_LOCALLY':
-			return {
-				...state,
-				enableLoadFontsLocally: action.payload,
-			};
-		case 'UPDATE_ENABLE_PRELOAD_LOCAL_FONTS':
-			return {
-				...state,
-				enablePreloadLocalFonts: action.payload,
-			};
-		case 'UPDATE_ENABLE_COLLAPSE_PANELS':
-			return {
-				...state,
-				enableCollapsePanels: action.payload,
-			};
 		case 'UPDATE_ENABLE_COPY_PASTE_STYLES':
 			return {
 				...state,
@@ -68,11 +105,6 @@ const globalDataReducer = ( state = {}, action ) => {
 			return {
 				...state,
 				contentWidth: action.payload,
-				};
-		case 'UPDATE_RECAPTCHA_SITE_KEY_V2':
-			return {
-					...state,
-					siteKeyV2: action.payload,
 				};
 		case 'UPDATE_RECAPTCHA_SITE_KEY_V3':
 			return {

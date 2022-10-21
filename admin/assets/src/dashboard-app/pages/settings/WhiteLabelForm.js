@@ -1,6 +1,78 @@
 import { __ } from "@wordpress/i18n";
+import { useSelector, useDispatch } from 'react-redux';
+import apiFetch from '@wordpress/api-fetch';
 
 const WhiteLabelForm = () => {
+
+	const dispatch = useDispatch();
+	const agencyAuthorName = useSelector( ( state ) => state.agencyAuthorName );
+	const agencyLicenseLink = useSelector( ( state ) => state.agencyLicenseLink );
+	const agencyAuthorURL = useSelector( ( state ) => state.agencyAuthorURL );
+	const themeName = useSelector( ( state ) => state.themeName );
+	const themeDescription = useSelector( ( state ) => state.themeDescription );
+	const themeScreenshotURL = useSelector( ( state ) => state.themeScreenshotURL );
+	const pluginName = useSelector( ( state ) => state.pluginName );
+	const pluginDescription = useSelector( ( state ) => state.pluginDescription );
+
+	const updateWhitelabelForm = ( e ) => {
+		let value = e.target.value;
+		let name = e.target.name;
+		let type = '';
+
+		switch (name) {
+			case 'plugin_description':
+				type = 'UPDATE_PLUGIN_DESCRIPTION';
+				break;
+
+			case 'plugin_name':
+				type = 'UPDATE_PLUGIN_NAME';
+				break;
+
+			case 'theme_screenshot_url':
+				type = 'UPDATE_THEME_SCREENSHOT_URL';
+				break;
+
+			case 'theme_description':
+				type = 'UPDATE_THEME_DESCRIPTION';
+				break;
+
+			case 'theme_name':
+				type = 'UPDATE_THEME_NAME';
+				break;
+
+			case 'agency_license_link':
+				type = 'UPDATE_AGENCY_LICENSE_LINK';
+				break;
+
+			case 'agency_author_url':
+				type = 'UPDATE_AGENCY_AUTHOR_URL';
+				break;
+
+			case 'agency_author_name':
+				type = 'UPDATE_AGENCY_AUTHOR_NAME';
+				break;
+
+			default:
+				break;
+		}
+
+		dispatch( {type: type, payload: value } );
+		const formData = new window.FormData();
+
+		formData.append( 'action', 'astra_update_admin_setting' );
+		formData.append( 'security', astra_admin.update_nonce );
+		formData.append( 'key', name );
+		formData.append( 'value', value );
+
+		apiFetch( {
+			url: astra_admin.ajax_url,
+			method: 'POST',
+			body: formData,
+		} ).then( () => {
+			dispatch( {type: 'UPDATE_SETTINGS_SAVED_NOTIFICATION', payload: 'Successfully saved!' } );
+		} );
+	};
+
 	return (
 		<section>
 			{/* Agency Detail Section */}
@@ -11,16 +83,18 @@ const WhiteLabelForm = () => {
 					</h3>
 					<div className="mb-6">
 						<label
-							htmlFor="author-name"
+							htmlFor="agency_author_name"
 							className="block text-sm font-medium text-slate-600"
 						>
 							{__("Agency author name:", "astra")}
 						</label>
 						<div className="mt-2">
 							<input
+								onChange={ updateWhitelabelForm }
+								value={ agencyAuthorName }
 								type="text"
-								name="author-name"
-								id="author-name"
+								name="agency_author_name"
+								id="agency_author_name"
 								className="ast-admin_input-field h-10 block w-4/5 shadow-sm focus:border-astra focus:ring-astra sm:text-sm"
 								placeholder=""
 							/>
@@ -28,16 +102,18 @@ const WhiteLabelForm = () => {
 					</div>
 					<div className="mb-6">
 						<label
-							htmlFor="author-url"
+							htmlFor="agency_author_url"
 							className="block text-sm font-medium text-slate-600"
 						>
 							{__("Agency author URL:", "astra")}
 						</label>
 						<div className="mt-2">
 							<input
+								onChange={ updateWhitelabelForm }
 								type="text"
-								name="author-url"
-								id="author-url"
+								value={ agencyAuthorURL }
+								name="agency_author_url"
+								id="agency_author_url"
 								className="ast-admin_input-field h-10 block w-4/5 shadow-sm focus:border-astra focus:ring-astra sm:text-sm"
 								placeholder=""
 							/>
@@ -45,16 +121,18 @@ const WhiteLabelForm = () => {
 					</div>
 					<div className="">
 						<label
-							htmlFor="author-license"
+							htmlFor="agency_license_link"
 							className="block text-sm font-medium text-slate-600"
 						>
 							{__("Agency license link:", "astra")}
 						</label>
 						<div className="mt-2">
 							<input
+								onChange={ updateWhitelabelForm }
 								type="text"
-								name="author-license"
-								id="author-license"
+								value={ agencyLicenseLink }
+								name="agency_license_link"
+								id="agency_license_link"
 								className="ast-admin_input-field h-10 block w-4/5 shadow-sm focus:border-astra focus:ring-astra sm:text-sm"
 								placeholder=""
 							/>
@@ -76,16 +154,18 @@ const WhiteLabelForm = () => {
 					</h3>
 					<div className="mb-6">
 						<label
-							htmlFor="theme-name"
+							htmlFor="theme_name"
 							className="block text-sm font-medium text-slate-600"
 						>
 							{__("Theme Name:", "astra")}
 						</label>
 						<div className="mt-2">
 							<input
+								onChange={ updateWhitelabelForm }
 								type="text"
-								name="theme-name"
-								id="theme-name"
+								value={ themeName }
+								name="theme_name"
+								id="theme_name"
 								className="ast-admin_input-field h-10 block w-4/5 shadow-sm focus:border-astra focus:ring-astra sm:text-sm"
 								placeholder=""
 							/>
@@ -93,15 +173,17 @@ const WhiteLabelForm = () => {
 					</div>
 					<div className="mb-6">
 						<label
-							htmlFor="theme-description"
+							htmlFor="theme_description"
 							className="block text-sm font-medium text-slate-600"
 						>
 							{__("Theme Description:", "astra")}
 						</label>
 						<div className="mt-2">
 							<textarea
-								name="theme-description"
-								id="theme-description"
+								name="theme_description"
+								id="theme_description"
+								onChange={ updateWhitelabelForm }
+								value={ themeDescription }
 								rows="4"
 								className="ast-admin_input-field block w-4/5 shadow-sm focus:border-astra focus:ring-astra sm:text-sm"
 							></textarea>
@@ -109,16 +191,18 @@ const WhiteLabelForm = () => {
 					</div>
 					<div className="">
 						<label
-							htmlFor="theme-screenshot"
+							htmlFor="theme_screenshot_url"
 							className="block text-sm font-medium text-slate-600"
 						>
 							{__("Theme Screenshot URL:", "astra")}
 						</label>
 						<div className="mt-2">
 							<input
+								onChange={ updateWhitelabelForm }
 								type="text"
-								name="theme-screenshot"
-								id="theme-screenshot"
+								value={ themeScreenshotURL }
+								name="theme_screenshot_url"
+								id="theme_screenshot_url"
 								className="ast-admin_input-field h-10 block w-4/5 shadow-sm focus:border-astra focus:ring-astra sm:text-sm"
 								placeholder=""
 							/>
@@ -134,16 +218,18 @@ const WhiteLabelForm = () => {
 					</h3>
 					<div className="mb-6">
 						<label
-							htmlFor="plugin-name"
+							htmlFor="plugin_name"
 							className="block text-sm font-medium text-slate-600"
 						>
 							{__("Plugin Name:", "astra")}
 						</label>
 						<div className="mt-2">
 							<input
+								onChange={ updateWhitelabelForm }
 								type="text"
-								name="plugin-name"
-								id="plugin-name"
+								value={ pluginName }
+								name="plugin_name"
+								id="plugin_name"
 								className="ast-admin_input-field h-10 block w-4/5 shadow-sm focus:border-astra focus:ring-astra sm:text-sm"
 								placeholder=""
 							/>
@@ -151,16 +237,18 @@ const WhiteLabelForm = () => {
 					</div>
 					<div className="">
 						<label
-							htmlFor="plugin-description"
+							htmlFor="plugin_description"
 							className="block text-sm font-medium text-slate-600"
 						>
 							{__("Plugin Description:", "astra")}
 						</label>
 						<div className="mt-2">
 							<input
+								onChange={ updateWhitelabelForm }
 								type="text"
-								name="plugin-description"
-								id="plugin-description"
+								value={ pluginDescription }
+								name="plugin_description"
+								id="plugin_description"
 								className="ast-admin_input-field h-10 block w-4/5 shadow-sm focus:border-astra focus:ring-astra sm:text-sm"
 								placeholder=""
 							/>

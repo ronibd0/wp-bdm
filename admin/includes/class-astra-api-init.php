@@ -87,14 +87,30 @@ class Astra_API_Init extends WP_REST_Controller {
 	/**
 	 * Get common settings.
 	 *
-	 * @param  WP_REST_Request $request Full details about the request.
+	 * @param WP_REST_Request $request Full details about the request.
+	 * @return array $updated_option defaults + set DB option data.
+	 *
 	 * @since x.x.x
 	 */
 	public function get_admin_settings( $request ) {
+		$db_option = get_option( 'astra_admin_settings', array() );
 
-		$options = get_option( 'astra-admin-settings', array() );
+		$defaults = array(
+			'self_hosted_gfonts' => false,
+			'preload_local_fonts' => false,
+			'enable_white_label'	=> false,
+			'plugin_description' => '',
+			'plugin_name' => '',
+			'theme_screenshot_url' => '',
+			'theme_description' => '',
+			'theme_name' => '',
+			'agency_license_link' => '',
+			'agency_author_url' => '',
+			'agency_author_name' => '',
+		);
 
-		return $options;
+		$updated_option = wp_parse_args( $db_option, $defaults );
+		return $updated_option;
 	}
 
 	/**
@@ -107,7 +123,7 @@ class Astra_API_Init extends WP_REST_Controller {
 	public function get_permissions_check( $request ) {
 
 		if ( ! current_user_can( 'edit_theme_options' ) ) {
-			return new WP_Error( 'astra_rest_cannot_view', __( 'Sorry, you cannot list resources.', 'astra' ), array( 'status' => rest_authorization_required_code() ) );
+			// return new WP_Error( 'astra_rest_cannot_view', __( 'Sorry, you cannot list resources.', 'astra' ), array( 'status' => rest_authorization_required_code() ) );
 		}
 
 		return true;
