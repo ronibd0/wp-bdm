@@ -635,7 +635,7 @@ function astra_load_preload_local_fonts( $url, $format = 'woff2' ) {
 		$font_format = apply_filters( 'astra_local_google_fonts_format', $format );
 		foreach ( $astra_local_font_files as $key => $local_font ) {
 			if ( $local_font ) {
-				echo '<link rel="preload" href="' . esc_url( $local_font ) . '" as="font" type="font/' . esc_attr( $font_format ) . '" crossorigin>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+				echo '<link rel="preload" href="' . esc_url( $local_font ) . '" as="font" type="font/' . esc_attr( $font_format ) . '" crossorigin>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Preparing HTML link tag.
 			}
 		}
 		return;
