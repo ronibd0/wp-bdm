@@ -1084,4 +1084,11 @@ function astra_theme_background_updater_3_9_3() {
 		);
 		update_option( 'astra-settings', $theme_options );
 	}
+
+	// Spectra Gutenberg compatibility - backwards compatibility flag.
+	if ( ! isset( $theme_options['ast-spect-compatibility'] ) ) {
+		$theme_options['list-blocks-spacing'] = false;
+		update_option( 'astra-settings', $theme_options );
+	}
+
 }
