@@ -186,6 +186,7 @@ function astra_load_modern_block_editor_ui( $dynamic_css ) {
 	$astra_block_editor_v2_ui = astra_get_option( 'wp-blocks-v2-ui', true );
 	$ast_container_width      = astra_get_option( 'site-content-width', 1200 ) . 'px';
 	$blocks_spacings          = Astra_WP_Editor_CSS::astra_get_block_spacings();
+	$list_blocks_space           = astra_get_option( 'list-blocks-spacing', true );
 
 	/** @psalm-suppress InvalidCast */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 	$tablet_breakpoint = (string) astra_get_tablet_breakpoint();
@@ -460,6 +461,18 @@ function astra_load_modern_block_editor_ui( $dynamic_css ) {
 			}
 		}
 	';
+	
+	/* Astra Spectra Gutenberg compatibility css. */
+	if ( $list_blocks_space ) {
+
+		// List bullets alignment with page container.
+		$dynamic_css .= '
+			.entry-content[ast-blocks-layout] > ul, .entry-content[ast-blocks-layout] > ol {
+				margin-' . esc_attr( $ltr_left ) . ': 1em;
+			}
+		';
+
+	}
 
 	return $dynamic_css;
 }
