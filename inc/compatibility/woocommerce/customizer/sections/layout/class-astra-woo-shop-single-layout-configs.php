@@ -629,7 +629,7 @@ if ( ! class_exists( 'Astra_Woo_Shop_Single_Layout_Configs' ) ) {
 				'disable'  => false,
 				'input_attrs' => array(
 					'text_control_label'       => 'Payment Title',
-					'text_control_placeholder' => 'Add payment title'
+					'text_control_placeholder' => 'Add payment title',
 				),
 			);
 
