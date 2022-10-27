@@ -342,6 +342,7 @@
   text-transform: none;
   color: #334155;
   font-size: 13px;
+  margin-bottom: 20px;
 }
 
 .components-base-control.ast-text-control-input input {
