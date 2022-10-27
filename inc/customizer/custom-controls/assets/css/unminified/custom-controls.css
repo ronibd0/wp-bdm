@@ -3530,6 +3530,9 @@ span.customize-control-title.ast-group-section-title {
   text-transform: none;
   color: #334155;
   font-size: 13px;
+}
+
+.components-base-control.ast-payments-text-control-input {
   margin-bottom: 20px;
 }
 

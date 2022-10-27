@@ -4884,6 +4884,10 @@ span.customize-control-title.ast-group-section-title {
   font-size: 13px;
 }
 
+.components-base-control > .ast-payments-text-control-input {
+  margin-bottom: 20px;
+}
+
 .components-base-control.ast-text-control-input input {
   border-color: var(--ast-customizer-color-7);
   color: var(--ast-customizer-color-5);
@@ -7730,6 +7734,9 @@ span.customize-control-title.ast-group-section-title {
   text-transform: none;
   color: #334155;
   font-size: 13px;
+}
+
+.components-base-control.ast-payments-text-control-input {
   margin-bottom: 20px;
 }
 
