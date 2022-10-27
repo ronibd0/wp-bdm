@@ -16,7 +16,7 @@ v3.9.3 (Unreleased)
 - Fix: Woocommerce - Cart icon size is not working on starter template site.
 - Fix: Top border showing up for related post section on single post when Boxed & Content Boxed layout is active.
 - Fix: Editor - External toggle controls reverse their direction due to theme's CSS.
-- Fix: Full Width/Stretched Layout is showing extra padding above in the Transparent Header.
+- Fix: Full Width/Contained layout Layout is showing extra padding above in the Transparent Header.
 
 v3.9.2
 - Improvement: WooCommerce - Admin bar's customize link updated on WooCommerce pages for quick landing to it's respected customizer section.
