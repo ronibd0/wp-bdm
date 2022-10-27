@@ -1073,6 +1073,7 @@ function astra_theme_background_updater_3_9_3() {
 		update_option( 'astra-settings', $theme_options );
 	}
 
+	// Slide in cart width responsive control backwards compatibility.
 	if ( isset( $theme_options['woo-desktop-cart-flyout-width'] ) && ! isset( $theme_options['woo-slide-in-cart-width'] ) ) {
 		$theme_options['woo-slide-in-cart-width'] = array(
 			'desktop'      => $theme_options['woo-desktop-cart-flyout-width'],
@@ -1085,9 +1086,9 @@ function astra_theme_background_updater_3_9_3() {
 		update_option( 'astra-settings', $theme_options );
 	}
 
-	// Spectra Gutenberg compatibility - backwards compatibility flag.
-	if ( ! isset( $theme_options['ast-spect-compatibility'] ) ) {
-		$theme_options['list-blocks-spacing'] = false;
+	// Astra Spectra Gutenberg Compatibility CSS.
+	if ( ! isset( $theme_options['spectra-gutenberg-compat-css'] ) ) {
+		$theme_options['spectra-gutenberg-compat-css'] = false;
 		update_option( 'astra-settings', $theme_options );
 	}
 
