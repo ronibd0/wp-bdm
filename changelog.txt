@@ -16,6 +16,7 @@ v3.9.3 (Unreleased)
 - Fix: Woocommerce - Cart icon size is not working on starter template site.
 - Fix: Top border showing up for related post section on single post when Boxed & Content Boxed layout is active.
 - Fix: Margin being added to the Full Width/Stretched Layout when title is disabled.
+- Fix: Footer - Divider element is not showing in the customizer.
 - Fix: Editor - External toggle controls reverse their direction due to theme's CSS.
 
 v3.9.2
