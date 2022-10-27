@@ -626,7 +626,11 @@ if ( ! class_exists( 'Astra_Woo_Shop_Single_Layout_Configs' ) ) {
 				'section'  => 'section-woo-shop-single',
 				'priority' => 10,
 				'divider'  => array( 'ast_class' => 'ast-bottom-divider' ),
-				'disable'  => true,
+				'disable'  => false,
+				'input_attrs' => array(
+					'text_control_label'       => 'Payment Title',
+					'text_control_placeholder' => 'Add payment title'
+				),
 			);
 
 			/**
