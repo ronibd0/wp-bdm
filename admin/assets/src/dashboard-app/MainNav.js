@@ -1,32 +1,34 @@
 import { Disclosure } from '@headlessui/react'
+import { applyFilters } from '@wordpress/hooks';
 import { Link, useLocation } from 'react-router-dom';
 import { __ } from '@wordpress/i18n';
 import ChangeLogPopup from './ChangeLogPopup';
 
 export default function MainNav() {
 
-	const menus = [
-		{
-			name: __( 'Welcome', 'astra' ),
-			slug: astra_admin.home_slug,
-			path: '',
-		},
-		{
-			name: __( 'Settings', 'astra' ),
-			slug: astra_admin.home_slug,
-			path: 'settings',
-		},
-		{
-			name: __( 'Starter Templates', 'astra' ),
-			slug: astra_admin.home_slug,
-			path: 'starter-templates',
-		},
-		{
-			name: __( 'Free vs Pro', 'astra' ),
-			slug: astra_admin.home_slug,
-			path: 'free-vs-pro',
-		},
-	];
+	const menus = applyFilters( 'astra_dashboard/main_navigation', [
+			{
+				name: __( 'Welcome', 'astra' ),
+				slug: astra_admin.home_slug,
+				path: '',
+			},
+			{
+				name: __( 'Settings', 'astra' ),
+				slug: astra_admin.home_slug,
+				path: 'settings',
+			},
+			{
+				name: __( 'Starter Templates', 'astra' ),
+				slug: astra_admin.home_slug,
+				path: 'starter-templates',
+			},
+			{
+				name: __( 'Free vs Pro', 'astra' ),
+				slug: astra_admin.home_slug,
+				path: 'free-vs-pro',
+			},
+		]
+	);
 
   const query = new URLSearchParams( useLocation()?.search );
 	const activePage = query.get( 'page' )

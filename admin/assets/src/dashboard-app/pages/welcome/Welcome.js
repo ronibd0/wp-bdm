@@ -102,12 +102,14 @@ const Welcome = () => {
 							<div className="p-[2rem] rounded-md bg-white overflow-hidden shadow-sm flex flex-col justify-center h-full">
 								<div className="relative w-full lg:flex lg:items-center lg:justify-between">
 									<span className='font-semibold text-xl leading-6 text-slate-800'> {__( 'Do more with Astra Pro Modules', 'astra' )} </span>
-									<a className='lg:flex-shrink-0 text-sm font-medium text-astra focus:text-astra focus-visible:text-astra-hover active:text-astra-hover hover:text-astra-hover no-underline' href={ astra_admin.customize_url } target='_self' rel="noreferrer">
-										{ __(
-											'Upgrade Now',
-											'astra'
-										) }
-									</a>
+									{
+										! astra_admin.pro_available && <a className='lg:flex-shrink-0 text-sm font-medium text-astra focus:text-astra focus-visible:text-astra-hover active:text-astra-hover hover:text-astra-hover no-underline' href={ astra_admin.upgrade_url } target='_blank' rel="noreferrer">
+											{ __(
+												'Upgrade Now',
+												'astra'
+											) }
+										</a>
+									}
 								</div>
 
 								<ProModules />

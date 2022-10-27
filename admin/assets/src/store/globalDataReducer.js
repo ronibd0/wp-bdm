@@ -1,5 +1,8 @@
+import { applyFilters } from '@wordpress/hooks';
+
 const globalDataReducer = ( state = {}, action ) => {
-	switch ( action.type ) {
+	let actionType = applyFilters( 'astra_dashboard/data_reducer_action', action.type );
+	switch ( actionType ) {
 		case 'UPDATE_INITIAL_STATE':
 			return {
 				...action.payload,
@@ -78,6 +81,16 @@ const globalDataReducer = ( state = {}, action ) => {
 			return {
 				...state,
 				enableBeta: action.payload,
+			};
+		case 'USE_OLD_HEADER_FOOTER':
+			return {
+				...state,
+				useOldHeaderFooter: action.payload,
+			};
+		case 'UPGRADE_NOTICES':
+			return {
+				...state,
+				useUpgradeNotices: action.payload,
 			};
 		case 'UPDATE_SETTINGS_SAVED_NOTIFICATION':
 			return {

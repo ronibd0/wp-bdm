@@ -1,3 +1,4 @@
+import { __ } from '@wordpress/i18n';
 import React from "react";
 
 const ToolTip = () => {
@@ -8,7 +9,7 @@ const ToolTip = () => {
 				role="tooltip"
 				className="inline-block z-10 py-1 px-3 text-[0.75rem] leading-[0.75rem] text-white bg-slate-800 rounded-sm shadow-sm opacity-1 tooltip"
 			>
-				This option only available on Astra Pro
+				{ __( 'This option only available on Astra Pro', 'astra' ) }
 			</div>
 			<div
 				className="ml-auto w-2 h-2 flex -mt-1 rotate-45 bg-slate-800 mr-4 overflow-hidden"

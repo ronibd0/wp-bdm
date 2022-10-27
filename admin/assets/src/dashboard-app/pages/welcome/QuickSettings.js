@@ -1,59 +1,74 @@
 import { __ } from '@wordpress/i18n';
+import { applyFilters } from '@wordpress/hooks';
 const classNames = ( ...classes ) => ( classes.filter( Boolean ).join( ' ' ) );
 
 const QuickSettings = () => {
 
-	const AllQuickLinks = [
-		{
-			name: __( 'Site Identity', 'astra' ),
-			section: astra_admin.customize_url + '?autofocus[control]=custom_logo',
-			isPro: false,
-		},
-		{
-			name: __( 'Color', 'astra' ),
-			section: astra_admin.customize_url + '?autofocus[section]=section-colors-background',
-			isPro: false,
-		},
-		{
-			name: __( 'Typography', 'astra' ),
-			section: astra_admin.customize_url + '?autofocus[section]=section-typography',
-			isPro: false,
-		},
-		{
-			name: __( 'Button', 'astra' ),
-			section: astra_admin.customize_url + '?autofocus[section]=section-buttons',
-			isPro: false,
-		},
-		{
-			name: __( 'Header Builder', 'astra' ),
-			section: astra_admin.customize_url + '?autofocus[section]=section-header-builder-layout',
-			isPro: false,
-		},
-		{
-			name: __( 'Layout', 'astra' ),
-			section: astra_admin.customize_url + '?autofocus[section]=section-container-layout',
-			isPro: false,
-		},
-		{
-			name: __( 'Blog Options', 'astra' ),
-			section: astra_admin.admin_base_url + 'nav-menus.php',
-			isPro: false,
-		},
-		{
-			name: __( 'Menus', 'astra' ),
-			section: astra_admin.admin_url + '?page=' + astra_admin.home_slug + '&path=settings',
-			isPro: false,
-		},
-		{
-			name: __( 'Footer Builder', 'astra' ),
-			section: astra_admin.customize_url + '?autofocus[panel]=woocommerce',
-			isPro: false,
-		},
-	];
+	const AllQuickLinks = applyFilters( 'astra_admin_quick_settings', [
+			{
+				name: __( 'Site Identity', 'astra' ),
+				section: astra_admin.customize_url + '?autofocus[control]=custom_logo',
+				isPro: false,
+			},
+			{
+				name: __( 'Color', 'astra' ),
+				section: astra_admin.customize_url + '?autofocus[section]=section-colors-background',
+				isPro: false,
+			},
+			{
+				name: __( 'Typography', 'astra' ),
+				section: astra_admin.customize_url + '?autofocus[section]=section-typography',
+				isPro: false,
+			},
+			{
+				name: __( 'Button', 'astra' ),
+				section: astra_admin.customize_url + '?autofocus[section]=section-buttons',
+				isPro: false,
+			},
+			{
+				name: __( 'Header Builder', 'astra' ),
+				section: astra_admin.customize_url + '?autofocus[section]=section-header-builder-layout',
+				isPro: false,
+			},
+			{
+				name: __( 'Layout', 'astra' ),
+				section: astra_admin.customize_url + '?autofocus[section]=section-container-layout',
+				isPro: false,
+			},
+			{
+				name: __( 'Blog Options', 'astra' ),
+				section: astra_admin.admin_base_url + 'nav-menus.php',
+				isPro: false,
+			},
+			{
+				name: __( 'Menus', 'astra' ),
+				section: astra_admin.admin_url + '?page=' + astra_admin.home_slug + '&path=settings',
+				isPro: false,
+			},
+			{
+				name: __( 'Footer Builder', 'astra' ),
+				section: astra_admin.customize_url + '?autofocus[panel]=woocommerce',
+				isPro: false,
+			}
+		]
+	);
+
+	const onQuickSettingTrigger = ( sectionLink ) => {
+		window.open(
+			sectionLink,
+			'_self'
+		);
+	};
 
 	const renderBlockCards = AllQuickLinks.map( ( block, index ) => {
 		return <div
 			key={index}
+			data-redirection_link={block.section}
+			onClick={() =>
+				onQuickSettingTrigger(
+					block.section
+				)
+			}
 			className={ classNames(
 				block.isPro
 				? 'bg-slate-50'

@@ -67,7 +67,13 @@ class Astra_Admin_Ajax {
 			'default'    => __( 'Sorry, something went wrong.', 'astra' ),
 			'invalid'    => __( 'No post data found!', 'astra' ),
 		);
+
+		add_action( 'wp_ajax_ast_disable_pro_notices', array( $this, 'disable_astra_pro_notices' ) );
+		add_action( 'wp_ajax_astra_recommended_plugin_install' , 'wp_ajax_install_plugin' );
+		add_action( 'wp_ajax_ast_migrate_to_builder', array( $this, 'migrate_to_builder' ) );
 		add_action( 'wp_ajax_astra_update_admin_setting', array( $this, 'astra_update_admin_setting' ) );
+		add_action( 'wp_ajax_astra_recommended_plugin_activate', array( $this, 'required_plugin_activate' ) );
+		add_action( 'wp_ajax_astra_recommended_plugin_deactivate', array( $this, 'required_plugin_deactivate' ) );
 	}
 
 	/**
@@ -79,20 +85,97 @@ class Astra_Admin_Ajax {
 	public function astra_admin_settings_typewise() {
 		return apply_filters( 'astra_admin_settings_datatypes',
 			array(
-				'self_hosted_gfonts' => 'bool',
-				'preload_local_fonts' => 'bool',
-				'enable_white_label'	=> 'bool',
-				'enable_beta' => 'bool',
-				'plugin_description' => 'string',
-				'plugin_name' => 'string',
-				'theme_screenshot_url' => 'string',
-				'theme_description' => 'string',
-				'theme_name' => 'string',
-				'agency_license_link' => 'string',
-				'agency_author_url' => 'string',
-				'agency_author_name' => 'string',
+				'self_hosted_gfonts' 		=> 'bool',
+				'preload_local_fonts' 		=> 'bool',
+				'enable_white_label'		=> 'bool',
+				'use_old_header_footer'     => 'bool',
+				'enable_beta' 				=> 'string',
+				'enable_file_generation' 	=> 'string',
+				'plugin_description' 		=> 'string',
+				'plugin_name' 				=> 'string',
+				'theme_screenshot_url' 		=> 'string',
+				'theme_description' 		=> 'string',
+				'theme_name' 				=> 'string',
+				'agency_license_link' 		=> 'string',
+				'agency_author_url' 		=> 'string',
+				'agency_author_name' 		=> 'string',
 			)
 		);
+	}
+
+	/**
+	 * Disable pro upgrade notice from all over in Astra.
+	 *
+	 * @since x.x.x
+	 */
+	public function disable_astra_pro_notices() {
+
+		$response_data = array( 'messsage' => $this->get_error_msg( 'permission' ) );
+
+		if ( ! current_user_can( 'manage_options' ) ) {
+			wp_send_json_error( $response_data );
+		}
+
+		if ( empty( $_POST ) ) {
+			$response_data = array( 'messsage' => $this->get_error_msg( 'invalid' ) );
+			wp_send_json_error( $response_data );
+		}
+
+		/**
+		 * Nonce verification.
+		 */
+		if ( ! check_ajax_referer( 'astra_update_admin_setting', 'security', false ) ) {
+			$response_data = array( 'messsage' => $this->get_error_msg( 'nonce' ) );
+			wp_send_json_error( $response_data );
+		}
+
+		if ( ! current_user_can( 'manage_options' ) ) {
+			wp_send_json_error( __( 'You don\'t have the access', 'astra' ) );
+		}
+
+		$migrate = isset( $_POST['status'] ) ? sanitize_key( $_POST['status'] ) : '';
+		$migrate = ( $migrate ) ? true : false;
+		astra_update_option( 'ast-disable-upgrade-notices', $migrate );
+
+		wp_send_json_success();
+	}
+
+	/**
+	 * Migrate to New Header Builder
+	 */
+	public function migrate_to_builder() {
+
+		$response_data = array( 'messsage' => $this->get_error_msg( 'permission' ) );
+
+		if ( ! current_user_can( 'manage_options' ) ) {
+			wp_send_json_error( $response_data );
+		}
+
+		if ( empty( $_POST ) ) {
+			$response_data = array( 'messsage' => $this->get_error_msg( 'invalid' ) );
+			wp_send_json_error( $response_data );
+		}
+
+		/**
+		 * Nonce verification.
+		 */
+		if ( ! check_ajax_referer( 'astra_update_admin_setting', 'security', false ) ) {
+			$response_data = array( 'messsage' => $this->get_error_msg( 'nonce' ) );
+			wp_send_json_error( $response_data );
+		}
+
+		$migrate = isset( $_POST['status'] ) ? sanitize_key( $_POST['status'] ) : '';
+		$migrate = ( $migrate ) ? true : false;
+		/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+		$migration_flag = astra_get_option( 'v3-option-migration', false );
+		astra_update_option( 'is-header-footer-builder', $migrate );
+
+		if ( $migrate && false === $migration_flag ) {
+			require_once ASTRA_THEME_DIR . 'inc/theme-update/astra-builder-migration-updater.php';  // phpcs:ignore WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
+			astra_header_builder_migration();
+		}
+
+		wp_send_json_success();
 	}
 
 	/**
@@ -157,6 +240,118 @@ class Astra_Admin_Ajax {
 		}
 
 		return $this->errors[ $type ];
+	}
+
+	/**
+	 * Required Plugin Activate
+	 *
+	 * @since 1.2.4
+	 */
+	public function required_plugin_activate() {
+
+		$response_data = array( 'messsage' => $this->get_error_msg( 'permission' ) );
+
+		if ( ! current_user_can( 'manage_options' ) ) {
+			wp_send_json_error( $response_data );
+		}
+
+		if ( empty( $_POST ) ) {
+			$response_data = array( 'messsage' => $this->get_error_msg( 'invalid' ) );
+			wp_send_json_error( $response_data );
+		}
+
+		/**
+		 * Nonce verification.
+		 */
+		if ( ! check_ajax_referer( 'astra_plugin_manager_nonce', 'security', false ) ) {
+			$response_data = array( 'messsage' => $this->get_error_msg( 'nonce' ) );
+			wp_send_json_error( $response_data );
+		}
+
+		if ( ! current_user_can( 'install_plugins' ) || ! isset( $_POST['init'] ) || ! sanitize_text_field( wp_unslash( $_POST['init'] ) ) ) {
+			wp_send_json_error(
+				array(
+					'success' => false,
+					'message' => __( 'No plugin specified', 'astra' ),
+				)
+			);
+		}
+
+		$plugin_init = ( isset( $_POST['init'] ) ) ? sanitize_text_field( wp_unslash( $_POST['init'] ) ) : '';
+
+		$activate = activate_plugin( $plugin_init, '', false, true );
+
+		if ( is_wp_error( $activate ) ) {
+			wp_send_json_error(
+				array(
+					'success' => false,
+					'message' => $activate->get_error_message(),
+				)
+			);
+		}
+
+		wp_send_json_success(
+			array(
+				'success' => true,
+				'message' => __( 'Plugin Successfully Activated', 'astra' ),
+			)
+		);
+	}
+
+	/**
+	 * Required Plugin Activate
+	 *
+	 * @since 1.2.4
+	 */
+	public function required_plugin_deactivate() {
+
+		$response_data = array( 'messsage' => $this->get_error_msg( 'permission' ) );
+
+		if ( ! current_user_can( 'manage_options' ) ) {
+			wp_send_json_error( $response_data );
+		}
+
+		if ( empty( $_POST ) ) {
+			$response_data = array( 'messsage' => $this->get_error_msg( 'invalid' ) );
+			wp_send_json_error( $response_data );
+		}
+
+		/**
+		 * Nonce verification.
+		 */
+		if ( ! check_ajax_referer( 'astra_plugin_manager_nonce', 'security', false ) ) {
+			$response_data = array( 'messsage' => $this->get_error_msg( 'nonce' ) );
+			wp_send_json_error( $response_data );
+		}
+
+		if ( ! current_user_can( 'install_plugins' ) || ! isset( $_POST['init'] ) || ! sanitize_text_field( wp_unslash( $_POST['init'] ) ) ) {
+			wp_send_json_error(
+				array(
+					'success' => false,
+					'message' => __( 'No plugin specified', 'astra' ),
+				)
+			);
+		}
+
+		$plugin_init = ( isset( $_POST['init'] ) ) ? sanitize_text_field( wp_unslash( $_POST['init'] ) ) : '';
+
+		$deactivate = deactivate_plugins( $plugin_init, '', false );
+
+		if ( is_wp_error( $deactivate ) ) {
+			wp_send_json_error(
+				array(
+					'success' => false,
+					'message' => $deactivate->get_error_message(),
+				)
+			);
+		}
+
+		wp_send_json_success(
+			array(
+				'success' => true,
+				'message' => __( 'Plugin Successfully Deactivated', 'astra' ),
+			)
+		);
 	}
 }
 

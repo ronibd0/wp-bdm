@@ -6,7 +6,7 @@
 
 (function($){
 
-	AstraThemeAdmin = {
+	AstraAdminDashboardApp = {
 
 		init: function()
 		{
@@ -22,15 +22,16 @@
 		 */
 		_bind: function()
 		{
-			$( document ).on('ast-after-plugin-active', AstraThemeAdmin._disableActivcationNotice );
-			$( document ).on('click' , '.astra-install-recommended-plugin', AstraThemeAdmin._installNow );
-			$( document ).on('click' , '.astra-activate-recommended-plugin', AstraThemeAdmin._activatePlugin);
-			$( document ).on('click' , '.astra-deactivate-recommended-plugin', AstraThemeAdmin._deactivatePlugin);
-			$( document ).on('wp-plugin-install-success' , AstraThemeAdmin._activatePlugin);
-			$( document ).on('wp-plugin-install-error'   , AstraThemeAdmin._installError);
-			$( document ).on('wp-plugin-installing'      , AstraThemeAdmin._pluginInstalling);
-			$( document ).on('click', '.ast-builder-migrate', AstraThemeAdmin._migrate );
-			$( document ).on('click', '.ast-disable-notices', AstraThemeAdmin._disableNotices );
+			$( document ).on('click' , '.astra-activate-recommended-plugin', AstraAdminDashboardApp._activatePlugin);
+			$( document ).on('click' , '.astra-install-recommended-plugin', AstraAdminDashboardApp._installNow );
+
+			$( document ).on('wp-plugin-installing'      , AstraAdminDashboardApp._pluginInstalling);
+			$( document ).on('wp-plugin-install-success' , AstraAdminDashboardApp._activatePlugin);
+			$( document ).on('wp-plugin-install-error'   , AstraAdminDashboardApp._installError);
+
+			$( document ).on('click' , '.astra-deactivate-recommended-plugin', AstraAdminDashboardApp._deactivatePlugin);
+			$( document ).on('click', '.ast-builder-migrate', AstraAdminDashboardApp._migrate );
+			$( document ).on('click', '.ast-disable-notices', AstraAdminDashboardApp._disableNotices );
 		},
 
 		_disableNotices: function( e ) {
@@ -140,7 +141,6 @@
 			var $card = jQuery( '.astra-install-recommended-plugin' );
 			var activatingText = astra.recommendedPluiginActivatingText;
 
-
 			$card.each(function( index, element ) {
 				element = jQuery( element );
 				if ( element.data('slug') === slug ) {
@@ -148,7 +148,6 @@
 					element.html( activatingText );
 				}
 			});
-
 		},
 
 		/**
@@ -156,72 +155,47 @@
 		 */
 		_activatePlugin: function( event, response ) {
 
-			event.preventDefault();
-
 			var $message = jQuery(event.target);
 			var $init = $message.data('init');
-			var activatedSlug;
+			var activatedSlug = $init;
 
 			if (typeof $init === 'undefined') {
 				var $message = jQuery('.astra-install-recommended-plugin[data-slug=' + response.slug + ']');
 				activatedSlug = response.slug;
-			} else {
-				activatedSlug = $init;
 			}
 
 			// Transform the 'Install' button into an 'Activate' button.
 			var $init = $message.data('init');
 			var activatingText = astra.recommendedPluiginActivatingText;
-			var settingsLink = $message.data('settings-link');
-			var settingsLinkText = astra.recommendedPluiginSettingsText;
-			var deactivateText = astra.recommendedPluiginDeactivateText;
-			var astraSitesLink = astra.astraSitesLink;
-			var astraPluginRecommendedNonce = astra.astraPluginManagerNonce;
+			var astraPluginRecommendedNonce = astra.pluginManagerNonce;
 
 			$message.removeClass( 'install-now installed button-disabled updated-message' )
 				.addClass('updating-message')
 				.html( activatingText );
 
 			// WordPress adds "Activate" button after waiting for 1000ms. So we will run our activation after that.
+			$.ajax({
+				url: astra.ajaxUrl,
+				type: 'POST',
+				data: {
+					'action' : 'astra_recommended_plugin_activate',
+					'nonce'  : astraPluginRecommendedNonce,
+					'init'   : $init,
+				},
+				success: function( response ) {
+					console.error( response );
+				}
+			})
+
 			setTimeout( function() {
 
-				$.ajax({
-					url: astra.ajaxUrl,
-					type: 'POST',
-					data: {
-						'action'            : 'astra-sites-plugin-activate',
-						'nonce'             : astraPluginRecommendedNonce,
-						'init'              : $init,
-					},
-				})
-				.done(function (result) {
-
-					if( result.success ) {
-						var output  = '<a href="#" class="astra-deactivate-recommended-plugin" data-init="'+ $init +'" data-settings-link="'+ settingsLink +'" data-settings-link-text="'+ deactivateText +'" aria-label="'+ deactivateText +'">'+ deactivateText +'</a>';
-							output += ( typeof settingsLink === 'string' && settingsLink != 'undefined' ) ? '<a href="' + settingsLink +'" aria-label="'+ settingsLinkText +'">' + settingsLinkText +' </a>' : '';
-							output += ( typeof settingsLink === undefined && settingsLink != undefined ) ? '<a href="' + settingsLink +'" aria-label="'+ settingsLinkText +'">' + settingsLinkText +' </a>' : '';
-
-						$message.removeClass( 'astra-activate-recommended-plugin astra-install-recommended-plugin button button-primary install-now activate-now updating-message' );
-
-						$message.parent('.ast-addon-link-wrapper').parent('.astra-recommended-plugin').addClass('active');
-						$message.parents('.ast-addon-link-wrapper').html( output );
-
-						var starterSitesRedirectionUrl = astraSitesLink + result.data.starter_template_slug;
-						jQuery(document).trigger( 'ast-after-plugin-active', [starterSitesRedirectionUrl, activatedSlug] );
-
-					} else {
-
-						$message.removeClass( 'updating-message' );
-					}
-
-				});
 
 			}, 1200 );
 
 		},
 
 		/**
-		 * Activate Success
+		 * Activate Success.
 		 */
 		_deactivatePlugin: function( event, response ) {
 
@@ -240,7 +214,7 @@
 			var deactivatingText = $message.data('deactivating-text') || astra.recommendedPluiginDeactivatingText;
 			var settingsLink = $message.data('settings-link');
 			var activateText = astra.recommendedPluiginActivateText;
-			var astraPluginRecommendedNonce = astra.astraPluginManagerNonce;
+			var astraPluginRecommendedNonce = astra.pluginManagerNonce;
 
 			$message.removeClass( 'install-now installed button-disabled updated-message' )
 				.addClass('updating-message')
@@ -253,7 +227,7 @@
 					url: astra.ajaxUrl,
 					type: 'POST',
 					data: {
-						'action'            : 'astra-sites-plugin-deactivate',
+						'action'            : 'astra_recommended_plugin_deactivate',
 						'nonce'             : astraPluginRecommendedNonce,
 						'init'              : $init,
 					},
@@ -261,7 +235,7 @@
 				.done(function (result) {
 
 					if( result.success ) {
-						var output = '<a href="#" class="astra-activate-recommended-plugin" data-init="'+ $init +'" data-settings-link="'+ settingsLink +'" data-settings-link-text="'+ activateText +'" aria-label="'+ activateText +'">'+ activateText +'</a>';
+						var output = '<button class="astra-activate-recommended-plugin" data-init="'+ $init +'" data-settings-link="'+ settingsLink +'" data-settings-link-text="'+ activateText +'" aria-label="'+ activateText +'">'+ activateText +'</button>';
 						$message.removeClass( 'astra-activate-recommended-plugin astra-install-recommended-plugin button button-primary install-now activate-now updating-message' );
 
 						$message.parent('.ast-addon-link-wrapper').parent('.astra-recommended-plugin').removeClass('active');
@@ -273,14 +247,13 @@
 						$message.removeClass( 'updating-message' );
 
 					}
-
 				});
 
 			}, 1200 );
 		},
 
 		/**
-		 * Install Now
+		 * Install Now.
 		 */
 		_installNow: function(event)
 		{
@@ -292,6 +265,8 @@
 			if ( $button.hasClass( 'updating-message' ) || $button.hasClass( 'button-disabled' ) ) {
 				return;
 			}
+
+			$button.html( astra.recommendedPluiginInstallingText );
 
 			if ( wp.updates.shouldRequestFilesystemCredentials && ! wp.updates.ajaxLocked ) {
 				wp.updates.requestFilesystemCredentials( event );
@@ -312,28 +287,13 @@
 				slug:    $button.data( 'slug' )
 			});
 		},
-
-		/**
-		 * After plugin active redirect and deactivate activation notice
-		 */
-		_disableActivcationNotice: function( event, astraSitesLink, activatedSlug )
-		{
-			event.preventDefault();
-
-			if ( activatedSlug.indexOf( 'astra-sites' ) >= 0 || activatedSlug.indexOf( 'astra-pro-sites' ) >= 0 ) {
-				if ( 'undefined' != typeof AstraNotices ) {
-			    	AstraNotices._ajax( 'astra-sites-on-active', '' );
-				}
-				window.location.href = astraSitesLink + '&ast-disable-activation-notice';
-			}
-		},
 	};
 
 	/**
-	 * Initialize AstraThemeAdmin
+	 * Initialize AstraAdminDashboardApp.
 	 */
 	$(function(){
-		AstraThemeAdmin.init();
+		AstraAdminDashboardApp.init();
 	});
 
 })(jQuery);

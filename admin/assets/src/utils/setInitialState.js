@@ -19,6 +19,8 @@ const setInitialState = ( store ) => {
 			agencyAuthorURL: data.agency_author_url,
 			agencyAuthorName: data.agency_author_name,
 			enableBeta: data.enable_beta,
+			useOldHeaderFooter: data.use_old_header_footer,
+			useUpgradeNotices: data.use_upgrade_notices,
 			enableFileGeneration: data.enable_file_generation,
 		};
 

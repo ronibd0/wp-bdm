@@ -1,23 +1,27 @@
 import { createStore } from 'redux';
 import globalDataReducer from './globalDataReducer';
+import { applyFilters } from '@wordpress/hooks';
 
-const initialState = {
-	initialStateSetFlag : false,
-	enableLoadFontsLocally : false,
-	enablePreloadLocalFonts : false,
-	enableWhiteLabel : false,
-	enableBeta : false,
-	enableFileGeneration: false,
-	activeSettingsNavigationTab : '',
-	pluginDescription: '',
-	pluginName: '',
-	themeScreenshotURL: '',
-	themeDescription: '',
-	themeName: '',
-	agencyLicenseLink: '',
-	agencyAuthorURL: '',
-	agencyAuthorName: '',
-};
+const initialState = applyFilters( 'astra_dashboard/datastore', {
+		initialStateSetFlag : false,
+		enableLoadFontsLocally : false,
+		enablePreloadLocalFonts : false,
+		useOldHeaderFooter : false,
+		useUpgradeNotices : false,
+		enableWhiteLabel : false,
+		enableBeta : 'disable',
+		enableFileGeneration: 'disable',
+		activeSettingsNavigationTab : '',
+		pluginDescription: '',
+		pluginName: '',
+		themeScreenshotURL: '',
+		themeDescription: '',
+		themeName: '',
+		agencyLicenseLink: '',
+		agencyAuthorURL: '',
+		agencyAuthorName: '',
+	}
+);
 
 const globalDataStore = createStore(
 	globalDataReducer,

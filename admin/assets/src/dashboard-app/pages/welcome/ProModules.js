@@ -7,87 +7,161 @@ const ProModules = () => {
 	const AllProModules = [
 		{
 			name: __( 'Colors & Background', 'astra' ),
-			section: astra_admin.customize_url + '?autofocus[control]=custom_logo',
-			isPro: true,
-			type: 'Customize',
+			links: <a className={ classNames(
+					! astra_admin.pro_available
+					? 'pointer-events-none'
+					: '',
+					'focus:text-slate-300 text-slate-300 text-base truncate leading-7 focus:text-astra focus-visible:text-astra-hover active:text-astra-hover hover:text-astra-hover'
+				) } href={ astra_admin.customize_url + '?autofocus[section]=section-colors-background' } rel="noreferrer"> { __( 'Customize', 'astra' ) } </a>
 		},
 		{
 			name: __( 'Typography', 'astra' ),
-			section: astra_admin.customize_url + '?autofocus[section]=section-colors-background',
-			isPro: true,
-			type: 'Customize',
+			links: <a className={ classNames(
+					! astra_admin.pro_available
+					? 'pointer-events-none'
+					: '',
+					'focus:text-slate-300 text-slate-300 text-base truncate leading-7 focus:text-astra focus-visible:text-astra-hover active:text-astra-hover hover:text-astra-hover'
+				) } href={ astra_admin.customize_url + '?autofocus[section]=section-typography' } rel="noreferrer"> { __( 'Customize', 'astra' ) } </a>
 		},
 		{
 			name: __( 'Spacing', 'astra' ),
-			section: astra_admin.customize_url + '?autofocus[section]=section-typography',
-			isPro: true,
-			type: 'Customize',
+			links: <a className={ classNames(
+					! astra_admin.pro_available
+					? 'pointer-events-none'
+					: '',
+					'focus:text-slate-300 text-slate-300 text-base truncate leading-7 focus:text-astra focus-visible:text-astra-hover active:text-astra-hover hover:text-astra-hover'
+				) } href={ astra_admin.customize_url + '?autofocus[section]=section-container-layout' } rel="noreferrer"> { __( 'Customize', 'astra' ) } </a>
 		},
 		{
 			name: __( 'Blog Pro', 'astra' ),
-			section: astra_admin.customize_url + '?autofocus[section]=section-header-builder-layout',
-			isPro: true,
-			type: 'Customize',
+			links: <a className={ classNames(
+					! astra_admin.pro_available
+					? 'pointer-events-none'
+					: '',
+					'focus:text-slate-300 text-slate-300 text-base truncate leading-7 focus:text-astra focus-visible:text-astra-hover active:text-astra-hover hover:text-astra-hover'
+				) } href={ astra_admin.customize_url + '?autofocus[section]=section-blog' } rel="noreferrer"> { __( 'Customize', 'astra' ) } </a>
 		},
 		{
 			name: __( 'Nav Menu', 'astra' ),
-			section: astra_admin.customize_url + '?autofocus[section]=section-container-layout',
-			isPro: true,
-			type: 'Customize',
+			links: <a className={ classNames(
+					! astra_admin.pro_available
+					? 'pointer-events-none'
+					: '',
+					'focus:text-slate-300 text-slate-300 text-base truncate leading-7 focus:text-astra focus-visible:text-astra-hover active:text-astra-hover hover:text-astra-hover'
+				) } href={ astra_admin.admin_base_url + 'nav-menus.php' } rel="noreferrer"> { __( 'Settings', 'astra' ) } </a>
 		},
 		{
 			name: __( 'Sticky Header', 'astra' ),
-			section: astra_admin.customize_url + '?autofocus[section]=section-buttons',
-			isPro: true,
-			type: 'Customize',
+			links: <a className={ classNames(
+					! astra_admin.pro_available
+					? 'pointer-events-none'
+					: '',
+					'focus:text-slate-300 text-slate-300 text-base truncate leading-7 focus:text-astra focus-visible:text-astra-hover active:text-astra-hover hover:text-astra-hover'
+				) } href={ astra_admin.customize_url + '?autofocus[section]=section-sticky-header' } rel="noreferrer"> { __( 'Customize', 'astra' ) } </a>
 		},
 		{
 			name: __( 'Page Headers', 'astra' ),
-			section: astra_admin.admin_base_url + 'nav-menus.php',
-			isPro: true,
-			type: 'Customize',
+			links: <a className={ classNames(
+					! astra_admin.pro_available
+					? 'pointer-events-none'
+					: '',
+					'focus:text-slate-300 text-slate-300 text-base truncate leading-7 focus:text-astra focus-visible:text-astra-hover active:text-astra-hover hover:text-astra-hover'
+				) } href={ astra_admin.admin_base_url + 'nav-menus.php' } rel="noreferrer"> { __( 'Settings', 'astra' ) } </a>
 		},
 		{
 			name: __( 'Custom Layouts', 'astra' ),
-			section: astra_admin.admin_url + '?page=' + astra_admin.home_slug + '&path=settings',
-			isPro: true,
-			type: 'Customize',
+			links: <a className={ classNames(
+					! astra_admin.pro_available
+					? 'pointer-events-none'
+					: '',
+					'focus:text-slate-300 text-slate-300 text-base truncate leading-7 focus:text-astra focus-visible:text-astra-hover active:text-astra-hover hover:text-astra-hover'
+				) } href={ astra_admin.admin_url + '?page=' + astra_admin.home_slug + '&path=custom-layouts' } rel="noreferrer"> { __( 'Settings', 'astra' ) } </a>
 		},
 		{
 			name: __( 'Site Layouts', 'astra' ),
-			section: astra_admin.customize_url + '?autofocus[panel]=woocommerce',
-			isPro: true,
-			type: 'Customize',
+			links: <a className={ classNames(
+					! astra_admin.pro_available
+					? 'pointer-events-none'
+					: '',
+					'focus:text-slate-300 text-slate-300 text-base truncate leading-7 focus:text-astra focus-visible:text-astra-hover active:text-astra-hover hover:text-astra-hover'
+				) } href={ astra_admin.customize_url + '?autofocus[panel]=woocommerce' } rel="noreferrer"> { __( 'Customize', 'astra' ) } </a>
 		},
 		{
 			name: __( 'WooCommerce', 'astra' ),
-			section: astra_admin.customize_url + '?autofocus[section]=section-sticky-header',
-			isPro: true,
-			type: 'Settings | Documentation',
+			section: astra_admin.customize_url + '?autofocus[panel]=woocommerce',
+			links: <span> <a className={ classNames(
+					! astra_admin.pro_available
+					? 'pointer-events-none'
+					: '',
+					'focus:text-slate-300 text-slate-300 text-base truncate leading-7 focus:text-astra focus-visible:text-astra-hover active:text-astra-hover hover:text-astra-hover'
+				) } href={ astra_admin.customize_url + '?autofocus[panel]=woocommerce' } rel="noreferrer"> { __( 'Settings', 'astra' ) } </a>
+				<a className={ classNames(
+					! astra_admin.pro_available
+					? 'pointer-events-none'
+					: '',
+					'focus:text-slate-300 text-slate-300 text-base truncate leading-7 focus:text-astra focus-visible:text-astra-hover active:text-astra-hover hover:text-astra-hover'
+				) } href={ 'https://wpastra.com/docs-category/astra-pro-modules/woo/' } rel="noreferrer"> | { __( 'Documentation', 'astra' ) } </a> </span>
 		},
 		{
-			name: __( 'Easy Digital Download', 'astra' ),
-			section: astra_admin.customize_url + '?autofocus[section]=section-sticky-header',
-			isPro: true,
-			type: 'Settings | Documentation',
+			name: __( 'Easy Digital Downloads', 'astra' ),
+			links: <span> <a className={ classNames(
+					! astra_admin.pro_available
+					? 'pointer-events-none'
+					: '',
+					'focus:text-slate-300 text-slate-300 text-base truncate leading-7 focus:text-astra focus-visible:text-astra-hover active:text-astra-hover hover:text-astra-hover'
+				) } href={ astra_admin.customize_url + '?autofocus[section]=section-edd-group' } rel="noreferrer"> { __( 'Settings', 'astra' ) } </a>
+				<a className={ classNames(
+					! astra_admin.pro_available
+					? 'pointer-events-none'
+					: '',
+					'focus:text-slate-300 text-slate-300 text-base truncate leading-7 focus:text-astra focus-visible:text-astra-hover active:text-astra-hover hover:text-astra-hover'
+				) } href={ 'https://wpastra.com/docs-category/astra-pro-modules/easy-digital-downloads-module/' } rel="noreferrer"> | { __( 'Documentation', 'astra' ) } </a> </span>
 		},
 		{
 			name: __( 'LearnDash', 'astra' ),
-			section: astra_admin.customize_url + '?autofocus[section]=section-sticky-header',
-			isPro: true,
-			type: 'Settings | Documentation',
+			links: <span> <a className={ classNames(
+					! astra_admin.pro_available
+					? 'pointer-events-none'
+					: '',
+					'focus:text-slate-300 text-slate-300 text-base truncate leading-7 focus:text-astra focus-visible:text-astra-hover active:text-astra-hover hover:text-astra-hover'
+				) } href={ astra_admin.customize_url + '?autofocus[section]=section-learndash' } rel="noreferrer"> { __( 'Settings', 'astra' ) } </a>
+				<a className={ classNames(
+					! astra_admin.pro_available
+					? 'pointer-events-none'
+					: '',
+					'focus:text-slate-300 text-slate-300 text-base truncate leading-7 focus:text-astra focus-visible:text-astra-hover active:text-astra-hover hover:text-astra-hover'
+				) } href={ 'https://wpastra.com/docs-category/astra-pro-modules/learndash-astra-pro-modules/' } rel="noreferrer"> | { __( 'Documentation', 'astra' ) } </a>
+				</span>
 		},
 		{
 			name: __( 'LifterLMS', 'astra' ),
-			section: astra_admin.customize_url + '?autofocus[section]=section-sticky-header',
-			isPro: true,
-			type: 'Settings | Documentation',
+			links: <span> <a className={ classNames(
+					! astra_admin.pro_available
+					? 'pointer-events-none'
+					: '',
+					'focus:text-slate-300 text-slate-300 text-base truncate leading-7 focus:text-astra focus-visible:text-astra-hover active:text-astra-hover hover:text-astra-hover'
+				) } href={ astra_admin.customize_url + '?autofocus[section]=section-lifterlms' } rel="noreferrer"> { __( 'Settings', 'astra' ) } </a>
+				<a className={ classNames(
+					! astra_admin.pro_available
+					? 'pointer-events-none'
+					: '',
+					'focus:text-slate-300 text-slate-300 text-base truncate leading-7 focus:text-astra focus-visible:text-astra-hover active:text-astra-hover hover:text-astra-hover'
+				) } href={ 'https://wpastra.com/docs-category/astra-pro-modules/lifterlms-astra-pro/' } rel="noreferrer"> | { __( 'Documentation', 'astra' ) } </a> </span>
 		},
 		{
 			name: __( 'White Label', 'astra' ),
-			section: astra_admin.customize_url + '?autofocus[section]=section-sticky-header',
-			isPro: true,
-			type: 'Settings | Documentation',
+			links: <span> <a className={ classNames(
+					! astra_admin.pro_available
+					? 'pointer-events-none'
+					: '',
+					'focus:text-slate-300 text-slate-300 text-base truncate leading-7 focus:text-astra focus-visible:text-astra-hover active:text-astra-hover hover:text-astra-hover'
+				) } href={ astra_admin.admin_url + '?page=' + astra_admin.home_slug + '&path=settings&settings=white-label' } rel="noreferrer"> { __( 'Settings', 'astra' ) } </a>
+				<a className={ classNames(
+					! astra_admin.pro_available
+					? 'pointer-events-none'
+					: '',
+					'focus:text-slate-300 text-slate-300 text-base truncate leading-7 focus:text-astra focus-visible:text-astra-hover active:text-astra-hover hover:text-astra-hover'
+				) } href={ 'https://wpastra.com/docs-category/astra-pro-modules/white-label/' } rel="noreferrer"> | { __( 'Documentation', 'astra' ) } </a> </span>
 		},
 	];
 
@@ -95,7 +169,7 @@ const ProModules = () => {
 		return <div
 			key={index}
 			className={ classNames(
-				block.isPro
+				! astra_admin.pro_available
 				? 'bg-slate-50'
 				: 'bg-white',
 				'box-border relative border rounded-md h-20 px-4 py-3 flex items-start gap-x-4 snap-start hover:shadow-md transition spectra-icon-transition group'
@@ -105,23 +179,17 @@ const ProModules = () => {
 				<p className="text-base font-medium text-slate-800 leading-7">
 					{ block.name }
 				</p>
-				<a
-					className={ classNames(
-						block.isPro
-						? 'pointer-events-none'
-						: '',
-						'focus:text-slate-300 text-slate-300 text-base truncate leading-7 focus:text-astra focus-visible:text-astra-hover active:text-astra-hover hover:text-astra-hover'
-					) }
-					href={ block.section } rel="noreferrer">{block.type}
-				</a>
+				{ block.links }
 			</div>
 
 			{
-				block.isPro && <div className="relative inline-flex flex-shrink-0 py-0.5 px-1 text-[0.625rem] leading-[0.625rem] text-white bg-slate-800 rounded-[0.1875rem]">
+				! astra_admin.pro_available && <div className="relative inline-flex flex-shrink-0 py-0.5 px-1 text-[0.625rem] leading-[0.625rem] text-white bg-slate-800 rounded-[0.1875rem]">
 					{ __( 'PRO', 'astra' ) }
 				</div>
 			}
-			<ToolTip />
+			{
+				! astra_admin.pro_available && <ToolTip />
+			}
 		</div>
 	} );
 

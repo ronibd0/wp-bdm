@@ -131,14 +131,9 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 
 			add_action( 'astra_welcome_page_right_sidebar_content', __CLASS__ . '::astra_welcome_page_starter_sites_section', 10 );
 			add_action( 'astra_welcome_page_right_sidebar_content', __CLASS__ . '::external_important_links_section', 11 );
-			add_action( 'astra_welcome_page_right_sidebar_content', __CLASS__ . '::astra_upgrade_pro_postbox', 12 );
 
 			add_action( 'astra_welcome_page_content', __CLASS__ . '::astra_welcome_page_content' );
 			add_action( 'astra_welcome_page_content', __class__ . '::astra_available_plugins', 30 );
-
-			// AJAX.
-			add_action( 'wp_ajax_astra-sites-plugin-activate', __CLASS__ . '::required_plugin_activate' );
-			add_action( 'wp_ajax_astra-sites-plugin-deactivate', __CLASS__ . '::required_plugin_deactivate' );
 
 			add_action( 'astra_notice_before_markup_astra-sites-on-active', __CLASS__ . '::load_astra_admin_script' );
 
@@ -292,47 +287,6 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 						</a>
 					</div>
 				</div>
-			<?php
-		}
-
-		/**
-		 * Astra upgrade to pro postbox.
-		 *
-		 * @since x.x.x
-		 */
-		public static function astra_upgrade_pro_postbox() {
-
-			if ( defined( 'ASTRA_EXT_VER' ) ) {
-				return;
-			}
-
-			$status = astra_get_option( 'ast-disable-upgrade-notices', true );
-
-			?>
-			<div class="postbox">
-				<h2 class="hndle ast-normal-cursor">
-					<span><?php echo esc_html( apply_filters( 'astra_upgrade_pro_postbox', __( 'Build Better Websites with Astra Pro', 'astra' ) ) ); ?></span>
-				</h2>
-				<div class="inside">
-					</p>
-						<?php echo esc_html__( 'Access powerful features for painless WordPress design without the high costs.', 'astra-addon' ); ?>
-					<p>
-					</p>
-						<?php echo esc_html__( 'Powerful tools, premium support, limitless opportunity with Astra Pro!', 'astra-addon' ); ?>
-					<p>
-					</p>
-						<?php echo esc_html__( 'Toggle upgrade notices on or off ', 'astra-addon' ); ?>
-						<a href="#" class="ast-disable-notices" data-value="<?php echo $status ? 0 : 1; ?>" target="_blank" rel="noopener">
-							<?php echo __( 'here.', 'astra' ); ?>
-						</a>
-					<p>
-					<label for="astra_upgrade_pro_postbox">
-						<a class="button button-primary" href="<?php echo esc_url( ASTRA_PRO_UPGRADE_URL ); ?>" target="_blank" rel="noopener">
-							<?php echo esc_html__( 'Upgrade to Astra Pro!', 'astra' ); ?>
-						</a>
-					</label>
-				</div>
-			</div>
 			<?php
 		}
 
@@ -1606,99 +1560,6 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 */
 		private static function build_worg_plugin_link( $slug ) {
 			return esc_url( trailingslashit( 'https://wordpress.org/plugins/' . $slug ) );
-		}
-
-		/**
-		 * Required Plugin Activate
-		 *
-		 * @since 1.2.4
-		 */
-		public static function required_plugin_activate() {
-
-			$nonce = ( isset( $_POST['nonce'] ) ) ? sanitize_key( $_POST['nonce'] ) : '';
-
-			if ( false === wp_verify_nonce( $nonce, 'astra-recommended-plugin-nonce' ) ) {
-				wp_send_json_error( esc_html_e( 'WordPress Nonce not validated.', 'astra' ) );
-			}
-
-			if ( ! current_user_can( 'install_plugins' ) || ! isset( $_POST['init'] ) || ! sanitize_text_field( wp_unslash( $_POST['init'] ) ) ) {
-				wp_send_json_error(
-					array(
-						'success' => false,
-						'message' => __( 'No plugin specified', 'astra' ),
-					)
-				);
-			}
-
-			$plugin_init = ( isset( $_POST['init'] ) ) ? sanitize_text_field( wp_unslash( $_POST['init'] ) ) : '';
-
-			$activate = activate_plugin( $plugin_init, '', false, true );
-
-			if ( '/astra-pro-sites/astra-pro-sites.php' === $plugin_init || '/astra-sites/astra-sites.php' === $plugin_init ) {
-				self::get_starter_templates_slug();
-			}
-
-			if ( is_wp_error( $activate ) ) {
-				wp_send_json_error(
-					array(
-						'success'               => false,
-						'message'               => $activate->get_error_message(),
-						'starter_template_slug' => self::$starter_templates_slug,
-					)
-				);
-			}
-
-			wp_send_json_success(
-				array(
-					'success'               => true,
-					'message'               => __( 'Plugin Successfully Activated', 'astra' ),
-					'starter_template_slug' => self::$starter_templates_slug,
-				)
-			);
-		}
-
-		/**
-		 * Required Plugin Activate
-		 *
-		 * @since 1.2.4
-		 */
-		public static function required_plugin_deactivate() {
-
-			$nonce = ( isset( $_POST['nonce'] ) ) ? sanitize_key( $_POST['nonce'] ) : '';
-
-			if ( false === wp_verify_nonce( $nonce, 'astra-recommended-plugin-nonce' ) ) {
-				wp_send_json_error( esc_html_e( 'WordPress Nonce not validated.', 'astra' ) );
-			}
-
-			if ( ! current_user_can( 'install_plugins' ) || ! isset( $_POST['init'] ) || ! sanitize_text_field( wp_unslash( $_POST['init'] ) ) ) {
-				wp_send_json_error(
-					array(
-						'success' => false,
-						'message' => __( 'No plugin specified', 'astra' ),
-					)
-				);
-			}
-
-			$plugin_init = ( isset( $_POST['init'] ) ) ? sanitize_text_field( wp_unslash( $_POST['init'] ) ) : '';
-
-			$deactivate = deactivate_plugins( $plugin_init, '', false );
-
-			if ( is_wp_error( $deactivate ) ) {
-				wp_send_json_error(
-					array(
-						'success' => false,
-						'message' => $deactivate->get_error_message(),
-					)
-				);
-			}
-
-			wp_send_json_success(
-				array(
-					'success' => true,
-					'message' => __( 'Plugin Successfully Deactivated', 'astra' ),
-				)
-			);
-
 		}
 
 		/**

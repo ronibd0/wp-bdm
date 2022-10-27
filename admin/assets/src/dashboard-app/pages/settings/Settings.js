@@ -1,25 +1,32 @@
 import { __ } from '@wordpress/i18n';
 import{ useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { applyFilters, doAction } from '@wordpress/hooks';
 
 import SettingsIcons from './SettingsIcons';
 
 import { useSelector, useDispatch } from 'react-redux';
-import RollBack from '@DashboardApp/pages/settings/RollBack';
-import BetaUpdates from '@DashboardApp/pages/settings/BetaUpdates';
+
 import LoadFontsLocally from '@DashboardApp/pages/settings/LoadFontsLocally';
 import PreloadLocalFonts from '@DashboardApp/pages/settings/PreloadLocalFonts';
+import FlushLocalFonts from '@DashboardApp/pages/settings/FlushLocalFonts';
 import SettingsSkeleton from '@DashboardApp/pages/settings/SettingsSkeleton';
-
-import LicenseKey from './LicenseKey';
-import FileGeneration from './FileGeneration';
-import AssetReGeneration from './AssetReGeneration';
-import FlushLocalFonts from './FlushLocalFonts';
-import WhiteLabel from './WhiteLabel';
-import WhiteLabelForm from './WhiteLabelForm';
+import OldHeaderFooter from '@DashboardApp/pages/settings/OldHeaderFooter';
+import UpgradeNotices from '@DashboardApp/pages/settings/UpgradeNotices';
 
 function classNames( ...classes ) {
 	return classes.filter( Boolean ).join( ' ' )
+}
+
+function SettingsWrapper({ state }) {
+	const wrappers = applyFilters(
+		'astra_dashboard.settings_tab_wrappers',
+		{
+			'global-settings': <> <OldHeaderFooter/> <UpgradeNotices/> </>,
+			'fonts-performance': <> <LoadFontsLocally/> <PreloadLocalFonts/> <FlushLocalFonts /> </>,
+		}
+	);
+	return <div>{wrappers[state]}</div>;
 }
 
 const Settings = () => {
@@ -29,12 +36,14 @@ const Settings = () => {
 
 	const activeSettingsNavigationTab = useSelector( ( state ) => state.activeSettingsNavigationTab );
 	const initialStateSetFlag = useSelector( ( state ) => state.initialStateSetFlag );
-	const navigation = [
-		{ name: __( 'General', 'astra' ), slug: 'global-settings', icon: SettingsIcons['global-settings'] },
-		{ name: __( 'Performance', 'astra' ), slug: 'fonts-performance', icon: SettingsIcons['fonts-performance'] },
-		{ name: __( 'Version Control', 'astra' ), slug: 'version-control', icon: SettingsIcons['version-control'] },
-		{ name: __( 'White Label', 'astra' ), slug: 'white-label', icon: SettingsIcons['white-label'] },
-	];
+
+	const navigation = applyFilters(
+		'astra_dashboard.settings_navigation',
+		[
+			{ name: __( 'General', 'astra' ), slug: 'global-settings', icon: SettingsIcons['global-settings'] },
+			{ name: __( 'Performance', 'astra' ), slug: 'fonts-performance', icon: SettingsIcons['fonts-performance'] },
+		]
+	);
 
 	useEffect( () => {
 		// Activate Setting Active Tab from "settingsTab" Hash in the URl is present.
@@ -80,32 +89,8 @@ const Settings = () => {
 						</nav>
 					</aside>
 					<div className='lg:col-span-9 border-l'>
-						{ 'global-settings' === activeSettingsNavigationTab &&
-							<>
-								<LicenseKey />
-								<FileGeneration />
-								<AssetReGeneration />
-							</>
-						}
-						{ 'version-control' === activeSettingsNavigationTab &&
-							<>
-								<RollBack/>
-								<BetaUpdates/>
-							</>
-						}
-						{ 'fonts-performance' === activeSettingsNavigationTab &&
-							<>
-								<LoadFontsLocally/>
-								<PreloadLocalFonts/>
-								<FlushLocalFonts />
-							</>
-						}
-						{ 'white-label' === activeSettingsNavigationTab &&
-							<>
-								<WhiteLabel />
-								<WhiteLabelForm />
-							</>
-						}
+						<SettingsWrapper state={activeSettingsNavigationTab}></SettingsWrapper>
+						{ doAction( `astra_dashboard.settings_screen_after_${activeSettingsNavigationTab}` ) }
 					</div>
 				</div>
 			</main>

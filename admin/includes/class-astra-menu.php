@@ -239,42 +239,246 @@ class Astra_Menu {
 
 		wp_enqueue_style( 'wp-components' );
 
-		$localize = apply_filters(
-			'astra_react_admin_localize',
-			array(
-				'current_user'             => ! empty( wp_get_current_user()->user_firstname ) ? ucfirst( wp_get_current_user()->user_firstname ) : ucfirst( wp_get_current_user()->display_name ),
-				'admin_base_url'           => admin_url(),
-				'plugin_dir'               => ASTRA_THEME_URI,
-				'plugin_ver'               => ASTRA_THEME_VERSION,
-				'ajax_url'                 => admin_url( 'admin-ajax.php' ),
-				'is_whitelabel'			   => astra_is_white_labelled(),
-				'admin_url'                => admin_url( 'admin.php' ),
-				'home_slug'                => self::$plugin_slug,
-				'customize_url'                => admin_url( 'customize.php' ),
-				'astra_base_url' => admin_url( 'admin.php?page=' . self::$plugin_slug ),
-				'astra_changelog_data' => self::get_changelog_feed_data( 'astra-theme' ),
-				'astra_pro_changelog_data' => self::get_changelog_feed_data( 'astra-pro-addon' ),
-				'logo_url'       => ASTRA_THEME_URI . 'inc/assets/images/astra-logo.svg',
-				'update_nonce'   => wp_create_nonce( 'astra_update_admin_setting' )
-			)
+		$localize = array(
+			'current_user'             => ! empty( wp_get_current_user()->user_firstname ) ? ucfirst( wp_get_current_user()->user_firstname ) : ucfirst( wp_get_current_user()->display_name ),
+			'admin_base_url'           => admin_url(),
+			'plugin_dir'               => ASTRA_THEME_URI,
+			'plugin_ver'               => ASTRA_THEME_VERSION,
+			'pro_available'            => defined( 'ASTRA_EXT_VER' ) ? true : false,
+			'theme_name'		       => astra_get_theme_name(),
+			'ajax_url'                 => admin_url( 'admin-ajax.php' ),
+			'is_whitelabel'			   => astra_is_white_labelled(),
+			'admin_url'                => admin_url( 'admin.php' ),
+			'home_slug'                => self::$plugin_slug,
+			'upgrade_url'			   => ASTRA_PRO_UPGRADE_URL,
+			'customize_url'            => admin_url( 'customize.php' ),
+			'astra_base_url' 		   => admin_url( 'admin.php?page=' . self::$plugin_slug ),
+			'astra_changelog_data' 	   => self::astra_get_theme_changelog_feed_data(),
+			'logo_url'                 => ASTRA_THEME_URI . 'inc/assets/images/astra-logo.svg',
+			'update_nonce'             => wp_create_nonce( 'astra_update_admin_setting' ),
+			'integrations'		       => self::astra_get_integrations_status(),
+			'useful_plugins'		   => self::astra_get_useful_plugins(),
+			'plugin_manager_nonce'     => wp_create_nonce( 'astra_plugin_manager_nonce' ),
+			'plugin_installer_nonce'     => wp_create_nonce( 'updates' ),
+			'show_builder_migration'   => Astra_Builder_Helper::is_new_user() ? false : true,
+			'recommendedPluiginInstallingText'   => __( 'Installing', 'astra' ) . '&hellip;',
+			'recommendedPluiginInstalledText'    => __( 'Installed', 'astra' ),
+			'recommendedPluiginActivatingText'   => __( 'Activating', 'astra' ) . '&hellip;',
+			'recommendedPluiginDeactivatingText' => __( 'Deactivating', 'astra' ) . '&hellip;',
+			'recommendedPluiginActivatedText'    => __( 'Activated', 'astra' ),
+			'recommendedPluiginActivateText'     => __( 'Activate', 'astra' ),
+			'recommendedPluiginDeactivateText'   => __( 'Deactivate', 'astra' ),
 		);
 
-		$this->settings_app_scripts( $localize );
+		$this->settings_app_scripts( apply_filters( 'astra_react_admin_localize', $localize ) );
+	}
+
+	/**
+	 * Get plugin status
+	 *
+	 * @since x.x.x
+	 *
+	 * @param  string $plugin_init_file Plguin init file.
+	 * @return mixed
+	 */
+	public static function get_plugin_status( $plugin_init_file ) {
+
+		$installed_plugins = get_plugins();
+
+		if ( ! isset( $installed_plugins[ $plugin_init_file ] ) ) {
+			return 'install';
+		} elseif ( is_plugin_active( $plugin_init_file ) ) {
+			return 'activated';
+		} else {
+			return 'installed';
+		}
+	}
+
+	/**
+	 * Get Astra's useful plugins.
+	 * Extend this in following way -
+	 *
+	 * array(
+	 *		'title' => "Plugin Name",
+	 *		'subtitle' => "Plugin description goes here.",
+	 *		'status' => self::get_plugin_status( 'plugin-slug/plugin-slug.php' ),
+	 *		'logoPath' => array(
+	 *			'internal_icon' => true, // true = will take internal Astra's any icon. false = provide next custom icon link.
+	 *			'icon_path' => "spectra", // If internal_icon false then - example custom SVG URL: ASTRA_THEME_URI . 'inc/assets/images/astra.svg'.
+	 *		),
+	 *	),
+	 *
+	 * @since x.x.x
+	 * @return array
+	 * @access public
+	 */
+	public static function astra_get_useful_plugins() {
+		return apply_filters( 'astra_useful_plugins', array(
+				array(
+					'title' => "Spectra",
+					'subtitle' => "Gutenberg blocks builder",
+					'status' => self::get_plugin_status( 'ultimate-addons-for-gutenberg/ultimate-addons-for-gutenberg.php' ),
+					'slug' => 'ultimate-addons-for-gutenberg',
+					'path' => 'ultimate-addons-for-gutenberg/ultimate-addons-for-gutenberg.php',
+					'logoPath' => array(
+						'internal_icon' => true,
+						'icon_path' => "spectra",
+					),
+				),
+				array(
+					'title' => "Yoast SEO",
+					'subtitle' => "SEO plugin",
+					'status' => self::get_plugin_status( 'wordpress-seo/wp-seo.php' ),
+					'slug' => 'wordpress-seo',
+					'path' => 'wordpress-seo/wp-seo.php',
+					'logoPath' => array(
+						'internal_icon' => true,
+						'icon_path' => "yoast-seo",
+					),
+				),
+				array(
+					'title' => "Elementor",
+					'subtitle' => "Page Builder",
+					'status' => self::get_plugin_status( 'elementor/elementor.php' ),
+					'slug' => 'elementor',
+					'path' => 'elementor/elementor.php',
+					'logoPath' => array(
+						'internal_icon' => true,
+						'icon_path' => "elementor",
+					),
+				),
+				array(
+					'title' => "WooCommerce",
+					'subtitle' => "eCommerce plugin",
+					'status' => self::get_plugin_status( 'woocommerce/woocommerce.php' ),
+					'slug' => 'woocommerce',
+					'path' => 'woocommerce/woocommerce.php',
+					'logoPath' => array(
+						'internal_icon' => true,
+						'icon_path' => "woocommerce",
+					),
+				),
+				array(
+					'title' => "WPForms Lite",
+					'subtitle' => "Form builder",
+					'status' => self::get_plugin_status( 'wpforms-lite/wpforms.php' ),
+					'slug' => 'wpforms-lite',
+					'path' => 'wpforms-lite/wpforms.php',
+					'logoPath' => array(
+						'internal_icon' => true,
+						'icon_path' => "wp-forms",
+					),
+				),
+			)
+		);
+	}
+
+	/**
+	 * Get Astra's recommended integrations.
+	 * Extend this in following way -
+	 *
+	 * array(
+	 *		'title' => "Plugin Name",
+	 *		'subtitle' => "Plugin description goes here.",
+	 *		'isPro' => false,
+	 *		'status' => self::get_plugin_status( 'plugin-slug/plugin-slug.php' ),
+	 *		'logoPath' => array(
+	 *			'internal_icon' => true, // true = will take internal Astra's any icon. false = provide next custom icon link.
+	 *			'icon_path' => "spectra", // If internal_icon false then - example custom SVG URL: ASTRA_THEME_URI . 'inc/assets/images/astra.svg'.
+	 *		),
+	 *	),
+	 *
+	 * @since x.x.x
+	 * @return array
+	 * @access public
+	 */
+	public static function astra_get_integrations_status() {
+		return apply_filters( 'astra_integrated_plugins', array(
+				array(
+					'title' => "Spectra",
+					'subtitle' => "Ut at id ac mauris, malesuada ut aliquet amet pellentesque.",
+					'isPro' => false,
+					'status' => self::get_plugin_status( 'ultimate-addons-for-gutenberg/ultimate-addons-for-gutenberg.php' ),
+					'slug' => 'ultimate-addons-for-gutenberg',
+					'path' => 'ultimate-addons-for-gutenberg/ultimate-addons-for-gutenberg.php',
+					'logoPath' => array(
+						'internal_icon' => true,
+						'icon_path' => "spectra",
+					),
+				),
+				array(
+					'title' => "WooCommerce",
+					'subtitle' => "Ut at id ac mauris, malesuada ut aliquet amet pellentesque.",
+					'isPro' => false,
+					'status' => self::get_plugin_status( 'woocommerce/woocommerce.php' ),
+					'slug' => 'woocommerce',
+					'path' => 'woocommerce/woocommerce.php',
+					'logoPath' => array(
+						'internal_icon' => true,
+						'icon_path' => "woocommerce",
+					),
+				),
+				array(
+					'title' => "CartFlows",
+					'subtitle' => "Ut at id ac mauris, malesuada ut aliquet amet pellentesque.",
+					'isPro' => false,
+					'status' => self::get_plugin_status( 'cartflows/cartflows.php' ),
+					'slug' => 'cartflows',
+					'path' => 'cartflows/cartflows.php',
+					'logoPath' => array(
+						'internal_icon' => true,
+						'icon_path' => "cart-flows",
+					),
+				),
+			)
+		);
+	}
+
+	/**
+	 * Get Theme Rollback versions.
+	 *
+	 * @since x.x.x
+	 * @param $product astra-theme / astra-addon
+	 * @return array
+	 * @access public
+	 */
+	public static function astra_get_rollback_versions( $product = 'astra-theme' ) {
+
+		$rollback_versions = Astra_Rollback_version::get_theme_all_versions();
+
+		if( 'astra-addon' === $product ) {
+			$product_id = bsf_extract_product_id( ASTRA_EXT_DIR );
+			$product_details   = get_brainstorm_product( $product_id );
+			$installed_version = isset( $product_details['version'] ) ? $product_details['version'] : '';
+			$product_versions  = BSF_Rollback_Version::bsf_get_product_versions( $product_id ); // Get Remote versions
+			// Show versions above than latest install version of the product.
+			$rollback_versions = BSF_Rollback_Version::sort_product_versions( $product_versions, $installed_version );
+		}
+
+		$rollback_versions_options = array();
+
+		foreach ( $rollback_versions as $version ) {
+
+			$version = array(
+				'label' => $version,
+				'value' => $version,
+			);
+
+			$rollback_versions_options[] = $version;
+		}
+
+		return $rollback_versions_options;
 	}
 
 	/**
 	 * Get Changelogs from API.
 	 *
 	 * @since x.x.x
-	 * @param string $product product name.
 	 * @return array $changelog_data Changelog Data.
 	 */
-	public static function get_changelog_feed_data( $product ) {
+	public static function astra_get_theme_changelog_feed_data() {
 		$changelog_data = array();
 		$posts          = json_decode( wp_remote_retrieve_body( wp_remote_get( 'https://wpastra.com/wp-json/wp/v2/changelog?product=97&per_page=3' ) ) ); // Astra theme.
-		if( 'astra-pro-addon' === $product ) {
-			$posts          = json_decode( wp_remote_retrieve_body( wp_remote_get( 'https://wpastra.com/wp-json/wp/v2/changelog?product=98&per_page=3' ) ) ); // Astra Pro.
-		}
 
 		if ( isset( $posts ) && is_array( $posts ) ) {
 			foreach ( $posts as $post ) {
@@ -288,27 +492,6 @@ class Astra_Menu {
 		}
 
 		return $changelog_data;
-	}
-
-	/**
-	 * Get plugin status
-	 *
-	 * @since x.x.x
-	 *
-	 * @param  string $plugin_init_file Plguin init file.
-	 * @return mixed
-	 */
-	public function get_plugin_status( $plugin_init_file ) {
-
-		$installed_plugins = get_plugins();
-
-		if ( ! isset( $installed_plugins[ $plugin_init_file ] ) ) {
-			return 'not-installed';
-		} elseif ( is_plugin_active( $plugin_init_file ) ) {
-			return 'active';
-		} else {
-			return 'inactive';
-		}
 	}
 
 	/**
@@ -338,14 +521,6 @@ class Astra_Menu {
 			true
 		);
 
-		wp_register_script(
-			'astra-admin-settings',
-			ASTRA_THEME_ADMIN_URL . 'assets/js/astra-admin-menu-settings.js',
-			array( 'jquery', 'wp-util', 'updates' ),
-			ASTRA_THEME_VERSION,
-			false
-		);
-
 		wp_register_style(
 			$handle,
 			$build_url . 'dashboard-app.css',
@@ -361,7 +536,6 @@ class Astra_Menu {
 		);
 
 		wp_enqueue_script( $handle );
-		wp_enqueue_script( 'astra-admin-settings' );
 
 		wp_set_script_translations( $handle, 'astra' );
 

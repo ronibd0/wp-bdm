@@ -12,27 +12,24 @@ const FileGeneration = () => {
 	const dispatch = useDispatch();
 
 	const enableFileGeneration = useSelector( ( state ) => state.enableFileGeneration );
-	const fileGenerationStatus = false === enableFileGeneration ? false : true;
+	const fileGenerationStatus = 'disable' === enableFileGeneration ? false : true;
 
 	const updateFileGenerationStatus = () => {
 
 		let assetStatus;
-		if ( enableFileGeneration === false ) {
-			assetStatus = true;
+		if ( enableFileGeneration === 'disable' ) {
+			assetStatus = 'enable';
 		} else {
-			assetStatus = false;
+			assetStatus = 'disable';
 		}
 
 		dispatch( { type: 'UPDATE_FILE_GENERATION', payload: assetStatus } );
 
-		const action = 'uag_enable_file_generation',
-			nonce = astra_admin.enable_file_generation_nonce;
-
 		const formData = new window.FormData();
 
-		formData.append( 'action', action );
-		formData.append( 'security', nonce );
-		formData.append( 'value', assetStatus );
+		formData.append( 'action', 'astra_file_generation' );
+		formData.append( 'security', astra_admin.update_nonce );
+		formData.append( 'status', assetStatus );
 
 		apiFetch( {
 			url: astra_admin.ajax_url,
@@ -67,8 +64,13 @@ const FileGeneration = () => {
 				</Switch>
 			</div>
 			<p className="mt-2 w-9/12 text-sm text-slate-500">
-				{ __( 'Astra loads the CSS and JS inline on the page by default. If you want to generate separate CSS and JS files for Spectra blocks, enable this option. Please read ', 'astra' ) }
-				<a className='text-spectra focus:text-spectra-hover active:text-spectra-hover hover:text-spectra-hover' href="https://wpspectra.com/clean-html-with-uag/?utm_source=uag-dashboard&utm_medium=link&utm_campaign=uag-dashboard" target='_blank' rel="noreferrer"> { __( 'this article', 'astra' ) } </a>
+				{
+					__(
+						`${astra_admin.theme_name} loads the CSS and JS inline on the page by default. If you want to generate separate CSS and JS files for individual addons, enable this option. Please read `,
+						"astra"
+					)
+				}
+				<a className='text-spectra focus:text-spectra-hover active:text-spectra-hover hover:text-spectra-hover' href="https://wpastra.com/astra-2-1/?utm_source=welcome_page&utm_medium=sidebar&utm_campaign=astra_pro" target='_blank' rel="noreferrer"> { __( 'this article', 'astra' ) } </a>
 				{ __( ' to learn the difference between generating CSS and JS inline and in a separate file.', 'astra' ) }
 			</p>
 		</section>

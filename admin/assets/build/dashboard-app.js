@@ -6502,12 +6502,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _headlessui_react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @headlessui/react */ "./node_modules/@headlessui/react/dist/components/disclosure/disclosure.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _ChangeLogPopup__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ChangeLogPopup */ "./assets/src/dashboard-app/ChangeLogPopup.js");
+/* harmony import */ var _headlessui_react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @headlessui/react */ "./node_modules/@headlessui/react/dist/components/disclosure/disclosure.js");
+/* harmony import */ var _wordpress_hooks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/hooks */ "@wordpress/hooks");
+/* harmony import */ var _wordpress_hooks__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_hooks__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _ChangeLogPopup__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ChangeLogPopup */ "./assets/src/dashboard-app/ChangeLogPopup.js");
+
 
 
 
@@ -6515,27 +6518,27 @@ __webpack_require__.r(__webpack_exports__);
 
 function MainNav() {
   var _useLocation;
-  const menus = [{
-    name: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Welcome', 'astra'),
+  const menus = (0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_1__.applyFilters)('astra_dashboard/main_navigation', [{
+    name: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Welcome', 'astra'),
     slug: astra_admin.home_slug,
     path: ''
   }, {
-    name: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Settings', 'astra'),
+    name: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Settings', 'astra'),
     slug: astra_admin.home_slug,
     path: 'settings'
   }, {
-    name: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Starter Templates', 'astra'),
+    name: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Starter Templates', 'astra'),
     slug: astra_admin.home_slug,
     path: 'starter-templates'
   }, {
-    name: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Free vs Pro', 'astra'),
+    name: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Free vs Pro', 'astra'),
     slug: astra_admin.home_slug,
     path: 'free-vs-pro'
-  }];
-  const query = new URLSearchParams((_useLocation = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_3__.useLocation)()) === null || _useLocation === void 0 ? void 0 : _useLocation.search);
+  }]);
+  const query = new URLSearchParams((_useLocation = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_4__.useLocation)()) === null || _useLocation === void 0 ? void 0 : _useLocation.search);
   const activePage = query.get('page') ? query.get('page') : astra_admin.home_slug;
   const activePath = query.get('path') ? query.get('path') : '';
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_headlessui_react__WEBPACK_IMPORTED_MODULE_4__.Disclosure, {
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_headlessui_react__WEBPACK_IMPORTED_MODULE_5__.Disclosure, {
     as: "nav",
     className: "bg-white shadow"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
@@ -6553,7 +6556,7 @@ function MainNav() {
     alt: "Workflow"
   })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "sm:ml-8 sm:flex sm:space-x-8"
-  }, menus.map((menu, key) => (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Link, {
+  }, menus.map((menu, key) => (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Link, {
     index: key,
     key: `?page=${menu.slug}&path=${menu.path}`,
     to: {
@@ -6563,7 +6566,7 @@ function MainNav() {
     className: `${activePage === menu.slug && activePath === menu.path ? 'border-spectra text-spectra active:text-spectra focus:text-spectra focus-visible:text-spectra-hover hover:text-spectra-hover inline-flex items-center px-1 border-b-2 text-[0.940rem] font-medium' : 'border-transparent text-slate-500 active:text-spectra focus-visible:border-slate-300 focus-visible:text-slate-800 hover:border-slate-300 hover:text-slate-800 inline-flex items-center px-1 border-b-2 text-[0.940rem] font-medium'}`
   }, menu.name)))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_ChangeLogPopup__WEBPACK_IMPORTED_MODULE_2__["default"], null)))));
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_ChangeLogPopup__WEBPACK_IMPORTED_MODULE_3__["default"], null)))));
 }
 
 /***/ }),
@@ -6766,6 +6769,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
 /* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_hooks__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/hooks */ "@wordpress/hooks");
+/* harmony import */ var _wordpress_hooks__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_hooks__WEBPACK_IMPORTED_MODULE_2__);
+
 
 
 const classNames = function () {
@@ -6775,7 +6781,7 @@ const classNames = function () {
   return classes.filter(Boolean).join(' ');
 };
 const QuickSettings = () => {
-  const AllQuickLinks = [{
+  const AllQuickLinks = (0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_2__.applyFilters)('astra_admin_quick_settings', [{
     name: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Site Identity', 'astra'),
     section: astra_admin.customize_url + '?autofocus[control]=custom_logo',
     isPro: false
@@ -6811,10 +6817,15 @@ const QuickSettings = () => {
     name: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Footer Builder', 'astra'),
     section: astra_admin.customize_url + '?autofocus[panel]=woocommerce',
     isPro: false
-  }];
+  }]);
+  const onQuickSettingTrigger = sectionLink => {
+    window.open(sectionLink, '_self');
+  };
   const renderBlockCards = AllQuickLinks.map((block, index) => {
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
       key: index,
+      "data-redirection_link": block.section,
+      onClick: () => onQuickSettingTrigger(block.section),
       className: classNames(block.isPro ? 'bg-slate-50' : 'bg-white', 'box-border relative border rounded-md cursor-pointer h-20 px-4 py-3 flex items-start gap-x-4 snap-start hover:shadow-md transition spectra-icon-transition group')
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
       className: "uagb-admin-block-card__title flex-1 min-w-0"
@@ -7193,249 +7204,6 @@ const features = [{
 
 /***/ }),
 
-/***/ "./assets/src/dashboard-app/pages/settings/AssetReGeneration.js":
-/*!**********************************************************************!*\
-  !*** ./assets/src/dashboard-app/pages/settings/AssetReGeneration.js ***!
-  \**********************************************************************/
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/api-fetch */ "@wordpress/api-fetch");
-/* harmony import */ var _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-
-
-
-
-
-const AssetReGeneration = () => {
-  const dispatch = (0,react_redux__WEBPACK_IMPORTED_MODULE_4__.useDispatch)();
-  const enableFileGeneration = (0,react_redux__WEBPACK_IMPORTED_MODULE_4__.useSelector)(state => state.enableFileGeneration);
-  const [regenerateAssetsState, setRegenerateAssetsState] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(false);
-  const regenerateLocalFontAssets = () => {
-    setRegenerateAssetsState('loading');
-    const formData = new window.FormData();
-    formData.append('action', 'astra_refresh_assets_files');
-    formData.append('security', astra_admin.update_nonce);
-    _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_3___default()({
-      url: astra_admin.ajax_url,
-      method: 'POST',
-      body: formData
-    }).then(data => {
-      dispatch({
-        type: 'UPDATE_SETTINGS_SAVED_NOTIFICATION',
-        payload: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Assets Regenerated!', 'astra')
-      });
-      setRegenerateAssetsState(false);
-    });
-  };
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("section", {
-    className: `astra-dep-field-${enableFileGeneration} block border-b border-solid border-slate-200 px-12 py-8 justify-between`
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "w-full flex items-center"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h3", {
-    className: "p-0 flex-1 inline-flex justify-right text-xl leading-6 font-semibold text-slate-800"
-  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("Asset Regeneration", "astra")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "flex justify-right items-center"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
-    type: "button",
-    className: "inline-flex px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-astra focus-visible:bg-astra-hover hover:bg-astra-hover focus:outline-none",
-    onClick: regenerateLocalFontAssets
-  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("Regenerate Assets", "astra"), 'loading' === regenerateAssetsState && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
-    className: "animate-spin -mr-1 ml-3 h-5 w-5 text-white",
-    xmlns: "http://www.w3.org/2000/svg",
-    fill: "none",
-    viewBox: "0 0 24 24"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("circle", {
-    className: "opacity-25",
-    cx: "12",
-    cy: "12",
-    r: "10",
-    stroke: "currentColor",
-    strokeWidth: "4"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    className: "opacity-75",
-    fill: "currentColor",
-    d: "M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-  }))))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
-    className: "mt-2 text-sm text-slate-600 w-9/12"
-  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Facing issues with style, layout, color or another page element? Use this option to regenerate CSS and Javascript assets. It can help with all kinds of asset issues.', 'astra')));
-};
-/* harmony default export */ __webpack_exports__["default"] = (AssetReGeneration);
-
-/***/ }),
-
-/***/ "./assets/src/dashboard-app/pages/settings/BetaUpdates.js":
-/*!****************************************************************!*\
-  !*** ./assets/src/dashboard-app/pages/settings/BetaUpdates.js ***!
-  \****************************************************************/
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var _headlessui_react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @headlessui/react */ "./node_modules/@headlessui/react/dist/components/switch/switch.js");
-/* harmony import */ var _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/api-fetch */ "@wordpress/api-fetch");
-/* harmony import */ var _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_3__);
-
-
-
-
-
-function classNames() {
-  for (var _len = arguments.length, classes = new Array(_len), _key = 0; _key < _len; _key++) {
-    classes[_key] = arguments[_key];
-  }
-  return classes.filter(Boolean).join(' ');
-}
-const BetaUpdates = () => {
-  const dispatch = (0,react_redux__WEBPACK_IMPORTED_MODULE_2__.useDispatch)();
-  const enableBeta = (0,react_redux__WEBPACK_IMPORTED_MODULE_2__.useSelector)(state => state.enableBeta);
-  const enableBetaStatus = false === enableBeta ? false : true;
-  const updateEnableBetaStatus = () => {
-    let assetStatus;
-    if (enableBeta === false) {
-      assetStatus = true;
-    } else {
-      assetStatus = false;
-    }
-    dispatch({
-      type: 'UPDATE_BETA',
-      payload: assetStatus
-    });
-    const formData = new window.FormData();
-    formData.append('action', 'astra_update_admin_setting');
-    formData.append('security', astra_admin.update_nonce);
-    formData.append('key', 'enable_beta');
-    formData.append('value', assetStatus);
-    _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_3___default()({
-      url: astra_admin.ajax_url,
-      method: 'POST',
-      body: formData
-    }).then(() => {
-      dispatch({
-        type: 'UPDATE_SETTINGS_SAVED_NOTIFICATION',
-        payload: 'Successfully saved!'
-      });
-    });
-  };
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("section", {
-    className: "block border-b border-solid border-slate-200 px-12 py-8 justify-between"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "mr-16 w-full flex items-center"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h3", {
-    className: "p-0 flex-1 justify-right inline-flex text-xl leading-8 font-semibold text-slate-800"
-  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Enable Beta', 'astra')), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_headlessui_react__WEBPACK_IMPORTED_MODULE_4__.Switch, {
-    checked: enableBetaStatus,
-    onChange: updateEnableBetaStatus,
-    className: classNames(enableBetaStatus ? 'bg-astra' : 'bg-slate-200', 'relative inline-flex flex-shrink-0 h-5 w-[2.4rem] items-center border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500')
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
-    "aria-hidden": "true",
-    className: classNames(enableBetaStatus ? 'translate-x-5' : 'translate-x-0', 'pointer-events-none inline-block h-3.5 w-3.5 rounded-full bg-white shadow transform ring-0 transition ease-in-out duration-200')
-  }))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
-    className: "mt-2 w-9/12 text-sm text-slate-500"
-  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Enable this option to turn on beta updates and be notified when a new beta version of Spectra is available. The beta version will not install automatically, you will have to install it when you get a notification. It is recommended to try beta on a test environment only.', 'astra')));
-};
-/* harmony default export */ __webpack_exports__["default"] = (BetaUpdates);
-
-/***/ }),
-
-/***/ "./assets/src/dashboard-app/pages/settings/FileGeneration.js":
-/*!*******************************************************************!*\
-  !*** ./assets/src/dashboard-app/pages/settings/FileGeneration.js ***!
-  \*******************************************************************/
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var _headlessui_react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @headlessui/react */ "./node_modules/@headlessui/react/dist/components/switch/switch.js");
-/* harmony import */ var _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/api-fetch */ "@wordpress/api-fetch");
-/* harmony import */ var _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_3__);
-
-
-
-
-
-function classNames() {
-  for (var _len = arguments.length, classes = new Array(_len), _key = 0; _key < _len; _key++) {
-    classes[_key] = arguments[_key];
-  }
-  return classes.filter(Boolean).join(' ');
-}
-const FileGeneration = () => {
-  const dispatch = (0,react_redux__WEBPACK_IMPORTED_MODULE_2__.useDispatch)();
-  const enableFileGeneration = (0,react_redux__WEBPACK_IMPORTED_MODULE_2__.useSelector)(state => state.enableFileGeneration);
-  const fileGenerationStatus = false === enableFileGeneration ? false : true;
-  const updateFileGenerationStatus = () => {
-    let assetStatus;
-    if (enableFileGeneration === false) {
-      assetStatus = true;
-    } else {
-      assetStatus = false;
-    }
-    dispatch({
-      type: 'UPDATE_FILE_GENERATION',
-      payload: assetStatus
-    });
-    const action = 'uag_enable_file_generation',
-      nonce = astra_admin.enable_file_generation_nonce;
-    const formData = new window.FormData();
-    formData.append('action', action);
-    formData.append('security', nonce);
-    formData.append('value', assetStatus);
-    _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_3___default()({
-      url: astra_admin.ajax_url,
-      method: 'POST',
-      body: formData
-    }).then(() => {
-      dispatch({
-        type: 'UPDATE_SETTINGS_SAVED_NOTIFICATION',
-        payload: 'Successfully saved!'
-      });
-    });
-  };
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("section", {
-    className: "block px-12 py-8 justify-between"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "mr-16 w-full flex items-center"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h3", {
-    className: "p-0 flex-1 justify-right inline-flex text-xl leading-8 font-semibold text-slate-800"
-  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("File Generation", "astra")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_headlessui_react__WEBPACK_IMPORTED_MODULE_4__.Switch, {
-    checked: fileGenerationStatus,
-    onChange: updateFileGenerationStatus,
-    className: classNames(fileGenerationStatus ? 'bg-astra' : 'bg-slate-200', 'relative inline-flex flex-shrink-0 h-5 w-[2.4rem] items-center border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none')
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
-    "aria-hidden": "true",
-    className: classNames(fileGenerationStatus ? 'translate-x-5' : 'translate-x-0', 'pointer-events-none inline-block h-3.5 w-3.5 rounded-full bg-white shadow transform ring-0 transition ease-in-out duration-200')
-  }))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
-    className: "mt-2 w-9/12 text-sm text-slate-500"
-  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Astra loads the CSS and JS inline on the page by default. If you want to generate separate CSS and JS files for Spectra blocks, enable this option. Please read ', 'astra'), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
-    className: "text-spectra focus:text-spectra-hover active:text-spectra-hover hover:text-spectra-hover",
-    href: "https://wpspectra.com/clean-html-with-uag/?utm_source=uag-dashboard&utm_medium=link&utm_campaign=uag-dashboard",
-    target: "_blank",
-    rel: "noreferrer"
-  }, " ", (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('this article', 'astra'), " "), (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)(' to learn the difference between generating CSS and JS inline and in a separate file.', 'astra')));
-};
-/* harmony default export */ __webpack_exports__["default"] = (FileGeneration);
-
-/***/ }),
-
 /***/ "./assets/src/dashboard-app/pages/settings/FlushLocalFonts.js":
 /*!********************************************************************!*\
   !*** ./assets/src/dashboard-app/pages/settings/FlushLocalFonts.js ***!
@@ -7520,74 +7288,6 @@ const FlushLocalFonts = () => {
 
 /***/ }),
 
-/***/ "./assets/src/dashboard-app/pages/settings/LicenseKey.js":
-/*!***************************************************************!*\
-  !*** ./assets/src/dashboard-app/pages/settings/LicenseKey.js ***!
-  \***************************************************************/
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__);
-
-
-
-const LicenseKey = () => {
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("section", {
-    className: "block border-b border-solid border-slate-200 px-12 py-8 justify-between"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "mr-16 w-full"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h3", {
-    className: "p-0 text-xl leading-6 font-semibold text-slate-800"
-  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("License Key", "astra")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
-    className: "mt-4 text-sm text-slate-600"
-  }, "You are using ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
-    className: "font-medium"
-  }, "Astra Theme Free"), ". No license needed!"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
-    className: "text-sm text-slate-600"
-  }, "Activate", " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
-    href: "/",
-    className: "text-astra font-medium underline"
-  }, "Astra Pro Addon"), " ", "to get professional support and automatic updates from your WordPress dashboard."), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "mt-4"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", {
-    htmlFor: "license-key",
-    className: "block mb-4 text-sm text-slate-500"
-  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("Please enter your license key below to activate Astra Pro!", "astra")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "flex"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "relative"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
-    className: "ast-admin_license-input-field h-10 block w-[28rem] shadow-sm focus:border-astra focus:ring-astra sm:text-sm text-slate-400",
-    id: "license-key",
-    type: "text",
-    placeholder: "Paste your license key here"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
-    width: "16",
-    height: "16",
-    viewBox: "0 0 16 16",
-    fill: "none",
-    xmlns: "http://www.w3.org/2000/svg",
-    className: "absolute top-1/2 -translate-y-1/2 left-3"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    d: "M10 4.66667C10.7364 4.66667 11.3333 5.26362 11.3333 6M14 6C14 8.20914 12.2091 10 10 10C9.59589 10 9.20577 9.94007 8.83805 9.82862L7.33333 11.3333H6V12.6667H4.66667V14H2.66667C2.29848 14 2 13.7015 2 13.3333V11.6095C2 11.4327 2.07024 11.2631 2.19526 11.1381L6.17138 7.16195C6.05993 6.79423 6 6.40412 6 6C6 3.79086 7.79086 2 10 2C12.2091 2 14 3.79086 14 6Z",
-    stroke: "#94A3B8",
-    strokeWidth: "1.4",
-    strokeLinecap: "round",
-    strokeLinejoin: "round"
-  }))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
-    className: "ml-4 px-5 h-10 bg-gray-50 text-gray-400 text rounded-md shadow-sm"
-  }, "Activate")))));
-};
-/* harmony default export */ __webpack_exports__["default"] = (LicenseKey);
-
-/***/ }),
-
 /***/ "./assets/src/dashboard-app/pages/settings/LoadFontsLocally.js":
 /*!*********************************************************************!*\
   !*** ./assets/src/dashboard-app/pages/settings/LoadFontsLocally.js ***!
@@ -7664,6 +7364,89 @@ const LoadFontsLocally = () => {
   }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Enable this option to download Google fonts and save them on your server. This can be great for improving speed of your website and to comply with GDPR laws.', 'astra')));
 };
 /* harmony default export */ __webpack_exports__["default"] = (LoadFontsLocally);
+
+/***/ }),
+
+/***/ "./assets/src/dashboard-app/pages/settings/OldHeaderFooter.js":
+/*!********************************************************************!*\
+  !*** ./assets/src/dashboard-app/pages/settings/OldHeaderFooter.js ***!
+  \********************************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _headlessui_react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @headlessui/react */ "./node_modules/@headlessui/react/dist/components/switch/switch.js");
+/* harmony import */ var _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/api-fetch */ "@wordpress/api-fetch");
+/* harmony import */ var _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_3__);
+
+
+
+
+
+function classNames() {
+  for (var _len = arguments.length, classes = new Array(_len), _key = 0; _key < _len; _key++) {
+    classes[_key] = arguments[_key];
+  }
+  return classes.filter(Boolean).join(' ');
+}
+const OldHeaderFooter = () => {
+  const dispatch = (0,react_redux__WEBPACK_IMPORTED_MODULE_2__.useDispatch)();
+  const useOldHeaderFooter = (0,react_redux__WEBPACK_IMPORTED_MODULE_2__.useSelector)(state => state.useOldHeaderFooter);
+  const useOldHeaderFooterStatus = false === useOldHeaderFooter ? false : true;
+  const updateHeaderFooterVersion = () => {
+    let assetStatus;
+    if (useOldHeaderFooter === false) {
+      assetStatus = true;
+    } else {
+      assetStatus = false;
+    }
+    dispatch({
+      type: 'USE_OLD_HEADER_FOOTER',
+      payload: assetStatus
+    });
+    const formData = new window.FormData();
+    formData.append('action', 'ast_migrate_to_builder');
+    formData.append('security', astra_admin.update_nonce);
+    formData.append('status', assetStatus);
+    _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_3___default()({
+      url: astra_admin.ajax_url,
+      method: 'POST',
+      body: formData
+    }).then(() => {
+      dispatch({
+        type: 'UPDATE_SETTINGS_SAVED_NOTIFICATION',
+        payload: 'Successfully saved!'
+      });
+    });
+  };
+  if (!astra_admin.show_builder_migration) {
+    return '';
+  }
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("section", {
+    className: "block border-b border-solid border-slate-200 px-12 py-8 justify-between"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "mr-16 w-full flex items-center"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h3", {
+    className: "p-0 flex-1 justify-right inline-flex text-xl leading-8 font-semibold text-slate-800"
+  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Legacy Header/Footer', 'astra')), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_headlessui_react__WEBPACK_IMPORTED_MODULE_4__.Switch, {
+    checked: useOldHeaderFooterStatus,
+    onChange: updateHeaderFooterVersion,
+    className: classNames(useOldHeaderFooterStatus ? 'bg-astra' : 'bg-slate-200', 'relative inline-flex flex-shrink-0 h-5 w-[2.4rem] items-center border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500')
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+    "aria-hidden": "true",
+    className: classNames(useOldHeaderFooterStatus ? 'translate-x-5' : 'translate-x-0', 'pointer-events-none inline-block h-3.5 w-3.5 rounded-full bg-white shadow transform ring-0 transition ease-in-out duration-200')
+  }))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
+    className: "mt-2 w-11/12 text-sm text-slate-500"
+  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)(`${astra_admin.theme_name} Header/Footer Builder is a new and powerful way to design header and footer for your website. With this, you can give a creative look to your header/footer with less effort. Activating this feature will add advanced options to ${astra_admin.theme_name} customizer where you can create awesome new designs.`, "astra")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
+    className: "mt-2 w-full text-sm text-slate-500"
+  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)(`After years of evolution and updates, the old header footer builder is at the point where it can no longer handle all of the new features. We recommend that you upgrade to the new header footer builder which has an assortment of new features and provides a more seamless experience.`, "astra")));
+};
+/* harmony default export */ __webpack_exports__["default"] = (OldHeaderFooter);
 
 /***/ }),
 
@@ -7747,206 +7530,6 @@ const PreloadLocalFonts = () => {
 
 /***/ }),
 
-/***/ "./assets/src/dashboard-app/pages/settings/RollBack.js":
-/*!*************************************************************!*\
-  !*** ./assets/src/dashboard-app/pages/settings/RollBack.js ***!
-  \*************************************************************/
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _RollBackConfirmPopup__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./RollBackConfirmPopup */ "./assets/src/dashboard-app/pages/settings/RollBackConfirmPopup.js");
-
-
-
-
-const RollBack = () => {
-  const previousVersions = [{
-    value: "2.2",
-    label: "2.2"
-  }];
-  const [previousVersionSelect, setPreviousVersion] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(previousVersions[0].value);
-  const [openPopup, setopenPopup] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(false);
-  const [confirmPopup, setconfirmPopup] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(false);
-  const rollbackButtonClickHandler = () => {
-    setopenPopup(true);
-  };
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("section", {
-    className: "block border-b border-solid border-slate-200 px-12 py-8 justify-between"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "mr-16 w-full flex items-center"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h3", {
-    className: "p-0 flex-1 justify-right inline-flex text-xl leading-8 font-semibold text-slate-800"
-  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("Rollback to Previous Version", "astra")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "flex justify-right"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("select", {
-    id: "location",
-    name: "location",
-    className: "block h-9 mr-2 sm:text-sm spectra-admin__input-field spectra-admin__dropdown",
-    onBlur: e => {
-      setPreviousVersion(e.target.value);
-    }
-  }, previousVersions.map(version => {
-    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("option", {
-      key: version.value,
-      value: version.value
-    }, version.label);
-  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
-    type: "button",
-    className: "inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-astra transition focus:bg-astra-hover hover:bg-astra-hover focus:outline-none h-9",
-    onClick: rollbackButtonClickHandler
-  }, confirmPopup && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
-    className: "animate-spin -ml-1 mr-3 h-5 w-5 text-white",
-    xmlns: "http://www.w3.org/2000/svg",
-    fill: "none",
-    viewBox: "0 0 24 24"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("circle", {
-    className: "opacity-25",
-    cx: "12",
-    cy: "12",
-    r: "10",
-    stroke: "currentColor",
-    strokeWidth: "4"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    className: "opacity-75",
-    fill: "currentColor",
-    d: "M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-  })), (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("Rollback", "astra")))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
-    className: "mt-2 w-9/12 text-sm text-slate-500"
-  },
-  // eslint-disable-next-line @wordpress/i18n-no-variables
-  (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)(`Experiencing an issue with Spectra version ${astra_admin.plugin_ver}? Roll back to a previous version to help troubleshoot the issue.`, "astra"))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_RollBackConfirmPopup__WEBPACK_IMPORTED_MODULE_3__["default"], {
-    openPopup: openPopup,
-    setopenPopup: setopenPopup,
-    previousVersionSelect: previousVersionSelect,
-    setconfirmPopup: setconfirmPopup
-  }));
-};
-/* harmony default export */ __webpack_exports__["default"] = (RollBack);
-
-/***/ }),
-
-/***/ "./assets/src/dashboard-app/pages/settings/RollBackConfirmPopup.js":
-/*!*************************************************************************!*\
-  !*** ./assets/src/dashboard-app/pages/settings/RollBackConfirmPopup.js ***!
-  \*************************************************************************/
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _headlessui_react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @headlessui/react */ "./node_modules/@headlessui/react/dist/components/transitions/transition.js");
-/* harmony import */ var _headlessui_react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @headlessui/react */ "./node_modules/@headlessui/react/dist/components/dialog/dialog.js");
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__);
-
-/* This example requires Tailwind CSS v2.0+ */
-
-
-
-const RollBackConfirmPopup = props => {
-  const {
-    openPopup,
-    setopenPopup,
-    previousVersionSelect,
-    setconfirmPopup
-  } = props;
-  const [open, setOpen] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(openPopup);
-  const cancelButtonRef = (0,react__WEBPACK_IMPORTED_MODULE_1__.useRef)(null);
-  (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(() => {
-    setOpen(openPopup);
-  }, [openPopup]);
-  const onCancelClick = () => {
-    setopenPopup(!openPopup);
-  };
-  const onContinueClick = () => {
-    const rollbackUrl = astra_admin.rollback_url.replace('VERSION', previousVersionSelect);
-    setopenPopup(false);
-    setconfirmPopup(true);
-    window.location.href = rollbackUrl;
-  };
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_headlessui_react__WEBPACK_IMPORTED_MODULE_3__.Transition.Root, {
-    show: open,
-    as: react__WEBPACK_IMPORTED_MODULE_1__.Fragment
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_headlessui_react__WEBPACK_IMPORTED_MODULE_4__.Dialog, {
-    as: "div",
-    className: "uag-rollback__dialog fixed backdrop-blur-sm inset-0 overflow-y-auto",
-    initialFocus: cancelButtonRef,
-    onClose: setOpen
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_headlessui_react__WEBPACK_IMPORTED_MODULE_3__.Transition.Child, {
-    as: react__WEBPACK_IMPORTED_MODULE_1__.Fragment,
-    enter: "ease-out duration-300",
-    enterFrom: "opacity-0",
-    enterTo: "opacity-100",
-    leave: "ease-in duration-200",
-    leaveFrom: "opacity-100",
-    leaveTo: "opacity-0"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"
-  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
-    className: "hidden sm:inline-block sm:align-middle sm:h-screen",
-    "aria-hidden": "true"
-  }, "\u200B"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_headlessui_react__WEBPACK_IMPORTED_MODULE_3__.Transition.Child, {
-    as: react__WEBPACK_IMPORTED_MODULE_1__.Fragment,
-    enter: "ease-out duration-300",
-    enterFrom: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95",
-    enterTo: "opacity-100 translate-y-0 sm:scale-100",
-    leave: "ease-in duration-200",
-    leaveFrom: "opacity-100 translate-y-0 sm:scale-100",
-    leaveTo: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full sm:p-6"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "sm:flex sm:items-start"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-red-50 sm:mx-0 sm:h-16 sm:w-16"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
-    className: "h-8 w-8 stroke-red-600",
-    viewBox: "0 0 34 33",
-    fill: "none",
-    xmlns: "http://www.w3.org/2000/svg"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    d: "M17 9.83333V16.5M17 23.1667H17.0167M32 16.5C32 24.7843 25.2843 31.5 17 31.5C8.71573 31.5 2 24.7843 2 16.5C2 8.21573 8.71573 1.5 17 1.5C25.2843 1.5 32 8.21573 32 16.5Z",
-    strokeWidth: "3",
-    strokeLinecap: "round",
-    strokeLinejoin: "round"
-  }))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_headlessui_react__WEBPACK_IMPORTED_MODULE_4__.Dialog.Title, {
-    as: "h3",
-    className: "text-2xl font-semibold text-slate-800"
-  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Rollback to Previous Version', 'astra')), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
-    className: "mt-2 text-sm text-slate-500"
-  },
-  // eslint-disable-next-line @wordpress/i18n-no-variables
-  (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)(`Are you sure you want to rollback to ASTRA v${previousVersionSelect}?`, 'astra')))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "mt-6 sm:flex sm:flex-row sm:ml-20"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
-    type: "button",
-    className: "w-full inline-flex justify-center rounded border border-transparent shadow-sm px-4 py-2 bg-red-600 text-base font-medium text-white focus:bg-red-700 hover:bg-red-700 focus:outline-none sm:mr-3 sm:w-auto sm:text-sm",
-    onClick: onContinueClick
-  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Rollback', 'astra')), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
-    type: "button",
-    className: "mt-3 w-full inline-flex justify-center rounded border border-slate-200 shadow-sm px-4 py-2 bg-white text-base font-medium text-slate-800 focus:bg-gray-50 hover:bg-gray-50 focus:outline-none sm:mt-0 sm:w-auto sm:text-sm",
-    onClick: onCancelClick,
-    ref: cancelButtonRef
-  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Cancel', 'astra'))))))));
-};
-/* harmony default export */ __webpack_exports__["default"] = (RollBackConfirmPopup);
-
-/***/ }),
-
 /***/ "./assets/src/dashboard-app/pages/settings/Settings.js":
 /*!*************************************************************!*\
   !*** ./assets/src/dashboard-app/pages/settings/Settings.js ***!
@@ -7961,25 +7544,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var _SettingsIcons__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./SettingsIcons */ "./assets/src/dashboard-app/pages/settings/SettingsIcons.js");
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var _DashboardApp_pages_settings_RollBack__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @DashboardApp/pages/settings/RollBack */ "./assets/src/dashboard-app/pages/settings/RollBack.js");
-/* harmony import */ var _DashboardApp_pages_settings_BetaUpdates__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @DashboardApp/pages/settings/BetaUpdates */ "./assets/src/dashboard-app/pages/settings/BetaUpdates.js");
-/* harmony import */ var _DashboardApp_pages_settings_LoadFontsLocally__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @DashboardApp/pages/settings/LoadFontsLocally */ "./assets/src/dashboard-app/pages/settings/LoadFontsLocally.js");
-/* harmony import */ var _DashboardApp_pages_settings_PreloadLocalFonts__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @DashboardApp/pages/settings/PreloadLocalFonts */ "./assets/src/dashboard-app/pages/settings/PreloadLocalFonts.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _wordpress_hooks__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/hooks */ "@wordpress/hooks");
+/* harmony import */ var _wordpress_hooks__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_hooks__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _SettingsIcons__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./SettingsIcons */ "./assets/src/dashboard-app/pages/settings/SettingsIcons.js");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _DashboardApp_pages_settings_LoadFontsLocally__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @DashboardApp/pages/settings/LoadFontsLocally */ "./assets/src/dashboard-app/pages/settings/LoadFontsLocally.js");
+/* harmony import */ var _DashboardApp_pages_settings_PreloadLocalFonts__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @DashboardApp/pages/settings/PreloadLocalFonts */ "./assets/src/dashboard-app/pages/settings/PreloadLocalFonts.js");
+/* harmony import */ var _DashboardApp_pages_settings_FlushLocalFonts__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @DashboardApp/pages/settings/FlushLocalFonts */ "./assets/src/dashboard-app/pages/settings/FlushLocalFonts.js");
 /* harmony import */ var _DashboardApp_pages_settings_SettingsSkeleton__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @DashboardApp/pages/settings/SettingsSkeleton */ "./assets/src/dashboard-app/pages/settings/SettingsSkeleton.js");
-/* harmony import */ var _LicenseKey__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./LicenseKey */ "./assets/src/dashboard-app/pages/settings/LicenseKey.js");
-/* harmony import */ var _FileGeneration__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./FileGeneration */ "./assets/src/dashboard-app/pages/settings/FileGeneration.js");
-/* harmony import */ var _AssetReGeneration__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./AssetReGeneration */ "./assets/src/dashboard-app/pages/settings/AssetReGeneration.js");
-/* harmony import */ var _FlushLocalFonts__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./FlushLocalFonts */ "./assets/src/dashboard-app/pages/settings/FlushLocalFonts.js");
-/* harmony import */ var _WhiteLabel__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./WhiteLabel */ "./assets/src/dashboard-app/pages/settings/WhiteLabel.js");
-/* harmony import */ var _WhiteLabelForm__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./WhiteLabelForm */ "./assets/src/dashboard-app/pages/settings/WhiteLabelForm.js");
-
-
-
-
+/* harmony import */ var _DashboardApp_pages_settings_OldHeaderFooter__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @DashboardApp/pages/settings/OldHeaderFooter */ "./assets/src/dashboard-app/pages/settings/OldHeaderFooter.js");
+/* harmony import */ var _DashboardApp_pages_settings_UpgradeNotices__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @DashboardApp/pages/settings/UpgradeNotices */ "./assets/src/dashboard-app/pages/settings/UpgradeNotices.js");
 
 
 
@@ -7999,29 +7575,31 @@ function classNames() {
   }
   return classes.filter(Boolean).join(' ');
 }
+function SettingsWrapper(_ref) {
+  let {
+    state
+  } = _ref;
+  const wrappers = (0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_3__.applyFilters)('astra_dashboard.settings_tab_wrappers', {
+    'global-settings': (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_DashboardApp_pages_settings_OldHeaderFooter__WEBPACK_IMPORTED_MODULE_10__["default"], null), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_DashboardApp_pages_settings_UpgradeNotices__WEBPACK_IMPORTED_MODULE_11__["default"], null), " "),
+    'fonts-performance': (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_DashboardApp_pages_settings_LoadFontsLocally__WEBPACK_IMPORTED_MODULE_6__["default"], null), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_DashboardApp_pages_settings_PreloadLocalFonts__WEBPACK_IMPORTED_MODULE_7__["default"], null), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_DashboardApp_pages_settings_FlushLocalFonts__WEBPACK_IMPORTED_MODULE_8__["default"], null), " ")
+  });
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, wrappers[state]);
+}
 const Settings = () => {
   var _useLocation;
-  const query = new URLSearchParams((_useLocation = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_16__.useLocation)()) === null || _useLocation === void 0 ? void 0 : _useLocation.search);
-  const dispatch = (0,react_redux__WEBPACK_IMPORTED_MODULE_4__.useDispatch)();
-  const activeSettingsNavigationTab = (0,react_redux__WEBPACK_IMPORTED_MODULE_4__.useSelector)(state => state.activeSettingsNavigationTab);
-  const initialStateSetFlag = (0,react_redux__WEBPACK_IMPORTED_MODULE_4__.useSelector)(state => state.initialStateSetFlag);
-  const navigation = [{
+  const query = new URLSearchParams((_useLocation = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_12__.useLocation)()) === null || _useLocation === void 0 ? void 0 : _useLocation.search);
+  const dispatch = (0,react_redux__WEBPACK_IMPORTED_MODULE_5__.useDispatch)();
+  const activeSettingsNavigationTab = (0,react_redux__WEBPACK_IMPORTED_MODULE_5__.useSelector)(state => state.activeSettingsNavigationTab);
+  const initialStateSetFlag = (0,react_redux__WEBPACK_IMPORTED_MODULE_5__.useSelector)(state => state.initialStateSetFlag);
+  const navigation = (0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_3__.applyFilters)('astra_dashboard.settings_navigation', [{
     name: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('General', 'astra'),
     slug: 'global-settings',
-    icon: _SettingsIcons__WEBPACK_IMPORTED_MODULE_3__["default"]["global-settings"]
+    icon: _SettingsIcons__WEBPACK_IMPORTED_MODULE_4__["default"]["global-settings"]
   }, {
     name: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Performance', 'astra'),
     slug: 'fonts-performance',
-    icon: _SettingsIcons__WEBPACK_IMPORTED_MODULE_3__["default"]["fonts-performance"]
-  }, {
-    name: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Version Control', 'astra'),
-    slug: 'version-control',
-    icon: _SettingsIcons__WEBPACK_IMPORTED_MODULE_3__["default"]["version-control"]
-  }, {
-    name: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('White Label', 'astra'),
-    slug: 'white-label',
-    icon: _SettingsIcons__WEBPACK_IMPORTED_MODULE_3__["default"]["white-label"]
-  }];
+    icon: _SettingsIcons__WEBPACK_IMPORTED_MODULE_4__["default"]["fonts-performance"]
+  }]);
   (0,react__WEBPACK_IMPORTED_MODULE_2__.useEffect)(() => {
     // Activate Setting Active Tab from "settingsTab" Hash in the URl is present.
     const activePath = query.get('path');
@@ -8049,7 +7627,7 @@ const Settings = () => {
     className: "py-6 sm:px-6 lg:py-6 lg:px-0 lg:col-span-3"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("nav", {
     className: "space-y-1"
-  }, navigation.map(item => (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(react_router_dom__WEBPACK_IMPORTED_MODULE_17__.Link // eslint-disable-line
+  }, navigation.map(item => (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(react_router_dom__WEBPACK_IMPORTED_MODULE_13__.Link // eslint-disable-line
   , {
     to: {
       pathname: 'admin.php',
@@ -8067,7 +7645,9 @@ const Settings = () => {
     className: "truncate"
   }, item.name))))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "lg:col-span-9 border-l"
-  }, 'global-settings' === activeSettingsNavigationTab && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_LicenseKey__WEBPACK_IMPORTED_MODULE_10__["default"], null), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_FileGeneration__WEBPACK_IMPORTED_MODULE_11__["default"], null), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_AssetReGeneration__WEBPACK_IMPORTED_MODULE_12__["default"], null)), 'version-control' === activeSettingsNavigationTab && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_DashboardApp_pages_settings_RollBack__WEBPACK_IMPORTED_MODULE_5__["default"], null), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_DashboardApp_pages_settings_BetaUpdates__WEBPACK_IMPORTED_MODULE_6__["default"], null)), 'fonts-performance' === activeSettingsNavigationTab && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_DashboardApp_pages_settings_LoadFontsLocally__WEBPACK_IMPORTED_MODULE_7__["default"], null), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_DashboardApp_pages_settings_PreloadLocalFonts__WEBPACK_IMPORTED_MODULE_8__["default"], null), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_FlushLocalFonts__WEBPACK_IMPORTED_MODULE_13__["default"], null)), 'white-label' === activeSettingsNavigationTab && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_WhiteLabel__WEBPACK_IMPORTED_MODULE_14__["default"], null), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_WhiteLabelForm__WEBPACK_IMPORTED_MODULE_15__["default"], null))))));
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(SettingsWrapper, {
+    state: activeSettingsNavigationTab
+  }), (0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_3__.doAction)(`astra_dashboard.settings_screen_after_${activeSettingsNavigationTab}`)))));
 };
 /* harmony default export */ __webpack_exports__["default"] = (Settings);
 
@@ -8288,88 +7868,9 @@ const SettingsSkeleton = () => {
 
 /***/ }),
 
-/***/ "./assets/src/dashboard-app/pages/settings/WhiteLabel.js":
-/*!***************************************************************!*\
-  !*** ./assets/src/dashboard-app/pages/settings/WhiteLabel.js ***!
-  \***************************************************************/
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var _headlessui_react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @headlessui/react */ "./node_modules/@headlessui/react/dist/components/switch/switch.js");
-/* harmony import */ var _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/api-fetch */ "@wordpress/api-fetch");
-/* harmony import */ var _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_3__);
-
-
-
-
-
-function classNames() {
-  for (var _len = arguments.length, classes = new Array(_len), _key = 0; _key < _len; _key++) {
-    classes[_key] = arguments[_key];
-  }
-  return classes.filter(Boolean).join(' ');
-}
-const WhiteLabel = () => {
-  const dispatch = (0,react_redux__WEBPACK_IMPORTED_MODULE_2__.useDispatch)();
-  const enableWhiteLabel = (0,react_redux__WEBPACK_IMPORTED_MODULE_2__.useSelector)(state => state.enableWhiteLabel);
-  const enableWhiteLabelStatus = false === enableWhiteLabel ? false : true;
-  const updateLoadFontsLocallyStatus = () => {
-    let assetStatus;
-    if (enableWhiteLabel === false) {
-      assetStatus = true;
-    } else {
-      assetStatus = false;
-    }
-    dispatch({
-      type: 'UPDATE_ENABLE_WHITE_LABEL',
-      payload: assetStatus
-    });
-    const formData = new window.FormData();
-    formData.append('action', 'astra_update_admin_setting');
-    formData.append('security', astra_admin.update_nonce);
-    formData.append('key', 'enable_white_label');
-    formData.append('value', assetStatus);
-    _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_3___default()({
-      url: astra_admin.ajax_url,
-      method: 'POST',
-      body: formData
-    }).then(() => {
-      dispatch({
-        type: 'UPDATE_SETTINGS_SAVED_NOTIFICATION',
-        payload: 'Successfully saved!'
-      });
-    });
-  };
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("section", {
-    className: "block border-b border-solid border-slate-200 px-12 py-8 justify-between"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "mr-16 w-full flex items-center"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h3", {
-    className: "p-0 flex-1 justify-right inline-flex text-xl leading-8 font-semibold text-slate-800"
-  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Enable White Label', 'astra')), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_headlessui_react__WEBPACK_IMPORTED_MODULE_4__.Switch, {
-    checked: enableWhiteLabelStatus,
-    onChange: updateLoadFontsLocallyStatus,
-    className: classNames(enableWhiteLabelStatus ? 'bg-astra' : 'bg-slate-200', 'relative inline-flex flex-shrink-0 h-5 w-[2.4rem] items-center border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none')
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
-    "aria-hidden": "true",
-    className: classNames(enableWhiteLabelStatus ? 'translate-x-5' : 'translate-x-0', 'pointer-events-none inline-block h-3.5 w-3.5 rounded-full bg-white shadow transform ring-0 transition ease-in-out duration-200')
-  }))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
-    className: "mt-2 w-9/12 text-sm text-slate-500"
-  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('White Label removes any links to Astra website and change the identity in the dashboard. This setting is mostly used by agencies and developers who are building websites for clients.', 'astra')));
-};
-/* harmony default export */ __webpack_exports__["default"] = (WhiteLabel);
-
-/***/ }),
-
-/***/ "./assets/src/dashboard-app/pages/settings/WhiteLabelForm.js":
+/***/ "./assets/src/dashboard-app/pages/settings/UpgradeNotices.js":
 /*!*******************************************************************!*\
-  !*** ./assets/src/dashboard-app/pages/settings/WhiteLabelForm.js ***!
+  !*** ./assets/src/dashboard-app/pages/settings/UpgradeNotices.js ***!
   \*******************************************************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
@@ -8386,57 +7887,31 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-const WhiteLabelForm = () => {
+
+function classNames() {
+  for (var _len = arguments.length, classes = new Array(_len), _key = 0; _key < _len; _key++) {
+    classes[_key] = arguments[_key];
+  }
+  return classes.filter(Boolean).join(' ');
+}
+const UpgradeNotices = () => {
   const dispatch = (0,react_redux__WEBPACK_IMPORTED_MODULE_2__.useDispatch)();
-  const agencyAuthorName = (0,react_redux__WEBPACK_IMPORTED_MODULE_2__.useSelector)(state => state.agencyAuthorName);
-  const agencyLicenseLink = (0,react_redux__WEBPACK_IMPORTED_MODULE_2__.useSelector)(state => state.agencyLicenseLink);
-  const agencyAuthorURL = (0,react_redux__WEBPACK_IMPORTED_MODULE_2__.useSelector)(state => state.agencyAuthorURL);
-  const themeName = (0,react_redux__WEBPACK_IMPORTED_MODULE_2__.useSelector)(state => state.themeName);
-  const themeDescription = (0,react_redux__WEBPACK_IMPORTED_MODULE_2__.useSelector)(state => state.themeDescription);
-  const themeScreenshotURL = (0,react_redux__WEBPACK_IMPORTED_MODULE_2__.useSelector)(state => state.themeScreenshotURL);
-  const pluginName = (0,react_redux__WEBPACK_IMPORTED_MODULE_2__.useSelector)(state => state.pluginName);
-  const pluginDescription = (0,react_redux__WEBPACK_IMPORTED_MODULE_2__.useSelector)(state => state.pluginDescription);
-  const updateWhitelabelForm = e => {
-    let value = e.target.value;
-    let name = e.target.name;
-    let type = '';
-    switch (name) {
-      case 'plugin_description':
-        type = 'UPDATE_PLUGIN_DESCRIPTION';
-        break;
-      case 'plugin_name':
-        type = 'UPDATE_PLUGIN_NAME';
-        break;
-      case 'theme_screenshot_url':
-        type = 'UPDATE_THEME_SCREENSHOT_URL';
-        break;
-      case 'theme_description':
-        type = 'UPDATE_THEME_DESCRIPTION';
-        break;
-      case 'theme_name':
-        type = 'UPDATE_THEME_NAME';
-        break;
-      case 'agency_license_link':
-        type = 'UPDATE_AGENCY_LICENSE_LINK';
-        break;
-      case 'agency_author_url':
-        type = 'UPDATE_AGENCY_AUTHOR_URL';
-        break;
-      case 'agency_author_name':
-        type = 'UPDATE_AGENCY_AUTHOR_NAME';
-        break;
-      default:
-        break;
+  const useUpgradeNotices = (0,react_redux__WEBPACK_IMPORTED_MODULE_2__.useSelector)(state => state.useUpgradeNotices);
+  const updateUpgradeNoticesVisibility = () => {
+    let assetStatus;
+    if (useUpgradeNotices === false) {
+      assetStatus = true;
+    } else {
+      assetStatus = false;
     }
     dispatch({
-      type: type,
-      payload: value
+      type: 'UPGRADE_NOTICES',
+      payload: assetStatus
     });
     const formData = new window.FormData();
-    formData.append('action', 'astra_update_admin_setting');
+    formData.append('action', 'ast_disable_pro_notices');
     formData.append('security', astra_admin.update_nonce);
-    formData.append('key', name);
-    formData.append('value', value);
+    formData.append('status', assetStatus);
     _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_3___default()({
       url: astra_admin.ajax_url,
       method: 'POST',
@@ -8448,148 +7923,28 @@ const WhiteLabelForm = () => {
       });
     });
   };
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("section", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+  const onUpgradeLinkTrigger = () => {
+    window.open(astra_admin.upgrade_url, '_blank');
+  };
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("section", {
     className: "block border-b border-solid border-slate-200 px-12 py-8 justify-between"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "w-full "
+    className: "mr-16 w-full flex items-center"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h3", {
-    className: "p-0 text-base leading-6 font-semibold text-slate-800 mb-8"
-  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Agency Details", "astra")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "mb-6"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", {
-    htmlFor: "agency_author_name",
-    className: "block text-sm font-medium text-slate-600"
-  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Agency author name:", "astra")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "mt-2"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
-    onChange: updateWhitelabelForm,
-    value: agencyAuthorName,
-    type: "text",
-    name: "agency_author_name",
-    id: "agency_author_name",
-    className: "ast-admin_input-field h-10 block w-4/5 shadow-sm focus:border-astra focus:ring-astra sm:text-sm",
-    placeholder: ""
-  }))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "mb-6"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", {
-    htmlFor: "agency_author_url",
-    className: "block text-sm font-medium text-slate-600"
-  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Agency author URL:", "astra")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "mt-2"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
-    onChange: updateWhitelabelForm,
-    type: "text",
-    value: agencyAuthorURL,
-    name: "agency_author_url",
-    id: "agency_author_url",
-    className: "ast-admin_input-field h-10 block w-4/5 shadow-sm focus:border-astra focus:ring-astra sm:text-sm",
-    placeholder: ""
-  }))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: ""
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", {
-    htmlFor: "agency_license_link",
-    className: "block text-sm font-medium text-slate-600"
-  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Agency license link:", "astra")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "mt-2"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
-    onChange: updateWhitelabelForm,
-    type: "text",
-    value: agencyLicenseLink,
-    name: "agency_license_link",
-    id: "agency_license_link",
-    className: "ast-admin_input-field h-10 block w-4/5 shadow-sm focus:border-astra focus:ring-astra sm:text-sm",
-    placeholder: ""
-  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
-    className: "mt-2 text-sm text-slate-600"
-  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Get license link will be displayed in the license form when the purchase key is expired/not valid", "astra"))))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "block border-b border-solid border-slate-200 px-12 py-8 justify-between"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "w-full"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h3", {
-    className: "p-0 text-base leading-6 font-semibold text-slate-800 mb-8"
-  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Astra Theme Branding", "astra")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "mb-6"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", {
-    htmlFor: "theme_name",
-    className: "block text-sm font-medium text-slate-600"
-  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Theme Name:", "astra")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "mt-2"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
-    onChange: updateWhitelabelForm,
-    type: "text",
-    value: themeName,
-    name: "theme_name",
-    id: "theme_name",
-    className: "ast-admin_input-field h-10 block w-4/5 shadow-sm focus:border-astra focus:ring-astra sm:text-sm",
-    placeholder: ""
-  }))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "mb-6"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", {
-    htmlFor: "theme_description",
-    className: "block text-sm font-medium text-slate-600"
-  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Theme Description:", "astra")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "mt-2"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("textarea", {
-    name: "theme_description",
-    id: "theme_description",
-    onChange: updateWhitelabelForm,
-    value: themeDescription,
-    rows: "4",
-    className: "ast-admin_input-field block w-4/5 shadow-sm focus:border-astra focus:ring-astra sm:text-sm"
-  }))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: ""
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", {
-    htmlFor: "theme_screenshot_url",
-    className: "block text-sm font-medium text-slate-600"
-  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Theme Screenshot URL:", "astra")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "mt-2"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
-    onChange: updateWhitelabelForm,
-    type: "text",
-    value: themeScreenshotURL,
-    name: "theme_screenshot_url",
-    id: "theme_screenshot_url",
-    className: "ast-admin_input-field h-10 block w-4/5 shadow-sm focus:border-astra focus:ring-astra sm:text-sm",
-    placeholder: ""
-  }))))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "block border-b border-solid border-slate-200 px-12 py-8 justify-between"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "w-full "
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h3", {
-    className: "p-0 text-base leading-6 font-semibold text-slate-800 mb-8"
-  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Astra Pro Branding", "astra")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "mb-6"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", {
-    htmlFor: "plugin_name",
-    className: "block text-sm font-medium text-slate-600"
-  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Plugin Name:", "astra")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "mt-2"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
-    onChange: updateWhitelabelForm,
-    type: "text",
-    value: pluginName,
-    name: "plugin_name",
-    id: "plugin_name",
-    className: "ast-admin_input-field h-10 block w-4/5 shadow-sm focus:border-astra focus:ring-astra sm:text-sm",
-    placeholder: ""
-  }))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: ""
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", {
-    htmlFor: "plugin_description",
-    className: "block text-sm font-medium text-slate-600"
-  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Plugin Description:", "astra")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "mt-2"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
-    onChange: updateWhitelabelForm,
-    type: "text",
-    value: pluginDescription,
-    name: "plugin_description",
-    id: "plugin_description",
-    className: "ast-admin_input-field h-10 block w-4/5 shadow-sm focus:border-astra focus:ring-astra sm:text-sm",
-    placeholder: ""
-  }))))));
+    className: "p-0 flex-1 justify-right inline-flex text-xl leading-8 font-semibold text-slate-800"
+  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Build Better Websites with Astra Pro', 'astra')), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
+    type: "button",
+    className: "inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-astra transition focus:bg-astra-hover hover:bg-astra-hover focus:outline-none h-9",
+    onClick: onUpgradeLinkTrigger
+  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Upgrade to Astra Pro", "astra-addon"))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
+    className: "mt-2 w-9/12 text-sm text-slate-500"
+  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)(`Access powerful features for painless WordPress design without the high costs. Powerful tools, premium support, limitless opportunity with Astra Pro! Toggle upgrade notices on or off `, "astra"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+    onClick: updateUpgradeNoticesVisibility,
+    className: "cursor-pointer text-spectra focus:text-spectra-hover active:text-spectra-hover hover:text-spectra-hover",
+    rel: "noreferrer"
+  }, " ", (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('here.', 'astra'), " ")));
 };
-/* harmony default export */ __webpack_exports__["default"] = (WhiteLabelForm);
+/* harmony default export */ __webpack_exports__["default"] = (UpgradeNotices);
 
 /***/ }),
 
@@ -8752,6 +8107,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
 /* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _Common_block_icons__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @Common/block-icons */ "./assets/src/common/block-icons.js");
+/* harmony import */ var _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/api-fetch */ "@wordpress/api-fetch");
+/* harmony import */ var _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_3__);
+
 
 
 
@@ -8762,26 +8120,65 @@ const classNames = function () {
   return classes.filter(Boolean).join(" ");
 };
 const AstraIntegration = () => {
-  const AllAstraIntegration = [{
-    title: "Spectra",
-    subtitle: "Ut at id ac mauris, malesuada ut aliquet amet pellentesque.",
-    logoPath: _Common_block_icons__WEBPACK_IMPORTED_MODULE_2__["default"].spectra,
-    status: "activated",
-    isPro: false
-  }, {
-    title: "WooCommerce",
-    subtitle: "Ut at id ac mauris, malesuada ut aliquet amet pellentesque.",
-    logoPath: _Common_block_icons__WEBPACK_IMPORTED_MODULE_2__["default"].woocommerce,
-    status: "activated",
-    isPro: false
-  }, {
-    title: "CartFlows",
-    subtitle: "Ut at id ac mauris, malesuada ut aliquet amet pellentesque.",
-    logoPath: _Common_block_icons__WEBPACK_IMPORTED_MODULE_2__["default"]["cart-flows"],
-    status: "install",
-    isPro: false
-  }];
-  const renderBlockCards = AllAstraIntegration.map((plugin, index) => {
+  const handlePluginActionTrigger = e => {
+    let action = e.target.dataset.action;
+    const formData = new window.FormData();
+    switch (action) {
+      case 'astra_recommended_plugin_activate':
+        formData.append('action', 'astra_recommended_plugin_activate');
+        formData.append('security', astra_admin.plugin_manager_nonce);
+        formData.append('init', e.target.dataset.init);
+        e.target.innerText = astra_admin.recommendedPluiginActivatingText;
+        _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_3___default()({
+          url: astra_admin.ajax_url,
+          method: 'POST',
+          body: formData
+        }).then(data => {
+          e.target.className = '';
+          e.target.className = 'text-[#4AB866] pointer-events-none capitalize mt-3 text-sm leading-[0.875rem] font-medium rounded-md py-[0.5625rem]';
+          e.target.innerText = astra_admin.recommendedPluiginActivatedText;
+        });
+        break;
+      case 'astra_recommended_plugin_install':
+        formData.append('action', 'astra_recommended_plugin_install');
+        formData.append('_ajax_nonce', astra_admin.plugin_installer_nonce);
+        formData.append('slug', e.target.dataset.slug);
+        e.target.innerText = astra_admin.recommendedPluiginInstallingText;
+        _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_3___default()({
+          url: astra_admin.ajax_url,
+          method: 'POST',
+          body: formData
+        }).then(data => {
+          if (data.success) {
+            e.target.innerText = astra_admin.recommendedPluiginInstalledText;
+            location.reload();
+          }
+        });
+        break;
+      default:
+        // Do nothing.
+        break;
+    }
+  };
+  const getAction = status => {
+    if (status === "activated") {
+      return "";
+    } else if (status === "installed") {
+      return "astra_recommended_plugin_activate";
+    } else {
+      return "astra_recommended_plugin_install";
+    }
+  };
+  const getStatusClass = value => {
+    if (value === "activated") {
+      return "text-[#4AB866] pointer-events-none";
+    } else if (value === "installed") {
+      return "text-slate-400 bg-slate-50 px-[0.8125rem]";
+    } else {
+      return "text-astra bg-slate-50 px-[0.8125rem]";
+    }
+  };
+  const renderBlockCards = astra_admin.integrations.map((plugin, index) => {
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
       key: index,
       className: classNames(plugin.isPro ? "bg-slate-50" : "bg-white", "box-border relative border rounded-md px-5 py-4 flex items-start gap-x-4 snap-start")
@@ -8789,17 +8186,25 @@ const AstraIntegration = () => {
       className: "flex flex-col"
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
       className: "flex justify-between"
-    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, plugin.logoPath), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, plugin.isPro ? (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, "Pro") : (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, plugin.logoPath.internal_icon && _Common_block_icons__WEBPACK_IMPORTED_MODULE_2__["default"][plugin.logoPath.icon_path], !plugin.logoPath.internal_icon && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
+      src: plugin.logoPath.icon_path,
+      width: "40px",
+      height: "40px"
+    })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, plugin.isPro ? (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Pro', 'astra')) : (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
       className: "text-astra uppercase text-[0.625rem] leading-[0.625rem] font-semibold bg-blue-50 px-1 pt-0.5 pb-[0.1875rem] rounded-[0.1875rem]"
-    }, "Free"))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Free', 'astra')))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
       className: "mt-2"
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
       className: "text-base leading-[1.625rem] font-medium text-slate-800"
     }, plugin.title), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
       className: "text-sm leading-[1.375rem] text-slate-400 mt-[0.1875rem]"
     }, plugin.subtitle), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
-      className: "mt-3 text-sm leading-[0.875rem] font-medium text-astra bg-slate-50 rounded-md py-[0.5625rem] px-[0.8125rem]"
-    }, "Install"))));
+      "data-slug": plugin.slug,
+      "data-action": getAction(plugin.status),
+      "data-init": plugin.path,
+      onClick: handlePluginActionTrigger,
+      className: ` ${getStatusClass(plugin.status)} capitalize mt-3 text-sm leading-[0.875rem] font-medium rounded-md py-[0.5625rem]`
+    }, 'installed' == plugin.status ? astra_admin.recommendedPluiginActivateText : plugin.status))));
   });
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "grid grid-flow-row auto-rows-min grid-cols-3 gap-4 sm:grid-cols-3 pt-6"
@@ -8834,90 +8239,135 @@ const classNames = function () {
 const ProModules = () => {
   const AllProModules = [{
     name: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Colors & Background', 'astra'),
-    section: astra_admin.customize_url + '?autofocus[control]=custom_logo',
-    isPro: true,
-    type: 'Customize'
+    links: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+      className: classNames(!astra_admin.pro_available ? 'pointer-events-none' : '', 'focus:text-slate-300 text-slate-300 text-base truncate leading-7 focus:text-astra focus-visible:text-astra-hover active:text-astra-hover hover:text-astra-hover'),
+      href: astra_admin.customize_url + '?autofocus[section]=section-colors-background',
+      rel: "noreferrer"
+    }, " ", (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Customize', 'astra'), " ")
   }, {
     name: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Typography', 'astra'),
-    section: astra_admin.customize_url + '?autofocus[section]=section-colors-background',
-    isPro: true,
-    type: 'Customize'
+    links: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+      className: classNames(!astra_admin.pro_available ? 'pointer-events-none' : '', 'focus:text-slate-300 text-slate-300 text-base truncate leading-7 focus:text-astra focus-visible:text-astra-hover active:text-astra-hover hover:text-astra-hover'),
+      href: astra_admin.customize_url + '?autofocus[section]=section-typography',
+      rel: "noreferrer"
+    }, " ", (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Customize', 'astra'), " ")
   }, {
     name: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Spacing', 'astra'),
-    section: astra_admin.customize_url + '?autofocus[section]=section-typography',
-    isPro: true,
-    type: 'Customize'
+    links: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+      className: classNames(!astra_admin.pro_available ? 'pointer-events-none' : '', 'focus:text-slate-300 text-slate-300 text-base truncate leading-7 focus:text-astra focus-visible:text-astra-hover active:text-astra-hover hover:text-astra-hover'),
+      href: astra_admin.customize_url + '?autofocus[section]=section-container-layout',
+      rel: "noreferrer"
+    }, " ", (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Customize', 'astra'), " ")
   }, {
     name: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Blog Pro', 'astra'),
-    section: astra_admin.customize_url + '?autofocus[section]=section-header-builder-layout',
-    isPro: true,
-    type: 'Customize'
+    links: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+      className: classNames(!astra_admin.pro_available ? 'pointer-events-none' : '', 'focus:text-slate-300 text-slate-300 text-base truncate leading-7 focus:text-astra focus-visible:text-astra-hover active:text-astra-hover hover:text-astra-hover'),
+      href: astra_admin.customize_url + '?autofocus[section]=section-blog',
+      rel: "noreferrer"
+    }, " ", (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Customize', 'astra'), " ")
   }, {
     name: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Nav Menu', 'astra'),
-    section: astra_admin.customize_url + '?autofocus[section]=section-container-layout',
-    isPro: true,
-    type: 'Customize'
+    links: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+      className: classNames(!astra_admin.pro_available ? 'pointer-events-none' : '', 'focus:text-slate-300 text-slate-300 text-base truncate leading-7 focus:text-astra focus-visible:text-astra-hover active:text-astra-hover hover:text-astra-hover'),
+      href: astra_admin.admin_base_url + 'nav-menus.php',
+      rel: "noreferrer"
+    }, " ", (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Settings', 'astra'), " ")
   }, {
     name: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Sticky Header', 'astra'),
-    section: astra_admin.customize_url + '?autofocus[section]=section-buttons',
-    isPro: true,
-    type: 'Customize'
+    links: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+      className: classNames(!astra_admin.pro_available ? 'pointer-events-none' : '', 'focus:text-slate-300 text-slate-300 text-base truncate leading-7 focus:text-astra focus-visible:text-astra-hover active:text-astra-hover hover:text-astra-hover'),
+      href: astra_admin.customize_url + '?autofocus[section]=section-sticky-header',
+      rel: "noreferrer"
+    }, " ", (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Customize', 'astra'), " ")
   }, {
     name: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Page Headers', 'astra'),
-    section: astra_admin.admin_base_url + 'nav-menus.php',
-    isPro: true,
-    type: 'Customize'
+    links: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+      className: classNames(!astra_admin.pro_available ? 'pointer-events-none' : '', 'focus:text-slate-300 text-slate-300 text-base truncate leading-7 focus:text-astra focus-visible:text-astra-hover active:text-astra-hover hover:text-astra-hover'),
+      href: astra_admin.admin_base_url + 'nav-menus.php',
+      rel: "noreferrer"
+    }, " ", (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Settings', 'astra'), " ")
   }, {
     name: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Custom Layouts', 'astra'),
-    section: astra_admin.admin_url + '?page=' + astra_admin.home_slug + '&path=settings',
-    isPro: true,
-    type: 'Customize'
+    links: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+      className: classNames(!astra_admin.pro_available ? 'pointer-events-none' : '', 'focus:text-slate-300 text-slate-300 text-base truncate leading-7 focus:text-astra focus-visible:text-astra-hover active:text-astra-hover hover:text-astra-hover'),
+      href: astra_admin.admin_url + '?page=' + astra_admin.home_slug + '&path=custom-layouts',
+      rel: "noreferrer"
+    }, " ", (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Settings', 'astra'), " ")
   }, {
     name: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Site Layouts', 'astra'),
-    section: astra_admin.customize_url + '?autofocus[panel]=woocommerce',
-    isPro: true,
-    type: 'Customize'
+    links: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+      className: classNames(!astra_admin.pro_available ? 'pointer-events-none' : '', 'focus:text-slate-300 text-slate-300 text-base truncate leading-7 focus:text-astra focus-visible:text-astra-hover active:text-astra-hover hover:text-astra-hover'),
+      href: astra_admin.customize_url + '?autofocus[panel]=woocommerce',
+      rel: "noreferrer"
+    }, " ", (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Customize', 'astra'), " ")
   }, {
     name: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('WooCommerce', 'astra'),
-    section: astra_admin.customize_url + '?autofocus[section]=section-sticky-header',
-    isPro: true,
-    type: 'Settings | Documentation'
+    section: astra_admin.customize_url + '?autofocus[panel]=woocommerce',
+    links: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+      className: classNames(!astra_admin.pro_available ? 'pointer-events-none' : '', 'focus:text-slate-300 text-slate-300 text-base truncate leading-7 focus:text-astra focus-visible:text-astra-hover active:text-astra-hover hover:text-astra-hover'),
+      href: astra_admin.customize_url + '?autofocus[panel]=woocommerce',
+      rel: "noreferrer"
+    }, " ", (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Settings', 'astra'), " "), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+      className: classNames(!astra_admin.pro_available ? 'pointer-events-none' : '', 'focus:text-slate-300 text-slate-300 text-base truncate leading-7 focus:text-astra focus-visible:text-astra-hover active:text-astra-hover hover:text-astra-hover'),
+      href: 'https://wpastra.com/docs-category/astra-pro-modules/woo/',
+      rel: "noreferrer"
+    }, " | ", (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Documentation', 'astra'), " "), " ")
   }, {
-    name: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Easy Digital Download', 'astra'),
-    section: astra_admin.customize_url + '?autofocus[section]=section-sticky-header',
-    isPro: true,
-    type: 'Settings | Documentation'
+    name: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Easy Digital Downloads', 'astra'),
+    links: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+      className: classNames(!astra_admin.pro_available ? 'pointer-events-none' : '', 'focus:text-slate-300 text-slate-300 text-base truncate leading-7 focus:text-astra focus-visible:text-astra-hover active:text-astra-hover hover:text-astra-hover'),
+      href: astra_admin.customize_url + '?autofocus[section]=section-edd-group',
+      rel: "noreferrer"
+    }, " ", (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Settings', 'astra'), " "), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+      className: classNames(!astra_admin.pro_available ? 'pointer-events-none' : '', 'focus:text-slate-300 text-slate-300 text-base truncate leading-7 focus:text-astra focus-visible:text-astra-hover active:text-astra-hover hover:text-astra-hover'),
+      href: 'https://wpastra.com/docs-category/astra-pro-modules/easy-digital-downloads-module/',
+      rel: "noreferrer"
+    }, " | ", (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Documentation', 'astra'), " "), " ")
   }, {
     name: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('LearnDash', 'astra'),
-    section: astra_admin.customize_url + '?autofocus[section]=section-sticky-header',
-    isPro: true,
-    type: 'Settings | Documentation'
+    links: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+      className: classNames(!astra_admin.pro_available ? 'pointer-events-none' : '', 'focus:text-slate-300 text-slate-300 text-base truncate leading-7 focus:text-astra focus-visible:text-astra-hover active:text-astra-hover hover:text-astra-hover'),
+      href: astra_admin.customize_url + '?autofocus[section]=section-learndash',
+      rel: "noreferrer"
+    }, " ", (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Settings', 'astra'), " "), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+      className: classNames(!astra_admin.pro_available ? 'pointer-events-none' : '', 'focus:text-slate-300 text-slate-300 text-base truncate leading-7 focus:text-astra focus-visible:text-astra-hover active:text-astra-hover hover:text-astra-hover'),
+      href: 'https://wpastra.com/docs-category/astra-pro-modules/learndash-astra-pro-modules/',
+      rel: "noreferrer"
+    }, " | ", (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Documentation', 'astra'), " "))
   }, {
     name: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('LifterLMS', 'astra'),
-    section: astra_admin.customize_url + '?autofocus[section]=section-sticky-header',
-    isPro: true,
-    type: 'Settings | Documentation'
+    links: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+      className: classNames(!astra_admin.pro_available ? 'pointer-events-none' : '', 'focus:text-slate-300 text-slate-300 text-base truncate leading-7 focus:text-astra focus-visible:text-astra-hover active:text-astra-hover hover:text-astra-hover'),
+      href: astra_admin.customize_url + '?autofocus[section]=section-lifterlms',
+      rel: "noreferrer"
+    }, " ", (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Settings', 'astra'), " "), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+      className: classNames(!astra_admin.pro_available ? 'pointer-events-none' : '', 'focus:text-slate-300 text-slate-300 text-base truncate leading-7 focus:text-astra focus-visible:text-astra-hover active:text-astra-hover hover:text-astra-hover'),
+      href: 'https://wpastra.com/docs-category/astra-pro-modules/lifterlms-astra-pro/',
+      rel: "noreferrer"
+    }, " | ", (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Documentation', 'astra'), " "), " ")
   }, {
     name: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('White Label', 'astra'),
-    section: astra_admin.customize_url + '?autofocus[section]=section-sticky-header',
-    isPro: true,
-    type: 'Settings | Documentation'
+    links: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+      className: classNames(!astra_admin.pro_available ? 'pointer-events-none' : '', 'focus:text-slate-300 text-slate-300 text-base truncate leading-7 focus:text-astra focus-visible:text-astra-hover active:text-astra-hover hover:text-astra-hover'),
+      href: astra_admin.admin_url + '?page=' + astra_admin.home_slug + '&path=settings&settings=white-label',
+      rel: "noreferrer"
+    }, " ", (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Settings', 'astra'), " "), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+      className: classNames(!astra_admin.pro_available ? 'pointer-events-none' : '', 'focus:text-slate-300 text-slate-300 text-base truncate leading-7 focus:text-astra focus-visible:text-astra-hover active:text-astra-hover hover:text-astra-hover'),
+      href: 'https://wpastra.com/docs-category/astra-pro-modules/white-label/',
+      rel: "noreferrer"
+    }, " | ", (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Documentation', 'astra'), " "), " ")
   }];
   const renderBlockCards = AllProModules.map((block, index) => {
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
       key: index,
-      className: classNames(block.isPro ? 'bg-slate-50' : 'bg-white', 'box-border relative border rounded-md h-20 px-4 py-3 flex items-start gap-x-4 snap-start hover:shadow-md transition spectra-icon-transition group')
+      className: classNames(!astra_admin.pro_available ? 'bg-slate-50' : 'bg-white', 'box-border relative border rounded-md h-20 px-4 py-3 flex items-start gap-x-4 snap-start hover:shadow-md transition spectra-icon-transition group')
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
       className: "uagb-admin-block-card__title flex-1 min-w-0"
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
       className: "text-base font-medium text-slate-800 leading-7"
-    }, block.name), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
-      className: classNames(block.isPro ? 'pointer-events-none' : '', 'focus:text-slate-300 text-slate-300 text-base truncate leading-7 focus:text-astra focus-visible:text-astra-hover active:text-astra-hover hover:text-astra-hover'),
-      href: block.section,
-      rel: "noreferrer"
-    }, block.type)), block.isPro && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    }, block.name), block.links), !astra_admin.pro_available && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
       className: "relative inline-flex flex-shrink-0 py-0.5 px-1 text-[0.625rem] leading-[0.625rem] text-white bg-slate-800 rounded-[0.1875rem]"
-    }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('PRO', 'astra')), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_ToolTip__WEBPACK_IMPORTED_MODULE_2__["default"], null));
+    }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('PRO', 'astra')), !astra_admin.pro_available && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_ToolTip__WEBPACK_IMPORTED_MODULE_2__["default"], null));
   });
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "grid grid-flow-row auto-rows-min grid-cols-2 gap-6 sm:grid-cols-2 pt-6"
@@ -8937,8 +8387,11 @@ const ProModules = () => {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
+
 
 
 const ToolTip = () => {
@@ -8948,7 +8401,7 @@ const ToolTip = () => {
     id: "tooltip-top",
     role: "tooltip",
     className: "inline-block z-10 py-1 px-3 text-[0.75rem] leading-[0.75rem] text-white bg-slate-800 rounded-sm shadow-sm opacity-1 tooltip"
-  }, "This option only available on Astra Pro"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('This option only available on Astra Pro', 'astra')), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "ml-auto w-2 h-2 flex -mt-1 rotate-45 bg-slate-800 mr-4 overflow-hidden"
   }));
 };
@@ -8969,64 +8422,93 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _Common_block_icons__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @Common/block-icons */ "./assets/src/common/block-icons.js");
+/* harmony import */ var _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/api-fetch */ "@wordpress/api-fetch");
+/* harmony import */ var _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_3__);
 
 
 
-const usefulPlugins = [{
-  title: "Spectra",
-  subtitle: "Gutenberg blocks builder",
-  logoPath: _Common_block_icons__WEBPACK_IMPORTED_MODULE_2__["default"].spectra,
-  status: "activated"
-}, {
-  title: "Yoast SEO",
-  subtitle: "SEO plugin",
-  logoPath: _Common_block_icons__WEBPACK_IMPORTED_MODULE_2__["default"]["yoast-seo"],
-  status: "install"
-}, {
-  title: "Elementor",
-  subtitle: "Page builder",
-  logoPath: _Common_block_icons__WEBPACK_IMPORTED_MODULE_2__["default"].elementor,
-  status: "installed"
-}, {
-  title: "WooCommerce",
-  subtitle: "eCommerce plugin",
-  logoPath: _Common_block_icons__WEBPACK_IMPORTED_MODULE_2__["default"].woocommerce,
-  status: "activated"
-}, {
-  title: "WPForms Lite",
-  subtitle: "Form builder",
-  logoPath: _Common_block_icons__WEBPACK_IMPORTED_MODULE_2__["default"]["wp-forms"],
-  status: "install"
-}];
+
 const UsefulPlugins = () => {
-  const handlePlugin = value => {
-    console.log(value);
+  const handlePluginActionTrigger = e => {
+    let action = e.target.dataset.action;
+    const formData = new window.FormData();
+    switch (action) {
+      case 'astra_recommended_plugin_activate':
+        formData.append('action', 'astra_recommended_plugin_activate');
+        formData.append('security', astra_admin.plugin_manager_nonce);
+        formData.append('init', e.target.dataset.init);
+        e.target.innerText = astra_admin.recommendedPluiginActivatingText;
+        _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_3___default()({
+          url: astra_admin.ajax_url,
+          method: 'POST',
+          body: formData
+        }).then(data => {
+          e.target.className = '';
+          e.target.className = 'text-[#4AB866] pointer-events-none capitalize text-sm leading-[0.875rem] font-medium rounded-md';
+          e.target.innerText = astra_admin.recommendedPluiginActivatedText;
+        });
+        break;
+      case 'astra_recommended_plugin_install':
+        formData.append('action', 'astra_recommended_plugin_install');
+        formData.append('_ajax_nonce', astra_admin.plugin_installer_nonce);
+        formData.append('slug', e.target.dataset.slug);
+        e.target.innerText = astra_admin.recommendedPluiginInstallingText;
+        _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_3___default()({
+          url: astra_admin.ajax_url,
+          method: 'POST',
+          body: formData
+        }).then(data => {
+          if (data.success) {
+            e.target.innerText = astra_admin.recommendedPluiginInstalledText;
+            location.reload();
+          }
+        });
+        break;
+      default:
+        // Do nothing.
+        break;
+    }
   };
-  const getClass = value => {
+  const getAction = status => {
+    if (status === "activated") {
+      return "";
+    } else if (status === "installed") {
+      return "astra_recommended_plugin_activate";
+    } else {
+      return "astra_recommended_plugin_install";
+    }
+  };
+  const getStatusClass = value => {
     if (value === "activated") {
-      return "text-[#4AB866]";
+      return "text-[#4AB866] pointer-events-none";
     } else if (value === "installed") {
       return "text-slate-400";
     } else {
       return "text-astra";
     }
   };
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: ""
-  }, usefulPlugins.map((plugin, key) => (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, astra_admin.useful_plugins.map((plugin, key) => (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: `${plugin.status === 'activated' ? '' : 'cursor-pointer hover:bg-[#F8FAFC] hover:shadow-hover'} flex justify-between items-start p-4 border-t border-slate-200 bg-white transition `,
     key: key
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "flex"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, plugin.logoPath), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, plugin.logoPath.internal_icon && _Common_block_icons__WEBPACK_IMPORTED_MODULE_2__["default"][plugin.logoPath.icon_path], !plugin.logoPath.internal_icon && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
+    src: plugin.logoPath.icon_path,
+    width: "40px",
+    height: "40px"
+  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "ml-2.5"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "text-sm leading-[1.375rem] font-medium text-slate-800"
   }, plugin.title), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
     className: "text-sm leading-[1.375rem] text-slate-400"
   }, plugin.subtitle))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
-    className: ` ${getClass(plugin.status)} p-0 m-0 capitalize text-sm leading-4 font-medium`
-  }, plugin.status))));
+    "data-slug": plugin.slug,
+    "data-init": plugin.path,
+    "data-action": getAction(plugin.status),
+    className: ` ${getStatusClass(plugin.status)} p-0 m-0 capitalize text-sm leading-4 font-medium`,
+    onClick: handlePluginActionTrigger
+  }, 'installed' == plugin.status ? astra_admin.recommendedPluiginActivateText : plugin.status))));
 };
 /* harmony default export */ __webpack_exports__["default"] = (UsefulPlugins);
 
@@ -9148,10 +8630,10 @@ const Welcome = () => {
     className: "relative w-full lg:flex lg:items-center lg:justify-between"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
     className: "font-semibold text-xl leading-6 text-slate-800"
-  }, " ", (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Do more with Astra Pro Modules', 'astra'), " "), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+  }, " ", (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Do more with Astra Pro Modules', 'astra'), " "), !astra_admin.pro_available && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
     className: "lg:flex-shrink-0 text-sm font-medium text-astra focus:text-astra focus-visible:text-astra-hover active:text-astra-hover hover:text-astra-hover no-underline",
-    href: astra_admin.customize_url,
-    target: "_self",
+    href: astra_admin.upgrade_url,
+    target: "_blank",
     rel: "noreferrer"
   }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Upgrade Now', 'astra'))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_ProModules__WEBPACK_IMPORTED_MODULE_4__["default"], null))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("section", {
     "aria-labelledby": "section-1-title h-full"
@@ -9306,10 +8788,14 @@ const Welcome = () => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _wordpress_hooks__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/hooks */ "@wordpress/hooks");
+/* harmony import */ var _wordpress_hooks__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_hooks__WEBPACK_IMPORTED_MODULE_0__);
+
 const globalDataReducer = function () {
   let state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
   let action = arguments.length > 1 ? arguments[1] : undefined;
-  switch (action.type) {
+  let actionType = (0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_0__.applyFilters)('astra_dashboard/data_reducer_action', action.type);
+  switch (actionType) {
     case 'UPDATE_INITIAL_STATE':
       return {
         ...action.payload
@@ -9389,6 +8875,16 @@ const globalDataReducer = function () {
         ...state,
         enableBeta: action.payload
       };
+    case 'USE_OLD_HEADER_FOOTER':
+      return {
+        ...state,
+        useOldHeaderFooter: action.payload
+      };
+    case 'UPGRADE_NOTICES':
+      return {
+        ...state,
+        useUpgradeNotices: action.payload
+      };
     case 'UPDATE_SETTINGS_SAVED_NOTIFICATION':
       return {
         ...state,
@@ -9410,17 +8906,22 @@ const globalDataReducer = function () {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
+/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
 /* harmony import */ var _globalDataReducer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./globalDataReducer */ "./assets/src/store/globalDataReducer.js");
+/* harmony import */ var _wordpress_hooks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/hooks */ "@wordpress/hooks");
+/* harmony import */ var _wordpress_hooks__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_hooks__WEBPACK_IMPORTED_MODULE_1__);
 
 
-const initialState = {
+
+const initialState = (0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_1__.applyFilters)('astra_dashboard/datastore', {
   initialStateSetFlag: false,
   enableLoadFontsLocally: false,
   enablePreloadLocalFonts: false,
+  useOldHeaderFooter: false,
+  useUpgradeNotices: false,
   enableWhiteLabel: false,
-  enableBeta: false,
-  enableFileGeneration: false,
+  enableBeta: 'disable',
+  enableFileGeneration: 'disable',
   activeSettingsNavigationTab: '',
   pluginDescription: '',
   pluginName: '',
@@ -9430,8 +8931,8 @@ const initialState = {
   agencyLicenseLink: '',
   agencyAuthorURL: '',
   agencyAuthorName: ''
-};
-const globalDataStore = (0,redux__WEBPACK_IMPORTED_MODULE_1__.createStore)(_globalDataReducer__WEBPACK_IMPORTED_MODULE_0__["default"], initialState, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+});
+const globalDataStore = (0,redux__WEBPACK_IMPORTED_MODULE_2__.createStore)(_globalDataReducer__WEBPACK_IMPORTED_MODULE_0__["default"], initialState, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 /* harmony default export */ __webpack_exports__["default"] = (globalDataStore);
 
 /***/ }),
@@ -9466,6 +8967,8 @@ const setInitialState = store => {
       agencyAuthorURL: data.agency_author_url,
       agencyAuthorName: data.agency_author_name,
       enableBeta: data.enable_beta,
+      useOldHeaderFooter: data.use_old_header_footer,
+      useUpgradeNotices: data.use_upgrade_notices,
       enableFileGeneration: data.enable_file_generation
     };
     store.dispatch({
@@ -16892,6 +16395,17 @@ module.exports = window["wp"]["apiFetch"];
 
 "use strict";
 module.exports = window["wp"]["element"];
+
+/***/ }),
+
+/***/ "@wordpress/hooks":
+/*!*******************************!*\
+  !*** external ["wp","hooks"] ***!
+  \*******************************/
+/***/ (function(module) {
+
+"use strict";
+module.exports = window["wp"]["hooks"];
 
 /***/ }),
 
