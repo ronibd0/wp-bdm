@@ -1066,7 +1066,8 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				 * @since 3.8.3
 				 */
 				if ( true === $update_customizer_strctural_defaults ) {
-					if ( ! Astra_Ext_Transparent_Header_Markup::is_transparent_header() ) {
+					$display_title = get_post_meta( get_the_ID(), 'site-post-title', true );
+					if ( 'disabled' !== $display_title && ! Astra_Ext_Transparent_Header_Markup::is_transparent_header() && apply_filters( 'astra_contained_layout_primary_spacing', true ) ) {
 						$gtn_margin_top = array(
 							'.ast-plain-container.ast-no-sidebar #primary' => array(
 								'margin-top'    => '60px',
