@@ -171,7 +171,7 @@ if ( ! class_exists( 'Astra_Body_Colors_Configs' ) ) {
 					'type'     => 'control',
 					'control'  => 'ast-upgrade',
 					'section'  => $_section,
-					'svg'      => 'color-upgrade-svg',
+					'svg'      => '',
 					'default'  => '',
 					'priority' => 998,
 					'title'    => __( 'Unlimited color options with Pro', 'astra' ),
