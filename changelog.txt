@@ -6,7 +6,7 @@ v3.9.3 (Unreleased)
 - Improvement: WooCommerce - Added product image on cart page for tablet users.
 - Improvement: To have elegant fresh setup UI, updated the customizer sidebar layout by default to No-Sidebar.
 - Improvement: Header builder - Cart - Responsive slider option to adjust Slide-in Cart width for Desktop, Tablet, & Mobile devices.
-- Fix: WooCommerce - Content background color preview not working in customizer preview.
+- Fix: WooCommerce - Content background color not working in customizer preview.
 - Fix: WooCommerce - Shop - Sale badge text is misaligned on the frontend.
 - Fix: WooCommerce - Custom image and icon support for payment section.
 - Fix: WooCommerce - Payment list styling broken inside quick view.
