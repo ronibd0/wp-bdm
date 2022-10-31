@@ -12,7 +12,7 @@ v3.9.3 (Unreleased)
 - Fix: WooCommerce - Payment list styling broken inside quick view.
 - Fix: Block Editor - Astra Meta settings does not save when Custom Fields option is enabled from the preferences.
 - Fix: Two search buttons visible on the empty archive search result page.
-- Fix: Disabled Astra meta setting for Blog page which does not not work from metabox, as it acts like a archive page on the frontend.
+- Fix: Disabled Astra meta setting for Blog page which does not work from metabox, as it acts like a archive page on the frontend.
 - Fix: Megamenu spacing conflict with primary menu top offset option on mobile devices.
 - Fix: WooCommerce - Cart icon size is not working on starter template site.
 - Fix: Top border showing up for related post section on single post when Boxed & Content Boxed layout is active.
