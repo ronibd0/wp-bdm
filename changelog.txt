@@ -16,6 +16,7 @@ v3.9.3 (Unreleased)
 - Fix: Megamenu spacing conflict with primary menu top offset option on mobile devices.
 - Fix: WooCommerce - Cart icon size is not working on starter template site.
 - Fix: Top border showing up for related post section on single post when Boxed & Content Boxed layout is active.
+- Fix: Editor - External toggle controls reverse their direction due to theme's CSS.
 
 v3.9.2
 - Improvement: WooCommerce - Admin bar's customize link updated on WooCommerce pages for quick landing to it's respected customizer section.
