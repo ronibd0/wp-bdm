@@ -98,19 +98,8 @@ class Astra_API_Init extends WP_REST_Controller {
 		$defaults = apply_filters( 'astra_dashboard_options_defaults', array(
 				'self_hosted_gfonts' 		=> false,
 				'preload_local_fonts' 		=> false,
-				'enable_white_label'		=> false,
 				'use_old_header_footer'     => astra_get_option( 'is-header-footer-builder', false ),
-				'enable_beta'				=> get_site_option( '_astra_beta_updates', 'disable' ),
-				'enable_file_generation' 	=> get_option( '_astra_file_generation', 'disable' ),
 				'use_upgrade_notices'       => astra_showcase_upgrade_notices(),
-				'plugin_description' 		=> '',
-				'plugin_name' 				=> '',
-				'theme_screenshot_url' 		=> '',
-				'theme_description' 		=> '',
-				'theme_name' 				=> '',
-				'agency_license_link' 		=> '',
-				'agency_author_url' 		=> '',
-				'agency_author_name' 		=> '',
 			)
 		);
 

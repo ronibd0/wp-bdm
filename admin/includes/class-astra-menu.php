@@ -170,13 +170,16 @@ class Astra_Menu {
 		);
 
 		// Add Custom Layout submenu.
-		add_submenu_page(
-			self::$plugin_slug,
-			__( 'Custom Layouts', 'astra' ),
-			__( 'Custom Layouts', 'astra' ),
-			$capability,
-			'admin.php?page=' . self::$plugin_slug . '&path=custom-layouts'
-		);
+		$show_custom_layout_submenu = ( defined( 'ASTRA_EXT_VER' ) && ! Astra_Ext_Extension::is_active( 'advanced-hooks' ) ) ? false : true;
+		if( $show_custom_layout_submenu ) {
+			add_submenu_page(
+				self::$plugin_slug,
+				__( 'Custom Layouts', 'astra' ),
+				__( 'Custom Layouts', 'astra' ),
+				$capability,
+				( defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'advanced-hooks' ) ) ? 'edit.php?post_type=astra-advanced-hook' : 'admin.php?page=' . self::$plugin_slug . '&path=custom-layouts'
+			);
+		}
 
 		// Add Spectra submenu.
 		add_submenu_page(
@@ -184,7 +187,7 @@ class Astra_Menu {
 			__( 'Spectra', 'astra' ),
 			__( 'Spectra', 'astra' ),
 			$capability,
-			'admin.php?page=' . self::$plugin_slug . '&path=spectra'
+			defined( 'UAGB_VER' ) ? admin_url( 'options-general.php?page=' . UAGB_SLUG ) : 'admin.php?page=' . self::$plugin_slug . '&path=spectra'
 		);
 
 		// Rename to Home menu.
@@ -260,17 +263,52 @@ class Astra_Menu {
 			'useful_plugins'		   => self::astra_get_useful_plugins(),
 			'plugin_manager_nonce'     => wp_create_nonce( 'astra_plugin_manager_nonce' ),
 			'plugin_installer_nonce'     => wp_create_nonce( 'updates' ),
+			'free_vs_pro_link'     		=> admin_url( 'admin.php?page=' . self::$plugin_slug . '&path=free-vs-pro' ),
 			'show_builder_migration'   => Astra_Builder_Helper::is_new_user() ? false : true,
-			'recommendedPluiginInstallingText'   => __( 'Installing', 'astra' ) . '&hellip;',
-			'recommendedPluiginInstalledText'    => __( 'Installed', 'astra' ),
-			'recommendedPluiginActivatingText'   => __( 'Activating', 'astra' ) . '&hellip;',
+			'plugin_installing_text'   => __( 'Installing', 'astra' ) . '&hellip;',
+			'plugin_installed_text'    => __( 'Installed', 'astra' ),
+			'plugin_activating_text'   => __( 'Activating', 'astra' ) . '&hellip;',
 			'recommendedPluiginDeactivatingText' => __( 'Deactivating', 'astra' ) . '&hellip;',
-			'recommendedPluiginActivatedText'    => __( 'Activated', 'astra' ),
-			'recommendedPluiginActivateText'     => __( 'Activate', 'astra' ),
-			'recommendedPluiginDeactivateText'   => __( 'Deactivate', 'astra' ),
+			'plugin_activated_text'    => __( 'Activated', 'astra' ),
+			'plugin_activate_text'     => __( 'Activate', 'astra' ),
+			'starter_templates_data'   => self::get_starter_template_plugin_data(),
 		);
 
 		$this->settings_app_scripts( apply_filters( 'astra_react_admin_localize', $localize ) );
+	}
+
+	/**
+	 * Get Starter Templates plugin data.
+	 *
+	 * @return array
+	 * @since x.x.x
+	 */
+	public static function get_starter_template_plugin_data() {
+		$st_data = array(
+			'title' => __( 'Starter Templates', 'astra' ),
+			'description' => __( 'Create professional designed pixel perfect websites in minutes. Get access to 280+ pre-made full website templates for your favorite page builder.', 'astra' ),
+			'is_available' => defined( 'ASTRA_PRO_SITES_VER' ) || defined( 'ASTRA_SITES_VER' ) ? true : false,
+			'redirection_link' => admin_url( 'themes.php?page=starter-templates' ),
+		);
+
+		$skip_free_version = false;
+		$pro_plugin_status = self::get_plugin_status( 'astra-pro-sites/astra-pro-sites.php' );
+
+		if( 'installed' === $pro_plugin_status ) {
+			$skip_free_version = true;
+			$st_data['slug'] = 'astra-pro-sites';
+			$st_data['status'] = $pro_plugin_status;
+			$st_data['path'] = 'astra-pro-sites/astra-pro-sites.php';
+		}
+
+		$free_plugin_status = self::get_plugin_status( 'astra-sites/astra-sites.php' );
+		if( ! $skip_free_version ) {
+			$st_data['slug'] = 'astra-sites';
+			$st_data['status'] = $free_plugin_status;
+			$st_data['path'] = 'astra-sites/astra-sites.php';
+		}
+
+		return $st_data;
 	}
 
 	/**
@@ -511,7 +549,7 @@ class Astra_Menu {
 			'version'      => ASTRA_THEME_VERSION,
 		);
 
-		$script_dep = array_merge( $script_info['dependencies'], array( 'updates' ) );
+		$script_dep = array_merge( $script_info['dependencies'], array( 'updates', 'wp-hooks' ) );
 
 		wp_register_script(
 			$handle,

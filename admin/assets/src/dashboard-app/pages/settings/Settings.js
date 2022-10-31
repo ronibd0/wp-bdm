@@ -1,7 +1,6 @@
 import { __ } from '@wordpress/i18n';
 import{ useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { applyFilters, doAction } from '@wordpress/hooks';
 
 import SettingsIcons from './SettingsIcons';
 
@@ -19,7 +18,7 @@ function classNames( ...classes ) {
 }
 
 function SettingsWrapper({ state }) {
-	const wrappers = applyFilters(
+	const wrappers = wp.hooks.applyFilters(
 		'astra_dashboard.settings_tab_wrappers',
 		{
 			'global-settings': <> <OldHeaderFooter/> <UpgradeNotices/> </>,
@@ -37,7 +36,7 @@ const Settings = () => {
 	const activeSettingsNavigationTab = useSelector( ( state ) => state.activeSettingsNavigationTab );
 	const initialStateSetFlag = useSelector( ( state ) => state.initialStateSetFlag );
 
-	const navigation = applyFilters(
+	const navigation = wp.hooks.applyFilters(
 		'astra_dashboard.settings_navigation',
 		[
 			{ name: __( 'General', 'astra' ), slug: 'global-settings', icon: SettingsIcons['global-settings'] },
@@ -89,8 +88,9 @@ const Settings = () => {
 						</nav>
 					</aside>
 					<div className='lg:col-span-9 border-l'>
+						{ wp.hooks.applyFilters( `astra_dashboard.settings_screen_before_${activeSettingsNavigationTab}`, <span/> ) }
 						<SettingsWrapper state={activeSettingsNavigationTab}></SettingsWrapper>
-						{ doAction( `astra_dashboard.settings_screen_after_${activeSettingsNavigationTab}` ) }
+						{ wp.hooks.applyFilters( `astra_dashboard.settings_screen_after_${activeSettingsNavigationTab}`, <span/> ) }
 					</div>
 				</div>
 			</main>

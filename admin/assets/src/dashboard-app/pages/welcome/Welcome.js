@@ -19,13 +19,6 @@ const Welcome = () => {
 		);
 	};
 
-	const onReadFullGuideClick = () => {
-		window.open(
-			'https://wpastra.com/',
-			'_blank'
-		);
-	};
-
 	return(
 		<main className="py-[2.43rem]">
 			<div className="max-w-3xl mx-auto px-6 lg:max-w-7xl">

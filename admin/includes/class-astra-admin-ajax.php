@@ -87,18 +87,7 @@ class Astra_Admin_Ajax {
 			array(
 				'self_hosted_gfonts' 		=> 'bool',
 				'preload_local_fonts' 		=> 'bool',
-				'enable_white_label'		=> 'bool',
 				'use_old_header_footer'     => 'bool',
-				'enable_beta' 				=> 'string',
-				'enable_file_generation' 	=> 'string',
-				'plugin_description' 		=> 'string',
-				'plugin_name' 				=> 'string',
-				'theme_screenshot_url' 		=> 'string',
-				'theme_description' 		=> 'string',
-				'theme_name' 				=> 'string',
-				'agency_license_link' 		=> 'string',
-				'agency_author_url' 		=> 'string',
-				'agency_author_name' 		=> 'string',
 			)
 		);
 	}

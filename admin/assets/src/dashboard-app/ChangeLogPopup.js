@@ -6,8 +6,11 @@ import { __ } from "@wordpress/i18n";
 
 const tabs = [
 	{ name: "Astra Theme", value: "astra-theme" },
-	{ name: "Astra Pro", value: "astra-pro" },
 ];
+
+if( astra_admin.pro_available ) {
+	tabs.push( 	{ name: "Astra Pro", value: "astra-pro" } );
+}
 
 const ChangeLogPopup = () => {
 	const [open, setOpen] = useState(false);
@@ -25,7 +28,7 @@ const ChangeLogPopup = () => {
 		if (activeTab === "astra-theme") {
 			setActiveChangeLog(astra_admin.astra_changelog_data);
 		} else if (activeTab === "astra-pro") {
-			setActiveChangeLog(astra_admin.astra_pro_changelog_data);
+			setActiveChangeLog(astra_addon_admin.astra_pro_changelog_data);
 		} else {
 			return setActiveChangeLog([]);
 		}
@@ -104,34 +107,36 @@ const ChangeLogPopup = () => {
 											</div>
 										</div>
 
-										<div className="block">
-											<div className="border-b border-gray-200">
-												<nav
-													className="-mb-px flex space-x-8 px-6"
-													aria-label="Tabs"
-												>
-													{tabs.map((tab) => (
-														<button
-															key={tab.name}
-															className={`${
-																activeTab ===
-																tab.value
-																	? "border-astra text-astra"
-																	: "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300"
-															}
-																whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm`}
-															onClick={() =>
-																toggleTab(
+										{ astra_admin.pro_available &&
+											<div className="block">
+												<div className="border-b border-gray-200">
+													<nav
+														className="-mb-px flex space-x-8 px-6"
+														aria-label="Tabs"
+													>
+														{tabs.map((tab) => (
+															<button
+																key={tab.name}
+																className={`${
+																	activeTab ===
 																	tab.value
-																)
-															}
-														>
-															{tab.name}
-														</button>
-													))}
-												</nav>
+																		? "border-astra text-astra"
+																		: "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300"
+																}
+																	whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm`}
+																onClick={() =>
+																	toggleTab(
+																		tab.value
+																	)
+																}
+															>
+																{tab.name}
+															</button>
+														))}
+													</nav>
+												</div>
 											</div>
-										</div>
+										}
 
 										<div className="relative flex-1 overflow-y-auto">
 											<div className="relative grid bg-white divide-y divide-gray-200">

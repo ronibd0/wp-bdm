@@ -6,6 +6,20 @@ const CustomLayouts = () => {
 	const query = new URLSearchParams( useLocation()?.search );
 	const allowAutoPlay = '1' === query.get( 'astra-activation-redirect' ) ? 1 : 0;
 
+	const onGetAstraPro = () => {
+		window.open(
+			'https://wpastra.com/pro',
+			'_blank'
+		);
+	};
+
+	const onFreeVsProClick = () => {
+		window.open(
+			astra_admin.free_vs_pro_link,
+			'_self'
+		);
+	};
+
 	return (
 		<main className="relative">
 			<div className="w-full blur-md">
@@ -51,12 +65,16 @@ const CustomLayouts = () => {
 						<button
 							type="button"
 							className="w-auto justify-center rounded-md border border-transparent bg-astra px-4 py-2 text-base leading-4 font-medium text-white shadow-sm hover:bg-astra-hover focus:outline-none focus:ring-2 focus:ring-astra-hover focus:ring-offset-2 sm:text-sm"
+							onClick={ onGetAstraPro }
 						>
-							Upgrade Now
+							{ __( 'Upgrade Now', 'astra' ) }
 						</button>
 						<div>
-							<button className="w-auto justify-center mt-4 text-base leading-4 text-astra font-medium">
-								Free vs Pro
+							<button
+								className="w-auto justify-center mt-4 text-base leading-4 text-astra font-medium"
+								onClick={ onFreeVsProClick }
+							>
+								{ __( 'Free vs Pro', 'astra' ) }
 							</button>
 						</div>
 					</div>

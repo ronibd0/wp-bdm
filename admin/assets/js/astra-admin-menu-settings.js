@@ -139,7 +139,7 @@
 			var slug = args.slug;
 
 			var $card = jQuery( '.astra-install-recommended-plugin' );
-			var activatingText = astra.recommendedPluiginActivatingText;
+			var activatingText = astra.plugin_activating_text;
 
 			$card.each(function( index, element ) {
 				element = jQuery( element );
@@ -166,7 +166,7 @@
 
 			// Transform the 'Install' button into an 'Activate' button.
 			var $init = $message.data('init');
-			var activatingText = astra.recommendedPluiginActivatingText;
+			var activatingText = astra.plugin_activating_text;
 			var astraPluginRecommendedNonce = astra.pluginManagerNonce;
 
 			$message.removeClass( 'install-now installed button-disabled updated-message' )
@@ -213,7 +213,7 @@
 			var $init = $message.data('init');
 			var deactivatingText = $message.data('deactivating-text') || astra.recommendedPluiginDeactivatingText;
 			var settingsLink = $message.data('settings-link');
-			var activateText = astra.recommendedPluiginActivateText;
+			var activateText = astra.plugin_activate_text;
 			var astraPluginRecommendedNonce = astra.pluginManagerNonce;
 
 			$message.removeClass( 'install-now installed button-disabled updated-message' )
@@ -266,7 +266,7 @@
 				return;
 			}
 
-			$button.html( astra.recommendedPluiginInstallingText );
+			$button.html( astra.plugin_installing_text );
 
 			if ( wp.updates.shouldRequestFilesystemCredentials && ! wp.updates.ajaxLocked ) {
 				wp.updates.requestFilesystemCredentials( event );

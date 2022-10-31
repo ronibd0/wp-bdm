@@ -9,6 +9,10 @@ function classNames( ...classes ) {
 
 const OldHeaderFooter = () => {
 
+	if( ! astra_admin.show_builder_migration ) {
+		return '';
+	}
+
 	const dispatch = useDispatch();
 
 	const useOldHeaderFooter = useSelector( ( state ) => state.useOldHeaderFooter );
@@ -39,10 +43,6 @@ const OldHeaderFooter = () => {
 			dispatch( { type: 'UPDATE_SETTINGS_SAVED_NOTIFICATION', payload: 'Successfully saved!' } );
 		} );
 	};
-
-	if( ! astra_admin.show_builder_migration ) {
-		return '';
-	}
 
 	return (
 		<section className='block border-b border-solid border-slate-200 px-12 py-8 justify-between'>

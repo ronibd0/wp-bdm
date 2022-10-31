@@ -1,10 +1,9 @@
 import { __ } from '@wordpress/i18n';
-import { applyFilters } from '@wordpress/hooks';
 const classNames = ( ...classes ) => ( classes.filter( Boolean ).join( ' ' ) );
 
 const QuickSettings = () => {
 
-	const AllQuickLinks = applyFilters( 'astra_admin_quick_settings', [
+	const AllQuickLinks = wp.hooks.applyFilters( 'astra_admin_quick_settings', [
 			{
 				name: __( 'Site Identity', 'astra' ),
 				section: astra_admin.customize_url + '?autofocus[control]=custom_logo',

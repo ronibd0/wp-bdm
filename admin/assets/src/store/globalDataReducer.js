@@ -1,7 +1,5 @@
-import { applyFilters } from '@wordpress/hooks';
-
 const globalDataReducer = ( state = {}, action ) => {
-	let actionType = applyFilters( 'astra_dashboard/data_reducer_action', action.type );
+	let actionType = wp.hooks.applyFilters( 'astra_dashboard/data_reducer_action', action.type );
 	switch ( actionType ) {
 		case 'UPDATE_INITIAL_STATE':
 			return {

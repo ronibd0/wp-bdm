@@ -1,12 +1,11 @@
 import { Disclosure } from '@headlessui/react'
-import { applyFilters } from '@wordpress/hooks';
 import { Link, useLocation } from 'react-router-dom';
 import { __ } from '@wordpress/i18n';
 import ChangeLogPopup from './ChangeLogPopup';
 
 export default function MainNav() {
 
-	const menus = applyFilters( 'astra_dashboard/main_navigation', [
+	const menus = wp.hooks.applyFilters( 'astra_dashboard.main_navigation', [
 			{
 				name: __( 'Welcome', 'astra' ),
 				slug: astra_admin.home_slug,
@@ -54,11 +53,12 @@ export default function MainNav() {
 									index = {key}
 									key={ `?page=${ menu.slug }&path=${ menu.path }` }
 									to={ {
-										pathname: 'admin.php',
-										search: `?page=${ menu.slug }${
-											'' !== menu.path ? '&path=' + menu.path : ''
-										}`,
-									} }
+											pathname: 'admin.php',
+											search: `?page=${ menu.slug }${
+												'' !== menu.path ? '&path=' + menu.path : ''
+											}`,
+										}
+									}
 									className={ `${
 										activePage === menu.slug && activePath === menu.path
 											? 'border-spectra text-spectra active:text-spectra focus:text-spectra focus-visible:text-spectra-hover hover:text-spectra-hover inline-flex items-center px-1 border-b-2 text-[0.940rem] font-medium'

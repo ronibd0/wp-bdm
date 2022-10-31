@@ -1,7 +1,94 @@
 import { __ } from '@wordpress/i18n';
 import Astra_Admin_Icons from '@Common/block-icons';
+import apiFetch from '@wordpress/api-fetch';
 
 const StarterTemplates = () => {
+
+	if ( astra_admin.starter_templates_data.is_available ) {
+		window.open(
+			astra_admin.starter_templates_data.redirection_link,
+			'_self'
+		);
+		return;
+	}
+
+	const handlePluginActionTrigger = (e) => {
+		let action = e.target.dataset.action;
+		const formData = new window.FormData();
+
+		switch (action) {
+			case 'astra_recommended_plugin_activate':
+				formData.append( 'action', 'astra_recommended_plugin_activate' );
+				formData.append( 'security', astra_admin.plugin_manager_nonce );
+				formData.append( 'init', e.target.dataset.init );
+				e.target.innerText = astra_admin.plugin_activating_text;
+
+				apiFetch( {
+					url: astra_admin.ajax_url,
+					method: 'POST',
+					body: formData,
+				} ).then( ( response ) => {
+					if( response.success ) {
+						e.target.className = '';
+						e.target.className = 'text-[#4AB866] pointer-events-none capitalize text-sm leading-[0.875rem] font-medium rounded-md';
+						e.target.innerText = astra_admin.plugin_activated_text;
+						window.location = astra_admin.starter_templates_data.redirection_link;
+					}
+				} );
+				break;
+
+			case 'astra_recommended_plugin_install':
+				formData.append( 'action', 'astra_recommended_plugin_install' );
+				formData.append( '_ajax_nonce', astra_admin.plugin_installer_nonce );
+				formData.append( 'slug', e.target.dataset.slug );
+
+				e.target.innerText = astra_admin.plugin_installing_text;
+
+				apiFetch( {
+					url: astra_admin.ajax_url,
+					method: 'POST',
+					body: formData,
+				} ).then( ( response ) => {
+					if ( response.success ) {
+						e.target.innerText = astra_admin.plugin_installed_text;
+						location.reload();
+					}
+				} );
+				break;
+
+			default:
+				// Do nothing.
+				break;
+		}
+	};
+
+	const getAction = ( status ) => {
+		if (status === "activated") {
+			return "";
+		} else if (status === "installed") {
+			return "astra_recommended_plugin_activate";
+		} else {
+			return "astra_recommended_plugin_install";
+		}
+	};
+
+	const getTitle = ( status ) => {
+		if (status === "activated") {
+			return __( 'Activated', 'astra' );
+		} else if (status === "installed") {
+			return __( 'Activate', 'astra' );
+		} else {
+			return __( 'Install & Activate', 'astra' );
+		}
+	}
+
+	const onLearnMoreGuideClick = () => {
+		window.open(
+			'https://wpastra.com/starter-templates/',
+			'_blank'
+		);
+	};
+
 	return (
 		<main className="relative">
 			{ /* <img src={starterTemp} alt="" className="blur-md" /> */ }
@@ -21,14 +108,11 @@ const StarterTemplates = () => {
 								className="text-2xl font-semibold leading-7 text-slate-800"
 								id="modal-title"
 							>
-								Starter Templates
+								{ __( 'Starter Templates', 'astra' ) }
 							</h4>
 							<div className="mt-2">
 								<p className="text-sm text-slate-500">
-									Create professional designed pixel perfect
-									websites in minutes. Get access to 280+
-									pre-made full website templates for your
-									favorite page builder.
+									{ __( 'Create professional designed pixel perfect websites in minutes. Get access to 280+ pre-made full website templates for your favorite page builder.', 'astra' ) }
 								</p>
 							</div>
 						</div>
@@ -37,12 +121,19 @@ const StarterTemplates = () => {
 						<button
 							type="button"
 							className="w-auto justify-center rounded-md border border-transparent bg-astra px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-astra-hover focus:outline-none focus:ring-2 focus:ring-astra-hover focus:ring-offset-2 sm:text-sm"
+							data-slug={astra_admin.starter_templates_data.slug}
+							data-init={astra_admin.starter_templates_data.path}
+							data-action={getAction(astra_admin.starter_templates_data.status)}
+							onClick={ handlePluginActionTrigger }
 						>
-							Install & Activate
+							{ getTitle(astra_admin.starter_templates_data.status) }
 						</button>
 						<div>
-							<button className="w-auto justify-center mt-4 text-astra">
-								Learn More
+							<button
+								className="w-auto justify-center mt-4 text-astra"
+								onClick={onLearnMoreGuideClick}
+							>
+							{ __( 'Learn More', 'astra' ) }
 							</button>
 						</div>
 					</div>

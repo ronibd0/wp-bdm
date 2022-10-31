@@ -9,6 +9,10 @@ function classNames( ...classes ) {
 
 const UpgradeNotices = () => {
 
+	if( astra_admin.pro_available ) {
+		return '';
+	}
+
 	const dispatch = useDispatch();
 
 	const useUpgradeNotices = useSelector( ( state ) => state.useUpgradeNotices );
