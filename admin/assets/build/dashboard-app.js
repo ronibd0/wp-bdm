@@ -7889,13 +7889,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
-function classNames() {
-  for (var _len = arguments.length, classes = new Array(_len), _key = 0; _key < _len; _key++) {
-    classes[_key] = arguments[_key];
-  }
-  return classes.filter(Boolean).join(' ');
-}
 const UpgradeNotices = () => {
   if (astra_admin.pro_available) {
     return '';
@@ -8308,6 +8301,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
 /* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _ToolTip__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ToolTip */ "./assets/src/dashboard-app/pages/welcome/ToolTip.js");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _headlessui_react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @headlessui/react */ "./node_modules/@headlessui/react/dist/components/switch/switch.js");
+
+
 
 
 
@@ -8318,7 +8315,7 @@ const classNames = function () {
   return classes.filter(Boolean).join(' ');
 };
 const ProModules = () => {
-  const AllProModules = [{
+  const AllProModules = wp.hooks.applyFilters('astra_dashboard.pro_addons', [{
     name: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Colors & Background', 'astra'),
     links: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
       className: classNames(!astra_admin.pro_available ? 'pointer-events-none' : '', 'focus:text-slate-300 text-slate-300 text-base truncate leading-7 focus:text-astra focus-visible:text-astra-hover active:text-astra-hover hover:text-astra-hover'),
@@ -8437,7 +8434,38 @@ const ProModules = () => {
       href: 'https://wpastra.com/docs-category/astra-pro-modules/white-label/',
       rel: "noreferrer"
     }, " | ", (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Documentation', 'astra'), " "), " ")
-  }];
+  }]);
+  const dispatch = (0,react_redux__WEBPACK_IMPORTED_MODULE_3__.useDispatch)();
+  const blocksStatuses = (0,react_redux__WEBPACK_IMPORTED_MODULE_3__.useSelector)(state => state.blocksStatuses);
+  const blockActivationStatus = false === blocksStatuses[slug] ? false : true;
+  const updateBlockStatus = () => {
+    let status = false;
+    if (!blockActivationStatus) {
+      status = slug;
+    }
+    const optionsClone = {
+      ...blocksStatuses
+    };
+    optionsClone[slug] = status;
+    dispatch({
+      type: 'UPDATE_BLOCK_STATUSES',
+      payload: optionsClone
+    });
+    const formData = new window.FormData();
+    formData.append('action', 'uag_blocks_activation_and_deactivation');
+    formData.append('security', astra_admin.update_nonce);
+    formData.append('value', JSON.stringify(optionsClone));
+    apiFetch({
+      url: astra_admin.ajax_url,
+      method: 'POST',
+      body: formData
+    }).then(() => {
+      dispatch({
+        type: 'UPDATE_SETTINGS_SAVED_NOTIFICATION',
+        payload: 'Successfully saved!'
+      });
+    });
+  };
   const renderBlockCards = AllProModules.map((block, index) => {
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
       key: index,
@@ -8446,9 +8474,16 @@ const ProModules = () => {
       className: "uagb-admin-block-card__title flex-1 min-w-0"
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
       className: "text-base font-medium text-slate-800 leading-7"
-    }, block.name), block.links), !astra_admin.pro_available && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    }, block.name), block.links), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
       className: "relative inline-flex flex-shrink-0 py-0.5 px-1 text-[0.625rem] leading-[0.625rem] text-white bg-slate-800 rounded-[0.1875rem]"
-    }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('PRO', 'astra')), !astra_admin.pro_available && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_ToolTip__WEBPACK_IMPORTED_MODULE_2__["default"], null));
+    }, !astra_admin.pro_available && (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('PRO', 'astra'), astra_admin.pro_available && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_headlessui_react__WEBPACK_IMPORTED_MODULE_4__.Switch, {
+      checked: blockActivationStatus,
+      onChange: updateBlockStatus,
+      className: classNames(blockActivationStatus ? 'bg-astra' : 'bg-slate-200', 'relative inline-flex flex-shrink-0 h-5 w-[2.4rem] items-center border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500')
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+      "aria-hidden": "true",
+      className: classNames(blockActivationStatus ? 'translate-x-5' : 'translate-x-0', 'pointer-events-none inline-block h-3.5 w-3.5 rounded-full bg-white shadow transform ring-0 transition ease-in-out duration-200')
+    }))), !astra_admin.pro_available && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_ToolTip__WEBPACK_IMPORTED_MODULE_2__["default"], null));
   });
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "grid grid-flow-row auto-rows-min grid-cols-2 gap-6 sm:grid-cols-2 pt-6"
@@ -8875,6 +8910,11 @@ const globalDataReducer = function () {
       return {
         ...action.payload
       };
+    case 'UPDATE_BLOCK_STATUSES':
+      return {
+        ...state,
+        blocksStatuses: action.payload
+      };
     case 'UPDATE_INITIAL_STATE_FLAG':
       return {
         ...state,
@@ -8993,6 +9033,7 @@ const initialState = wp.hooks.applyFilters('astra_dashboard/datastore', {
   useUpgradeNotices: false,
   enableWhiteLabel: false,
   enableBeta: 'disable',
+  blocksStatuses: [],
   enableFileGeneration: 'disable',
   activeSettingsNavigationTab: '',
   pluginDescription: '',
@@ -9030,7 +9071,8 @@ const setInitialState = store => {
       enableLoadFontsLocally: data.self_hosted_gfonts,
       enablePreloadLocalFonts: data.preload_local_fonts,
       useOldHeaderFooter: data.use_old_header_footer,
-      useUpgradeNotices: data.use_upgrade_notices
+      useUpgradeNotices: data.use_upgrade_notices,
+      blocksStatuses: data.pro_addons
     };
     store.dispatch({
       type: 'UPDATE_INITIAL_STATE',

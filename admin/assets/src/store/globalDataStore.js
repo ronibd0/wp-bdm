@@ -9,6 +9,7 @@ const initialState = wp.hooks.applyFilters( 'astra_dashboard/datastore', {
 		useUpgradeNotices : false,
 		enableWhiteLabel : false,
 		enableBeta : 'disable',
+		blocksStatuses : [],
 		enableFileGeneration: 'disable',
 		activeSettingsNavigationTab : '',
 		pluginDescription: '',
