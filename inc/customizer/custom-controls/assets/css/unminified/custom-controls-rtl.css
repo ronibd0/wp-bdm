@@ -4884,7 +4884,7 @@ span.customize-control-title.ast-group-section-title {
   font-size: 13px;
 }
 
-.components-base-control > .ast-payments-text-control-input {
+.components-base-control.ast-payments-text-control-input {
   margin-bottom: 20px;
 }
 
