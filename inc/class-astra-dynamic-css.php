@@ -712,6 +712,13 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				);
 			}
 
+			// As WordPress added text-decoration: underline; directly in WP-6.1. Adding this compatibility CSS to override it.
+			if ( astra_wp_version_compare( '6.1', '>=' ) ) {
+				$css_output[ '.site a:where(:not(.wp-element-button))' ] = array(
+					'text-decoration' => 'inherit',
+				);
+			}
+
 			// Add underline to every link in content area.
 			$content_links_underline = astra_get_option( 'underline-content-links' );
 
