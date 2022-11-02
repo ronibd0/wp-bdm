@@ -18,18 +18,12 @@ const ChangeLogPopup = () => {
 
 	const toggleTab = (value) => {
 		setActiveTab(value);
-	};
-
-	const getChangeLogData = () => {
-		if (activeTab === "astra-pro") {
+		if( value === 'astra-pro' ) {
 			setActiveChangeLog(astra_addon_admin.astra_pro_changelog_data);
+		} else {
+			setActiveChangeLog(astra_admin.astra_changelog_data);
 		}
-		return setActiveChangeLog(astra_admin.astra_changelog_data);
 	};
-
-	useEffect(() => {
-		getChangeLogData();
-	}, [activeTab]);
 
 	return (
 		<>

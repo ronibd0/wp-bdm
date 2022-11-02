@@ -6370,16 +6370,12 @@ const ChangeLogPopup = () => {
   const [activeChangeLog, setActiveChangeLog] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(astra_admin.astra_changelog_data);
   const toggleTab = value => {
     setActiveTab(value);
-  };
-  const getChangeLogData = () => {
-    if (activeTab === "astra-pro") {
+    if (value === 'astra-pro') {
       setActiveChangeLog(astra_addon_admin.astra_pro_changelog_data);
+    } else {
+      setActiveChangeLog(astra_admin.astra_changelog_data);
     }
-    return setActiveChangeLog(astra_admin.astra_changelog_data);
   };
-  (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(() => {
-    getChangeLogData();
-  }, [activeTab]);
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_1__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
     onClick: () => setOpen(true),
     title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("What's New?", "astra"),
@@ -8673,9 +8669,9 @@ const Welcome = () => {
     className: "pb-4 font-medium text-base text-slate-800"
   }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Hello ', 'astra') + astra_admin.current_user + ','), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", {
     className: "text-slate-800 text-[1.8rem] leading-[2.4rem] pb-3 font-medium text-left"
-  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Welcome to Astra!', 'astra')), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
+  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)(`Welcome to ${astra_admin.theme_name}!`, "astra")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
     className: "text-slate-500 pb-7"
-  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Astra is fast, fully customizable & beautiful WordPress theme suitable for blog, personal portfolio, business website and WooCommerce storefront. It is very lightweight and offers unparalleled speed.', 'astra')), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)(`${astra_admin.theme_name} is fast, fully customizable & beautiful WordPress theme suitable for blog, personal portfolio, business website and WooCommerce storefront. It is very lightweight and offers unparalleled speed.`, "astra")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
     className: "relative z-0 inline-flex justify-start w-full"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
     type: "button",
@@ -8688,7 +8684,7 @@ const Welcome = () => {
     rel: "noreferrer"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
     className: "pt-0.5 pl-4 pr-3"
-  }, " ", _Common_block_icons__WEBPACK_IMPORTED_MODULE_3__["default"].play, " "), (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('What’s New in Astra 3.9.1', 'astra'))))))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+  }, " ", _Common_block_icons__WEBPACK_IMPORTED_MODULE_3__["default"].play, " "), (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)(`${astra_admin.theme_name} Theme Full Tutorial`, "astra"))))))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "grid grid-cols-1 gap-4 lg:col-span-2 h-full"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "mr-[80px] spectra-video-container"

@@ -39,8 +39,22 @@ const Welcome = () => {
 								<div className="flex flex-col justify-center h-full">
 									<div className="">
 										<p className='pb-4 font-medium text-base text-slate-800'>{__( 'Hello ', 'astra' ) + astra_admin.current_user + ','}</p>
-										<h2 className='text-slate-800 text-[1.8rem] leading-[2.4rem] pb-3 font-medium text-left'>{__( 'Welcome to Astra!', 'astra' )}</h2>
-										<p className='text-slate-500 pb-7'>{__( 'Astra is fast, fully customizable & beautiful WordPress theme suitable for blog, personal portfolio, business website and WooCommerce storefront. It is very lightweight and offers unparalleled speed.', 'astra' )}</p>
+										<h2 className='text-slate-800 text-[1.8rem] leading-[2.4rem] pb-3 font-medium text-left'>
+											{
+												__(
+													`Welcome to ${astra_admin.theme_name}!`,
+													"astra"
+												)
+											}
+										</h2>
+										<p className='text-slate-500 pb-7'>
+											{
+												__(
+													`${astra_admin.theme_name} is fast, fully customizable & beautiful WordPress theme suitable for blog, personal portfolio, business website and WooCommerce storefront. It is very lightweight and offers unparalleled speed.`,
+													"astra"
+												)
+											}
+										</p>
 
 										<span className="relative z-0 inline-flex justify-start w-full">
 											<button
@@ -54,7 +68,12 @@ const Welcome = () => {
 												className='inline-flex items-center text-base font-medium text-astra focus:text-astra focus-visible:text-astra-hover active:text-astra-hover hover:text-astra-hover'
 												href={ `https://www.youtube.com/watch?v=BAN-puzLheM` } target="_blank" rel="noreferrer">
 												<span className='pt-0.5 pl-4 pr-3'> { Astra_Admin_Icons['play'] } </span>
-												{__( 'What’s New in Astra 3.9.1', 'astra' )}
+												{
+													__(
+														`${astra_admin.theme_name} Theme Full Tutorial`,
+														"astra"
+													)
+												}
 											</a>
 										</span>
 									</div>
