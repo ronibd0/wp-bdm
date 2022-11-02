@@ -1076,6 +1076,11 @@
 	display: none;
 }
 
+.astra-color-picker-wrap .astra-popover-color .components-popover__content {
+    width: 248px;
+}
+
+.astra-color-picker-wrap .astra-popover-color .components-color-picker,
 .astra-color-picker-wrap .astra-popover-color .react-colorful {
     width: 100%;
 }
@@ -1086,6 +1091,7 @@
 .astra-popover-color .components-custom-gradient-picker__ui-line{
     z-index: -1;
 }
+
 .astra-color-picker-wrap.picker-open{
 	display: block;
 }
