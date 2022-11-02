@@ -6555,7 +6555,7 @@ function MainNav() {
       search: `?page=${menu.slug}${'' !== menu.path ? '&path=' + menu.path : ''}`
     },
     className: `${activePage === menu.slug && activePath === menu.path ? 'border-spectra text-spectra active:text-spectra focus:text-spectra focus-visible:text-spectra-hover hover:text-spectra-hover inline-flex items-center px-1 border-b-2 text-[0.940rem] font-medium' : 'border-transparent text-slate-500 active:text-spectra focus-visible:border-slate-300 focus-visible:text-slate-800 hover:border-slate-300 hover:text-slate-800 inline-flex items-center px-1 border-b-2 text-[0.940rem] font-medium'}`
-  }, menu.name)))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+  }, menu.name)))), !astra_admin.is_whitelabel && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_ChangeLogPopup__WEBPACK_IMPORTED_MODULE_2__["default"], null)))));
 }
@@ -7940,7 +7940,7 @@ const Settings = () => {
   , {
     to: {
       pathname: 'admin.php',
-      search: `?page=astra&path=settings&settings=${item.slug}`
+      search: `?page=${astra_admin.home_slug}&path=settings&settings=${item.slug}`
     },
     key: item.name,
     className: classNames(activeSettingsNavigationTab === item.slug ? 'border-astra text-astra focus:text-astra-hover active:text-astra hover:text-astra-hover stroke-astra fill-astra focus:stroke-astra focus:fill-astra hover:stroke-astra hover:fill-astra' : 'border-white text-slate-800 stroke-slate-800 fill-slate-800 focus:text-slate-900 focus:border-slate-200 focus:stroke-slate-900 focus:fill-slate-900 hover:text-slate-900 hover:border-slate-200 hover:stroke-slate-900 hover:fill-slate-900', 'border-l-4 group cursor-pointer py-3 pl-5 flex items-center text-base font-medium'),
@@ -8637,6 +8637,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+const classNames = function () {
+  for (var _len = arguments.length, classes = new Array(_len), _key = 0; _key < _len; _key++) {
+    classes[_key] = arguments[_key];
+  }
+  return classes.filter(Boolean).join(' ');
+};
 const Welcome = () => {
   var _useLocation;
   const query = new URLSearchParams((_useLocation = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_8__.useLocation)()) === null || _useLocation === void 0 ? void 0 : _useLocation.search);
@@ -8650,7 +8656,7 @@ const Welcome = () => {
     className: "max-w-3xl mx-auto px-6 lg:max-w-7xl"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h1", {
     className: "sr-only"
-  }, " Astra "), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+  }, " Astra "), !astra_admin.is_whitelabel && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "grid grid-cols-2 gap-4 items-start lg:grid-cols-5 lg:gap-5 xl:gap-10 rounded-md bg-white overflow-hidden shadow-sm p-12 pt-[2.2rem]"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "grid grid-cols-1 gap-4 lg:col-span-3 h-full mr-[40px]"
@@ -8696,7 +8702,7 @@ const Welcome = () => {
   })))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "grid grid-cols-1 gap-4 items-start lg:grid-cols-3 lg:gap-5 xl:gap-10 mt-[32px]"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "grid grid-cols-1 gap-4 lg:col-span-2"
+    className: classNames(!astra_admin.is_whitelabel ? 'lg:col-span-2' : 'lg:col-span-3', 'grid grid-cols-1 gap-4')
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("section", {
     "aria-labelledby": "section-1-title h-full"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", {
@@ -8724,12 +8730,12 @@ const Welcome = () => {
     className: "relative w-full lg:flex lg:items-center lg:justify-between"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
     className: "font-semibold text-xl leading-6 text-slate-800"
-  }, " ", (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Do more with Astra Pro Modules', 'astra'), " "), astra_admin.pro_available && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_DashboardApp_pages_Welcome_BulkExtensionController__WEBPACK_IMPORTED_MODULE_7__["default"], null), !astra_admin.pro_available && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)(`Do more with ${astra_admin.plugin_name} Modules`, "astra")), astra_admin.pro_available && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_DashboardApp_pages_Welcome_BulkExtensionController__WEBPACK_IMPORTED_MODULE_7__["default"], null), !astra_admin.pro_available && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
     className: "lg:flex-shrink-0 text-sm font-medium text-astra focus:text-astra focus-visible:text-astra-hover active:text-astra-hover hover:text-astra-hover no-underline",
     href: astra_admin.upgrade_url,
     target: "_blank",
     rel: "noreferrer"
-  }, " ", (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Upgrade Now', 'astra'), " ")), wp.hooks.applyFilters(`astra_dashboard.pro_extensions`, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_DashboardApp_pages_Welcome_ProModules__WEBPACK_IMPORTED_MODULE_4__["default"], null)))), astra_admin.show_plugins && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("section", {
+  }, " ", (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Upgrade Now', 'astra'), " ")), wp.hooks.applyFilters(`astra_dashboard.pro_extensions`, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_DashboardApp_pages_Welcome_ProModules__WEBPACK_IMPORTED_MODULE_4__["default"], null)))), astra_admin.show_plugins && !astra_admin.is_whitelabel && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("section", {
     "aria-labelledby": "section-1-title h-full"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", {
     className: "sr-only",
@@ -8747,7 +8753,7 @@ const Welcome = () => {
     id: "section-1-title"
   }, "Your License"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "rounded-md bg-white overflow-hidden shadow-sm flex flex-col justify-center h-full"
-  }, wp.hooks.applyFilters(`astra_dashboard.welcome_screen_after_integrations`, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null))))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+  }, wp.hooks.applyFilters(`astra_dashboard.welcome_screen_after_integrations`, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null))))), !astra_admin.is_whitelabel && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "space-y-4 flex h-full flex-col"
   }, astra_admin.show_plugins && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("section", {
     "aria-labelledby": "section-2-title"

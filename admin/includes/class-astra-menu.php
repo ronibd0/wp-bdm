@@ -148,7 +148,7 @@ class Astra_Menu {
 			return;
 		}
 
-		$astra_icon = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTQiIGhlaWdodD0iMTQiIHZpZXdCb3g9IjAgMCAxOCAxOCIgZmlsbD0iI2ZmZiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik05IDE4QzEzLjk3MDcgMTggMTggMTMuOTcwNyAxOCA5QzE4IDQuMDI5MyAxMy45NzA3IDAgOSAwQzQuMDI5MyAwIDAgNC4wMjkzIDAgOUMwIDEzLjk3MDcgNC4wMjkzIDE4IDkgMThaTTQgMTIuOTk4TDguMzk2IDRMOS40NDE0MSA2LjAzMTI1TDUuODgzNzkgMTIuOTk4SDRaTTguNTM0NjcgMTEuMzc1TDEwLjM0OTEgNy43MjA3TDEzIDEzSDEwLjk3NzFMMTAuMjc5MyAxMS40NDM0SDguNTM0NjdIOC41TDguNTM0NjcgMTEuMzc1WiIgZmlsbD0iI2ZmZiIvPgo8L3N2Zz4K';
+		$astra_icon = apply_filters( 'astra_menu_icon', 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTQiIGhlaWdodD0iMTQiIHZpZXdCb3g9IjAgMCAxOCAxOCIgZmlsbD0iI2ZmZiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik05IDE4QzEzLjk3MDcgMTggMTggMTMuOTcwNyAxOCA5QzE4IDQuMDI5MyAxMy45NzA3IDAgOSAwQzQuMDI5MyAwIDAgNC4wMjkzIDAgOUMwIDEzLjk3MDcgNC4wMjkzIDE4IDkgMThaTTQgMTIuOTk4TDguMzk2IDRMOS40NDE0MSA2LjAzMTI1TDUuODgzNzkgMTIuOTk4SDRaTTguNTM0NjcgMTEuMzc1TDEwLjM0OTEgNy43MjA3TDEzIDEzSDEwLjk3NzFMMTAuMjc5MyAxMS40NDM0SDguNTM0NjdIOC41TDguNTM0NjcgMTEuMzc1WiIgZmlsbD0iI2ZmZiIvPgo8L3N2Zz4K' );
 
 		add_menu_page(
 			self::$page_title,
@@ -249,6 +249,7 @@ class Astra_Menu {
 			'plugin_ver'               => ASTRA_THEME_VERSION,
 			'pro_available'            => defined( 'ASTRA_EXT_VER' ) ? true : false,
 			'theme_name'		       => astra_get_theme_name(),
+			'plugin_name'		       => astra_get_addon_name(),
 			'quick_settings'	       => self::astra_get_quick_links(),
 			'ajax_url'                 => admin_url( 'admin-ajax.php' ),
 			'is_whitelabel'			   => astra_is_white_labelled(),
@@ -258,7 +259,7 @@ class Astra_Menu {
 			'customize_url'            => admin_url( 'customize.php' ),
 			'astra_base_url' 		   => admin_url( 'admin.php?page=' . self::$plugin_slug ),
 			'astra_changelog_data' 	   => self::astra_get_theme_changelog_feed_data(),
-			'logo_url'                 => ASTRA_THEME_URI . 'inc/assets/images/astra-logo.svg',
+			'logo_url'                 => apply_filters( 'astra_admin_menu_icon', ASTRA_THEME_URI . 'inc/assets/images/astra-logo.svg' ),
 			'update_nonce'             => wp_create_nonce( 'astra_update_admin_setting' ),
 			'integrations'		       => self::astra_get_integrations_status(),
 			'show_plugins'      	   => apply_filters( 'astra_show_free_extend_plugins', true ), // Legacy filter support.

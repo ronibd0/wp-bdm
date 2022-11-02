@@ -68,7 +68,7 @@ const Settings = () => {
 							<Link // eslint-disable-line
 								to={ {
 									pathname: 'admin.php',
-									search: `?page=astra&path=settings&settings=${item.slug}`,
+									search: `?page=${astra_admin.home_slug}&path=settings&settings=${item.slug}`,
 								} }
 								key={item.name}
 								className={ classNames(
