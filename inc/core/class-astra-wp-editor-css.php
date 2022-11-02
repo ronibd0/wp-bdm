@@ -540,9 +540,14 @@ class Astra_WP_Editor_CSS {
 			),
 		);
 
-		// Boxed, Content-Boxed, Full-Width Contained page title alignment with Spectra Container Blocks.
-		$desktop_css['.ast-separate-container .editor-styles-wrapper .block-editor-block-list__layout.is-root-container > .uagb-is-root-container, .ast-plain-container .editor-styles-wrapper .block-editor-block-list__layout.is-root-container > .uagb-is-root-container'] = array(
+		// Boxed, Content-Boxed page title alignment with Spectra Container Blocks.
+		$desktop_css['.ast-separate-container .editor-styles-wrapper .block-editor-block-list__layout.is-root-container > .uagb-is-root-container'] = array(
 			'max-width'            => 'var(--wp--custom--ast-content-width-size)',
+			'padding-' . $ltr_left => '0 !important',
+		);
+
+		// Full-Width Contained page title alignment with Spectra Container Blocks.
+		$desktop_css['.ast-plain-container .editor-styles-wrapper .block-editor-block-list__layout.is-root-container > .uagb-is-root-container'] = array(
 			'padding-' . $ltr_left => '0 !important',
 		);
 
