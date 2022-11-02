@@ -1226,10 +1226,6 @@ li#customize-control-astra-settings-header-desktop-items, li#customize-control-a
     background: white;
 }
 
-.components-popover.ahfb-popover-add-builder .components-popover__content {
-    bottom: 0;
-}
-
 .ahfb-control-field .ahfb-background-tabs .customize-control-title {
     padding-top: 10px;
     font-size: 12px;
