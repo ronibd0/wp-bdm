@@ -1614,7 +1614,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 					    z-index: 6;
 					}
 				</style>';
-				if ( ( astra_wp_version_compare( '6.0', '<') ) && Astra_Builder_Helper::$is_header_footer_builder_active ) {
+				if ( ( astra_wp_version_compare( '6.0', '<' ) ) && Astra_Builder_Helper::$is_header_footer_builder_active ) {
 					echo '<style class="astra-wp-6-0-builder-popover-compatibility">
 						.components-popover.ahfb-popover-add-builder {
 							left: 50% !important;
