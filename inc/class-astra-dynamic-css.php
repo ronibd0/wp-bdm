@@ -781,6 +781,16 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				);
 			}
 
+			if ( (astra_wp_version_compare( '6.0', '<=')) && Astra_Builder_Helper::$is_header_footer_builder_active && is_customize_preview() ) {
+
+				$css_output['.components-popover.ahfb-popover-add-builder'] = array(
+					' left' => '50% !important',
+					' top' => '0 !important',
+					' position' => 'absolute',
+					' bottom' => 'auto',
+				);
+			}
+
 			$parse_css = '';
 			if ( $block_editor_legacy_setup ) {
 				$parse_css .= '
