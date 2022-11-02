@@ -2,206 +2,30 @@
 	overflow-y: scroll;
 }
 
-#wpbody-content > .notice:not(.uag-notice),
+#wpbody-content > .notice,
 #wpbody-content > .error {
 	display: none !important;
 }
 
-.uag-menu-page-wrapper,
-.uag-menu-page-wrapper * {
+.ast-menu-page-wrapper,
+.ast-menu-page-wrapper * {
 	box-sizing: border-box;
 }
 
-.uag-menu-page-wrapper a:focus,
-.uag-menu-page-wrapper button:focus,
-.uag-menu-page-wrapper input:focus {
+.ast-menu-page-wrapper a:focus,
+.ast-menu-page-wrapper button:focus,
+.ast-menu-page-wrapper input:focus {
 	box-shadow: none;
 	outline: none;
-}
-
-.uag-rollback__dialog {
-	z-index: 99999;
-}
-// This Class Can Be Cleared Before Final Push.
-#uag-menu-page .uag-accordion {
-
-	svg {
-		fill: #e2e8f0; // Tailwind Slate-200.
-	}
-
-	&:hover {
-
-		svg {
-			fill: #475569; // Tailwind Slate-600.
-		}
-	}
-
-	&:focus {
-		outline: none;
-		box-shadow: none;
-	}
-
-	&:focus-visible {
-
-		svg {
-			fill: #475569; // Tailwind Slate-600.
-		}
-	}
 }
 
 .toplevel_page_astra #wpcontent {
 	padding-left: 0;
 }
 
-.uag-menu-page-wrapper .uag-settings-app {
-	font-family: var(--heading-font-family);
-	left: -20px;
-	position: relative;
-	width: calc(100% + 20px);
-	// Button CSS.
-	.uag-normal-button-control {
-
-		.uag-button {
-			display: inline-block;
-			text-decoration: none;
-			font-size: 14px;
-			margin: 0;
-			font-weight: var(--heading-weight-400);
-			font-family: var(--heading-font-family);
-			font-style: var(--heading-font-style);
-			padding: 10px 16px;
-			cursor: pointer;
-			-webkit-appearance: none;
-			border-radius: 3px;
-			white-space: nowrap;
-			box-sizing: border-box;
-			text-transform: capitalize;
-		}
-
-	}
-
-	h2 {
-		font-family: var(--heading-font-family);
-		font-weight: var(--heading-weight-500);
-		font-size: 24px;
-		margin-bottom: 20px;
-		margin-top: 0;
-		color: var(--content-color);
-		line-height: 32px;
-
-	}
-
-	h3 {
-		margin: 0;
-		margin-bottom: 10px;
-		color: var(--content-color);
-		font-family: var(--heading-font-family);
-		font-weight: var(--heading-weight-500);
-		font-size: 18px;
-		font-style: var(--heading-font-style);
-		line-height: 1.3em;
-	}
-
-	.uag-field {
-		border-radius: 2px;
-	}
-	// Paragraph CSS.
-	p {
-		color: var(--content-color);
-		font-family: var(--heading-font-family);
-		font-weight: var(--heading-weight-400);
-		font-size: 14px;
-		margin-top: 0;
-		margin-bottom: 20px;
-		line-height: 1.55em;
-		text-align: left;
-	}
-
-	.components-base-control__field {
-		font-size: 16px;
-	}
-}
-
-.spectra-recaptcha__heading {
-	color: var(--content-color);
-}
-
-.uag-user-info {
-	background: var(--background-light-color);
-	padding: 35px 0;
-	box-sizing: border-box;
-	width: 1200px;
-	margin: 0 auto;
-	max-width: 100%;
-
-	a[href=""] {
-		display: none;
-	}
-}
-
-.uag-button--primary:hover,
-.uag-button--primary:focus,
-.uag-button--primary:active {
-	background: var(--accent-hv-color);
-	color: var(--metabox-background-color);
-}
-
-.uag-button--primary {
-	border-width: 0;
-	border: 1px solid var(--accent-color);
-	background: var(--accent-color);
-	color: var(--background-light-color);
-}
-
-.uag-button--secondary {
-	color: var(--accent-color);
-	border: 1px solid var(--accent-color);
-	background: #fff;
-	vertical-align: top;
-}
-
-.uag-button--secondary:hover,
-.uag-button--secondary:focus,
-.uag-button--secondary:active {
-	background: #f0f0f1;
-	border-color: var(--accent-hv-color);
-	color: var(--accent-hv-color);
-}
-
-.uag-control__status-yes,
-.uag-control__status-enabled {
-	display: inline-flex;
-	color: #639102;
-	align-items: center;
-	font-weight: var(--heading-weight-400);
-	font-family: var(--heading-font-family);
-	font-style: var(--heading-font-style);
-
-	img {
-		margin-left: 5px;
-		width: 18px;
-	}
-}
-
-.uag-control__status-no,
-.uag-control__status-disabled {
-	color: #f00;
-	font-weight: var(--heading-weight-400);
-	font-family: var(--heading-font-family);
-	font-style: var(--heading-font-style);
-	display: inline-flex;
-	align-items: center;
-
-	img {
-		display: none;
-	}
-}
-
 #wpwrap {
 	background-color: #f8fafc; // Tailwind Slate-50.
-
-	.spectra-admin {
-
+	.astra-admin {
 		&__input-field {
 			color: #64748b; // Tailwind Slate-500.
 			background-color: #fff;
@@ -236,27 +60,6 @@
 			box-sizing: content-box;
 		}
 	}
-
-	// This is required since Tailwind CSS is overridden by load-styles
-	.spectra-content-width-input-wrap {
-
-		> input {
-			padding: 0.5rem 0 0.5rem 0.75rem;
-			border-radius: 0.25rem 0 0 0.25rem;
-			border-right-width: 0;
-		}
-
-		> span {
-			padding: 0.5rem 0.75rem;
-			font-size: 1rem;
-			//stylelint-disable-next-line declaration-property-unit-allowed-list
-			line-height: 1.25rem;
-			color: #64748b; // Tailwind Slate-500.
-			background-color: #fff;
-			border-radius: 0 0.25rem 0.25rem 0;
-			border: 1px solid #e2e8f0; // Tailwind Slate-200.
-		}
-	}
 }
 
 .astra-dep-field-false {
@@ -264,16 +67,16 @@
 	opacity: 0.4;
 }
 
-.uag-menu-page-wrapper {
+.ast-menu-page-wrapper {
 	font-family: Inter, sans-serif;
 }
 
-.spectra-video-container {
+.astra-video-container {
 	position: relative;
 	width: 100%;
 	padding-bottom: 56.25%;
 
-	.spectra-video {
+	.astra-video {
 		position: absolute;
 		top: 0;
 		left: 0;
@@ -284,8 +87,7 @@
 }
 
 // The Block SVGs when Disabled
-.spectra-icon-transition {
-
+.astra-icon-transition {
 	svg,
 	path {
 		transition-property: stroke;
@@ -294,17 +96,8 @@
 	}
 }
 
-.spectra-disabled-icon {
-
-	svg,
-	path {
-		stroke: #94a3b8; // Tailwind Slate-400.
-	}
-}
-
 // Changelog Styling.
-.spectra-changelog-description {
-
+.astra-changelog-description {
 	strong {
 		font-weight: 500;
 		font-size: 0.875rem;
@@ -312,7 +105,6 @@
 		line-height: 1.25rem;
 		color: #1e293b;
 	}
-
 	ul {
 		margin-top: 0.25rem;
 		margin-bottom: 0.75rem;
@@ -321,7 +113,6 @@
 			margin-top: 0;
 		}
 	}
-
 	li {
 		font-weight: 400;
 		font-size: 0.75rem;
@@ -329,78 +120,4 @@
 		line-height: 1rem;
 		color: #64748b;
 	}
-}
-
-// This Class Can Be Cleared Before Final Push.
-// Custom Scrollbar.
-.spectra__scrollable {
-	scrollbar-width: 0.5rem;
-	scrollbar-color: #cbd5e1 #f1f5f9; // Tailwind Slate-300 and Slate-100.
-
-	&--blocks {
-		scrollbar-width: 0.5rem;
-		scrollbar-color: #cbd5e1 #f1f5f9; // Tailwind Slate-300 and Slate-100.
-
-		&::-webkit-scrollbar {
-			width: 0.5rem;
-			height: 0.5rem;
-		}
-
-		&::-webkit-scrollbar-track {
-			margin: 1rem 0;
-			border-radius: 0.25rem;
-			background-color: #f1f5f9;
-		}
-
-		&::-webkit-scrollbar-thumb {
-			border-radius: 0.25rem;
-			background-color: #cbd5e1;
-		}
-	}
-
-	&--settings {
-		// overflow-y: auto;
-		overflow-y: scroll;
-		scrollbar-width: 0.5rem;
-		scrollbar-color: #cbd5e1 #f1f5f9; // Tailwind Slate-300 and Slate-100.
-		// scrollbar-gutter: stable both-edges;
-
-		&::-webkit-scrollbar {
-			width: 0.5rem;
-			height: 0.5rem;
-		}
-
-		&::-webkit-scrollbar-track {
-			border-radius: 0 0.5rem 0.5rem 0;
-			background-color: #f1f5f9;
-			opacity: 0.4;
-		}
-
-		&::-webkit-scrollbar-thumb {
-			border-radius: 0.25rem;
-			background-color: #cbd5e1;
-			opacity: 0.4;
-		}
-	}
-}
-
-.spectra {
-
-	&__settings {
-
-		& > section:last-child {
-			border-bottom: none;
-		}
-	}
-}
-
-.ast-admin_input-field {
-	border: 1px solid #CBD5E1 !important;
-	padding: 9px 13px !important;
-	border-radius: 6px!important;
-}
-.ast-admin_license-input-field {
-	border: 1px solid #CBD5E1 !important;
-	padding: 9px 36px !important;
-	border-radius: 6px!important;
 }

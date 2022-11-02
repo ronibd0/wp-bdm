@@ -66,7 +66,7 @@ const UpgradeNotices = () => {
 						"astra"
 					)
 				}
-				<span onClick={updateUpgradeNoticesVisibility} className='cursor-pointer text-spectra focus:text-spectra-hover active:text-spectra-hover hover:text-spectra-hover' rel="noreferrer"> { __( 'here.', 'astra' ) } </span>
+				<span onClick={updateUpgradeNoticesVisibility} className='cursor-pointer text-astra focus:text-astra-hover active:text-astra-hover hover:text-astra-hover' rel="noreferrer"> { __( 'here.', 'astra' ) } </span>
 			</p>
 		</section>
 	);

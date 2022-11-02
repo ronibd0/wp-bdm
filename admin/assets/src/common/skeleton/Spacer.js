@@ -7,7 +7,7 @@ function SpacerSkeleton( props ) {
 
 	return (
 		<div
-			className="uag-skeleton-base uag-skeleton--spacer"
+			className="ast-skeleton-base ast-skeleton--spacer"
 			style={ {
 				height,
 				...style,

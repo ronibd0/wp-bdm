@@ -168,7 +168,7 @@ const ChangeLogPopup = () => {
 																	}}
 																></p>
 																<p
-																	className="mt-3 spectra-changelog-description"
+																	className="mt-3 astra-changelog-description"
 																	dangerouslySetInnerHTML={{
 																		__html: description,
 																	}}

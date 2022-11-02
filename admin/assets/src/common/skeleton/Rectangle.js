@@ -7,7 +7,7 @@ function RectSkeleton( props ) {
 
 	return (
 		<div
-			className="uag-skeleton uag-skeleton--rect uag-skeleton--wave"
+			className="ast-skeleton ast-skeleton--rect ast-skeleton--wave"
 			style={ {
 				width,
 				height,

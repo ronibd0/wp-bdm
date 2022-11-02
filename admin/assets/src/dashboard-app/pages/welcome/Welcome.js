@@ -82,9 +82,9 @@ const Welcome = () => {
 						</div>
 
 						<div className="grid grid-cols-1 gap-4 lg:col-span-2 h-full">
-							<div className="mr-[80px] spectra-video-container">
+							<div className="mr-[80px] astra-video-container">
 								{/* Added rel=0 query paramter at the end to disable YouTube recommendations */}
-								<iframe className="spectra-video rounded-md" src={`https://www.youtube.com/embed/BAN-puzLheM?showinfo=0&autoplay=${allowAutoPlay}&mute=${allowAutoPlay}&rel=0`} allow="autoplay" title="YouTube video player" frameBorder="0" allowFullScreen></iframe>
+								<iframe className="astra-video rounded-md" src={`https://www.youtube.com/embed/BAN-puzLheM?showinfo=0&autoplay=${allowAutoPlay}&mute=${allowAutoPlay}&rel=0`} allow="autoplay" title="YouTube video player" frameBorder="0" allowFullScreen></iframe>
 							</div>
 						</div>
 					</div>

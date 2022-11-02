@@ -8,10 +8,6 @@ module.exports = {
 	theme: {
 		extend: {
 			colors: {
-				spectra: {
-					DEFAULT: '#6104FF',
-					hover: '#5300E0',
-				},
 				astra: {
 					DEFAULT: '#046BD2',
 					hover: '#045CB4',

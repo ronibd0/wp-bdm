@@ -31,14 +31,14 @@ const ExtensionCard = ( props ) => {
 				! astra_admin.pro_available
 				? 'bg-slate-50'
 				: 'bg-white',
-				'box-border relative border rounded-md h-20 px-4 py-3 flex items-start gap-x-4 snap-start hover:shadow-md transition spectra-icon-transition group'
+				'box-border relative border rounded-md h-20 px-4 py-3 flex items-start gap-x-4 snap-start hover:shadow-md transition astra-icon-transition group'
 			) }
 		>
 			<div className="uagb-admin-block-card__title flex-1 min-w-0">
 				<p className="text-base font-medium text-slate-800 leading-7">
 					{ title }
 					{ deprecated && (
-						<div className="inline-block align-top max-h-4 px-1.5 py-1 ml-1.5 text-[10px] leading-[10px] border border-slate-200 text-slate-400 rounded spectra-admin__block-label">
+						<div className="inline-block align-top max-h-4 px-1.5 py-1 ml-1.5 text-[10px] leading-[10px] border border-slate-200 text-slate-400 rounded">
 							{ __( 'Legacy', 'astra' ) }
 						</div>
 					) }

@@ -64,7 +64,7 @@ const SpectraScreen = () => {
 					</p>
 					<button
 						onClick={onGetSpectra}
-						className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-spectra focus-visible:bg-spectra-hover hover:bg-spectra-hover focus:outline-none"
+						className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white focus:outline-none"
 					>
 						<span className="mr-3">
 							{__("Install Spectra - It’s free", "astra")}
@@ -108,7 +108,7 @@ const SpectraScreen = () => {
 					</h3>
 					<button
 						onClick={onGetSpectra}
-						className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-spectra focus-visible:bg-spectra-hover hover:bg-spectra-hover focus:outline-none"
+						className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white focus:outline-none"
 					>
 						<span className="mr-3">
 							{__("Install Spectra - It’s free", "astra")}

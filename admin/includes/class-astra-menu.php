@@ -899,7 +899,7 @@ class Astra_Menu {
 	 * @since x.x.x
 	 */
 	public function add_footer_link() {
-		echo '<span id="footer-thankyou"> Thank you for using <a href="#" class="focus:text-spectra-hover active:text-spectra-hover hover:text-spectra-hover"> Astra.</a></span>';
+		echo '<span id="footer-thankyou"> Thank you for using <span class="focus:text-astra-hover active:text-astra-hover hover:text-astra-hover"> ' . esc_attr( astra_get_theme_name() ) . '.</span></span>';
 	}
 }
 

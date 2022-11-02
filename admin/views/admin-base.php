@@ -11,9 +11,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 ?>
-<div class="uag-menu-page-wrapper">
-	<div id="uag-menu-page">
-		<div class="uag-menu-page-content uag-clear">
+<div class="ast-menu-page-wrapper">
+	<div id="ast-menu-page">
+		<div class="ast-menu-page-content">
 			<?php
 				do_action( 'astra_render_admin_page_content', $menu_page_slug, $page_action );
 			?>
