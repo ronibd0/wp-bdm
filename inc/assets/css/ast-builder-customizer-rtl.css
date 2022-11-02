@@ -1050,8 +1050,9 @@ li#customize-control-astra-settings-header-desktop-items, li#customize-control-a
 }
 
 .ahfb-responsive-control-bar .floating-controls .components-button svg {
-    height: 16px;
+    height: 13px;
     width: 16px;
+    fill: none;
 }
 
 .ahfb-responsive-control-bar .floating-controls .components-button:focus:not(:disabled) {
