@@ -2443,6 +2443,8 @@
 
 .astra-color-picker-wrap .astra-popover-color .components-popover__content {
     width: 248px;
+    margin-bottom: 10px;
+    margin-top:10px;
 }
 
 .astra-color-picker-wrap .astra-popover-color .components-color-picker,
@@ -5295,6 +5297,15 @@ span.customize-control-title.ast-group-section-title {
 .ast-switch:not(:checked), .ast-switch:checked {
   opacity: 0;
 }
+
+/* Wordpress 6.1 Compatibility CSS for toggle UI */
+.components-toggle-control .components-base-control__field {
+	display: flex;
+	margin-bottom: 12px;
+	line-height: initial;
+	align-items: center;
+}
+
 .dashicons-editor-help[data-title]{
 	z-index: 10;
 }
@@ -7969,6 +7980,15 @@ span.customize-control-title.ast-group-section-title {
 .ast-switch:not(:checked), .ast-switch:checked {
   opacity: 0;
 }
+
+/* Wordpress 6.1 Compatibility CSS for toggle UI */
+.components-toggle-control .components-base-control__field {
+	display: flex;
+	margin-bottom: 12px;
+	line-height: initial;
+	align-items: center;
+}
+
 .dashicons-editor-help[data-title]{
 	z-index: 10;
 }
