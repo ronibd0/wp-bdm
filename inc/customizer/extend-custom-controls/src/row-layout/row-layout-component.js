@@ -27,7 +27,7 @@ class RowLayoutComponent extends Component {
 		let baseDefault;
 		let type = this.props.control.id.replace( 'astra-settings[', '' ).replace( '-footer-layout]', '' );
 		this.type = type;
-		this.footer_type = this.props.control.params.input_attrs.footer;
+		this.footer_type = this.props.control.params.input_attrs.footer ? this.props.control.params.input_attrs.footer : ( this.type === 'hb' ) ? 'primary' : ( ( this.type === 'hba' ) ? 'above' : 'below' );
 		if ( this.controlParams.responsive ) {
 			baseDefault = responsiveDefault;
 			this.defaultValue = this.props.control.params.default ? {
