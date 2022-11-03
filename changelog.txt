@@ -1,4 +1,4 @@
-v3.9.3 (Unreleased)
+v3.9.4 (Unreleased)
 - New: WooCommerce Cart - "Cart Page" click action introduced to redirect user on cart page.
 - Improvement: WooCommerce - Moved border width option for cart icon from addon to theme.
 - Improvement: WooCommerce - Clear button is aligned on top for WooCommerce active filter widget when "Chips" option is enabled.
@@ -18,6 +18,9 @@ v3.9.3 (Unreleased)
 - Fix: WooCommerce - Cart icon size is not working on starter template site.
 - Fix: Top border showing up for related post section on single post when Boxed & Content Boxed layout is active.
 - Fix: Editor - External toggle controls reverse their direction due to theme's CSS.
+
+v3.9.3
+- Improvement: Compatibility with WordPress 6.1.
 
 v3.9.2
 - Improvement: WooCommerce - Admin bar's customize link updated on WooCommerce pages for quick landing to it's respected customizer section.
