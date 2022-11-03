@@ -558,14 +558,6 @@ class Astra_WP_Editor_CSS {
 			'margin-right' => '0 !important',
 		);
 
-		// Root block alignment with page title for Content Boxed, Boxed, FW Contained & FW Stretched.
-		$desktop_css['.edit-post-visual-editor .editor-styles-wrapper > .is-root-container'] = array(
-			'margin-left' => 'auto',
-			'margin-right' => 'auto',
-			'padding-left'      => $page_title_internal_padding,
-			'padding-right'     => $page_title_internal_padding,
-		);
-
 		$content_links_underline = astra_get_option( 'underline-content-links' );
 
 		if ( $content_links_underline ) {
