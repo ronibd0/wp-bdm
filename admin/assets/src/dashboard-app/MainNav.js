@@ -73,7 +73,18 @@ export default function MainNav() {
 					{
 						! astra_admin.is_whitelabel &&
 						<div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-							<ChangeLogPopup/>
+							<div className="text-sm font-medium leading-6 text-slate-600 mr-8">
+								Knowledge base
+							</div>
+							<div className="flex items-center text-sm font-medium leading-[1.375rem] text-slate-400 mr-8 divide-x divide-slate-200 gap-3">
+								<div className="">
+									V3.9.1
+								</div>
+								<div className="pl-3">
+									License not activated
+								</div>
+							</div>
+							<ChangeLogPopup />
 						</div>
 					}
 				</div>
