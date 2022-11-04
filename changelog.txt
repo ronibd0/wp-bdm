@@ -18,6 +18,7 @@ v3.9.4 (Unreleased)
 - Fix: WooCommerce - Cart icon size is not working on starter template site.
 - Fix: Top border showing up for related post section on single post when Boxed & Content Boxed layout is active.
 - Fix: Editor - External toggle controls reverse their direction due to theme's CSS.
+- Fix: Widget - Type error can not read property of undefined.
 
 v3.9.3
 - Improvement: Compatibility with WordPress 6.1.
