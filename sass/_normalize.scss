@@ -254,6 +254,7 @@ input[type="search"] {
 	border: 0;
 }
 
+.archive .no-results .ast-search-submit,
 .search .site-main .ast-search-submit {
     display: none;
 }
@@ -264,7 +265,7 @@ input[type="search"]::-webkit-search-decoration {
 }
 
 fieldset {
-	border: 1px solid #eaeaea;
+	border: 1px solid var(--ast-border-color);
     margin: 0 0px;
     padding: 0.35em 0.625em 0.75em;
 }
