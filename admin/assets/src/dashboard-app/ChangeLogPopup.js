@@ -4,13 +4,9 @@ import { Transition, Dialog } from "@headlessui/react";
 import { XIcon } from "@heroicons/react/outline";
 import { __ } from "@wordpress/i18n";
 
-const tabs = [
+const tabs = wp.hooks.applyFilters( 'astra_dashboard.changelog_products', [
 	{ name: "Astra Theme", value: "astra-theme" },
-];
-
-if( astra_admin.pro_available ) {
-	tabs.push( 	{ name: "Astra Pro", value: "astra-pro" } );
-}
+] );
 
 const ChangeLogPopup = () => {
 	const [open, setOpen] = useState(false);
@@ -22,21 +18,12 @@ const ChangeLogPopup = () => {
 
 	const toggleTab = (value) => {
 		setActiveTab(value);
-	};
-
-	const getChangeLogData = () => {
-		if (activeTab === "astra-theme") {
-			setActiveChangeLog(astra_admin.astra_changelog_data);
-		} else if (activeTab === "astra-pro") {
+		if( value === 'astra-pro' ) {
 			setActiveChangeLog(astra_addon_admin.astra_pro_changelog_data);
 		} else {
-			return setActiveChangeLog([]);
+			setActiveChangeLog(astra_admin.astra_changelog_data);
 		}
 	};
-
-	useEffect(() => {
-		getChangeLogData();
-	}, [activeTab]);
 
 	return (
 		<>
@@ -45,7 +32,6 @@ const ChangeLogPopup = () => {
 				title={__("What's New?", "astra")}
 				className="w-10 h-10 flex items-center justify-center cursor-pointer rounded-full border border-slate-200"
 			>
-				{/* <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 50 50" fill="none"> */}
 				<svg
 					width="18"
 					height="18"
@@ -182,7 +168,7 @@ const ChangeLogPopup = () => {
 																	}}
 																></p>
 																<p
-																	className="mt-3 spectra-changelog-description"
+																	className="mt-3 astra-changelog-description"
 																	dangerouslySetInnerHTML={{
 																		__html: description,
 																	}}

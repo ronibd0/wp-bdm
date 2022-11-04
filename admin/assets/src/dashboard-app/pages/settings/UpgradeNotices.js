@@ -1,11 +1,6 @@
 import { __ } from '@wordpress/i18n';
 import { useSelector, useDispatch } from 'react-redux';
-import { Switch } from '@headlessui/react'
 import apiFetch from '@wordpress/api-fetch';
-
-function classNames( ...classes ) {
-	return classes.filter( Boolean ).join( ' ' )
-}
 
 const UpgradeNotices = () => {
 
@@ -39,7 +34,7 @@ const UpgradeNotices = () => {
 			method: 'POST',
 			body: formData,
 		} ).then( () => {
-			dispatch( { type: 'UPDATE_SETTINGS_SAVED_NOTIFICATION', payload: 'Successfully saved!' } );
+			dispatch( { type: 'UPDATE_SETTINGS_SAVED_NOTIFICATION', payload: __( 'Successfully saved!' ) } );
 		} );
 	};
 
@@ -71,7 +66,7 @@ const UpgradeNotices = () => {
 						"astra"
 					)
 				}
-				<span onClick={updateUpgradeNoticesVisibility} className='cursor-pointer text-spectra focus:text-spectra-hover active:text-spectra-hover hover:text-spectra-hover' rel="noreferrer"> { __( 'here.', 'astra' ) } </span>
+				<span onClick={updateUpgradeNoticesVisibility} className='cursor-pointer text-astra focus:text-astra-hover active:text-astra-hover hover:text-astra-hover' rel="noreferrer"> { __( 'here.', 'astra' ) } </span>
 			</p>
 		</section>
 	);

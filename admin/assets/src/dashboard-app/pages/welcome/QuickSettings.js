@@ -3,54 +3,7 @@ const classNames = ( ...classes ) => ( classes.filter( Boolean ).join( ' ' ) );
 
 const QuickSettings = () => {
 
-	const AllQuickLinks = wp.hooks.applyFilters( 'astra_admin_quick_settings', [
-			{
-				name: __( 'Site Identity', 'astra' ),
-				section: astra_admin.customize_url + '?autofocus[control]=custom_logo',
-				isPro: false,
-			},
-			{
-				name: __( 'Color', 'astra' ),
-				section: astra_admin.customize_url + '?autofocus[section]=section-colors-background',
-				isPro: false,
-			},
-			{
-				name: __( 'Typography', 'astra' ),
-				section: astra_admin.customize_url + '?autofocus[section]=section-typography',
-				isPro: false,
-			},
-			{
-				name: __( 'Button', 'astra' ),
-				section: astra_admin.customize_url + '?autofocus[section]=section-buttons',
-				isPro: false,
-			},
-			{
-				name: __( 'Header Builder', 'astra' ),
-				section: astra_admin.customize_url + '?autofocus[section]=section-header-builder-layout',
-				isPro: false,
-			},
-			{
-				name: __( 'Layout', 'astra' ),
-				section: astra_admin.customize_url + '?autofocus[section]=section-container-layout',
-				isPro: false,
-			},
-			{
-				name: __( 'Blog Options', 'astra' ),
-				section: astra_admin.admin_base_url + 'nav-menus.php',
-				isPro: false,
-			},
-			{
-				name: __( 'Menus', 'astra' ),
-				section: astra_admin.admin_url + '?page=' + astra_admin.home_slug + '&path=settings',
-				isPro: false,
-			},
-			{
-				name: __( 'Footer Builder', 'astra' ),
-				section: astra_admin.customize_url + '?autofocus[panel]=woocommerce',
-				isPro: false,
-			}
-		]
-	);
+	const allQuickLinks = astra_admin.quick_settings;
 
 	const onQuickSettingTrigger = ( sectionLink ) => {
 		window.open(
@@ -59,25 +12,25 @@ const QuickSettings = () => {
 		);
 	};
 
-	const renderBlockCards = AllQuickLinks.map( ( block, index ) => {
+	const renderQuickLinks = Object.entries( allQuickLinks ).map( ( [ index, block ] ) => {
 		return <div
 			key={index}
-			data-redirection_link={block.section}
+			data-redirection_link={block.quick_url}
 			onClick={() =>
 				onQuickSettingTrigger(
-					block.section
+					block.quick_url
 				)
 			}
 			className={ classNames(
 				block.isPro
 				? 'bg-slate-50'
 				: 'bg-white',
-				'box-border relative border rounded-md cursor-pointer h-20 px-4 py-3 flex items-start gap-x-4 snap-start hover:shadow-md transition spectra-icon-transition group'
+				'box-border relative border rounded-md cursor-pointer h-20 px-4 py-3 flex items-start gap-x-4 snap-start hover:shadow-md transition astra-icon-transition group'
 			) }
 		>
 			<div className="uagb-admin-block-card__title flex-1 min-w-0">
 				<div className="text-base font-medium text-slate-800 leading-7">
-					{ block.name }
+					{ block.title }
 				</div>
 				<a
 					className={ classNames(
@@ -86,7 +39,7 @@ const QuickSettings = () => {
 						: '',
 						'focus:text-slate-300 text-slate-300 text-base truncate leading-7 focus:text-astra focus-visible:text-astra-hover active:text-astra-hover group-hover:text-astra-hover'
 					) }
-					href={ block.section } rel="noreferrer">{__( 'Customize', 'astra' )}
+					href={ block.quick_url } rel="noreferrer">{__( 'Customize', 'astra' )}
 				</a>
 			</div>
 
@@ -100,7 +53,7 @@ const QuickSettings = () => {
 
 	return (
 		<div className="grid grid-flow-row auto-rows-min grid-cols-3 gap-6 sm:grid-cols-3 pt-6">
-			{ renderBlockCards }
+			{ renderQuickLinks }
 		</div>
 	);
 };

@@ -5,6 +5,11 @@ const globalDataReducer = ( state = {}, action ) => {
 			return {
 				...action.payload,
 			};
+		case 'UPDATE_BLOCK_STATUSES':
+			return {
+				...state,
+				blocksStatuses: action.payload
+			};
 		case 'UPDATE_INITIAL_STATE_FLAG':
 			return {
 				...state,

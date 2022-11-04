@@ -100,6 +100,7 @@ class Astra_API_Init extends WP_REST_Controller {
 				'preload_local_fonts' 		=> false,
 				'use_old_header_footer'     => astra_get_option( 'is-header-footer-builder', false ),
 				'use_upgrade_notices'       => astra_showcase_upgrade_notices(),
+				'pro_addons' 			   => Astra_Admin_Helper::get_admin_settings_option( '_astra_ext_enabled_extensions', array() ),
 			)
 		);
 
