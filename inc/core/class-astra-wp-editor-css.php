@@ -553,8 +553,16 @@ class Astra_WP_Editor_CSS {
 			'margin-right' => '0 !important',
 		);
 
+		// Full Width Contained stacked view spectra block alignment with container on smaller desktop screens.
+		$css .= 
+		'@media (max-width: 1650px) {
+			.ast-plain-container .ast-stacked-title-visibility .block-editor-block-list__layout.is-root-container > .uagb-is-root-container {
+				padding-' . $ltr_left .': 0 !important;
+			}
+		}';
+		
 		$content_links_underline = astra_get_option( 'underline-content-links' );
-
+		
 		if ( $content_links_underline ) {
 			$desktop_css['.edit-post-visual-editor a'] = array(
 				'text-decoration' => 'underline',
