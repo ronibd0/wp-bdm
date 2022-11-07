@@ -178,6 +178,7 @@ require_once ASTRA_THEME_DIR . 'inc/core/deprecated/deprecated-hooks.php';
 require_once ASTRA_THEME_DIR . 'inc/core/deprecated/deprecated-functions.php';
 
 add_action( 'wp_head', function() {
+	vl( astra_is_white_labelled() );
 	vl( get_site_option( '_astra_ext_white_label' ) );
 	vl( get_option( 'astra_admin_settings' ) );
 } );

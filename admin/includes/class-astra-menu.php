@@ -245,8 +245,7 @@ class Astra_Menu {
 		$localize = array(
 			'current_user'             => ! empty( wp_get_current_user()->user_firstname ) ? ucfirst( wp_get_current_user()->user_firstname ) : ucfirst( wp_get_current_user()->display_name ),
 			'admin_base_url'           => admin_url(),
-			'plugin_dir'               => ASTRA_THEME_URI,
-			'plugin_ver'               => ASTRA_THEME_VERSION,
+			'version'                  => ASTRA_THEME_VERSION,
 			'pro_available'            => defined( 'ASTRA_EXT_VER' ) ? true : false,
 			'theme_name'		       => astra_get_theme_name(),
 			'plugin_name'		       => astra_get_addon_name(),
