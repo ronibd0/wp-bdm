@@ -11,11 +11,7 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
-// For the new spectra compatibility fixes/improvements.
-add_filter('astra_spectra_gutenberg_compat_css', '__return_true');
 
-// For previous fixes/improvements.
-add_filter( 'astra_get_option_wp-blocks-v2-ui' , '__return_true' );
 /**
  * Define Constants
  */
