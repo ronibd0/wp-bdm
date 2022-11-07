@@ -45,6 +45,14 @@
         }
     },
     {
+        "Abyssinica SIL": {
+            "variants": [
+                "regular"
+            ],
+            "category": "serif"
+        }
+    },
+    {
         "Aclonica": {
             "variants": [
                 "regular"
@@ -332,6 +340,14 @@
         }
     },
     {
+        "Alkalami": {
+            "variants": [
+                "regular"
+            ],
+            "category": "serif"
+        }
+    },
+    {
         "Allan": {
             "variants": [
                 "regular",
@@ -515,6 +531,14 @@
                 "italic",
                 "700",
                 "700italic"
+            ],
+            "category": "serif"
+        }
+    },
+    {
+        "Amiri Quran": {
+            "variants": [
+                "regular"
             ],
             "category": "serif"
         }
@@ -903,6 +927,15 @@
     },
     {
         "Aref Ruqaa": {
+            "variants": [
+                "regular",
+                "700"
+            ],
+            "category": "serif"
+        }
+    },
+    {
+        "Aref Ruqaa Ink": {
             "variants": [
                 "regular",
                 "700"
@@ -2067,6 +2100,14 @@
         }
     },
     {
+        "Blaka Ink": {
+            "variants": [
+                "regular"
+            ],
+            "category": "display"
+        }
+    },
+    {
         "Blinker": {
             "variants": [
                 "100",
@@ -2264,6 +2305,14 @@
         }
     },
     {
+        "Bungee Spice": {
+            "variants": [
+                "regular"
+            ],
+            "category": "display"
+        }
+    },
+    {
         "Butcherman": {
             "variants": [
                 "regular"
@@ -2343,6 +2392,21 @@
                 "900"
             ],
             "category": "sans-serif"
+        }
+    },
+    {
+        "Cairo Play": {
+            "variants": [
+                "200",
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800",
+                "900"
+            ],
+            "category": "display"
         }
     },
     {
@@ -5852,6 +5916,31 @@
         }
     },
     {
+        "Inter Tight": {
+            "variants": [
+                "100",
+                "200",
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800",
+                "900",
+                "100italic",
+                "200italic",
+                "300italic",
+                "italic",
+                "500italic",
+                "600italic",
+                "700italic",
+                "800italic",
+                "900italic"
+            ],
+            "category": "sans-serif"
+        }
+    },
+    {
         "Irish Grover": {
             "variants": [
                 "regular"
@@ -6765,9 +6854,15 @@
     {
         "Lateef": {
             "variants": [
-                "regular"
+                "200",
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800"
             ],
-            "category": "handwriting"
+            "category": "serif"
         }
     },
     {
@@ -8464,6 +8559,14 @@
         }
     },
     {
+        "Nabla": {
+            "variants": [
+                "regular"
+            ],
+            "category": "display"
+        }
+    },
+    {
         "Nanum Brush Script": {
             "variants": [
                 "regular"
@@ -8695,6 +8798,14 @@
         }
     },
     {
+        "Noto Color Emoji": {
+            "variants": [
+                "regular"
+            ],
+            "category": "sans-serif"
+        }
+    },
+    {
         "Noto Emoji": {
             "variants": [
                 "300",
@@ -8745,6 +8856,8 @@
         "Noto Nastaliq Urdu": {
             "variants": [
                 "regular",
+                "500",
+                "600",
                 "700"
             ],
             "category": "serif"
@@ -9125,6 +9238,22 @@
         }
     },
     {
+        "Noto Sans Ethiopic": {
+            "variants": [
+                "100",
+                "200",
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800",
+                "900"
+            ],
+            "category": "sans-serif"
+        }
+    },
+    {
         "Noto Sans Georgian": {
             "variants": [
                 "100",
@@ -9309,6 +9438,8 @@
         "Noto Sans Javanese": {
             "variants": [
                 "regular",
+                "500",
+                "600",
                 "700"
             ],
             "category": "sans-serif"
@@ -9783,8 +9914,13 @@
         "Noto Sans Oriya": {
             "variants": [
                 "100",
+                "200",
+                "300",
                 "regular",
+                "500",
+                "600",
                 "700",
+                "800",
                 "900"
             ],
             "category": "sans-serif"
@@ -12222,6 +12358,25 @@
                 "500",
                 "600",
                 "700"
+            ],
+            "category": "sans-serif"
+        }
+    },
+    {
+        "Reem Kufi Fun": {
+            "variants": [
+                "regular",
+                "500",
+                "600",
+                "700"
+            ],
+            "category": "sans-serif"
+        }
+    },
+    {
+        "Reem Kufi Ink": {
+            "variants": [
+                "regular"
             ],
             "category": "sans-serif"
         }

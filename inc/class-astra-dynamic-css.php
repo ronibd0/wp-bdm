@@ -731,20 +731,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				);
 			}
 
-			// Removes all dotted border on focus.
-			$enable_dotted_border = astra_get_option( 'enable-dotted-focus', false );
-
-			if ( ! $enable_dotted_border ) {
-				$html_selectors = 'input[type="search"]:focus, a:focus, .ast-menu-toggle:focus, .site .skip-link:focus, .wp-block-loginout input:focus, .wp-block-search.wp-block-search__button-inside .wp-block-search__inside-wrapper .wp-block-search__input:focus';
-				
-				// Apply filter so that users can change the selectors.
-				$target = apply_filters( 'astra_dotted_border_on_focus_selectors', $html_selectors );
-
-				$css_output[ $target ] = array(
-					'outline' => 'none !important', // !important used to remove css globally.
-				);
-			}
-
 			/**
 			 * Loaded the following CSS conditionally because of following scenarios -
 			 *
@@ -2763,7 +2749,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					/* Parse CSS from array -> min-width(mobile-breakpoint + 1) */
 					$parse_css .= astra_parse_css( $core_blocks_min_width_mobile_ui_css, astra_get_mobile_breakpoint( '', 1 ) );
 				} else {
-
 					$astra_no_sidebar_layout_css =
 						'.ast-no-sidebar.ast-separate-container ' . $entry_content_selector . ' .alignfull {
 							margin-left: -6.67em;
@@ -4104,6 +4089,18 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			}
 
 			return $sidebar_static_css;
+		}
+
+		/**
+		 * Astra Spectra Gutenberg Compatibility CSS.
+		 *
+		 * @since x.x.x
+		 * @return boolean false if it is an existing user , true if not.
+		 */
+		public static function spectra_gutenberg_compat_css() {
+			$astra_settings = get_option( ASTRA_THEME_SETTINGS );
+			$astra_settings['spectra-gutenberg-compat-css'] = isset( $astra_settings['spectra-gutenberg-compat-css'] ) ? false : true;
+			return apply_filters( 'astra_spectra_gutenberg_compat_css', $astra_settings['spectra-gutenberg-compat-css'] );
 		}
 
 		/**
