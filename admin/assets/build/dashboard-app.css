@@ -639,6 +639,10 @@ select {
   margin-left: 4.5rem;
   margin-right: 4.5rem;
 }
+.mx-3 {
+  margin-left: 0.75rem;
+  margin-right: 0.75rem;
+}
 .-mb-px {
   margin-bottom: -1px;
 }
@@ -885,6 +889,9 @@ select {
 }
 .max-w-\[45rem\] {
   max-width: 45rem;
+}
+.max-w-\[80rem\] {
+  max-width: 80rem;
 }
 .flex-1 {
   flex: 1 1 0%;
@@ -1276,9 +1283,6 @@ select {
 }
 .pr-2 {
   padding-right: 0.5rem;
-}
-.pl-3 {
-  padding-left: 0.75rem;
 }
 .pt-0\.5 {
   padding-top: 0.125rem;

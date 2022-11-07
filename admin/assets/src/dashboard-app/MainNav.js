@@ -29,7 +29,7 @@ export default function MainNav() {
 		]
 	);
 
-  const query = new URLSearchParams( useLocation()?.search );
+	const query = new URLSearchParams( useLocation()?.search );
 	const activePage = query.get( 'page' )
 		? query.get( 'page' )
 		: astra_admin.home_slug;
