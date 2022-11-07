@@ -546,11 +546,6 @@ class Astra_WP_Editor_CSS {
 			'padding-' . $ltr_left => '0 !important',
 		);
 
-		// Full-Width Contained page title alignment with Spectra Container Blocks.
-		$desktop_css['.ast-plain-container .editor-styles-wrapper .block-editor-block-list__layout.is-root-container > .uagb-is-root-container'] = array(
-			'padding-' . $ltr_left => '0 !important',
-		);
-
 		// Full-Width Stretched Layout page title alignment.
 		$desktop_css['.ast-page-builder-template .edit-post-visual-editor__post-title-wrapper'] = array(
 			'max-width'    => '100% !important',
