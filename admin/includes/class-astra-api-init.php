@@ -54,11 +54,31 @@ class Astra_API_Init extends WP_REST_Controller {
 	protected $rest_base = '/admin/settings/';
 
 	/**
+	 * Option name
+	 *
+	 * @access private
+	 * @var string $option_name DB option name.
+	 * @since x.x.x
+	 */
+	private static $option_name = 'astra_admin_settings';
+
+	/**
+	 * Admin settings dataset
+	 *
+	 * @access private
+	 * @var array $astra_admin_settings Settings array.
+	 * @since x.x.x
+	 */
+	private static $astra_admin_settings = array();
+
+	/**
 	 * Constructor
 	 *
 	 * @since x.x.x
 	 */
 	public function __construct() {
+		self::$astra_admin_settings = get_option( self::$option_name, array() );
+
 		// REST API extensions init.
 		add_action( 'rest_api_init', array( $this, 'register_routes' ) );
 	}
@@ -95,12 +115,14 @@ class Astra_API_Init extends WP_REST_Controller {
 	public function get_admin_settings( $request ) {
 		$db_option = get_option( 'astra_admin_settings', array() );
 
-		$defaults = apply_filters( 'astra_dashboard_options_defaults', array(
-				'self_hosted_gfonts' 		=> false,
-				'preload_local_fonts' 		=> false,
-				'use_old_header_footer'     => astra_get_option( 'is-header-footer-builder', false ),
-				'use_upgrade_notices'       => astra_showcase_upgrade_notices(),
-				'pro_addons' 			   => Astra_Admin_Helper::get_admin_settings_option( '_astra_ext_enabled_extensions', array() ),
+		$defaults = apply_filters(
+			'astra_dashboard_rest_options',
+			array(
+				'self_hosted_gfonts'    => self::get_admin_settings_option( 'self_hosted_gfonts', false ),
+				'preload_local_fonts'   => self::get_admin_settings_option( 'preload_local_fonts', false ),
+				'use_old_header_footer' => astra_get_option( 'is-header-footer-builder', false ),
+				'use_upgrade_notices'   => astra_showcase_upgrade_notices(),
+				'pro_addons'            => Astra_Admin_Helper::get_admin_settings_option( '_astra_ext_enabled_extensions', array() ),
 			)
 		);
 
@@ -118,10 +140,39 @@ class Astra_API_Init extends WP_REST_Controller {
 	public function get_permissions_check( $request ) {
 
 		if ( ! current_user_can( 'edit_theme_options' ) ) {
-			// return new WP_Error( 'astra_rest_cannot_view', __( 'Sorry, you cannot list resources.', 'astra' ), array( 'status' => rest_authorization_required_code() ) );
+			return new WP_Error( 'astra_rest_cannot_view', __( 'Sorry, you cannot list resources.', 'astra' ), array( 'status' => rest_authorization_required_code() ) );
 		}
 
 		return true;
+	}
+
+	/**
+	 * Returns an value,
+	 * based on the settings database option for the admin settings page.
+	 *
+	 * @param  string $key     The sub-option key.
+	 * @param  mixed  $default Option default value if option is not available.
+	 * @return mixed            Return the option value based on provided key
+	 * @since x.x.x
+	 */
+	public static function get_admin_settings_option( $key, $default = false ) {
+		$value = isset( self::$astra_admin_settings[ $key ] ) ? self::$astra_admin_settings[ $key ] : $default;
+		return $value;
+	}
+
+	/**
+	 * Update an value of a key,
+	 * from the settings database option for the admin settings page.
+	 *
+	 * @param string $key       The option key.
+	 * @param mixed  $value     The value to update.
+	 * @return mixed            Return the option value based on provided key
+	 * @since x.x.x
+	 */
+	public static function update_admin_settings_option( $key, $value ) {
+		$astra_admin_updated_settings         = get_option( self::$option_name, array() );
+		$astra_admin_updated_settings[ $key ] = $value;
+		update_option( self::$option_name, $astra_admin_updated_settings );
 	}
 }
 

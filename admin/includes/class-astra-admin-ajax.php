@@ -69,7 +69,7 @@ class Astra_Admin_Ajax {
 		);
 
 		add_action( 'wp_ajax_ast_disable_pro_notices', array( $this, 'disable_astra_pro_notices' ) );
-		add_action( 'wp_ajax_astra_recommended_plugin_install' , 'wp_ajax_install_plugin' );
+		add_action( 'wp_ajax_astra_recommended_plugin_install', 'wp_ajax_install_plugin' );
 		add_action( 'wp_ajax_ast_migrate_to_builder', array( $this, 'migrate_to_builder' ) );
 		add_action( 'wp_ajax_astra_update_admin_setting', array( $this, 'astra_update_admin_setting' ) );
 		add_action( 'wp_ajax_astra_recommended_plugin_activate', array( $this, 'required_plugin_activate' ) );
@@ -83,11 +83,12 @@ class Astra_Admin_Ajax {
 	 * @since x.x.x
 	 */
 	public function astra_admin_settings_typewise() {
-		return apply_filters( 'astra_admin_settings_datatypes',
+		return apply_filters(
+			'astra_admin_settings_datatypes',
 			array(
-				'self_hosted_gfonts' 		=> 'bool',
-				'preload_local_fonts' 		=> 'bool',
-				'use_old_header_footer'     => 'bool',
+				'self_hosted_gfonts'    => 'bool',
+				'preload_local_fonts'   => 'bool',
+				'use_old_header_footer' => 'bool',
 			)
 		);
 	}
@@ -198,15 +199,15 @@ class Astra_Admin_Ajax {
 		$sub_option_key    = isset( $_POST['key'] ) ? sanitize_text_field( wp_unslash( $_POST['key'] ) ) : '';
 		$sub_option_value  = '';
 
-		if ( isset( $get_bool_settings[$sub_option_key] ) ) {
-			if( 'bool' === $get_bool_settings[$sub_option_key] ) {
+		if ( isset( $get_bool_settings[ $sub_option_key ] ) ) {
+			if ( 'bool' === $get_bool_settings[ $sub_option_key ] ) {
 				$sub_option_value = 'true' === sanitize_text_field( $_POST['value'] ) ? true : false;
 			} else {
 				$sub_option_value = sanitize_text_field( wp_unslash( $_POST['value'] ) );
 			}
 		}
 
-		Astra_Admin_Loader::update_admin_settings_option( $sub_option_key, $sub_option_value );
+		Astra_API_Init::update_admin_settings_option( $sub_option_key, $sub_option_value );
 
 		$response_data = array(
 			'messsage' => __( 'Successfully saved data!', 'astra' ),

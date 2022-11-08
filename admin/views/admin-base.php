@@ -3,6 +3,7 @@
  * Admin Base HTML.
  *
  * @package Astra
+ * @since x.x.x
  */
 
 // Exit if accessed directly.

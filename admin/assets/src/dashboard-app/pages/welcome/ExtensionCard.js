@@ -95,8 +95,23 @@ const ExtensionCard = ( props ) => {
 									url: astra_admin.ajax_url,
 									method: 'POST',
 									body: formData,
-								} ).then( () => {
-									dispatch( {type: 'UPDATE_SETTINGS_SAVED_NOTIFICATION', payload: __( 'Successfully saved!' ) } );
+								} ).then( ( data ) => {
+									if ( data.success ) {
+										dispatch( {type: 'UPDATE_SETTINGS_SAVED_NOTIFICATION', payload: __( 'Successfully saved!' ) } );
+
+										const reFormData = new window.FormData();
+
+										reFormData.append( 'action', 'astra_refresh_assets_files' );
+										reFormData.append( 'security', astra_addon_admin.update_nonce );
+
+										apiFetch( {
+											url: astra_admin.ajax_url,
+											method: 'POST',
+											body: reFormData,
+										} ).then( ( data ) => {
+											dispatch( {type: 'UPDATE_SETTINGS_SAVED_NOTIFICATION', payload: __( 'Cache Cleared!' ) } );
+										} );
+									}
 								} );
 							} }
 							className={ classNames(

@@ -12,8 +12,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-// delete_option( '_astra_beta_updates' );
-
 /**
  * Define Constants
  */
@@ -111,7 +109,7 @@ if ( is_admin() ) {
 	/**
 	 * Admin Menu Settings
 	 */
-	// require_once ASTRA_THEME_DIR . 'inc/core/class-astra-admin-settings.php';
+	require_once ASTRA_THEME_DIR . 'inc/core/class-astra-admin-settings.php';
 	require_once ASTRA_THEME_DIR . 'admin/class-astra-admin-loader.php';
 	require_once ASTRA_THEME_DIR . 'inc/lib/astra-notices/class-astra-notices.php';
 }
