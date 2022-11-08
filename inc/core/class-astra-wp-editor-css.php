@@ -548,13 +548,13 @@ class Astra_WP_Editor_CSS {
 
 		// Full-Width Stretched Layout page title alignment.
 		$desktop_css['.ast-page-builder-template .edit-post-visual-editor__post-title-wrapper'] = array(
-			'max-width'    => '100% !important',
-			'margin-left'  => '0 !important',
-			'margin-right' => '0 !important',
+			'max-width'    => 'calc( 100% - 5px ) !important',
 		);
 
+		// Full-Width Contained Layout page title wrapper crops in stacked view fix.
 		$desktop_css['.ast-plain-container .ast-stacked-title-visibility .edit-post-visual-editor__post-title-wrapper'] = array(
-			'padding-' . $ltr_left => '3px',
+			'padding-left'  => '3px',
+			'padding-right' => '3px',
 		);
 
 		$content_links_underline = astra_get_option( 'underline-content-links' );
