@@ -28,7 +28,7 @@ const QuickSettings = () => {
 				'box-border relative border rounded-md cursor-pointer h-20 px-4 py-3 flex items-start gap-x-4 snap-start hover:shadow-md transition astra-icon-transition group'
 			) }
 		>
-			<div className="uagb-admin-block-card__title flex-1 min-w-0">
+			<div className="flex-1 min-w-0">
 				<div className="text-base font-medium text-slate-800 leading-7">
 					{ block.title }
 				</div>
