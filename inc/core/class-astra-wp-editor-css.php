@@ -553,13 +553,10 @@ class Astra_WP_Editor_CSS {
 			'margin-right' => '0 !important',
 		);
 
-		// Full Width Contained stacked view spectra block alignment with container on smaller desktop screens.
-		$css .= 
-		'@media (max-width: 1650px) {
-			.ast-plain-container .ast-stacked-title-visibility .block-editor-block-list__layout.is-root-container > .uagb-is-root-container {
-				padding-' . $ltr_left .': 0 !important;
-			}
-		}';
+		// Full Width Contained Layout page title wrapper left portion cropped out stacked view.
+		$desktop_css['.ast-plain-container .ast-stacked-title-visibility .edit-post-visual-editor__post-title-wrapper'] = array(
+			'max-width'    => 'var(--wp--custom--ast-content-width-size) !important',
+		);
 		
 		$content_links_underline = astra_get_option( 'underline-content-links' );
 		
