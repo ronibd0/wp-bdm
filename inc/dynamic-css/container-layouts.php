@@ -81,7 +81,7 @@ function astra_container_layout_css() {
 	$customizer_default_update = astra_check_is_structural_setup();
 	$page_title_header_padding = ( true === $customizer_default_update ) ? '2em' : '4em';
 
-	$page_container_css .= '.elementor-default #ast-mobile-header button.ast-menu-toggle {
+	$page_container_css .= '.elementor-page #ast-mobile-header button.ast-menu-toggle {
 							color: unset !important;
 							background: unset !important;
 						}';
