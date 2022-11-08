@@ -552,7 +552,11 @@ class Astra_WP_Editor_CSS {
 			'margin-left'  => '0 !important',
 			'margin-right' => '0 !important',
 		);
-		
+
+		$desktop_css['.ast-plain-container .ast-stacked-title-visibility .edit-post-visual-editor__post-title-wrapper'] = array(
+			'padding-' . $ltr_left => '3px',
+		);
+
 		$content_links_underline = astra_get_option( 'underline-content-links' );
 		
 		if ( $content_links_underline ) {
