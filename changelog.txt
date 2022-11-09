@@ -1,12 +1,12 @@
 v3.9.4 (Unreleased)
 - New: WooCommerce Cart - "Cart Page" click action introduced to redirect user on cart page.
+- Improvement: Added Spectra plugin compatibility for better experience.
 - Improvement: WooCommerce - Moved border width option for cart icon from addon to theme.
 - Improvement: WooCommerce - Clear button is aligned on top for WooCommerce active filter widget when "Chips" option is enabled.
-- Improvement: Customizer - Edit shortcut link assigned to sticky add to cart for easy navigation in respective customizer section.
+- Improvement: WooCommerce - Single Product - Edit shortcut link assigned to sticky add to cart for easy navigation in respective customizer section.
 - Improvement: WooCommerce - Added product image on cart page for tablet users.
 - Improvement: To have elegant fresh setup UI, updated the customizer sidebar layout by default to No-Sidebar.
 - Improvement: Header builder - Cart - Responsive slider option to adjust Slide-in Cart width for Desktop, Tablet, & Mobile devices.
-- Improvement: Added Spectra plugin compatibility for better experience.
 - Fix: WooCommerce - Content background color not working in customizer preview.
 - Fix: WooCommerce - Shop - Sale badge text is misaligned on the frontend.
 - Fix: WooCommerce - Custom image and icon support for payment section.
