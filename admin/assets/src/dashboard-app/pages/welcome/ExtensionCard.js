@@ -43,7 +43,7 @@ const ExtensionCard = ( props ) => {
 							{ __( 'Legacy', 'astra' ) }
 						</div>
 					) }
-					{ ! condition && (
+					{ ( astra_admin.pro_available && ! condition ) && (
 						<span className="inline-block align-middle ml-1 leading-none opacity-30 text-base dashicons dashicons-info" title={ __( 'This plugin needs to be installed/activated.', 'astra' ) }></span>
 					) }
 				</p>
@@ -67,11 +67,11 @@ const ExtensionCard = ( props ) => {
 				<div
 					className={ classNames(
 						! astra_admin.pro_available ? 'text-[0.625rem] leading-[0.625rem] text-white bg-slate-800 rounded-[0.1875rem]' : 'self-center',
-						! condition ? 'relative inline-flex flex-shrink-0 py-0.5 px-1 opacity-30 pointer-events-none' : 'relative inline-flex flex-shrink-0 py-0.5 px-1'
+						( astra_admin.pro_available && ! condition ) ? 'relative inline-flex flex-shrink-0 py-0.5 px-1 opacity-30 pointer-events-none' : 'relative inline-flex flex-shrink-0 py-0.5 px-1'
 					) }
 				>
 					{ ! astra_admin.pro_available && __( 'PRO', 'astra' ) }
-					{ astra_admin.pro_available &&
+					{ ( astra_admin.pro_available && 'white-label' !== slug ) &&
 						<Switch
 							checked={ moduleActivationStatus }
 							onChange={ () => {
