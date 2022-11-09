@@ -20,6 +20,7 @@ v3.9.4 (Unreleased)
 - Fix: Margin being added to the Full Width/Stretched Layout when title is disabled.
 - Fix: Footer - Divider element is not showing in the customizer.
 - Fix: Editor - External toggle controls reverse their direction due to theme's CSS.
+- Fix: Block editor - Getting console error for reading properties of undefined for getEditedPostAttribute.
 
 v3.9.3
 - Improvement: Compatibility with WordPress 6.1.

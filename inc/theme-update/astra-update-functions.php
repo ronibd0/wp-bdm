@@ -1059,12 +1059,12 @@ function astra_apply_woocommerce_show_password_icon_css() {
 }
 
 /**
- * Handle backward compatibility on version 3.9.3
- * 
+ * Handle backward compatibility on version 3.9.4
+ *
  * @since x.x.x
  * @return void
  */
-function astra_theme_background_updater_3_9_3() {
+function astra_theme_background_updater_3_9_4() {
 	$theme_options = get_option( 'astra-settings', array() );
 
 	// Check if user is a old global sidebar user.
@@ -1091,5 +1091,4 @@ function astra_theme_background_updater_3_9_3() {
 		$theme_options['spectra-gutenberg-compat-css'] = false;
 		update_option( 'astra-settings', $theme_options );
 	}
-
 }
