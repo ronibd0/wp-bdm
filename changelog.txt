@@ -1,3 +1,6 @@
+v4.0.0
+- Fix: Off-canvas - Full screen - Mobile Menu gets very long scroll when Elementor plugin is activated.
+
 v3.9.4 (Unreleased)
 - New: WooCommerce Cart - "Cart Page" click action introduced to redirect user on cart page.
 - Improvement: WooCommerce - Moved border width option for cart icon from addon to theme.
