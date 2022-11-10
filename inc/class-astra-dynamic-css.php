@@ -4094,11 +4094,11 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		/**
 		 * Astra Spectra Gutenberg Compatibility CSS.
 		 *
-		 * @since x.x.x
+		 * @since 3.9.4
 		 * @return boolean false if it is an existing user , true if not.
 		 */
 		public static function spectra_gutenberg_compat_css() {
-			$astra_settings = get_option( ASTRA_THEME_SETTINGS );
+			$astra_settings                                 = get_option( ASTRA_THEME_SETTINGS );
 			$astra_settings['spectra-gutenberg-compat-css'] = isset( $astra_settings['spectra-gutenberg-compat-css'] ) ? false : true;
 			return apply_filters( 'astra_spectra_gutenberg_compat_css', $astra_settings['spectra-gutenberg-compat-css'] );
 		}

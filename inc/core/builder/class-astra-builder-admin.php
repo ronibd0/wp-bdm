@@ -155,7 +155,9 @@ final class Astra_Builder_Admin {
 			wp_send_json_error( __( 'You don\'t have the access', 'astra' ) );
 		}
 
+		/** @psalm-suppress PossiblyInvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 		$migrate = isset( $_POST['value'] ) ? sanitize_key( $_POST['value'] ) : '';
+		/** @psalm-suppress PossiblyInvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 		$migrate = ( $migrate ) ? true : false;
 		/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 		$migration_flag = astra_get_option( 'v3-option-migration', false );
@@ -170,7 +172,7 @@ final class Astra_Builder_Admin {
 	/**
 	 * Disable pro upgrade notice from all over in Astra.
 	 *
-	 * @since x.x.x
+	 * @since 3.9.4
 	 */
 	public function disable_astra_pro_notices() {
 
@@ -180,7 +182,9 @@ final class Astra_Builder_Admin {
 			wp_send_json_error( __( 'You don\'t have the access', 'astra' ) );
 		}
 
+		/** @psalm-suppress PossiblyInvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 		$migrate = isset( $_POST['value'] ) ? sanitize_key( $_POST['value'] ) : '';
+		/** @psalm-suppress PossiblyInvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 		$migrate = ( $migrate ) ? true : false;
 		astra_update_option( 'ast-disable-upgrade-notices', $migrate );
 
