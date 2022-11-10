@@ -1614,8 +1614,9 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 * @since 1.2.4
 		 */
 		public static function required_plugin_activate() {
-
+			/** @psalm-suppress PossiblyInvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			$nonce = ( isset( $_POST['nonce'] ) ) ? sanitize_key( $_POST['nonce'] ) : '';
+			/** @psalm-suppress PossiblyInvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 
 			if ( false === wp_verify_nonce( $nonce, 'astra-recommended-plugin-nonce' ) ) {
 				wp_send_json_error( esc_html_e( 'WordPress Nonce not validated.', 'astra' ) );
@@ -1663,8 +1664,9 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 * @since 1.2.4
 		 */
 		public static function required_plugin_deactivate() {
-
+			/** @psalm-suppress PossiblyInvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			$nonce = ( isset( $_POST['nonce'] ) ) ? sanitize_key( $_POST['nonce'] ) : '';
+			/** @psalm-suppress PossiblyInvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 
 			if ( false === wp_verify_nonce( $nonce, 'astra-recommended-plugin-nonce' ) ) {
 				wp_send_json_error( esc_html_e( 'WordPress Nonce not validated.', 'astra' ) );
