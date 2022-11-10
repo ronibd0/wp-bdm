@@ -1,6 +1,64 @@
 <?php
 
 namespace {
+    /*!
+     * ISC License
+     *
+     * Copyright (c) 2018-2021, Andrea Giammarchi, @WebReflection
+     *
+     * Permission to use, copy, modify, and/or distribute this software for any
+     * purpose with or without fee is hereby granted, provided that the above
+     * copyright notice and this permission notice appear in all copies.
+     *
+     * THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
+     * REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
+     * AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
+     * INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
+     * LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE
+     * OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
+     * PERFORMANCE OF THIS SOFTWARE.
+     */
+    class FlattedString
+    {
+        public function __construct($value)
+        {
+        }
+    }
+    class Flatted
+    {
+        // public utilities
+        public static function parse($json, $assoc = \false, $depth = 512, $options = 0)
+        {
+        }
+        public static function stringify($value, $options = 0, $depth = 512)
+        {
+        }
+        // private helpers
+        private static function asString($value)
+        {
+        }
+        private static function index(&$known, &$input, &$value)
+        {
+        }
+        private static function keys(&$value)
+        {
+        }
+        private static function loop($obj, $keys, &$input, &$set, &$output)
+        {
+        }
+        private static function relate(&$known, &$input, &$value)
+        {
+        }
+        private static function ref($obj, &$key, &$value, &$input, &$set, &$output)
+        {
+        }
+        private static function transform(&$known, &$input, &$value)
+        {
+        }
+        private static function wrap($value)
+        {
+        }
+    }
     /**
      * Creates a breadcrumbs menu for the site based on the current page that's being viewed by the user.
      *
@@ -1080,7 +1138,7 @@ namespace {
          * Prepare Edit icon inside customizer.
          *
          * @param string $class custom class.
-         * @since x.x.x
+         * @since 3.9.4
          */
         public static function render_customizer_edit_button($class = '')
         {
@@ -2975,7 +3033,7 @@ namespace {
         /**
          * Astra Spectra Gutenberg Compatibility CSS.
          *
-         * @since x.x.x
+         * @since 3.9.4
          * @return boolean false if it is an existing user , true if not.
          */
         public static function spectra_gutenberg_compat_css()
@@ -5046,7 +5104,7 @@ namespace {
         public function content_layout($layout)
         {
         }
-        /** 
+        /**
          * LearnDash Static CSS.
          *
          * @since 3.3.0
@@ -5404,7 +5462,7 @@ namespace {
         /**
          * Add active filter widget class when "chip" toggle enabled.
          *
-         * @since x.x.x
+         * @since 3.9.4
          * @access public
          *
          * @param string $block_content Rendered block content.
@@ -6134,7 +6192,7 @@ namespace {
         /**
          * Disable pro upgrade notice from all over in Astra.
          *
-         * @since x.x.x
+         * @since 3.9.4
          */
         public function disable_astra_pro_notices()
         {
@@ -6608,7 +6666,7 @@ namespace {
          * @param array  $args menu item arguments.
          * @return void
          *
-         * @since x.x.x
+         * @since 3.9.4
          */
         public static function add_custom_fields($id, $item, $depth, $args)
         {
@@ -6620,7 +6678,7 @@ namespace {
          *
          * Fired by `admin_menu` action.
          *
-         * @since x.x.x
+         * @since 3.9.4
          * @access public
          */
         public static function register_pro_menu()
@@ -6629,7 +6687,7 @@ namespace {
         /**
          * Showcase Custom Layout highlight.
          *
-         * @since x.x.x
+         * @since 3.9.4
          * @access public
          */
         public static function preview_custom_layout()
@@ -6638,7 +6696,7 @@ namespace {
         /**
          * Showcase Page Header highlight.
          *
-         * @since x.x.x
+         * @since 3.9.4
          * @access public
          */
         public static function preview_page_header()
@@ -6647,7 +6705,7 @@ namespace {
         /**
          * Astra upgrade to pro postbox.
          *
-         * @since x.x.x
+         * @since 3.9.4
          */
         public static function astra_upgrade_pro_postbox()
         {
@@ -6678,7 +6736,7 @@ namespace {
         /**
          * Upgrade to Pro notice for Astra on WooCommerce pages.
          *
-         * @since x.x.x
+         * @since 3.9.4
          */
         public static function upgrade_to_pro_wc_notice()
         {
@@ -7274,7 +7332,7 @@ namespace {
         public function __construct()
         {
         }
-        /** 
+        /**
          * Comment count wrapper opening div.
          *
          * @param array $args markup arguments.
@@ -7284,7 +7342,7 @@ namespace {
         public function comment_count_wrapper_open($args)
         {
         }
-        /** 
+        /**
          * Comment count wrapper closing div.
          *
          * @param array $args markup arguments.
@@ -7294,7 +7352,7 @@ namespace {
         public function comment_count_wrapper_close($args)
         {
         }
-        /** 
+        /**
          * Comment data wrapper opening div.
          *
          * @param array $args markup arguments.
@@ -7304,7 +7362,7 @@ namespace {
         public function ast_comment_data_wrap_open($args)
         {
         }
-        /** 
+        /**
          * Comment data wrapper closing div.
          *
          * @param array $args markup arguments.
@@ -7314,7 +7372,7 @@ namespace {
         public function ast_comment_data_wrap_close($args)
         {
         }
-        /** 
+        /**
          * Comment meta wrapper opening div.
          *
          * @param array $args markup arguments.
@@ -7324,7 +7382,7 @@ namespace {
         public function ast_comment_meta_wrap_open($args)
         {
         }
-        /** 
+        /**
          * Comment meta wrapper closing div.
          *
          * @param array $args markup arguments.
@@ -7334,7 +7392,7 @@ namespace {
         public function ast_comment_meta_wrap_close($args)
         {
         }
-        /** 
+        /**
          * Comment time div attributes.
          *
          * @since 3.3.0
@@ -7343,7 +7401,7 @@ namespace {
         public function ast_comment_time_attr()
         {
         }
-        /** 
+        /**
          * Comment cite wrapper div attributes.
          *
          * @since 3.3.0
@@ -7388,16 +7446,16 @@ namespace {
         public function ast_grid_col_6()
         {
         }
-        /** 
+        /**
          * Comment form grid classes.
          *
-         * @since 3.3.0 
+         * @since 3.3.0
          * @return string.
          */
         public function comment_form_grid_class()
         {
         }
-        /** 
+        /**
          * Removed grid layout classes and make common class for same style
          *
          * @since 3.3.0
@@ -7406,7 +7464,7 @@ namespace {
         public function ast_grid_lg_12()
         {
         }
-        /** 
+        /**
          * Layout-4 grid css backward comaptibility.
          *
          * @return string.
@@ -7414,7 +7472,7 @@ namespace {
         public function ast_layout_4_grid()
         {
         }
-        /** 
+        /**
          * Layout-2 grid css backward comaptibility.
          *
          * @return string.
@@ -7422,7 +7480,7 @@ namespace {
         public function ast_layout_2_grid()
         {
         }
-        /** 
+        /**
          * Layout-1 grid css backward comaptibility.
          *
          * @return string.
@@ -7430,7 +7488,7 @@ namespace {
         public function ast_layout_1_grid()
         {
         }
-        /** 
+        /**
          * Layout-3 grid css backward comaptibility.
          *
          * @return string.
@@ -7438,7 +7496,7 @@ namespace {
         public function ast_layout_3_grid()
         {
         }
-        /** 
+        /**
          * Layout-5 grid css backward comaptibility.
          *
          * @return string.
@@ -7446,7 +7504,7 @@ namespace {
         public function ast_layout_5_grid()
         {
         }
-        /** 
+        /**
          * Layout-6 grid css backward comaptibility.
          *
          * @return string.
@@ -7456,7 +7514,7 @@ namespace {
         }
         /**
          * Footer widget opening div.
-         * 
+         *
          * @since 3.3.0
          * @param array $args div attributes.
          * @return array.
@@ -7466,7 +7524,7 @@ namespace {
         }
         /**
          * Footer widget closing div.
-         * 
+         *
          * @since 3.3.0
          * @param array $args div attributes.
          * @return array.
@@ -7496,7 +7554,7 @@ namespace {
         }
         /**
          * Footer widget opening div.
-         * 
+         *
          * @since 3.3.0
          * @param array $args div attributes.
          * @return array.
@@ -12662,7 +12720,7 @@ namespace {
     }
     /**
      * Load Menu hover style static CSS if any one of the menu hover style is selected.
-     * 
+     *
      * @return string
      * @since 3.5.0
      */
@@ -13592,7 +13650,7 @@ namespace {
     /**
      * Check if the user is old sidebar user.
      *
-     * @since x.x.x
+     * @since 3.9.4
      * @return bool true|false.
      */
     function astra_check_old_sidebar_user()
@@ -14485,7 +14543,7 @@ namespace {
     /**
      * Old Header Menu Last Item - Dynamic CSS.
      *
-     * @param string $dynamic_css 
+     * @param string $dynamic_css
      * @since 3.5.0
      */
     function astra_old_header_custom_menu_css($dynamic_css)
@@ -14914,7 +14972,7 @@ namespace {
     /**
      * Showcase "Upgrade to Pro" notices for Astra & here is the filter work as central control to enable/disable those notices from customizer, meta settings, admin area, pro post types pages.
      *
-     * @since x.x.x
+     * @since 3.9.4
      * @return bool
      */
     function astra_showcase_upgrade_notices()
@@ -15333,7 +15391,7 @@ namespace {
      *
      * @param bool $display_footer for controling the header and footer enable/disable options.
      *
-     * @since x.x.x
+     * @since 3.9.4
      */
     function astra_footer_bar_display_cb($display_footer)
     {
@@ -16102,7 +16160,7 @@ namespace {
     /**
      * Handle backward compatibility on version 3.9.4
      *
-     * @since x.x.x
+     * @since 3.9.4
      * @return void
      */
     function astra_theme_background_updater_3_9_4()
