@@ -5,6 +5,7 @@ const setInitialState = ( store ) => {
 		path: '/astra/v1/admin/settings/',
 	} ).then( ( data ) => {
 		const initialState = {
+			settingsSavedNotification: '',
 			initialStateSetFlag : true,
 			activeSettingsNavigationTab : 'global-settings',
 			enableLoadFontsLocally : data.self_hosted_gfonts,

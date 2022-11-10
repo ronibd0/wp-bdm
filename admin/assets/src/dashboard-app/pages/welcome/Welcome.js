@@ -29,12 +29,12 @@ const Welcome = () => {
 
 				{/* Banner section */}
 				{
-					! astra_admin.is_whitelabel &&
+					astra_admin.show_self_branding &&
 					<div className="grid grid-cols-2 gap-4 items-start lg:grid-cols-5 lg:gap-5 xl:gap-10 rounded-md bg-white overflow-hidden shadow-sm p-12 pt-[2.2rem]">
 						<div className="grid grid-cols-1 gap-4 lg:col-span-3 h-full mr-[40px]">
 							<section aria-labelledby="section-1-title h-full">
 								<h2 className="sr-only" id="section-1-title">
-									Section title
+									Welcome Banner
 								</h2>
 								<div className="flex flex-col justify-center h-full">
 									<div className="">
@@ -95,7 +95,7 @@ const Welcome = () => {
 					{/* Left column */}
 					<div
 						className={ classNames(
-							! astra_admin.is_whitelabel
+							astra_admin.show_self_branding
 							? 'lg:col-span-2'
 							: 'lg:col-span-3',
 							'grid grid-cols-1 gap-4'
@@ -146,7 +146,7 @@ const Welcome = () => {
 							</div>
 						</section>
 
-						{ ( astra_admin.show_plugins && ! astra_admin.is_whitelabel ) &&
+						{ ( astra_admin.show_plugins && astra_admin.show_self_branding ) &&
 							<section aria-labelledby="section-1-title h-full">
 								<h2 className="sr-only" id="section-1-title">
 									Astra Integrations
@@ -173,7 +173,7 @@ const Welcome = () => {
 
 					{/* Right Column */}
 					{
-						! astra_admin.is_whitelabel &&
+						astra_admin.show_self_branding &&
 						<div className="space-y-4 flex h-full flex-col">
 							{
 								astra_admin.show_plugins &&

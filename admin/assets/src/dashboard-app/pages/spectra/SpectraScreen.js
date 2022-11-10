@@ -59,12 +59,13 @@ const SpectraScreen = () => {
 						{__("Astra + Spectra = ♥", "astra")}
 					</h2>
 					<p className="text-base leading-[1.625rem] mb-7">
-						Spectra is 100% beginner friendly and enhances the
-						default WordPress block editor.
+						{
+							__( 'Spectra is 100% beginner friendly and enhances the default WordPress block editor.', 'astra' )
+						}
 					</p>
 					<button
 						onClick={onGetSpectra}
-						className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white focus:outline-none"
+						className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-astra focus-visible:bg-astra-hover hover:bg-astra-hover focus:outline-none mr-4"
 					>
 						<span className="mr-3">
 							{__("Install Spectra - It’s free", "astra")}
@@ -108,7 +109,7 @@ const SpectraScreen = () => {
 					</h3>
 					<button
 						onClick={onGetSpectra}
-						className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white focus:outline-none"
+						className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-astra focus-visible:bg-astra-hover hover:bg-astra-hover focus:outline-none mr-4"
 					>
 						<span className="mr-3">
 							{__("Install Spectra - It’s free", "astra")}

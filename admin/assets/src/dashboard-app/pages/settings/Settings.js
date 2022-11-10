@@ -6,26 +6,11 @@ import SettingsIcons from './SettingsIcons';
 
 import { useSelector, useDispatch } from 'react-redux';
 
-import LoadFontsLocally from '@DashboardApp/pages/settings/LoadFontsLocally';
-import PreloadLocalFonts from '@DashboardApp/pages/settings/PreloadLocalFonts';
-import FlushLocalFonts from '@DashboardApp/pages/settings/FlushLocalFonts';
+import ContainerSettings from '@DashboardApp/pages/settings/ContainerSettings';
 import SettingsSkeleton from '@DashboardApp/pages/settings/SettingsSkeleton';
-import OldHeaderFooter from '@DashboardApp/pages/settings/OldHeaderFooter';
-import UpgradeNotices from '@DashboardApp/pages/settings/UpgradeNotices';
 
 function classNames( ...classes ) {
 	return classes.filter( Boolean ).join( ' ' )
-}
-
-function SettingsWrapper({ state }) {
-	const wrappers = wp.hooks.applyFilters(
-		'astra_dashboard.settings_tab_wrappers',
-		{
-			'global-settings': <> <OldHeaderFooter/> <UpgradeNotices/> </>,
-			'fonts-performance': <> <LoadFontsLocally/> <PreloadLocalFonts/> <FlushLocalFonts /> </>,
-		}
-	);
-	return <div>{wrappers[state]}</div>;
 }
 
 const Settings = () => {
@@ -87,11 +72,7 @@ const Settings = () => {
 						) )}
 						</nav>
 					</aside>
-					<div className='lg:col-span-9 border-l'>
-						{ wp.hooks.applyFilters( `astra_dashboard.settings_screen_before_${activeSettingsNavigationTab}`, <span/> ) }
-						<SettingsWrapper state={activeSettingsNavigationTab}></SettingsWrapper>
-						{ wp.hooks.applyFilters( `astra_dashboard.settings_screen_after_${activeSettingsNavigationTab}`, <span/> ) }
-					</div>
+					<ContainerSettings/>
 				</div>
 			</main>
 		</div>

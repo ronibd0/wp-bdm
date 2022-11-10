@@ -15,9 +15,12 @@ const { __ } = wp.i18n;
 
 const MetaSettings = props => {
 
+	// const astraLogo = parse( svgIcons['astraLogo'] );
+	// const brandIcon = astMetaParams.isWhiteLabelled ? '' : parse( svgIcons['astra-brand-icon'] );
+
 	const modalIcon = parse( svgIcons['meta-popup-icon'] );
-	const astraLogo = parse( svgIcons['astraLogo'] );
-	const brandIcon = astMetaParams.isWhiteLabelled ? '' : parse( svgIcons['astra-brand-icon'] );
+	const astraLogo = parse( astMetaParams.brandLogo );
+	const brandIcon = parse( astMetaParams.brandLogo );
 
     const [ isOpen, setOpen ] = useState( false );
 
@@ -30,7 +33,7 @@ const MetaSettings = props => {
 	const topTableSpacing = <tr className="ast-extra-spacing"><td className="ast-border"></td><td></td></tr>;
 	const bottomTableSpacing = <tr className="ast-extra-spacing ast-extra-spacing-bottom"><td className="ast-border"></td><td></td></tr>;
 
-	const icon = parse( svgIcons['astra-meta-settings'] );
+	const icon = parse( astMetaParams.brandLogo );
 	const sidebarOptions = Object.entries( astMetaParams.sidebar_options ).map( ( [ key, name ] ) => {
 		return ( { label: name, value: key } );
 	} );

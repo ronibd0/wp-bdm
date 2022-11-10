@@ -431,7 +431,30 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 						opacity: 0.5;
 					}
 				</style>';
+		}
 
+		/**
+		 * Get and return page URL
+		 *
+		 * @param string $menu_slug Menu name.
+		 * @since 1.0
+		 * @return  string page url
+		 */
+		public static function get_page_url( $menu_slug ) {
+
+			$parent_page = 'themes.php';
+
+			if ( strpos( $parent_page, '?' ) !== false ) {
+				$query_var = '&page=' . Astra_Menu::get_theme_page_slug();
+			} else {
+				$query_var = '?page=' . Astra_Menu::get_theme_page_slug();
+			}
+
+			$parent_page_url = admin_url( $parent_page . $query_var );
+
+			$url = $parent_page_url . '&action=' . $menu_slug;
+
+			return esc_url( $url );
 		}
 	}
 

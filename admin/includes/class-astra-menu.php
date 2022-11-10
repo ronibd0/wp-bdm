@@ -106,7 +106,7 @@ class Astra_Menu {
 	 */
 	public function admin_submenu_css() {
 		echo '<style class="astra-menu-appearance-style">
-				#toplevel_page_astra .wp-menu-image.svg {
+				#toplevel_page_' . esc_attr( self::$plugin_slug ) . ' .wp-menu-image.svg {
 					background-size: 18px auto !important;
 				}
 			</style>';
@@ -247,12 +247,14 @@ class Astra_Menu {
 			'admin_base_url'                     => admin_url(),
 			'plugin_dir'                         => ASTRA_THEME_URI,
 			'plugin_ver'                         => ASTRA_THEME_VERSION,
+			'version'                            => ASTRA_THEME_VERSION,
 			'pro_available'                      => defined( 'ASTRA_EXT_VER' ) ? true : false,
 			'theme_name'                         => astra_get_theme_name(),
 			'plugin_name'                        => astra_get_addon_name(),
 			'quick_settings'                     => self::astra_get_quick_links(),
 			'ajax_url'                           => admin_url( 'admin-ajax.php' ),
 			'is_whitelabel'                      => astra_is_white_labelled(),
+			'show_self_branding'                 => is_callable( 'Astra_Ext_White_Label_Markup::show_branding' ) ? Astra_Ext_White_Label_Markup::show_branding() : true,
 			'admin_url'                          => admin_url( 'admin.php' ),
 			'home_slug'                          => self::$plugin_slug,
 			'upgrade_url'                        => ASTRA_PRO_UPGRADE_URL,
@@ -574,6 +576,7 @@ class Astra_Menu {
 				'woocommerce'           => array(
 					'title'     => __( 'WooCommerce', 'astra' ),
 					'class'     => 'ast-addon',
+					'condition'	=> class_exists( 'WooCommerce' ) ? true : false,
 					'title_url' => astra_get_pro_url( 'https://wpastra.com/docs/woocommerce-module-overview/', 'welcome_page', 'features', 'astra_theme' ),
 					'links'     => array(
 						array(
@@ -587,6 +590,7 @@ class Astra_Menu {
 				'edd'                   => array(
 					'title'     => __( 'Easy Digital Downloads', 'astra' ),
 					'class'     => 'ast-addon',
+					'condition'	=> class_exists( 'Easy_Digital_Downloads' ) ? true : false,
 					'title_url' => astra_get_pro_url( 'https://wpastra.com/docs/easy-digital-downloads-module-overview/', 'welcome_page', 'features', 'astra_theme' ),
 					'links'     => array(
 						array(
@@ -599,6 +603,7 @@ class Astra_Menu {
 				),
 				'learndash'             => array(
 					'title'       => __( 'LearnDash', 'astra' ),
+					'condition'	=> class_exists( 'SFWD_LMS' ) ? true : false,
 					'description' => __( 'Supercharge your LearnDash website with amazing design features.', 'astra' ),
 					'class'       => 'ast-addon',
 					'title_url'   => astra_get_pro_url( 'https://wpastra.com/docs/learndash-integration-in-astra-pro/', 'welcome_page', 'features', 'astra_theme' ),
@@ -614,6 +619,7 @@ class Astra_Menu {
 				'lifterlms'             => array(
 					'title'     => __( 'LifterLMS', 'astra' ),
 					'class'     => 'ast-addon',
+					'condition'	=> class_exists( 'LifterLMS' ) ? true : false,
 					'title_url' => astra_get_pro_url( 'https://wpastra.com/docs/lifterlms-module-pro/', 'welcome_page', 'features', 'astra_theme' ),
 					'links'     => array(
 						array(

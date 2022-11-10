@@ -67,7 +67,7 @@ const ItemComponent = props => {
 				</Button>
 			}
 
-			<span className="ahfb-sorter-title"><span className='feature-label'> { props.item.label ? props.item.label : __('Featured item', 'astra') } </span></span>
+			<span className="ahfb-sorter-title"><span className='feature-label'> { props.item.label ? props.item.label : __('Custom', 'astra') } </span></span>
 			<Button className={`ast-sorter-item-expand ${props.item.enabled ? 'item-is-visible' : 'item-is-hidden'}`}
 					onClick={e => {
 						e.stopPropagation();
@@ -92,20 +92,24 @@ const ItemComponent = props => {
 		</div>
 		{ state.open && <div className="ahfb-sorter-item-panel-content">
 
-			{false === props.disable && <TextControl className="ast-text-control-input" label={__('Text', 'astra')} value={props.item.label ? props.item.label : ''}
-						 onChange={value => {
-							 props.onChangeLabel(value, props.index);
-						 }}/>
+			{false === props.disable && <TextControl
+				className="ast-text-control-input ast-payments-text-control-input"
+				label={props.controlParams.text_control_label ? props.controlParams.text_control_label : __('Text', 'astra')}
+				value={props.item.label ? props.item.label : ''}
+				placeholder={props.controlParams.text_control_label ? props.controlParams.text_control_placeholder : ''}
+				onChange={value => {
+					props.onChangeLabel(value, props.index);
+				}} />
 			}
 			
 			<TabPanel className="astra-popover-tabs astra-media-tab"
-						activeClass="active-tab"
-						initialTabName={ props.item.source ? props.item.source : __( 'Icon', 'astra' ) }
-						tabs={ tabs }
-						onSelect={ ( currentTab ) => {
-							props.onChangeSource( currentTab, props.index);
-						} }
-						>
+				activeClass="active-tab"
+				initialTabName={props.item.source ? props.item.source : __('Icon', 'astra')}
+				tabs={tabs}
+				onSelect={(currentTab) => {
+					props.onChangeSource(currentTab, props.index);
+				}}
+			>
 				{
 					( tab ) => {
 						let tabout;

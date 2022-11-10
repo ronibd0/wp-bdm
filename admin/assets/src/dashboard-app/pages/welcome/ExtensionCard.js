@@ -13,6 +13,7 @@ const ExtensionCard = ( props ) => {
 		title,
 		title_url,
 		links,
+		condition = true,
 		deprecated = false,
 	} = props.moduleInfo;
 
@@ -28,19 +29,22 @@ const ExtensionCard = ( props ) => {
 		<div
 			key={slug}
 			className={ classNames(
-				! astra_admin.pro_available
+				! astra_admin.pro_available || ! condition
 				? 'bg-slate-50'
 				: 'bg-white',
 				'box-border relative border rounded-md h-20 px-4 py-3 flex items-start gap-x-4 snap-start hover:shadow-md transition astra-icon-transition group'
 			) }
 		>
-			<div className="uagb-admin-block-card__title flex-1 min-w-0">
+			<div className="flex-1 min-w-0">
 				<p className="text-base font-medium text-slate-800 leading-7">
 					{ title }
 					{ deprecated && (
 						<div className="inline-block align-top max-h-4 px-1.5 py-1 ml-1.5 text-[10px] leading-[10px] border border-slate-200 text-slate-400 rounded">
 							{ __( 'Legacy', 'astra' ) }
 						</div>
+					) }
+					{ ( astra_admin.pro_available && ! condition ) && (
+						<span className="inline-block align-middle ml-1 leading-none opacity-30 text-base dashicons dashicons-info" title={ __( 'This plugin needs to be installed/activated.', 'astra' ) }></span>
 					) }
 				</p>
 				{links.map( ( link ) => (
@@ -63,11 +67,11 @@ const ExtensionCard = ( props ) => {
 				<div
 					className={ classNames(
 						! astra_admin.pro_available ? 'text-[0.625rem] leading-[0.625rem] text-white bg-slate-800 rounded-[0.1875rem]' : 'self-center',
-						'relative inline-flex flex-shrink-0 py-0.5 px-1'
+						( astra_admin.pro_available && ! condition ) ? 'relative inline-flex flex-shrink-0 py-0.5 px-1 opacity-30 pointer-events-none' : 'relative inline-flex flex-shrink-0 py-0.5 px-1'
 					) }
 				>
 					{ ! astra_admin.pro_available && __( 'PRO', 'astra' ) }
-					{ astra_admin.pro_available &&
+					{ ( astra_admin.pro_available && 'white-label' !== slug ) &&
 						<Switch
 							checked={ moduleActivationStatus }
 							onChange={ () => {
@@ -95,8 +99,23 @@ const ExtensionCard = ( props ) => {
 									url: astra_admin.ajax_url,
 									method: 'POST',
 									body: formData,
-								} ).then( () => {
-									dispatch( {type: 'UPDATE_SETTINGS_SAVED_NOTIFICATION', payload: __( 'Successfully saved!' ) } );
+								} ).then( ( data ) => {
+									if ( data.success ) {
+										dispatch( {type: 'UPDATE_SETTINGS_SAVED_NOTIFICATION', payload: __( 'Successfully saved!' ) } );
+
+										const reFormData = new window.FormData();
+
+										reFormData.append( 'action', 'astra_refresh_assets_files' );
+										reFormData.append( 'security', astra_addon_admin.update_nonce );
+
+										apiFetch( {
+											url: astra_admin.ajax_url,
+											method: 'POST',
+											body: reFormData,
+										} ).then( ( data ) => {
+											dispatch( {type: 'UPDATE_SETTINGS_SAVED_NOTIFICATION', payload: __( 'Cache Cleared!' ) } );
+										} );
+									}
 								} );
 							} }
 							className={ classNames(

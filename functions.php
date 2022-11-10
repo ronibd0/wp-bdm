@@ -109,7 +109,7 @@ if ( is_admin() ) {
 	/**
 	 * Admin Menu Settings
 	 */
-	// require_once ASTRA_THEME_DIR . 'inc/core/class-astra-admin-settings.php';
+	require_once ASTRA_THEME_DIR . 'inc/core/class-astra-admin-settings.php';
 	require_once ASTRA_THEME_DIR . 'admin/class-astra-admin-loader.php';
 	require_once ASTRA_THEME_DIR . 'inc/lib/astra-notices/class-astra-notices.php';
 }
@@ -176,8 +176,3 @@ require_once ASTRA_THEME_DIR . 'inc/core/markup/class-astra-markup.php';
 require_once ASTRA_THEME_DIR . 'inc/core/deprecated/deprecated-filters.php';
 require_once ASTRA_THEME_DIR . 'inc/core/deprecated/deprecated-hooks.php';
 require_once ASTRA_THEME_DIR . 'inc/core/deprecated/deprecated-functions.php';
-
-add_action( 'wp_head', function() {
-	vl( get_site_option( '_astra_ext_white_label' ) );
-	vl( get_option( 'astra_admin_settings' ) );
-} );

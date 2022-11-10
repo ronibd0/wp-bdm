@@ -1060,7 +1060,7 @@ function astra_apply_woocommerce_show_password_icon_css() {
 
 /**
  * Handle backward compatibility on version 3.9.3
- * 
+ *
  * @since x.x.x
  * @return void
  */
@@ -1073,6 +1073,7 @@ function astra_theme_background_updater_3_9_3() {
 		update_option( 'astra-settings', $theme_options );
 	}
 
+	// Slide in cart width responsive control backwards compatibility.
 	if ( isset( $theme_options['woo-desktop-cart-flyout-width'] ) && ! isset( $theme_options['woo-slide-in-cart-width'] ) ) {
 		$theme_options['woo-slide-in-cart-width'] = array(
 			'desktop'      => $theme_options['woo-desktop-cart-flyout-width'],
@@ -1083,5 +1084,35 @@ function astra_theme_background_updater_3_9_3() {
 			'mobile-unit'  => 'px',
 		);
 		update_option( 'astra-settings', $theme_options );
+	}
+
+	// Astra Spectra Gutenberg Compatibility CSS.
+	if ( ! isset( $theme_options['spectra-gutenberg-compat-css'] ) ) {
+		$theme_options['spectra-gutenberg-compat-css'] = false;
+		update_option( 'astra-settings', $theme_options );
+	}
+}
+
+/**
+ * Migrate existing setting & do required onboarding for new admin dashboard v4.0.0 app.
+ *
+ * @since x.x.x
+ * @return void
+ */
+function astra_onboard_admin_dashboard() {
+	$admin_dashboard_settings = get_option( 'astra_admin_settings', array() );
+	if ( ! isset( $admin_dashboard_settings['theme-setup-admin-migrated'] ) ) {
+
+		$theme_options = get_option( 'astra-settings', array() );
+		if ( ! isset( $admin_dashboard_settings['self_hosted_gfonts'] ) ) {
+			$admin_dashboard_settings['self_hosted_gfonts'] = isset( $theme_options['load-google-fonts-locally'] ) ? $theme_options['load-google-fonts-locally'] : false;
+		}
+		if ( ! isset( $admin_dashboard_settings['preload_local_fonts'] ) ) {
+			$admin_dashboard_settings['preload_local_fonts'] = isset( $theme_options['preload-local-fonts'] ) ? $theme_options['preload-local-fonts'] : false;
+		}
+
+		// Consider admin part from addon side migrated.
+		$admin_dashboard_settings['theme-setup-admin-migrated'] = true;
+		update_option( 'astra_admin_settings', $admin_dashboard_settings );
 	}
 }
