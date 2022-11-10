@@ -28,33 +28,9 @@ export default function MainNav() {
 		},
 	]);
 
-	const menus = wp.hooks.applyFilters( 'astra_dashboard.main_navigation', [
-			{
-				name: __( 'Welcome', 'astra' ),
-				slug: astra_admin.home_slug,
-				path: '',
-			},
-			{
-				name: __( 'Settings', 'astra' ),
-				slug: astra_admin.home_slug,
-				path: 'settings',
-			},
-			{
-				name: __( 'Starter Templates', 'astra' ),
-				slug: astra_admin.home_slug,
-				path: 'starter-templates',
-			},
-			{
-				name: __( 'Free vs Pro', 'astra' ),
-				slug: astra_admin.home_slug,
-				path: 'free-vs-pro',
-			},
-		]
-	);
-
-	const query = new URLSearchParams( useLocation()?.search );
-	const activePage = query.get( 'page' )
-		? query.get( 'page' )
+	const query = new URLSearchParams(useLocation()?.search);
+	const activePage = query.get("page")
+		? query.get("page")
 		: astra_admin.home_slug;
 	const activePath = query.get("path") ? query.get("path") : "";
 
@@ -98,32 +74,32 @@ export default function MainNav() {
 							))}
 						</div>
 					</div>
-					{
-						astra_admin.show_self_branding &&
+					{astra_admin.show_self_branding && (
 						<div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
 							<div className="text-sm font-medium leading-6 text-slate-600 mr-8">
 								<DocsPopup />
 							</div>
 							<div className="flex items-center text-sm font-medium leading-[1.375rem] text-slate-400 mr-8 divide-x divide-slate-200 gap-3">
-								<div className="">
-									{ astra_admin.version }
-								</div>
-								{ wp.hooks.applyFilters( 'astra_dashboard.after_navigation_version', <span/> ) }
+								<div className="">{astra_admin.version}</div>
+								{wp.hooks.applyFilters(
+									"astra_dashboard.after_navigation_version",
+									<span />
+								)}
 							</div>
 							<ChangeLogPopup />
 						</div>
-					}
-					{
-						! astra_admin.show_self_branding &&
+					)}
+					{!astra_admin.show_self_branding && (
 						<div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
 							<div className="flex items-center text-sm font-medium leading-[1.375rem] text-slate-400 mr-8 divide-x divide-slate-200 gap-3">
-								<div className="">
-									{ astra_admin.version }
-								</div>
-								{ wp.hooks.applyFilters( 'astra_dashboard.after_navigation_version', <span/> ) }
+								<div className="">{astra_admin.version}</div>
+								{wp.hooks.applyFilters(
+									"astra_dashboard.after_navigation_version",
+									<span />
+								)}
 							</div>
 						</div>
-					}
+					)}
 				</div>
 			</div>
 		</Disclosure>

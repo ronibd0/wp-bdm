@@ -6337,13 +6337,291 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./assets/src/dashboard-app/ChangeLogPopup.js":
+/*!****************************************************!*\
+  !*** ./assets/src/dashboard-app/ChangeLogPopup.js ***!
+  \****************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _headlessui_react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @headlessui/react */ "./node_modules/@headlessui/react/dist/components/transitions/transition.js");
+/* harmony import */ var _headlessui_react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @headlessui/react */ "./node_modules/@headlessui/react/dist/components/dialog/dialog.js");
+/* harmony import */ var _heroicons_react_outline__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @heroicons/react/outline */ "./node_modules/@heroicons/react/outline/esm/XIcon.js");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__);
+
+/* This example requires Tailwind CSS v2.0+ */
+
+
+
+
+const tabs = wp.hooks.applyFilters('astra_dashboard.changelog_products', [{
+  name: "Astra Theme",
+  value: "astra-theme"
+}]);
+const ChangeLogPopup = () => {
+  const [open, setOpen] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(false);
+  const [activeTab, setActiveTab] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)("astra-theme");
+  const [activeChangeLog, setActiveChangeLog] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(astra_admin.astra_changelog_data);
+  const toggleTab = value => {
+    setActiveTab(value);
+    if (value === 'astra-pro') {
+      setActiveChangeLog(astra_addon_admin.astra_pro_changelog_data);
+    } else {
+      setActiveChangeLog(astra_admin.astra_changelog_data);
+    }
+  };
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_1__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
+    onClick: () => setOpen(true),
+    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("What's New?", "astra"),
+    className: "w-10 h-10 flex items-center justify-center cursor-pointer rounded-full border border-slate-200"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
+    width: "18",
+    height: "18",
+    viewBox: "0 0 18 18",
+    fill: "none",
+    xmlns: "http://www.w3.org/2000/svg"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+    d: "M8.16667 3.90182V15.0335C8.16667 15.8434 7.51008 16.5 6.70015 16.5C6.08038 16.5 5.52752 16.1104 5.31907 15.5267L3.53039 10.4024M14 9.83333C15.3807 9.83333 16.5 8.71404 16.5 7.33333C16.5 5.95262 15.3807 4.83333 14 4.83333M3.53039 10.4024C2.33691 9.89508 1.5 8.71194 1.5 7.33333C1.5 5.49238 2.99238 4 4.83333 4H6.36007C9.77727 4 12.7141 2.97159 14 1.5L14 13.1667C12.7141 11.6951 9.77727 10.6667 6.36007 10.6667L4.83331 10.6667C4.37098 10.6667 3.93064 10.5725 3.53039 10.4024Z",
+    stroke: "#475569",
+    strokeWidth: "1.4",
+    strokeLinecap: "round",
+    strokeLinejoin: "round"
+  }))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_headlessui_react__WEBPACK_IMPORTED_MODULE_3__.Transition.Root, {
+    show: open,
+    as: react__WEBPACK_IMPORTED_MODULE_1__.Fragment
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_headlessui_react__WEBPACK_IMPORTED_MODULE_4__.Dialog, {
+    as: "div",
+    className: "fixed inset-0 overflow-hidden",
+    onClose: setOpen
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "absolute inset-0 overflow-hidden"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_headlessui_react__WEBPACK_IMPORTED_MODULE_4__.Dialog.Overlay, {
+    className: "absolute inset-0"
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "fixed inset-y-0 right-0 pl-10 max-w-full flex sm:mt-[2rem]"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_headlessui_react__WEBPACK_IMPORTED_MODULE_3__.Transition.Child, {
+    as: react__WEBPACK_IMPORTED_MODULE_1__.Fragment,
+    enter: "transform transition ease-in-out duration-150 sm:duration-150",
+    enterFrom: "translate-x-full",
+    enterTo: "translate-x-0",
+    leave: "transform transition ease-in-out duration-300 sm:duration-300",
+    leaveFrom: "translate-x-0",
+    leaveTo: "translate-x-full"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "w-screen max-w-md shadow-overlay-left"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "h-full flex flex-col bg-white shadow-xl"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "px-4 sm:px-6 h-16 shadow flex items-center justify-between z-50"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_headlessui_react__WEBPACK_IMPORTED_MODULE_4__.Dialog.Title, {
+    className: "text-lg font-medium text-gray-900"
+  }, " ", (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("What's New?", "astra"), " "), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "flex items-center"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
+    type: "button",
+    className: "bg-white rounded-md text-gray-400 hover:text-gray-500 focus:outline-none",
+    onClick: () => setOpen(false)
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_heroicons_react_outline__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    className: "h-6 w-6",
+    "aria-hidden": "true"
+  })))), astra_admin.pro_available && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "block"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "border-b border-gray-200"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("nav", {
+    className: "-mb-px flex space-x-8 px-6",
+    "aria-label": "Tabs"
+  }, tabs.map(tab => (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
+    key: tab.name,
+    className: `${activeTab === tab.value ? "border-astra text-astra" : "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300"}
+																	whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm`,
+    onClick: () => toggleTab(tab.value)
+  }, tab.name))))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "relative flex-1 overflow-y-auto"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "relative grid bg-white divide-y divide-gray-200"
+  }, activeChangeLog.map((item, index) => {
+    const title = activeChangeLog[index].title;
+    const description = activeChangeLog[index].description;
+    const link = "https://wpastra.com/changelog/";
+    const pubDate = activeChangeLog[index].date;
+    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+      key: title,
+      href: link,
+      className: "px-6 py-5 block rounded-[0.2rem] transition ease-in-out duration-150",
+      target: "_blank",
+      rel: "noreferrer noopener"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
+      className: "text-sm mb-1 font-medium text-slate-800",
+      dangerouslySetInnerHTML: {
+        __html: title
+      }
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
+      className: "text-xs text-slate-500",
+      dangerouslySetInnerHTML: {
+        __html: pubDate
+      }
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
+      className: "mt-3 astra-changelog-description",
+      dangerouslySetInnerHTML: {
+        __html: description
+      }
+    }));
+  })))))))))));
+};
+/* harmony default export */ __webpack_exports__["default"] = (ChangeLogPopup);
+
+/***/ }),
+
+/***/ "./assets/src/dashboard-app/DocsPopup.js":
+/*!***********************************************!*\
+  !*** ./assets/src/dashboard-app/DocsPopup.js ***!
+  \***********************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _headlessui_react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @headlessui/react */ "./node_modules/@headlessui/react/dist/components/transitions/transition.js");
+/* harmony import */ var _headlessui_react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @headlessui/react */ "./node_modules/@headlessui/react/dist/components/dialog/dialog.js");
+/* harmony import */ var _pages_docs_Docs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./pages/docs/Docs */ "./assets/src/dashboard-app/pages/docs/Docs.js");
+
+
+
+
+const DocsPopup = () => {
+  const [open, setOpen] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(false);
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
+    onClick: () => setOpen(true),
+    className: "text-sm font-medium leading-6 text-slate-600"
+  }, "Knowledge base"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_headlessui_react__WEBPACK_IMPORTED_MODULE_3__.Transition.Root, {
+    show: open,
+    as: react__WEBPACK_IMPORTED_MODULE_1__.Fragment
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_headlessui_react__WEBPACK_IMPORTED_MODULE_4__.Dialog, {
+    as: "div",
+    className: "relative z-10",
+    onClose: setOpen
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "fixed inset-0 top-8 z-10 overflow-y-auto"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "flex min-h-screen h-full items-end justify-center p-4 text-center sm:items-center sm:p-0"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_headlessui_react__WEBPACK_IMPORTED_MODULE_3__.Transition.Child, {
+    as: react__WEBPACK_IMPORTED_MODULE_1__.Fragment,
+    enter: "ease-out duration-300",
+    enterFrom: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95",
+    enterTo: "opacity-100 translate-y-0 sm:scale-100",
+    leave: "ease-in duration-200",
+    leaveFrom: "opacity-100 translate-y-0 sm:scale-100",
+    leaveTo: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_headlessui_react__WEBPACK_IMPORTED_MODULE_4__.Dialog.Panel, {
+    className: "relative transform bg-white text-left transition-all min-h-screen sm:w-full sm:h-full ml-40"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_pages_docs_Docs__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    setOpen: setOpen
+  }))))))));
+};
+/* harmony default export */ __webpack_exports__["default"] = (DocsPopup);
+
+/***/ }),
+
 /***/ "./assets/src/dashboard-app/MainNav.js":
 /*!*********************************************!*\
   !*** ./assets/src/dashboard-app/MainNav.js ***!
   \*********************************************/
-/***/ (function() {
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: G:\\Programs\\laragon\\www\\astra-roshan\\wp-content\\themes\\astra\\admin\\assets\\src\\dashboard-app\\MainNav.js: Unexpected token (31:1)\n\n\u001b[0m \u001b[90m 29 |\u001b[39m \t])\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 30 |\u001b[39m\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 31 |\u001b[39m \u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<\u001b[39m \u001b[33mHEAD\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m    |\u001b[39m  \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 32 |\u001b[39m \t\u001b[36mconst\u001b[39m query \u001b[33m=\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mURLSearchParams\u001b[39m(useLocation()\u001b[33m?\u001b[39m\u001b[33m.\u001b[39msearch)\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 33 |\u001b[39m \t\u001b[36mconst\u001b[39m activePage \u001b[33m=\u001b[39m query\u001b[33m.\u001b[39m\u001b[36mget\u001b[39m(\u001b[32m\"page\"\u001b[39m)\u001b[0m\n\u001b[0m \u001b[90m 34 |\u001b[39m \t\t\u001b[33m?\u001b[39m query\u001b[33m.\u001b[39m\u001b[36mget\u001b[39m(\u001b[32m\"page\"\u001b[39m)\u001b[0m\n    at instantiate (G:\\Programs\\laragon\\www\\astra-roshan\\wp-content\\themes\\astra\\admin\\node_modules\\@babel\\parser\\lib\\index.js:72:32)\n    at constructor (G:\\Programs\\laragon\\www\\astra-roshan\\wp-content\\themes\\astra\\admin\\node_modules\\@babel\\parser\\lib\\index.js:367:12)\n    at JSXParserMixin.raise (G:\\Programs\\laragon\\www\\astra-roshan\\wp-content\\themes\\astra\\admin\\node_modules\\@babel\\parser\\lib\\index.js:3706:19)\n    at JSXParserMixin.unexpected (G:\\Programs\\laragon\\www\\astra-roshan\\wp-content\\themes\\astra\\admin\\node_modules\\@babel\\parser\\lib\\index.js:3744:16)\n    at JSXParserMixin.jsxParseIdentifier (G:\\Programs\\laragon\\www\\astra-roshan\\wp-content\\themes\\astra\\admin\\node_modules\\@babel\\parser\\lib\\index.js:7947:12)\n    at JSXParserMixin.jsxParseNamespacedName (G:\\Programs\\laragon\\www\\astra-roshan\\wp-content\\themes\\astra\\admin\\node_modules\\@babel\\parser\\lib\\index.js:7957:23)\n    at JSXParserMixin.jsxParseElementName (G:\\Programs\\laragon\\www\\astra-roshan\\wp-content\\themes\\astra\\admin\\node_modules\\@babel\\parser\\lib\\index.js:7968:21)\n    at JSXParserMixin.jsxParseOpeningElementAt (G:\\Programs\\laragon\\www\\astra-roshan\\wp-content\\themes\\astra\\admin\\node_modules\\@babel\\parser\\lib\\index.js:8067:22)\n    at JSXParserMixin.jsxParseElementAt (G:\\Programs\\laragon\\www\\astra-roshan\\wp-content\\themes\\astra\\admin\\node_modules\\@babel\\parser\\lib\\index.js:8099:33)\n    at JSXParserMixin.jsxParseElement (G:\\Programs\\laragon\\www\\astra-roshan\\wp-content\\themes\\astra\\admin\\node_modules\\@babel\\parser\\lib\\index.js:8184:17)\n    at JSXParserMixin.parseExprAtom (G:\\Programs\\laragon\\www\\astra-roshan\\wp-content\\themes\\astra\\admin\\node_modules\\@babel\\parser\\lib\\index.js:8198:19)\n    at JSXParserMixin.parseExprSubscripts (G:\\Programs\\laragon\\www\\astra-roshan\\wp-content\\themes\\astra\\admin\\node_modules\\@babel\\parser\\lib\\index.js:12875:23)\n    at JSXParserMixin.parseUpdate (G:\\Programs\\laragon\\www\\astra-roshan\\wp-content\\themes\\astra\\admin\\node_modules\\@babel\\parser\\lib\\index.js:12854:21)\n    at JSXParserMixin.parseMaybeUnary (G:\\Programs\\laragon\\www\\astra-roshan\\wp-content\\themes\\astra\\admin\\node_modules\\@babel\\parser\\lib\\index.js:12824:23)\n    at JSXParserMixin.parseMaybeUnaryOrPrivate (G:\\Programs\\laragon\\www\\astra-roshan\\wp-content\\themes\\astra\\admin\\node_modules\\@babel\\parser\\lib\\index.js:12615:61)\n    at JSXParserMixin.parseExprOps (G:\\Programs\\laragon\\www\\astra-roshan\\wp-content\\themes\\astra\\admin\\node_modules\\@babel\\parser\\lib\\index.js:12622:23)\n    at JSXParserMixin.parseMaybeConditional (G:\\Programs\\laragon\\www\\astra-roshan\\wp-content\\themes\\astra\\admin\\node_modules\\@babel\\parser\\lib\\index.js:12592:23)\n    at JSXParserMixin.parseMaybeAssign (G:\\Programs\\laragon\\www\\astra-roshan\\wp-content\\themes\\astra\\admin\\node_modules\\@babel\\parser\\lib\\index.js:12544:21)\n    at JSXParserMixin.parseExpressionBase (G:\\Programs\\laragon\\www\\astra-roshan\\wp-content\\themes\\astra\\admin\\node_modules\\@babel\\parser\\lib\\index.js:12480:23)\n    at G:\\Programs\\laragon\\www\\astra-roshan\\wp-content\\themes\\astra\\admin\\node_modules\\@babel\\parser\\lib\\index.js:12474:39\n    at JSXParserMixin.allowInAnd (G:\\Programs\\laragon\\www\\astra-roshan\\wp-content\\themes\\astra\\admin\\node_modules\\@babel\\parser\\lib\\index.js:14570:16)\n    at JSXParserMixin.parseExpression (G:\\Programs\\laragon\\www\\astra-roshan\\wp-content\\themes\\astra\\admin\\node_modules\\@babel\\parser\\lib\\index.js:12474:17)\n    at JSXParserMixin.parseStatementContent (G:\\Programs\\laragon\\www\\astra-roshan\\wp-content\\themes\\astra\\admin\\node_modules\\@babel\\parser\\lib\\index.js:15014:23)\n    at JSXParserMixin.parseStatement (G:\\Programs\\laragon\\www\\astra-roshan\\wp-content\\themes\\astra\\admin\\node_modules\\@babel\\parser\\lib\\index.js:14871:17)\n    at JSXParserMixin.parseBlockOrModuleBlockBody (G:\\Programs\\laragon\\www\\astra-roshan\\wp-content\\themes\\astra\\admin\\node_modules\\@babel\\parser\\lib\\index.js:15531:25)\n    at JSXParserMixin.parseBlockBody (G:\\Programs\\laragon\\www\\astra-roshan\\wp-content\\themes\\astra\\admin\\node_modules\\@babel\\parser\\lib\\index.js:15522:10)\n    at JSXParserMixin.parseBlock (G:\\Programs\\laragon\\www\\astra-roshan\\wp-content\\themes\\astra\\admin\\node_modules\\@babel\\parser\\lib\\index.js:15505:10)\n    at JSXParserMixin.parseFunctionBody (G:\\Programs\\laragon\\www\\astra-roshan\\wp-content\\themes\\astra\\admin\\node_modules\\@babel\\parser\\lib\\index.js:14175:24)\n    at JSXParserMixin.parseFunctionBodyAndFinish (G:\\Programs\\laragon\\www\\astra-roshan\\wp-content\\themes\\astra\\admin\\node_modules\\@babel\\parser\\lib\\index.js:14159:10)\n    at G:\\Programs\\laragon\\www\\astra-roshan\\wp-content\\themes\\astra\\admin\\node_modules\\@babel\\parser\\lib\\index.js:15679:12\n    at JSXParserMixin.withSmartMixTopicForbiddingContext (G:\\Programs\\laragon\\www\\astra-roshan\\wp-content\\themes\\astra\\admin\\node_modules\\@babel\\parser\\lib\\index.js:14547:14)\n    at JSXParserMixin.parseFunction (G:\\Programs\\laragon\\www\\astra-roshan\\wp-content\\themes\\astra\\admin\\node_modules\\@babel\\parser\\lib\\index.js:15678:10)\n    at JSXParserMixin.parseExportDefaultExpression (G:\\Programs\\laragon\\www\\astra-roshan\\wp-content\\themes\\astra\\admin\\node_modules\\@babel\\parser\\lib\\index.js:16237:19)\n    at JSXParserMixin.parseExport (G:\\Programs\\laragon\\www\\astra-roshan\\wp-content\\themes\\astra\\admin\\node_modules\\@babel\\parser\\lib\\index.js:16149:31)\n    at JSXParserMixin.parseStatementContent (G:\\Programs\\laragon\\www\\astra-roshan\\wp-content\\themes\\astra\\admin\\node_modules\\@babel\\parser\\lib\\index.js:14987:27)\n    at JSXParserMixin.parseStatement (G:\\Programs\\laragon\\www\\astra-roshan\\wp-content\\themes\\astra\\admin\\node_modules\\@babel\\parser\\lib\\index.js:14871:17)\n    at JSXParserMixin.parseBlockOrModuleBlockBody (G:\\Programs\\laragon\\www\\astra-roshan\\wp-content\\themes\\astra\\admin\\node_modules\\@babel\\parser\\lib\\index.js:15531:25)\n    at JSXParserMixin.parseBlockBody (G:\\Programs\\laragon\\www\\astra-roshan\\wp-content\\themes\\astra\\admin\\node_modules\\@babel\\parser\\lib\\index.js:15522:10)\n    at JSXParserMixin.parseProgram (G:\\Programs\\laragon\\www\\astra-roshan\\wp-content\\themes\\astra\\admin\\node_modules\\@babel\\parser\\lib\\index.js:14785:10)\n    at JSXParserMixin.parseTopLevel (G:\\Programs\\laragon\\www\\astra-roshan\\wp-content\\themes\\astra\\admin\\node_modules\\@babel\\parser\\lib\\index.js:14772:25)\n    at JSXParserMixin.parse (G:\\Programs\\laragon\\www\\astra-roshan\\wp-content\\themes\\astra\\admin\\node_modules\\@babel\\parser\\lib\\index.js:16799:10)\n    at parse (G:\\Programs\\laragon\\www\\astra-roshan\\wp-content\\themes\\astra\\admin\\node_modules\\@babel\\parser\\lib\\index.js:16851:38)\n    at parser (G:\\Programs\\laragon\\www\\astra-roshan\\wp-content\\themes\\astra\\admin\\node_modules\\@babel\\core\\lib\\parser\\index.js:52:34)\n    at parser.next (<anonymous>)\n    at normalizeFile (G:\\Programs\\laragon\\www\\astra-roshan\\wp-content\\themes\\astra\\admin\\node_modules\\@babel\\core\\lib\\transformation\\normalize-file.js:87:38)\n    at normalizeFile.next (<anonymous>)\n    at run (G:\\Programs\\laragon\\www\\astra-roshan\\wp-content\\themes\\astra\\admin\\node_modules\\@babel\\core\\lib\\transformation\\index.js:31:50)\n    at run.next (<anonymous>)\n    at transform (G:\\Programs\\laragon\\www\\astra-roshan\\wp-content\\themes\\astra\\admin\\node_modules\\@babel\\core\\lib\\transform.js:29:41)\n    at transform.next (<anonymous>)");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": function() { return /* binding */ MainNav; }
+/* harmony export */ });
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _headlessui_react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @headlessui/react */ "./node_modules/@headlessui/react/dist/components/disclosure/disclosure.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _ChangeLogPopup__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ChangeLogPopup */ "./assets/src/dashboard-app/ChangeLogPopup.js");
+/* harmony import */ var _DocsPopup__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./DocsPopup */ "./assets/src/dashboard-app/DocsPopup.js");
+
+
+
+
+
+
+function MainNav() {
+  var _useLocation;
+  const menus = wp.hooks.applyFilters("astra_dashboard.main_navigation", [{
+    name: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Welcome", "astra"),
+    slug: astra_admin.home_slug,
+    path: ""
+  }, {
+    name: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Settings", "astra"),
+    slug: astra_admin.home_slug,
+    path: "settings"
+  }, {
+    name: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Starter Templates", "astra"),
+    slug: astra_admin.home_slug,
+    path: "starter-templates"
+  }, {
+    name: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Free vs Pro", "astra"),
+    slug: astra_admin.home_slug,
+    path: "free-vs-pro"
+  }]);
+  const query = new URLSearchParams((_useLocation = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_4__.useLocation)()) === null || _useLocation === void 0 ? void 0 : _useLocation.search);
+  const activePage = query.get("page") ? query.get("page") : astra_admin.home_slug;
+  const activePath = query.get("path") ? query.get("path") : "";
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_headlessui_react__WEBPACK_IMPORTED_MODULE_5__.Disclosure, {
+    as: "nav",
+    className: "bg-white shadow"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "max-w-3xl mx-auto px-6 lg:max-w-full"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "relative flex justify-between h-16"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "flex-1 flex items-center justify-center sm:items-stretch sm:justify-start"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+    href: astra_admin.astra_base_url,
+    className: "flex-shrink-0 flex items-center"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
+    className: "lg:block h-[2.6rem] w-auto",
+    src: astra_admin.logo_url,
+    alt: "Workflow"
+  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "sm:ml-8 sm:flex sm:space-x-8"
+  }, menus.map((menu, key) => (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Link, {
+    index: key,
+    key: `?page=${menu.slug}&path=${menu.path}`,
+    to: {
+      pathname: "admin.php",
+      search: `?page=${menu.slug}${"" !== menu.path ? "&path=" + menu.path : ""}`
+    },
+    className: `${activePage === menu.slug && activePath === menu.path ? "border-astra text-astra active:text-astra focus:text-astra focus-visible:text-astra-hover hover:text-astra-hover inline-flex items-center px-1 border-b-2 text-[0.940rem] font-medium" : "border-transparent text-slate-500 active:text-astra focus-visible:border-slate-300 focus-visible:text-slate-800 hover:border-slate-300 hover:text-slate-800 inline-flex items-center px-1 border-b-2 text-[0.940rem] font-medium"}`
+  }, menu.name)))), astra_admin.show_self_branding && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "text-sm font-medium leading-6 text-slate-600 mr-8"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_DocsPopup__WEBPACK_IMPORTED_MODULE_3__["default"], null)), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "flex items-center text-sm font-medium leading-[1.375rem] text-slate-400 mr-8 divide-x divide-slate-200 gap-3"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: ""
+  }, astra_admin.version), wp.hooks.applyFilters("astra_dashboard.after_navigation_version", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_ChangeLogPopup__WEBPACK_IMPORTED_MODULE_2__["default"], null)), !astra_admin.show_self_branding && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "flex items-center text-sm font-medium leading-[1.375rem] text-slate-400 mr-8 divide-x divide-slate-200 gap-3"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: ""
+  }, astra_admin.version), wp.hooks.applyFilters("astra_dashboard.after_navigation_version", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null)))))));
+}
 
 /***/ }),
 
@@ -23890,6 +24168,101 @@ let d=(0,react__WEBPACK_IMPORTED_MODULE_0__.createContext)(null);function u(){le
 
 /***/ }),
 
+/***/ "./node_modules/@headlessui/react/dist/components/dialog/dialog.js":
+/*!*************************************************************************!*\
+  !*** ./node_modules/@headlessui/react/dist/components/dialog/dialog.js ***!
+  \*************************************************************************/
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Dialog": function() { return /* binding */ gt; }
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var _utils_match_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../utils/match.js */ "./node_modules/@headlessui/react/dist/utils/match.js");
+/* harmony import */ var _utils_render_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../utils/render.js */ "./node_modules/@headlessui/react/dist/utils/render.js");
+/* harmony import */ var _hooks_use_sync_refs_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../hooks/use-sync-refs.js */ "./node_modules/@headlessui/react/dist/hooks/use-sync-refs.js");
+/* harmony import */ var _keyboard_js__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../keyboard.js */ "./node_modules/@headlessui/react/dist/components/keyboard.js");
+/* harmony import */ var _utils_bugs_js__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ../../utils/bugs.js */ "./node_modules/@headlessui/react/dist/utils/bugs.js");
+/* harmony import */ var _hooks_use_id_js__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../../hooks/use-id.js */ "./node_modules/@headlessui/react/dist/hooks/use-id.js");
+/* harmony import */ var _components_focus_trap_focus_trap_js__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ../../components/focus-trap/focus-trap.js */ "./node_modules/@headlessui/react/dist/components/focus-trap/focus-trap.js");
+/* harmony import */ var _hooks_use_inert_others_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../hooks/use-inert-others.js */ "./node_modules/@headlessui/react/dist/hooks/use-inert-others.js");
+/* harmony import */ var _components_portal_portal_js__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ../../components/portal/portal.js */ "./node_modules/@headlessui/react/dist/components/portal/portal.js");
+/* harmony import */ var _internal_portal_force_root_js__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../../internal/portal-force-root.js */ "./node_modules/@headlessui/react/dist/internal/portal-force-root.js");
+/* harmony import */ var _description_description_js__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../description/description.js */ "./node_modules/@headlessui/react/dist/components/description/description.js");
+/* harmony import */ var _internal_open_closed_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../internal/open-closed.js */ "./node_modules/@headlessui/react/dist/internal/open-closed.js");
+/* harmony import */ var _hooks_use_server_handoff_complete_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../hooks/use-server-handoff-complete.js */ "./node_modules/@headlessui/react/dist/hooks/use-server-handoff-complete.js");
+/* harmony import */ var _internal_stack_context_js__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../../internal/stack-context.js */ "./node_modules/@headlessui/react/dist/internal/stack-context.js");
+/* harmony import */ var _hooks_use_outside_click_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../hooks/use-outside-click.js */ "./node_modules/@headlessui/react/dist/hooks/use-outside-click.js");
+/* harmony import */ var _hooks_use_owner_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../hooks/use-owner.js */ "./node_modules/@headlessui/react/dist/hooks/use-owner.js");
+/* harmony import */ var _hooks_use_event_listener_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../../hooks/use-event-listener.js */ "./node_modules/@headlessui/react/dist/hooks/use-event-listener.js");
+/* harmony import */ var _internal_hidden_js__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ../../internal/hidden.js */ "./node_modules/@headlessui/react/dist/internal/hidden.js");
+/* harmony import */ var _hooks_use_event_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../hooks/use-event.js */ "./node_modules/@headlessui/react/dist/hooks/use-event.js");
+/* harmony import */ var _utils_disposables_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../utils/disposables.js */ "./node_modules/@headlessui/react/dist/utils/disposables.js");
+/* harmony import */ var _utils_platform_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../utils/platform.js */ "./node_modules/@headlessui/react/dist/utils/platform.js");
+var Re=(r=>(r[r.Open=0]="Open",r[r.Closed=1]="Closed",r))(Re||{}),be=(e=>(e[e.SetTitleId=0]="SetTitleId",e))(be||{});let Ae={[0](l,e){return l.titleId===e.id?l:{...l,titleId:e.id}}},M=(0,react__WEBPACK_IMPORTED_MODULE_0__.createContext)(null);M.displayName="DialogContext";function L(l){let e=(0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)(M);if(e===null){let r=new Error(`<${l} /> is missing a parent <Dialog /> component.`);throw Error.captureStackTrace&&Error.captureStackTrace(r,L),r}return e}function Ee(l,e){(0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(()=>{var p;if(!e||!l)return;let r=(0,_utils_disposables_js__WEBPACK_IMPORTED_MODULE_1__.disposables)();function t(n,d,m){let i=n.style.getPropertyValue(d);return Object.assign(n.style,{[d]:m}),r.add(()=>{Object.assign(n.style,{[d]:i})})}let o=l.documentElement,s=((p=l.defaultView)!=null?p:window).innerWidth-o.clientWidth;if(t(o,"overflow","hidden"),s>0){let n=o.clientWidth-o.offsetWidth,d=s-n;t(o,"paddingRight",`${d}px`)}if((0,_utils_platform_js__WEBPACK_IMPORTED_MODULE_2__.isIOS)()){let n=window.pageYOffset;t(o,"position","fixed"),t(o,"marginTop",`-${n}px`),t(o,"width","100%"),r.add(()=>window.scrollTo(0,n))}return r.dispose},[l,e])}function ve(l,e){return (0,_utils_match_js__WEBPACK_IMPORTED_MODULE_3__.match)(e.type,Ae,l,e)}let Oe="div",Ce=_utils_render_js__WEBPACK_IMPORTED_MODULE_4__.Features.RenderStrategy|_utils_render_js__WEBPACK_IMPORTED_MODULE_4__.Features.Static,Se=(0,_utils_render_js__WEBPACK_IMPORTED_MODULE_4__.forwardRefWithAs)(function(e,r){let{open:t,onClose:o,initialFocus:a,__demoMode:s=!1,...p}=e,[n,d]=(0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0),m=(0,_internal_open_closed_js__WEBPACK_IMPORTED_MODULE_5__.useOpenClosed)();t===void 0&&m!==null&&(t=(0,_utils_match_js__WEBPACK_IMPORTED_MODULE_3__.match)(m,{[_internal_open_closed_js__WEBPACK_IMPORTED_MODULE_5__.State.Open]:!0,[_internal_open_closed_js__WEBPACK_IMPORTED_MODULE_5__.State.Closed]:!1}));let i=(0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(new Set),T=(0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null),K=(0,_hooks_use_sync_refs_js__WEBPACK_IMPORTED_MODULE_6__.useSyncRefs)(T,r),W=(0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null),P=(0,_hooks_use_owner_js__WEBPACK_IMPORTED_MODULE_7__.useOwnerDocument)(T),B=e.hasOwnProperty("open")||m!==null,G=e.hasOwnProperty("onClose");if(!B&&!G)throw new Error("You have to provide an `open` and an `onClose` prop to the `Dialog` component.");if(!B)throw new Error("You provided an `onClose` prop to the `Dialog`, but forgot an `open` prop.");if(!G)throw new Error("You provided an `open` prop to the `Dialog`, but forgot an `onClose` prop.");if(typeof t!="boolean")throw new Error(`You provided an \`open\` prop to the \`Dialog\`, but the value is not a boolean. Received: ${t}`);if(typeof o!="function")throw new Error(`You provided an \`onClose\` prop to the \`Dialog\`, but the value is not a function. Received: ${o}`);let u=t?0:1,[y,q]=(0,react__WEBPACK_IMPORTED_MODULE_0__.useReducer)(ve,{titleId:null,descriptionId:null,panelRef:(0,react__WEBPACK_IMPORTED_MODULE_0__.createRef)()}),h=(0,_hooks_use_event_js__WEBPACK_IMPORTED_MODULE_8__.useEvent)(()=>o(!1)),U=(0,_hooks_use_event_js__WEBPACK_IMPORTED_MODULE_8__.useEvent)(f=>q({type:0,id:f})),_=(0,_hooks_use_server_handoff_complete_js__WEBPACK_IMPORTED_MODULE_9__.useServerHandoffComplete)()?s?!1:u===0:!1,w=n>1,z=(0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)(M)!==null,J=w?"parent":"leaf";(0,_hooks_use_inert_others_js__WEBPACK_IMPORTED_MODULE_10__.useInertOthers)(T,w?_:!1),(0,_hooks_use_outside_click_js__WEBPACK_IMPORTED_MODULE_11__.useOutsideClick)(()=>{var R,g;return[...Array.from((R=P==null?void 0:P.querySelectorAll("body > *, [data-headlessui-portal]"))!=null?R:[]).filter(D=>!(!(D instanceof HTMLElement)||D.contains(W.current)||y.panelRef.current&&D.contains(y.panelRef.current))),(g=y.panelRef.current)!=null?g:T.current]},h,_&&!w),(0,_hooks_use_event_listener_js__WEBPACK_IMPORTED_MODULE_12__.useEventListener)(P==null?void 0:P.defaultView,"keydown",f=>{f.defaultPrevented||f.key===_keyboard_js__WEBPACK_IMPORTED_MODULE_13__.Keys.Escape&&u===0&&(w||(f.preventDefault(),f.stopPropagation(),h()))}),Ee(P,u===0&&!z),(0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(()=>{if(u!==0||!T.current)return;let f=new IntersectionObserver(R=>{for(let g of R)g.boundingClientRect.x===0&&g.boundingClientRect.y===0&&g.boundingClientRect.width===0&&g.boundingClientRect.height===0&&h()});return f.observe(T.current),()=>f.disconnect()},[u,T,h]);let[Q,X]=(0,_description_description_js__WEBPACK_IMPORTED_MODULE_14__.useDescriptions)(),Z=`headlessui-dialog-${(0,_hooks_use_id_js__WEBPACK_IMPORTED_MODULE_15__.useId)()}`,ee=(0,react__WEBPACK_IMPORTED_MODULE_0__.useMemo)(()=>[{dialogState:u,close:h,setTitleId:U},y],[u,y,h,U]),$=(0,react__WEBPACK_IMPORTED_MODULE_0__.useMemo)(()=>({open:u===0}),[u]),te={ref:K,id:Z,role:"dialog","aria-modal":u===0?!0:void 0,"aria-labelledby":y.titleId,"aria-describedby":Q};return react__WEBPACK_IMPORTED_MODULE_0__.createElement(_internal_stack_context_js__WEBPACK_IMPORTED_MODULE_16__.StackProvider,{type:"Dialog",enabled:u===0,element:T,onUpdate:(0,_hooks_use_event_js__WEBPACK_IMPORTED_MODULE_8__.useEvent)((f,R,g)=>{R==="Dialog"&&(0,_utils_match_js__WEBPACK_IMPORTED_MODULE_3__.match)(f,{[_internal_stack_context_js__WEBPACK_IMPORTED_MODULE_16__.StackMessage.Add](){i.current.add(g),d(D=>D+1)},[_internal_stack_context_js__WEBPACK_IMPORTED_MODULE_16__.StackMessage.Remove](){i.current.add(g),d(D=>D-1)}})})},react__WEBPACK_IMPORTED_MODULE_0__.createElement(_internal_portal_force_root_js__WEBPACK_IMPORTED_MODULE_17__.ForcePortalRoot,{force:!0},react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_portal_portal_js__WEBPACK_IMPORTED_MODULE_18__.Portal,null,react__WEBPACK_IMPORTED_MODULE_0__.createElement(M.Provider,{value:ee},react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_portal_portal_js__WEBPACK_IMPORTED_MODULE_18__.Portal.Group,{target:T},react__WEBPACK_IMPORTED_MODULE_0__.createElement(_internal_portal_force_root_js__WEBPACK_IMPORTED_MODULE_17__.ForcePortalRoot,{force:!1},react__WEBPACK_IMPORTED_MODULE_0__.createElement(X,{slot:$,name:"Dialog.Description"},react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_focus_trap_focus_trap_js__WEBPACK_IMPORTED_MODULE_19__.FocusTrap,{initialFocus:a,containers:i,features:_?(0,_utils_match_js__WEBPACK_IMPORTED_MODULE_3__.match)(J,{parent:_components_focus_trap_focus_trap_js__WEBPACK_IMPORTED_MODULE_19__.FocusTrap.features.RestoreFocus,leaf:_components_focus_trap_focus_trap_js__WEBPACK_IMPORTED_MODULE_19__.FocusTrap.features.All&~_components_focus_trap_focus_trap_js__WEBPACK_IMPORTED_MODULE_19__.FocusTrap.features.FocusLock}):_components_focus_trap_focus_trap_js__WEBPACK_IMPORTED_MODULE_19__.FocusTrap.features.None},(0,_utils_render_js__WEBPACK_IMPORTED_MODULE_4__.render)({ourProps:te,theirProps:p,slot:$,defaultTag:Oe,features:Ce,visible:u===0,name:"Dialog"})))))))),react__WEBPACK_IMPORTED_MODULE_0__.createElement(_internal_hidden_js__WEBPACK_IMPORTED_MODULE_20__.Hidden,{features:_internal_hidden_js__WEBPACK_IMPORTED_MODULE_20__.Features.Hidden,ref:W}))}),Le="div",we=(0,_utils_render_js__WEBPACK_IMPORTED_MODULE_4__.forwardRefWithAs)(function(e,r){let[{dialogState:t,close:o}]=L("Dialog.Overlay"),a=(0,_hooks_use_sync_refs_js__WEBPACK_IMPORTED_MODULE_6__.useSyncRefs)(r),s=`headlessui-dialog-overlay-${(0,_hooks_use_id_js__WEBPACK_IMPORTED_MODULE_15__.useId)()}`,p=(0,_hooks_use_event_js__WEBPACK_IMPORTED_MODULE_8__.useEvent)(i=>{if(i.target===i.currentTarget){if((0,_utils_bugs_js__WEBPACK_IMPORTED_MODULE_21__.isDisabledReactIssue7711)(i.currentTarget))return i.preventDefault();i.preventDefault(),i.stopPropagation(),o()}}),n=(0,react__WEBPACK_IMPORTED_MODULE_0__.useMemo)(()=>({open:t===0}),[t]);return (0,_utils_render_js__WEBPACK_IMPORTED_MODULE_4__.render)({ourProps:{ref:a,id:s,"aria-hidden":!0,onClick:p},theirProps:e,slot:n,defaultTag:Le,name:"Dialog.Overlay"})}),Fe="div",ke=(0,_utils_render_js__WEBPACK_IMPORTED_MODULE_4__.forwardRefWithAs)(function(e,r){let[{dialogState:t},o]=L("Dialog.Backdrop"),a=(0,_hooks_use_sync_refs_js__WEBPACK_IMPORTED_MODULE_6__.useSyncRefs)(r),s=`headlessui-dialog-backdrop-${(0,_hooks_use_id_js__WEBPACK_IMPORTED_MODULE_15__.useId)()}`;(0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(()=>{if(o.panelRef.current===null)throw new Error("A <Dialog.Backdrop /> component is being used, but a <Dialog.Panel /> component is missing.")},[o.panelRef]);let p=(0,react__WEBPACK_IMPORTED_MODULE_0__.useMemo)(()=>({open:t===0}),[t]);return react__WEBPACK_IMPORTED_MODULE_0__.createElement(_internal_portal_force_root_js__WEBPACK_IMPORTED_MODULE_17__.ForcePortalRoot,{force:!0},react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_portal_portal_js__WEBPACK_IMPORTED_MODULE_18__.Portal,null,(0,_utils_render_js__WEBPACK_IMPORTED_MODULE_4__.render)({ourProps:{ref:a,id:s,"aria-hidden":!0},theirProps:e,slot:p,defaultTag:Fe,name:"Dialog.Backdrop"})))}),Me="div",_e=(0,_utils_render_js__WEBPACK_IMPORTED_MODULE_4__.forwardRefWithAs)(function(e,r){let[{dialogState:t},o]=L("Dialog.Panel"),a=(0,_hooks_use_sync_refs_js__WEBPACK_IMPORTED_MODULE_6__.useSyncRefs)(r,o.panelRef),s=`headlessui-dialog-panel-${(0,_hooks_use_id_js__WEBPACK_IMPORTED_MODULE_15__.useId)()}`,p=(0,react__WEBPACK_IMPORTED_MODULE_0__.useMemo)(()=>({open:t===0}),[t]),n=(0,_hooks_use_event_js__WEBPACK_IMPORTED_MODULE_8__.useEvent)(i=>{i.stopPropagation()});return (0,_utils_render_js__WEBPACK_IMPORTED_MODULE_4__.render)({ourProps:{ref:a,id:s,onClick:n},theirProps:e,slot:p,defaultTag:Me,name:"Dialog.Panel"})}),xe="h2",Ie=(0,_utils_render_js__WEBPACK_IMPORTED_MODULE_4__.forwardRefWithAs)(function(e,r){let[{dialogState:t,setTitleId:o}]=L("Dialog.Title"),a=`headlessui-dialog-title-${(0,_hooks_use_id_js__WEBPACK_IMPORTED_MODULE_15__.useId)()}`,s=(0,_hooks_use_sync_refs_js__WEBPACK_IMPORTED_MODULE_6__.useSyncRefs)(r);(0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(()=>(o(a),()=>o(null)),[a,o]);let p=(0,react__WEBPACK_IMPORTED_MODULE_0__.useMemo)(()=>({open:t===0}),[t]);return (0,_utils_render_js__WEBPACK_IMPORTED_MODULE_4__.render)({ourProps:{ref:s,id:a},theirProps:e,slot:p,defaultTag:xe,name:"Dialog.Title"})}),gt=Object.assign(Se,{Backdrop:ke,Panel:_e,Overlay:we,Title:Ie,Description:_description_description_js__WEBPACK_IMPORTED_MODULE_14__.Description});
+
+
+/***/ }),
+
+/***/ "./node_modules/@headlessui/react/dist/components/disclosure/disclosure.js":
+/*!*********************************************************************************!*\
+  !*** ./node_modules/@headlessui/react/dist/components/disclosure/disclosure.js ***!
+  \*********************************************************************************/
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Disclosure": function() { return /* binding */ Oe; }
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var _utils_match_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../utils/match.js */ "./node_modules/@headlessui/react/dist/utils/match.js");
+/* harmony import */ var _utils_render_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../utils/render.js */ "./node_modules/@headlessui/react/dist/utils/render.js");
+/* harmony import */ var _hooks_use_sync_refs_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../hooks/use-sync-refs.js */ "./node_modules/@headlessui/react/dist/hooks/use-sync-refs.js");
+/* harmony import */ var _hooks_use_id_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../hooks/use-id.js */ "./node_modules/@headlessui/react/dist/hooks/use-id.js");
+/* harmony import */ var _keyboard_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../keyboard.js */ "./node_modules/@headlessui/react/dist/components/keyboard.js");
+/* harmony import */ var _utils_bugs_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../utils/bugs.js */ "./node_modules/@headlessui/react/dist/utils/bugs.js");
+/* harmony import */ var _internal_open_closed_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../internal/open-closed.js */ "./node_modules/@headlessui/react/dist/internal/open-closed.js");
+/* harmony import */ var _hooks_use_resolve_button_type_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../hooks/use-resolve-button-type.js */ "./node_modules/@headlessui/react/dist/hooks/use-resolve-button-type.js");
+/* harmony import */ var _utils_owner_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../utils/owner.js */ "./node_modules/@headlessui/react/dist/utils/owner.js");
+/* harmony import */ var _hooks_use_event_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../hooks/use-event.js */ "./node_modules/@headlessui/react/dist/hooks/use-event.js");
+var Q=(o=>(o[o.Open=0]="Open",o[o.Closed=1]="Closed",o))(Q||{}),V=(n=>(n[n.ToggleDisclosure=0]="ToggleDisclosure",n[n.CloseDisclosure=1]="CloseDisclosure",n[n.SetButtonId=2]="SetButtonId",n[n.SetPanelId=3]="SetPanelId",n[n.LinkPanel=4]="LinkPanel",n[n.UnlinkPanel=5]="UnlinkPanel",n))(V||{});let X={[0]:e=>({...e,disclosureState:(0,_utils_match_js__WEBPACK_IMPORTED_MODULE_1__.match)(e.disclosureState,{[0]:1,[1]:0})}),[1]:e=>e.disclosureState===1?e:{...e,disclosureState:1},[4](e){return e.linkedPanel===!0?e:{...e,linkedPanel:!0}},[5](e){return e.linkedPanel===!1?e:{...e,linkedPanel:!1}},[2](e,t){return e.buttonId===t.buttonId?e:{...e,buttonId:t.buttonId}},[3](e,t){return e.panelId===t.panelId?e:{...e,panelId:t.panelId}}},B=(0,react__WEBPACK_IMPORTED_MODULE_0__.createContext)(null);B.displayName="DisclosureContext";function h(e){let t=(0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)(B);if(t===null){let o=new Error(`<${e} /> is missing a parent <Disclosure /> component.`);throw Error.captureStackTrace&&Error.captureStackTrace(o,h),o}return t}let H=(0,react__WEBPACK_IMPORTED_MODULE_0__.createContext)(null);H.displayName="DisclosureAPIContext";function j(e){let t=(0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)(H);if(t===null){let o=new Error(`<${e} /> is missing a parent <Disclosure /> component.`);throw Error.captureStackTrace&&Error.captureStackTrace(o,j),o}return t}let U=(0,react__WEBPACK_IMPORTED_MODULE_0__.createContext)(null);U.displayName="DisclosurePanelContext";function Y(){return (0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)(U)}function Z(e,t){return (0,_utils_match_js__WEBPACK_IMPORTED_MODULE_1__.match)(t.type,X,e,t)}let ee=react__WEBPACK_IMPORTED_MODULE_0__.Fragment,te=(0,_utils_render_js__WEBPACK_IMPORTED_MODULE_2__.forwardRefWithAs)(function(t,o){let{defaultOpen:l=!1,...i}=t,s=`headlessui-disclosure-button-${(0,_hooks_use_id_js__WEBPACK_IMPORTED_MODULE_3__.useId)()}`,n=`headlessui-disclosure-panel-${(0,_hooks_use_id_js__WEBPACK_IMPORTED_MODULE_3__.useId)()}`,u=(0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null),D=(0,_hooks_use_sync_refs_js__WEBPACK_IMPORTED_MODULE_4__.useSyncRefs)(o,(0,_hooks_use_sync_refs_js__WEBPACK_IMPORTED_MODULE_4__.optionalRef)(f=>{u.current=f},t.as===void 0||t.as===react__WEBPACK_IMPORTED_MODULE_0__.Fragment)),T=(0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null),m=(0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null),c=(0,react__WEBPACK_IMPORTED_MODULE_0__.useReducer)(Z,{disclosureState:l?0:1,linkedPanel:!1,buttonRef:m,panelRef:T,buttonId:s,panelId:n}),[{disclosureState:p},a]=c;(0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(()=>a({type:2,buttonId:s}),[s,a]),(0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(()=>a({type:3,panelId:n}),[n,a]);let P=(0,_hooks_use_event_js__WEBPACK_IMPORTED_MODULE_5__.useEvent)(f=>{a({type:1});let C=(0,_utils_owner_js__WEBPACK_IMPORTED_MODULE_6__.getOwnerDocument)(u);if(!C)return;let A=(()=>f?f instanceof HTMLElement?f:f.current instanceof HTMLElement?f.current:C.getElementById(s):C.getElementById(s))();A==null||A.focus()}),b=(0,react__WEBPACK_IMPORTED_MODULE_0__.useMemo)(()=>({close:P}),[P]),r=(0,react__WEBPACK_IMPORTED_MODULE_0__.useMemo)(()=>({open:p===0,close:P}),[p,P]),d={ref:D};return react__WEBPACK_IMPORTED_MODULE_0__.createElement(B.Provider,{value:c},react__WEBPACK_IMPORTED_MODULE_0__.createElement(H.Provider,{value:b},react__WEBPACK_IMPORTED_MODULE_0__.createElement(_internal_open_closed_js__WEBPACK_IMPORTED_MODULE_7__.OpenClosedProvider,{value:(0,_utils_match_js__WEBPACK_IMPORTED_MODULE_1__.match)(p,{[0]:_internal_open_closed_js__WEBPACK_IMPORTED_MODULE_7__.State.Open,[1]:_internal_open_closed_js__WEBPACK_IMPORTED_MODULE_7__.State.Closed})},(0,_utils_render_js__WEBPACK_IMPORTED_MODULE_2__.render)({ourProps:d,theirProps:i,slot:r,defaultTag:ee,name:"Disclosure"}))))}),ne="button",le=(0,_utils_render_js__WEBPACK_IMPORTED_MODULE_2__.forwardRefWithAs)(function(t,o){let[l,i]=h("Disclosure.Button"),s=Y(),n=s===null?!1:s===l.panelId,u=(0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null),D=(0,_hooks_use_sync_refs_js__WEBPACK_IMPORTED_MODULE_4__.useSyncRefs)(u,o,n?null:l.buttonRef),T=(0,_hooks_use_event_js__WEBPACK_IMPORTED_MODULE_5__.useEvent)(r=>{var d;if(n){if(l.disclosureState===1)return;switch(r.key){case _keyboard_js__WEBPACK_IMPORTED_MODULE_8__.Keys.Space:case _keyboard_js__WEBPACK_IMPORTED_MODULE_8__.Keys.Enter:r.preventDefault(),r.stopPropagation(),i({type:0}),(d=l.buttonRef.current)==null||d.focus();break}}else switch(r.key){case _keyboard_js__WEBPACK_IMPORTED_MODULE_8__.Keys.Space:case _keyboard_js__WEBPACK_IMPORTED_MODULE_8__.Keys.Enter:r.preventDefault(),r.stopPropagation(),i({type:0});break}}),m=(0,_hooks_use_event_js__WEBPACK_IMPORTED_MODULE_5__.useEvent)(r=>{switch(r.key){case _keyboard_js__WEBPACK_IMPORTED_MODULE_8__.Keys.Space:r.preventDefault();break}}),c=(0,_hooks_use_event_js__WEBPACK_IMPORTED_MODULE_5__.useEvent)(r=>{var d;(0,_utils_bugs_js__WEBPACK_IMPORTED_MODULE_9__.isDisabledReactIssue7711)(r.currentTarget)||t.disabled||(n?(i({type:0}),(d=l.buttonRef.current)==null||d.focus()):i({type:0}))}),p=(0,react__WEBPACK_IMPORTED_MODULE_0__.useMemo)(()=>({open:l.disclosureState===0}),[l]),a=(0,_hooks_use_resolve_button_type_js__WEBPACK_IMPORTED_MODULE_10__.useResolveButtonType)(t,u),P=t,b=n?{ref:D,type:a,onKeyDown:T,onClick:c}:{ref:D,id:l.buttonId,type:a,"aria-expanded":t.disabled?void 0:l.disclosureState===0,"aria-controls":l.linkedPanel?l.panelId:void 0,onKeyDown:T,onKeyUp:m,onClick:c};return (0,_utils_render_js__WEBPACK_IMPORTED_MODULE_2__.render)({ourProps:b,theirProps:P,slot:p,defaultTag:ne,name:"Disclosure.Button"})}),oe="div",re=_utils_render_js__WEBPACK_IMPORTED_MODULE_2__.Features.RenderStrategy|_utils_render_js__WEBPACK_IMPORTED_MODULE_2__.Features.Static,se=(0,_utils_render_js__WEBPACK_IMPORTED_MODULE_2__.forwardRefWithAs)(function(t,o){let[l,i]=h("Disclosure.Panel"),{close:s}=j("Disclosure.Panel"),n=(0,_hooks_use_sync_refs_js__WEBPACK_IMPORTED_MODULE_4__.useSyncRefs)(o,l.panelRef,p=>{i({type:p?4:5})}),u=(0,_internal_open_closed_js__WEBPACK_IMPORTED_MODULE_7__.useOpenClosed)(),D=(()=>u!==null?u===_internal_open_closed_js__WEBPACK_IMPORTED_MODULE_7__.State.Open:l.disclosureState===0)(),T=(0,react__WEBPACK_IMPORTED_MODULE_0__.useMemo)(()=>({open:l.disclosureState===0,close:s}),[l,s]),m=t,c={ref:n,id:l.panelId};return react__WEBPACK_IMPORTED_MODULE_0__.createElement(U.Provider,{value:l.panelId},(0,_utils_render_js__WEBPACK_IMPORTED_MODULE_2__.render)({ourProps:c,theirProps:m,slot:T,defaultTag:oe,features:re,visible:D,name:"Disclosure.Panel"}))}),Oe=Object.assign(te,{Button:le,Panel:se});
+
+
+/***/ }),
+
+/***/ "./node_modules/@headlessui/react/dist/components/focus-trap/focus-trap.js":
+/*!*********************************************************************************!*\
+  !*** ./node_modules/@headlessui/react/dist/components/focus-trap/focus-trap.js ***!
+  \*********************************************************************************/
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "FocusTrap": function() { return /* binding */ fe; }
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var _utils_render_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../utils/render.js */ "./node_modules/@headlessui/react/dist/utils/render.js");
+/* harmony import */ var _hooks_use_server_handoff_complete_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../hooks/use-server-handoff-complete.js */ "./node_modules/@headlessui/react/dist/hooks/use-server-handoff-complete.js");
+/* harmony import */ var _hooks_use_sync_refs_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../hooks/use-sync-refs.js */ "./node_modules/@headlessui/react/dist/hooks/use-sync-refs.js");
+/* harmony import */ var _internal_hidden_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../internal/hidden.js */ "./node_modules/@headlessui/react/dist/internal/hidden.js");
+/* harmony import */ var _utils_focus_management_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../utils/focus-management.js */ "./node_modules/@headlessui/react/dist/utils/focus-management.js");
+/* harmony import */ var _utils_match_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../utils/match.js */ "./node_modules/@headlessui/react/dist/utils/match.js");
+/* harmony import */ var _hooks_use_event_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../hooks/use-event.js */ "./node_modules/@headlessui/react/dist/hooks/use-event.js");
+/* harmony import */ var _hooks_use_tab_direction_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../hooks/use-tab-direction.js */ "./node_modules/@headlessui/react/dist/hooks/use-tab-direction.js");
+/* harmony import */ var _hooks_use_is_mounted_js__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../../hooks/use-is-mounted.js */ "./node_modules/@headlessui/react/dist/hooks/use-is-mounted.js");
+/* harmony import */ var _hooks_use_owner_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../hooks/use-owner.js */ "./node_modules/@headlessui/react/dist/hooks/use-owner.js");
+/* harmony import */ var _hooks_use_event_listener_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../hooks/use-event-listener.js */ "./node_modules/@headlessui/react/dist/hooks/use-event-listener.js");
+/* harmony import */ var _utils_micro_task_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../../utils/micro-task.js */ "./node_modules/@headlessui/react/dist/utils/micro-task.js");
+/* harmony import */ var _hooks_use_watch_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../hooks/use-watch.js */ "./node_modules/@headlessui/react/dist/hooks/use-watch.js");
+let N="div";var v=(r=>(r[r.None=1]="None",r[r.InitialFocus=2]="InitialFocus",r[r.TabLock=4]="TabLock",r[r.FocusLock=8]="FocusLock",r[r.RestoreFocus=16]="RestoreFocus",r[r.All=30]="All",r))(v||{});let fe=Object.assign((0,_utils_render_js__WEBPACK_IMPORTED_MODULE_1__.forwardRefWithAs)(function(u,e){let l=(0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null),o=(0,_hooks_use_sync_refs_js__WEBPACK_IMPORTED_MODULE_2__.useSyncRefs)(l,e),{initialFocus:a,containers:r,features:n=30,...c}=u;(0,_hooks_use_server_handoff_complete_js__WEBPACK_IMPORTED_MODULE_3__.useServerHandoffComplete)()||(n=1);let s=(0,_hooks_use_owner_js__WEBPACK_IMPORTED_MODULE_4__.useOwnerDocument)(l);V({ownerDocument:s},Boolean(n&16));let j=x({ownerDocument:s,container:l,initialFocus:a},Boolean(n&2));G({ownerDocument:s,container:l,containers:r,previousActiveElement:j},Boolean(n&8));let k=(0,_hooks_use_tab_direction_js__WEBPACK_IMPORTED_MODULE_5__.useTabDirection)(),p=(0,_hooks_use_event_js__WEBPACK_IMPORTED_MODULE_6__.useEvent)(()=>{let T=l.current;!T||(0,_utils_match_js__WEBPACK_IMPORTED_MODULE_7__.match)(k.current,{[_hooks_use_tab_direction_js__WEBPACK_IMPORTED_MODULE_5__.Direction.Forwards]:()=>(0,_utils_focus_management_js__WEBPACK_IMPORTED_MODULE_8__.focusIn)(T,_utils_focus_management_js__WEBPACK_IMPORTED_MODULE_8__.Focus.First),[_hooks_use_tab_direction_js__WEBPACK_IMPORTED_MODULE_5__.Direction.Backwards]:()=>(0,_utils_focus_management_js__WEBPACK_IMPORTED_MODULE_8__.focusIn)(T,_utils_focus_management_js__WEBPACK_IMPORTED_MODULE_8__.Focus.Last)})}),A={ref:o};return react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment,null,Boolean(n&4)&&react__WEBPACK_IMPORTED_MODULE_0__.createElement(_internal_hidden_js__WEBPACK_IMPORTED_MODULE_9__.Hidden,{as:"button",type:"button",onFocus:p,features:_internal_hidden_js__WEBPACK_IMPORTED_MODULE_9__.Features.Focusable}),(0,_utils_render_js__WEBPACK_IMPORTED_MODULE_1__.render)({ourProps:A,theirProps:c,defaultTag:N,name:"FocusTrap"}),Boolean(n&4)&&react__WEBPACK_IMPORTED_MODULE_0__.createElement(_internal_hidden_js__WEBPACK_IMPORTED_MODULE_9__.Hidden,{as:"button",type:"button",onFocus:p,features:_internal_hidden_js__WEBPACK_IMPORTED_MODULE_9__.Features.Focusable}))}),{features:v});function V({ownerDocument:t},u){let e=(0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);(0,_hooks_use_event_listener_js__WEBPACK_IMPORTED_MODULE_10__.useEventListener)(t==null?void 0:t.defaultView,"focusout",o=>{!u||e.current||(e.current=o.target)},!0),(0,_hooks_use_watch_js__WEBPACK_IMPORTED_MODULE_11__.useWatch)(()=>{u||((t==null?void 0:t.activeElement)===(t==null?void 0:t.body)&&(0,_utils_focus_management_js__WEBPACK_IMPORTED_MODULE_8__.focusElement)(e.current),e.current=null)},[u]);let l=(0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(!1);(0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(()=>(l.current=!1,()=>{l.current=!0,(0,_utils_micro_task_js__WEBPACK_IMPORTED_MODULE_12__.microTask)(()=>{!l.current||((0,_utils_focus_management_js__WEBPACK_IMPORTED_MODULE_8__.focusElement)(e.current),e.current=null)})}),[])}function x({ownerDocument:t,container:u,initialFocus:e},l){let o=(0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null),a=(0,_hooks_use_is_mounted_js__WEBPACK_IMPORTED_MODULE_13__.useIsMounted)();return (0,_hooks_use_watch_js__WEBPACK_IMPORTED_MODULE_11__.useWatch)(()=>{if(!l)return;let r=u.current;!r||(0,_utils_micro_task_js__WEBPACK_IMPORTED_MODULE_12__.microTask)(()=>{if(!a.current)return;let n=t==null?void 0:t.activeElement;if(e!=null&&e.current){if((e==null?void 0:e.current)===n){o.current=n;return}}else if(r.contains(n)){o.current=n;return}e!=null&&e.current?(0,_utils_focus_management_js__WEBPACK_IMPORTED_MODULE_8__.focusElement)(e.current):(0,_utils_focus_management_js__WEBPACK_IMPORTED_MODULE_8__.focusIn)(r,_utils_focus_management_js__WEBPACK_IMPORTED_MODULE_8__.Focus.First)===_utils_focus_management_js__WEBPACK_IMPORTED_MODULE_8__.FocusResult.Error&&console.warn("There are no focusable elements inside the <FocusTrap />"),o.current=t==null?void 0:t.activeElement})},[l]),o}function G({ownerDocument:t,container:u,containers:e,previousActiveElement:l},o){let a=(0,_hooks_use_is_mounted_js__WEBPACK_IMPORTED_MODULE_13__.useIsMounted)();(0,_hooks_use_event_listener_js__WEBPACK_IMPORTED_MODULE_10__.useEventListener)(t==null?void 0:t.defaultView,"focus",r=>{if(!o||!a.current)return;let n=new Set(e==null?void 0:e.current);n.add(u);let c=l.current;if(!c)return;let s=r.target;s&&s instanceof HTMLElement?W(n,s)?(l.current=s,(0,_utils_focus_management_js__WEBPACK_IMPORTED_MODULE_8__.focusElement)(s)):(r.preventDefault(),r.stopPropagation(),(0,_utils_focus_management_js__WEBPACK_IMPORTED_MODULE_8__.focusElement)(c)):(0,_utils_focus_management_js__WEBPACK_IMPORTED_MODULE_8__.focusElement)(l.current)},!0)}function W(t,u){var e;for(let l of t)if((e=l.current)!=null&&e.contains(u))return!0;return!1}
+
+
+/***/ }),
+
 /***/ "./node_modules/@headlessui/react/dist/components/keyboard.js":
 /*!********************************************************************!*\
   !*** ./node_modules/@headlessui/react/dist/components/keyboard.js ***!
@@ -23925,6 +24298,32 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _hooks_use_sync_refs_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../hooks/use-sync-refs.js */ "./node_modules/@headlessui/react/dist/hooks/use-sync-refs.js");
 /* harmony import */ var _hooks_use_event_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../hooks/use-event.js */ "./node_modules/@headlessui/react/dist/hooks/use-event.js");
 let u=(0,react__WEBPACK_IMPORTED_MODULE_0__.createContext)(null);function c(){let o=(0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)(u);if(o===null){let t=new Error("You used a <Label /> component, but it is not inside a relevant parent.");throw Error.captureStackTrace&&Error.captureStackTrace(t,c),t}return o}function M(){let[o,t]=(0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]);return[o.length>0?o.join(" "):void 0,(0,react__WEBPACK_IMPORTED_MODULE_0__.useMemo)(()=>function(e){let l=(0,_hooks_use_event_js__WEBPACK_IMPORTED_MODULE_1__.useEvent)(a=>(t(i=>[...i,a]),()=>t(i=>{let n=i.slice(),d=n.indexOf(a);return d!==-1&&n.splice(d,1),n}))),r=(0,react__WEBPACK_IMPORTED_MODULE_0__.useMemo)(()=>({register:l,slot:e.slot,name:e.name,props:e.props}),[l,e.slot,e.name,e.props]);return react__WEBPACK_IMPORTED_MODULE_0__.createElement(u.Provider,{value:r},e.children)},[t])]}let h="label",F=(0,_utils_render_js__WEBPACK_IMPORTED_MODULE_2__.forwardRefWithAs)(function(t,s){let{passive:e=!1,...l}=t,r=c(),a=`headlessui-label-${(0,_hooks_use_id_js__WEBPACK_IMPORTED_MODULE_3__.useId)()}`,i=(0,_hooks_use_sync_refs_js__WEBPACK_IMPORTED_MODULE_4__.useSyncRefs)(s);(0,_hooks_use_iso_morphic_effect_js__WEBPACK_IMPORTED_MODULE_5__.useIsoMorphicEffect)(()=>r.register(a),[a,r.register]);let n={ref:i,...r.props,id:a};return e&&("onClick"in n&&delete n.onClick,"onClick"in l&&delete l.onClick),(0,_utils_render_js__WEBPACK_IMPORTED_MODULE_2__.render)({ourProps:n,theirProps:l,slot:r.slot||{},defaultTag:h,name:r.name||"Label"})});
+
+
+/***/ }),
+
+/***/ "./node_modules/@headlessui/react/dist/components/portal/portal.js":
+/*!*************************************************************************!*\
+  !*** ./node_modules/@headlessui/react/dist/components/portal/portal.js ***!
+  \*************************************************************************/
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Portal": function() { return /* binding */ $; }
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "react-dom");
+/* harmony import */ var _utils_render_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../utils/render.js */ "./node_modules/@headlessui/react/dist/utils/render.js");
+/* harmony import */ var _hooks_use_iso_morphic_effect_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../hooks/use-iso-morphic-effect.js */ "./node_modules/@headlessui/react/dist/hooks/use-iso-morphic-effect.js");
+/* harmony import */ var _internal_portal_force_root_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../internal/portal-force-root.js */ "./node_modules/@headlessui/react/dist/internal/portal-force-root.js");
+/* harmony import */ var _hooks_use_server_handoff_complete_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../hooks/use-server-handoff-complete.js */ "./node_modules/@headlessui/react/dist/hooks/use-server-handoff-complete.js");
+/* harmony import */ var _hooks_use_sync_refs_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../hooks/use-sync-refs.js */ "./node_modules/@headlessui/react/dist/hooks/use-sync-refs.js");
+/* harmony import */ var _hooks_use_owner_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../hooks/use-owner.js */ "./node_modules/@headlessui/react/dist/hooks/use-owner.js");
+/* harmony import */ var _utils_micro_task_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../utils/micro-task.js */ "./node_modules/@headlessui/react/dist/utils/micro-task.js");
+/* harmony import */ var _utils_ssr_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../utils/ssr.js */ "./node_modules/@headlessui/react/dist/utils/ssr.js");
+function x(i){let u=(0,_internal_portal_force_root_js__WEBPACK_IMPORTED_MODULE_2__.usePortalRoot)(),o=(0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)(A),e=(0,_hooks_use_owner_js__WEBPACK_IMPORTED_MODULE_3__.useOwnerDocument)(i),[r,f]=(0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(()=>{if(!u&&o!==null||_utils_ssr_js__WEBPACK_IMPORTED_MODULE_4__.isServer)return null;let n=e==null?void 0:e.getElementById("headlessui-portal-root");if(n)return n;if(e===null)return null;let t=e.createElement("div");return t.setAttribute("id","headlessui-portal-root"),e.body.appendChild(t)});return (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(()=>{r!==null&&(e!=null&&e.body.contains(r)||e==null||e.body.appendChild(r))},[r,e]),(0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(()=>{u||o!==null&&f(o.current)},[o,f,u]),r}let _=react__WEBPACK_IMPORTED_MODULE_0__.Fragment,U=(0,_utils_render_js__WEBPACK_IMPORTED_MODULE_5__.forwardRefWithAs)(function(u,o){let e=u,r=(0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null),f=(0,_hooks_use_sync_refs_js__WEBPACK_IMPORTED_MODULE_6__.useSyncRefs)((0,_hooks_use_sync_refs_js__WEBPACK_IMPORTED_MODULE_6__.optionalRef)(a=>{r.current=a}),o),n=(0,_hooks_use_owner_js__WEBPACK_IMPORTED_MODULE_3__.useOwnerDocument)(r),t=x(r),[l]=(0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(()=>{var a;return _utils_ssr_js__WEBPACK_IMPORTED_MODULE_4__.isServer?null:(a=n==null?void 0:n.createElement("div"))!=null?a:null}),b=(0,_hooks_use_server_handoff_complete_js__WEBPACK_IMPORTED_MODULE_7__.useServerHandoffComplete)(),p=(0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(!1);return (0,_hooks_use_iso_morphic_effect_js__WEBPACK_IMPORTED_MODULE_8__.useIsoMorphicEffect)(()=>{if(p.current=!1,!(!t||!l))return t.contains(l)||(l.setAttribute("data-headlessui-portal",""),t.appendChild(l)),()=>{p.current=!0,(0,_utils_micro_task_js__WEBPACK_IMPORTED_MODULE_9__.microTask)(()=>{var a;!p.current||!t||!l||(t.removeChild(l),t.childNodes.length<=0&&((a=t.parentElement)==null||a.removeChild(t)))})}},[t,l]),b?!t||!l?null:(0,react_dom__WEBPACK_IMPORTED_MODULE_1__.createPortal)((0,_utils_render_js__WEBPACK_IMPORTED_MODULE_5__.render)({ourProps:{ref:f},theirProps:e,defaultTag:_,name:"Portal"}),l):null}),j=react__WEBPACK_IMPORTED_MODULE_0__.Fragment,A=(0,react__WEBPACK_IMPORTED_MODULE_0__.createContext)(null),F=(0,_utils_render_js__WEBPACK_IMPORTED_MODULE_5__.forwardRefWithAs)(function(u,o){let{target:e,...r}=u,n={ref:(0,_hooks_use_sync_refs_js__WEBPACK_IMPORTED_MODULE_6__.useSyncRefs)(o)};return react__WEBPACK_IMPORTED_MODULE_0__.createElement(A.Provider,{value:e},(0,_utils_render_js__WEBPACK_IMPORTED_MODULE_5__.render)({ourProps:n,theirProps:r,defaultTag:j,name:"Popover.Group"}))}),$=Object.assign(U,{Group:F});
 
 
 /***/ }),
@@ -24042,6 +24441,42 @@ function p(){let[e]=(0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(_utils_dispo
 
 /***/ }),
 
+/***/ "./node_modules/@headlessui/react/dist/hooks/use-document-event.js":
+/*!*************************************************************************!*\
+  !*** ./node_modules/@headlessui/react/dist/hooks/use-document-event.js ***!
+  \*************************************************************************/
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "useDocumentEvent": function() { return /* binding */ d; }
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var _use_latest_value_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./use-latest-value.js */ "./node_modules/@headlessui/react/dist/hooks/use-latest-value.js");
+function d(e,r,n){let o=(0,_use_latest_value_js__WEBPACK_IMPORTED_MODULE_1__.useLatestValue)(r);(0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(()=>{function t(u){o.current(u)}return document.addEventListener(e,t,n),()=>document.removeEventListener(e,t,n)},[e,n])}
+
+
+/***/ }),
+
+/***/ "./node_modules/@headlessui/react/dist/hooks/use-event-listener.js":
+/*!*************************************************************************!*\
+  !*** ./node_modules/@headlessui/react/dist/hooks/use-event-listener.js ***!
+  \*************************************************************************/
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "useEventListener": function() { return /* binding */ E; }
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var _use_latest_value_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./use-latest-value.js */ "./node_modules/@headlessui/react/dist/hooks/use-latest-value.js");
+function E(n,e,a,t){let i=(0,_use_latest_value_js__WEBPACK_IMPORTED_MODULE_1__.useLatestValue)(a);(0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(()=>{n=n!=null?n:window;function r(o){i.current(o)}return n.addEventListener(e,r,t),()=>n.removeEventListener(e,r,t)},[n,e,t])}
+
+
+/***/ }),
+
 /***/ "./node_modules/@headlessui/react/dist/hooks/use-event.js":
 /*!****************************************************************!*\
   !*** ./node_modules/@headlessui/react/dist/hooks/use-event.js ***!
@@ -24075,6 +24510,24 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _use_iso_morphic_effect_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./use-iso-morphic-effect.js */ "./node_modules/@headlessui/react/dist/hooks/use-iso-morphic-effect.js");
 /* harmony import */ var _use_server_handoff_complete_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./use-server-handoff-complete.js */ "./node_modules/@headlessui/react/dist/hooks/use-server-handoff-complete.js");
 var u;let l=0;function r(){return++l}let I=(u=react__WEBPACK_IMPORTED_MODULE_0__.useId)!=null?u:function(){let n=(0,_use_server_handoff_complete_js__WEBPACK_IMPORTED_MODULE_1__.useServerHandoffComplete)(),[e,o]=react__WEBPACK_IMPORTED_MODULE_0__.useState(n?r:null);return (0,_use_iso_morphic_effect_js__WEBPACK_IMPORTED_MODULE_2__.useIsoMorphicEffect)(()=>{e===null&&o(r())},[e]),e!=null?""+e:void 0};
+
+
+/***/ }),
+
+/***/ "./node_modules/@headlessui/react/dist/hooks/use-inert-others.js":
+/*!***********************************************************************!*\
+  !*** ./node_modules/@headlessui/react/dist/hooks/use-inert-others.js ***!
+  \***********************************************************************/
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "useInertOthers": function() { return /* binding */ M; }
+/* harmony export */ });
+/* harmony import */ var _utils_owner_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utils/owner.js */ "./node_modules/@headlessui/react/dist/utils/owner.js");
+/* harmony import */ var _use_iso_morphic_effect_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./use-iso-morphic-effect.js */ "./node_modules/@headlessui/react/dist/hooks/use-iso-morphic-effect.js");
+let i=new Set,r=new Map;function u(t){t.setAttribute("aria-hidden","true"),t.inert=!0}function l(t){let n=r.get(t);!n||(n["aria-hidden"]===null?t.removeAttribute("aria-hidden"):t.setAttribute("aria-hidden",n["aria-hidden"]),t.inert=n.inert)}function M(t,n=!0){(0,_use_iso_morphic_effect_js__WEBPACK_IMPORTED_MODULE_0__.useIsoMorphicEffect)(()=>{if(!n||!t.current)return;let o=t.current,a=(0,_utils_owner_js__WEBPACK_IMPORTED_MODULE_1__.getOwnerDocument)(o);if(!!a){i.add(o);for(let e of r.keys())e.contains(o)&&(l(e),r.delete(e));return a.querySelectorAll("body > *").forEach(e=>{if(e instanceof HTMLElement){for(let f of i)if(e.contains(f))return;i.size===1&&(r.set(e,{"aria-hidden":e.getAttribute("aria-hidden"),inert:e.inert}),u(e))}}),()=>{if(i.delete(o),i.size>0)a.querySelectorAll("body > *").forEach(e=>{if(e instanceof HTMLElement&&!r.has(e)){for(let f of i)if(e.contains(f))return;r.set(e,{"aria-hidden":e.getAttribute("aria-hidden"),inert:e.inert}),u(e)}});else for(let e of r.keys())l(e),r.delete(e)}}},[n])}
 
 
 /***/ }),
@@ -24133,6 +24586,43 @@ function s(e){let r=(0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(e);return (0,_
 
 /***/ }),
 
+/***/ "./node_modules/@headlessui/react/dist/hooks/use-outside-click.js":
+/*!************************************************************************!*\
+  !*** ./node_modules/@headlessui/react/dist/hooks/use-outside-click.js ***!
+  \************************************************************************/
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "useOutsideClick": function() { return /* binding */ L; }
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var _utils_focus_management_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utils/focus-management.js */ "./node_modules/@headlessui/react/dist/utils/focus-management.js");
+/* harmony import */ var _use_document_event_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./use-document-event.js */ "./node_modules/@headlessui/react/dist/hooks/use-document-event.js");
+function L(s,E,a=!0){let i=(0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(!1);(0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(()=>{requestAnimationFrame(()=>{i.current=a})},[a]);function f(e,l){if(!i.current||e.defaultPrevented)return;let o=function r(t){return typeof t=="function"?r(t()):Array.isArray(t)||t instanceof Set?t:[t]}(s),n=l(e);if(n!==null&&!!n.ownerDocument.documentElement.contains(n)){for(let r of o){if(r===null)continue;let t=r instanceof HTMLElement?r:r.current;if(t!=null&&t.contains(n))return}return!(0,_utils_focus_management_js__WEBPACK_IMPORTED_MODULE_1__.isFocusableElement)(n,_utils_focus_management_js__WEBPACK_IMPORTED_MODULE_1__.FocusableMode.Loose)&&n.tabIndex!==-1&&e.preventDefault(),E(e,n)}}let u=(0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);(0,_use_document_event_js__WEBPACK_IMPORTED_MODULE_2__.useDocumentEvent)("mousedown",e=>{var l,o;i.current&&(u.current=((o=(l=e.composedPath)==null?void 0:l.call(e))==null?void 0:o[0])||e.target)},!0),(0,_use_document_event_js__WEBPACK_IMPORTED_MODULE_2__.useDocumentEvent)("click",e=>{!u.current||(f(e,()=>u.current),u.current=null)},!0),(0,_use_document_event_js__WEBPACK_IMPORTED_MODULE_2__.useDocumentEvent)("blur",e=>f(e,()=>window.document.activeElement instanceof HTMLIFrameElement?window.document.activeElement:null),!0)}
+
+
+/***/ }),
+
+/***/ "./node_modules/@headlessui/react/dist/hooks/use-owner.js":
+/*!****************************************************************!*\
+  !*** ./node_modules/@headlessui/react/dist/hooks/use-owner.js ***!
+  \****************************************************************/
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "useOwnerDocument": function() { return /* binding */ n; }
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var _utils_owner_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utils/owner.js */ "./node_modules/@headlessui/react/dist/utils/owner.js");
+function n(...e){return (0,react__WEBPACK_IMPORTED_MODULE_0__.useMemo)(()=>(0,_utils_owner_js__WEBPACK_IMPORTED_MODULE_1__.getOwnerDocument)(...e),[...e])}
+
+
+/***/ }),
+
 /***/ "./node_modules/@headlessui/react/dist/hooks/use-resolve-button-type.js":
 /*!******************************************************************************!*\
   !*** ./node_modules/@headlessui/react/dist/hooks/use-resolve-button-type.js ***!
@@ -24187,6 +24677,25 @@ let u=Symbol();function T(t,n=!0){return Object.assign(t,{[u]:n})}function y(...
 
 /***/ }),
 
+/***/ "./node_modules/@headlessui/react/dist/hooks/use-tab-direction.js":
+/*!************************************************************************!*\
+  !*** ./node_modules/@headlessui/react/dist/hooks/use-tab-direction.js ***!
+  \************************************************************************/
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Direction": function() { return /* binding */ s; },
+/* harmony export */   "useTabDirection": function() { return /* binding */ n; }
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var _use_window_event_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./use-window-event.js */ "./node_modules/@headlessui/react/dist/hooks/use-window-event.js");
+var s=(r=>(r[r.Forwards=0]="Forwards",r[r.Backwards=1]="Backwards",r))(s||{});function n(){let e=(0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(0);return (0,_use_window_event_js__WEBPACK_IMPORTED_MODULE_1__.useWindowEvent)("keydown",o=>{o.key==="Tab"&&(e.current=o.shiftKey?1:0)},!0),e}
+
+
+/***/ }),
+
 /***/ "./node_modules/@headlessui/react/dist/hooks/use-transition.js":
 /*!*********************************************************************!*\
   !*** ./node_modules/@headlessui/react/dist/hooks/use-transition.js ***!
@@ -24206,6 +24715,42 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _use_iso_morphic_effect_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./use-iso-morphic-effect.js */ "./node_modules/@headlessui/react/dist/hooks/use-iso-morphic-effect.js");
 /* harmony import */ var _use_latest_value_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./use-latest-value.js */ "./node_modules/@headlessui/react/dist/hooks/use-latest-value.js");
 function I({container:o,direction:t,classes:s,onStart:a,onStop:u}){let c=(0,_use_is_mounted_js__WEBPACK_IMPORTED_MODULE_0__.useIsMounted)(),d=(0,_use_disposables_js__WEBPACK_IMPORTED_MODULE_1__.useDisposables)(),r=(0,_use_latest_value_js__WEBPACK_IMPORTED_MODULE_2__.useLatestValue)(t);(0,_use_iso_morphic_effect_js__WEBPACK_IMPORTED_MODULE_3__.useIsoMorphicEffect)(()=>{let e=(0,_utils_disposables_js__WEBPACK_IMPORTED_MODULE_4__.disposables)();d.add(e.dispose);let n=o.current;if(!!n&&r.current!=="idle"&&!!c.current)return e.dispose(),a.current(r.current),e.add((0,_components_transitions_utils_transition_js__WEBPACK_IMPORTED_MODULE_5__.transition)(n,s.current,r.current==="enter",l=>{e.dispose(),(0,_utils_match_js__WEBPACK_IMPORTED_MODULE_6__.match)(l,{[_components_transitions_utils_transition_js__WEBPACK_IMPORTED_MODULE_5__.Reason.Ended](){u.current(r.current)},[_components_transitions_utils_transition_js__WEBPACK_IMPORTED_MODULE_5__.Reason.Cancelled]:()=>{}})})),e.dispose},[t])}
+
+
+/***/ }),
+
+/***/ "./node_modules/@headlessui/react/dist/hooks/use-watch.js":
+/*!****************************************************************!*\
+  !*** ./node_modules/@headlessui/react/dist/hooks/use-watch.js ***!
+  \****************************************************************/
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "useWatch": function() { return /* binding */ m; }
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var _use_event_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./use-event.js */ "./node_modules/@headlessui/react/dist/hooks/use-event.js");
+function m(u,t){let e=(0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)([]),r=(0,_use_event_js__WEBPACK_IMPORTED_MODULE_1__.useEvent)(u);(0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(()=>{let o=[...e.current];for(let[n,a]of t.entries())if(e.current[n]!==a){let l=r(t,o);return e.current=t,l}},[r,...t])}
+
+
+/***/ }),
+
+/***/ "./node_modules/@headlessui/react/dist/hooks/use-window-event.js":
+/*!***********************************************************************!*\
+  !*** ./node_modules/@headlessui/react/dist/hooks/use-window-event.js ***!
+  \***********************************************************************/
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "useWindowEvent": function() { return /* binding */ s; }
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var _use_latest_value_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./use-latest-value.js */ "./node_modules/@headlessui/react/dist/hooks/use-latest-value.js");
+function s(e,r,n){let o=(0,_use_latest_value_js__WEBPACK_IMPORTED_MODULE_1__.useLatestValue)(r);(0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(()=>{function t(i){o.current(i)}return window.addEventListener(e,t,n),()=>window.removeEventListener(e,t,n)},[e,n])}
 
 
 /***/ }),
@@ -24247,6 +24792,45 @@ let o=(0,react__WEBPACK_IMPORTED_MODULE_0__.createContext)(null);o.displayName="
 
 /***/ }),
 
+/***/ "./node_modules/@headlessui/react/dist/internal/portal-force-root.js":
+/*!***************************************************************************!*\
+  !*** ./node_modules/@headlessui/react/dist/internal/portal-force-root.js ***!
+  \***************************************************************************/
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "ForcePortalRoot": function() { return /* binding */ P; },
+/* harmony export */   "usePortalRoot": function() { return /* binding */ l; }
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+let e=(0,react__WEBPACK_IMPORTED_MODULE_0__.createContext)(!1);function l(){return (0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)(e)}function P(o){return react__WEBPACK_IMPORTED_MODULE_0__.createElement(e.Provider,{value:o.force},o.children)}
+
+
+/***/ }),
+
+/***/ "./node_modules/@headlessui/react/dist/internal/stack-context.js":
+/*!***********************************************************************!*\
+  !*** ./node_modules/@headlessui/react/dist/internal/stack-context.js ***!
+  \***********************************************************************/
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "StackMessage": function() { return /* binding */ s; },
+/* harmony export */   "StackProvider": function() { return /* binding */ M; },
+/* harmony export */   "useStackContext": function() { return /* binding */ x; }
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var _hooks_use_iso_morphic_effect_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../hooks/use-iso-morphic-effect.js */ "./node_modules/@headlessui/react/dist/hooks/use-iso-morphic-effect.js");
+/* harmony import */ var _hooks_use_event_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../hooks/use-event.js */ "./node_modules/@headlessui/react/dist/hooks/use-event.js");
+let a=(0,react__WEBPACK_IMPORTED_MODULE_0__.createContext)(()=>{});a.displayName="StackContext";var s=(e=>(e[e.Add=0]="Add",e[e.Remove=1]="Remove",e))(s||{});function x(){return (0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)(a)}function M({children:i,onUpdate:r,type:e,element:n,enabled:u}){let l=x(),o=(0,_hooks_use_event_js__WEBPACK_IMPORTED_MODULE_1__.useEvent)((...t)=>{r==null||r(...t),l(...t)});return (0,_hooks_use_iso_morphic_effect_js__WEBPACK_IMPORTED_MODULE_2__.useIsoMorphicEffect)(()=>{let t=u===void 0||u===!0;return t&&o(0,e,n),()=>{t&&o(1,e,n)}},[o,e,n,u]),react__WEBPACK_IMPORTED_MODULE_0__.createElement(a.Provider,{value:o},i)}
+
+
+/***/ }),
+
 /***/ "./node_modules/@headlessui/react/dist/utils/bugs.js":
 /*!***********************************************************!*\
   !*** ./node_modules/@headlessui/react/dist/utils/bugs.js ***!
@@ -24276,6 +24860,34 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _micro_task_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./micro-task.js */ "./node_modules/@headlessui/react/dist/utils/micro-task.js");
 function m(){let n=[],i=[],r={enqueue(e){i.push(e)},addEventListener(e,t,a,o){return e.addEventListener(t,a,o),r.add(()=>e.removeEventListener(t,a,o))},requestAnimationFrame(...e){let t=requestAnimationFrame(...e);return r.add(()=>cancelAnimationFrame(t))},nextFrame(...e){return r.requestAnimationFrame(()=>r.requestAnimationFrame(...e))},setTimeout(...e){let t=setTimeout(...e);return r.add(()=>clearTimeout(t))},microTask(...e){let t={current:!0};return (0,_micro_task_js__WEBPACK_IMPORTED_MODULE_0__.microTask)(()=>{t.current&&e[0]()}),r.add(()=>{t.current=!1})},add(e){return n.push(e),()=>{let t=n.indexOf(e);if(t>=0){let[a]=n.splice(t,1);a()}}},dispose(){for(let e of n.splice(0))e()},async workQueue(){for(let e of i.splice(0))await e()}};return r}
+
+
+/***/ }),
+
+/***/ "./node_modules/@headlessui/react/dist/utils/focus-management.js":
+/*!***********************************************************************!*\
+  !*** ./node_modules/@headlessui/react/dist/utils/focus-management.js ***!
+  \***********************************************************************/
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Focus": function() { return /* binding */ T; },
+/* harmony export */   "FocusResult": function() { return /* binding */ M; },
+/* harmony export */   "FocusableMode": function() { return /* binding */ N; },
+/* harmony export */   "focusElement": function() { return /* binding */ h; },
+/* harmony export */   "focusFrom": function() { return /* binding */ D; },
+/* harmony export */   "focusIn": function() { return /* binding */ O; },
+/* harmony export */   "getFocusableElements": function() { return /* binding */ d; },
+/* harmony export */   "isFocusableElement": function() { return /* binding */ F; },
+/* harmony export */   "restoreFocusIfNecessary": function() { return /* binding */ I; },
+/* harmony export */   "sortByDomNode": function() { return /* binding */ S; }
+/* harmony export */ });
+/* harmony import */ var _disposables_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./disposables.js */ "./node_modules/@headlessui/react/dist/utils/disposables.js");
+/* harmony import */ var _match_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./match.js */ "./node_modules/@headlessui/react/dist/utils/match.js");
+/* harmony import */ var _owner_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./owner.js */ "./node_modules/@headlessui/react/dist/utils/owner.js");
+let m=["[contentEditable=true]","[tabindex]","a[href]","area[href]","button:not([disabled])","iframe","input:not([disabled])","select:not([disabled])","textarea:not([disabled])"].map(e=>`${e}:not([tabindex='-1'])`).join(",");var T=(n=>(n[n.First=1]="First",n[n.Previous=2]="Previous",n[n.Next=4]="Next",n[n.Last=8]="Last",n[n.WrapAround=16]="WrapAround",n[n.NoScroll=32]="NoScroll",n))(T||{}),M=(o=>(o[o.Error=0]="Error",o[o.Overflow=1]="Overflow",o[o.Success=2]="Success",o[o.Underflow=3]="Underflow",o))(M||{}),b=(r=>(r[r.Previous=-1]="Previous",r[r.Next=1]="Next",r))(b||{});function d(e=document.body){return e==null?[]:Array.from(e.querySelectorAll(m))}var N=(r=>(r[r.Strict=0]="Strict",r[r.Loose=1]="Loose",r))(N||{});function F(e,t=0){var r;return e===((r=(0,_owner_js__WEBPACK_IMPORTED_MODULE_0__.getOwnerDocument)(e))==null?void 0:r.body)?!1:(0,_match_js__WEBPACK_IMPORTED_MODULE_1__.match)(t,{[0](){return e.matches(m)},[1](){let l=e;for(;l!==null;){if(l.matches(m))return!0;l=l.parentElement}return!1}})}function I(e){let t=(0,_owner_js__WEBPACK_IMPORTED_MODULE_0__.getOwnerDocument)(e);(0,_disposables_js__WEBPACK_IMPORTED_MODULE_2__.disposables)().nextFrame(()=>{t&&!F(t.activeElement,0)&&h(e)})}function h(e){e==null||e.focus({preventScroll:!0})}let w=["textarea","input"].join(",");function H(e){var t,r;return(r=(t=e==null?void 0:e.matches)==null?void 0:t.call(e,w))!=null?r:!1}function S(e,t=r=>r){return e.slice().sort((r,l)=>{let o=t(r),s=t(l);if(o===null||s===null)return 0;let n=o.compareDocumentPosition(s);return n&Node.DOCUMENT_POSITION_FOLLOWING?-1:n&Node.DOCUMENT_POSITION_PRECEDING?1:0})}function D(e,t){return O(d(),t,!0,e)}function O(e,t,r=!0,l=null){let o=Array.isArray(e)?e.length>0?e[0].ownerDocument:document:e.ownerDocument,s=Array.isArray(e)?r?S(e):e:d(e);l=l!=null?l:o.activeElement;let n=(()=>{if(t&5)return 1;if(t&10)return-1;throw new Error("Missing Focus.First, Focus.Previous, Focus.Next or Focus.Last")})(),E=(()=>{if(t&1)return 0;if(t&2)return Math.max(0,s.indexOf(l))-1;if(t&4)return Math.max(0,s.indexOf(l))+1;if(t&8)return s.length-1;throw new Error("Missing Focus.First, Focus.Previous, Focus.Next or Focus.Last")})(),x=t&32?{preventScroll:!0}:{},f=0,i=s.length,u;do{if(f>=i||f+i<=0)return 0;let a=E+f;if(t&16)a=(a+i)%i;else{if(a<0)return 3;if(a>=i)return 1}u=s[a],u==null||u.focus(x),f+=n}while(u!==o.activeElement);return t&6&&H(u)&&u.select(),u.hasAttribute("tabindex")||u.setAttribute("tabindex","0"),2}
 
 
 /***/ }),
@@ -24341,6 +24953,39 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "once": function() { return /* binding */ l; }
 /* harmony export */ });
 function l(r){let e={called:!1};return(...t)=>{if(!e.called)return e.called=!0,r(...t)}}
+
+
+/***/ }),
+
+/***/ "./node_modules/@headlessui/react/dist/utils/owner.js":
+/*!************************************************************!*\
+  !*** ./node_modules/@headlessui/react/dist/utils/owner.js ***!
+  \************************************************************/
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "getOwnerDocument": function() { return /* binding */ e; }
+/* harmony export */ });
+/* harmony import */ var _ssr_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ssr.js */ "./node_modules/@headlessui/react/dist/utils/ssr.js");
+function e(r){return _ssr_js__WEBPACK_IMPORTED_MODULE_0__.isServer?null:r instanceof Node?r.ownerDocument:r!=null&&r.hasOwnProperty("current")&&r.current instanceof Node?r.current.ownerDocument:document}
+
+
+/***/ }),
+
+/***/ "./node_modules/@headlessui/react/dist/utils/platform.js":
+/*!***************************************************************!*\
+  !*** ./node_modules/@headlessui/react/dist/utils/platform.js ***!
+  \***************************************************************/
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "isIOS": function() { return /* binding */ o; }
+/* harmony export */ });
+function o(){return/iPhone/gi.test(window.navigator.platform)||/Mac/gi.test(window.navigator.platform)&&window.navigator.maxTouchPoints>0}
 
 
 /***/ }),
@@ -24414,6 +25059,38 @@ function CheckCircleIcon(props, svgRef) {
 }
 
 const ForwardRef = react__WEBPACK_IMPORTED_MODULE_0__.forwardRef(CheckCircleIcon);
+/* harmony default export */ __webpack_exports__["default"] = (ForwardRef);
+
+/***/ }),
+
+/***/ "./node_modules/@heroicons/react/outline/esm/XIcon.js":
+/*!************************************************************!*\
+  !*** ./node_modules/@heroicons/react/outline/esm/XIcon.js ***!
+  \************************************************************/
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+
+
+function XIcon(props, svgRef) {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("svg", Object.assign({
+    xmlns: "http://www.w3.org/2000/svg",
+    fill: "none",
+    viewBox: "0 0 24 24",
+    strokeWidth: 2,
+    stroke: "currentColor",
+    "aria-hidden": "true",
+    ref: svgRef
+  }, props), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("path", {
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    d: "M6 18L18 6M6 6l12 12"
+  }));
+}
+
+const ForwardRef = react__WEBPACK_IMPORTED_MODULE_0__.forwardRef(XIcon);
 /* harmony default export */ __webpack_exports__["default"] = (ForwardRef);
 
 /***/ }),
