@@ -1,4 +1,4 @@
-v3.9.4 (Unreleased)
+v3.9.4
 - New: WooCommerce Cart - "Cart Page" click action introduced to redirect user on cart page.
 - Improvement: Added Spectra plugin compatibility for better experience.
 - Improvement: WooCommerce - Moved border width option for cart icon from addon to theme.
