@@ -315,13 +315,13 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 				</h2>
 				<div class="inside">
 					</p>
-						<?php echo esc_html__( 'Access powerful features for painless WordPress design without the high costs.', 'astra-addon' ); ?>
+						<?php echo esc_html__( 'Access powerful features for painless WordPress design without the high costs.', 'astra' ); ?>
 					<p>
 					</p>
-						<?php echo esc_html__( 'Powerful tools, premium support, limitless opportunity with Astra Pro!', 'astra-addon' ); ?>
+						<?php echo esc_html__( 'Powerful tools, premium support, limitless opportunity with Astra Pro!', 'astra' ); ?>
 					<p>
 					</p>
-						<?php echo esc_html__( 'Toggle upgrade notices on or off ', 'astra-addon' ); ?>
+						<?php echo esc_html__( 'Toggle upgrade notices on or off ', 'astra' ); ?>
 						<a href="#" class="ast-disable-notices" data-value="<?php echo $status ? 0 : 1; ?>" target="_blank" rel="noopener">
 							<?php echo __( 'here.', 'astra' ); ?>
 						</a>
