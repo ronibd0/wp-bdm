@@ -1066,7 +1066,8 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				 * @since 3.8.3
 				 */
 				if ( true === $update_customizer_strctural_defaults ) {
-					if ( ! Astra_Ext_Transparent_Header_Markup::is_transparent_header() ) {
+					$display_title = get_post_meta( get_the_ID(), 'site-post-title', true );
+					if ( 'disabled' !== $display_title && ! Astra_Ext_Transparent_Header_Markup::is_transparent_header() && apply_filters( 'astra_contained_layout_primary_spacing', true ) ) {
 						$gtn_margin_top = array(
 							'.ast-plain-container.ast-no-sidebar #primary' => array(
 								'margin-top'    => '60px',
@@ -2749,7 +2750,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					/* Parse CSS from array -> min-width(mobile-breakpoint + 1) */
 					$parse_css .= astra_parse_css( $core_blocks_min_width_mobile_ui_css, astra_get_mobile_breakpoint( '', 1 ) );
 				} else {
-
 					$astra_no_sidebar_layout_css =
 						'.ast-no-sidebar.ast-separate-container ' . $entry_content_selector . ' .alignfull {
 							margin-left: -6.67em;
@@ -3725,7 +3725,8 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 							'transform'  => $transform_svg_style,
 						),
 						'.ast-mobile-popup-content .ast-submenu-expanded > .ast-menu-toggle' => array(
-							'transform' => 'rotateX(180deg)',
+							'transform'  => 'rotateX(180deg)',
+							'overflow-y' => 'auto',
 						),
 					);
 				}
@@ -4090,6 +4091,18 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			}
 
 			return $sidebar_static_css;
+		}
+
+		/**
+		 * Astra Spectra Gutenberg Compatibility CSS.
+		 *
+		 * @since 3.9.4
+		 * @return boolean false if it is an existing user , true if not.
+		 */
+		public static function spectra_gutenberg_compat_css() {
+			$astra_settings                                 = get_option( ASTRA_THEME_SETTINGS );
+			$astra_settings['spectra-gutenberg-compat-css'] = isset( $astra_settings['spectra-gutenberg-compat-css'] ) ? false : true;
+			return apply_filters( 'astra_spectra_gutenberg_compat_css', $astra_settings['spectra-gutenberg-compat-css'] );
 		}
 
 		/**
