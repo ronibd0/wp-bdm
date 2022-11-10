@@ -170,7 +170,7 @@ final class Astra_Builder_Admin {
 	/**
 	 * Disable pro upgrade notice from all over in Astra.
 	 *
-	 * @since x.x.x
+	 * @since 3.9.4
 	 */
 	public function disable_astra_pro_notices() {
 

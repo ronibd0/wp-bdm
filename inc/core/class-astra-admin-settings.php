@@ -164,7 +164,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 * @param array  $args menu item arguments.
 		 * @return void
 		 *
-		 * @since x.x.x
+		 * @since 3.9.4
 		 */
 		public static function add_custom_fields( $id, $item, $depth, $args ) {
 			?>
@@ -187,7 +187,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 *
 		 * Fired by `admin_menu` action.
 		 *
-		 * @since x.x.x
+		 * @since 3.9.4
 		 * @access public
 		 */
 		public static function register_pro_menu() {
@@ -210,7 +210,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		/**
 		 * Showcase Custom Layout highlight.
 		 *
-		 * @since x.x.x
+		 * @since 3.9.4
 		 * @access public
 		 */
 		public static function preview_custom_layout() {
@@ -254,7 +254,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		/**
 		 * Showcase Page Header highlight.
 		 *
-		 * @since x.x.x
+		 * @since 3.9.4
 		 * @access public
 		 */
 		public static function preview_page_header() {
@@ -298,7 +298,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		/**
 		 * Astra upgrade to pro postbox.
 		 *
-		 * @since x.x.x
+		 * @since 3.9.4
 		 */
 		public static function astra_upgrade_pro_postbox() {
 
@@ -433,7 +433,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		/**
 		 * Upgrade to Pro notice for Astra on WooCommerce pages.
 		 *
-		 * @since x.x.x
+		 * @since 3.9.4
 		 */
 		public static function upgrade_to_pro_wc_notice() {
 			/** @psalm-suppress PossiblyInvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort

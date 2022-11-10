@@ -548,7 +548,7 @@ class Astra_WP_Editor_CSS {
 
 		// Full-Width Stretched Layout page title alignment.
 		$desktop_css['.ast-page-builder-template .edit-post-visual-editor__post-title-wrapper'] = array(
-			'max-width'    => 'calc( 100% - 5px ) !important',
+			'max-width' => 'calc( 100% - 5px ) !important',
 		);
 
 		// Full-Width Contained Layout page title wrapper crops in stacked view fix.
