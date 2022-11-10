@@ -6,6 +6,7 @@ import Settings from '@DashboardApp/pages/settings/Settings';
 import StarterTemplates from '@DashboardApp/pages/starter-templates/StarterTemplates';
 import CustomLayouts from '@DashboardApp/pages/custom-layouts/CustomLayouts';
 import SpectraScreen from '@DashboardApp/pages/spectra/SpectraScreen';
+import Docs from '@DashboardApp/pages/docs/Docs';
 
 function SettingsRoute() {
 	const query = new URLSearchParams( useLocation().search );
@@ -17,7 +18,7 @@ function SettingsRoute() {
 
 	if ( astra_admin.home_slug === page ) {
 		if ( 'getting-started' === currentEvent ) {
-			routePage = <Welcome/>;
+			routePage = <Welcome />;
 		} else {
 			switch ( path ) {
 				case 'starter-templates':
@@ -34,6 +35,9 @@ function SettingsRoute() {
 					break;
 				case 'spectra':
 					routePage = <SpectraScreen />;
+					break;
+				case 'docs':
+					routePage = <Docs />;
 					break;
 				default:
 					routePage = <Welcome />;
