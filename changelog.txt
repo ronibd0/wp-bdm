@@ -1,3 +1,25 @@
+v3.9.4 (Unreleased)
+- New: WooCommerce Cart - "Cart Page" click action introduced to redirect user on cart page.
+- Improvement: Added Spectra plugin compatibility for better experience.
+- Improvement: WooCommerce - Moved border width option for cart icon from addon to theme.
+- Improvement: WooCommerce - Clear button is aligned on top for WooCommerce active filter widget when "Chips" option is enabled.
+- Improvement: WooCommerce - Single Product - Edit shortcut link assigned to sticky add to cart for easy navigation in respective customizer section.
+- Improvement: WooCommerce - Added product image on cart page for tablet users.
+- Improvement: To have elegant fresh setup UI, updated the customizer sidebar layout by default to No-Sidebar.
+- Improvement: Header builder - Cart - Responsive slider option to adjust Slide-in Cart width for Desktop, Tablet, & Mobile devices.
+- Fix: WooCommerce - Content background color not working in customizer preview.
+- Fix: WooCommerce - Shop - Sale badge text is misaligned on the frontend.
+- Fix: WooCommerce - Custom image and icon support for payment section.
+- Fix: WooCommerce - Payment list styling broken inside quick view.
+- Fix: Block Editor - Astra Meta settings does not save when Custom Fields option is enabled from the preferences.
+- Fix: Two search buttons visible on the empty archive search result page.
+- Fix: Disabled Astra meta setting for Blog page which does not work from metabox, as it acts like a archive page on the frontend.
+- Fix: Megamenu spacing conflict with primary menu top offset option on mobile devices.
+- Fix: WooCommerce - Cart icon size is not working on starter template site.
+- Fix: Top border showing up for related post section on single post when Boxed & Content Boxed layout is active.
+- Fix: Editor - External toggle controls reverse their direction due to theme's CSS.
+- Fix: Block editor - Getting console error for reading properties of undefined for getEditedPostAttribute.
+
 v3.9.3
 - Improvement: Compatibility with WordPress 6.1.
 
