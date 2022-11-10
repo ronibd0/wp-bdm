@@ -731,6 +731,41 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				);
 			}
 
+			$enable_site_accessibility = astra_get_option( 'site-accessibility-toggle', false );
+
+			$html_selectors_focus_visible       = 'input[type="search"]:focus-visible, a:focus-visible, .ast-menu-toggle:focus-visible, .site .skip-link:focus-visible, .wp-block-loginout input:focus-visible, .wp-block-search.wp-block-search__button-inside .wp-block-search__inside-wrapper .wp-block-search__input:focus-visible';
+			$html_selectors_focus               = 'input[type="search"]:focus, a:focus, .ast-menu-toggle:focus, .site .skip-link:focus, .wp-block-loginout input:focus, .wp-block-search.wp-block-search__button-inside .wp-block-search__inside-wrapper .wp-block-search__input:focus';
+			$html_selectors_focus_remove_border = 'input[type="search"]:focus-visible';
+			
+			if ( $enable_site_accessibility ) {
+				$outline_style = astra_get_option( 'site-accessibility-highlight-type' );
+				$outline_color = astra_get_option( 'site-accessibility-highlight-color' );
+
+				$css_output[ $html_selectors_focus ] = array(
+					'outline' => 'none', // !important used to remove css globally.
+				);
+
+				$css_output[ $html_selectors_focus_remove_border ] = array(
+					'border' => 'none', // !important used to remove css globally.
+				);
+
+				$css_output[ $html_selectors_focus_visible ] = array(
+					'outline-style' => $outline_style ? $outline_style : 'inherit',
+					'outline-color' => $outline_color ? $outline_color : 'inherit',
+					'outline-width' => 'thin',
+				);
+
+			} else {
+				$css_output[ $html_selectors_focus_visible ] = array(
+					'outline-style' => 'dotted',
+					'outline-width' => 'thin',
+				);
+
+				$css_output[ $html_selectors_focus_remove_border ] = array(
+					'border' => 'none',
+				);
+			}
+
 			/**
 			 * Loaded the following CSS conditionally because of following scenarios -
 			 *

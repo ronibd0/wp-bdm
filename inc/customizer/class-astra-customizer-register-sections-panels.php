@@ -255,6 +255,18 @@ if ( ! class_exists( 'Astra_Customizer_Register_Sections_Panels' ) ) {
 				),
 
 				/**
+				* Accessibility Panel
+				*
+				* @since x.x.x
+				*/
+				array(
+					'name'     => 'section-accessibility',
+					'type'     => 'section',
+					'priority' => 65,
+					'title'    => __( 'Accessibility', 'astra' ),
+				),
+
+				/**
 				 * Colors Panel
 				 */
 				array(
