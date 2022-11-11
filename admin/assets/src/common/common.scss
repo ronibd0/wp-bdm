@@ -122,7 +122,8 @@
 	}
 }
 
-.post-type-astra-advanced-hook #screen-options-wrap input,
-.post-type-astra_adv_header #screen-options-wrap input {
+.post-type-astra-advanced-hook #screen-options-wrap input:not([type=submit]),
+.post-type-astra_adv_header #screen-options-wrap input:not([type=submit]) {
 	background-color: #ffff;
+	border: 1px solid #8c8f94;
 }
