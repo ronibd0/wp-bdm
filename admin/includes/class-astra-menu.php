@@ -920,7 +920,7 @@ class Astra_Menu {
 	 * @return array $astra_docs_data Astra Docs Data.
 	 */
 	public static function get_astra_docs_data() {
-		$astra_docs_data = json_decode( wp_remote_retrieve_body( wp_remote_get( 'https://sorewinter.s4-tastewp.com/wp-json/powerful-docs/v1/get-docs' ) ) ); // Astra theme.
+		$astra_docs_data = json_decode( wp_remote_retrieve_body( wp_remote_get( 'https://specialtime.s2-tastewp.com/wp-json/powerful-docs/v1/get-docs' ) ) ); // Astra theme.
 		return $astra_docs_data;
 	}
 }

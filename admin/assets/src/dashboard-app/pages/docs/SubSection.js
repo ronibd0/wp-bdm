@@ -54,7 +54,7 @@ const SubSection = ({ item }) => {
 				<div className="mt-5">
 					<div className="space-y-1 mb-5">
 						{/* Single Item */}
-						{subItems.map((item, key) => (
+						{subItems.splice(0, 5).map((item, key) => (
 							<div
 								className="flex items-center justify-between text-slate-800 rounded-md p-2 pl-0 hover:bg-gray-50 group cursor-pointer"
 								key={key}
@@ -84,15 +84,16 @@ const SubSection = ({ item }) => {
 						))}
 					</div>
 
-					<Link
-						to="/"
+					<a
+						href={`https://wpastra.com/docs-category/${item[0]}/`}
+						target="_blank"
 						className="text-base font-medium leading-4 text-astra flex items-center"
 					>
 						<span className="mr-2">
-							View All Getting Started Doc
+							View All {ReactHtmlParser(item[1].name)} Doc
 						</span>
 						{Astra_Admin_Icons["redirect"]}
-					</Link>
+					</a>
 				</div>
 			)}
 		</div>

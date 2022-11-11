@@ -7396,7 +7396,19 @@ const Docs = _ref => {
     onChange: e => setSearchKeyword(e.target.value)
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "absolute top-1/2 -translate-y-1/2 left-4"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
+  }, searchKeyword ? (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
+    width: "20",
+    height: "20",
+    viewBox: "0 0 20 20",
+    fill: "none",
+    xmlns: "http://www.w3.org/2000/svg"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+    d: "M5 15L15 5M5 5L15 15",
+    stroke: "#9CA3AF",
+    strokeWidth: "2",
+    strokeLinecap: "round",
+    strokeLinejoin: "round"
+  })) : (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
     width: "20",
     height: "20",
     viewBox: "0 0 20 20",
@@ -7556,7 +7568,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var _Common_block_icons__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @Common/block-icons */ "./assets/src/common/block-icons.js");
 /* harmony import */ var react_html_parser__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-html-parser */ "./node_modules/react-html-parser/lib/index.js");
 
@@ -7602,7 +7613,7 @@ const SubSection = _ref => {
     className: "mt-5"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "space-y-1 mb-5"
-  }, subItems.map((item, key) => (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+  }, subItems.splice(0, 5).map((item, key) => (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "flex items-center justify-between text-slate-800 rounded-md p-2 pl-0 hover:bg-gray-50 group cursor-pointer",
     key: key
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
@@ -7620,12 +7631,13 @@ const SubSection = _ref => {
     className: "text-base leading-[1.625rem] text-slate-800 ml-2"
   }, (0,react_html_parser__WEBPACK_IMPORTED_MODULE_3__["default"])(item.title))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "text-slate-600 invisible group-hover:visible"
-  }, _Common_block_icons__WEBPACK_IMPORTED_MODULE_2__["default"].redirect)))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Link, {
-    to: "/",
+  }, _Common_block_icons__WEBPACK_IMPORTED_MODULE_2__["default"].redirect)))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+    href: `https://wpastra.com/docs-category/${item[0]}/`,
+    target: "_blank",
     className: "text-base font-medium leading-4 text-astra flex items-center"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
     className: "mr-2"
-  }, "View All Getting Started Doc"), _Common_block_icons__WEBPACK_IMPORTED_MODULE_2__["default"].redirect)));
+  }, "View All ", (0,react_html_parser__WEBPACK_IMPORTED_MODULE_3__["default"])(item[1].name), " Doc"), _Common_block_icons__WEBPACK_IMPORTED_MODULE_2__["default"].redirect)));
 };
 /* harmony default export */ __webpack_exports__["default"] = (SubSection);
 
