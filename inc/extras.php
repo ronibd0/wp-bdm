@@ -985,7 +985,7 @@ function astra_search_static_css() {
 function astra_get_font_extras( $config, $setting, $unit = false ) {
 	$css = isset( $config[ $setting ] ) ? $config[ $setting ] : '';
 
-	if ( $unit ) {
+	if ( $unit && $config[ $setting ] ) {
 		$css .= isset( $config[ $unit ] ) ? $config[ $unit ] : '';
 	}
 
