@@ -52,7 +52,7 @@ class Astra_Accessibility_Configs extends Astra_Customizer_Config_Base {
 				'type'     => 'control',
 				'control'  => 'ast-radio-icon',
 				'priority' => 1,
-				'title'    => __( 'Highlight Type', 'astra' ),
+				'title'    => __( 'Global Highlight Type', 'astra' ),
 				'section'  => 'section-accessibility',
 				'choices'  => array(
 					'dotted' => array(
@@ -80,6 +80,61 @@ class Astra_Accessibility_Configs extends Astra_Customizer_Config_Base {
 			array(
 				'name'     => ASTRA_THEME_SETTINGS . '[site-accessibility-highlight-color]',
 				'default'  => astra_get_option( 'site-accessibility-highlight-color' ),
+				'type'     => 'control',
+				'control'  => 'ast-color',
+				'priority' => 1,
+				'title'    => __( 'Color', 'astra' ),
+				'section'  => 'section-accessibility',
+				'divider'  => array( 'ast_class' => 'ast-bottom-dotted-divider' ),
+				'context'  => array(
+					array(
+						'setting'  => ASTRA_THEME_SETTINGS . '[site-accessibility-toggle]',
+						'operator' => '===',
+						'value'    => true,
+					),
+				),
+			),
+
+			/**
+			 * Option: Highlight type.
+			 */
+			array(
+				'name'     => ASTRA_THEME_SETTINGS . '[site-accessibility-highlight-input-type]',
+				'default'  => astra_get_option( 'site-accessibility-highlight-input-type' ),
+				'type'     => 'control',
+				'control'  => 'ast-radio-icon',
+				'priority' => 1,
+				'title'    => __( 'Input Highlight Type', 'astra' ),
+				'section'  => 'section-accessibility',
+				'choices'  => array(
+					'disable' => array(
+						'label' => __( 'Disable', 'astra' ),
+						'path'  => 'remove',
+					),
+					'dotted'  => array(
+						'label' => __( 'Dotted', 'astra' ),
+						'path'  => 'ellipsis',
+					),
+					'solid'   => array(
+						'label' => __( 'Solid', 'astra' ),
+						'path'  => 'minus',
+					),
+				),
+				'context'  => array(
+					array(
+						'setting'  => ASTRA_THEME_SETTINGS . '[site-accessibility-toggle]',
+						'operator' => '===',
+						'value'    => true,
+					),
+				),
+			),
+
+			/**
+			 * Option: Highlight color.
+			 */
+			array(
+				'name'     => ASTRA_THEME_SETTINGS . '[site-accessibility-highlight-input-color]',
+				'default'  => astra_get_option( 'site-accessibility-highlight-input-color' ),
 				'type'     => 'control',
 				'control'  => 'ast-color',
 				'priority' => 1,

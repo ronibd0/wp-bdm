@@ -434,6 +434,7 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 					'underline-content-links'              => true,
 					'site-accessibility-toggle'            => true,
 					'site-accessibility-highlight-type'    => 'dotted',
+					'site-accessibility-highlight-input-type' => 'disable',
 					'body-text-transform'                  => '',
 					'headings-font-family'                 => 'inherit',
 					'headings-font-weight'                 => 'inherit',
