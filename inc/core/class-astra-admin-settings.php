@@ -164,7 +164,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 * @param array  $args menu item arguments.
 		 * @return void
 		 *
-		 * @since x.x.x
+		 * @since 3.9.4
 		 */
 		public static function add_custom_fields( $id, $item, $depth, $args ) {
 			?>
@@ -187,7 +187,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 *
 		 * Fired by `admin_menu` action.
 		 *
-		 * @since x.x.x
+		 * @since 3.9.4
 		 * @access public
 		 */
 		public static function register_pro_menu() {
@@ -210,7 +210,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		/**
 		 * Showcase Custom Layout highlight.
 		 *
-		 * @since x.x.x
+		 * @since 3.9.4
 		 * @access public
 		 */
 		public static function preview_custom_layout() {
@@ -254,7 +254,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		/**
 		 * Showcase Page Header highlight.
 		 *
-		 * @since x.x.x
+		 * @since 3.9.4
 		 * @access public
 		 */
 		public static function preview_page_header() {
@@ -298,7 +298,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		/**
 		 * Astra upgrade to pro postbox.
 		 *
-		 * @since x.x.x
+		 * @since 3.9.4
 		 */
 		public static function astra_upgrade_pro_postbox() {
 
@@ -315,13 +315,13 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 				</h2>
 				<div class="inside">
 					</p>
-						<?php echo esc_html__( 'Access powerful features for painless WordPress design without the high costs.', 'astra-addon' ); ?>
+						<?php echo esc_html__( 'Access powerful features for painless WordPress design without the high costs.', 'astra' ); ?>
 					<p>
 					</p>
-						<?php echo esc_html__( 'Powerful tools, premium support, limitless opportunity with Astra Pro!', 'astra-addon' ); ?>
+						<?php echo esc_html__( 'Powerful tools, premium support, limitless opportunity with Astra Pro!', 'astra' ); ?>
 					<p>
 					</p>
-						<?php echo esc_html__( 'Toggle upgrade notices on or off ', 'astra-addon' ); ?>
+						<?php echo esc_html__( 'Toggle upgrade notices on or off ', 'astra' ); ?>
 						<a href="#" class="ast-disable-notices" data-value="<?php echo $status ? 0 : 1; ?>" target="_blank" rel="noopener">
 							<?php echo __( 'here.', 'astra' ); ?>
 						</a>
@@ -433,7 +433,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		/**
 		 * Upgrade to Pro notice for Astra on WooCommerce pages.
 		 *
-		 * @since x.x.x
+		 * @since 3.9.4
 		 */
 		public static function upgrade_to_pro_wc_notice() {
 			/** @psalm-suppress PossiblyInvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
@@ -1614,8 +1614,9 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 * @since 1.2.4
 		 */
 		public static function required_plugin_activate() {
-
+			/** @psalm-suppress PossiblyInvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			$nonce = ( isset( $_POST['nonce'] ) ) ? sanitize_key( $_POST['nonce'] ) : '';
+			/** @psalm-suppress PossiblyInvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 
 			if ( false === wp_verify_nonce( $nonce, 'astra-recommended-plugin-nonce' ) ) {
 				wp_send_json_error( esc_html_e( 'WordPress Nonce not validated.', 'astra' ) );
@@ -1663,8 +1664,9 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 * @since 1.2.4
 		 */
 		public static function required_plugin_deactivate() {
-
+			/** @psalm-suppress PossiblyInvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			$nonce = ( isset( $_POST['nonce'] ) ) ? sanitize_key( $_POST['nonce'] ) : '';
+			/** @psalm-suppress PossiblyInvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 
 			if ( false === wp_verify_nonce( $nonce, 'astra-recommended-plugin-nonce' ) ) {
 				wp_send_json_error( esc_html_e( 'WordPress Nonce not validated.', 'astra' ) );

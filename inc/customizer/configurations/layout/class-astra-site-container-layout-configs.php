@@ -49,7 +49,7 @@ if ( ! class_exists( 'Astra_Site_Container_Layout_Configs' ) ) {
 					'section'           => 'section-container-layout',
 					'default'           => astra_get_option( 'site-content-layout' ),
 					'priority'          => 9,
-					'title'             => __( 'Default Layout', 'astra' ),
+					'title'             => __( 'Container Layout', 'astra' ),
 					'choices'           => array(
 						'boxed-container'         => array(
 							'label' => __( 'Boxed', 'astra' ),

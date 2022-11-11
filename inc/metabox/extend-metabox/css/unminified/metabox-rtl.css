@@ -130,7 +130,10 @@ div#astra_settings_meta_box {
 .ast-meta-selector-controller .ast-selector-inner-wrap .components-button:focus:not(:disabled) {
     box-shadow: none;
 }
-.components-toggle-control .components-base-control__field {
+.ast-meta-settings-content .components-toggle-control .components-base-control__field,
+.ast-sidebar-container .components-toggle-control .components-base-control__field,
+.ast-meta-settings-content .components-toggle-control .components-base-control__field .components-flex,
+.ast-sidebar-container .components-toggle-control .components-base-control__field .components-flex {
 	justify-content: space-between;
 	flex-direction: row-reverse;
 	margin-bottom: 0;
