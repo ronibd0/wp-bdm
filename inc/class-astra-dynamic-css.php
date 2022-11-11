@@ -3726,7 +3726,8 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 							'transform'  => $transform_svg_style,
 						),
 						'.ast-mobile-popup-content .ast-submenu-expanded > .ast-menu-toggle' => array(
-							'transform' => 'rotateX(180deg)',
+							'transform'  => 'rotateX(180deg)',
+							'overflow-y' => 'auto',
 						),
 					);
 				}
@@ -4096,7 +4097,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		/**
 		 * Astra Spectra Gutenberg Compatibility CSS.
 		 *
-		 * @since x.x.x
+		 * @since 3.9.4
 		 * @return boolean false if it is an existing user , true if not.
 		 */
 		public static function spectra_gutenberg_compat_css() {

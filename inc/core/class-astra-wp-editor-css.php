@@ -357,7 +357,7 @@ class Astra_WP_Editor_CSS {
 		$astra_wide_particular_selector = $astra_is_block_editor_v2_ui ? '.editor-styles-wrapper .block-editor-block-list__layout.is-root-container .block-list-appender' : '.editor-styles-wrapper .block-editor-block-list__layout.is-root-container > p, .editor-styles-wrapper .block-editor-block-list__layout.is-root-container .block-list-appender';
 
 		$blocks_spacings = self::astra_get_block_spacings();
-		
+
 		$desktop_top_spacing    = isset( $blocks_spacings['desktop']['top'] ) ? $blocks_spacings['desktop']['top'] : '';
 		$desktop_right_spacing  = isset( $blocks_spacings['desktop']['right'] ) ? $blocks_spacings['desktop']['right'] : '';
 		$desktop_bottom_spacing = isset( $blocks_spacings['desktop']['bottom'] ) ? $blocks_spacings['desktop']['bottom'] : '';
@@ -373,10 +373,10 @@ class Astra_WP_Editor_CSS {
 
 		// Preset post title wrapper padding (20px) + post title h1 padding (6px).
 		$page_title_internal_padding = '26px';
-		
+
 		$ast_content_width = apply_filters( 'astra_block_content_width', $astra_is_block_editor_v2_ui ? $astra_container_width : '910px' );
 		$ast_wide_width    = apply_filters( 'astra_block_wide_width', $astra_is_block_editor_v2_ui ? 'calc(' . esc_attr( $astra_container_width ) . ' + var(--wp--custom--ast-default-block-left-padding) + var(--wp--custom--ast-default-block-right-padding))' : $astra_container_width );
-		
+
 		$css = ':root, body .editor-styles-wrapper {
 			--wp--custom--ast-default-block-top-padding: ' . $desktop_top_spacing . ';
 			--wp--custom--ast-default-block-right-padding: ' . $desktop_right_spacing . ';
@@ -540,25 +540,21 @@ class Astra_WP_Editor_CSS {
 			),
 		);
 
-		// Boxed, Content-Boxed, Full-Width Contained page title alignment with Spectra Container Blocks.
-		$desktop_css['.ast-separate-container .editor-styles-wrapper .block-editor-block-list__layout.is-root-container > .uagb-is-root-container, .ast-plain-container .editor-styles-wrapper .block-editor-block-list__layout.is-root-container > .uagb-is-root-container'] = array(
+		// Boxed, Content-Boxed page title alignment with Spectra Container Blocks.
+		$desktop_css['.ast-separate-container .editor-styles-wrapper .block-editor-block-list__layout.is-root-container > .uagb-is-root-container'] = array(
 			'max-width'            => 'var(--wp--custom--ast-content-width-size)',
 			'padding-' . $ltr_left => '0 !important',
 		);
 
 		// Full-Width Stretched Layout page title alignment.
 		$desktop_css['.ast-page-builder-template .edit-post-visual-editor__post-title-wrapper'] = array(
-			'max-width'    => '100% !important',
-			'margin-left'  => '0 !important',
-			'margin-right' => '0 !important',
+			'max-width' => 'calc( 100% - 5px ) !important',
 		);
 
-		// Root block alignment with page title for Content Boxed, Boxed, FW Contained & FW Stretched.
-		$desktop_css['.edit-post-visual-editor .editor-styles-wrapper > .is-root-container'] = array(
-			'margin-left'   => 'auto',
-			'margin-right'  => 'auto',
-			'padding-left'  => $page_title_internal_padding,
-			'padding-right' => $page_title_internal_padding,
+		// Full-Width Contained Layout page title wrapper crops in stacked view fix.
+		$desktop_css['.ast-plain-container .ast-stacked-title-visibility .edit-post-visual-editor__post-title-wrapper'] = array(
+			'padding-left'  => '3px',
+			'padding-right' => '3px',
 		);
 
 		$content_links_underline = astra_get_option( 'underline-content-links' );

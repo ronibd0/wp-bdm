@@ -151,6 +151,7 @@ if ( ! function_exists( 'astra_number_pagination' ) ) {
 
 		ob_start();
 		echo "<div class='ast-pagination'>";
+		/** @psalm-suppress ArgumentTypeCoercion */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 		the_posts_pagination(
 			array(
 				'prev_text'    => astra_default_strings( 'string-blog-navigation-previous', false ),
@@ -159,6 +160,7 @@ if ( ! function_exists( 'astra_number_pagination' ) ) {
 				'in_same_term' => true,
 			)
 		);
+		/** @psalm-suppress ArgumentTypeCoercion */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 		echo '</div>';
 		$output = ob_get_clean();
 		echo apply_filters( 'astra_pagination_markup', $output ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped

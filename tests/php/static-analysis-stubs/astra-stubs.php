@@ -1,6 +1,64 @@
 <?php
 
 namespace {
+    /*!
+     * ISC License
+     *
+     * Copyright (c) 2018-2021, Andrea Giammarchi, @WebReflection
+     *
+     * Permission to use, copy, modify, and/or distribute this software for any
+     * purpose with or without fee is hereby granted, provided that the above
+     * copyright notice and this permission notice appear in all copies.
+     *
+     * THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
+     * REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
+     * AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
+     * INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
+     * LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE
+     * OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
+     * PERFORMANCE OF THIS SOFTWARE.
+     */
+    class FlattedString
+    {
+        public function __construct($value)
+        {
+        }
+    }
+    class Flatted
+    {
+        // public utilities
+        public static function parse($json, $assoc = \false, $depth = 512, $options = 0)
+        {
+        }
+        public static function stringify($value, $options = 0, $depth = 512)
+        {
+        }
+        // private helpers
+        private static function asString($value)
+        {
+        }
+        private static function index(&$known, &$input, &$value)
+        {
+        }
+        private static function keys(&$value)
+        {
+        }
+        private static function loop($obj, $keys, &$input, &$set, &$output)
+        {
+        }
+        private static function relate(&$known, &$input, &$value)
+        {
+        }
+        private static function ref($obj, &$key, &$value, &$input, &$set, &$output)
+        {
+        }
+        private static function transform(&$known, &$input, &$value)
+        {
+        }
+        private static function wrap($value)
+        {
+        }
+    }
     /**
      * Creates a breadcrumbs menu for the site based on the current page that's being viewed by the user.
      *
@@ -1080,7 +1138,7 @@ namespace {
          * Prepare Edit icon inside customizer.
          *
          * @param string $class custom class.
-         * @since x.x.x
+         * @since 3.9.4
          */
         public static function render_customizer_edit_button($class = '')
         {
@@ -2970,6 +3028,15 @@ namespace {
          * @since 3.0.0
          */
         public static function load_sidebar_static_css()
+        {
+        }
+        /**
+         * Astra Spectra Gutenberg Compatibility CSS.
+         *
+         * @since 3.9.4
+         * @return boolean false if it is an existing user , true if not.
+         */
+        public static function spectra_gutenberg_compat_css()
         {
         }
         /**
@@ -5037,7 +5104,7 @@ namespace {
         public function content_layout($layout)
         {
         }
-        /** 
+        /**
          * LearnDash Static CSS.
          *
          * @since 3.3.0
@@ -5395,7 +5462,7 @@ namespace {
         /**
          * Add active filter widget class when "chip" toggle enabled.
          *
-         * @since x.x.x
+         * @since 3.9.4
          * @access public
          *
          * @param string $block_content Rendered block content.
@@ -6125,7 +6192,7 @@ namespace {
         /**
          * Disable pro upgrade notice from all over in Astra.
          *
-         * @since x.x.x
+         * @since 3.9.4
          */
         public function disable_astra_pro_notices()
         {
@@ -6599,7 +6666,7 @@ namespace {
          * @param array  $args menu item arguments.
          * @return void
          *
-         * @since x.x.x
+         * @since 3.9.4
          */
         public static function add_custom_fields($id, $item, $depth, $args)
         {
@@ -6611,7 +6678,7 @@ namespace {
          *
          * Fired by `admin_menu` action.
          *
-         * @since x.x.x
+         * @since 3.9.4
          * @access public
          */
         public static function register_pro_menu()
@@ -6620,7 +6687,7 @@ namespace {
         /**
          * Showcase Custom Layout highlight.
          *
-         * @since x.x.x
+         * @since 3.9.4
          * @access public
          */
         public static function preview_custom_layout()
@@ -6629,7 +6696,7 @@ namespace {
         /**
          * Showcase Page Header highlight.
          *
-         * @since x.x.x
+         * @since 3.9.4
          * @access public
          */
         public static function preview_page_header()
@@ -6638,7 +6705,7 @@ namespace {
         /**
          * Astra upgrade to pro postbox.
          *
-         * @since x.x.x
+         * @since 3.9.4
          */
         public static function astra_upgrade_pro_postbox()
         {
@@ -6669,7 +6736,7 @@ namespace {
         /**
          * Upgrade to Pro notice for Astra on WooCommerce pages.
          *
-         * @since x.x.x
+         * @since 3.9.4
          */
         public static function upgrade_to_pro_wc_notice()
         {
@@ -7265,7 +7332,7 @@ namespace {
         public function __construct()
         {
         }
-        /** 
+        /**
          * Comment count wrapper opening div.
          *
          * @param array $args markup arguments.
@@ -7275,7 +7342,7 @@ namespace {
         public function comment_count_wrapper_open($args)
         {
         }
-        /** 
+        /**
          * Comment count wrapper closing div.
          *
          * @param array $args markup arguments.
@@ -7285,7 +7352,7 @@ namespace {
         public function comment_count_wrapper_close($args)
         {
         }
-        /** 
+        /**
          * Comment data wrapper opening div.
          *
          * @param array $args markup arguments.
@@ -7295,7 +7362,7 @@ namespace {
         public function ast_comment_data_wrap_open($args)
         {
         }
-        /** 
+        /**
          * Comment data wrapper closing div.
          *
          * @param array $args markup arguments.
@@ -7305,7 +7372,7 @@ namespace {
         public function ast_comment_data_wrap_close($args)
         {
         }
-        /** 
+        /**
          * Comment meta wrapper opening div.
          *
          * @param array $args markup arguments.
@@ -7315,7 +7382,7 @@ namespace {
         public function ast_comment_meta_wrap_open($args)
         {
         }
-        /** 
+        /**
          * Comment meta wrapper closing div.
          *
          * @param array $args markup arguments.
@@ -7325,7 +7392,7 @@ namespace {
         public function ast_comment_meta_wrap_close($args)
         {
         }
-        /** 
+        /**
          * Comment time div attributes.
          *
          * @since 3.3.0
@@ -7334,7 +7401,7 @@ namespace {
         public function ast_comment_time_attr()
         {
         }
-        /** 
+        /**
          * Comment cite wrapper div attributes.
          *
          * @since 3.3.0
@@ -7379,16 +7446,16 @@ namespace {
         public function ast_grid_col_6()
         {
         }
-        /** 
+        /**
          * Comment form grid classes.
          *
-         * @since 3.3.0 
+         * @since 3.3.0
          * @return string.
          */
         public function comment_form_grid_class()
         {
         }
-        /** 
+        /**
          * Removed grid layout classes and make common class for same style
          *
          * @since 3.3.0
@@ -7397,7 +7464,7 @@ namespace {
         public function ast_grid_lg_12()
         {
         }
-        /** 
+        /**
          * Layout-4 grid css backward comaptibility.
          *
          * @return string.
@@ -7405,7 +7472,7 @@ namespace {
         public function ast_layout_4_grid()
         {
         }
-        /** 
+        /**
          * Layout-2 grid css backward comaptibility.
          *
          * @return string.
@@ -7413,7 +7480,7 @@ namespace {
         public function ast_layout_2_grid()
         {
         }
-        /** 
+        /**
          * Layout-1 grid css backward comaptibility.
          *
          * @return string.
@@ -7421,7 +7488,7 @@ namespace {
         public function ast_layout_1_grid()
         {
         }
-        /** 
+        /**
          * Layout-3 grid css backward comaptibility.
          *
          * @return string.
@@ -7429,7 +7496,7 @@ namespace {
         public function ast_layout_3_grid()
         {
         }
-        /** 
+        /**
          * Layout-5 grid css backward comaptibility.
          *
          * @return string.
@@ -7437,7 +7504,7 @@ namespace {
         public function ast_layout_5_grid()
         {
         }
-        /** 
+        /**
          * Layout-6 grid css backward comaptibility.
          *
          * @return string.
@@ -7447,7 +7514,7 @@ namespace {
         }
         /**
          * Footer widget opening div.
-         * 
+         *
          * @since 3.3.0
          * @param array $args div attributes.
          * @return array.
@@ -7457,7 +7524,7 @@ namespace {
         }
         /**
          * Footer widget closing div.
-         * 
+         *
          * @since 3.3.0
          * @param array $args div attributes.
          * @return array.
@@ -7487,7 +7554,7 @@ namespace {
         }
         /**
          * Footer widget opening div.
-         * 
+         *
          * @since 3.3.0
          * @param array $args div attributes.
          * @return array.
@@ -11899,7 +11966,7 @@ namespace {
          *
          * @var array
          */
-        private static $db_updates = array('2.1.3' => array('astra_submenu_below_header'), '2.2.0' => array('astra_page_builder_button_color_compatibility', 'astra_vertical_horizontal_padding_migration'), '2.3.0' => array('astra_header_button_new_options'), '2.3.3' => array('astra_elementor_default_color_typo_comp'), '2.3.4' => array('astra_breadcrumb_separator_fix'), '2.4.0' => array('astra_responsive_base_background_option', 'astra_update_theme_tablet_breakpoint'), '2.4.4' => array('astra_gtn_full_wide_image_group_css'), '2.5.0' => array('astra_global_button_woo_css', 'astra_gtn_full_wide_group_cover_css'), '2.5.2' => array('astra_footer_widget_bg'), '2.6.0' => array('astra_bg_control_migration', 'astra_bg_responsive_control_migration', 'astra_gutenberg_core_blocks_design_compatibility'), '2.6.1' => array('astra_gutenberg_media_text_block_css_compatibility'), '3.0.0' => array('astra_header_builder_compatibility'), '3.0.1' => array('astra_clear_assets_cache'), '3.3.0' => array('astra_gutenberg_pattern_compatibility', 'astra_icons_svg_compatibility', 'astra_check_flex_based_css'), '3.4.0' => array('astra_update_cart_style'), '3.5.0' => array('astra_update_related_posts_grid_layout', 'astra_site_title_tagline_responsive_control_migration'), '3.6.0' => array('astra_headings_font_support', 'astra_remove_logo_max_width', 'astra_transparent_header_default_value'), '3.6.3' => array('astra_button_default_values_updated'), '3.6.4' => array('astra_update_underline_link_setting'), '3.6.5' => array('astra_support_block_editor'), '3.6.7' => array('astra_fix_footer_widget_right_margin_case', 'astra_remove_elementor_toc_margin'), '3.6.8' => array('astra_set_removal_widget_design_options_flag'), '3.6.9' => array('astra_zero_font_size_comp', 'astra_unset_builder_elements_underline', 'astra_remove_responsive_account_menu_colors_support'), '3.7.0' => array('astra_global_color_compatibility'), '3.7.4' => array('astra_improve_gutenberg_editor_ui'), '3.7.9' => array('astra_set_default_breadcrumb_separator_option', 'astra_fullwidth_layouts_apply_content_background'), '3.8.1' => array('astra_apply_modern_block_editor_ui'), '3.8.3' => array('astra_update_customizer_layout_defaults', 'astra_apply_modern_block_editor_v2_ui'), '3.9.0' => array('astra_update_single_product_breadcrumb', 'astra_display_cart_total_title_compatibility', 'astra_update_woocommerce_cart_icons', 'astra_legacy_customizer_maintenance', 'astra_apply_modern_ecommerce_setup', 'astra_responsive_shop_content_alignment'), '3.9.2' => array('astra_apply_woocommerce_show_password_icon_css', 'astra_shop_style_design_layout'), '3.9.3' => array('astra_theme_bg_updater_3_9_3'));
+        private static $db_updates = array('2.1.3' => array('astra_submenu_below_header'), '2.2.0' => array('astra_page_builder_button_color_compatibility', 'astra_vertical_horizontal_padding_migration'), '2.3.0' => array('astra_header_button_new_options'), '2.3.3' => array('astra_elementor_default_color_typo_comp'), '2.3.4' => array('astra_breadcrumb_separator_fix'), '2.4.0' => array('astra_responsive_base_background_option', 'astra_update_theme_tablet_breakpoint'), '2.4.4' => array('astra_gtn_full_wide_image_group_css'), '2.5.0' => array('astra_global_button_woo_css', 'astra_gtn_full_wide_group_cover_css'), '2.5.2' => array('astra_footer_widget_bg'), '2.6.0' => array('astra_bg_control_migration', 'astra_bg_responsive_control_migration', 'astra_gutenberg_core_blocks_design_compatibility'), '2.6.1' => array('astra_gutenberg_media_text_block_css_compatibility'), '3.0.0' => array('astra_header_builder_compatibility'), '3.0.1' => array('astra_clear_assets_cache'), '3.3.0' => array('astra_gutenberg_pattern_compatibility', 'astra_icons_svg_compatibility', 'astra_check_flex_based_css'), '3.4.0' => array('astra_update_cart_style'), '3.5.0' => array('astra_update_related_posts_grid_layout', 'astra_site_title_tagline_responsive_control_migration'), '3.6.0' => array('astra_headings_font_support', 'astra_remove_logo_max_width', 'astra_transparent_header_default_value'), '3.6.3' => array('astra_button_default_values_updated'), '3.6.4' => array('astra_update_underline_link_setting'), '3.6.5' => array('astra_support_block_editor'), '3.6.7' => array('astra_fix_footer_widget_right_margin_case', 'astra_remove_elementor_toc_margin'), '3.6.8' => array('astra_set_removal_widget_design_options_flag'), '3.6.9' => array('astra_zero_font_size_comp', 'astra_unset_builder_elements_underline', 'astra_remove_responsive_account_menu_colors_support'), '3.7.0' => array('astra_global_color_compatibility'), '3.7.4' => array('astra_improve_gutenberg_editor_ui'), '3.7.9' => array('astra_set_default_breadcrumb_separator_option', 'astra_fullwidth_layouts_apply_content_background'), '3.8.1' => array('astra_apply_modern_block_editor_ui'), '3.8.3' => array('astra_update_customizer_layout_defaults', 'astra_apply_modern_block_editor_v2_ui'), '3.9.0' => array('astra_update_single_product_breadcrumb', 'astra_display_cart_total_title_compatibility', 'astra_update_woocommerce_cart_icons', 'astra_legacy_customizer_maintenance', 'astra_apply_modern_ecommerce_setup', 'astra_responsive_shop_content_alignment'), '3.9.2' => array('astra_apply_woocommerce_show_password_icon_css', 'astra_shop_style_design_layout'), '3.9.4' => array('astra_theme_background_updater_3_9_4'));
         /**
          *  Constructor
          */
@@ -12038,7 +12105,7 @@ namespace {
     /**
      * Define Constants
      */
-    \define('ASTRA_THEME_VERSION', '3.9.3');
+    \define('ASTRA_THEME_VERSION', '3.9.4');
     \define('ASTRA_THEME_SETTINGS', 'astra-settings');
     \define('ASTRA_THEME_DIR', \trailingslashit(\get_template_directory()));
     \define('ASTRA_THEME_URI', \trailingslashit(\esc_url(\get_template_directory_uri())));
@@ -12653,7 +12720,7 @@ namespace {
     }
     /**
      * Load Menu hover style static CSS if any one of the menu hover style is selected.
-     * 
+     *
      * @return string
      * @since 3.5.0
      */
@@ -13583,6 +13650,7 @@ namespace {
     /**
      * Check if the user is old sidebar user.
      *
+     * @since 3.9.4
      * @return bool true|false.
      */
     function astra_check_old_sidebar_user()
@@ -14475,7 +14543,7 @@ namespace {
     /**
      * Old Header Menu Last Item - Dynamic CSS.
      *
-     * @param string $dynamic_css 
+     * @param string $dynamic_css
      * @since 3.5.0
      */
     function astra_old_header_custom_menu_css($dynamic_css)
@@ -14904,7 +14972,7 @@ namespace {
     /**
      * Showcase "Upgrade to Pro" notices for Astra & here is the filter work as central control to enable/disable those notices from customizer, meta settings, admin area, pro post types pages.
      *
-     * @since x.x.x
+     * @since 3.9.4
      * @return bool
      */
     function astra_showcase_upgrade_notices()
@@ -15323,7 +15391,7 @@ namespace {
      *
      * @param bool $display_footer for controling the header and footer enable/disable options.
      *
-     * @since x.x.x
+     * @since 3.9.4
      */
     function astra_footer_bar_display_cb($display_footer)
     {
@@ -16090,12 +16158,12 @@ namespace {
     {
     }
     /**
-     * Handle backward compatibility on version 3.9.3
-     * 
-     * @since x.x.x
+     * Handle backward compatibility on version 3.9.4
+     *
+     * @since 3.9.4
      * @return void
      */
-    function astra_theme_bg_updater_3_9_3()
+    function astra_theme_background_updater_3_9_4()
     {
     }
     /**

@@ -1602,7 +1602,7 @@ function astra_check_is_structural_setup() {
 /**
  * Check if the user is old sidebar user.
  *
- * @since x.x.x
+ * @since 3.9.4
  * @return bool true|false.
  */
 function astra_check_old_sidebar_user() {
