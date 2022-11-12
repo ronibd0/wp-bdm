@@ -74,7 +74,7 @@ function astra_onload_function() {
 
 			if( null !== editorStylesWrapper ) {
 				const editorStylesWrapperWidth = parseInt( editorStylesWrapper.offsetWidth )
-				if( editorStylesWrapperWidth < 1250 ) {
+				if( editorStylesWrapperWidth < 1350 ) {
 					editorStylesWrapper.classList.remove( 'ast-stacked-title-visibility' );
 					editorStylesWrapper.classList.add( 'ast-stacked-title-visibility' );
 				} else {
