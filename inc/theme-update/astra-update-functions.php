@@ -1100,7 +1100,7 @@ function astra_theme_background_updater_3_9_4() {
  *
  * @return void
  */
-function astra_post_strctures_meta_migration() {
+function astra_post_structures_meta_migration() {
 	$theme_options = get_option( 'astra-settings', array() );
 	if ( ! isset( $theme_options['dynamic-blog-layouts'] ) && ! isset( $theme_options['theme-dynamic-customizer-support'] ) ) {
 		$theme_options['dynamic-blog-layouts'] = false;

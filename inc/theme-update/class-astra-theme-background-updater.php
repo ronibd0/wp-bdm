@@ -144,7 +144,7 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 				'astra_theme_background_updater_3_9_4',
 			),
 			'4.0.0' => array(
-				'astra_post_strctures_meta_migration',
+				'astra_post_structures_meta_migration',
 			),
 		);
 
