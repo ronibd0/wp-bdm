@@ -1639,15 +1639,15 @@ function astra_narrow_container_width( $location, $narrow_container_max_width ) 
 			),
 		);
 
-		// Remove Sidebar for Narrow Width Container Layout.
-		if ( apply_filters( 'trigger_sidebar', true ) ) {
-			add_filter(
-				'astra_page_layout',
-				function() { // phpcs:ignore PHPCompatibility.FunctionDeclarations.NewClosure.Found
-					return 'no-sidebar';
-				}
-			);
-		}
+		// // Remove Sidebar for Narrow Width Container Layout.
+		// if ( apply_filters( 'trigger_sidebar', true ) ) {
+		// 	add_filter(
+		// 		'astra_page_layout',
+		// 		function() { // phpcs:ignore PHPCompatibility.FunctionDeclarations.NewClosure.Found
+		// 			return 'no-sidebar';
+		// 		}
+		// 	);
+		// }
 
 		return astra_parse_css( $narrow_container_css, astra_get_tablet_breakpoint( '', 1 ) ); // phpcs:ignore WordPress.NamingConventions.ValidHookName.UseUnderscores
 
