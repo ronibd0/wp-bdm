@@ -1106,139 +1106,153 @@ function astra_post_structures_meta_migration() {
 		$theme_options['dynamic-blog-layouts'] = false;
 		$theme_options['theme-dynamic-customizer-support'] = true;
 
-		// Single post strcture.
-		if ( ! empty( $theme_options['ast-single-post-structure'] ) ) {
-			$single_post_strcture   = isset( $theme_options['blog-single-post-structure'] ) ? $theme_options['blog-single-post-structure'] : array(
-				'single-image',
-				'single-title-meta',
-			);
-			$migrated_post_strcture = array();
-
-			if ( ! empty( $single_post_strcture ) ) {
-
-				foreach ( $single_post_strcture as $key ) {
-					if ( 'single-title-meta' === $key ) {
-						$migrated_post_strcture[] = 'ast-dynamic-single-post-title';
-						$migrated_post_strcture[] = 'ast-dynamic-single-post-meta';
-					}
-					if ( 'single-image' === $key ) {
-						$migrated_post_strcture[] = 'ast-dynamic-single-post-image';
-					}
-				}
-
-				$theme_options['ast-single-post-structure'] = $migrated_post_strcture;
-			}
-		}
-
-		// Single post meta.
-		if ( ! empty( $theme_options['ast-dynamic-single-post-metadata'] ) ) {
-			$single_post_meta       = isset( $theme_options['blog-single-meta'] ) ? $theme_options['blog-single-meta'] : array(
-				'comments',
-				'category',
-				'author',
-			);
-			$migrated_post_metadata = array();
-
-			if ( ! empty( $single_post_meta ) ) {
-				if ( in_array( 'author', $single_post_meta ) ) {
-					$migrated_post_metadata[] = 'author';
-				}
-
-				if ( in_array( 'date', $single_post_meta ) ) {
-					$migrated_post_metadata[] = 'date';
-				}
-
-				$assigned_tax = false;
-				if ( in_array( 'category', $single_post_meta ) && in_array( 'tag', $single_post_meta ) ) {
-					$migrated_post_metadata[]                  = 'taxonomy';
-					$theme_options['ast-single-post-taxonomy'] = 'category-tag';
-					$assigned_tax                              = true;
-				}
-				if ( false === $assigned_tax && in_array( 'category', $single_post_meta ) ) {
-					$migrated_post_metadata[]                  = 'taxonomy';
-					$theme_options['ast-single-post-taxonomy'] = 'category';
-				}
-				if ( false === $assigned_tax && in_array( 'tag', $single_post_meta ) ) {
-					$migrated_post_metadata[]                  = 'taxonomy';
-					$theme_options['ast-single-post-taxonomy'] = 'post_tag';
-				}
-
-				if ( in_array( 'comments', $single_post_meta ) ) {
-					$migrated_post_metadata[] = 'comments';
-				}
-
-				$theme_options['ast-dynamic-single-post-metadata'] = $migrated_post_metadata;
-			}
-		}
-
-		// Archive layout compatibilities.
-		$theme_options['ast-archive-post-title'] = true;
-
 		$post_types = Astra_Posts_Structure_Loader::get_supported_post_types();
-		// if( is_callable( 'Astra_Posts_Structure_Loader::get_supported_post_types' ) ) {
-		// } else {
-		// 	require_once ASTRA_THEME_DIR . 'inc/modules/posts-structures/class-astra-posts-structures-loader.php';
-		// 	$post_types = Astra_Posts_Structure_Loader::get_supported_post_types();
-		// }
-		// Archive summary box compatibility - Font size.
-		if ( ! empty( $theme_options['font-size-archive-summary-title'] ) ) {
-			$archive_title_font_size = array(
-				'desktop'      => isset( $theme_options['font-size-archive-summary-title']['desktop'] ) ? $theme_options['font-size-archive-summary-title']['desktop'] : '',
-				'tablet'       => isset( $theme_options['font-size-archive-summary-title']['tablet'] ) ? $theme_options['font-size-archive-summary-title']['tablet'] : '',
-				'mobile'       => isset( $theme_options['font-size-archive-summary-title']['mobile'] ) ? $theme_options['font-size-archive-summary-title']['mobile'] : '',
-				'desktop-unit' => isset( $theme_options['font-size-archive-summary-title']['desktop-unit'] ) ? $theme_options['font-size-archive-summary-title']['desktop-unit'] : 'px',
-				'tablet-unit'  => isset( $theme_options['font-size-archive-summary-title']['tablet-unit'] ) ? $theme_options['font-size-archive-summary-title']['tablet-unit'] : 'px',
-				'mobile-unit'  => isset( $theme_options['font-size-archive-summary-title']['mobile-unit'] ) ? $theme_options['font-size-archive-summary-title']['mobile-unit'] : 'px',
-			);
-			$archive_summary_box_bg = array(
-				'desktop' => array(
-					'background-color'      => ! empty( $theme_options['archive-summary-box-bg-color'] ) ? $theme_options['archive-summary-box-bg-color'] : '',
-					'background-image'      => '',
-					'background-repeat'     => 'repeat',
-					'background-position'   => 'center center',
-					'background-size'       => 'auto',
-					'background-attachment' => 'scroll',
-					'background-type'       => '',
-					'background-media'      => '',
-				),
-				'tablet'  => array(
-					'background-color'      => '',
-					'background-image'      => '',
-					'background-repeat'     => 'repeat',
-					'background-position'   => 'center center',
-					'background-size'       => 'auto',
-					'background-attachment' => 'scroll',
-					'background-type'       => '',
-					'background-media'      => '',
-				),
-				'mobile'  => array(
-					'background-color'      => '',
-					'background-image'      => '',
-					'background-repeat'     => 'repeat',
-					'background-position'   => 'center center',
-					'background-size'       => 'auto',
-					'background-attachment' => 'scroll',
-					'background-type'       => '',
-					'background-media'      => '',
-				),
-			);
-			foreach ( $post_types as $index => $post_type ) {
-				$theme_options['ast-dynamic-archive-' . esc_attr( $post_type ) . '-title-font-size'] = $archive_title_font_size;
 
-				// BG color support.
-				$theme_options['ast-dynamic-archive-' . esc_attr( $post_type ) . '-banner-image-type'] = ! empty( $theme_options['archive-summary-box-bg-color'] ) ? 'custom' : 'none';
-				$theme_options['ast-dynamic-archive-' . esc_attr( $post_type ) . '-banner-custom-bg'] = $archive_summary_box_bg;
+		// Archive summary box compatibility.
+		$archive_title_font_size = array(
+			'desktop'      => isset( $theme_options['font-size-archive-summary-title']['desktop'] ) ? $theme_options['font-size-archive-summary-title']['desktop'] : '',
+			'tablet'       => isset( $theme_options['font-size-archive-summary-title']['tablet'] ) ? $theme_options['font-size-archive-summary-title']['tablet'] : '',
+			'mobile'       => isset( $theme_options['font-size-archive-summary-title']['mobile'] ) ? $theme_options['font-size-archive-summary-title']['mobile'] : '',
+			'desktop-unit' => isset( $theme_options['font-size-archive-summary-title']['desktop-unit'] ) ? $theme_options['font-size-archive-summary-title']['desktop-unit'] : 'px',
+			'tablet-unit'  => isset( $theme_options['font-size-archive-summary-title']['tablet-unit'] ) ? $theme_options['font-size-archive-summary-title']['tablet-unit'] : 'px',
+			'mobile-unit'  => isset( $theme_options['font-size-archive-summary-title']['mobile-unit'] ) ? $theme_options['font-size-archive-summary-title']['mobile-unit'] : 'px',
+		);
+		$single_title_font_size = array(
+			'desktop'      => isset( $theme_options['font-size-entry-title']['desktop'] ) ? $theme_options['font-size-entry-title']['desktop'] : '',
+			'tablet'       => isset( $theme_options['font-size-entry-title']['tablet'] ) ? $theme_options['font-size-entry-title']['tablet'] : '',
+			'mobile'       => isset( $theme_options['font-size-entry-title']['mobile'] ) ? $theme_options['font-size-entry-title']['mobile'] : '',
+			'desktop-unit' => isset( $theme_options['font-size-entry-title']['desktop-unit'] ) ? $theme_options['font-size-entry-title']['desktop-unit'] : 'px',
+			'tablet-unit'  => isset( $theme_options['font-size-entry-title']['tablet-unit'] ) ? $theme_options['font-size-entry-title']['tablet-unit'] : 'px',
+			'mobile-unit'  => isset( $theme_options['font-size-entry-title']['mobile-unit'] ) ? $theme_options['font-size-entry-title']['mobile-unit'] : 'px',
+		);
+		$archive_summary_box_bg = array(
+			'desktop' => array(
+				'background-color'      => ! empty( $theme_options['archive-summary-box-bg-color'] ) ? $theme_options['archive-summary-box-bg-color'] : '',
+				'background-image'      => '',
+				'background-repeat'     => 'repeat',
+				'background-position'   => 'center center',
+				'background-size'       => 'auto',
+				'background-attachment' => 'scroll',
+				'background-type'       => '',
+				'background-media'      => '',
+			),
+			'tablet'  => array(
+				'background-color'      => '',
+				'background-image'      => '',
+				'background-repeat'     => 'repeat',
+				'background-position'   => 'center center',
+				'background-size'       => 'auto',
+				'background-attachment' => 'scroll',
+				'background-type'       => '',
+				'background-media'      => '',
+			),
+			'mobile'  => array(
+				'background-color'      => '',
+				'background-image'      => '',
+				'background-repeat'     => 'repeat',
+				'background-position'   => 'center center',
+				'background-size'       => 'auto',
+				'background-attachment' => 'scroll',
+				'background-type'       => '',
+				'background-media'      => '',
+			),
+		);
+		foreach ( $post_types as $index => $post_type ) {
+			// Single post structure.
+			if ( ! empty( $theme_options['ast-dynamic-single-' . esc_attr( $post_type ) . '-structure'] ) ) {
+				$single_post_structure   = isset( $theme_options['blog-single-post-structure'] ) ? $theme_options['blog-single-post-structure'] : array(
+					'single-image',
+					'single-title-meta',
+				);
+				$migrated_post_structure = array();
 
-				// Archive title font support.
-				$theme_options['ast-dynamic-archive-' . esc_attr( $post_type ) . '-title-font-family'] = ! empty( $theme_options['font-family-archive-summary-title'] ) ? $theme_options['font-family-archive-summary-title'] : '';
-				$theme_options['ast-dynamic-archive-' . esc_attr( $post_type ) . '-title-font-weight'] = ! empty( $theme_options['font-weight-archive-summary-title'] ) ? $theme_options['font-weight-archive-summary-title'] : '';
-				$theme_options['ast-dynamic-archive-' . esc_attr( $post_type ) . '-title-text-transform'] = ! empty( $theme_options['text-transform-archive-summary-title'] ) ? $theme_options['text-transform-archive-summary-title'] : 'capitalize';
-				$theme_options['ast-dynamic-archive-' . esc_attr( $post_type ) . '-title-line-height'] = ! empty( $theme_options['line-height-archive-summary-title'] ) ? $theme_options['line-height-archive-summary-title'] : '';
+				if ( ! empty( $single_post_structure ) ) {
 
-				// Archive title colors support.
-				$theme_options['ast-dynamic-archive-' . esc_attr( $post_type ) . '-banner-title-color'] = ! empty( $theme_options['archive-summary-box-title-color'] ) ? $theme_options['archive-summary-box-title-color'] : '';
-				$theme_options['ast-dynamic-archive-' . esc_attr( $post_type ) . '-banner-text-color'] = ! empty( $theme_options['archive-summary-box-text-color'] ) ? $theme_options['archive-summary-box-text-color'] : '';
+					foreach ( $single_post_structure as $key ) {
+						if ( 'single-title-meta' === $key ) {
+							$migrated_post_structure[] = 'ast-dynamic-single-' . esc_attr( $post_type ) . '-title';
+							$migrated_post_structure[] = 'ast-dynamic-single-' . esc_attr( $post_type ) . '-meta';
+						}
+						if ( 'single-image' === $key ) {
+							$migrated_post_structure[] = 'ast-dynamic-single-' . esc_attr( $post_type ) . '-image';
+						}
+					}
+
+					$theme_options['ast-dynamic-single-' . esc_attr( $post_type ) . '-structure'] = $migrated_post_structure;
+				}
 			}
+
+			// Single post meta.
+			if ( ! empty( $theme_options['ast-dynamic-single-' . esc_attr( $post_type ) . '-metadata'] ) ) {
+				$single_post_meta       = isset( $theme_options['blog-single-meta'] ) ? $theme_options['blog-single-meta'] : array(
+					'comments',
+					'category',
+					'author',
+				);
+				$migrated_post_metadata = array();
+
+				if ( ! empty( $single_post_meta ) ) {
+					if ( in_array( 'author', $single_post_meta ) ) {
+						$migrated_post_metadata[] = 'author';
+					}
+
+					if ( in_array( 'date', $single_post_meta ) ) {
+						$migrated_post_metadata[] = 'date';
+					}
+
+					$assigned_tax = false;
+					if ( in_array( 'category', $single_post_meta ) && in_array( 'tag', $single_post_meta ) ) {
+						$migrated_post_metadata[]                  = 'taxonomy';
+						$theme_options['ast-dynamic-single-' . esc_attr( $post_type ) . '-taxonomy'] = 'category-tag';
+						$assigned_tax                              = true;
+					}
+					if ( false === $assigned_tax && in_array( 'category', $single_post_meta ) ) {
+						$migrated_post_metadata[]                  = 'taxonomy';
+						$theme_options['ast-dynamic-single-' . esc_attr( $post_type ) . '-taxonomy'] = 'category';
+					}
+					if ( false === $assigned_tax && in_array( 'tag', $single_post_meta ) ) {
+						$migrated_post_metadata[]                  = 'taxonomy';
+						$theme_options['ast-dynamic-single-' . esc_attr( $post_type ) . '-taxonomy'] = 'post_tag';
+					}
+
+					if ( in_array( 'comments', $single_post_meta ) ) {
+						$migrated_post_metadata[] = 'comments';
+					}
+
+					$theme_options['ast-dynamic-single-' . esc_attr( $post_type ) . '-metadata'] = $migrated_post_metadata;
+				}
+			}
+
+			// Archive layout compatibilities.
+			$theme_options['ast-archive-' . esc_attr( $post_type ) . '-title'] = true;
+
+			// Single layout compatibilities.
+			$theme_options['ast-single-' . esc_attr( $post_type ) . '-title'] = true;
+
+			// BG color support.
+			$theme_options['ast-dynamic-archive-' . esc_attr( $post_type ) . '-banner-image-type'] = ! empty( $theme_options['archive-summary-box-bg-color'] ) ? 'custom' : 'none';
+			$theme_options['ast-dynamic-archive-' . esc_attr( $post_type ) . '-banner-custom-bg'] = $archive_summary_box_bg;
+
+			// Archive title font support.
+			$theme_options['ast-dynamic-archive-' . esc_attr( $post_type ) . '-title-font-family'] = ! empty( $theme_options['font-family-archive-summary-title'] ) ? $theme_options['font-family-archive-summary-title'] : '';
+			$theme_options['ast-dynamic-archive-' . esc_attr( $post_type ) . '-title-font-size'] = $archive_title_font_size;
+			$theme_options['ast-dynamic-archive-' . esc_attr( $post_type ) . '-title-font-weight'] = ! empty( $theme_options['font-weight-archive-summary-title'] ) ? $theme_options['font-weight-archive-summary-title'] : '';
+			$theme_options['ast-dynamic-archive-' . esc_attr( $post_type ) . '-title-text-transform'] = ! empty( $theme_options['text-transform-archive-summary-title'] ) ? $theme_options['text-transform-archive-summary-title'] : 'capitalize';
+			$theme_options['ast-dynamic-archive-' . esc_attr( $post_type ) . '-title-line-height'] = ! empty( $theme_options['line-height-archive-summary-title'] ) ? $theme_options['line-height-archive-summary-title'] : '';
+
+			// Archive title colors support.
+			$theme_options['ast-dynamic-archive-' . esc_attr( $post_type ) . '-banner-title-color'] = ! empty( $theme_options['archive-summary-box-title-color'] ) ? $theme_options['archive-summary-box-title-color'] : '';
+			$theme_options['ast-dynamic-archive-' . esc_attr( $post_type ) . '-banner-text-color'] = ! empty( $theme_options['archive-summary-box-text-color'] ) ? $theme_options['archive-summary-box-text-color'] : '';
+
+			// Single title colors support.
+			$theme_options['ast-dynamic-single-' . esc_attr( $post_type ) . '-banner-title-color'] = ! empty( $theme_options['entry-title-color'] ) ? $theme_options['entry-title-color'] : '';
+
+			// Single title font support.
+			$theme_options['ast-dynamic-archive-' . esc_attr( $post_type ) . '-title-font-family'] = ! empty( $theme_options['font-family-entry-title'] ) ? $theme_options['font-family-entry-title'] : '';
+			$theme_options['ast-dynamic-archive-' . esc_attr( $post_type ) . '-title-font-size'] = $single_title_font_size;
+			$theme_options['ast-dynamic-archive-' . esc_attr( $post_type ) . '-title-font-weight'] = ! empty( $theme_options['font-weight-entry-title'] ) ? $theme_options['font-weight-entry-title'] : '';
+			$theme_options['ast-dynamic-archive-' . esc_attr( $post_type ) . '-title-text-transform'] = ! empty( $theme_options['text-transform-entry-title'] ) ? $theme_options['text-transform-entry-title'] : 'capitalize';
+			$theme_options['ast-dynamic-archive-' . esc_attr( $post_type ) . '-title-line-height'] = ! empty( $theme_options['line-height-entry-title'] ) ? $theme_options['line-height-entry-title'] : '';
 		}
 
 		update_option( 'astra-settings', $theme_options );
