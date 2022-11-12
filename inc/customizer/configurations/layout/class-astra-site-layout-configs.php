@@ -70,14 +70,6 @@ if ( ! class_exists( 'Astra_Site_Layout_Configs' ) ) {
 					'section'     => 'section-container-layout',
 					'priority'    => 10,
 					'title'       => __( 'Narrow Container Width', 'astra' ),
-					'context'     => array(
-						Astra_Builder_Helper::$general_tab_config,
-						array(
-							'setting'  => ASTRA_THEME_SETTINGS . '[site-content-layout]',
-							'operator' => '==',
-							'value'    => 'narrow-container',
-						),
-					),
 					'suffix'      => 'px',
 					'input_attrs' => array(
 						'min'  => 400,
