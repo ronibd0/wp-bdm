@@ -731,13 +731,12 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				);
 			}
 
+			// Accessibility options.
 			$enable_site_accessibility = astra_get_option( 'site-accessibility-toggle', false );
 
-			$html_selectors_focus_visible       = 'input[type="search"]:focus-visible, a:focus-visible, .ast-menu-toggle:focus-visible, .site .skip-link:focus-visible, .wp-block-loginout input:focus-visible, .wp-block-search.wp-block-search__button-inside .wp-block-search__inside-wrapper .wp-block-search__input:focus-visible';
-			$html_selectors_focus               = 'input[type="search"]:focus, a:focus, .ast-menu-toggle:focus, .site .skip-link:focus, .wp-block-loginout input:focus, .wp-block-search.wp-block-search__button-inside .wp-block-search__inside-wrapper .wp-block-search__input:focus';
-			$html_selectors_focus_input         = 'body input[type="search"]:focus-visible';
-			$html_selectors_focus_remove_border = 'body input[type="search"]:focus';
-			
+			$html_selectors_focus_visible     = 'a:focus-visible, .ast-menu-toggle:focus-visible, .site .skip-link:focus-visible, .wp-block-loginout input:focus-visible, .wp-block-search.wp-block-search__button-inside .wp-block-search__inside-wrapper';
+			$html_selectors_focus_only_inputs = 'input:focus, input[type="text"]:focus, input[type="email"]:focus, input[type="url"]:focus, input[type="password"]:focus, input[type="reset"]:focus, input[type="search"]:focus, textarea:focus, .wp-block-search__input:focus';
+
 			if ( $enable_site_accessibility ) {
 				$outline_style = astra_get_option( 'site-accessibility-highlight-type' );
 				$outline_color = astra_get_option( 'site-accessibility-highlight-color' );
@@ -745,35 +744,28 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				$outline_input_style = astra_get_option( 'site-accessibility-highlight-input-type' );
 				$outline_input_color = astra_get_option( 'site-accessibility-highlight-input-color' );
 
-				$css_output[ $html_selectors_focus ] = array(
-					'outline' => 'none', // !important used to remove css globally.
-				);
-
-				$css_output[ $html_selectors_focus_remove_border ] = array(
-					'border' => 'none', // !important used to remove css globally.
-				);
-
 				$css_output[ $html_selectors_focus_visible ] = array(
 					'outline-style' => $outline_style ? $outline_style : 'inherit',
 					'outline-color' => $outline_color ? $outline_color : 'inherit',
 					'outline-width' => 'thin',
+					'border-color'  => 'transparent',
 				);
 
 				if ( 'disable' !== $outline_input_style ) {
-					$css_output[ $html_selectors_focus_input ] = array(
-						'outline-style' => $outline_input_style ? $outline_input_style : 'inherit',
-						'outline-color' => $outline_input_color ? $outline_input_color : 'inherit',
+					$css_output[ $html_selectors_focus_only_inputs ] = array(
+						'border-style'  => $outline_input_style ? $outline_input_style : 'inherit',
+						'border-color'  => $outline_input_color ? $outline_input_color : 'inherit',
+						'border-width'  => 'thin',
+						'outline-color' => 'transparent',
 					);
-				}           
-			} else {
-				$css_output[ $html_selectors_focus_visible ] = array(
-					'outline-style' => 'dotted',
-					'outline-width' => 'thin',
-				);
-
-				$css_output[ $html_selectors_focus_remove_border ] = array(
-					'border' => 'none',
-				);
+				} else {
+					$css_output[ $html_selectors_focus_only_inputs ] = array(
+						'border-style'  => $outline_style ? $outline_style : 'inherit',
+						'border-color'  => $outline_color ? $outline_color : 'inherit',
+						'border-width'  => 'thin',
+						'outline-color' => 'transparent',
+					);
+				}
 			}
 
 			/**
