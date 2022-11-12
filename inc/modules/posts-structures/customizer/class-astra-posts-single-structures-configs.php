@@ -326,15 +326,15 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_multi_choices' ),
 					'section'           => $title_section,
 					'context'           => Astra_Builder_Helper::$general_tab,
-					'default'           => astra_get_option( $title_section . '-structure', array( $title_section . '-title', $title_section . '-breadcrumb' ) ),
+					'default'           => astra_get_option( $title_section . '-structure', array( $title_section . '-title', $title_section . '-meta' ) ),
 					'priority'          => 20,
 					'title'             => __( 'Structure', 'astra' ),
 					'divider'           => array( 'ast_class' => 'ast-top-divider ast-bottom-spacing' ),
 					'choices'           => array_merge(
 						array(
 							$title_section . '-title'      => __( 'Title', 'astra' ),
-							$title_section . '-breadcrumb' => __( 'Breadcrumb', 'astra' ),
 							$title_section . '-meta'       => __( 'Meta', 'astra' ),
+							$title_section . '-breadcrumb' => __( 'Breadcrumb', 'astra' ),
 							$title_section . '-excerpt'    => __( 'Excerpt', 'astra' ),
 						),
 						$structure_sub_controls

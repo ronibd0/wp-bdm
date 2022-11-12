@@ -1166,8 +1166,9 @@ function astra_post_structures_meta_migration() {
 				);
 				$migrated_post_structure = array();
 
-				if ( ! empty( $single_post_structure ) ) {
+				error_log( print_r( $single_post_structure, true ) );
 
+				if ( ! empty( $single_post_structure ) ) {
 					foreach ( $single_post_structure as $key ) {
 						if ( 'single-title-meta' === $key ) {
 							$migrated_post_structure[] = 'ast-dynamic-single-' . esc_attr( $post_type ) . '-title';
@@ -1191,32 +1192,27 @@ function astra_post_structures_meta_migration() {
 				);
 				$migrated_post_metadata = array();
 
+				error_log( print_r( $single_post_meta, true ) );
+
 				if ( ! empty( $single_post_meta ) ) {
-					if ( in_array( 'author', $single_post_meta ) ) {
-						$migrated_post_metadata[] = 'author';
-					}
-
-					if ( in_array( 'date', $single_post_meta ) ) {
-						$migrated_post_metadata[] = 'date';
-					}
-
-					$assigned_tax = false;
-					if ( in_array( 'category', $single_post_meta ) && in_array( 'tag', $single_post_meta ) ) {
-						$migrated_post_metadata[]                  = 'taxonomy';
-						$theme_options['ast-dynamic-single-' . esc_attr( $post_type ) . '-taxonomy'] = 'category-tag';
-						$assigned_tax                              = true;
-					}
-					if ( false === $assigned_tax && in_array( 'category', $single_post_meta ) ) {
-						$migrated_post_metadata[]                  = 'taxonomy';
-						$theme_options['ast-dynamic-single-' . esc_attr( $post_type ) . '-taxonomy'] = 'category';
-					}
-					if ( false === $assigned_tax && in_array( 'tag', $single_post_meta ) ) {
-						$migrated_post_metadata[]                  = 'taxonomy';
-						$theme_options['ast-dynamic-single-' . esc_attr( $post_type ) . '-taxonomy'] = 'post_tag';
-					}
-
-					if ( in_array( 'comments', $single_post_meta ) ) {
-						$migrated_post_metadata[] = 'comments';
+					foreach ( $single_post_meta as $key ) {
+						if ( 'author' === $key ) {
+							$migrated_post_metadata[] = 'author';
+						}
+						if ( 'date' === $key ) {
+							$migrated_post_metadata[] = 'date';
+						}
+						if ( 'category' === $key ) {
+							$migrated_post_metadata[]                  = 'taxonomy';
+							$theme_options['ast-dynamic-single-' . esc_attr( $post_type ) . '-taxonomy'] = 'category';
+						}
+						if ( 'tag' === $key ) {
+							$migrated_post_metadata[]                  = 'taxonomy';
+							$theme_options['ast-dynamic-single-' . esc_attr( $post_type ) . '-taxonomy'] = 'post_tag';
+						}
+						if ( 'comments' === $key ) {
+							$migrated_post_metadata[] = 'comments';
+						}
 					}
 
 					$theme_options['ast-dynamic-single-' . esc_attr( $post_type ) . '-metadata'] = $migrated_post_metadata;
@@ -1248,11 +1244,11 @@ function astra_post_structures_meta_migration() {
 			$theme_options['ast-dynamic-single-' . esc_attr( $post_type ) . '-banner-title-color'] = ! empty( $theme_options['entry-title-color'] ) ? $theme_options['entry-title-color'] : '';
 
 			// Single title font support.
-			$theme_options['ast-dynamic-archive-' . esc_attr( $post_type ) . '-title-font-family'] = ! empty( $theme_options['font-family-entry-title'] ) ? $theme_options['font-family-entry-title'] : '';
-			$theme_options['ast-dynamic-archive-' . esc_attr( $post_type ) . '-title-font-size'] = $single_title_font_size;
-			$theme_options['ast-dynamic-archive-' . esc_attr( $post_type ) . '-title-font-weight'] = ! empty( $theme_options['font-weight-entry-title'] ) ? $theme_options['font-weight-entry-title'] : '';
-			$theme_options['ast-dynamic-archive-' . esc_attr( $post_type ) . '-title-text-transform'] = ! empty( $theme_options['text-transform-entry-title'] ) ? $theme_options['text-transform-entry-title'] : 'capitalize';
-			$theme_options['ast-dynamic-archive-' . esc_attr( $post_type ) . '-title-line-height'] = ! empty( $theme_options['line-height-entry-title'] ) ? $theme_options['line-height-entry-title'] : '';
+			$theme_options['ast-dynamic-single-' . esc_attr( $post_type ) . '-title-font-family'] = ! empty( $theme_options['font-family-entry-title'] ) ? $theme_options['font-family-entry-title'] : '';
+			$theme_options['ast-dynamic-single-' . esc_attr( $post_type ) . '-title-font-size'] = $single_title_font_size;
+			$theme_options['ast-dynamic-single-' . esc_attr( $post_type ) . '-title-font-weight'] = ! empty( $theme_options['font-weight-entry-title'] ) ? $theme_options['font-weight-entry-title'] : '';
+			$theme_options['ast-dynamic-single-' . esc_attr( $post_type ) . '-title-text-transform'] = ! empty( $theme_options['text-transform-entry-title'] ) ? $theme_options['text-transform-entry-title'] : 'capitalize';
+			$theme_options['ast-dynamic-single-' . esc_attr( $post_type ) . '-title-line-height'] = ! empty( $theme_options['line-height-entry-title'] ) ? $theme_options['line-height-entry-title'] : '';
 		}
 
 		update_option( 'astra-settings', $theme_options );
