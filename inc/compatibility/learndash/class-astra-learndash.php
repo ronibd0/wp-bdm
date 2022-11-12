@@ -326,10 +326,10 @@ if ( ! class_exists( 'Astra_LearnDash' ) ) :
 					$layout = $learndash_sidebar;
 				}
 
-				$supported_post_types = Astra_Posts_Strctures_Loader::get_supported_post_types();
+				$supported_post_types = Astra_Posts_Structure_Loader::get_supported_post_types();
 				$post_type            = get_post_type();
 
-			
+
 				if ( in_array( $post_type, $supported_post_types ) ) {
 					$dynamic_sidebar_layout = '';
 
@@ -390,7 +390,7 @@ if ( ! class_exists( 'Astra_LearnDash' ) ) :
 					$layout = $learndash_layout;
 				}
 
-				$supported_post_types = Astra_Posts_Strctures_Loader::get_supported_post_types();
+				$supported_post_types = Astra_Posts_Structure_Loader::get_supported_post_types();
 				$post_type            = get_post_type();
 
 				if ( in_array( $post_type, $supported_post_types ) ) {
@@ -418,7 +418,7 @@ if ( ! class_exists( 'Astra_LearnDash' ) ) :
 			return $layout;
 		}
 
-		/** 
+		/**
 		 * LearnDash Static CSS.
 		 *
 		 * @since 3.3.0
@@ -495,7 +495,7 @@ if ( ! class_exists( 'Astra_LearnDash' ) ) :
 					ont-size: 1em;
 					font-weight: inherit;
 				}
-				
+
 				body #lessons_list > div h4,
 				body #course_list > div h4,
 				body #quiz_list > div h4,
@@ -631,7 +631,7 @@ if ( ! class_exists( 'Astra_LearnDash' ) ) :
 				body .learndash_topic_dots ul .topic-notcompleted span {
 				  margin: 5px 0;
 				}
-				
+
 				body .learndash_navigation_lesson_topics_list .topic-completed span,
 				body .learndash_navigation_lesson_topics_list .topic-notcompleted span,
 				body .learndash_navigation_lesson_topics_list ul .topic-completed span,
@@ -644,7 +644,7 @@ if ( ! class_exists( 'Astra_LearnDash' ) ) :
 				  background: none;
 				  margin: 5px 0;
 				}
-				
+
 				body .learndash_navigation_lesson_topics_list .topic-completed span:before,
 				body .learndash_navigation_lesson_topics_list .topic-notcompleted span:before,
 				body .learndash_navigation_lesson_topics_list ul .topic-completed span:before,
@@ -663,7 +663,7 @@ if ( ! class_exists( 'Astra_LearnDash' ) ) :
 				  font-weight: normal;
 				  margin-right: 10px;
 				}
-				
+
 				body .learndash_navigation_lesson_topics_list .topic-completed span:before,
 				body .learndash_navigation_lesson_topics_list ul .topic-completed span:before,
 				body .learndash_topic_dots .topic-completed span:before,
@@ -688,7 +688,7 @@ if ( ! class_exists( 'Astra_LearnDash' ) ) :
 					overflow: hidden;
 					line-height: 0;
 				  }
-				  
+
 				  #learndash_next_prev_link a {
 					margin: 2px;
 					display: inline-block;

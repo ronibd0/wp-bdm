@@ -24,7 +24,8 @@ class Astra_Posts_Strctures_Markup {
 	 *  Constructor
 	 */
 	public function __construct() {
-		add_action( 'astra_content_before', array( $this, 'astra_add_hero_section_markup' ), 99 );
+		$astra_banner_hook = apply_filters( 'astra_banner_hook', 'astra_content_before' );
+		add_action( esc_attr( $astra_banner_hook ) , array( $this, 'astra_add_hero_section_markup' ), 99 );
 	}
 
 	/**
@@ -67,7 +68,7 @@ class Astra_Posts_Strctures_Markup {
 		$post_type = $post->post_type;
 		$type      = is_singular( $post_type ) ? 'single' : 'archive';
 
-		$supported_post_types = Astra_Posts_Strctures_Loader::get_supported_post_types();
+		$supported_post_types = Astra_Posts_Structure_Loader::get_supported_post_types();
 		if ( ! in_array( $post_type, $supported_post_types ) ) {
 			return;
 		}

@@ -99,7 +99,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$site_tagline_font_size  = astra_get_option( 'font-size-site-tagline' );
 
 			$single_post_title_font_size     = astra_get_option( 'font-size-entry-title' );
-			$archive_summary_title_font_size = astra_get_option( 'font-size-archive-summary-title' );
 			$archive_post_title_font_size    = astra_get_option( 'font-size-page-title' );
 			$heading_h1_font_size            = astra_get_option( 'font-size-h1' );
 			$heading_h2_font_size            = astra_get_option( 'font-size-h2' );
@@ -532,9 +531,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				),
 				'.astra-logo-svg:not(.sticky-custom-logo .astra-logo-svg, .transparent-custom-logo .astra-logo-svg, .advanced-header-logo .astra-logo-svg)' => array(
 					'height' => astra_get_css_value( ( ! empty( $header_logo_width['desktop-svg-height'] ) && ! is_customize_preview() ) ? $header_logo_width['desktop-svg-height'] : '', 'px' ),
-				),
-				'.ast-archive-description .ast-archive-title' => array(
-					'font-size' => astra_responsive_font( $archive_summary_title_font_size, 'desktop' ),
 				),
 				'.site-header .site-description'         => array(
 					'font-size' => astra_responsive_font( $site_tagline_font_size, 'desktop' ),
@@ -1721,10 +1717,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'.entry-title'                    => array(
 						'margin-bottom' => '0.5em',
 					),
-					'.ast-archive-description .ast-archive-title' => array(
-						'margin-bottom'  => '10px',
-						'text-transform' => 'capitalize',
-					),
 					'.ast-archive-description p'      => array(
 						'font-size'   => 'inherit',
 						'font-weight' => 'inherit',
@@ -2815,9 +2807,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'font-size' => astra_responsive_font( $site_title_font_size, 'tablet' ),
 					'display'   => esc_attr( $tablet_title_visibility ),
 				),
-				'.ast-archive-description .ast-archive-title' => array(
-					'font-size' => astra_responsive_font( $archive_summary_title_font_size, 'tablet', 40 ),
-				),
 				'.site-header .site-description' => array(
 					'font-size' => astra_responsive_font( $site_tagline_font_size, 'tablet' ),
 					'display'   => esc_attr( $tablet_tagline_visibility ),
@@ -2912,9 +2901,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				'.site-title'                    => array(
 					'font-size' => astra_responsive_font( $site_title_font_size, 'mobile' ),
 					'display'   => esc_attr( $mobile_title_visibility ),
-				),
-				'.ast-archive-description .ast-archive-title' => array(
-					'font-size' => astra_responsive_font( $archive_summary_title_font_size, 'mobile', 40 ),
 				),
 				'.site-header .site-description' => array(
 					'font-size' => astra_responsive_font( $site_tagline_font_size, 'mobile' ),

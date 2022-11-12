@@ -586,9 +586,9 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 					$llms_sidebar = astra_get_option( 'lifterlms-course-lesson-sidebar-layout' );
 				}
 
-				$supported_post_types = Astra_Posts_Strctures_Loader::get_supported_post_types();
+				$supported_post_types = Astra_Posts_Structure_Loader::get_supported_post_types();
 				$post_type            = get_post_type();
-	
+
 				if ( in_array( $post_type, $supported_post_types ) ) {
 					$dynamic_sidebar_layout = '';
 
@@ -642,9 +642,9 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 
 				$llms_layout = astra_get_option( 'lifterlms-content-layout' );
 
-				$supported_post_types = Astra_Posts_Strctures_Loader::get_supported_post_types();
+				$supported_post_types = Astra_Posts_Structure_Loader::get_supported_post_types();
 				$post_type            = get_post_type();
-	
+
 				if ( in_array( $post_type, $supported_post_types ) ) {
 					$dynamic_sidebar_layout = '';
 
@@ -654,7 +654,7 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 					if ( is_archive() ) {
 						$dynamic_sidebar_layout = astra_get_option( 'archive-' . $post_type . '-content-layout' );
 					}
-				
+
 					if ( ! empty( $dynamic_sidebar_layout ) && 'default' !== $dynamic_sidebar_layout ) {
 						$llms_layout = $dynamic_sidebar_layout;
 					}

@@ -36,7 +36,7 @@ class Astra_Posts_Strctures_Configs extends Astra_Customizer_Config_Base {
 	 */
 	public function register_configuration( $configurations, $wp_customize ) {
 
-		$post_types = Astra_Posts_Strctures_Loader::get_supported_post_types();
+		$post_types = Astra_Posts_Structure_Loader::get_supported_post_types();
 
 		if ( ! empty( $post_types ) ) {
 

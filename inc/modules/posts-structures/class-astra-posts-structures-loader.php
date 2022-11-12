@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @since x.x.x
  */
-class Astra_Posts_Strctures_Loader {
+class Astra_Posts_Structure_Loader {
 
 	/**
 	 * Instance
@@ -271,4 +271,4 @@ class Astra_Posts_Strctures_Loader {
 /**
  * Initialize class object with 'new' instance.
  */
-new Astra_Posts_Strctures_Loader();
+new Astra_Posts_Structure_Loader();

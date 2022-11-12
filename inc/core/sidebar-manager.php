@@ -25,7 +25,7 @@ if ( ! function_exists( 'astra_page_layout' ) ) {
 	 */
 	function astra_page_layout() {
 
-		$supported_post_types = Astra_Posts_Strctures_Loader::get_supported_post_types();
+		$supported_post_types = Astra_Posts_Structure_Loader::get_supported_post_types();
 
 		if ( is_singular() ) {
 
@@ -39,7 +39,7 @@ if ( ! function_exists( 'astra_page_layout' ) ) {
 
 
 				if ( 'post' === $post_type || 'page' === $post_type || 'product' === $post_type || in_array( $post_type, $supported_post_types ) ) {
-				
+
 					$layout = astra_get_option( 'single-' . get_post_type() . '-sidebar-layout' );
 				}
 

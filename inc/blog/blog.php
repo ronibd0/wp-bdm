@@ -501,13 +501,13 @@ function astra_banner_elements_order( $structure = array() ) {
 					}
 					if ( is_author() ) {
 						if ( ! empty( trim( get_the_author_meta( 'description' ) ) ) ) {
-							$description = wp_kses_post( get_the_author_meta( 'description' ) );
+							$description = get_the_author_meta( 'description' );
 						}
 					}
 					if ( empty( $description ) && ! have_posts() ) {
 						$description = esc_html( astra_default_strings( 'string-content-nothing-found-message', false ) );
 					}
-					echo '<span>' . $description . '</span>';
+					echo wp_kses_post( wpautop( $description ) );
 				}
 				do_action( 'astra_blog_archive_description_after' );
 				break;

@@ -3719,6 +3719,9 @@ span.customize-control-title.ast-group-section-title {
   font-weight: 600;
   color: #0073aa;
 }
+.ast-field-settings-modal .ast-fields-wrap > .customize-control-ast-responsive-slider + .customize-control-ast-font {
+    margin-top: 8px;
+}
 
 .customize-control-ast-sortable .sortable {
   cursor: default;
