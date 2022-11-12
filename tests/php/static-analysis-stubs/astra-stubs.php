@@ -16280,4 +16280,15 @@ namespace {
      * @package Astra Builder
      */
     $astra_row = \get_query_var('row');
+    /**
+     * Function to add narrow width properties in the frontend.
+     *
+     * @since x.x.x
+     * @param string  $location Location where this needs to be added.
+     * @param integer $narrow_container_max_width  Container Width in px.
+     * @return string|null css based on $location and $narrow_container_max_width.
+     */
+    function astra_narrow_container_width( $location, $narrow_container_max_width )
+    {
+    }
 }
