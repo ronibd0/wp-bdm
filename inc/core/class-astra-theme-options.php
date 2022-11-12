@@ -444,14 +444,6 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 						'tablet-unit'  => 'px',
 						'mobile-unit'  => 'px',
 					),
-					'font-size-entry-title'                => array(
-						'desktop'      => 30,
-						'tablet'       => '',
-						'mobile'       => '',
-						'desktop-unit' => 'px',
-						'tablet-unit'  => 'px',
-						'mobile-unit'  => 'px',
-					),
 					'single-post-outside-spacing'          => array(
 						'desktop'      => array(
 							'top'    => '',

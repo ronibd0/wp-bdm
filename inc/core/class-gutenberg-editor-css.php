@@ -42,7 +42,6 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 			$headings_font_weight        = astra_get_option( 'headings-font-weight' );
 			$headings_text_transform     = astra_get_option( 'headings-text-transform' );
 			$headings_line_height        = astra_get_option( 'headings-line-height' );
-			$single_post_title_font_size = astra_get_option( 'font-size-entry-title' );
 			$body_font_family            = astra_body_font_family();
 			$para_margin_bottom          = astra_get_option( 'para-margin-bottom' );
 			$theme_color                 = astra_get_option( 'theme-color' );
@@ -247,11 +246,12 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 			}
 
 			// Site title (Page Title) on Block Editor.
-			$site_title_font_family    = astra_get_option( 'font-family-entry-title' );
-			$site_title_font_weight    = astra_get_option( 'font-weight-entry-title' );
-			$site_title_line_height    = astra_get_option( 'line-height-entry-title' );
-			$site_title_font_size      = astra_get_option( 'font-size-entry-title' );
-			$site_title_text_transform = astra_get_option( 'text-transform-entry-title', $headings_text_transform );
+			$post_type = get_post_type();
+			$site_title_font_family    = astra_get_option( 'ast-dynamic-archive-' . esc_attr( $post_type ) . '-title-font-family' );
+			$site_title_font_weight    = astra_get_option( 'ast-dynamic-archive-' . esc_attr( $post_type ) . '-title-font-weight' );
+			$site_title_line_height    = astra_get_option( 'ast-dynamic-archive-' . esc_attr( $post_type ) . '-title-line-height' );
+			$site_title_font_size      = astra_get_option( 'ast-dynamic-archive-' . esc_attr( $post_type ) . '-title-font-size' );
+			$site_title_text_transform = astra_get_option( 'ast-dynamic-archive-' . esc_attr( $post_type ) . '-title-text-transform', $headings_text_transform );
 
 			// Fallback for Site title (Page Title).
 			if ( 'inherit' == $site_title_font_family ) {
@@ -323,7 +323,6 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 				),
 				'.editor-post-title__block .editor-post-title__input' => array(
 					'font-family' => ( 'inherit' === $headings_font_family ) ? astra_get_font_family( $body_font_family ) : astra_get_font_family( $headings_font_family ),
-					'font-size'   => astra_responsive_font( $single_post_title_font_size, 'desktop' ),
 					'font-weight' => 'normal',
 				),
 				'.block-editor-block-list__block'         => array(
@@ -1027,9 +1026,6 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 			}
 
 			$tablet_css = array(
-				'.editor-post-title__block .editor-post-title__input' => array(
-					'font-size' => astra_responsive_font( $single_post_title_font_size, 'tablet', 30 ),
-				),
 				// Heading H1 - H6 font size.
 				'.edit-post-visual-editor h1, .wp-block-heading h1, .wp-block-freeform.block-library-rich-text__tinymce h1, .edit-post-visual-editor .wp-block-heading h1, .wp-block-heading h1.editor-rich-text__tinymce, .editor-styles-wrapper .wp-block-uagb-advanced-heading h1' => array(
 					'font-size' => astra_responsive_font( $heading_h1_font_size, 'tablet', 30 ),
@@ -1055,10 +1051,6 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 			$css .= astra_parse_css( $tablet_css, '', astra_get_tablet_breakpoint() );
 
 			$mobile_css = array(
-				'.editor-post-title__block .editor-post-title__input' => array(
-					'font-size' => astra_responsive_font( $single_post_title_font_size, 'mobile', 30 ),
-				),
-
 				// Heading H1 - H6 font size.
 				'.edit-post-visual-editor h1, .wp-block-heading h1, .wp-block-freeform.block-library-rich-text__tinymce h1, .edit-post-visual-editor .wp-block-heading h1, .wp-block-heading h1.editor-rich-text__tinymce, .editor-styles-wrapper .wp-block-uagb-advanced-heading h1' => array(
 					'font-size' => astra_responsive_font( $heading_h1_font_size, 'mobile', 30 ),

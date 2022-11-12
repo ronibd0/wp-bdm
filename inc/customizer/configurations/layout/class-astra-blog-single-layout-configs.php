@@ -97,7 +97,6 @@ if ( ! class_exists( 'Astra_Blog_Single_Layout_Configs' ) ) {
 					'control'  => 'ast-heading',
 					'priority' => 24,
 					'context'  => $tab_config,
-					'divider'  => array( 'ast_class' => 'ast-section-spacing' ),
 				),
 
 				/**

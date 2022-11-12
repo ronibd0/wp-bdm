@@ -98,7 +98,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$site_title_font_size    = astra_get_option( 'font-size-site-title' );
 			$site_tagline_font_size  = astra_get_option( 'font-size-site-tagline' );
 
-			$single_post_title_font_size     = astra_get_option( 'font-size-entry-title' );
 			$archive_post_title_font_size    = astra_get_option( 'font-size-page-title' );
 			$heading_h1_font_size            = astra_get_option( 'font-size-h1' );
 			$heading_h2_font_size            = astra_get_option( 'font-size-h2' );
@@ -593,9 +592,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'h6, .entry-content h6'
 				)                                        => $h6_properties,
 
-				'.ast-single-post .entry-title, .page-title' => array(
-					'font-size' => astra_responsive_font( $single_post_title_font_size, 'desktop' ),
-				),
 				// Global CSS.
 				'::selection'                            => array(
 					'background-color' => esc_attr( $theme_color ),
@@ -2862,9 +2858,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				)                                => array(
 					'font-size' => astra_responsive_font( $heading_h6_font_size, 'tablet' ),
 				),
-				'.ast-single-post .entry-title, .page-title' => array(
-					'font-size' => astra_responsive_font( $single_post_title_font_size, 'tablet', 30 ),
-				),
 				'.astra-logo-svg'                => array(
 					'width' => astra_get_css_value( $header_logo_width['tablet'], 'px' ),
 				),
@@ -2956,10 +2949,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'h6, .entry-content h6'
 				)                                => array(
 					'font-size' => astra_responsive_font( $heading_h6_font_size, 'mobile' ),
-				),
-
-				'.ast-single-post .entry-title, .page-title' => array(
-					'font-size' => astra_responsive_font( $single_post_title_font_size, 'mobile', 30 ),
 				),
 				'header .custom-logo-link img, .ast-header-break-point .site-branding img, .ast-header-break-point .custom-logo-link img' => array(
 					'max-width' => astra_get_css_value( $header_logo_width['mobile'], 'px' ),
