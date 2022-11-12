@@ -1188,23 +1188,39 @@ function astra_post_structures_meta_migration() {
 			$migrated_post_metadata = array();
 
 			if ( ! empty( $single_post_meta ) ) {
+				$tax_counter = 0;
+				$tax_slug = 'ast-dynamic-single-' . esc_attr( $post_type ) . '-taxonomy';
 				foreach ( $single_post_meta as $key ) {
-					if ( 'author' === $key ) {
-						$migrated_post_metadata[] = 'author';
-					}
-					if ( 'date' === $key ) {
-						$migrated_post_metadata[] = 'date';
-					}
-					if ( 'category' === $key ) {
-						$migrated_post_metadata[]                  = 'taxonomy';
-						$theme_options['ast-dynamic-single-' . esc_attr( $post_type ) . '-taxonomy'] = 'category';
-					}
-					if ( 'tag' === $key ) {
-						$migrated_post_metadata[]                  = 'taxonomy';
-						$theme_options['ast-dynamic-single-' . esc_attr( $post_type ) . '-taxonomy'] = 'post_tag';
-					}
-					if ( 'comments' === $key ) {
-						$migrated_post_metadata[] = 'comments';
+					switch ( $key ) {
+						case 'author':
+							$migrated_post_metadata[] = 'author';
+						break;
+						case 'date':
+							$migrated_post_metadata[] = 'date';
+						break;
+						case 'comments':
+							$migrated_post_metadata[] = 'comments';
+						break;
+						case 'category':
+							if( 'post' === $post_type ) {
+								$migrated_post_metadata[] = $tax_slug;
+								$theme_options[$tax_slug] = 'category';
+
+								$tax_counter = $tax_counter + 1;
+								$tax_slug = $tax_counter ? 'ast-dynamic-single-' . esc_attr( $post_type ) . '-taxonomy-' . $tax_counter : 'ast-dynamic-single-' . esc_attr( $post_type ) . '-taxonomy';
+							}
+						break;
+							case 'tag':
+								if( 'post' === $post_type ) {
+									$migrated_post_metadata[] = $tax_slug;
+									$theme_options[$tax_slug] = 'post_tag';
+
+									$tax_counter = $tax_counter + 1;
+									$tax_slug = $tax_counter ? 'ast-dynamic-single-' . esc_attr( $post_type ) . '-taxonomy-' . $tax_counter : 'ast-dynamic-single-' . esc_attr( $post_type ) . '-taxonomy';
+								}
+							break;
+						default:
+						break;
 					}
 				}
 
