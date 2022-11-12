@@ -62,6 +62,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			 */
 			$is_site_rtl                = is_rtl();
 			$site_content_width         = astra_get_option( 'site-content-width', 1200 );
+			$narrow_container_max_width = astra_get_option( 'narrow-container-max-width', 750 );
 			$header_logo_width          = astra_get_option( 'ast-header-responsive-logo-width' );
 			$container_layout           = astra_get_option( 'site-content-layout' );
 			$title_color                = astra_get_option( 'header-color-site-title' );
@@ -3032,6 +3033,20 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 			/* Parse CSS from array()*/
 			$parse_css .= astra_parse_css( $site_width, astra_get_tablet_breakpoint( '', 1 ) );
+
+			/* Narrow Width Container Layout dynamic css */
+
+			// Global.
+			$parse_css .= astra_narrow_container_width( $container_layout, $narrow_container_max_width );
+
+			// Archive.
+			$parse_css .= astra_narrow_container_width( $archive_container_layout, $narrow_container_max_width );
+
+			// Single Post.
+			$parse_css .= astra_narrow_container_width( $single_container_layout, $narrow_container_max_width );
+
+			// Page.
+			$parse_css .= astra_narrow_container_width( $page_container_layout, $narrow_container_max_width );
 
 			if ( Astra_Builder_Helper::apply_flex_based_css() ) {
 				$max_site_container_css = array(
