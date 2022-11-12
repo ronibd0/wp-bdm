@@ -1110,7 +1110,7 @@ function astra_post_structures_meta_migration() {
 
 		// Archive summary box compatibility.
 		$archive_title_font_size = array(
-			'desktop'      => isset( $theme_options['font-size-archive-summary-title']['desktop'] ) ? $theme_options['font-size-archive-summary-title']['desktop'] : '',
+			'desktop'      => isset( $theme_options['font-size-archive-summary-title']['desktop'] ) ? $theme_options['font-size-archive-summary-title']['desktop'] : 40,
 			'tablet'       => isset( $theme_options['font-size-archive-summary-title']['tablet'] ) ? $theme_options['font-size-archive-summary-title']['tablet'] : '',
 			'mobile'       => isset( $theme_options['font-size-archive-summary-title']['mobile'] ) ? $theme_options['font-size-archive-summary-title']['mobile'] : '',
 			'desktop-unit' => isset( $theme_options['font-size-archive-summary-title']['desktop-unit'] ) ? $theme_options['font-size-archive-summary-title']['desktop-unit'] : 'px',
@@ -1159,64 +1159,60 @@ function astra_post_structures_meta_migration() {
 		);
 		foreach ( $post_types as $index => $post_type ) {
 			// Single post structure.
-			if ( ! empty( $theme_options['ast-dynamic-single-' . esc_attr( $post_type ) . '-structure'] ) ) {
-				$single_post_structure   = isset( $theme_options['blog-single-post-structure'] ) ? $theme_options['blog-single-post-structure'] : array(
-					'single-image',
-					'single-title-meta',
-				);
-				$migrated_post_structure = array();
+			$single_post_structure   = isset( $theme_options['blog-single-post-structure'] ) ? $theme_options['blog-single-post-structure'] : array(
+				'single-image',
+				'single-title-meta',
+			);
+			$migrated_post_structure = array();
 
-				error_log( print_r( $single_post_structure, true ) );
+			error_log( print_r( $single_post_structure, true ) );
 
-				if ( ! empty( $single_post_structure ) ) {
-					foreach ( $single_post_structure as $key ) {
-						if ( 'single-title-meta' === $key ) {
-							$migrated_post_structure[] = 'ast-dynamic-single-' . esc_attr( $post_type ) . '-title';
-							$migrated_post_structure[] = 'ast-dynamic-single-' . esc_attr( $post_type ) . '-meta';
-						}
-						if ( 'single-image' === $key ) {
-							$migrated_post_structure[] = 'ast-dynamic-single-' . esc_attr( $post_type ) . '-image';
-						}
+			if ( ! empty( $single_post_structure ) ) {
+				foreach ( $single_post_structure as $key ) {
+					if ( 'single-title-meta' === $key ) {
+						$migrated_post_structure[] = 'ast-dynamic-single-' . esc_attr( $post_type ) . '-title';
+						$migrated_post_structure[] = 'ast-dynamic-single-' . esc_attr( $post_type ) . '-meta';
 					}
-
-					$theme_options['ast-dynamic-single-' . esc_attr( $post_type ) . '-structure'] = $migrated_post_structure;
+					if ( 'single-image' === $key ) {
+						$migrated_post_structure[] = 'ast-dynamic-single-' . esc_attr( $post_type ) . '-image';
+					}
 				}
+
+				$theme_options['ast-dynamic-single-' . esc_attr( $post_type ) . '-structure'] = $migrated_post_structure;
 			}
 
 			// Single post meta.
-			if ( ! empty( $theme_options['ast-dynamic-single-' . esc_attr( $post_type ) . '-metadata'] ) ) {
-				$single_post_meta       = isset( $theme_options['blog-single-meta'] ) ? $theme_options['blog-single-meta'] : array(
-					'comments',
-					'category',
-					'author',
-				);
-				$migrated_post_metadata = array();
+			$single_post_meta       = isset( $theme_options['blog-single-meta'] ) ? $theme_options['blog-single-meta'] : array(
+				'comments',
+				'category',
+				'author',
+			);
+			$migrated_post_metadata = array();
 
-				error_log( print_r( $single_post_meta, true ) );
+			error_log( print_r( $single_post_meta, true ) );
 
-				if ( ! empty( $single_post_meta ) ) {
-					foreach ( $single_post_meta as $key ) {
-						if ( 'author' === $key ) {
-							$migrated_post_metadata[] = 'author';
-						}
-						if ( 'date' === $key ) {
-							$migrated_post_metadata[] = 'date';
-						}
-						if ( 'category' === $key ) {
-							$migrated_post_metadata[]                  = 'taxonomy';
-							$theme_options['ast-dynamic-single-' . esc_attr( $post_type ) . '-taxonomy'] = 'category';
-						}
-						if ( 'tag' === $key ) {
-							$migrated_post_metadata[]                  = 'taxonomy';
-							$theme_options['ast-dynamic-single-' . esc_attr( $post_type ) . '-taxonomy'] = 'post_tag';
-						}
-						if ( 'comments' === $key ) {
-							$migrated_post_metadata[] = 'comments';
-						}
+			if ( ! empty( $single_post_meta ) ) {
+				foreach ( $single_post_meta as $key ) {
+					if ( 'author' === $key ) {
+						$migrated_post_metadata[] = 'author';
 					}
-
-					$theme_options['ast-dynamic-single-' . esc_attr( $post_type ) . '-metadata'] = $migrated_post_metadata;
+					if ( 'date' === $key ) {
+						$migrated_post_metadata[] = 'date';
+					}
+					if ( 'category' === $key ) {
+						$migrated_post_metadata[]                  = 'taxonomy';
+						$theme_options['ast-dynamic-single-' . esc_attr( $post_type ) . '-taxonomy'] = 'category';
+					}
+					if ( 'tag' === $key ) {
+						$migrated_post_metadata[]                  = 'taxonomy';
+						$theme_options['ast-dynamic-single-' . esc_attr( $post_type ) . '-taxonomy'] = 'post_tag';
+					}
+					if ( 'comments' === $key ) {
+						$migrated_post_metadata[] = 'comments';
+					}
 				}
+
+				$theme_options['ast-dynamic-single-' . esc_attr( $post_type ) . '-metadata'] = $migrated_post_metadata;
 			}
 
 			// Archive layout compatibilities.
