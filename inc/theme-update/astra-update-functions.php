@@ -1169,7 +1169,9 @@ function astra_post_structures_meta_migration() {
 				foreach ( $single_post_structure as $key ) {
 					if ( 'single-title-meta' === $key ) {
 						$migrated_post_structure[] = 'ast-dynamic-single-' . esc_attr( $post_type ) . '-title';
-						$migrated_post_structure[] = 'ast-dynamic-single-' . esc_attr( $post_type ) . '-meta';
+						if( 'post' === $post_type ) {
+							$migrated_post_structure[] = 'ast-dynamic-single-' . esc_attr( $post_type ) . '-meta';
+						}
 					}
 					if ( 'single-image' === $key ) {
 						$migrated_post_structure[] = 'ast-dynamic-single-' . esc_attr( $post_type ) . '-image';
