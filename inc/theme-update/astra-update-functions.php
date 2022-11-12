@@ -1165,8 +1165,6 @@ function astra_post_structures_meta_migration() {
 			);
 			$migrated_post_structure = array();
 
-			error_log( print_r( $single_post_structure, true ) );
-
 			if ( ! empty( $single_post_structure ) ) {
 				foreach ( $single_post_structure as $key ) {
 					if ( 'single-title-meta' === $key ) {
@@ -1188,8 +1186,6 @@ function astra_post_structures_meta_migration() {
 				'author',
 			);
 			$migrated_post_metadata = array();
-
-			error_log( print_r( $single_post_meta, true ) );
 
 			if ( ! empty( $single_post_meta ) ) {
 				foreach ( $single_post_meta as $key ) {
