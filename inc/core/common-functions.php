@@ -938,30 +938,30 @@ function astra_get_taxonomy_banner_legacy_layout() {
 	?>
 		<section class="ast-archive-description">
 			<?php
-				$post_type = get_post_type();
+				$post_type        = get_post_type();
 				$banner_structure = astra_get_option( 'ast-dynamic-archive-' . $post_type . '-structure', array( 'ast-dynamic-archive-' . $post_type . '-title', 'ast-dynamic-archive-' . $post_type . '-description' ) );
-				foreach ( $banner_structure as $metaval ) {
-					$meta_key = 'archive-' . ast_get_last_meta_word( $metaval );
-					switch ( $meta_key ) {
-						case 'archive-title':
-							do_action( 'astra_before_archive_title' );
-							the_archive_title( '<h1 class="page-title ast-archive-title">', '</h1>' );
-							do_action( 'astra_after_archive_title' );
+			foreach ( $banner_structure as $metaval ) {
+				$meta_key = 'archive-' . ast_get_last_meta_word( $metaval );
+				switch ( $meta_key ) {
+					case 'archive-title':
+						do_action( 'astra_before_archive_title' );
+						the_archive_title( '<h1 class="page-title ast-archive-title">', '</h1>' );
+						do_action( 'astra_after_archive_title' );
 						break;
-						case 'archive-breadcrumb':
-							if ( ! is_author() ) {
-								do_action( 'astra_before_archive_breadcrumb' );
-								echo astra_get_breadcrumb(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-								do_action( 'astra_after_archive_breadcrumb' );
-							}
+					case 'archive-breadcrumb':
+						if ( ! is_author() ) {
+							do_action( 'astra_before_archive_breadcrumb' );
+							echo astra_get_breadcrumb(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+							do_action( 'astra_after_archive_breadcrumb' );
+						}
 						break;
-						case 'archive-description':
-							do_action( 'astra_before_archive_description' );
-							echo wp_kses_post( wpautop( get_the_archive_description() ) );
-							do_action( 'astra_after_archive_description' );
+					case 'archive-description':
+						do_action( 'astra_before_archive_description' );
+						echo wp_kses_post( wpautop( get_the_archive_description() ) );
+						do_action( 'astra_after_archive_description' );
 						break;
-					}
 				}
+			}
 			?>
 		</section>
 	<?php

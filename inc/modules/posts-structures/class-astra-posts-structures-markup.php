@@ -25,7 +25,7 @@ class Astra_Posts_Strctures_Markup {
 	 */
 	public function __construct() {
 		$astra_banner_hook = apply_filters( 'astra_banner_hook', 'astra_content_before' );
-		add_action( esc_attr( $astra_banner_hook ) , array( $this, 'astra_add_hero_section_markup' ), 99 );
+		add_action( esc_attr( $astra_banner_hook ), array( $this, 'astra_add_hero_section_markup' ), 99 );
 	}
 
 	/**

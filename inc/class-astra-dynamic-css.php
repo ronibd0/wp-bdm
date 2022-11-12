@@ -98,13 +98,13 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$site_title_font_size    = astra_get_option( 'font-size-site-title' );
 			$site_tagline_font_size  = astra_get_option( 'font-size-site-tagline' );
 
-			$archive_post_title_font_size    = astra_get_option( 'font-size-page-title' );
-			$heading_h1_font_size            = astra_get_option( 'font-size-h1' );
-			$heading_h2_font_size            = astra_get_option( 'font-size-h2' );
-			$heading_h3_font_size            = astra_get_option( 'font-size-h3' );
-			$heading_h4_font_size            = astra_get_option( 'font-size-h4' );
-			$heading_h5_font_size            = astra_get_option( 'font-size-h5' );
-			$heading_h6_font_size            = astra_get_option( 'font-size-h6' );
+			$archive_post_title_font_size = astra_get_option( 'font-size-page-title' );
+			$heading_h1_font_size         = astra_get_option( 'font-size-h1' );
+			$heading_h2_font_size         = astra_get_option( 'font-size-h2' );
+			$heading_h3_font_size         = astra_get_option( 'font-size-h3' );
+			$heading_h4_font_size         = astra_get_option( 'font-size-h4' );
+			$heading_h5_font_size         = astra_get_option( 'font-size-h5' );
+			$heading_h6_font_size         = astra_get_option( 'font-size-h6' );
 
 			/**
 			 * Heading Typography - h1 - h3.

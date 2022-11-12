@@ -117,7 +117,7 @@ if ( ! class_exists( 'Astra_Archive_Typo_Configs' ) ) {
 						'divider'           => array( 'ast_class' => 'ast-section-spacing' ),
 					),
 				);
-				$_configs = array_merge( $_configs, $new_configs );
+				$_configs    = array_merge( $_configs, $new_configs );
 			}
 
 			$configurations = array_merge( $configurations, $_configs );

@@ -37,17 +37,17 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 			$ltr_left    = $is_site_rtl ? 'right' : 'left';
 			$ltr_right   = $is_site_rtl ? 'left' : 'right';
 
-			$site_content_width          = astra_get_option( 'site-content-width', 1200 ) + 56;
-			$headings_font_family        = astra_get_option( 'headings-font-family' );
-			$headings_font_weight        = astra_get_option( 'headings-font-weight' );
-			$headings_text_transform     = astra_get_option( 'headings-text-transform' );
-			$headings_line_height        = astra_get_option( 'headings-line-height' );
-			$body_font_family            = astra_body_font_family();
-			$para_margin_bottom          = astra_get_option( 'para-margin-bottom' );
-			$theme_color                 = astra_get_option( 'theme-color' );
-			$link_color                  = astra_get_option( 'link-color', $theme_color );
-			$heading_base_color          = astra_get_option( 'heading-base-color' );
-			$highlight_theme_color       = astra_get_foreground_color( $theme_color );
+			$site_content_width      = astra_get_option( 'site-content-width', 1200 ) + 56;
+			$headings_font_family    = astra_get_option( 'headings-font-family' );
+			$headings_font_weight    = astra_get_option( 'headings-font-weight' );
+			$headings_text_transform = astra_get_option( 'headings-text-transform' );
+			$headings_line_height    = astra_get_option( 'headings-line-height' );
+			$body_font_family        = astra_body_font_family();
+			$para_margin_bottom      = astra_get_option( 'para-margin-bottom' );
+			$theme_color             = astra_get_option( 'theme-color' );
+			$link_color              = astra_get_option( 'link-color', $theme_color );
+			$heading_base_color      = astra_get_option( 'heading-base-color' );
+			$highlight_theme_color   = astra_get_foreground_color( $theme_color );
 
 			$body_font_weight    = astra_get_option( 'body-font-weight' );
 			$body_font_size      = astra_get_option( 'font-size-body' );
@@ -246,7 +246,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 			}
 
 			// Site title (Page Title) on Block Editor.
-			$post_type = get_post_type();
+			$post_type                 = get_post_type();
 			$site_title_font_family    = astra_get_option( 'ast-dynamic-archive-' . esc_attr( $post_type ) . '-title-font-family' );
 			$site_title_font_weight    = astra_get_option( 'ast-dynamic-archive-' . esc_attr( $post_type ) . '-title-font-weight' );
 			$site_title_line_height    = astra_get_option( 'ast-dynamic-archive-' . esc_attr( $post_type ) . '-title-line-height' );
