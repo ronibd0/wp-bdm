@@ -25,6 +25,7 @@ const MetaSettings = props => {
     const closeModal = () => setOpen( false );
 
 	const is_hide_contnet_layout_sidebar = astMetaParams.is_hide_contnet_layout_sidebar;
+	const [ contentLayout, setContentLayout ] = useState(props.meta['site-content-layout']);
 
 	// Adjust spacing & borders for table.
 	const topTableSpacing = <tr className="ast-extra-spacing"><td className="ast-border"></td><td></td></tr>;
@@ -123,6 +124,8 @@ const MetaSettings = props => {
 								choices = { contentLayoutOptions }
 								id = { 'site-content-layout' }
 								onChange={ ( val ) => {
+									setContentLayout(val);
+									if ( val === 'narrow-container' ) props.setMetaFieldValue( 'no-sidebar', 'site-sidebar-layout');
 									props.setMetaFieldValue( val, 'site-content-layout' );
 								} }
 							/>
@@ -131,7 +134,7 @@ const MetaSettings = props => {
 					)}
 
 					{/* Sidebar Setting */}
-					{ ! is_hide_contnet_layout_sidebar && (
+					{ ! is_hide_contnet_layout_sidebar && contentLayout != "narrow-container" && (
 					<PanelBody
 						title={ __( 'Sidebar', 'astra' ) }
 						initialOpen={ false }

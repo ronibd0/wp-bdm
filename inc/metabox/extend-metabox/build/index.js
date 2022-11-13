@@ -240,7 +240,8 @@ const MetaSettings = props => {
 
   const closeModal = () => setOpen(false);
 
-  const is_hide_contnet_layout_sidebar = astMetaParams.is_hide_contnet_layout_sidebar; // Adjust spacing & borders for table.
+  const is_hide_contnet_layout_sidebar = astMetaParams.is_hide_contnet_layout_sidebar;
+  const [contentLayout, setContentLayout] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(props.meta['site-content-layout']); // Adjust spacing & borders for table.
 
   const topTableSpacing = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("tr", {
     className: "ast-extra-spacing"
@@ -338,9 +339,11 @@ const MetaSettings = props => {
     choices: contentLayoutOptions,
     id: 'site-content-layout',
     onChange: val => {
+      setContentLayout(val);
+      if (val === 'narrow-container') props.setMetaFieldValue('no-sidebar', 'site-sidebar-layout');
       props.setMetaFieldValue(val, 'site-content-layout');
     }
-  }))), !is_hide_contnet_layout_sidebar && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_9__.PanelBody, {
+  }))), !is_hide_contnet_layout_sidebar && contentLayout != "narrow-container" && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_9__.PanelBody, {
     title: __('Sidebar', 'astra'),
     initialOpen: false
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
