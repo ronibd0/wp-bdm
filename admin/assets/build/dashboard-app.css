@@ -811,6 +811,9 @@ select {
 .h-2 {
   height: 0.5rem;
 }
+.h-auto {
+  height: auto;
+}
 .max-h-4 {
   max-height: 1rem;
 }

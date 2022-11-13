@@ -39,12 +39,25 @@ const Welcome = () => {
 												astra_admin.current_user +
 												","}
 										</p>
-										<h2 className="text-slate-800 text-[1.8rem] leading-[2.4rem] pb-3 font-medium text-left">
-											{__(
-												`Welcome to ${astra_admin.theme_name}!`,
-												"astra"
-											)}
-										</h2>
+										<div className="flex">
+											<h2 className="text-slate-800 text-[1.8rem] leading-[2.4rem] pb-3 font-medium text-left">
+												{__(
+													`Welcome to ${astra_admin.theme_name}!`,
+													"astra"
+												)}
+											</h2>
+											{ astra_admin.pro_available ? (
+												<span className="ml-2 h-full inline-flex leading-4 flex-shrink-0 py-0.5 px-1 text-[0.625rem] font-semibold text-white bg-slate-800 rounded-[0.1875rem]">
+													PRO
+												</span> )
+											:
+												( <span className="ml-2 h-full inline-flex leading-4 flex-shrink-0 py-0.5 px-1 text-[0.625rem] font-semibold text-astra bg-blue-50 rounded-[0.1875rem]">
+													FREE
+												</span> )
+											}
+
+										</div>
+
 										<p className="text-slate-500 pb-7">
 											{__(
 												`${astra_admin.theme_name} is fast, fully customizable & beautiful WordPress theme suitable for blog, personal portfolio, business website and WooCommerce storefront. It is very lightweight and offers unparalleled speed.`,
