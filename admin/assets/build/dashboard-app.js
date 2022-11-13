@@ -6550,7 +6550,7 @@ function MainNav() {
       pathname: 'admin.php',
       search: `?page=${menu.slug}${'' !== menu.path ? '&path=' + menu.path : ''}`
     },
-    className: `${activePage === menu.slug && activePath === menu.path ? 'border-astra text-astra active:text-astra focus:text-astra focus-visible:text-astra-hover hover:text-astra-hover inline-flex items-center px-1 border-b-2 text-[0.940rem] font-medium' : 'border-transparent text-slate-500 active:text-astra focus-visible:border-slate-300 focus-visible:text-slate-800 hover:border-slate-300 hover:text-slate-800 inline-flex items-center px-1 border-b-2 text-[0.940rem] font-medium'}`
+    className: `${activePage === menu.slug && activePath === menu.path ? 'border-astra text-astra active:text-astra focus:text-astra focus-visible:text-astra-hover hover:text-astra-hover inline-flex items-center px-1 border-b-2 text-sm leading-[0.875rem] font-medium' : 'border-transparent text-slate-500 active:text-astra focus-visible:border-slate-300 focus-visible:text-slate-800 hover:border-slate-300 hover:text-slate-800 inline-flex items-center px-1 border-b-2 text-sm leading-[0.875rem] font-medium'}`
   }, menu.name)))), astra_admin.show_self_branding && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
@@ -8661,13 +8661,13 @@ const Welcome = () => {
   }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Hello ", "astra") + astra_admin.current_user + ","), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "flex"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", {
-    className: "text-slate-800 text-[1.8rem] leading-[2.4rem] pb-3 font-medium text-left"
+    className: "text-slate-800 text-[2rem] leading-10 pb-3 font-medium text-left"
   }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)(`Welcome to ${astra_admin.theme_name}!`, "astra")), astra_admin.pro_available ? (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
     className: "ml-2 h-full inline-flex leading-4 flex-shrink-0 py-0.5 px-1 text-[0.625rem] font-semibold text-white bg-slate-800 rounded-[0.1875rem]"
   }, "PRO") : (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
     className: "ml-2 h-full inline-flex leading-4 flex-shrink-0 py-0.5 px-1 text-[0.625rem] font-semibold text-astra bg-blue-50 rounded-[0.1875rem]"
   }, "FREE")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
-    className: "text-slate-500 pb-7"
+    className: "text-base leading-[1.625rem] text-slate-500 pb-7"
   }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)(`${astra_admin.theme_name} is fast, fully customizable & beautiful WordPress theme suitable for blog, personal portfolio, business website and WooCommerce storefront. It is very lightweight and offers unparalleled speed.`, "astra")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
     className: "relative z-0 inline-flex justify-start w-full"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {

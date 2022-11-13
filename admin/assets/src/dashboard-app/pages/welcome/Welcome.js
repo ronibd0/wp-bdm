@@ -40,7 +40,7 @@ const Welcome = () => {
 												","}
 										</p>
 										<div className="flex">
-											<h2 className="text-slate-800 text-[1.8rem] leading-[2.4rem] pb-3 font-medium text-left">
+											<h2 className="text-slate-800 text-[2rem] leading-10 pb-3 font-medium text-left">
 												{__(
 													`Welcome to ${astra_admin.theme_name}!`,
 													"astra"
@@ -58,7 +58,7 @@ const Welcome = () => {
 
 										</div>
 
-										<p className="text-slate-500 pb-7">
+										<p className="text-base leading-[1.625rem] text-slate-500 pb-7">
 											{__(
 												`${astra_admin.theme_name} is fast, fully customizable & beautiful WordPress theme suitable for blog, personal portfolio, business website and WooCommerce storefront. It is very lightweight and offers unparalleled speed.`,
 												"astra"
