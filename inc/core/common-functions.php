@@ -1639,15 +1639,15 @@ function astra_narrow_container_width( $location, $narrow_container_max_width ) 
 			),
 		);
 
-		// // Remove Sidebar for Narrow Width Container Layout.
-		// if ( apply_filters( 'trigger_sidebar', true ) ) {
-		// 	add_filter(
-		// 		'astra_page_layout',
-		// 		function() { // phpcs:ignore PHPCompatibility.FunctionDeclarations.NewClosure.Found
-		// 			return 'no-sidebar';
-		// 		}
-		// 	);
-		// }
+		// Remove Sidebar for Narrow Width Container Layout.
+		if ( 'narrow-container' === astra_get_content_layout() ) {
+			add_filter(
+				'astra_page_layout',
+				function() { // phpcs:ignore PHPCompatibility.FunctionDeclarations.NewClosure.Found
+					return 'no-sidebar';
+				}
+			);
+		}
 
 		return astra_parse_css( $narrow_container_css, astra_get_tablet_breakpoint( '', 1 ) ); // phpcs:ignore WordPress.NamingConventions.ValidHookName.UseUnderscores
 
@@ -1655,91 +1655,3 @@ function astra_narrow_container_width( $location, $narrow_container_max_width ) 
 		return '';
 	}
 }
-
-// /**
-//  * Function to apply narrow width sidebar properties in the frontend.
-//  *
-//  * @since x.x.x
-//  * @param string  $location Location where this needs to be added.
-//  * @param integer $narrow_container_max_width  Container Width in px.
-//  * @return string|null css based on $location and $narrow_container_max_width.
-//  */
-// function astra_narrow_container_width_sidebar( $container_layout, $archive_container_layout, $single_container_layout, $page_container_layout ) {
-	
-// 	$narrow_width_sidebar_css = array();
-// 	$is_global_narrow = ( 'narrow_width_container' === $container_layout );
-// 	$is_archive_page = ( is_home() || is_archive() );
-
-// 	if( 'narrow-container' === $page_container_layout && is_page() || $is_global_narrow && 'default' === $page_container_layout ) {
-
-// 		$narrow_width_sidebar_css['.page #secondary'] = array(
-// 			'display' => 'none'
-// 		);
-
-// 		$narrow_width_sidebar_css['.page #primary'] = array(
-// 			'width' => '100%',
-// 			'border' => 'unset',
-// 			'padding' => 0,
-// 		);
-
-// 	}
-
-// 	if( 'narrow-container' === $single_container_layout && is_single() || $is_global_narrow && 'default' === $page_container_layout ) {
-
-// 		$narrow_width_sidebar_css['.single-post #secondary'] = array(
-// 			'display' => 'none'
-// 		);
-
-// 		$narrow_width_sidebar_css['.single-post #primary'] = array(
-// 			'width' => '100%',
-// 			'border' => 'unset',
-// 			'padding' => 0,
-// 		);
-
-// 	}
-
-// 	if( 'narrow-container' === $single_container_layout && is_single() || $is_global_narrow && 'default' === $page_container_layout ) {
-
-// 		$narrow_width_sidebar_css['.single-post #secondary'] = array(
-// 			'display' => 'none'
-// 		);
-
-// 		$narrow_width_sidebar_css['.single-post #primary'] = array(
-// 			'width' => '100%',
-// 			'border' => 'unset',
-// 			'padding' => 0,
-// 		);
-
-// 	}
-
-// 	if( 'narrow-container' === $single_container_layout && is_single() || $is_global_narrow && 'default' === $page_container_layout ) {
-
-// 		$narrow_width_sidebar_css['.single-post #secondary'] = array(
-// 			'display' => 'none'
-// 		);
-
-// 		$narrow_width_sidebar_css['.single-post #primary'] = array(
-// 			'width' => '100%',
-// 			'border' => 'unset',
-// 			'padding' => 0,
-// 		);
-
-// 	}
-
-// 	if( 'narrow-container' === $archive_container_layout && $is_archive_page || $is_global_narrow && 'default' === $page_container_layout ) {
-
-// 		$narrow_width_sidebar_css['.blog #secondary'] = array(
-// 			'display' => 'none'
-// 		);
-
-// 		$narrow_width_sidebar_css['.blog #primary'] = array(
-// 			'width' => '100%',
-// 			'border' => 'unset',
-// 			'padding' => 0,
-// 		);
-
-// 	}
-	
-// 	return astra_parse_css( $narrow_width_sidebar_css ); // phpcs:ignore WordPress.NamingConventions.ValidHookName.UseUnderscores
-
-// }

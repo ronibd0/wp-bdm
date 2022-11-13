@@ -3051,9 +3051,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			// Page.
 			$parse_css .= astra_narrow_container_width( $page_container_layout, $narrow_container_max_width );
 
-			// Sidebar.
-			// $parse_css .= astra_narrow_container_width_sidebar( $container_layout, $archive_container_layout, $single_container_layout, $page_container_layout );
-
 			if ( Astra_Builder_Helper::apply_flex_based_css() ) {
 				$max_site_container_css = array(
 					'.site-content .ast-container' => array(
