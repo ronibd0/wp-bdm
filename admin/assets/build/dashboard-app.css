@@ -811,9 +811,6 @@ select {
 .h-2 {
   height: 0.5rem;
 }
-.h-auto {
-  height: auto;
-}
 .max-h-4 {
   max-height: 1rem;
 }
@@ -1358,9 +1355,6 @@ select {
   font-size: 0.75rem;
   line-height: 1rem;
 }
-.text-\[0\.940rem\] {
-  font-size: 0.940rem;
-}
 .text-2xl {
   font-size: 1.5rem;
   line-height: 2rem;
@@ -1388,9 +1382,6 @@ select {
 .text-\[0\.75rem\] {
   font-size: 0.75rem;
 }
-.text-\[1\.8rem\] {
-  font-size: 1.8rem;
-}
 .font-medium {
   font-weight: 500;
 }
@@ -1402,6 +1393,9 @@ select {
 }
 .capitalize {
   text-transform: capitalize;
+}
+.leading-\[0\.875rem\] {
+  line-height: 0.875rem;
 }
 .leading-6 {
   line-height: 1.5rem;
@@ -1424,9 +1418,6 @@ select {
 .leading-10 {
   line-height: 2.5rem;
 }
-.leading-\[0\.875rem\] {
-  line-height: 0.875rem;
-}
 .leading-\[0\.625rem\] {
   line-height: 0.625rem;
 }
@@ -1438,9 +1429,6 @@ select {
 }
 .leading-\[0\.75rem\] {
   line-height: 0.75rem;
-}
-.leading-\[2\.4rem\] {
-  line-height: 2.4rem;
 }
 .leading-5 {
   line-height: 1.25rem;
@@ -1742,6 +1730,26 @@ select {
 .post-type-astra_adv_header #screen-options-wrap input:not([type=submit]) {
   background-color: white;
   border: 1px solid #8c8f94;
+}
+
+table .type-astra_adv_header .title,
+table .type-astra-advanced-hook .title {
+  color: #2271b1;
+}
+
+.post-type-astra_adv_header .subsubsub a,
+.post-type-astra-advanced-hook .subsubsub a {
+  color: #2271b1;
+}
+
+.post-type-astra_adv_header .subsubsub a.current,
+.post-type-astra-advanced-hook .subsubsub a.current {
+  color: #000;
+}
+
+.post-type-astra_adv_header table .column-title a,
+.post-type-astra-advanced-hook table .column-title a {
+  color: #2271b1;
 }
 
 :root {
