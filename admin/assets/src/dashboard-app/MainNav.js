@@ -35,6 +35,9 @@ export default function MainNav() {
 		: astra_admin.home_slug;
 	const activePath = query.get( 'path' ) ? query.get( 'path' ) : '';
 
+	if ( activePath === 'spectra' ) {
+		return <></>;
+	}
 	return (
 		<Disclosure as="nav" className="bg-white shadow">
 			<div className="max-w-3xl mx-auto px-6 lg:max-w-full">

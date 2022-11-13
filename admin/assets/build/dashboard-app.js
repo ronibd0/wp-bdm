@@ -6525,6 +6525,9 @@ function MainNav() {
   const query = new URLSearchParams((_useLocation = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_3__.useLocation)()) === null || _useLocation === void 0 ? void 0 : _useLocation.search);
   const activePage = query.get('page') ? query.get('page') : astra_admin.home_slug;
   const activePath = query.get('path') ? query.get('path') : '';
+  if (activePath === 'spectra') {
+    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null);
+  }
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_headlessui_react__WEBPACK_IMPORTED_MODULE_4__.Disclosure, {
     as: "nav",
     className: "bg-white shadow"
