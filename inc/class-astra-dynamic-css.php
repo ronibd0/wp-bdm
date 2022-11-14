@@ -3037,7 +3037,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			/* Parse CSS from array()*/
 			$parse_css .= astra_parse_css( $site_width, astra_get_tablet_breakpoint( '', 1 ) );
 
-			/* Narrow Width Container Layout dynamic css */
+			/* Narrow width container layout dynamic css */
 
 			// Global.
 			$parse_css .= astra_narrow_container_width( $container_layout, $narrow_container_max_width );
