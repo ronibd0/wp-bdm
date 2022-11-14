@@ -38,6 +38,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 			$ltr_right   = $is_site_rtl ? 'left' : 'right';
 
 			$site_content_width          = astra_get_option( 'site-content-width', 1200 ) + 56;
+			$ast_narrow_width  = astra_get_option( 'narrow-container-max-width', 750 ) . 'px';
 			$headings_font_family        = astra_get_option( 'headings-font-family' );
 			$headings_font_weight        = astra_get_option( 'headings-font-weight' );
 			$headings_text_transform     = astra_get_option( 'headings-text-transform' );
@@ -269,8 +270,6 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 			if ( 'inherit' == $site_title_font_weight || '' == $site_title_font_weight ) {
 				$site_title_font_weight = 'normal';
 			}
-
-			$ast_narrow_width  = astra_get_option( 'narrow-container-max-width', 750 ) . 'px';
 	
 			// check the selection color incase of empty/no theme color.
 			$selection_text_color = ( 'transparent' === $highlight_theme_color ) ? '' : $highlight_theme_color;
