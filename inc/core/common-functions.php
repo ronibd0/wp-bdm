@@ -1634,7 +1634,7 @@ function astra_narrow_container_width( $location, $narrow_container_max_width ) 
 	if ( 'narrow-container' === $location ) {
 
 		$narrow_container_css = array(
-			'.ast-narrow-container .ast-container' => array(
+			'.ast-narrow-container .site-content > .ast-container' => array(
 				'max-width' => astra_get_css_value( $narrow_container_max_width, 'px' ),
 			),
 		);

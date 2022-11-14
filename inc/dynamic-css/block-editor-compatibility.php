@@ -212,7 +212,8 @@ function astra_load_modern_block_editor_ui( $dynamic_css ) {
 	$ast_content_width = apply_filters( 'astra_block_content_width', $astra_block_editor_v2_ui ? $ast_container_width : '910px' );
 	$ast_wide_width    = apply_filters( 'astra_block_wide_width', $astra_block_editor_v2_ui ? 'calc(' . esc_attr( $ast_container_width ) . ' + var(--wp--custom--ast-default-block-left-padding) + var(--wp--custom--ast-default-block-right-padding))' : $ast_container_width );
 	$ast_narrow_width  = astra_get_option( 'narrow-container-max-width', 750 ) . 'px';
-	
+	$ast_narrow_wide_width = 'calc(' . esc_attr( $ast_narrow_width ) . ' + var(--wp--custom--ast-default-block-left-padding) + var(--wp--custom--ast-default-block-right-padding))';
+
 	// Spectra Compatibility - page title alignment with page container layouts.
 	$spectra_gutenberg_compat_css = Astra_Dynamic_CSS::spectra_gutenberg_compat_css();
 
@@ -225,8 +226,13 @@ function astra_load_modern_block_editor_ui( $dynamic_css ) {
 			--wp--custom--ast-container-width: ' . $ast_container_width . ';
 			--wp--custom--ast-content-width-size: ' . $ast_content_width . ';
 			--wp--custom--ast-wide-width-size: ' . $ast_wide_width . ';
-			--wp--custom--ast-narrow-width-size: ' . $ast_narrow_width . ';
 		}
+
+		.ast-narrow-container {
+			--wp--custom--ast-wide-width-size: ' . $ast_narrow_wide_width . ';
+			--wp--custom--ast-content-width-size: ' . $ast_narrow_width . ';
+		}
+
 		@media(max-width: ' . $tablet_breakpoint . 'px) {
 			html body {
 				--wp--custom--ast-default-block-top-padding: ' . $tablet_top_spacing . ';
@@ -285,7 +291,6 @@ function astra_load_modern_block_editor_ui( $dynamic_css ) {
 		margin-left: auto;
 		margin-right: auto;
 	}
-	.ast-narrow-container .entry-content
 	' . $astra_wide_particular_selector . ' {
 		max-width: var(--wp--custom--ast-wide-width-size);
 	}
@@ -406,7 +411,7 @@ function astra_load_modern_block_editor_ui( $dynamic_css ) {
 					margin-left: calc(-1 * ' . $astra_continer_left_spacing . ' );
 					margin-right: calc(-1 * ' . $astra_continer_right_spacing . ' );
 				}
-				.ast-separate-container .entry-content[ast-blocks-layout] > .alignwide, .ast-plain-container .entry-content[ast-blocks-layout] > .alignwide {
+				.ast-separate-container .entry-content[ast-blocks-layout] > .alignwide, .ast-plain-container .entry-content[ast-blocks-layout] > .alignwide, .ast-narrow-container .entry-content[ast-blocks-layout] > .alignwide {
 					margin-left: calc(-1 * var(--wp--custom--ast-default-block-left-padding) );
 					margin-right: calc(-1 * var(--wp--custom--ast-default-block-right-padding) );
 				}

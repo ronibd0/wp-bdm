@@ -150,7 +150,7 @@ class Astra_WP_Editor_CSS {
 
 		$link_color   = astra_get_option( 'link-color', $theme_color );
 		$link_h_color = astra_get_option( 'link-h-color' );
-
+		$content_layout = astra_get_option_meta( 'site-content-layout', '', true );
 		/**
 		 * Button theme compatibility.
 		 */
@@ -377,7 +377,7 @@ class Astra_WP_Editor_CSS {
 		$ast_content_width = apply_filters( 'astra_block_content_width', $astra_is_block_editor_v2_ui ? $astra_container_width : '910px' );
 		$ast_wide_width    = apply_filters( 'astra_block_wide_width', $astra_is_block_editor_v2_ui ? 'calc(' . esc_attr( $astra_container_width ) . ' + var(--wp--custom--ast-default-block-left-padding) + var(--wp--custom--ast-default-block-right-padding))' : $astra_container_width );
 		$ast_narrow_width  = astra_get_option( 'narrow-container-max-width', 750 ) . 'px';
-		// $ast_narrow_wide_width = 'calc(' . esc_attr( $ast_narrow_width ) . ' + var(--wp--custom--ast-default-block-left-padding) + var(--wp--custom--ast-default-block-right-padding))';
+		$ast_narrow_wide_width = 'calc(' . esc_attr( $ast_narrow_width ) . ' + var(--wp--custom--ast-default-block-left-padding) + var(--wp--custom--ast-default-block-right-padding))';
 
 		$css = ':root, body .editor-styles-wrapper {
 			--wp--custom--ast-default-block-top-padding: ' . $desktop_top_spacing . ';
@@ -386,11 +386,13 @@ class Astra_WP_Editor_CSS {
 			--wp--custom--ast-default-block-left-padding: ' . $desktop_left_spacing . ';
 			--wp--custom--ast-content-width-size: ' . $ast_content_width . ';
 			--wp--custom--ast-wide-width-size: ' . $ast_wide_width . ';
-			--wp--custom--ast-narrow-width-size: ' . $ast_narrow_width . ';
 		}';
 
-		// --wp--custom--ast-narrow-wide-width-size: ' . $ast_narrow_wide_width . ';
-	
+		$css .= ':root, .ast-narrow-container .editor-styles-wrapper {
+			--wp--custom--ast-wide-width-size: ' . $ast_narrow_wide_width . ';
+			--wp--custom--ast-content-width-size: ' . $ast_narrow_width . ';
+		}';
+
 		// Overriding the previous CSS vars in customizer because there is block editor in customizer widget, where if any container block is used in sidebar widgets then as customizer widget editor is already small (left panel) the blocks does not looks good.
 		if ( is_customize_preview() ) {
 			$css = '';
@@ -679,23 +681,6 @@ class Astra_WP_Editor_CSS {
 			),
 			'#editor .edit-post-visual-editor'   => astra_get_responsive_background_obj( $site_background, 'mobile' ),
 			'.edit-post-visual-editor .editor-styles-wrapper' => astra_get_responsive_background_obj( $content_background, 'mobile' ),
-		);
-
-		/* Narrow Width container dynamic css */
-
-		// page title wrapper.
-		$desktop_css['.ast-narrow-container .edit-post-visual-editor__post-title-wrapper'] = array(
-			'max-width' => 'var(--wp--custom--ast-narrow-width-size) !important',
-		);
-
-		// // wide sized blocks.
-		// $desktop['.ast-narrow-container .editor-styles-wrapper .block-editor-block-list__layout.is-root-container > .alignwide'] = array(
-		// 	'max-width' => 'var(--wp--custom--ast-narrow-wide-width-size) !important',
-		// );
-		
-		// content sized blocks.
-		$desktop_css['.ast-narrow-container .editor-styles-wrapper .edit-post-visual-editor__post-title-wrapper > :where(:not(.alignleft):not(.alignright):not(.alignfull)), .ast-narrow-container .editor-styles-wrapper .block-editor-block-list__layout.is-root-container > :where(:not(.alignleft):not(.alignright):not(.alignfull))'] = array(
-			'max-width' => 'var(--wp--custom--ast-narrow-width-size) !important',
 		);
 
 
