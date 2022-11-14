@@ -127,7 +127,7 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 				if ( '' === $index ) {
 					$taxonomies[''] = $value;
 				} else {
-					$taxonomies[ $value ] = ucfirst( $value );
+					$taxonomies[ $value ] = $value;
 				}
 			}
 			$taxonomies = array_reverse( $taxonomies );
@@ -139,7 +139,6 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 			if ( 'product' === $post_type ) {
 				$parent_section = 'section-woo-shop-single';
 			} elseif ( 'post' === $post_type ) {
-				$taxonomies['category-tag'] = __( 'Category + Tag', 'astra' );
 				$parent_section             = 'section-blog-single';
 			} elseif ( 'page' === $post_type ) {
 				$parent_section = 'section-page-dynamic-group';
@@ -1052,6 +1051,7 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 			);
 
 			if ( count( $taxonomies ) > 1 ) {
+				$astra_settings = get_option( ASTRA_THEME_SETTINGS );
 				for ( $index = 1; $index <= $clone_limit; $index++ ) {
 
 					$control_suffix = ( 1 === $index ) ? '' : '-' . ( $index - 1 );
@@ -1062,15 +1062,15 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 					$_configs[] = array(
 						'name'       => $title_section . '-taxonomy' . $control_suffix,
 						'parent'     => ASTRA_THEME_SETTINGS . '[' . $title_section . '-metadata]',
-						'default'    => astra_get_option( $title_section . '-taxonomy-' . $control_suffix ),
+						'default'    => isset( $astra_settings[$title_section . '-taxonomy-' . $control_suffix] ) ? $astra_settings[$title_section . '-taxonomy-' . $control_suffix] : '',
 						'linked'     => $title_section . '-taxonomy' . $control_suffix,
 						'type'       => 'sub-control',
 						'control'    => 'ast-select',
+						'transport'  => 'refresh',
 						'section'    => $title_section,
 						'priority'   => 5,
 						'title'      => __( 'Select Taxonomy', 'astra' ),
 						'choices'    => $taxonomies,
-						'responsive' => false,
 					);
 				}
 			}

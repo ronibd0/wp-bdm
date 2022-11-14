@@ -178,5 +178,5 @@ add_action(
 	'wp_head',
 	function() {
 		// vl( get_option( 'astra-settings' ) );
-	} 
+	}
 );

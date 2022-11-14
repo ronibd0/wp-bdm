@@ -78,6 +78,18 @@ function astra_refresh_customizer( control ) {
 			var selector = '.ast-single-entry-banner[data-post-type="' + postType + '"], .single-' + postType + ' header.entry-header';
 		}
 
+		astra_refresh_customizer(
+			'astra-settings[ast-dynamic-single-' + postType + '-taxonomy]'
+		);
+
+		astra_refresh_customizer(
+			'astra-settings[ast-dynamic-single-' + postType + '-taxonomy-1]'
+		);
+
+		astra_refresh_customizer(
+			'astra-settings[ast-dynamic-single-' + postType + '-taxonomy-2]'
+		);
+
 		astra_dynamic_build_css(
 			'ast-dynamic-single-' + postType + '-horizontal-alignment',
 			'astra-settings[ast-dynamic-single-' + postType + '-horizontal-alignment]',
