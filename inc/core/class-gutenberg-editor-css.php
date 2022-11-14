@@ -1476,7 +1476,6 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 
 			/* Narrow Width Container CSS */
 			$narrow_container = array(
-
 				// Visibility icon alignment.
 				'.ast-narrow-container .edit-post-visual-editor__post-title-wrapper, .ast-stacked-title-visibility .edit-post-visual-editor__post-title-wrapper' => array(
 					'max-width' => 'var(--wp--custom--ast-content-width-size)',
