@@ -150,7 +150,7 @@ class Astra_WP_Editor_CSS {
 
 		$link_color   = astra_get_option( 'link-color', $theme_color );
 		$link_h_color = astra_get_option( 'link-h-color' );
-		$content_layout = astra_get_option_meta( 'site-content-layout', '', true );
+
 		/**
 		 * Button theme compatibility.
 		 */
