@@ -1626,7 +1626,7 @@ function astra_load_woocommerce_login_form_password_icon() {
  *
  * @since x.x.x
  * @param string  $location container layout for single-post, archives, pages, page meta.
- * @param integer $narrow_container_max_width  dynamic container width in px.
+ * @param string $narrow_container_max_width  dynamic container width in px.
  * @return string|null css based on $location and $narrow_container_max_width.
  */
 function astra_narrow_container_width( $location, $narrow_container_max_width ) {
