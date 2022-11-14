@@ -40,7 +40,7 @@ const UsefulPlugins = () => {
 				} ).then( ( data ) => {
 					if ( data.success ) {
 						e.target.innerText = astra_admin.plugin_installed_text;
-						location.reload();
+						activatePlugin(e);
 					}
 				} );
 				break;
@@ -49,6 +49,25 @@ const UsefulPlugins = () => {
 				// Do nothing.
 				break;
 		}
+	};
+
+	const activatePlugin = (e) => {
+		const formData = new window.FormData();
+		formData.append( 'action', 'astra_recommended_plugin_activate' );
+		formData.append( 'security', astra_admin.plugin_manager_nonce );
+		formData.append( 'init', e.target.dataset.init );
+		e.target.innerText = astra_admin.plugin_activating_text;
+
+		apiFetch( {
+			url: astra_admin.ajax_url,
+			method: 'POST',
+			body: formData,
+		} ).then( ( data ) => {
+			e.target.className = '';
+			e.target.className = 'text-[#4AB866] pointer-events-none capitalize text-sm leading-[0.875rem] font-medium rounded-md';
+			e.target.innerText = astra_admin.plugin_activated_text;
+			location.reload();
+		} );
 	};
 
 	const getAction = (status) => {
