@@ -42,7 +42,7 @@ const Welcome = () => {
 										<div className="flex">
 											<h2 className="text-slate-800 text-[2rem] leading-10 pb-3 font-medium text-left">
 												{__(
-													`Welcome to ${astra_admin.theme_name}!`,
+													`Welcome to ${astra_admin.theme_name}`,
 													"astra"
 												)}
 											</h2>

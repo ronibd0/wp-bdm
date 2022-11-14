@@ -8699,7 +8699,7 @@ const Welcome = () => {
     className: "flex"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", {
     className: "text-slate-800 text-[2rem] leading-10 pb-3 font-medium text-left"
-  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)(`Welcome to ${astra_admin.theme_name}!`, "astra")), astra_admin.pro_available ? (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)(`Welcome to ${astra_admin.theme_name}`, "astra")), astra_admin.pro_available ? (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
     className: "ml-2 h-full inline-flex leading-4 flex-shrink-0 py-0.5 px-1 text-[0.625rem] font-semibold text-white bg-slate-800 rounded-[0.1875rem]"
   }, "PRO") : (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
     className: "ml-2 h-full inline-flex leading-4 flex-shrink-0 py-0.5 px-1 text-[0.625rem] font-semibold text-astra bg-blue-50 rounded-[0.1875rem]"
