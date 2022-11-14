@@ -11,7 +11,8 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
-
+// For previous fixes/improvements.
+add_filter( 'astra_get_option_wp-blocks-v2-ui' , '__return_true' );
 /**
  * Define Constants
  */

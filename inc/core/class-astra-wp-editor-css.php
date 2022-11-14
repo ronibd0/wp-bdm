@@ -683,7 +683,6 @@ class Astra_WP_Editor_CSS {
 			'.edit-post-visual-editor .editor-styles-wrapper' => astra_get_responsive_background_obj( $content_background, 'mobile' ),
 		);
 
-
 		$css .= astra_parse_css( $desktop_css );
 		/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 		$css .= astra_parse_css( $tablet_css, '', astra_get_tablet_breakpoint() );
