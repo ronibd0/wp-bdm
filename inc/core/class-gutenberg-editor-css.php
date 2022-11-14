@@ -1167,7 +1167,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 				'.ast-separate-container .block-editor-writing-flow'       => array(
 					'max-width'        => astra_get_css_value( $site_content_width - 56, 'px' ),
 					'margin'           => '0 auto',
-					'background-color' => 'red',
+					'background-color' => '#fff',
 				),
 				'.ast-separate-container .gutenberg__editor, .ast-two-container .gutenberg__editor' => array(
 					'background-color' => '#f5f5f5',
