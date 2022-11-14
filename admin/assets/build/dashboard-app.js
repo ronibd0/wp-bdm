@@ -6799,9 +6799,11 @@ const AstraIntegration = () => {
           method: 'POST',
           body: formData
         }).then(data => {
-          e.target.className = '';
-          e.target.className = 'text-[#4AB866] pointer-events-none capitalize mt-3 text-sm leading-[0.875rem] font-medium rounded-md py-[0.5625rem]';
-          e.target.innerText = astra_admin.plugin_activated_text;
+          if (data.success) {
+            e.target.className = '';
+            e.target.className = 'text-[#4AB866] pointer-events-none capitalize mt-3 text-sm leading-[0.875rem] font-medium rounded-md py-[0.5625rem]';
+            e.target.innerText = astra_admin.plugin_activated_text;
+          }
         });
         break;
       case 'astra_recommended_plugin_install':
@@ -6836,10 +6838,12 @@ const AstraIntegration = () => {
       method: 'POST',
       body: formData
     }).then(data => {
-      e.target.className = '';
-      e.target.className = 'text-[#4AB866] pointer-events-none capitalize mt-3 text-sm leading-[0.875rem] font-medium rounded-md py-[0.5625rem]';
-      e.target.innerText = astra_admin.plugin_activated_text;
-      location.reload();
+      if (data.success) {
+        e.target.className = '';
+        e.target.className = 'text-[#4AB866] pointer-events-none capitalize mt-3 text-sm leading-[0.875rem] font-medium rounded-md py-[0.5625rem]';
+        e.target.innerText = astra_admin.plugin_activated_text;
+        location.reload();
+      }
     });
   };
   const getAction = status => {
@@ -8554,7 +8558,7 @@ const ExtensionCard = props => {
   const moduleActivationStatus = false == blocksStatuses[slug] ? false : true;
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     key: slug,
-    className: classNames(!astra_admin.pro_available || !condition ? 'bg-slate-50' : 'bg-white', 'box-border relative border rounded-md h-20 px-4 py-3 flex items-start gap-x-4 snap-start hover:shadow-md transition astra-icon-transition group')
+    className: classNames(!astra_admin.pro_available || !condition ? 'bg-slate-50' : 'bg-white', 'box-border relative border rounded-md h-20 px-4 py-3 flex items-start gap-x-4 snap-start hover:shadow-md transition astra-icon-transition group items-center')
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "flex-1 min-w-0"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
@@ -8729,9 +8733,9 @@ const Welcome = () => {
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", {
     className: "text-slate-800 text-[2rem] leading-10 pb-3 font-medium text-left"
   }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)(`Welcome to ${astra_admin.theme_name}`, "astra")), astra_admin.pro_available ? (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
-    className: "ml-2 h-full inline-flex leading-4 flex-shrink-0 py-0.5 px-1 text-[0.625rem] font-semibold text-white bg-slate-800 rounded-[0.1875rem]"
+    className: "ml-2 h-full inline-flex leading-4 flex-shrink-0 py-0.5 px-1 text-[0.625rem] text-white bg-slate-800 rounded-[0.1875rem]"
   }, "PRO") : (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
-    className: "ml-2 h-full inline-flex leading-4 flex-shrink-0 py-0.5 px-1 text-[0.625rem] font-semibold text-astra bg-blue-50 rounded-[0.1875rem]"
+    className: "ml-2 h-full inline-flex leading-4 flex-shrink-0 py-0.5 px-1 text-[0.625rem] text-astra bg-blue-50 rounded-[0.1875rem]"
   }, "FREE")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
     className: "text-base leading-[1.625rem] text-slate-500 pb-7"
   }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)(`${astra_admin.theme_name} is fast, fully customizable & beautiful WordPress theme suitable for blog, personal portfolio, business website and WooCommerce storefront. It is very lightweight and offers unparalleled speed.`, "astra")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {

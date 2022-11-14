@@ -1099,7 +1099,7 @@ function astra_theme_background_updater_3_9_4() {
  * @since x.x.x
  * @return void
  */
-function astra_onboard_admin_dashboard() {
+function astra_theme_background_updater_4_0_0() {
 	$admin_dashboard_settings = get_option( 'astra_admin_settings', array() );
 	if ( ! isset( $admin_dashboard_settings['theme-setup-admin-migrated'] ) ) {
 

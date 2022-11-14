@@ -21,9 +21,11 @@ const AstraIntegration = () => {
 					method: 'POST',
 					body: formData,
 				} ).then( ( data ) => {
-					e.target.className = '';
-					e.target.className = 'text-[#4AB866] pointer-events-none capitalize mt-3 text-sm leading-[0.875rem] font-medium rounded-md py-[0.5625rem]';
-					e.target.innerText = astra_admin.plugin_activated_text;
+					if ( data.success ) {
+						e.target.className = '';
+						e.target.className = 'text-[#4AB866] pointer-events-none capitalize mt-3 text-sm leading-[0.875rem] font-medium rounded-md py-[0.5625rem]';
+						e.target.innerText = astra_admin.plugin_activated_text;
+					}
 				} );
 				break;
 
@@ -64,10 +66,12 @@ const AstraIntegration = () => {
 			method: 'POST',
 			body: formData,
 		} ).then( ( data ) => {
-			e.target.className = '';
-			e.target.className = 'text-[#4AB866] pointer-events-none capitalize mt-3 text-sm leading-[0.875rem] font-medium rounded-md py-[0.5625rem]';
-			e.target.innerText = astra_admin.plugin_activated_text;
-			location.reload()
+			if ( data.success ) {
+				e.target.className = '';
+				e.target.className = 'text-[#4AB866] pointer-events-none capitalize mt-3 text-sm leading-[0.875rem] font-medium rounded-md py-[0.5625rem]';
+				e.target.innerText = astra_admin.plugin_activated_text;
+				location.reload()
+			}
 		} );
 	};
 
