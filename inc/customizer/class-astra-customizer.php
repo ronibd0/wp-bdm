@@ -1082,7 +1082,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			);
 
 			wp_enqueue_style(
-				'ahfb-customizer-style',
+				'ahfb-customizer-color-picker-style',
 				ASTRA_THEME_URI . 'inc/assets/css/' . $font_icon_picker_css_file . '.css',
 				array( 'wp-components' ),
 				ASTRA_THEME_VERSION
