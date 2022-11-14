@@ -78,6 +78,7 @@ if ( ! class_exists( 'Astra_Site_Layout_Configs' ) ) {
 					),
 				)
 			);
+
 			return array_merge( $configurations, $_configs );
 		}
 	}

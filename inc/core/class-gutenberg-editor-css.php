@@ -270,7 +270,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 			if ( 'inherit' == $site_title_font_weight || '' == $site_title_font_weight ) {
 				$site_title_font_weight = 'normal';
 			}
-	
+
 			// check the selection color incase of empty/no theme color.
 			$selection_text_color = ( 'transparent' === $highlight_theme_color ) ? '' : $highlight_theme_color;
 
@@ -444,7 +444,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 					'text-transform' => esc_attr( $site_title_text_transform ),
 				),
 			);
-		
+
 			if ( false === $improve_gb_ui ) {
 				$desktop_css['.editor-post-title__block,.editor-default-block-appender,.block-editor-block-list__block'] = array(
 					'max-width' => astra_get_css_value( $site_content_width, 'px' ),
