@@ -604,6 +604,12 @@ select {
 .right-2 {
   right: 0.5rem;
 }
+.top-0 {
+  top: 0px;
+}
+.-top-20 {
+  top: -5rem;
+}
 .z-50 {
   z-index: 50;
 }
@@ -611,6 +617,9 @@ select {
   z-index: 10;
 }
 .z-0 {
+  z-index: 0;
+}
+.-z-0 {
   z-index: 0;
 }
 .m-auto {
@@ -746,6 +755,9 @@ select {
 }
 .mt-\[32px\] {
   margin-top: 32px;
+}
+.mt-7 {
+  margin-top: 1.75rem;
 }
 .box-border {
   box-sizing: border-box;
@@ -1327,6 +1339,15 @@ select {
 }
 .pb-2\.5 {
   padding-bottom: 0.625rem;
+}
+.pb-\[2\.43rem\] {
+  padding-bottom: 2.43rem;
+}
+.pt-20 {
+  padding-top: 5rem;
+}
+.pb-14 {
+  padding-bottom: 3.5rem;
 }
 .text-left {
   text-align: left;
