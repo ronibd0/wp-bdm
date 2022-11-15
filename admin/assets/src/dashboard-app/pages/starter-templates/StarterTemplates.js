@@ -51,7 +51,7 @@ const StarterTemplates = () => {
 				} ).then( ( response ) => {
 					if ( response.success ) {
 						e.target.innerText = astra_admin.plugin_installed_text;
-						location.reload();
+						activatePlugin( e );
 					}
 				} );
 				break;
@@ -61,6 +61,28 @@ const StarterTemplates = () => {
 				break;
 		}
 	};
+
+	const activatePlugin = (e) => {
+		const formData = new window.FormData();
+		formData.append( 'action', 'astra_recommended_plugin_activate' );
+		formData.append( 'security', astra_admin.plugin_manager_nonce );
+		formData.append( 'init', e.target.dataset.init );
+		e.target.innerText = astra_admin.plugin_activating_text;
+
+		apiFetch( {
+			url: astra_admin.ajax_url,
+			method: 'POST',
+			body: formData,
+		} ).then( ( response ) => {
+			if( response.success ) {
+				e.target.className = '';
+				e.target.className = 'text-[#4AB866] pointer-events-none capitalize text-sm leading-[0.875rem] font-medium rounded-md';
+				e.target.innerText = astra_admin.plugin_activated_text;
+				window.location = astra_admin.starter_templates_data.redirection_link;
+			}
+		} );
+	};
+
 
 	const getAction = ( status ) => {
 		if (status === "activated") {
