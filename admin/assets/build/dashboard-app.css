@@ -1268,6 +1268,14 @@ select {
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
 }
+.px-\[2\.9375rem\] {
+  padding-left: 2.9375rem;
+  padding-right: 2.9375rem;
+}
+.py-\[0\.6875rem\] {
+  padding-top: 0.6875rem;
+  padding-bottom: 0.6875rem;
+}
 .pl-10 {
   padding-left: 2.5rem;
 }
