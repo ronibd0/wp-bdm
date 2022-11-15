@@ -1,4 +1,3 @@
-import Astra_Admin_Icons from '@Common/block-icons';
 import { Switch } from '@headlessui/react'
 import apiFetch from '@wordpress/api-fetch';
 import ToolTip from './ToolTip';

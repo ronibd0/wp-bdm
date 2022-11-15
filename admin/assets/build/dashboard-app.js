@@ -8567,15 +8567,13 @@ const StarterTemplates = () => {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _Common_block_icons__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @Common/block-icons */ "./assets/src/common/block-icons.js");
-/* harmony import */ var _headlessui_react__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @headlessui/react */ "./node_modules/@headlessui/react/dist/components/switch/switch.js");
-/* harmony import */ var _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/api-fetch */ "@wordpress/api-fetch");
-/* harmony import */ var _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _ToolTip__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ToolTip */ "./assets/src/dashboard-app/pages/welcome/ToolTip.js");
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_5__);
-
+/* harmony import */ var _headlessui_react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @headlessui/react */ "./node_modules/@headlessui/react/dist/components/switch/switch.js");
+/* harmony import */ var _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/api-fetch */ "@wordpress/api-fetch");
+/* harmony import */ var _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _ToolTip__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ToolTip */ "./assets/src/dashboard-app/pages/welcome/ToolTip.js");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__);
 
 
 
@@ -8597,8 +8595,8 @@ const ExtensionCard = props => {
     deprecated = false
   } = props.moduleInfo;
   const slug = props.slug;
-  const dispatch = (0,react_redux__WEBPACK_IMPORTED_MODULE_4__.useDispatch)();
-  const blocksStatuses = (0,react_redux__WEBPACK_IMPORTED_MODULE_4__.useSelector)(state => state.blocksStatuses);
+  const dispatch = (0,react_redux__WEBPACK_IMPORTED_MODULE_3__.useDispatch)();
+  const blocksStatuses = (0,react_redux__WEBPACK_IMPORTED_MODULE_3__.useSelector)(state => state.blocksStatuses);
   const moduleActivationStatus = false == blocksStatuses[slug] ? false : true;
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     key: slug,
@@ -8609,9 +8607,9 @@ const ExtensionCard = props => {
     className: "text-base font-medium text-slate-800 leading-7"
   }, title, deprecated && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "inline-block align-top max-h-4 px-1.5 py-1 ml-1.5 text-[10px] leading-[10px] border border-slate-200 text-slate-400 rounded"
-  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_5__.__)('Legacy', 'astra')), astra_admin.pro_available && !condition && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)('Legacy', 'astra')), astra_admin.pro_available && !condition && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
     className: "inline-block align-middle ml-1 leading-none opacity-30 text-base dashicons dashicons-info",
-    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_5__.__)('This plugin needs to be installed/activated.', 'astra')
+    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)('This plugin needs to be installed/activated.', 'astra')
   })), links.map(link => (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
     key: Math.floor(Math.random() * 100000),
     className: classNames(link.link_class, 'focus-visible:text-slate-500 active:text-slate-500 hover:text-slate-500 focus:text-slate-400 text-slate-400 text-sm truncate'),
@@ -8620,7 +8618,7 @@ const ExtensionCard = props => {
     rel: "noreferrer"
   }, link.link_text))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: classNames(!astra_admin.pro_available ? 'text-[0.625rem] leading-[0.625rem] text-white bg-slate-800 rounded-[0.1875rem]' : 'self-center', astra_admin.pro_available && !condition ? 'relative inline-flex flex-shrink-0 py-0.5 px-1 opacity-30 pointer-events-none' : 'relative inline-flex flex-shrink-0 py-0.5 px-1')
-  }, !astra_admin.pro_available && (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_5__.__)('PRO', 'astra'), astra_admin.pro_available && 'white-label' !== slug && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_headlessui_react__WEBPACK_IMPORTED_MODULE_6__.Switch, {
+  }, !astra_admin.pro_available && (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)('PRO', 'astra'), astra_admin.pro_available && 'white-label' !== slug && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_headlessui_react__WEBPACK_IMPORTED_MODULE_5__.Switch, {
     checked: moduleActivationStatus,
     onChange: () => {
       let status = false;
@@ -8642,7 +8640,7 @@ const ExtensionCard = props => {
       formData.append('security', astra_addon_admin.update_nonce);
       formData.append('module_status', moduleStatus); // activate/deactivate.
       formData.append('module_id', moduleId);
-      _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_2___default()({
+      _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_1___default()({
         url: astra_admin.ajax_url,
         method: 'POST',
         body: formData
@@ -8650,19 +8648,19 @@ const ExtensionCard = props => {
         if (data.success) {
           dispatch({
             type: 'UPDATE_SETTINGS_SAVED_NOTIFICATION',
-            payload: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_5__.__)('Successfully saved!')
+            payload: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)('Successfully saved!')
           });
           const reFormData = new window.FormData();
           reFormData.append('action', 'astra_refresh_assets_files');
           reFormData.append('security', astra_addon_admin.update_nonce);
-          _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_2___default()({
+          _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_1___default()({
             url: astra_admin.ajax_url,
             method: 'POST',
             body: reFormData
           }).then(data => {
             dispatch({
               type: 'UPDATE_SETTINGS_SAVED_NOTIFICATION',
-              payload: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_5__.__)('Cache Cleared!')
+              payload: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)('Cache Cleared!')
             });
           });
         }
@@ -8672,7 +8670,7 @@ const ExtensionCard = props => {
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
     "aria-hidden": "true",
     className: classNames(moduleActivationStatus ? 'translate-x-5' : 'translate-x-0', 'pointer-events-none inline-block h-3.5 w-3.5 rounded-full bg-white shadow transform ring-0 transition ease-in-out duration-200')
-  }))), !astra_admin.pro_available && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_ToolTip__WEBPACK_IMPORTED_MODULE_3__["default"], null));
+  }))), !astra_admin.pro_available && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_ToolTip__WEBPACK_IMPORTED_MODULE_2__["default"], null));
 };
 /* harmony default export */ __webpack_exports__["default"] = (ExtensionCard);
 
