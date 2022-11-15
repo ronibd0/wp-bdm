@@ -388,7 +388,7 @@ class Astra_WP_Editor_CSS {
 			--wp--custom--ast-wide-width-size: ' . $ast_wide_width . ';
 		}';
 
-		$css .= ':root, .ast-narrow-container .editor-styles-wrapper {
+		$css .= '.ast-narrow-container .editor-styles-wrapper {
 			--wp--custom--ast-wide-width-size: ' . $ast_narrow_wide_width . ';
 			--wp--custom--ast-content-width-size: ' . $ast_narrow_width . ';
 		}';

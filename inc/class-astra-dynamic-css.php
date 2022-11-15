@@ -62,7 +62,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			 */
 			$is_site_rtl                = is_rtl();
 			$site_content_width         = astra_get_option( 'site-content-width', 1200 );
-			$narrow_container_max_width = astra_get_option( 'narrow-container-max-width', 750 );
+			$narrow_container_max_width = astra_get_option( 'narrow-container-max-width', apply_filters( 'astra_narrow_container_width', 750 ) );
 			$header_logo_width          = astra_get_option( 'ast-header-responsive-logo-width' );
 			$container_layout           = astra_get_option( 'site-content-layout' );
 			$archive_container_layout   = astra_get_option( 'archive-post-sidebar-layout' );
