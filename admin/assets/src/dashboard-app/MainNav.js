@@ -1,7 +1,8 @@
-import { Disclosure } from '@headlessui/react'
-import { Link, useLocation } from 'react-router-dom';
-import { __ } from '@wordpress/i18n';
-import ChangeLogPopup from './ChangeLogPopup';
+import { Disclosure } from "@headlessui/react";
+import { Link, useLocation } from "react-router-dom";
+import { __ } from "@wordpress/i18n";
+import ChangeLogPopup from "./ChangeLogPopup";
+import DocsPopup from "./DocsPopup";
 import { Fragment } from 'react';
 
 export default function MainNav() {
@@ -33,7 +34,7 @@ export default function MainNav() {
 	const activePage = query.get( 'page' )
 		? query.get( 'page' )
 		: astra_admin.home_slug;
-	const activePath = query.get( 'path' ) ? query.get( 'path' ) : '';
+	const activePath = query.get("path") ? query.get("path") : "";
 
 	if ( activePath === 'spectra' ) {
 		return <></>;
@@ -43,10 +44,13 @@ export default function MainNav() {
 			<div className="max-w-3xl mx-auto px-6 lg:max-w-full">
 				<div className="relative flex justify-between h-16">
 					<div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
-						<a href={astra_admin.astra_base_url} className="flex-shrink-0 flex items-center">
+						<a
+							href={astra_admin.astra_base_url}
+							className="flex-shrink-0 flex items-center"
+						>
 							<img
 								className="lg:block h-[2.6rem] w-auto"
-								src={ astra_admin.logo_url }
+								src={astra_admin.logo_url}
 								alt="Workflow"
 							/>
 						</a>
@@ -85,34 +89,34 @@ export default function MainNav() {
 							) ) }
 						</div>
 					</div>
-					{
-						astra_admin.show_self_branding &&
+					{astra_admin.show_self_branding && (
 						<div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
 							<div className="text-sm font-medium leading-6 text-slate-600 mr-8">
-								{ __( 'Knowledge base', 'astra' ) }
+								<DocsPopup />
 							</div>
 							<div className="flex items-center text-sm font-medium leading-[1.375rem] text-slate-400 mr-8 divide-x divide-slate-200 gap-3">
-								<div className="">
-									{ astra_admin.version }
-								</div>
-								{ wp.hooks.applyFilters( 'astra_dashboard.after_navigation_version', <span/> ) }
+								<div className="">{astra_admin.version}</div>
+								{wp.hooks.applyFilters(
+									"astra_dashboard.after_navigation_version",
+									<span />
+								)}
 							</div>
 							<ChangeLogPopup />
 						</div>
-					}
-					{
-						! astra_admin.show_self_branding &&
+					)}
+					{!astra_admin.show_self_branding && (
 						<div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
 							<div className="flex items-center text-sm font-medium leading-[1.375rem] text-slate-400 mr-8 divide-x divide-slate-200 gap-3">
-								<div className="">
-									{ astra_admin.version }
-								</div>
-								{ wp.hooks.applyFilters( 'astra_dashboard.after_navigation_version', <span/> ) }
+								<div className="">{astra_admin.version}</div>
+								{wp.hooks.applyFilters(
+									"astra_dashboard.after_navigation_version",
+									<span />
+								)}
 							</div>
 						</div>
-					}
+					)}
 				</div>
 			</div>
 		</Disclosure>
-	)
+	);
 }

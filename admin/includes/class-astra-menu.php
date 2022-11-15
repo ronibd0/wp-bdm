@@ -236,12 +236,15 @@ class Astra_Menu {
 		$localize = array(
 			'current_user'                       => ! empty( wp_get_current_user()->user_firstname ) ? ucfirst( wp_get_current_user()->user_firstname ) : ucfirst( wp_get_current_user()->display_name ),
 			'admin_base_url'                     => admin_url(),
+			'plugin_dir'                         => ASTRA_THEME_URI,
+			'plugin_ver'                         => ASTRA_THEME_VERSION,
 			'version'                            => ASTRA_THEME_VERSION,
 			'pro_available'                      => defined( 'ASTRA_EXT_VER' ) ? true : false,
 			'theme_name'                         => astra_get_theme_name(),
 			'plugin_name'                        => astra_get_addon_name(),
 			'quick_settings'                     => self::astra_get_quick_links(),
 			'ajax_url'                           => admin_url( 'admin-ajax.php' ),
+			'is_whitelabel'                      => astra_is_white_labelled(),
 			'show_self_branding'                 => is_callable( 'Astra_Ext_White_Label_Markup::show_branding' ) ? Astra_Ext_White_Label_Markup::show_branding() : true,
 			'admin_url'                          => admin_url( 'admin.php' ),
 			'home_slug'                          => self::$plugin_slug,
@@ -266,6 +269,7 @@ class Astra_Menu {
 			'plugin_activated_text'              => __( 'Activated', 'astra' ),
 			'plugin_activate_text'               => __( 'Activate', 'astra' ),
 			'starter_templates_data'             => self::get_starter_template_plugin_data(),
+			'astra_docs_data'                    => self::get_astra_docs_data(),
 			'upgrade_notice'                     => astra_showcase_upgrade_notices(),
 		);
 
@@ -899,6 +903,17 @@ class Astra_Menu {
 	 */
 	public function add_footer_link() {
 		echo '<span id="footer-thankyou"> Thank you for using <span class="focus:text-astra-hover active:text-astra-hover hover:text-astra-hover"> ' . esc_attr( astra_get_theme_name() ) . '.</span></span>';
+	}
+
+	/**
+	 * Get Docs from API.
+	 *
+	 * @since x.x.x
+	 * @return array $astra_docs_data Astra Docs Data.
+	 */
+	public static function get_astra_docs_data() {
+		$astra_docs_data = json_decode( wp_remote_retrieve_body( wp_remote_get( 'https://smalljellyfish.s1-tastewp.com/wp-json/powerful-docs/v1/get-docs' ) ) ); // Astra theme.
+		return $astra_docs_data;
 	}
 }
 

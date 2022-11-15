@@ -26,7 +26,7 @@ const Astra_Admin_Icons = {
 		{ width: 20, height: 20, viewBox: '0 0 20 20', fill: 'none' },
 		el( 'path', {
 			d: 'M8.33301 4.9987H4.99967C4.0792 4.9987 3.33301 5.74489 3.33301 6.66536V14.9987C3.33301 15.9192 4.0792 16.6654 4.99967 16.6654H13.333C14.2535 16.6654 14.9997 15.9192 14.9997 14.9987V11.6654M11.6663 3.33203H16.6663M16.6663 3.33203V8.33203M16.6663 3.33203L8.33301 11.6654',
-			stroke: "#046BD2",
+			stroke: "currentColor",
 			strokeWidth: 1.6,
 			strokeLinecap:"round",
 			strokeLinejoin:"round"
@@ -6358,6 +6358,25 @@ const Astra_Admin_Icons = {
 			w4q4ff0hPhQAAAAldEVYdGRhdGU6Y3JlYXRlADIwMjItMTAtMDNUMDk6NDA6MTMrMDA6MDCkbUOv
 			AAAAJXRFWHRkYXRlOm1vZGlmeQAyMDIyLTEwLTAzVDA5OjQwOjEzKzAwOjAw1TD7EwAAACh0RVh0
 			ZGF0ZTp0aW1lc3RhbXAAMjAyMi0xMC0wM1QwOTo0MDoxMyswMDowMIIl2swAAAAASUVORK5CYII=`,
+		} ),
+	),
+	'bookmark': el(
+		'svg',
+		{ width: 24, height: 24, viewBox: '0 0 24 24', fill: 'none' },
+		el( 'path', {
+			d: 'M5 5C5 3.89543 5.89543 3 7 3H17C18.1046 3 19 3.89543 19 5V21L12 17.5L5 21V5Z',
+			stroke: '#4B5563',
+			strokeWidth: '2',
+			strokeLinecap: 'round',
+			strokeLinejoin: 'round',
+		} ),
+	),
+	'caret': el(
+		'svg',
+		{ width: 20, height: 20, viewBox: '0 0 20 20', fill: 'none' },
+		el( 'path', {
+			d: 'M8 6L14 10.03L8 14V6Z',
+			fill: '#9CA3AF',
 		} ),
 	),
 	'spectra-logo': el(
