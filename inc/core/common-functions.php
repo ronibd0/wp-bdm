@@ -1649,7 +1649,7 @@ function astra_narrow_container_width( $location, $narrow_container_max_width ) 
 			);
 		}
 
-		return astra_parse_css( $narrow_container_css, astra_get_tablet_breakpoint( '', 1 ) ); // phpcs:ignore WordPress.NamingConventions.ValidHookName.UseUnderscores
+		return astra_parse_css( $narrow_container_css, astra_get_tablet_breakpoint( '', 1 ) );
 
 	} else {
 		return '';

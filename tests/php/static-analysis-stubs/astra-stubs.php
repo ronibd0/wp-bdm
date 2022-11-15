@@ -16284,9 +16284,9 @@ namespace {
      * Function to add narrow width properties in the frontend.
      *
      * @since x.x.x
-     * @param string  $location Location where this needs to be added.
+     * @param string $location container layout for single-post, archives, pages, page meta.
      * @param string $narrow_container_max_width  Container Width in px.
-     * @return string|null css based on $location and $narrow_container_max_width.
+     * @return string Parsed CSS based on $location and $narrow_container_max_width.
      */
     function astra_narrow_container_width( $location, $narrow_container_max_width )
     {
