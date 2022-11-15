@@ -35,10 +35,10 @@ const Docs = ({ setOpen }) => {
 				<div className="w-full flex justify-between items-center bg-gray-50 py-5 px-6">
 					<a
 						href={astra_admin.astra_base_url}
-						className="flex-shrink-0 flex items-center shadow-none"
+						className="flex-shrink-0 flex items-center ast-box-shadow-none"
 					>
 						<img
-							className="lg:block h-[2.6rem] w-auto"
+							className="lg:block h-[2.6rem] w-auto ast-box-shadow-none"
 							src={astra_admin.logo_url}
 							alt="Workflow"
 						/>
