@@ -12,13 +12,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-add_filter('astra_narrow_container_width', 'custom_width');
-
-function custom_width($width) {
-	var_dump($width);
-	return 1200;
-}
-
 /**
  * Define Constants
  */
