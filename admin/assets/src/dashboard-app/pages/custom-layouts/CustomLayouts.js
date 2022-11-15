@@ -22,13 +22,13 @@ const CustomLayouts = () => {
 
 	return (
 		<main className="relative">
-			<div className="w-full blur-md">
+			<div className="w-full absolute inset-0 blur-md">
 				{Astra_Admin_Icons['custom-layout']}
 			</div>
 
 			{/* Model Component section */}
-			<div>
-				<div className="max-w-[39rem] h-max bg-white m-auto shadow-overlay-modal text-center rounded-lg p-8 absolute top-[7.125rem] left-0 right-0">
+			<div className="relative z-10 pt-[7.125rem]">
+				<div className="max-w-[39rem] h-max bg-white m-auto shadow-overlay-modal text-center rounded-lg p-8">
 					<div>
 						<div className="mx-auto flex items-center justify-center">
 							{Astra_Admin_Icons["astra-logo"]}
@@ -38,15 +38,23 @@ const CustomLayouts = () => {
 								className="text-2xl font-semibold leading-7 text-slate-800"
 								id="modal-title"
 							>
-								Upgrade to Pro
+								{ astra_admin.upgrade_notice ? 'Upgrade to Pro' : 'Custom Layouts' }
 							</h4>
 							<div className="mt-2">
-								<p className="text-sm text-slate-500">
-									Get access to powerful features for painless
-									WordPress designing, without the high costs.
-									With all the time you will save, it’s a
-									product that pays for itself!
-								</p>
+								{ astra_admin.upgrade_notice ?
+									<p className="text-sm text-slate-500">
+										Get access to powerful features for painless
+										WordPress designing, without the high costs.
+										With all the time you will save, it’s a
+										product that pays for itself!
+									</p> :
+									<p className="text-sm text-slate-500">
+										Custom Layouts is a very powerful module that comes with Astra Pro.
+										This module can create a unique header, footer, 404 pages, and custom
+										content or code on various hook locations.Upgrade to Astra Pro for instant
+										access to Custom Layouts and unlock the full potential of your website.
+									</p>
+								}
 							</div>
 							<div className="relative pb-[17.5rem] mt-5">
 								{/* Added rel=0 query paramter at the end to disable YouTube recommendations */}

@@ -1340,6 +1340,12 @@ select {
 .pb-2\.5 {
   padding-bottom: 0.625rem;
 }
+.pt-\[7\.125rem\] {
+  padding-top: 7.125rem;
+}
+.pb-\[11rem\] {
+  padding-bottom: 11rem;
+}
 .text-left {
   text-align: left;
 }

@@ -275,6 +275,7 @@ class Astra_Menu {
 			'plugin_activated_text'              => __( 'Activated', 'astra' ),
 			'plugin_activate_text'               => __( 'Activate', 'astra' ),
 			'starter_templates_data'             => self::get_starter_template_plugin_data(),
+			'upgrade_notice'                     => astra_showcase_upgrade_notices(),
 		);
 
 		$this->settings_app_scripts( apply_filters( 'astra_react_admin_localize', $localize ) );

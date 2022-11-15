@@ -7279,9 +7279,11 @@ const CustomLayouts = () => {
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("main", {
     className: "relative"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "w-full blur-md"
-  }, _Common_block_icons__WEBPACK_IMPORTED_MODULE_2__["default"]["custom-layout"]), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "max-w-[39rem] h-max bg-white m-auto shadow-overlay-modal text-center rounded-lg p-8 absolute top-[7.125rem] left-0 right-0"
+    className: "w-full absolute inset-0 blur-md"
+  }, _Common_block_icons__WEBPACK_IMPORTED_MODULE_2__["default"]["custom-layout"]), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "relative z-10 pt-[7.125rem]"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "max-w-[39rem] h-max bg-white m-auto shadow-overlay-modal text-center rounded-lg p-8"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "mx-auto flex items-center justify-center"
   }, _Common_block_icons__WEBPACK_IMPORTED_MODULE_2__["default"]["astra-logo"]), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
@@ -7289,11 +7291,13 @@ const CustomLayouts = () => {
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h4", {
     className: "text-2xl font-semibold leading-7 text-slate-800",
     id: "modal-title"
-  }, "Upgrade to Pro"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+  }, astra_admin.upgrade_notice ? 'Upgrade to Pro' : 'Custom Layouts'), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "mt-2"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
+  }, astra_admin.upgrade_notice ? (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
     className: "text-sm text-slate-500"
-  }, "Get access to powerful features for painless WordPress designing, without the high costs. With all the time you will save, it\u2019s a product that pays for itself!")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+  }, "Get access to powerful features for painless WordPress designing, without the high costs. With all the time you will save, it\u2019s a product that pays for itself!") : (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
+    className: "text-sm text-slate-500"
+  }, "Custom Layouts is a very powerful module that comes with Astra Pro. This module can create a unique header, footer, 404 pages, and custom content or code on various hook locations.Upgrade to Astra Pro for instant access to Custom Layouts and unlock the full potential of your website.")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "relative pb-[17.5rem] mt-5"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("iframe", {
     className: "absolute inset-0 w-full h-full rounded-md",
