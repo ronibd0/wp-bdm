@@ -121,3 +121,11 @@
 		color: #64748b;
 	}
 }
+
+// RTL version compat.
+[dir=rtl] .astra-dashboard-app button.bg-astra[aria-checked=false] span {
+    right: 0;
+}
+[dir=rtl] .astra-dashboard-app button.bg-astra[aria-checked=true] span {
+    transform: translateX(20px);
+}
