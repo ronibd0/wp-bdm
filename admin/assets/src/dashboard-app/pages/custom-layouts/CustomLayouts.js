@@ -38,17 +38,12 @@ const CustomLayouts = () => {
 								className="text-2xl font-semibold leading-7 text-slate-800"
 								id="modal-title"
 							>
-								{ astra_admin.upgrade_notice ? <>{ __( 'Upgrade to Pro', 'astra' ) }</> : <>{ __( 'Custom Layouts', 'astra' ) }</> }
+								{ __( 'Custom Layouts', 'astra' ) }
 							</h4>
 							<div className="mt-2">
-								{ astra_admin.upgrade_notice ?
-									<p className="text-sm leading-[1.375rem] text-slate-500 text-center">
-										{ __( 'Get access to powerful features for painless	WordPress designing, without the high costs. With all the time you will save, its a product that pays for itself!', 'astra' ) }
-									</p> :
-									<p className="text-sm leading-[1.375rem] text-slate-500 text-center">
-										{ __( 'Upgrade to Astra Pro to get access to Custom Layouts, which allow you to create a unique header, footer, 404 pages, and custom content.', 'astra' ) }
-									</p>
-								}
+								<p className="text-sm leading-[1.375rem] text-slate-500 text-center">
+									{ __( 'Upgrade to Astra Pro to get access to Custom Layouts, which allow you to create a unique header, footer, 404 pages, and custom content.', 'astra' ) }
+								</p>
 							</div>
 							<div className="relative pb-[17.5rem] mt-5">
 								{/* Added rel=0 query parameter at the end to disable YouTube recommendations. */}
