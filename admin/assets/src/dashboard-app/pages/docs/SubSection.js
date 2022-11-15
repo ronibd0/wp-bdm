@@ -55,8 +55,10 @@ const SubSection = ({ item }) => {
 					<div className="space-y-1 mb-5">
 						{/* Single Item */}
 						{subItems.splice(0, 5).map((item, key) => (
-							<div
-								className="flex items-center justify-between text-slate-800 rounded-md p-2 pl-0 hover:bg-gray-50 group cursor-pointer"
+							<a
+								href={item.url}
+								target="_blank"
+								className="flex items-center justify-between text-slate-800 rounded-md p-2 pl-0 hover:bg-gray-50 group cursor-pointer focus:outline-0"
 								key={key}
 							>
 								<div className="flex items-center">
@@ -80,7 +82,7 @@ const SubSection = ({ item }) => {
 								<div className="text-slate-600 invisible group-hover:visible">
 									{Astra_Admin_Icons["redirect"]}
 								</div>
-							</div>
+							</a>
 						))}
 					</div>
 

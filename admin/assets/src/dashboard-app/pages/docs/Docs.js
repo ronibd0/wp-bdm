@@ -17,7 +17,7 @@ const Docs = ({ setOpen }) => {
 			setSearchResults(null);
 		} else {
 			const data = astra_admin.astra_docs_data.docs.filter((item) =>
-				item.title.includes(searchKeyword)
+				item.title.toLowerCase().includes(searchKeyword)
 			);
 			setSearchResults(data);
 		}

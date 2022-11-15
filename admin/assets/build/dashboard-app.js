@@ -7419,7 +7419,7 @@ const Docs = _ref => {
     if (searchKeyword === "") {
       setSearchResults(null);
     } else {
-      const data = astra_admin.astra_docs_data.docs.filter(item => item.title.includes(searchKeyword));
+      const data = astra_admin.astra_docs_data.docs.filter(item => item.title.toLowerCase().includes(searchKeyword));
       setSearchResults(data);
     }
   }
@@ -7664,8 +7664,10 @@ const SubSection = _ref => {
     className: "mt-5"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "space-y-1 mb-5"
-  }, subItems.splice(0, 5).map((item, key) => (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "flex items-center justify-between text-slate-800 rounded-md p-2 pl-0 hover:bg-gray-50 group cursor-pointer",
+  }, subItems.splice(0, 5).map((item, key) => (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+    href: item.url,
+    target: "_blank",
+    className: "flex items-center justify-between text-slate-800 rounded-md p-2 pl-0 hover:bg-gray-50 group cursor-pointer focus:outline-0",
     key: key
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "flex items-center"
