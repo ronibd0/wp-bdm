@@ -7291,13 +7291,13 @@ const CustomLayouts = () => {
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h4", {
     className: "text-2xl font-semibold leading-7 text-slate-800",
     id: "modal-title"
-  }, astra_admin.upgrade_notice ? 'Upgrade to Pro' : 'Custom Layouts'), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+  }, astra_admin.upgrade_notice ? (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Upgrade to Pro', 'astra')) : (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Custom Layouts', 'astra'))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "mt-2"
   }, astra_admin.upgrade_notice ? (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
     className: "text-sm text-slate-500"
-  }, "Get access to powerful features for painless WordPress designing, without the high costs. With all the time you will save, it\u2019s a product that pays for itself!") : (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
+  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Get access to powerful features for painless	WordPress designing, without the high costs. With all the time you will save, its a product that pays for itself!', 'astra')) : (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
     className: "text-sm text-slate-500"
-  }, "Custom Layouts is a very powerful module that comes with Astra Pro. This module can create a unique header, footer, 404 pages, and custom content or code on various hook locations.Upgrade to Astra Pro for instant access to Custom Layouts and unlock the full potential of your website.")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Custom Layouts is a very powerful module that comes with Astra Pro. This module can create a unique header, footer, 404 pages, and custom content or code on various hook locations.Upgrade to Astra Pro for instant access to Custom Layouts and unlock the full potential of your website.', 'astra'))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "relative pb-[17.5rem] mt-5"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("iframe", {
     className: "absolute inset-0 w-full h-full rounded-md",

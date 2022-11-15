@@ -589,12 +589,6 @@ select {
 .right-0 {
   right: 0px;
 }
-.top-\[7\.125rem\] {
-  top: 7.125rem;
-}
-.left-0 {
-  left: 0px;
-}
 .top-0 {
   top: 0px;
 }
@@ -1286,6 +1280,9 @@ select {
 .pt-0 {
   padding-top: 0px;
 }
+.pt-\[7\.125rem\] {
+  padding-top: 7.125rem;
+}
 .pb-\[17\.5rem\] {
   padding-bottom: 17.5rem;
 }
@@ -1339,12 +1336,6 @@ select {
 }
 .pb-2\.5 {
   padding-bottom: 0.625rem;
-}
-.pt-\[7\.125rem\] {
-  padding-top: 7.125rem;
-}
-.pb-\[11rem\] {
-  padding-bottom: 11rem;
 }
 .text-left {
   text-align: left;
