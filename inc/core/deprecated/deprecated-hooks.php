@@ -67,6 +67,7 @@ function astra_show_deprecated_admin_hooks_warnings() {
 			astra_do_action_deprecated( 'astra_welcome_page_right_sidebar_before', array(), 'x.x.x' );
 			astra_do_action_deprecated( 'astra_welcome_page_right_sidebar_content', array(), 'x.x.x' );
 			astra_do_action_deprecated( 'astra_welcome_page_right_sidebar_after', array(), 'x.x.x' );
+			astra_apply_filters_deprecated( 'astra_menu_page_title', array(), 'x.x.x' );
 		}
 	}
 }
