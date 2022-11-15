@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import Astra_Admin_Icons from "@Common/block-icons";
 import ReactHtmlParser from "react-html-parser";
 
@@ -92,7 +91,7 @@ const SubSection = ({ item }) => {
 						className="text-base font-medium leading-4 text-astra flex items-center"
 					>
 						<span className="mr-2">
-							View All {ReactHtmlParser(item[1].name)} Doc
+							{`View all ${ReactHtmlParser(item[1].name)} docs`}
 						</span>
 						{Astra_Admin_Icons["redirect"]}
 					</a>

@@ -30,7 +30,7 @@ const Docs = ({ setOpen }) => {
 				<div className="w-full flex justify-between items-center bg-gray-50 py-5 px-6">
 					<a
 						href={astra_admin.astra_base_url}
-						className="flex-shrink-0 flex items-center outline-0"
+						className="flex-shrink-0 flex items-center shadow-none"
 					>
 						<img
 							className="lg:block h-[2.6rem] w-auto"
@@ -102,23 +102,26 @@ const Docs = ({ setOpen }) => {
 					</div>
 				</div>
 
-				<div className="w-full flex flex-col">
-					<div className="max-w-5xl mx-auto flex gap-8 pt-10">
+				<div className="max-w-5xl mx-auto w-full flex flex-col">
+					<div className="flex gap-8 pt-10">
 						<div className="w-2/3 mb-5">
-							{searchResults && searchResults.length > 0 && (
+							{(searchResults && searchResults.length > 0) && (
 								<div className="mb-8">
 									<SearchResults data={searchResults} />
 								</div>
 							)}
-							{/* Starting of Subsections  */}
+							{/* Docs subsections */}
 							{Object.entries(
 								astra_admin.astra_docs_data.categories
 							).map((item, key) => (
 								<SubSection item={item} key={key} />
 							))}
-							<div className="mt-10">
-								<UpgradeToPro />
-							</div>
+							{
+								! astra_admin.pro_available &&
+								<div className="mt-10">
+									<UpgradeToPro />
+								</div>
+							}
 						</div>
 						<div className="w-1/3">
 							<section aria-labelledby="section-2-title">

@@ -48,14 +48,13 @@ const Welcome = () => {
 											</h2>
 											{ astra_admin.pro_available ? (
 												<span className="ml-2 h-full inline-flex leading-4 flex-shrink-0 py-0.5 px-1 text-[0.625rem] text-white bg-slate-800 rounded-[0.1875rem]">
-													PRO
+													{ __( 'PRO', 'astra' ) }
 												</span> )
 											:
 												( <span className="ml-2 h-full inline-flex leading-4 flex-shrink-0 py-0.5 px-1 text-[0.625rem] text-astra bg-blue-50 rounded-[0.1875rem]">
-													FREE
+													{ __( 'FREE', 'astra' ) }
 												</span> )
 											}
-
 										</div>
 
 										<p className="text-base leading-[1.625rem] text-slate-500 pb-7">

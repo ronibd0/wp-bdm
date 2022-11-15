@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 
 /* Main Compnent */
 import './common/all-config.scss';
+import './common/common';
 import SettingsWrap from '@DashboardApp/SettingsWrap';
 import { Provider } from 'react-redux';
 import globalDataStore from '@Admin/store/globalDataStore';

@@ -1,4 +1,5 @@
 import React from "react";
+import { __ } from "@wordpress/i18n";
 
 const UpgradeToPro = () => {
 	return (
@@ -22,19 +23,17 @@ const UpgradeToPro = () => {
 			</div>
 			<div>
 				<h4 className="text-base font-semibold leading-5 text-slate-800 mb-1.5">
-					Upgrade to Astra Pro
+					{__('Upgrade to Astra Pro', 'astra')}
 				</h4>
 				<p className="text-sm text-slate-600 mb-3">
-					Get access to powerful features for painless WordPress
-					designing, without the high costs. With all the time you
-					will save, it’s a product that pays for itself!
+					{__('Get access to powerful features for painless WordPress designing, without the high costs. With all the time you will save, it’s a product that pays for itself!', 'astra')}
 				</p>
 				<button className="text-sm text-astra text-medium">
-					Upgrade Now →
+					{__('Upgrade Now →', 'astra')}
 				</button>
 			</div>
 			<div className="absolute top-4 right-4 leading-4 py-0.5 px-1 text-[0.625rem] text-white bg-slate-800 rounded-[0.1875rem]">
-				PRO
+				{__('PRO', 'astra')}
 			</div>
 		</div>
 	);

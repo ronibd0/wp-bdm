@@ -44,6 +44,8 @@ function SettingsRoute() {
 					break;
 			}
 		}
+
+		astWpMenuClassChange( path );
 	}
 
 	return <>{ routePage }</>;

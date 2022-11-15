@@ -122,7 +122,7 @@ class Astra_Menu {
 		// Enqueue admin scripts.
 		if ( ! empty( $_GET['page'] ) && ( self::$plugin_slug === $_GET['page'] || false !== strpos( $_GET['page'], self::$plugin_slug . '_' ) ) ) { //phpcs:ignore
 			add_action( 'admin_enqueue_scripts', array( $this, 'styles_scripts' ) );
-			add_filter( 'admin_footer_text', array( $this, 'add_footer_link' ), 99 );
+			add_filter( 'admin_footer_text', array( $this, 'astra_admin_footer_link' ), 99 );
 		}
 	}
 
@@ -269,7 +269,7 @@ class Astra_Menu {
 			'plugin_activated_text'              => __( 'Activated', 'astra' ),
 			'plugin_activate_text'               => __( 'Activate', 'astra' ),
 			'starter_templates_data'             => self::get_starter_template_plugin_data(),
-			'astra_docs_data'                    => self::get_astra_docs_data(),
+			'astra_docs_data'                    => self::astra_get_knowledge_base_data(),
 			'upgrade_notice'                     => astra_showcase_upgrade_notices(),
 		);
 
@@ -901,7 +901,7 @@ class Astra_Menu {
 	 *
 	 * @since x.x.x
 	 */
-	public function add_footer_link() {
+	public function astra_admin_footer_link() {
 		echo '<span id="footer-thankyou"> Thank you for using <span class="focus:text-astra-hover active:text-astra-hover hover:text-astra-hover"> ' . esc_attr( astra_get_theme_name() ) . '.</span></span>';
 	}
 
@@ -911,8 +911,8 @@ class Astra_Menu {
 	 * @since x.x.x
 	 * @return array $astra_docs_data Astra Docs Data.
 	 */
-	public static function get_astra_docs_data() {
-		$astra_docs_data = json_decode( wp_remote_retrieve_body( wp_remote_get( 'https://smalljellyfish.s1-tastewp.com/wp-json/powerful-docs/v1/get-docs' ) ) ); // Astra theme.
+	public static function astra_get_knowledge_base_data() {
+		$astra_docs_data = json_decode( wp_remote_retrieve_body( wp_remote_get( 'https://wpastra.com/wp-json/powerful-docs/v1/get-docs' ) ) );
 		return $astra_docs_data;
 	}
 }

@@ -27,7 +27,7 @@ const CustomLayouts = () => {
 			</div>
 
 			{/* Model Component section */}
-			<div className="relative z-10 pt-[7.125rem]">
+			<div className="relative z-10 pt-[4rem]">
 				<div className="max-w-[39rem] h-max bg-white m-auto shadow-overlay-modal text-center rounded-lg p-8">
 					<div>
 						<div className="mx-auto flex items-center justify-center">
@@ -46,15 +46,15 @@ const CustomLayouts = () => {
 										{ __( 'Get access to powerful features for painless	WordPress designing, without the high costs. With all the time you will save, its a product that pays for itself!', 'astra' ) }
 									</p> :
 									<p className="text-sm leading-[1.375rem] text-slate-500 text-center">
-										{ __( 'Custom Layouts is a very powerful module that comes with Astra Pro. This module can create a unique header, footer, 404 pages, and custom content or code on various hook locations.Upgrade to Astra Pro for instant access to Custom Layouts and unlock the full potential of your website.', 'astra' ) }
+										{ __( 'Upgrade to Astra Pro to get access to Custom Layouts, which allow you to create a unique header, footer, 404 pages, and custom content.', 'astra' ) }
 									</p>
 								}
 							</div>
 							<div className="relative pb-[17.5rem] mt-5">
-								{/* Added rel=0 query paramter at the end to disable YouTube recommendations */}
+								{/* Added rel=0 query parameter at the end to disable YouTube recommendations. */}
 								<iframe
 									className="absolute inset-0 w-full h-full rounded-md"
-									src={`https://www.youtube.com/embed/BAN-puzLheM?showinfo=0&autoplay=${allowAutoPlay}&mute=${allowAutoPlay}&rel=0`}
+									src={`https://www.youtube.com/embed/FWRkzJQwcKU?showinfo=0&autoplay=${allowAutoPlay}&mute=${allowAutoPlay}&rel=0`}
 									allow="autoplay"
 									title="YouTube video player"
 									frameBorder="0"
