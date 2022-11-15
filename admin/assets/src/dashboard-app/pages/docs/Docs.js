@@ -30,7 +30,7 @@ const Docs = ({ setOpen }) => {
 				<div className="w-full flex justify-between items-center bg-gray-50 py-5 px-6">
 					<a
 						href={astra_admin.astra_base_url}
-						className="flex-shrink-0 flex items-center"
+						className="flex-shrink-0 flex items-center outline-0"
 					>
 						<img
 							className="lg:block h-[2.6rem] w-auto"
