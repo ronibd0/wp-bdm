@@ -123,7 +123,7 @@ const Docs = ({ setOpen }) => {
 								<SubSection item={item} key={key} />
 							))}
 							{
-								! astra_admin.pro_available &&
+								( ! astra_admin.pro_available && astra_admin.upgrade_notice	) &&
 								<div className="mt-10">
 									<UpgradeToPro />
 								</div>
@@ -204,13 +204,13 @@ const Docs = ({ setOpen }) => {
 										</h3>
 										<p className="text-slate-500 text-sm pb-5">
 											{__(
-												"Browse documentation, reference material, and tutorials for Astra Theme.",
+												`Browse documentation, reference material, and tutorials for ${astra_admin.theme_name} Theme.`,
 												"astra"
 											)}
 										</p>
 										<a
 											className="flex items-center text-sm text-astra focus:text-astra focus-visible:text-astra-hover active:text-astra-hover hover:text-astra-hover no-underline"
-											href="https://www.facebook.com/groups/wpastra"
+											href="https://wpastra.com/docs"
 											target="_blank"
 											rel="noreferrer"
 										>
