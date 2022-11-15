@@ -35,14 +35,6 @@ class Astra_Menu {
 	}
 
 	/**
-	 * Menu page title
-	 *
-	 * @since 1.0
-	 * @var array $menu_page_title
-	 */
-	public static $menu_page_title;
-
-	/**
 	 * Page title
 	 *
 	 * @since 1.0
@@ -75,7 +67,6 @@ class Astra_Menu {
 	 */
 	public function initialize_hooks() {
 
-		self::$menu_page_title = apply_filters( 'astra_menu_page_title', __( 'Astra Options', 'astra' ) );
 		self::$page_title      = apply_filters( 'astra_page_title', __( 'Astra', 'astra' ) );
 		self::$plugin_slug     = self::get_theme_page_slug();
 

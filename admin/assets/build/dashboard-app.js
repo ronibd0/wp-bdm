@@ -8208,9 +8208,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
 /* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/api-fetch */ "@wordpress/api-fetch");
-/* harmony import */ var _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @wordpress/api-fetch */ "@wordpress/api-fetch");
+/* harmony import */ var _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_4__);
+
 
 
 
@@ -8219,9 +8222,11 @@ const UpgradeNotices = () => {
   if (astra_admin.pro_available) {
     return '';
   }
-  const dispatch = (0,react_redux__WEBPACK_IMPORTED_MODULE_2__.useDispatch)();
-  const useUpgradeNotices = (0,react_redux__WEBPACK_IMPORTED_MODULE_2__.useSelector)(state => state.useUpgradeNotices);
+  const dispatch = (0,react_redux__WEBPACK_IMPORTED_MODULE_3__.useDispatch)();
+  const useUpgradeNotices = (0,react_redux__WEBPACK_IMPORTED_MODULE_3__.useSelector)(state => state.useUpgradeNotices);
+  const [upgradeNoticesState, setUpgradeNoticesState] = (0,react__WEBPACK_IMPORTED_MODULE_2__.useState)(false);
   const updateUpgradeNoticesVisibility = () => {
+    setUpgradeNoticesState('updating');
     let assetStatus;
     if (useUpgradeNotices === false) {
       assetStatus = true;
@@ -8236,15 +8241,22 @@ const UpgradeNotices = () => {
     formData.append('action', 'ast_disable_pro_notices');
     formData.append('security', astra_admin.update_nonce);
     formData.append('status', assetStatus);
-    _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_3___default()({
+    _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_4___default()({
       url: astra_admin.ajax_url,
       method: 'POST',
       body: formData
-    }).then(() => {
-      dispatch({
-        type: 'UPDATE_SETTINGS_SAVED_NOTIFICATION',
-        payload: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Successfully saved!')
-      });
+    }).then(data => {
+      if (data.success) {
+        let payloadStatus = (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Deactivated!');
+        if (assetStatus) {
+          payloadStatus = (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Activated!');
+        }
+        dispatch({
+          type: 'UPDATE_SETTINGS_SAVED_NOTIFICATION',
+          payload: payloadStatus
+        });
+        setUpgradeNoticesState(false);
+      }
     });
   };
   const onUpgradeLinkTrigger = () => {
@@ -8262,11 +8274,11 @@ const UpgradeNotices = () => {
     onClick: onUpgradeLinkTrigger
   }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Upgrade to Astra Pro", "astra-addon"))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
     className: "mt-2 w-9/12 text-sm text-slate-500"
-  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)(`Access powerful features for painless WordPress design without the high costs. Powerful tools, premium support, limitless opportunity with Astra Pro! Toggle upgrade notices on or off `, "astra"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)(`Access powerful features for painless WordPress design without the high costs. Powerful tools, premium support, limitless opportunity with Pro! Toggle upgrade notices on or off `, "astra"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
     onClick: updateUpgradeNoticesVisibility,
     className: "cursor-pointer text-astra focus:text-astra-hover active:text-astra-hover hover:text-astra-hover",
     rel: "noreferrer"
-  }, " ", (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('here.', 'astra'), " ")));
+  }, 'updating' === upgradeNoticesState ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('updating...', 'astra') : (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('here.', 'astra'))));
 };
 /* harmony default export */ __webpack_exports__["default"] = (UpgradeNotices);
 

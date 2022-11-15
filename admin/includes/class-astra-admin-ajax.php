@@ -124,7 +124,7 @@ class Astra_Admin_Ajax {
 		}
 
 		$migrate = isset( $_POST['status'] ) ? sanitize_key( $_POST['status'] ) : '';
-		$migrate = ( $migrate ) ? true : false;
+		$migrate = ( 'true' === $migrate ) ? true : false;
 		astra_update_option( 'ast-disable-upgrade-notices', $migrate );
 
 		wp_send_json_success();
@@ -155,7 +155,7 @@ class Astra_Admin_Ajax {
 		}
 
 		$migrate = isset( $_POST['status'] ) ? sanitize_key( $_POST['status'] ) : '';
-		$migrate = ( $migrate ) ? true : false;
+		$migrate = ( 'true' === $migrate ) ? true : false;
 		/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 		$migration_flag = astra_get_option( 'v3-option-migration', false );
 		astra_update_option( 'is-header-footer-builder', $migrate );

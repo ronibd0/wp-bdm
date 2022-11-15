@@ -1,4 +1,5 @@
 import { __ } from '@wordpress/i18n';
+import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import apiFetch from '@wordpress/api-fetch';
 
@@ -11,8 +12,11 @@ const UpgradeNotices = () => {
 	const dispatch = useDispatch();
 
 	const useUpgradeNotices = useSelector( ( state ) => state.useUpgradeNotices );
+	const [ upgradeNoticesState, setUpgradeNoticesState ] = useState( false );
 
 	const updateUpgradeNoticesVisibility = () => {
+
+		setUpgradeNoticesState( 'updating' );
 
 		let assetStatus;
 		if ( useUpgradeNotices === false ) {
@@ -33,8 +37,15 @@ const UpgradeNotices = () => {
 			url: astra_admin.ajax_url,
 			method: 'POST',
 			body: formData,
-		} ).then( () => {
-			dispatch( { type: 'UPDATE_SETTINGS_SAVED_NOTIFICATION', payload: __( 'Successfully saved!' ) } );
+		} ).then( (data) => {
+			if ( data.success ) {
+				let payloadStatus = __( 'Deactivated!' );
+				if( assetStatus ) {
+					payloadStatus = __( 'Activated!' );
+				}
+				dispatch( { type: 'UPDATE_SETTINGS_SAVED_NOTIFICATION', payload: payloadStatus } );
+				setUpgradeNoticesState( false );
+			}
 		} );
 	};
 
@@ -62,11 +73,13 @@ const UpgradeNotices = () => {
 			<p className="mt-2 w-9/12 text-sm text-slate-500">
 				{
 					__(
-						`Access powerful features for painless WordPress design without the high costs. Powerful tools, premium support, limitless opportunity with Astra Pro! Toggle upgrade notices on or off `,
+						`Access powerful features for painless WordPress design without the high costs. Powerful tools, premium support, limitless opportunity with Pro! Toggle upgrade notices on or off `,
 						"astra"
 					)
 				}
-				<span onClick={updateUpgradeNoticesVisibility} className='cursor-pointer text-astra focus:text-astra-hover active:text-astra-hover hover:text-astra-hover' rel="noreferrer"> { __( 'here.', 'astra' ) } </span>
+				<span onClick={updateUpgradeNoticesVisibility} className='cursor-pointer text-astra focus:text-astra-hover active:text-astra-hover hover:text-astra-hover' rel="noreferrer">
+					{ 'updating' === upgradeNoticesState ? __( 'updating...', 'astra' ) : __( 'here.', 'astra' ) }
+				</span>
 			</p>
 		</section>
 	);

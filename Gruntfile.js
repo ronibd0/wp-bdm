@@ -47,6 +47,16 @@ module.exports = function (grunt) {
             },
             dist: {
                 files: [
+					{
+                        expand: true,
+                        cwd: 'admin/assets/build',
+                        src: [
+                            '*.css',
+                            '!*-rtl.css',
+                        ],
+                        dest: 'admin/assets/build',
+                        ext: '-rtl.css'
+                    },
                     {
                         expand: true,
                         cwd: 'assets/css/unminified/',
@@ -58,7 +68,6 @@ module.exports = function (grunt) {
                         ],
                         dest: 'assets/css/unminified',
                         ext: '-rtl.css'
-
                     },
                     {
                         expand: true,
