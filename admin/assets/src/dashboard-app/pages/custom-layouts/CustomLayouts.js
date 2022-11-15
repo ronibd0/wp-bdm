@@ -42,10 +42,10 @@ const CustomLayouts = () => {
 							</h4>
 							<div className="mt-2">
 								{ astra_admin.upgrade_notice ?
-									<p className="text-sm text-slate-500">
+									<p className="text-sm leading-[1.375rem] text-slate-500 text-center">
 										{ __( 'Get access to powerful features for painless	WordPress designing, without the high costs. With all the time you will save, its a product that pays for itself!', 'astra' ) }
 									</p> :
-									<p className="text-sm text-slate-500">
+									<p className="text-sm leading-[1.375rem] text-slate-500 text-center">
 										{ __( 'Custom Layouts is a very powerful module that comes with Astra Pro. This module can create a unique header, footer, 404 pages, and custom content or code on various hook locations.Upgrade to Astra Pro for instant access to Custom Layouts and unlock the full potential of your website.', 'astra' ) }
 									</p>
 								}
@@ -66,7 +66,7 @@ const CustomLayouts = () => {
 					<div className="text-center mt-5">
 						<button
 							type="button"
-							className="w-auto justify-center rounded-md border border-transparent bg-astra px-4 py-2 text-base leading-4 font-medium text-white shadow-sm hover:bg-astra-hover focus:outline-none focus:ring-2 focus:ring-astra-hover focus:ring-offset-2 sm:text-sm"
+							className="w-auto justify-center rounded-md border border-transparent bg-astra px-[2.9375rem] py-[0.6875rem] text-base leading-4 font-medium text-white shadow-sm hover:bg-astra-hover focus:outline-none focus:ring-2 focus:ring-astra-hover focus:ring-offset-2"
 							onClick={ onGetAstraPro }
 						>
 							{ __( 'Upgrade Now', 'astra' ) }
