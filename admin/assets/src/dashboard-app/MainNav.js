@@ -5,35 +5,39 @@ import ChangeLogPopup from "./ChangeLogPopup";
 import DocsPopup from "./DocsPopup";
 
 export default function MainNav() {
-	const menus = wp.hooks.applyFilters("astra_dashboard.main_navigation", [
-		{
-			name: __("Welcome", "astra"),
-			slug: astra_admin.home_slug,
-			path: "",
-		},
-		{
-			name: __("Settings", "astra"),
-			slug: astra_admin.home_slug,
-			path: "settings",
-		},
-		{
-			name: __("Starter Templates", "astra"),
-			slug: astra_admin.home_slug,
-			path: "starter-templates",
-		},
-		{
-			name: __("Free vs Pro", "astra"),
-			slug: astra_admin.home_slug,
-			path: "free-vs-pro",
-		},
-	]);
+	const menus = wp.hooks.applyFilters( 'astra_dashboard.main_navigation', [
+			{
+				name: __( 'Welcome', 'astra' ),
+				slug: astra_admin.home_slug,
+				path: '',
+			},
+			{
+				name: __( 'Settings', 'astra' ),
+				slug: astra_admin.home_slug,
+				path: 'settings',
+			},
+			{
+				name: __( 'Starter Templates', 'astra' ),
+				slug: astra_admin.home_slug,
+				path: 'starter-templates',
+			},
+			{
+				name: __( 'Free vs Pro', 'astra' ),
+				slug: astra_admin.home_slug,
+				path: 'free-vs-pro',
+			},
+		]
+	);
 
-	const query = new URLSearchParams(useLocation()?.search);
-	const activePage = query.get("page")
-		? query.get("page")
+	const query = new URLSearchParams( useLocation()?.search );
+	const activePage = query.get( 'page' )
+		? query.get( 'page' )
 		: astra_admin.home_slug;
 	const activePath = query.get("path") ? query.get("path") : "";
 
+	if ( activePath === 'spectra' ) {
+		return <></>;
+	}
 	return (
 		<Disclosure as="nav" className="bg-white shadow">
 			<div className="max-w-3xl mx-auto px-6 lg:max-w-full">
@@ -50,28 +54,39 @@ export default function MainNav() {
 							/>
 						</a>
 						<div className="sm:ml-8 sm:flex sm:space-x-8">
-							{menus.map((menu, key) => (
-								<Link
-									index={key}
-									key={`?page=${menu.slug}&path=${menu.path}`}
-									to={{
-										pathname: "admin.php",
-										search: `?page=${menu.slug}${
-											"" !== menu.path
-												? "&path=" + menu.path
-												: ""
-										}`,
-									}}
-									className={`${
-										activePage === menu.slug &&
-										activePath === menu.path
-											? "border-astra text-astra active:text-astra focus:text-astra focus-visible:text-astra-hover hover:text-astra-hover inline-flex items-center px-1 border-b-2 text-[0.940rem] font-medium"
-											: "border-transparent text-slate-500 active:text-astra focus-visible:border-slate-300 focus-visible:text-slate-800 hover:border-slate-300 hover:text-slate-800 inline-flex items-center px-1 border-b-2 text-[0.940rem] font-medium"
-									}`}
-								>
-									{menu.name}
-								</Link>
-							))}
+							{ menus.map( ( menu, key ) => (
+								<>
+									{ menu.path === 'starter-templates' && astra_admin.starter_templates_data.is_available
+										? ( <a index={ key } key={ `?page=${ menu.slug }&path=${ menu.path }` } href={ astra_admin.starter_templates_data.redirection_link } target="_self" className={ `${
+											activePage === menu.slug && activePath === menu.path
+												? 'border-astra text-astra active:text-astra focus:text-astra focus-visible:text-astra-hover hover:text-astra-hover inline-flex items-center px-1 border-b-2 text-sm leading-[0.875rem] font-medium'
+												: 'border-transparent text-slate-500 active:text-astra focus-visible:border-slate-300 focus-visible:text-slate-800 hover:border-slate-300 hover:text-slate-800 inline-flex items-center px-1 border-b-2 text-sm leading-[0.875rem] font-medium'
+										}` }>
+											{ menu.name }
+										</a> )
+										: (
+											<Link
+												index={ key }
+												key={ `?page=${ menu.slug }&path=${ menu.path }` }
+												to={ {
+													pathname: 'admin.php',
+													search: `?page=${ menu.slug }${
+														'' !== menu.path ? '&path=' + menu.path : ''
+													}`,
+												}
+												}
+												className={ `${
+													activePage === menu.slug && activePath === menu.path
+														? 'border-astra text-astra active:text-astra focus:text-astra focus-visible:text-astra-hover hover:text-astra-hover inline-flex items-center px-1 border-b-2 text-sm leading-[0.875rem] font-medium'
+														: 'border-transparent text-slate-500 active:text-astra focus-visible:border-slate-300 focus-visible:text-slate-800 hover:border-slate-300 hover:text-slate-800 inline-flex items-center px-1 border-b-2 text-sm leading-[0.875rem] font-medium'
+												}` }
+											>
+												{ menu.name }
+											</Link>
+										)
+									}
+								</>
+							) ) }
 						</div>
 					</div>
 					{astra_admin.show_self_branding && (

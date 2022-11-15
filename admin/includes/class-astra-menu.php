@@ -35,14 +35,6 @@ class Astra_Menu {
 	}
 
 	/**
-	 * Menu page title
-	 *
-	 * @since 1.0
-	 * @var array $menu_page_title
-	 */
-	public static $menu_page_title;
-
-	/**
 	 * Page title
 	 *
 	 * @since 1.0
@@ -75,7 +67,6 @@ class Astra_Menu {
 	 */
 	public function initialize_hooks() {
 
-		self::$menu_page_title = apply_filters( 'astra_menu_page_title', __( 'Astra Options', 'astra' ) );
 		self::$page_title      = apply_filters( 'astra_page_title', __( 'Astra', 'astra' ) );
 		self::$plugin_slug     = self::get_theme_page_slug();
 
@@ -279,6 +270,7 @@ class Astra_Menu {
 			'plugin_activate_text'               => __( 'Activate', 'astra' ),
 			'starter_templates_data'             => self::get_starter_template_plugin_data(),
 			'astra_docs_data'                    => self::get_astra_docs_data(),
+			'upgrade_notice'                     => astra_showcase_upgrade_notices(),
 		);
 
 		$this->settings_app_scripts( apply_filters( 'astra_react_admin_localize', $localize ) );

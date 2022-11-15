@@ -87,7 +87,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 * @param array  $args menu item arguments.
 		 * @return void
 		 *
-		 * @since x.x.x
+		 * @since 3.9.4
 		 */
 		public static function add_custom_fields( $id, $item, $depth, $args ) {
 			?>
@@ -176,7 +176,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		/**
 		 * Upgrade to Pro notice for Astra on WooCommerce pages.
 		 *
-		 * @since x.x.x
+		 * @since 3.9.4
 		 */
 		public static function upgrade_to_pro_wc_notice() {
 			/** @psalm-suppress PossiblyInvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort

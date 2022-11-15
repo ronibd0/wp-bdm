@@ -592,12 +592,6 @@ select {
 .top-8 {
   top: 2rem;
 }
-.top-\[7\.125rem\] {
-  top: 7.125rem;
-}
-.left-0 {
-  left: 0px;
-}
 .top-1\/2 {
   top: 50%;
 }
@@ -615,6 +609,9 @@ select {
 }
 .right-4 {
   right: 1rem;
+}
+.top-0 {
+  top: 0px;
 }
 .right-2\.5 {
   right: 0.625rem;
@@ -734,6 +731,9 @@ select {
 }
 .mb-2 {
   margin-bottom: 0.5rem;
+}
+.mt-7 {
+  margin-top: 1.75rem;
 }
 .mt-12 {
   margin-top: 3rem;
@@ -1348,6 +1348,9 @@ select {
 .pt-0 {
   padding-top: 0px;
 }
+.pt-\[7\.125rem\] {
+  padding-top: 7.125rem;
+}
 .pb-\[17\.5rem\] {
   padding-bottom: 17.5rem;
 }
@@ -1377,6 +1380,12 @@ select {
 }
 .pl-5 {
   padding-left: 1.25rem;
+}
+.pb-14 {
+  padding-bottom: 3.5rem;
+}
+.pt-20 {
+  padding-top: 5rem;
 }
 .pb-\[25\.375rem\] {
   padding-bottom: 25.375rem;
@@ -1432,9 +1441,6 @@ select {
   font-size: 0.75rem;
   line-height: 1rem;
 }
-.text-\[0\.940rem\] {
-  font-size: 0.940rem;
-}
 .text-2xl {
   font-size: 1.5rem;
   line-height: 2rem;
@@ -1462,9 +1468,6 @@ select {
 .text-\[0\.75rem\] {
   font-size: 0.75rem;
 }
-.text-\[1\.8rem\] {
-  font-size: 1.8rem;
-}
 .font-medium {
   font-weight: 500;
 }
@@ -1479,6 +1482,9 @@ select {
 }
 .leading-6 {
   line-height: 1.5rem;
+}
+.leading-\[0\.875rem\] {
+  line-height: 0.875rem;
 }
 .leading-\[1\.375rem\] {
   line-height: 1.375rem;
@@ -1501,9 +1507,6 @@ select {
 .leading-10 {
   line-height: 2.5rem;
 }
-.leading-\[0\.875rem\] {
-  line-height: 0.875rem;
-}
 .leading-\[0\.625rem\] {
   line-height: 0.625rem;
 }
@@ -1515,9 +1518,6 @@ select {
 }
 .leading-\[0\.75rem\] {
   line-height: 0.75rem;
-}
-.leading-\[2\.4rem\] {
-  line-height: 2.4rem;
 }
 .tracking-\[0\.0125rem\] {
   letter-spacing: 0.0125rem;
@@ -1824,6 +1824,14 @@ select {
   box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05) !important;
   border-radius: 6px !important;
   line-height: 1.625rem !important;
+}
+
+[dir=rtl] .astra-dashboard-app button.bg-astra[aria-checked=false] span {
+  right: 0;
+}
+
+[dir=rtl] .astra-dashboard-app button.bg-astra[aria-checked=true] span {
+  transform: translateX(20px);
 }
 
 :root {
