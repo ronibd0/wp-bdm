@@ -662,10 +662,6 @@ select {
   bottom: 0px;
 }.right-0 {
   left: 0px;
-}.top-\[7\.125rem\] {
-  top: 7.125rem;
-}.left-0 {
-  right: 0px;
 }.top-0 {
   top: 0px;
 }.right-2\.5 {
@@ -1150,6 +1146,8 @@ select {
   padding-top: 0.125rem;
 }.pt-0 {
   padding-top: 0px;
+}.pt-\[7\.125rem\] {
+  padding-top: 7.125rem;
 }.pb-\[17\.5rem\] {
   padding-bottom: 17.5rem;
 }.pl-4 {
