@@ -193,6 +193,11 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 					$default_assets['js']['astra-sticky-add-to-cart'] = 'sticky-add-to-cart';
 				}
 
+
+				if ( astra_get_option( 'enable-scroll-to-id' ) ) {
+					$default_assets['js']['astra-smooth-scroll'] = 'smooth-scroll';
+				}
+
 				/** @psalm-suppress UndefinedFunction */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 				$astra_add_to_cart_quantity_btn_enabled = apply_filters( 'astra_add_to_cart_quantity_btn_enabled', astra_get_option( 'single-product-plus-minus-button' ) );
 
