@@ -172,14 +172,16 @@ class Astra_Menu {
 			);
 		}
 
-		// Add Spectra submenu.
-		add_submenu_page(
-			self::$plugin_slug,
-			__( 'Spectra', 'astra' ),
-			__( 'Spectra', 'astra' ),
-			$capability,
-			defined( 'UAGB_VER' ) ? admin_url( 'options-general.php?page=' . UAGB_SLUG ) : 'admin.php?page=' . self::$plugin_slug . '&path=spectra'
-		);
+		if( ! astra_is_white_labelled() ) {
+			// Add Spectra submenu.
+			add_submenu_page(
+				self::$plugin_slug,
+				__( 'Spectra', 'astra' ),
+				__( 'Spectra', 'astra' ),
+				$capability,
+				defined( 'UAGB_VER' ) ? admin_url( 'options-general.php?page=' . UAGB_SLUG ) : 'admin.php?page=' . self::$plugin_slug . '&path=spectra'
+			);
+		}
 
 		// Rename to Home menu.
 		$submenu[ self::$plugin_slug ][0][0] = __( 'Dashboard', 'astra' );
@@ -883,6 +885,9 @@ class Astra_Menu {
 			array(),
 			ASTRA_THEME_VERSION
 		);
+
+		wp_enqueue_script( 'thickbox' );
+		wp_enqueue_style( 'thickbox' );
 
 		wp_enqueue_script( $handle );
 

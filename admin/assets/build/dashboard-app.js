@@ -8779,33 +8779,30 @@ const spectraFeatures = [{
   description: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Spectra works with the native WordPress editor with no dependency on external code. So, it is fast and stable.', 'astra'),
   icon: ""
 }, {
-  title: "Secure and Integrated",
-  description: "Clean code written using the latest standards to maximize security and work flawlessly with any WordPress plugin.",
+  title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Secure and Integrated', 'astra'),
+  description: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Clean code written using the latest standards to maximize security and work flawlessly with any WordPress plugin.', 'astra'),
   icon: ""
 }, {
-  title: "Native WordPress Interface",
-  description: "Spectra Integrates into the same WordPress editor, making it super intuitive website builder.",
+  title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Native WordPress Interface', 'astra'),
+  description: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Spectra Integrates into the same WordPress editor, making it super intuitive website builder.', 'astra'),
   icon: ""
 }, {
-  title: "Google Will Love and Rank",
-  description: "Score 100% in CWV. Clean code output and lightning-fast load times keep visitors and search engines happy.",
+  title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Google Will Love and Rank', 'astra'),
+  description: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Score 100% in CWV. Clean code output and lightning-fast load times keep visitors and search engines happy.', 'astra'),
   icon: ""
 }, {
-  title: "Zero Bloat, No Dependencies",
-  description: "Fewer external scripts and dependencies keep the code clean, resulting in small file sizes and faster loading times.",
+  title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Zero Bloat, No Dependencies', 'astra'),
+  description: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Fewer external scripts and dependencies keep the code clean, resulting in small file sizes and faster loading times.', 'astra'),
   icon: ""
 }, {
-  title: "Just-in-time Compiler",
-  description: "Loads assets dynamically on demand. Assets are loaded for only those blocks that are used on a page.",
+  title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Just-in-time Compiler', 'astra'),
+  description: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Loads assets dynamically on demand. Assets are loaded for only those blocks that are used on a page.', 'astra'),
   icon: ""
 }];
 const SpectraScreen = () => {
   var _useLocation;
   const query = new URLSearchParams((_useLocation = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_3__.useLocation)()) === null || _useLocation === void 0 ? void 0 : _useLocation.search);
   const allowAutoPlay = "1" === query.get("astra-activation-redirect") ? 1 : 0;
-  const onGetSpectra = () => {
-    window.open("http://wpspectra.com/", "_blank");
-  };
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("main", {
     className: "bg-white pb-14 pt-20"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
@@ -8845,11 +8842,13 @@ const SpectraScreen = () => {
     className: "relative flex flex-col items-center"
   }, _Common_block_icons__WEBPACK_IMPORTED_MODULE_2__["default"]["spectra-logo"], (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", {
     className: "text-4xl sm:text-[2.5rem] text-slate-800 font-semibold capitalize mb-2 mt-7"
-  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Astra + Spectra = ♥", "astra")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
+  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)(`${astra_admin.theme_name} + Spectra = ♥`, "astra")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
     className: "text-base leading-[1.625rem] mb-7"
-  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Spectra is 100% beginner friendly and enhances the default WordPress block editor.', 'astra')), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
-    onClick: onGetSpectra,
-    className: "inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-astra focus-visible:bg-astra-hover hover:bg-astra-hover focus:outline-none mr-4"
+  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Spectra is 100% beginner friendly and enhances the default WordPress block editor.', 'astra')), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+    href: `${astra_admin.admin_base_url}plugin-install.php?tab=plugin-information&plugin=ultimate-addons-for-gutenberg&TB_iframe=true&width=772&height=768`,
+    className: "plugin-detail thickbox open-plugin-details-modal inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white hover:text-white focus:text-white active:text-white bg-astra focus-visible:bg-astra-hover hover:bg-astra-hover focus:outline-none mr-4",
+    target: "_self",
+    rel: "noopener"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
     className: "mr-3"
   }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Install Spectra - It’s free", "astra")), _Common_block_icons__WEBPACK_IMPORTED_MODULE_2__["default"].download), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
@@ -8873,9 +8872,11 @@ const SpectraScreen = () => {
     className: "flex flex-col items-center justify-center mt-20 mx-0 sm:mx-[4.5rem]"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h3", {
     className: "text-[2rem] leading-10 font-semibold text-slate-800 mb-6 text-center"
-  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Build Ultra High Performance Websites, Without Coding", "astra")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
-    onClick: onGetSpectra,
-    className: "inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-astra focus-visible:bg-astra-hover hover:bg-astra-hover focus:outline-none mr-4"
+  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Build Ultra High Performance Websites, Without Coding", "astra")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+    href: `${astra_admin.admin_base_url}plugin-install.php?tab=plugin-information&plugin=ultimate-addons-for-gutenberg&TB_iframe=true&width=772&height=768`,
+    className: "plugin-detail thickbox open-plugin-details-modal inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-astra focus-visible:bg-astra-hover hover:bg-astra-hover hover:text-white focus:text-white active:text-white focus:outline-none mr-4",
+    target: "_self",
+    rel: "noopener"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
     className: "mr-3"
   }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Install Spectra - It’s free", "astra")), _Common_block_icons__WEBPACK_IMPORTED_MODULE_2__["default"].download))));

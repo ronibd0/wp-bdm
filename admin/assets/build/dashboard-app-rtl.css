@@ -314,9 +314,9 @@ video {
   border-width: 1px;
   border-radius: 0px;
   padding-top: 0.5rem;
-  padding-right: 0.75rem;
-  padding-bottom: 0.5rem;
   padding-left: 0.75rem;
+  padding-bottom: 0.5rem;
+  padding-right: 0.75rem;
   font-size: 1rem;
   line-height: 1.5rem;
   --tw-shadow: 0 0 #0000;
@@ -353,10 +353,10 @@ input::placeholder,textarea::placeholder {
 }
 select {
   background-image: url("data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 fill=%27none%27 viewBox=%270 0 20 20%27%3e%3cpath stroke=%27%236b7280%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27 stroke-width=%271.5%27 d=%27M6 8l4 4 4-4%27/%3e%3c/svg%3e");
-  background-position: right 0.5rem center;
+  background-position: left 0.5rem center;
   background-repeat: no-repeat;
   background-size: 1.5em 1.5em;
-  padding-right: 2.5rem;
+  padding-left: 2.5rem;
   -webkit-print-color-adjust: exact;
           color-adjust: exact;
 }
@@ -365,7 +365,7 @@ select {
   background-position: initial;
   background-repeat: unset;
   background-size: initial;
-  padding-right: 0.75rem;
+  padding-left: 0.75rem;
   -webkit-print-color-adjust: unset;
           color-adjust: unset;
 }
@@ -572,22 +572,22 @@ select {
 }
 .inset-0 {
   top: 0px;
-  right: 0px;
-  bottom: 0px;
   left: 0px;
+  bottom: 0px;
+  right: 0px;
 }
 .inset-10 {
   top: 2.5rem;
-  right: 2.5rem;
-  bottom: 2.5rem;
   left: 2.5rem;
+  bottom: 2.5rem;
+  right: 2.5rem;
 }
 .inset-y-0 {
   top: 0px;
   bottom: 0px;
 }
 .right-0 {
-  right: 0px;
+  left: 0px;
 }
 .top-8 {
   top: 2rem;
@@ -596,31 +596,31 @@ select {
   top: 50%;
 }
 .left-4 {
-  left: 1rem;
+  right: 1rem;
 }
 .top-7 {
   top: 1.75rem;
 }
 .right-6 {
-  right: 1.5rem;
+  left: 1.5rem;
 }
 .top-4 {
   top: 1rem;
 }
 .right-4 {
-  right: 1rem;
+  left: 1rem;
 }
 .top-0 {
   top: 0px;
 }
 .right-2\.5 {
-  right: 0.625rem;
+  left: 0.625rem;
 }
 .-top-5 {
   top: -1.25rem;
 }
 .right-2 {
-  right: 0.5rem;
+  left: 0.5rem;
 }
 .bottom-0 {
   bottom: 0px;
@@ -644,28 +644,28 @@ select {
   margin: 0px;
 }
 .mx-auto {
-  margin-left: auto;
   margin-right: auto;
+  margin-left: auto;
 }
 .-my-2 {
   margin-top: -0.5rem;
   margin-bottom: -0.5rem;
 }
 .-mx-4 {
-  margin-left: -1rem;
   margin-right: -1rem;
+  margin-left: -1rem;
 }
 .my-\[2\.43rem\] {
   margin-top: 2.43rem;
   margin-bottom: 2.43rem;
 }
 .mx-\[4\.5rem\] {
-  margin-left: 4.5rem;
   margin-right: 4.5rem;
+  margin-left: 4.5rem;
 }
 .mx-0 {
-  margin-left: 0px;
   margin-right: 0px;
+  margin-left: 0px;
 }
 .-mb-px {
   margin-bottom: -1px;
@@ -677,16 +677,16 @@ select {
   margin-top: 0.75rem;
 }
 .ml-40 {
-  margin-left: 10rem;
+  margin-right: 10rem;
 }
 .mr-8 {
-  margin-right: 2rem;
+  margin-left: 2rem;
 }
 .ml-3 {
-  margin-left: 0.75rem;
+  margin-right: 0.75rem;
 }
 .ml-4 {
-  margin-left: 1rem;
+  margin-right: 1rem;
 }
 .mt-2 {
   margin-top: 0.5rem;
@@ -707,13 +707,13 @@ select {
   margin-top: 2.5rem;
 }
 .mr-2 {
-  margin-right: 0.5rem;
-}
-.ml-2 {
   margin-left: 0.5rem;
 }
+.ml-2 {
+  margin-right: 0.5rem;
+}
 .mr-3 {
-  margin-right: 0.75rem;
+  margin-left: 0.75rem;
 }
 .mb-1\.5 {
   margin-bottom: 0.375rem;
@@ -731,13 +731,13 @@ select {
   margin-bottom: 1.75rem;
 }
 .-mr-1 {
-  margin-right: -0.25rem;
+  margin-left: -0.25rem;
 }
 .mr-16 {
-  margin-right: 4rem;
+  margin-left: 4rem;
 }
 .mr-4 {
-  margin-right: 1rem;
+  margin-left: 1rem;
 }
 .mb-2 {
   margin-bottom: 0.5rem;
@@ -761,28 +761,28 @@ select {
   margin-top: 0.1875rem;
 }
 .-ml-px {
-  margin-left: -1px;
+  margin-right: -1px;
 }
 .ml-1\.5 {
-  margin-left: 0.375rem;
+  margin-right: 0.375rem;
 }
 .ml-1 {
-  margin-left: 0.25rem;
+  margin-right: 0.25rem;
 }
 .ml-auto {
-  margin-left: auto;
+  margin-right: auto;
 }
 .-mt-1 {
   margin-top: -0.25rem;
 }
 .ml-2\.5 {
-  margin-left: 0.625rem;
+  margin-right: 0.625rem;
 }
 .mr-\[40px\] {
-  margin-right: 40px;
+  margin-left: 40px;
 }
 .mr-\[80px\] {
-  margin-right: 80px;
+  margin-left: 80px;
 }
 .mt-\[32px\] {
   margin-top: 32px;
@@ -1008,7 +1008,7 @@ select {
 }
 @keyframes spin {
   to {
-    transform: rotate(360deg);
+    transform: rotate(-360deg);
   }
 }
 .animate-spin {
@@ -1080,8 +1080,8 @@ select {
 }
 .space-x-8 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-x-reverse: 0;
-  margin-right: calc(2rem * var(--tw-space-x-reverse));
-  margin-left: calc(2rem * calc(1 - var(--tw-space-x-reverse)));
+  margin-left: calc(2rem * var(--tw-space-x-reverse));
+  margin-right: calc(2rem * calc(1 - var(--tw-space-x-reverse)));
 }
 .space-y-4 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-y-reverse: 0;
@@ -1095,13 +1095,13 @@ select {
 }
 .space-x-3 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-x-reverse: 0;
-  margin-right: calc(0.75rem * var(--tw-space-x-reverse));
-  margin-left: calc(0.75rem * calc(1 - var(--tw-space-x-reverse)));
+  margin-left: calc(0.75rem * var(--tw-space-x-reverse));
+  margin-right: calc(0.75rem * calc(1 - var(--tw-space-x-reverse)));
 }
 .space-x-4 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-x-reverse: 0;
-  margin-right: calc(1rem * var(--tw-space-x-reverse));
-  margin-left: calc(1rem * calc(1 - var(--tw-space-x-reverse)));
+  margin-left: calc(1rem * var(--tw-space-x-reverse));
+  margin-right: calc(1rem * calc(1 - var(--tw-space-x-reverse)));
 }
 .divide-y > :not([hidden]) ~ :not([hidden]) {
   --tw-divide-y-reverse: 0;
@@ -1110,8 +1110,8 @@ select {
 }
 .divide-x > :not([hidden]) ~ :not([hidden]) {
   --tw-divide-x-reverse: 0;
-  border-right-width: calc(1px * var(--tw-divide-x-reverse));
-  border-left-width: calc(1px * calc(1 - var(--tw-divide-x-reverse)));
+  border-left-width: calc(1px * var(--tw-divide-x-reverse));
+  border-right-width: calc(1px * calc(1 - var(--tw-divide-x-reverse)));
 }
 .divide-gray-200 > :not([hidden]) ~ :not([hidden]) {
   --tw-divide-opacity: 1;
@@ -1163,12 +1163,12 @@ select {
   border-radius: 0.125rem;
 }
 .rounded-l-md {
-  border-top-left-radius: 0.375rem;
-  border-bottom-left-radius: 0.375rem;
-}
-.rounded-r-md {
   border-top-right-radius: 0.375rem;
   border-bottom-right-radius: 0.375rem;
+}
+.rounded-r-md {
+  border-top-left-radius: 0.375rem;
+  border-bottom-left-radius: 0.375rem;
 }
 .border {
   border-width: 1px;
@@ -1186,10 +1186,10 @@ select {
   border-top-width: 1px;
 }
 .border-l {
-  border-left-width: 1px;
+  border-right-width: 1px;
 }
 .border-l-4 {
-  border-left-width: 4px;
+  border-right-width: 4px;
 }
 .border-solid {
   border-style: solid;
@@ -1286,20 +1286,20 @@ select {
   padding: 2rem;
 }
 .px-4 {
-  padding-left: 1rem;
   padding-right: 1rem;
+  padding-left: 1rem;
 }
 .px-6 {
-  padding-left: 1.5rem;
   padding-right: 1.5rem;
+  padding-left: 1.5rem;
 }
 .py-4 {
   padding-top: 1rem;
   padding-bottom: 1rem;
 }
 .px-1 {
-  padding-left: 0.25rem;
   padding-right: 0.25rem;
+  padding-left: 0.25rem;
 }
 .py-5 {
   padding-top: 1.25rem;
@@ -1310,8 +1310,8 @@ select {
   padding-bottom: 1.5rem;
 }
 .px-\[2\.9375rem\] {
-  padding-left: 2.9375rem;
   padding-right: 2.9375rem;
+  padding-left: 2.9375rem;
 }
 .py-\[0\.6875rem\] {
   padding-top: 0.6875rem;
@@ -1342,54 +1342,54 @@ select {
   padding-bottom: 0.75rem;
 }
 .px-3 {
-  padding-left: 0.75rem;
   padding-right: 0.75rem;
+  padding-left: 0.75rem;
 }
 .py-10 {
   padding-top: 2.5rem;
   padding-bottom: 2.5rem;
 }
 .px-12 {
-  padding-left: 3rem;
   padding-right: 3rem;
+  padding-left: 3rem;
 }
 .py-8 {
   padding-top: 2rem;
   padding-bottom: 2rem;
 }
 .px-8 {
-  padding-left: 2rem;
   padding-right: 2rem;
+  padding-left: 2rem;
 }
 .py-\[0\.5625rem\] {
   padding-top: 0.5625rem;
   padding-bottom: 0.5625rem;
 }
 .px-\[0\.8125rem\] {
-  padding-left: 0.8125rem;
   padding-right: 0.8125rem;
+  padding-left: 0.8125rem;
 }
 .px-5 {
-  padding-left: 1.25rem;
   padding-right: 1.25rem;
+  padding-left: 1.25rem;
 }
 .px-1\.5 {
-  padding-left: 0.375rem;
   padding-right: 0.375rem;
+  padding-left: 0.375rem;
 }
 .py-1 {
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
 }
 .px-0 {
-  padding-left: 0px;
   padding-right: 0px;
+  padding-left: 0px;
 }
 .pl-10 {
-  padding-left: 2.5rem;
+  padding-right: 2.5rem;
 }
 .pr-2 {
-  padding-right: 0.5rem;
+  padding-left: 0.5rem;
 }
 .pt-0\.5 {
   padding-top: 0.125rem;
@@ -1413,22 +1413,22 @@ select {
   padding-bottom: 1.25rem;
 }
 .pr-12 {
-  padding-right: 3rem;
+  padding-left: 3rem;
 }
 .pl-0 {
-  padding-left: 0px;
+  padding-right: 0px;
 }
 .pl-4 {
-  padding-left: 1rem;
+  padding-right: 1rem;
 }
 .pr-10 {
-  padding-right: 2.5rem;
+  padding-left: 2.5rem;
 }
 .pr-3 {
-  padding-right: 0.75rem;
+  padding-left: 0.75rem;
 }
 .pl-5 {
-  padding-left: 1.25rem;
+  padding-right: 1.25rem;
 }
 .pb-14 {
   padding-bottom: 3.5rem;
@@ -1458,13 +1458,13 @@ select {
   padding-bottom: 1.75rem;
 }
 .pl-6 {
-  padding-left: 1.5rem;
+  padding-right: 1.5rem;
 }
 .pb-2\.5 {
   padding-bottom: 0.625rem;
 }
 .text-left {
-  text-align: left;
+  text-align: right;
 }
 .text-center {
   text-align: center;
@@ -1790,7 +1790,7 @@ select {
 }
 
 .toplevel_page_astra #wpcontent {
-  padding-left: 0;
+  padding-right: 0;
 }
 
 #wpwrap {
@@ -1815,7 +1815,7 @@ select {
   box-shadow: none;
 }
 #wpwrap .astra-admin__dropdown {
-  padding-right: 2rem;
+  padding-left: 2rem;
 }
 #wpwrap .astra-admin__dropdown:hover {
   color: #2c3338;
@@ -1841,7 +1841,7 @@ select {
 .astra-video-container .astra-video {
   position: absolute;
   top: 0;
-  left: 0;
+  right: 0;
   width: 100%;
   height: 100%;
   border: 0;
@@ -1880,7 +1880,7 @@ select {
 
 .ast-docs-search-fields {
   padding: 9px 0 !important;
-  padding-left: 2.875rem !important;
+  padding-right: 2.875rem !important;
   border: 1px solid #CBD5E1 !important;
   box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05) !important;
   border-radius: 6px !important;
@@ -1888,11 +1888,11 @@ select {
 }
 
 [dir=rtl] .astra-dashboard-app button.bg-astra[aria-checked=false] span {
-  right: 0;
+  left: 0;
 }
 
 [dir=rtl] .astra-dashboard-app button.bg-astra[aria-checked=true] span {
-  transform: translateX(20px);
+  transform: translateX(-20px);
 }
 
 :root {
@@ -2145,26 +2145,26 @@ select {
   }
   .sm\:inset-auto {
     top: auto;
-    right: auto;
-    bottom: auto;
     left: auto;
+    bottom: auto;
+    right: auto;
   }
   .sm\:-mx-6 {
-    margin-left: -1.5rem;
     margin-right: -1.5rem;
+    margin-left: -1.5rem;
   }
   .sm\:mx-\[4\.5rem\] {
-    margin-left: 4.5rem;
     margin-right: 4.5rem;
+    margin-left: 4.5rem;
   }
   .sm\:mt-\[2rem\] {
     margin-top: 2rem;
   }
   .sm\:ml-8 {
-    margin-left: 2rem;
+    margin-right: 2rem;
   }
   .sm\:ml-6 {
-    margin-left: 1.5rem;
+    margin-right: 1.5rem;
   }
   .sm\:mt-5 {
     margin-top: 1.25rem;
@@ -2253,8 +2253,8 @@ select {
   }
   .sm\:space-x-8 > :not([hidden]) ~ :not([hidden]) {
     --tw-space-x-reverse: 0;
-    margin-right: calc(2rem * var(--tw-space-x-reverse));
-    margin-left: calc(2rem * calc(1 - var(--tw-space-x-reverse)));
+    margin-left: calc(2rem * var(--tw-space-x-reverse));
+    margin-right: calc(2rem * calc(1 - var(--tw-space-x-reverse)));
   }
   .sm\:p-0 {
     padding: 0px;
@@ -2263,18 +2263,18 @@ select {
     padding: 1.5rem;
   }
   .sm\:px-6 {
-    padding-left: 1.5rem;
     padding-right: 1.5rem;
+    padding-left: 1.5rem;
   }
   .sm\:px-8 {
-    padding-left: 2rem;
     padding-right: 2rem;
+    padding-left: 2rem;
   }
   .sm\:pr-0 {
-    padding-right: 0px;
+    padding-left: 0px;
   }
   .sm\:pl-8 {
-    padding-left: 2rem;
+    padding-right: 2rem;
   }
   .sm\:text-2xl {
     font-size: 1.5rem;
@@ -2301,7 +2301,7 @@ select {
 }
 @media (min-width: 768px) {
   .md\:mr-\[40px\] {
-    margin-right: 40px;
+    margin-left: 40px;
   }
   .md\:flex {
     display: flex;
@@ -2325,8 +2325,8 @@ select {
     border-radius: 0.5rem;
   }
   .md\:px-6 {
-    padding-left: 1.5rem;
     padding-right: 1.5rem;
+    padding-left: 1.5rem;
   }
 }
 @media (min-width: 1024px) {
@@ -2344,14 +2344,14 @@ select {
     grid-column: span 2 / span 2;
   }
   .lg\:-mx-8 {
-    margin-left: -2rem;
     margin-right: -2rem;
+    margin-left: -2rem;
   }
   .lg\:ml-6 {
-    margin-left: 1.5rem;
+    margin-right: 1.5rem;
   }
   .lg\:ml-40 {
-    margin-left: 10rem;
+    margin-right: 10rem;
   }
   .lg\:block {
     display: block;
@@ -2411,20 +2411,20 @@ select {
     gap: 1.25rem;
   }
   .lg\:px-8 {
-    padding-left: 2rem;
     padding-right: 2rem;
+    padding-left: 2rem;
   }
   .lg\:py-6 {
     padding-top: 1.5rem;
     padding-bottom: 1.5rem;
   }
   .lg\:px-0 {
-    padding-left: 0px;
     padding-right: 0px;
+    padding-left: 0px;
   }
   .lg\:px-5 {
-    padding-left: 1.25rem;
     padding-right: 1.25rem;
+    padding-left: 1.25rem;
   }
   .lg\:py-0 {
     padding-top: 0px;
@@ -2471,25 +2471,25 @@ select {
 
 .ast-skeleton--wave::after {
   top: 0;
-  left: 0;
   right: 0;
+  left: 0;
   bottom: 0;
   content: "";
   position: absolute;
   animation: ast-skeleton-keyframes-wave 1.6s linear 0.5s infinite;
-  transform: translateX(-100%);
-  background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.04), transparent);
+  transform: translateX(100%);
+  background: linear-gradient(-90deg, transparent, rgba(0, 0, 0, 0.04), transparent);
 }
 
 @keyframes ast-skeleton-keyframes-wave {
   0% {
-    transform: translateX(-100%);
+    transform: translateX(100%);
   }
   60% {
-    transform: translateX(100%);
+    transform: translateX(-100%);
   }
   100% {
-    transform: translateX(100%);
+    transform: translateX(-100%);
   }
 }
 /* Need to verify
@@ -2525,7 +2525,7 @@ select {
   margin-top: 0;
   border-radius: 4px;
   margin-bottom: 0;
-  transform-origin: 0 60%;
+  transform-origin: 100% 60%;
   font-size: 12px;
   line-height: 1.5em;
 }
@@ -2545,5 +2545,3 @@ select {
 .ast-skeleton--rect {
   height: 20px;
 }
-
-/*# sourceMappingURL=dashboard-app.css.map*/
