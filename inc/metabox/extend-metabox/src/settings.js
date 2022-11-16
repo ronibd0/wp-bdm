@@ -15,9 +15,6 @@ const { __ } = wp.i18n;
 
 const MetaSettings = props => {
 
-	// const astraLogo = parse( svgIcons['astraLogo'] );
-	// const brandIcon = astMetaParams.isWhiteLabelled ? '' : parse( svgIcons['astra-brand-icon'] );
-
 	const modalIcon = parse( svgIcons['meta-popup-icon'] );
 	const astraLogo = parse( astMetaParams.brandLogo );
 	const brandIcon = parse( astMetaParams.brandLogo );
