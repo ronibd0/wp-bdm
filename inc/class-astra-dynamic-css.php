@@ -65,7 +65,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$narrow_container_max_width = astra_get_option( 'narrow-container-max-width', apply_filters( 'astra_narrow_container_width', 750 ) );
 			$header_logo_width          = astra_get_option( 'ast-header-responsive-logo-width' );
 			$container_layout           = astra_get_option( 'site-content-layout' );
-			$archive_container_layout   = astra_get_option( 'archive-post-sidebar-layout' );
+			$archive_container_layout   = astra_get_option( 'archive-post-content-layout' );
 			$single_container_layout    = astra_get_option( 'single-post-content-layout' );
 			$page_container_layout      = astra_get_option( 'single-page-content-layout' );
 			$title_color                = astra_get_option( 'header-color-site-title' );
