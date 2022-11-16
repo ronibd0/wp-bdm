@@ -731,6 +731,8 @@ select {
   margin-top: 1.25rem;
 }.mt-4 {
   margin-top: 1rem;
+}.mr-3 {
+  margin-left: 0.75rem;
 }.mb-5 {
   margin-bottom: 1.25rem;
 }.mb-8 {
@@ -741,8 +743,6 @@ select {
   margin-left: 0.5rem;
 }.ml-2 {
   margin-right: 0.5rem;
-}.mr-3 {
-  margin-left: 0.75rem;
 }.mb-1\.5 {
   margin-bottom: 0.375rem;
 }.mb-3 {
@@ -1652,10 +1652,6 @@ select {
 
   .sm\:mt-5 {
     margin-top: 1.25rem;
-  }
-
-  .sm\:mr-4 {
-    margin-left: 1rem;
   }
 
   .sm\:mt-0 {

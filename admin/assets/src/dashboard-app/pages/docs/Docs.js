@@ -38,7 +38,7 @@ const Docs = ({ setOpen }) => {
 						className="flex-shrink-0 flex items-center ast-box-shadow-none"
 					>
 						<img
-							className="lg:block sm:mr-4 h-[2.6rem] w-auto ast-box-shadow-none"
+							className="lg:block mr-3 h-[2.6rem] w-auto ast-box-shadow-none"
 							src={astra_admin.logo_url}
 							alt="Workflow"
 						/>
