@@ -640,6 +640,13 @@ module.exports = function (grunt) {
                     '!inc/metabox/extend-metabox/package.json',
                     '!inc/metabox/extend-metabox/package-lock.json',
                     '!inc/metabox/extend-metabox/build/index.asset.php',
+					'!admin/assets/src/**',
+					'!admin/assets/package.json',
+					'!admin/assets/package-lock.json',
+					'!admin/assets/postcss.config.js',
+					'!admin/assets/tailwind.config.js',
+					'!admin/assets/webpack.config.js',
+					'!admin/assets/build/dashboard-app.asset.php',
                 ],
                 dest: 'astra/'
             }
