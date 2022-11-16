@@ -32,7 +32,7 @@ const FlushLocalFonts = () => {
 
 	return (
 		<section className={`astra-dep-field-${enableLoadFontsLocally} block border-b border-solid border-slate-200 px-12 py-8 justify-between`}>
-			<div className="w-full flex justify-between">
+			<div className="w-full flex flex-col sm:flex-row justify-between">
 				<div>
 					<h3 className="p-0 text-xl leading-6 font-semibold text-slate-800">
 						{__("Flush Local Fonts Cache", "astra")}
@@ -41,7 +41,7 @@ const FlushLocalFonts = () => {
 						{ __( 'Click the button to reset the local fonts cache.', 'astra' ) }
 					</p>
 				</div>
-				<div>
+				<div className="mt-2 sm:mt-0">
 					<button
 						type="button"
 						className="inline-flex px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-astra focus-visible:bg-astra-hover hover:bg-astra-hover focus:outline-none"

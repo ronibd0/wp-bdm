@@ -41,9 +41,9 @@ export default function MainNav() {
 	}
 	return (
 		<Disclosure as="nav" className="bg-white shadow">
-			<div className="max-w-3xl mx-auto px-6 lg:max-w-full">
-				<div className="relative flex justify-between h-16">
-					<div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
+			<div className="max-w-3xl mx-auto px-3 sm:px-6 lg:max-w-full">
+				<div className="relative flex flex-col lg:flex-row justify-between h-28 lg:h-16 py-3 lg:py-0">
+					<div className="lg:flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
 						<a
 							href={astra_admin.astra_base_url}
 							className="flex-shrink-0 flex items-center"
@@ -54,7 +54,7 @@ export default function MainNav() {
 								alt="Workflow"
 							/>
 						</a>
-						<div className="sm:ml-8 sm:flex sm:space-x-8">
+						<div className="ml-4 sm:ml-8 sm:flex space-x-4 sm:space-x-8">
 							{ menus.map( ( menu, key ) => (
 								<Fragment key={ `?page=${ menu.slug }&path=${ menu.path }` }>
 									{ menu.path === 'starter-templates' && astra_admin.starter_templates_data.is_available
@@ -90,11 +90,11 @@ export default function MainNav() {
 						</div>
 					</div>
 					{astra_admin.show_self_branding && (
-						<div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+						<div className="absolute bottom-2 lg:inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto ml-auto lg:ml-6 sm:pr-0">
 							<div className="text-sm font-medium leading-6 text-slate-600 mr-8">
 								<DocsPopup />
 							</div>
-							<div className="flex items-center text-sm font-medium leading-[1.375rem] text-slate-400 mr-8 divide-x divide-slate-200 gap-3">
+							<div className="flex items-center text-xs sm:text-sm font-medium leading-[1.375rem] text-slate-400 mr-8 divide-x divide-slate-200 gap-3">
 								<div className="">{astra_admin.version}</div>
 								{wp.hooks.applyFilters(
 									"astra_dashboard.after_navigation_version",
@@ -106,7 +106,7 @@ export default function MainNav() {
 					)}
 					{!astra_admin.show_self_branding && (
 						<div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-							<div className="flex items-center text-sm font-medium leading-[1.375rem] text-slate-400 mr-8 divide-x divide-slate-200 gap-3">
+							<div className="flex items-center whitespace-nowrap text-sm font-medium leading-[1.375rem] text-slate-400 mr-8 divide-x divide-slate-200 gap-3">
 								<div className="">{astra_admin.version}</div>
 								{wp.hooks.applyFilters(
 									"astra_dashboard.after_navigation_version",

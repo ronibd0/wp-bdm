@@ -145,7 +145,7 @@ const AstraIntegration = () => {
 	});
 
 	return (
-		<div className="grid grid-flow-row auto-rows-min grid-cols-3 gap-4 sm:grid-cols-3 pt-6">
+		<div className="grid grid-flow-row auto-rows-min grid-cols-1 gap-4 sm:grid-cols-3 pt-6">
 			{ renderBlockCards }
 		</div>
 	);

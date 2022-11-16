@@ -38,7 +38,7 @@ const Docs = ({ setOpen }) => {
 						className="flex-shrink-0 flex items-center ast-box-shadow-none"
 					>
 						<img
-							className="lg:block h-[2.6rem] w-auto ast-box-shadow-none"
+							className="lg:block mr-3 h-[2.6rem] w-auto ast-box-shadow-none"
 							src={astra_admin.logo_url}
 							alt="Workflow"
 						/>
@@ -108,9 +108,9 @@ const Docs = ({ setOpen }) => {
 					</div>
 				</div>
 
-				<div className="max-w-5xl mx-auto w-full flex flex-col">
-					<div className="flex gap-8 pt-10">
-						<div className="w-2/3 mb-5">
+				<div className="sm:max-w-5xl mx-auto w-full flex flex-col">
+					<div className="flex flex-col lg:flex-row gap-8 pt-10">
+						<div className="w-full px-6 lg:px-0 lg:w-2/3 mb-5">
 							{(searchResults && searchResults.length > 0) && (
 								<div className="mb-8">
 									<SearchResults data={searchResults} />
@@ -129,7 +129,7 @@ const Docs = ({ setOpen }) => {
 								</div>
 							}
 						</div>
-						<div className="w-1/3">
+						<div className="w-full px-6 lg:px-0 lg:w-1/3">
 							<section aria-labelledby="section-2-title">
 								<h2 className="sr-only" id="section-2-title">
 									Section title

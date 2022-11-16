@@ -26,8 +26,8 @@ const Welcome = () => {
 
 				{/* Banner section */}
 				{astra_admin.show_self_branding && (
-					<div className="grid grid-cols-2 gap-4 items-start lg:grid-cols-5 lg:gap-5 xl:gap-10 rounded-md bg-white overflow-hidden shadow-sm p-12 pt-[2.2rem]">
-						<div className="grid grid-cols-1 gap-4 lg:col-span-3 h-full mr-[40px]">
+					<div className="grid grid-cols-1 gap-4 items-start lg:grid-cols-5 lg:gap-5 xl:gap-10 rounded-md bg-white overflow-hidden shadow-sm p-12 pt-[2.2rem]">
+						<div className="grid grid-cols-1 gap-4 lg:col-span-3 h-full md:mr-[40px]">
 							<section aria-labelledby="section-1-title h-full">
 								<h2 className="sr-only" id="section-1-title">
 									Welcome Banner
@@ -64,10 +64,10 @@ const Welcome = () => {
 											)}
 										</p>
 
-										<span className="relative z-0 inline-flex justify-start w-full">
+										<span className="relative z-0 inline-flex flex-col sm:flex-row justify-start w-full">
 											<button
 												type="button"
-												className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-astra focus-visible:bg-astra-hover hover:bg-astra-hover focus:outline-none mr-4"
+												className="sm:inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-astra focus-visible:bg-astra-hover hover:bg-astra-hover focus:outline-none mr-4 mb-2 sm:mb-0"
 												onClick={onCreateNewPageClick}
 											>
 												{__(
@@ -132,7 +132,7 @@ const Welcome = () => {
 								Quick Links
 							</h2>
 							<div className="p-[2rem] rounded-md bg-white overflow-hidden shadow-sm flex flex-col justify-center h-full">
-								<div className="relative w-full lg:flex lg:items-center lg:justify-between">
+								<div className="relative w-full flex items-center justify-between">
 									<span className="font-semibold text-xl leading-6 text-slate-800">
 										{" "}
 										{__("Quick Settings", "astra")}{" "}
@@ -156,8 +156,8 @@ const Welcome = () => {
 								Do more with Astra Pro Modules
 							</h2>
 							<div className="p-[2rem] rounded-md bg-white overflow-hidden shadow-sm flex flex-col justify-center h-full">
-								<div className="relative w-full lg:flex lg:items-center lg:justify-between">
-									<span className="font-semibold text-xl leading-6 text-slate-800">
+								<div className="relative w-full flex flex-col sm:flex-row sm:items-center sm:justify-between">
+									<span className="font-semibold text-xl leading-6 text-slate-800 mb-4 sm:mb-0">
 										{astra_admin.pro_available
 											? __(
 													`${astra_admin.plugin_name} Modules`,
