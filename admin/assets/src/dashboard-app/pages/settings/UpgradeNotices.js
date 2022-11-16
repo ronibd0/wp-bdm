@@ -58,7 +58,7 @@ const UpgradeNotices = () => {
 
 	return (
 		<section className='block px-12 py-8 justify-between'>
-			<div className='mr-16 w-full flex items-center'>
+			<div className='mr-16 w-full flex flex-col sm:flex-row sm:items-center'>
 				<h3 className="p-0 flex-1 justify-right inline-flex text-xl leading-8 font-semibold text-slate-800">
 					{ __( 'Build Better Websites with Astra Pro', 'astra' ) }
 				</h3>
@@ -70,7 +70,7 @@ const UpgradeNotices = () => {
 					{__("Upgrade to Astra Pro", "astra-addon")}
 				</button>
 			</div>
-			<p className="mt-2 w-9/12 text-sm text-slate-500">
+			<p className="mt-2 w-full md:w-9/12 text-sm text-slate-500">
 				{
 					__(
 						`Access powerful features for painless WordPress design without the high costs. Powerful tools, premium support, limitless opportunity with Pro! Toggle upgrade notices on or off `,

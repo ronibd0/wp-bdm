@@ -69,7 +69,7 @@ const SpectraScreen = () => {
 				</div>
 				<div className="relative flex flex-col items-center">
 					{Astra_Admin_Icons["spectra-logo"]}
-					<h2 className="text-[2.5rem] text-slate-800 font-semibold capitalize mb-2 mt-7">
+					<h2 className="text-4xl sm:text-[2.5rem] text-slate-800 font-semibold capitalize mb-2 mt-7">
 						{__("Astra + Spectra = ♥", "astra")}
 					</h2>
 					<p className="text-base leading-[1.625rem] mb-7">
@@ -100,7 +100,7 @@ const SpectraScreen = () => {
 					</div>
 				</div>
 
-				<div className="grid grid-cols-2 gap-12 mt-16 px-8">
+				<div className="grid grid-cols-2 gap-12 mt-16 px-0 sm:px-8">
 					{spectraFeatures.map((feature, key) => (
 						<div key={key}>
 							<div>Icon</div>
@@ -114,7 +114,7 @@ const SpectraScreen = () => {
 					))}
 				</div>
 
-				<div className="flex flex-col items-center justify-center mt-20 mx-[4.5rem]">
+				<div className="flex flex-col items-center justify-center mt-20 mx-0 sm:mx-[4.5rem]">
 					<h3 className="text-[2rem] leading-10 font-semibold text-slate-800 mb-6 text-center">
 						{__(
 							"Build Ultra High Performance Websites, Without Coding",

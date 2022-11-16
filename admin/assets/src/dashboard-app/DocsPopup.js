@@ -6,7 +6,7 @@ const DocsPopup = () => {
 	const [open, setOpen] = useState(false);
 	return (
 		<div>
-			<button onClick={() => setOpen(true)} className="text-sm font-medium leading-6 text-slate-600">
+			<button onClick={() => setOpen(true)} className="whitespace-nowrap text-sm font-medium leading-6 text-slate-600">
 				Knowledge base
 			</button>
 			<Transition.Root show={open} as={Fragment}>
@@ -22,7 +22,7 @@ const DocsPopup = () => {
 								leaveFrom="opacity-100 translate-y-0 sm:scale-100"
 								leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
 							>
-								<Dialog.Panel className="relative transform bg-white text-left transition-all min-h-screen sm:w-full sm:h-full ml-40">
+								<Dialog.Panel className="relative transform bg-white text-left transition-all min-h-screen w-full h-full lg:ml-40">
 									<Docs setOpen={setOpen} />
 								</Dialog.Panel>
 							</Transition.Child>

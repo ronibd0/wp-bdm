@@ -52,7 +52,7 @@ const QuickSettings = () => {
 	} );
 
 	return (
-		<div className="grid grid-flow-row auto-rows-min grid-cols-3 gap-6 sm:grid-cols-3 pt-6">
+		<div className="grid grid-flow-row auto-rows-min grid-cols-1 gap-6 sm:grid-cols-3 pt-6">
 			{ renderQuickLinks }
 		</div>
 	);
