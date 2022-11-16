@@ -177,7 +177,7 @@ class Astra_Posts_Archive_Strctures_Configs extends Astra_Customizer_Config_Base
 					'section'  => $parent_section,
 					'priority' => 2,
 					'linked'   => $title_section,
-					'linkText' => ucfirst( $post_type ) . __( ' Banner', 'astra' ),
+					'linkText' => __( 'Banner Area', 'astra' ),
 				),
 
 				/**
