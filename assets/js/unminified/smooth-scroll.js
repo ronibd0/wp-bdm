@@ -1,9 +1,11 @@
 // Scroll to specific hash link.
 const links = document.querySelectorAll("a");
 
-for ( const link of links ) {
-  if ( link.hash !== "" ) {
-    link.addEventListener("click", clickHandler);
+if( links ) {
+  for ( const link of links ) {
+    if ( link.hash !== "" ) {
+      link.addEventListener("click", clickHandler);
+    }
   }
 }
 
