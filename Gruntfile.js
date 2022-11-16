@@ -646,7 +646,6 @@ module.exports = function (grunt) {
 					'!admin/postcss.config.js',
 					'!admin/tailwind.config.js',
 					'!admin/webpack.config.js',
-					'!admin/assets/build/dashboard-app.asset.php',
                 ],
                 dest: 'astra/'
             }
