@@ -924,6 +924,10 @@ select {
 .w-12 {
   width: 3rem;
 }
+.w-max {
+  width: -moz-max-content;
+  width: max-content;
+}
 .min-w-full {
   min-width: 100%;
 }
@@ -2180,6 +2184,9 @@ select {
   }
   .sm\:flex {
     display: flex;
+  }
+  .sm\:inline-flex {
+    display: inline-flex;
   }
   .sm\:h-full {
     height: 100%;

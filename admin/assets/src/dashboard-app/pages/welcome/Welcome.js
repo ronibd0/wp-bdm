@@ -64,10 +64,10 @@ const Welcome = () => {
 											)}
 										</p>
 
-										<span className="relative z-0 inline-flex justify-start w-full">
+										<span className="relative z-0 inline-flex flex-col sm:flex-row justify-start w-full">
 											<button
 												type="button"
-												className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-astra focus-visible:bg-astra-hover hover:bg-astra-hover focus:outline-none mr-4"
+												className="sm:inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-astra focus-visible:bg-astra-hover hover:bg-astra-hover focus:outline-none mr-4 mb-2 sm:mb-0"
 												onClick={onCreateNewPageClick}
 											>
 												{__(
