@@ -8,7 +8,7 @@ const CustomLayouts = () => {
 
 	const onGetAstraPro = () => {
 		window.open(
-			'https://wpastra.com/pro',
+			astra_admin.upgrade_url,
 			'_blank'
 		);
 	};

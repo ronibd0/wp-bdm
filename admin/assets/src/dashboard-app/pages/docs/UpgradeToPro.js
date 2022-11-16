@@ -2,6 +2,13 @@ import React from "react";
 import { __ } from "@wordpress/i18n";
 
 const UpgradeToPro = () => {
+	const onUpgradeProTrigger = () => {
+		window.open(
+			astra_admin.upgrade_url,
+			'_blank'
+		);
+	};
+
 	return (
 		<div className="relative flex bg-blue-50 py-5 pl-4 pr-10 border border-sky-500 rounded-md">
 			<div className="mr-3">
@@ -28,7 +35,7 @@ const UpgradeToPro = () => {
 				<p className="text-sm text-slate-600 mb-3">
 					{__('Get access to powerful features for painless WordPress designing, without the high costs. With all the time you will save, it’s a product that pays for itself!', 'astra')}
 				</p>
-				<button className="text-sm text-astra text-medium">
+				<button onClick={ onUpgradeProTrigger } className="text-sm text-astra text-medium">
 					{__('Upgrade Now →', 'astra')}
 				</button>
 			</div>
