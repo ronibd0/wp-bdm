@@ -122,6 +122,10 @@ class Astra_Posts_Strctures_Markup {
 				remove_filter( 'astra_the_blog_home_page_title', array( $this, 'astra_archive_custom_title' ) );
 			}
 		} elseif ( class_exists( 'WooCommerce' ) && ( is_shop() || is_product_taxonomy() ) ) {
+			// For custom title page.
+			if( is_shop() ) {
+				add_filter( 'woocommerce_page_title', array( $this, 'astra_archive_custom_title' ) );
+			}
 			add_filter( 'woocommerce_show_page_title', '__return_false' );
 
 			remove_action(
@@ -145,6 +149,10 @@ class Astra_Posts_Strctures_Markup {
 			get_template_part( 'template-parts/archive-banner' );
 
 			do_action( 'astra_after_archive_' . $post_type . '_banner_content' );
+
+			if( is_shop() ) {
+				remove_filter( 'woocommerce_page_title', array( $this, 'astra_archive_custom_title' ) );
+			}
 		} elseif ( 'archive' === $type ) {
 			$is_post_type_archive = is_post_type_archive( $post_type ) ? true : false;
 
