@@ -136,7 +136,7 @@ $astra_default_home_content = '<!-- wp:cover {"minHeight":720,"minHeightUnit":"p
 <!-- /wp:group -->
 
 <!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"143px","bottom":"144px"}}},"backgroundColor":"ast-global-color-5","layout":{"inherit":false,"contentSize":"1200px","type":"constrained"}} -->
-<div class="wp-block-group alignfull has-ast-global-color-5-background-color has-background" id="about" style="padding-top:143px;padding-bottom:144px"><!-- wp:media-text {"align":"","mediaPosition":"right","mediaId":237,"mediaLink":"https://websitedemos.net/wp-preview/home/about-us/","mediaType":"image","verticalAlignment":"center"} -->
+<div class="wp-block-group alignfull has-ast-global-color-5-background-color has-background" id="about" style="padding-top:143px;padding-bottom:144px"><!-- wp:media-text {"align":"","mediaPosition":"right","mediaId":237,"mediaLink":"","mediaType":"image","verticalAlignment":"center"} -->
 <div class="wp-block-media-text has-media-on-the-right is-stacked-on-mobile is-vertically-aligned-center"><div class="wp-block-media-text__content"><!-- wp:group {"style":{"spacing":{"padding":{"right":"80px"}}},"layout":{"inherit":true,"type":"constrained"}} -->
 <div class="wp-block-group" style="padding-right:80px"><!-- wp:heading {"style":{"spacing":{"padding":{"right":"40px"}}}} -->
 <h2 style="padding-right:40px">We help teams build the business of their dreams</h2>
