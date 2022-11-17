@@ -545,7 +545,7 @@ class Astra_WP_Editor_CSS {
 			),
 		);
 
-		// Boxed, Content-Boxed, Narrow Width page title alignment with Spectra Container Blocks.
+		// Boxed, Content-Boxed, page title alignment with Spectra Container Blocks.
 		$desktop_css['.ast-separate-container .editor-styles-wrapper .block-editor-block-list__layout.is-root-container > .uagb-is-root-container'] = array(
 			'max-width'            => 'var(--wp--custom--ast-content-width-size)',
 			'padding-' . $ltr_left => '0 !important',
