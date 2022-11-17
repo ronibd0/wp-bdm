@@ -75,7 +75,6 @@ if ( ! class_exists( 'Astra_Sidebar_Layout_Configs' ) ) {
 						'priority'          => 5,
 						'title'             => __( 'Sidebar Layout', 'astra' ),
 						'context'     => array(
-							'relation'     => 'OR',
 							Astra_Builder_Helper::$general_tab_config,
 							array(
 								'setting'  => ASTRA_THEME_SETTINGS . '[single-page-content-layout]',
