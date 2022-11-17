@@ -38,7 +38,7 @@ class Astra_Performance_Configs extends Astra_Customizer_Config_Base {
 				'default'  => astra_get_option( 'enable-scroll-to-id' ),
 				'type'     => 'control',
 				'control'  => 'ast-toggle-control',
-				'title'    => __( 'Enable Smooth Scroll to ID"', 'astra' ),
+				'title'    => __( 'Enable Smooth Scroll to ID', 'astra' ),
 				'section'  => 'section-performance',
 				'priority' => 10,
 			),
