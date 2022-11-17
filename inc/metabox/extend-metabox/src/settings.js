@@ -1,7 +1,7 @@
 /**
  * Meta Options build.
  */
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { PluginSidebar, PluginSidebarMoreMenuItem } from '@wordpress/edit-post';
 import { compose } from '@wordpress/compose';
 import { withSelect, withDispatch } from '@wordpress/data';
@@ -26,7 +26,11 @@ const MetaSettings = props => {
 
 	const is_hide_contnet_layout_sidebar = astMetaParams.is_hide_contnet_layout_sidebar;
 	const [ contentLayout, setContentLayout ] = useState(props.meta['site-content-layout']);
+	const [ isDefaultNarrow, setDefaultNarrow ] = useState('');
 
+	useEffect(() => {
+		console.log(document.querySelector('body').classList);
+	})
 	// Adjust spacing & borders for table.
 	const topTableSpacing = <tr className="ast-extra-spacing"><td className="ast-border"></td><td></td></tr>;
 	const bottomTableSpacing = <tr className="ast-extra-spacing ast-extra-spacing-bottom"><td className="ast-border"></td><td></td></tr>;
@@ -92,7 +96,7 @@ const MetaSettings = props => {
 			} }
 		/>);
 	});
-
+	console.log(props.meta);
 	return (
 		<>
 			{/* Meta settings icon */}
@@ -134,6 +138,7 @@ const MetaSettings = props => {
 					)}
 
 					{/* Sidebar Setting */}
+					{console.log(contentLayout)}
 					{ ! is_hide_contnet_layout_sidebar && contentLayout != "narrow-container" && (
 					<PanelBody
 						title={ __( 'Sidebar', 'astra' ) }

@@ -252,7 +252,7 @@ function astra_load_modern_block_editor_ui( $dynamic_css ) {
 	';
 
 	$astra_wide_particular_selector = $astra_block_editor_v2_ui ? '.entry-content[ast-blocks-layout] > .alignwide' : '.entry-content[ast-blocks-layout] > .alignwide, .entry-content[ast-blocks-layout] .wp-block-cover__inner-container, .entry-content[ast-blocks-layout] > p';
-	$astra_full_stretched_selector  = $astra_block_editor_v2_ui ? '.ast-plain-container.ast-no-sidebar .entry-content > .alignfull, .ast-page-builder-template .ast-no-sidebar .entry-content > .alignfull, .ast-narrow-container .entry-content > .alignfull' : '.ast-plain-container.ast-no-sidebar .entry-content .alignfull, .ast-page-builder-template .ast-no-sidebar .entry-content .alignfull, .ast-narrow-container .entry-content .alignfull';
+	$astra_full_stretched_selector  = $astra_block_editor_v2_ui ? '.ast-plain-container.ast-no-sidebar .entry-content > .alignfull, .ast-page-builder-template .ast-no-sidebar .entry-content > .alignfull' : '.ast-plain-container.ast-no-sidebar .entry-content .alignfull, .ast-page-builder-template .ast-no-sidebar .entry-content .alignfull';
 
 	$dynamic_css .= '
 	.entry-content > .wp-block-group, .entry-content > .wp-block-cover, .entry-content > .wp-block-columns {
@@ -411,7 +411,7 @@ function astra_load_modern_block_editor_ui( $dynamic_css ) {
 					margin-left: calc(-1 * ' . $astra_continer_left_spacing . ' );
 					margin-right: calc(-1 * ' . $astra_continer_right_spacing . ' );
 				}
-				.ast-separate-container .entry-content[ast-blocks-layout] > .alignwide, .ast-plain-container .entry-content[ast-blocks-layout] > .alignwide, .ast-narrow-container .entry-content[ast-blocks-layout] > .alignwide {
+				.ast-separate-container .entry-content[ast-blocks-layout] > .alignwide, .ast-plain-container .entry-content[ast-blocks-layout] > .alignwide {
 					margin-left: calc(-1 * var(--wp--custom--ast-default-block-left-padding) );
 					margin-right: calc(-1 * var(--wp--custom--ast-default-block-right-padding) );
 				}
@@ -495,6 +495,18 @@ function astra_load_modern_block_editor_ui( $dynamic_css ) {
 			}
 		';
 	}
+
+	// Spectra compatibility for narrow width container.
+	$dynamic_css .= '
+		.ast-narrow-container .site-content .ast-container {
+			padding-left: 0;
+			padding-right: 0;
+		}
+		.ast-narrow-container .entry-content .wp-block-uagb-container {
+			padding-left: 0;
+			padding-right: 0;
+		}
+	';	
 
 	return $dynamic_css;
 }

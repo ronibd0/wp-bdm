@@ -377,7 +377,6 @@ class Astra_WP_Editor_CSS {
 		$ast_content_width     = apply_filters( 'astra_block_content_width', $astra_is_block_editor_v2_ui ? $astra_container_width : '910px' );
 		$ast_wide_width        = apply_filters( 'astra_block_wide_width', $astra_is_block_editor_v2_ui ? 'calc(' . esc_attr( $astra_container_width ) . ' + var(--wp--custom--ast-default-block-left-padding) + var(--wp--custom--ast-default-block-right-padding))' : $astra_container_width );
 		$ast_narrow_width      = astra_get_option( 'narrow-container-max-width', apply_filters( 'astra_narrow_container_width', 750 ) ) . 'px';
-		$ast_narrow_wide_width = 'calc(' . esc_attr( $ast_narrow_width ) . ' + var(--wp--custom--ast-default-block-left-padding) + var(--wp--custom--ast-default-block-right-padding))';
 
 		$css = ':root, body .editor-styles-wrapper {
 			--wp--custom--ast-default-block-top-padding: ' . $desktop_top_spacing . ';
@@ -389,7 +388,6 @@ class Astra_WP_Editor_CSS {
 		}';
 
 		$css .= '.ast-narrow-container .editor-styles-wrapper {
-			--wp--custom--ast-wide-width-size: ' . $ast_narrow_wide_width . ';
 			--wp--custom--ast-content-width-size: ' . $ast_narrow_width . ';
 		}';
 
@@ -547,7 +545,7 @@ class Astra_WP_Editor_CSS {
 			),
 		);
 
-		// Boxed, Content-Boxed page title alignment with Spectra Container Blocks.
+		// Boxed, Content-Boxed, Narrow Width page title alignment with Spectra Container Blocks.
 		$desktop_css['.ast-separate-container .editor-styles-wrapper .block-editor-block-list__layout.is-root-container > .uagb-is-root-container'] = array(
 			'max-width'            => 'var(--wp--custom--ast-content-width-size)',
 			'padding-' . $ltr_left => '0 !important',
@@ -562,6 +560,28 @@ class Astra_WP_Editor_CSS {
 		$desktop_css['.ast-plain-container .ast-stacked-title-visibility .edit-post-visual-editor__post-title-wrapper'] = array(
 			'padding-left'  => '3px',
 			'padding-right' => '3px',
+		);
+
+		// Core / Spectra blocks compatibility to occupy same width as narrow container.
+		$desktop_css['.ast-narrow-container .editor-styles-wrapper .block-editor-block-list__layout.is-root-container > *.wp-block, .ast-narrow-container .is-root-container > .alignfull > :where(:not(.alignleft):not(.alignright)), .ast-narrow-container .editor-styles-wrapper .is-root-container > .wp-block-cover.alignfull .wp-block-cover__image-background'] = array(
+			'max-width' => 'var(--wp--custom--ast-content-width-size)',
+			'margin-left' => 'auto',
+			'margin-right' => 'auto',
+		);
+		$desktop_css['.ast-narrow-container .is-root-container > .alignwide > :where(:not(.alignleft):not(.alignright)), .ast-narrow-container .editor-styles-wrapper .is-root-container > .wp-block-cover.alignwide .wp-block-cover__image-background'] = array(
+			'max-width' => 'var(--wp--custom--ast-content-width-size)',
+			'margin-left' => 'auto',
+			'margin-right' => 'auto',
+		);
+		$desktop_css['.ast-narrow-container .editor-styles-wrapper .is-root-container .wp-block-uagb-image--align-full .wp-block-uagb-image__figure'] = array(
+			'max-width' => '100%',
+			'margin-left' => 'auto !important',
+			'margin-right' => 'auto !important',
+		);
+		$desktop_css['.ast-narrow-container .editor-styles-wrapper .block-editor-block-list__layout.is-root-container > .uagb-is-root-container'] = array(
+			'max-width'            => 'var(--wp--custom--ast-content-width-size)',
+			'padding-left'         => '0 !important',
+			'padding-right'        => '0 !important',
 		);
 
 		$content_links_underline = astra_get_option( 'underline-content-links' );
