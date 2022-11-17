@@ -141,7 +141,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 				$h6_font_weight = 'normal';
 			}
 
-			$single_post_title       = astra_get_option( 'blog-single-post-structure' );
+			$single_post_title       = astra_get_option( 'ast-dynamic-single-post-structure', array( 'ast-dynamic-single-post-title', 'ast-dynamic-single-post-meta' ) );
 			$title_enabled_from_meta = get_post_meta( $post_id, 'site-post-title', true );
 
 			$is_widget_title_support_font_weight = Astra_Dynamic_CSS::support_font_css_to_widget_and_in_editor();
@@ -524,7 +524,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 				}
 			}
 
-			if ( ( ( ! in_array( 'single-title-meta', $single_post_title ) ) && ( 'post' === get_post_type() ) ) || ( 'disabled' === $title_enabled_from_meta ) ) {
+			if ( ( ( ! in_array( 'ast-dynamic-single-post-title', $single_post_title ) ) && ( 'post' === get_post_type() ) ) || ( 'disabled' === $title_enabled_from_meta ) ) {
 				$destop_title_css = array(
 					'.editor-post-title__block' => array(
 						'opacity' => '0.2',
