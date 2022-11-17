@@ -1,5 +1,7 @@
-v4.0.0 (Unreleased)
+v4.0.1 (Unreleased)
 - New: Theme preview for wordpress.org
+
+v4.0.0 (Unreleased)
 - Fix: Off-canvas - Full screen - Mobile Menu gets very long scroll when Elementor plugin is activated.
 - Fix: Full Width/Contained layout Layout is showing extra padding above in the Transparent Header.
 
