@@ -1474,35 +1474,15 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 
 			}
 
-			/* Narrow Width Container legacy support CSS */
+			/* Narrow Width Container CSS */
 			$narrow_container = array(
 				// Visibility icon alignment.
 				'.ast-narrow-container .edit-post-visual-editor__post-title-wrapper, .ast-stacked-title-visibility .edit-post-visual-editor__post-title-wrapper' => array(
 					'max-width' => 'var(--wp--custom--ast-content-width-size)',
 					'padding'   => 0,
 				),
-				// Core / Spectra blocks compatibility to occupy same width as narrow container.
-				'.ast-narrow-container .editor-styles-wrapper .block-editor-block-list__layout.is-root-container > *.wp-block, .ast-narrow-container .is-root-container > .alignfull > :where(:not(.alignleft):not(.alignright)), .ast-narrow-container .editor-styles-wrapper .is-root-container > .wp-block-cover.alignfull .wp-block-cover__image-background' => array(
-						'max-width' => 'var(--wp--custom--ast-content-width-size)',
-						'margin-left' => 'auto',
-						'margin-right' => 'auto',
-				),
-				'.ast-narrow-container .is-root-container > .alignwide > :where(:not(.alignleft):not(.alignright)), .ast-narrow-container .editor-styles-wrapper .is-root-container > .wp-block-cover.alignwide .wp-block-cover__image-background' => array(
-						'max-width' => 'var(--wp--custom--ast-content-width-size)',
-						'margin-left' => 'auto',
-						'margin-right' => 'auto',
-				),
-				'.ast-narrow-container .editor-styles-wrapper .is-root-container .wp-block-uagb-image--align-full .wp-block-uagb-image__figure' => array(
-						'max-width' => '100%',
-				),
-				'.ast-narrow-container .editor-styles-wrapper .block-editor-block-list__layout.is-root-container > .uagb-is-root-container' => array(
-						'max-width'            => 'var(--wp--custom--ast-content-width-size)',
-						'padding-left'         => '0 !important',
-						'padding-right'        => '0 !important',
-						'margin-left'          => 'auto !important',
-						'margin-right'         => 'auto !important',
-				),
 			);
+
 			$css .= astra_parse_css( $narrow_container );
 
 			return $css;
