@@ -247,7 +247,7 @@ function astra_post_archive_strcture_dynamic_css( $dynamic_css, $dynamic_css_fil
 				'line-height'    => esc_attr( $banner_text_line_height ),
 				'text-transform' => esc_attr( $banner_text_transform ),
 			),
-			$selector . ' .ast-archive-title'       => array(
+			$selector . ' h1'       => array(
 				'color'          => esc_attr( $title_color ),
 				'font-family'    => astra_get_css_value( $banner_title_font_family, 'font' ),
 				'font-weight'    => astra_get_css_value( $banner_title_font_weight, 'font' ),
@@ -282,7 +282,7 @@ function astra_post_archive_strcture_dynamic_css( $dynamic_css, $dynamic_css_fil
 				'margin-bottom'  => astra_responsive_spacing( $banner_margin, 'bottom', 'tablet' ),
 				'margin-left'    => astra_responsive_spacing( $banner_margin, 'left', 'tablet' ),
 			),
-			$selector . ' .ast-archive-title' => array(
+			$selector . ' h1' => array(
 				'font-size' => astra_responsive_font( $banner_title_font_size, 'tablet' ),
 			),
 			$selector . ' *'                  => array(
@@ -306,7 +306,7 @@ function astra_post_archive_strcture_dynamic_css( $dynamic_css, $dynamic_css_fil
 				'margin-bottom'  => astra_responsive_spacing( $banner_margin, 'bottom', 'mobile' ),
 				'margin-left'    => astra_responsive_spacing( $banner_margin, 'left', 'mobile' ),
 			),
-			$selector . ' .ast-archive-title' => array(
+			$selector . ' h1' => array(
 				'font-size' => astra_responsive_font( $banner_title_font_size, 'mobile' ),
 			),
 			$selector . ' *'                  => array(
