@@ -612,7 +612,7 @@ class Astra_WP_Editor_CSS {
 				'text-decoration' => 'none',
 				'font-size'       => '1.25rem',
 			);
-			$desktop_css['.ast-separate-container .editor-styles-wrapper .block-editor-block-list__layout.is-root-container .alignwide, .ast-plain-container .editor-styles-wrapper .block-editor-block-list__layout.is-root-container .alignwide, .ast-narrow-container .editor-styles-wrapper .block-editor-block-list__layout.is-root-container .alignwide'] = array(
+			$desktop_css['.ast-separate-container .editor-styles-wrapper .block-editor-block-list__layout.is-root-container .alignwide, .ast-plain-container .editor-styles-wrapper .block-editor-block-list__layout.is-root-container .alignwide'] = array(
 				'margin-left'  => $alignwide_left_negative_margin,
 				'margin-right' => $alignwide_right_negative_margin,
 			);
