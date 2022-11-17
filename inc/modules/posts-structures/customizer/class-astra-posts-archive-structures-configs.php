@@ -146,6 +146,30 @@ class Astra_Posts_Archive_Strctures_Configs extends Astra_Customizer_Config_Base
 
 			$configurations = array_merge( $configurations, $this->get_layout_configuration( $parent_section, $post_type, $post_type_object ) );
 
+			$custom_texts = array();
+
+			/**
+			 * Archive sortable title control.
+			 */
+			$custom_texts[$title_section . '-title'] = array(
+				'clone'       => false,
+				'is_parent'   => true,
+				'main_index'  => $title_section . '-title',
+				'clone_limit' => 2,
+				'title'       => __( 'Title', 'astra' ),
+			);
+
+			/**
+			 * Archive sortable title control.
+			 */
+			$custom_texts[$title_section . '-description'] = array(
+				'clone'       => false,
+				'is_parent'   => true,
+				'main_index'  => $title_section . '-description',
+				'clone_limit' => 2,
+				'title'       => __( 'Description', 'astra' ),
+			);
+
 			$_configs = array(
 
 				/**
@@ -192,7 +216,7 @@ class Astra_Posts_Archive_Strctures_Configs extends Astra_Customizer_Config_Base
 					'default'           => astra_get_option( $title_section . '-layout', 'layout-1' ),
 					'priority'          => 5,
 					'context'           => Astra_Builder_Helper::$general_tab,
-					'title'             => __( 'Banner Layout', 'astra-addon' ),
+					'title'             => __( 'Banner Layout', 'astra' ),
 					'divider'           => array( 'ast_class' => 'ast-section-spacing ast-bottom-spacing' ),
 					'choices'           => array(
 						'layout-1' => array(
@@ -200,7 +224,7 @@ class Astra_Posts_Archive_Strctures_Configs extends Astra_Customizer_Config_Base
 							'path'  => Astra_Builder_UI_Controller::fetch_svg_icon( 'post-layout' ),
 						),
 						'layout-2' => array(
-							'label' => __( 'Layout 2', 'astra-addon' ),
+							'label' => __( 'Layout 2', 'astra' ),
 							'path'  => '<span class="ahfb-svg-iconset ast-inline-flex"><svg width="100" height="70" viewBox="0 0 100 70" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M10 12C10 10.8954 10.8954 10 12 10H88C89.1046 10 90 10.8954 90 12V70H10V12Z" fill="white"></path> <mask id="' . esc_attr( $title_section ) . '-masking" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="10" y="10" width="80" height="60"> <path d="M10 12C10 10.8954 10.8954 10 12 10H88C89.1046 10 90 10.8954 90 12V70H10V12Z" fill="white"></path> </mask> <g mask="url(#' . esc_attr( $title_section ) . '-masking)"> <path d="M2 9H95V35H2V9Z" fill="#DADDE2"></path> </g> <path fill-rule="evenodd" clip-rule="evenodd" d="M83 58H16V56H83V58Z" fill="#E9EAEE"></path> <path fill-rule="evenodd" clip-rule="evenodd" d="M83 64H16V62H83V64Z" fill="#E9EAEE"></path> <path fill-rule="evenodd" clip-rule="evenodd" d="M61 21H41V19H61V21Z" fill="white"></path> <path fill-rule="evenodd" clip-rule="evenodd" d="M53.4 25H33V23H53.4V25Z" fill="white"></path> <path fill-rule="evenodd" clip-rule="evenodd" d="M67 25H54.76V23H67V25Z" fill="white"></path> <path fill-rule="evenodd" clip-rule="evenodd" d="M42.4783 29H40V28H42.4783V29Z" fill="white"></path> <path fill-rule="evenodd" clip-rule="evenodd" d="M50.7391 29H47.4348V28H50.7391V29Z" fill="white"></path> <path fill-rule="evenodd" clip-rule="evenodd" d="M46.6087 29H43.3044V28H46.6087V29Z" fill="white"></path> <path fill-rule="evenodd" clip-rule="evenodd" d="M54.8696 29H51.5652V28H54.8696V29Z" fill="white"></path> <path fill-rule="evenodd" clip-rule="evenodd" d="M59 29H55.6956V28H59V29Z" fill="white"></path> <rect x="16" y="40" width="67" height="12" fill="#E9EAEE"></rect> </svg></span>',
 						),
 					),
@@ -283,11 +307,76 @@ class Astra_Posts_Archive_Strctures_Configs extends Astra_Customizer_Config_Base
 					'priority'          => 20,
 					'title'             => __( 'Structure', 'astra' ),
 					'divider'           => ( 'post' !== $post_type ) ? array( 'ast_class' => 'ast-top-divider ast-bottom-spacing' ) : array( 'ast_class' => 'ast-bottom-spacing' ),
-					'choices'           => array(
-						$title_section . '-title'       => __( 'Title', 'astra' ),
-						$title_section . '-description' => __( 'Description', 'astra' ),
-						$title_section . '-breadcrumb'  => __( 'Breadcrumb', 'astra' ),
+					'choices'           => array_merge(
+						array(
+							$title_section . '-breadcrumb'  => __( 'Breadcrumb', 'astra' ),
+						),
+						$custom_texts
 					),
+				),
+
+				/**
+				 * Title support for archive.
+				 */
+				array(
+					'name'     => $title_section . '-custom-title',
+					'parent'   => ASTRA_THEME_SETTINGS . '[' . $title_section . '-structure]',
+					'default'  => astra_get_option( $title_section . '-custom-title', '' ),
+					'linked'   => $title_section . '-title',
+					'type'     => 'sub-control',
+					'control'  => 'ast-text-input',
+					'settings'  => array(),
+					'section'  => $title_section,
+					'priority' => 1,
+					'title'    => ( 'post' === $post_type ) ? __( 'Blog Title', 'astra' ) : __( 'Archive Title', 'astra' ),
+				),
+
+				/**
+				 * Help description for title support.
+				 */
+				array(
+					'name'     => $title_section . '-custom-title-support',
+					'parent'   => ASTRA_THEME_SETTINGS . '[' . $title_section . '-structure]',
+					'linked'   => $title_section . '-title',
+					'type'     => 'sub-control',
+					'control'  => 'ast-description',
+					'section'  => $title_section,
+					'priority' => 2,
+					'label'    => '',
+					'help'     => esc_html( sprintf( __( 'Note: This title appear on %1$s archive.', 'astra' ), $post_type ) ),
+				),
+
+				/**
+				 * Description support for archive.
+				 */
+				array(
+					'name'     => $title_section . '-custom-description',
+					'parent'   => ASTRA_THEME_SETTINGS . '[' . $title_section . '-structure]',
+					'default'  => astra_get_option( $title_section . '-custom-description', '' ),
+					'linked'   => $title_section . '-description',
+					'type'     => 'sub-control',
+					'control'  => 'ast-text-input',
+					'input_attrs'       => array(
+						'textarea'  => true,
+					),
+					'section'  => $title_section,
+					'priority' => 1,
+					'title'    => ( 'post' === $post_type ) ? __( 'Blog Description', 'astra' ) : __( 'Archive Description', 'astra' ),
+				),
+
+				/**
+				 * Help description for description support.
+				 */
+				array(
+					'name'     => $title_section . '-custom-description-support',
+					'parent'   => ASTRA_THEME_SETTINGS . '[' . $title_section . '-structure]',
+					'linked'   => $title_section . '-description',
+					'type'     => 'sub-control',
+					'control'  => 'ast-description',
+					'section'  => $title_section,
+					'priority' => 2,
+					'label'    => '',
+					'help'     => esc_html( sprintf( __( 'Note: This description appear on %1$s archive.', 'astra' ), $post_type ) ),
 				),
 
 				/**
@@ -819,7 +908,7 @@ class Astra_Posts_Archive_Strctures_Configs extends Astra_Customizer_Config_Base
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[' . $title_section . '-layout]',
 							'operator' => '!=',
-							'value'    => 'default',
+							'value'    => 'layout-1',
 						),
 					),
 					'title'    => __( 'Enable on Blog / Posts Page?', 'astra' ),

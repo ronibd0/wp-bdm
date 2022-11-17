@@ -41,16 +41,16 @@ class Astra_Posts_Strctures_Markup {
 	}
 
 	/**
-	 * Check if current page is latest posts page or blog page.
+	 * Support custom title & description support for archive.
 	 *
+	 * @param string $title Default archive title.
 	 * @since x.x.x
 	 * @return void
 	 */
-	public function is_blog_latest_posts_page() {
-		if ( ! is_front_page() && is_home() ) {
-			return true;
-		}
-		return false;
+	public function astra_archive_custom_title( $title ) {
+		$post_type = get_post_type();
+		$title = ! empty( astra_get_option( 'ast-dynamic-archive-' . $post_type . '-custom-title', '' ) ) ? astra_get_option( 'ast-dynamic-archive-' . $post_type . '-custom-title' ) : $title;
+		return $title;
 	}
 
 	/**
@@ -95,7 +95,6 @@ class Astra_Posts_Strctures_Markup {
 		}
 
 		if ( 'single' === $type && 'layout-2' === $layout_type ) {
-
 			do_action( 'astra_before_single_' . $post_type . '_banner_content' );
 
 			get_template_part( 'template-parts/single-banner' );
@@ -104,19 +103,25 @@ class Astra_Posts_Strctures_Markup {
 
 			add_filter( 'astra_remove_entry_header_content', '__return_true' );
 			add_filter( 'astra_display_single_layout1_header_banner', '__return_false' );
-
-		} elseif ( $this->is_blog_latest_posts_page() ) {
-
+		} elseif ( ( is_front_page() && is_home() ) || ( is_home() ) ) {
 			if ( true === astra_get_option( 'ast-dynamic-archive-post-banner-on-blog', false ) ) {
+				// For latest posts page.
+				add_filter( 'astra_the_default_home_page_title', array( $this, 'astra_archive_custom_title' ) );
+
+				// For blog page.
+				add_filter( 'astra_the_blog_home_page_title', array( $this, 'astra_archive_custom_title' ) );
 
 				do_action( 'astra_before_archive_' . $post_type . '_banner_content' );
 
 				get_template_part( 'template-parts/archive-banner' );
 
 				do_action( 'astra_after_archive_' . $post_type . '_banner_content' );
+
+				remove_filter( 'astra_the_default_home_page_title', array( $this, 'astra_archive_custom_title' ) );
+
+				remove_filter( 'astra_the_blog_home_page_title', array( $this, 'astra_archive_custom_title' ) );
 			}
 		} elseif ( class_exists( 'WooCommerce' ) && ( is_shop() || is_product_taxonomy() ) ) {
-
 			add_filter( 'woocommerce_show_page_title', '__return_false' );
 
 			remove_action(
@@ -140,14 +145,22 @@ class Astra_Posts_Strctures_Markup {
 			get_template_part( 'template-parts/archive-banner' );
 
 			do_action( 'astra_after_archive_' . $post_type . '_banner_content' );
-
 		} elseif ( 'archive' === $type ) {
+			$is_post_type_archive = is_post_type_archive( $post_type ) ? true : false;
+
+			if( $is_post_type_archive ) {
+				add_filter( 'get_the_archive_title', array( $this, 'astra_archive_custom_title' ) );
+			}
 
 			do_action( 'astra_before_archive_' . $post_type . '_banner_content' );
 
 			get_template_part( 'template-parts/archive-banner' );
 
 			do_action( 'astra_after_archive_' . $post_type . '_banner_content' );
+
+			if( $is_post_type_archive ) {
+				remove_filter( 'get_the_archive_title', array( $this, 'astra_archive_custom_title' ) );
+			}
 		}
 	}
 }

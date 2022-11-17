@@ -3529,8 +3529,8 @@ span.customize-control-title.ast-group-section-title {
     max-height: 30px;
     min-height: 30px;
     border-color: #ddd;
-
 }
+
 .ast-link-open-in-new-tab-wrapper {
   margin: 24px 0 0;
   border-top: 1px dashed var(--ast-customizer-color-7);
@@ -5333,6 +5333,11 @@ span.customize-control-title.ast-group-section-title {
 }
 .ast-sortable-subfields-wrap .customize-control-ast-description {
     line-height: 1;
+}
+
+.customize-control-ast-text-input textarea {
+    display: block;
+    width: 100%;
 }
 
 .customize-control-ast-toggle-control .components-toggle-control .components-base-control__field, .ast-togglecontrol-wrapper .components-base-control__field {
@@ -6443,8 +6448,8 @@ span.customize-control-title.ast-group-section-title {
     max-height: 30px;
     min-height: 30px;
     border-color: #ddd;
-
 }
+
 .ast-link-open-in-new-tab-wrapper {
   margin: 24px 0 0;
   border-top: 1px dashed var(--ast-customizer-color-7);
@@ -8247,6 +8252,11 @@ span.customize-control-title.ast-group-section-title {
 }
 .ast-sortable-subfields-wrap .customize-control-ast-description {
     line-height: 1;
+}
+
+.customize-control-ast-text-input textarea {
+    display: block;
+    width: 100%;
 }
 
 .customize-control-ast-toggle-control .components-toggle-control .components-base-control__field, .ast-togglecontrol-wrapper .components-base-control__field {

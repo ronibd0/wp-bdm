@@ -202,6 +202,14 @@ function astra_refresh_customizer( control ) {
 			var selector = '.ast-archive-entry-banner[data-post-type="' + postType + '"], body.archive .ast-archive-description';
 		}
 
+		astra_refresh_customizer(
+			'astra-settings[ast-dynamic-archive-' + postType + '-custom-title]'
+		);
+
+		astra_refresh_customizer(
+			'astra-settings[ast-dynamic-archive-' + postType + '-custom-description]'
+		);
+
 		astra_dynamic_build_css(
 			'ast-dynamic-archive-' + postType + '-horizontal-alignment',
 			'astra-settings[ast-dynamic-archive-' + postType + '-horizontal-alignment]',
