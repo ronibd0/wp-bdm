@@ -241,11 +241,7 @@ const MetaSettings = props => {
   const closeModal = () => setOpen(false);
 
   const is_hide_contnet_layout_sidebar = astMetaParams.is_hide_contnet_layout_sidebar;
-  const [contentLayout, setContentLayout] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(props.meta['site-content-layout']);
-  const [isDefaultNarrow, setDefaultNarrow] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)('');
-  (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(() => {
-    console.log(document.querySelector('body').classList);
-  }); // Adjust spacing & borders for table.
+  const [contentLayout, setContentLayout] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(props.meta['site-content-layout']); // Adjust spacing & borders for table.
 
   const topTableSpacing = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("tr", {
     className: "ast-extra-spacing"
@@ -322,7 +318,20 @@ const MetaSettings = props => {
       }
     });
   });
-  console.log(props.meta);
+  const [isDefaultNarrow, setIsDefaultNarrow] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(false); // Side effect calling DOM API to check if current default layout is set to narrow width content layout.
+
+  (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(() => {
+    if (document.querySelector('body').classList.contains('ast-default-layout-narrow-container')) {
+      setIsDefaultNarrow(true);
+    } else {
+      setIsDefaultNarrow(false);
+    }
+  }, [contentLayout, setIsDefaultNarrow]); // Display sidebar options or not.
+
+  const showSidebar = () => {
+    return 'narrow-container' === contentLayout || 'default' === contentLayout && isDefaultNarrow ? false : true;
+  };
+
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_edit_post__WEBPACK_IMPORTED_MODULE_2__.PluginSidebarMoreMenuItem, {
     target: "theme-meta-panel",
     icon: icon
@@ -348,7 +357,7 @@ const MetaSettings = props => {
       if (val === 'narrow-container') props.setMetaFieldValue('no-sidebar', 'site-sidebar-layout');
       props.setMetaFieldValue(val, 'site-content-layout');
     }
-  }))), console.log(contentLayout), !is_hide_contnet_layout_sidebar && contentLayout != "narrow-container" && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_9__.PanelBody, {
+  }))), !is_hide_contnet_layout_sidebar && showSidebar() && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_9__.PanelBody, {
     title: __('Sidebar', 'astra'),
     initialOpen: false
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {

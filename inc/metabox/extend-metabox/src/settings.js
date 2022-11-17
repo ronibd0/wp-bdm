@@ -1,7 +1,7 @@
 /**
  * Meta Options build.
  */
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { PluginSidebar, PluginSidebarMoreMenuItem } from '@wordpress/edit-post';
 import { compose } from '@wordpress/compose';
 import { withSelect, withDispatch } from '@wordpress/data';
@@ -93,6 +93,23 @@ const MetaSettings = props => {
 		/>);
 	});
 
+	const [isDefaultNarrow, setIsDefaultNarrow] = useState(false);
+
+	// Side effect calling DOM API to check if current default layout is set to narrow width content layout.
+	useEffect(() => {
+		if (document.querySelector('body').classList.contains('ast-default-layout-narrow-container')) {
+			setIsDefaultNarrow(true);
+		}
+		else {
+			setIsDefaultNarrow(false);
+		}
+	}, [contentLayout, setIsDefaultNarrow]);
+
+	// Display sidebar options or not.
+	const showSidebar = () => {
+		return (('narrow-container' === contentLayout) || ('default' === contentLayout && isDefaultNarrow)) ? false : true;
+	}
+
 	return (
 		<>
 			{/* Meta settings icon */}
@@ -134,7 +151,7 @@ const MetaSettings = props => {
 					)}
 
 					{/* Sidebar Setting */}	
-					{ ! is_hide_contnet_layout_sidebar && contentLayout != "narrow-container" && (
+					{ ! is_hide_contnet_layout_sidebar && showSidebar() && (
 					<PanelBody
 						title={ __( 'Sidebar', 'astra' ) }
 						initialOpen={ false }
