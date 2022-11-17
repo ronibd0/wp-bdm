@@ -506,7 +506,7 @@ function astra_load_modern_block_editor_ui( $dynamic_css ) {
 			padding-left: 0;
 			padding-right: 0;
 		}
-	';	
+	';
 
 	return $dynamic_css;
 }
