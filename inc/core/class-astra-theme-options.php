@@ -569,7 +569,7 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 					'mobile-header-toggle-target'          => 'icon',
 
 					// Performance.
-					'enable-scroll-to-id'                  => false,
+					'enable-scroll-to-id'                  => true,
 					'load-google-fonts-locally'            => false,
 					'preload-local-fonts'                  => false,
 				)
