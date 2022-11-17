@@ -700,6 +700,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 				'variant'           => astra_get_prop( $config, 'variant' ),
 				'help'              => astra_get_prop( $config, 'help' ),
 				'input_attrs'       => astra_get_prop( $config, 'input_attrs' ),
+				'disable'           => astra_get_prop( $config, 'disable' ),
 			);
 
 			self::$dynamic_options['settings'][ astra_get_prop( $new_config, 'name' ) ] = array(
@@ -1023,7 +1024,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 				'0' => __( 'Select Menu', 'astra' ),
 			);
 
-			$all_menus = get_terms( 'nav_menu', array( 'hide_empty' => true ) );
+			$all_menus = get_terms( array( 'taxonomy' => 'nav_menu', 'hide_empty' => true ) );
 
 			if ( is_array( $all_menus ) && count( $all_menus ) ) {
 				foreach ( $all_menus as $row ) {
@@ -1066,14 +1067,23 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 
 			if ( is_rtl() ) {
 				$builder_customizer_css_file = 'ast-builder-customizer-rtl';
+				$font_icon_picker_css_file   = 'font-icon-picker-rtl';
 			} else {
 				$builder_customizer_css_file = 'ast-builder-customizer';
+				$font_icon_picker_css_file   = 'font-icon-picker';
 			}
 
 			// Enqueue Builder CSS.
 			wp_enqueue_style(
 				'ahfb-customizer-style',
 				ASTRA_THEME_URI . 'inc/assets/css/' . $builder_customizer_css_file . '.css',
+				array( 'wp-components' ),
+				ASTRA_THEME_VERSION
+			);
+
+			wp_enqueue_style(
+				'ahfb-customizer-color-picker-style',
+				ASTRA_THEME_URI . 'inc/assets/css/' . $font_icon_picker_css_file . '.css',
 				array( 'wp-components' ),
 				ASTRA_THEME_VERSION
 			);

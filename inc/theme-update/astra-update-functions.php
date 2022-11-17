@@ -1059,12 +1059,12 @@ function astra_apply_woocommerce_show_password_icon_css() {
 }
 
 /**
- * Handle backward compatibility on version 3.9.3
- * 
- * @since x.x.x
+ * Handle backward compatibility on version 3.9.4
+ *
+ * @since 3.9.4
  * @return void
  */
-function astra_theme_background_updater_3_9_3() {
+function astra_theme_background_updater_3_9_4() {
 	$theme_options = get_option( 'astra-settings', array() );
 
 	// Check if user is a old global sidebar user.
@@ -1073,6 +1073,7 @@ function astra_theme_background_updater_3_9_3() {
 		update_option( 'astra-settings', $theme_options );
 	}
 
+	// Slide in cart width responsive control backwards compatibility.
 	if ( isset( $theme_options['woo-desktop-cart-flyout-width'] ) && ! isset( $theme_options['woo-slide-in-cart-width'] ) ) {
 		$theme_options['woo-slide-in-cart-width'] = array(
 			'desktop'      => $theme_options['woo-desktop-cart-flyout-width'],
@@ -1082,6 +1083,12 @@ function astra_theme_background_updater_3_9_3() {
 			'tablet-unit'  => 'px',
 			'mobile-unit'  => 'px',
 		);
+		update_option( 'astra-settings', $theme_options );
+	}
+
+	// Astra Spectra Gutenberg Compatibility CSS.
+	if ( ! isset( $theme_options['spectra-gutenberg-compat-css'] ) ) {
+		$theme_options['spectra-gutenberg-compat-css'] = false;
 		update_option( 'astra-settings', $theme_options );
 	}
 }
