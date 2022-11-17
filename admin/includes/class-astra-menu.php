@@ -267,7 +267,6 @@ class Astra_Menu {
 			'plugin_installing_text'             => __( 'Installing', 'astra' ) . '&hellip;',
 			'plugin_installed_text'              => __( 'Installed', 'astra' ),
 			'plugin_activating_text'             => __( 'Activating', 'astra' ) . '&hellip;',
-			'recommendedPluiginDeactivatingText' => __( 'Deactivating', 'astra' ) . '&hellip;',
 			'plugin_activated_text'              => __( 'Activated', 'astra' ),
 			'plugin_activate_text'               => __( 'Activate', 'astra' ),
 			'starter_templates_data'             => self::get_starter_template_plugin_data(),

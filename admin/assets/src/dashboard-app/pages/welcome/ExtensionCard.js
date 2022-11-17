@@ -22,7 +22,7 @@ const ExtensionCard = ( props ) => {
 
 	const blocksStatuses = useSelector( ( state ) => state.blocksStatuses );
 
-	const moduleActivationStatus = false == blocksStatuses[slug] ? false : true;
+	const moduleActivationStatus = slug == blocksStatuses[slug] ? true : false;
 
 	return (
 		<div
