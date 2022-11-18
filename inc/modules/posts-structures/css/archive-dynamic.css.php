@@ -91,20 +91,24 @@ function astra_post_archive_strcture_dynamic_css( $dynamic_css, $dynamic_css_fil
 
 	// Few settings from banner section are also applicable to 'layout-1' so adding this condition & compatibility.
 	if ( 'layout-1' === $layout_type ) {
+		$site_content_width = astra_get_option( 'site-content-width', 1200 );
+
 		/**
 		 * Desktop CSS.
 		 */
 		$css_output_desktop = array(
 			$selector                               => array(
+				'max-width'      => $site_content_width . 'px',
+				'width'          => '100%',
 				'text-align'     => $desk_h_alignment,
 				'padding-top'    => astra_responsive_spacing( $banner_padding, 'top', 'desktop' ),
 				'padding-right'  => astra_responsive_spacing( $banner_padding, 'right', 'desktop' ),
 				'padding-bottom' => astra_responsive_spacing( $banner_padding, 'bottom', 'desktop' ),
 				'padding-left'   => astra_responsive_spacing( $banner_padding, 'left', 'desktop' ),
 				'margin-top'     => astra_responsive_spacing( $banner_margin, 'top', 'desktop' ),
-				'margin-right'   => astra_responsive_spacing( $banner_margin, 'right', 'desktop' ),
 				'margin-bottom'  => astra_responsive_spacing( $banner_margin, 'bottom', 'desktop' ),
 				'margin-left'    => astra_responsive_spacing( $banner_margin, 'left', 'desktop' ),
+				'margin-right'   => astra_responsive_spacing( $banner_margin, 'right', 'desktop' ),
 			),
 			$selector . ', ' . $selector . ' *'     => array(
 				'color'          => esc_attr( $text_color ),
@@ -178,11 +182,6 @@ function astra_post_archive_strcture_dynamic_css( $dynamic_css, $dynamic_css_fil
 				'font-size' => astra_responsive_font( $banner_text_font_size, 'mobile' ),
 			),
 		);
-
-		$site_content_width                           = astra_get_option( 'site-content-width', 1200 );
-		$css_output_desktop[ $selector ]['max-width'] = $site_content_width . 'px';
-		$css_output_desktop[ $selector ]['margin']    = '0 auto';
-		$css_output_desktop[ $selector ]['width']     = '100%';
 
 		if ( 'none' !== $background_type ) {
 			if ( class_exists( 'WooCommerce' ) && 'product' === $current_post_type ) {

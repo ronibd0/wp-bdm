@@ -556,6 +556,7 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 					'section'  => $title_section,
 					'control'  => 'ast-responsive-background',
 					'title'    => __( 'Background', 'astra' ),
+					'transport'   => 'postMessage',
 					'context'  => array(
 						Astra_Builder_Helper::$design_tab_config,
 						'relation' => 'AND',

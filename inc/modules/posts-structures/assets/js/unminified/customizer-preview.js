@@ -105,13 +105,6 @@ function astra_refresh_customizer( control ) {
 			'px'
 		);
 
-		astra_dynamic_build_css(
-			'ast-dynamic-single-' + postType + '-banner-background',
-			'astra-settings[ast-dynamic-single-' + postType + '-banner-background]',
-			'background-color',
-			selector
-		);
-
 		astra_refresh_customizer(
 			'astra-settings[ast-dynamic-single-' + postType + '-featured-as-background]'
 		);
@@ -119,6 +112,10 @@ function astra_refresh_customizer( control ) {
 		astra_refresh_customizer(
 			'astra-settings[ast-dynamic-single-' + postType + '-banner-featured-overlay]'
 		);
+
+		astra_apply_responsive_background_css( 'astra-settings[ast-dynamic-single-' + postType + '-banner-background]', '.single .ast-single-entry-banner[data-post-type="' + postType + '"]', 'desktop' );
+		astra_apply_responsive_background_css( 'astra-settings[ast-dynamic-single-' + postType + '-banner-background]', '.single .ast-single-entry-banner[data-post-type="' + postType + '"]', 'tablet' );
+		astra_apply_responsive_background_css( 'astra-settings[ast-dynamic-single-' + postType + '-banner-background]', '.single .ast-single-entry-banner[data-post-type="' + postType + '"]', 'mobile' );
 
 		astra_css(
 			'astra-settings[ast-dynamic-single-' + postType + '-vertical-alignment]',
