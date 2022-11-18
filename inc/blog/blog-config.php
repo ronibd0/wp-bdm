@@ -14,10 +14,14 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Prepare markup for taxonomies.
  *
  * @param string $control_tax Taxonomy subcontrol name.
+ * @param int $loop_count Meta loop counter to decide separator appearance.
+ * @param string $separator Separator.
+ *
  *
  * @return string $output Taxonomy output.
  */
-function astra_get_dynamic_taxonomy( $control_tax ) {
+function astra_get_dynamic_taxonomy( $control_tax, $loop_count, $separator ) {
+
 	$tax_type = astra_get_option( $control_tax );
 	$post_id  = get_the_ID();
 
@@ -35,8 +39,9 @@ function astra_get_dynamic_taxonomy( $control_tax ) {
 		}
 
 		$all_terms = join( ', ', $term_links );
+		$output_str = '<span class="ast-terms-link">' . __( $all_terms ) . '</span>';
 
-		return ' / <span class="ast-terms-link">' . __( $all_terms ) . '</span>';
+		return ( 1 != $loop_count ) ? ' ' . $separator . ' ' . $output_str : $output_str;
 	}
 
 	return '';
@@ -109,7 +114,7 @@ if ( ! function_exists( 'astra_get_post_meta' ) ) {
 			}
 
 			if ( strpos( $meta_value, '-taxonomy' ) !== false ) {
-				$output_str .= astra_get_dynamic_taxonomy( $meta_value );
+				$output_str .= astra_get_dynamic_taxonomy( $meta_value, $loop_count, $separator );
 			}
 
 			$loop_count ++;

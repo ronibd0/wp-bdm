@@ -1052,7 +1052,6 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 			);
 
 			if ( count( $taxonomies ) > 1 ) {
-				$astra_settings = get_option( ASTRA_THEME_SETTINGS );
 				for ( $index = 1; $index <= $clone_limit; $index++ ) {
 
 					$control_suffix = ( 1 === $index ) ? '' : '-' . ( $index - 1 );
@@ -1063,7 +1062,7 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 					$_configs[] = array(
 						'name'       => $title_section . '-taxonomy' . $control_suffix,
 						'parent'     => ASTRA_THEME_SETTINGS . '[' . $title_section . '-metadata]',
-						'default'    => isset( $astra_settings[$title_section . '-taxonomy' . $control_suffix] ) ? $astra_settings[$title_section . '-taxonomy' . $control_suffix] : '',
+						'default'    => astra_get_option( $title_section . '-taxonomy' . $control_suffix ),
 						'linked'     => $title_section . '-taxonomy' . $control_suffix,
 						'type'       => 'sub-control',
 						'control'    => 'ast-select',
