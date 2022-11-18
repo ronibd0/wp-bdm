@@ -2205,6 +2205,10 @@ div .ast-field-settings-modal .customize-control-ast-font-height {
     color: #4B5563;
 }
 
+.ast-customizer-font-varient-wrap .ast-multi-select__input-container input:focus {
+    box-shadow: none;
+}
+
 .ast-customizer-font-varient-wrap .ast-multi-select__control {
     position: relative;
     min-height: 32px;
