@@ -1261,6 +1261,9 @@ function astra_post_structures_meta_migration() {
 			$theme_options[ 'ast-dynamic-single-' . esc_attr( $post_type ) . '-title-line-height' ]    = ! empty( $theme_options['line-height-entry-title'] ) ? $theme_options['line-height-entry-title'] : '';
 		}
 
+		// Set page specific structure, as page only has featured image at top & title beneath to it, hardcoded writing it here.
+		$theme_options[ 'ast-dynamic-single-page-structure' ] = array( 'ast-dynamic-single-page-image', 'ast-dynamic-single-page-title' );
+
 		update_option( 'astra-settings', $theme_options );
 	}
 }

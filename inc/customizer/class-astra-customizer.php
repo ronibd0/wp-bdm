@@ -1586,9 +1586,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 					    left: -1.8em;
 					}
 					.customize-partial-edit-shortcut-astra-settings-breadcrumb-position .customize-partial-edit-shortcut-button{
-						top: -0.5em;
-						left: -10px;
-						font-size: 20px !important;
+						display: none;
 					}
 					.ast-small-footer-section-1 .ast-footer-widget-1-area .customize-partial-edit-shortcut,
 					.ast-small-footer-section-2 .ast-footer-widget-2-area .customize-partial-edit-shortcut {

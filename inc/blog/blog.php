@@ -435,15 +435,27 @@ function astra_banner_elements_order( $structure = array() ) {
 
 			case 'single-title':
 				do_action( 'astra_single_post_banner_title_before' );
-				astra_the_title(
-					'<h1 class="entry-title" ' . astra_attr(
-						'article-title-blog-single',
-						array(
-							'class' => '',
-						)
-					) . '>',
-					'</h1>'
-				);
+				if( 'page' === $post_type ) {
+					astra_the_title(
+						'<h1 class="entry-title" ' . astra_attr(
+							'article-title-content-page',
+							array(
+								'class' => '',
+							)
+						) . '>',
+						'</h1>'
+					);
+				} else {
+					astra_the_title(
+						'<h1 class="entry-title" ' . astra_attr(
+							'article-title-blog-single',
+							array(
+								'class' => '',
+							)
+						) . '>',
+						'</h1>'
+					);
+				}
 				do_action( 'astra_single_post_banner_title_before' );
 				break;
 
