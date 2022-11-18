@@ -759,7 +759,7 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
 					'title'             => __( 'Line Height', 'astra' ),
 					'control'           => 'ast-slider',
-					'suffix'            => '',
+					'suffix'            => 'em',
 					'input_attrs'       => array(
 						'min'  => 1,
 						'step' => 1,
@@ -861,7 +861,7 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
 					'title'             => __( 'Line Height', 'astra' ),
 					'control'           => 'ast-slider',
-					'suffix'            => '',
+					'suffix'            => 'em',
 					'input_attrs'       => array(
 						'min'  => 1,
 						'step' => 1,
@@ -981,7 +981,7 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
 					'title'             => __( 'Line Height', 'astra' ),
 					'control'           => 'ast-slider',
-					'suffix'            => '',
+					'suffix'            => 'em',
 					'input_attrs'       => array(
 						'min'  => 1,
 						'step' => 1,
