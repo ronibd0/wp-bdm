@@ -343,7 +343,7 @@ class Astra_Posts_Archive_Strctures_Configs extends Astra_Customizer_Config_Base
 					'section'  => $title_section,
 					'priority' => 2,
 					'label'    => '',
-					'help'     => esc_html( sprintf( __( 'Note: This title appear on %1$s archive for banner layout-2.', 'astra' ), $post_type ) ),
+					'help'     => esc_html( sprintf( __( 'Note: This title appear on %1$s archive for banner Layout 2.', 'astra' ), $post_type ) ),
 				),
 
 				/**
@@ -376,7 +376,7 @@ class Astra_Posts_Archive_Strctures_Configs extends Astra_Customizer_Config_Base
 					'section'  => $title_section,
 					'priority' => 2,
 					'label'    => '',
-					'help'     => esc_html( sprintf( __( 'Note: This description appear on %1$s archive for banner layout-2.', 'astra' ), $post_type ) ),
+					'help'     => esc_html( sprintf( __( 'Note: This description appear on %1$s archive for banner Layout 2.', 'astra' ), $post_type ) ),
 				),
 
 				/**
