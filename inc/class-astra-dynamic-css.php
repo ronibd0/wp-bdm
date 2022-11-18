@@ -3043,7 +3043,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$parse_css .= astra_narrow_container_width( $container_layout, $narrow_container_max_width );
 
 			// Archive.
-			if ( is_archive() ) {
+			if ( is_archive() || is_home() ) {
 				$parse_css .= astra_narrow_container_width( $archive_container_layout, $narrow_container_max_width );
 			}
 
