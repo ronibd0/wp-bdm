@@ -138,6 +138,8 @@ class Astra_Posts_Archive_Strctures_Configs extends Astra_Customizer_Config_Base
 					'custom'   => __( 'Custom', 'astra' ),
 					'featured' => __( 'Featured', 'astra' ),
 				);
+			} elseif ( 'download' === $post_type ) {
+				$parent_section = 'section-edd-archive';
 			} elseif ( 'post' === $post_type ) {
 				$parent_section = 'section-blog';
 			} else {

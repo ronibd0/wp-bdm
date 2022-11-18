@@ -142,6 +142,8 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 				$parent_section             = 'section-blog-single';
 			} elseif ( 'page' === $post_type ) {
 				$parent_section = 'section-page-dynamic-group';
+			} elseif ( 'download' === $post_type ) {
+				$parent_section = 'section-edd-single';
 			} else {
 				$parent_section = $section;
 			}
