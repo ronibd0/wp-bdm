@@ -311,9 +311,9 @@ function astra_refresh_customizer( control ) {
 			'.ast-archive-entry-banner[data-post-type="' + postType + '"] a:hover, body.archive .ast-archive-description a:hover, .ast-archive-entry-banner[data-post-type="' + postType + '"] a:hover *, body.archive .ast-archive-description a:hover *'
 		);
 
-		astra_apply_responsive_background_css( 'astra-settings[ast-dynamic-archive-' + postType + '-banner-custom-bg]', '.ast-archive-entry-banner[data-post-type="' + postType + '"], body.archive body.archive .ast-archive-description', 'desktop' );
-		astra_apply_responsive_background_css( 'astra-settings[ast-dynamic-archive-' + postType + '-banner-custom-bg]', '.ast-archive-entry-banner[data-post-type="' + postType + '"], body.archive body.archive .ast-archive-description', 'tablet' );
-		astra_apply_responsive_background_css( 'astra-settings[ast-dynamic-archive-' + postType + '-banner-custom-bg]', '.ast-archive-entry-banner[data-post-type="' + postType + '"], body.archive body.archive .ast-archive-description', 'mobile' );
+		astra_apply_responsive_background_css( 'astra-settings[ast-dynamic-archive-' + postType + '-banner-custom-bg]', '.ast-archive-entry-banner[data-post-type="' + postType + '"], body.archive .ast-archive-description', 'desktop' );
+		astra_apply_responsive_background_css( 'astra-settings[ast-dynamic-archive-' + postType + '-banner-custom-bg]', '.ast-archive-entry-banner[data-post-type="' + postType + '"], body.archive .ast-archive-description', 'tablet' );
+		astra_apply_responsive_background_css( 'astra-settings[ast-dynamic-archive-' + postType + '-banner-custom-bg]', '.ast-archive-entry-banner[data-post-type="' + postType + '"], body.archive .ast-archive-description', 'mobile' );
 
 		astra_responsive_spacing( 'astra-settings[ast-dynamic-archive-' + postType + '-banner-padding]', selector, 'padding',  ['top', 'right', 'bottom', 'left' ] );
 		astra_responsive_spacing( 'astra-settings[ast-dynamic-archive-' + postType + '-banner-margin]', selector, 'margin',  ['top', 'right', 'bottom', 'left' ] );
