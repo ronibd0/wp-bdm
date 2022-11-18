@@ -2,6 +2,8 @@ import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { Fragment } from '@wordpress/element';
 import { useEffect } from 'react';
+import { Dashicon } from "@wordpress/components";
+
 
 const FontHeightComponent = ( props ) => {
 
@@ -46,6 +48,17 @@ const FontHeightComponent = ( props ) => {
 		props.control.setting.set( newProps );
 	};
 
+	const numberArrows = ( type ) => {
+		const currentValue = propsValue[ type ] ? propsValue[ type ] : 0;
+		const currentValueMinus = 'line-height' === type ? Math.max( 0, currentValue - 1 ) : currentValue - 1;
+		return (
+			<div className="plus-minus-control">
+				<Dashicon onClick={ () =>changeFontSetting( { type: type, value: currentValue + 1 } ) } icon="arrow-up-alt2" />
+				<Dashicon onClick={ () =>changeFontSetting( { type: type, value: currentValueMinus } ) } icon="arrow-down-alt2" />
+			</div>
+		)
+	}
+
 	return (
 		<Fragment>
 			<div className="ast-font-styling">
@@ -56,7 +69,10 @@ const FontHeightComponent = ( props ) => {
 							<rect x="2.6665" y="13.3335" width="10.6667" height="1.33333" fill="#9CA3AF" />
 							<path d="M4.6665 12H5.88003L6.56684 9.83784H9.438L10.1196 12H11.3332L8.62726 4H7.37758L4.6665 12ZM7.99209 5.32502H8.01275L9.123 8.83992H6.87668L7.99209 5.32502Z" fill="#9CA3AF" />
 						</svg>
-						<input type="text" name="font-height" value={ propsValue[ 'line-height' ] } onChange={ ( e ) => changeFontSetting( { type: 'line-height', value: e.target.value } ) } />
+						<div className="ast-number-input">
+							{numberArrows( 'line-height' )}
+							<input type="number" name="font-height" min="" value={ propsValue[ 'line-height' ] } onChange={ ( e ) => changeFontSetting( { type: 'line-height', value: e.target.value } ) } />
+						</div>
 					</div>
 					<div className="ast-font-unit-wrapper">
 						<span className={`${propsValue['line-height-unit'] === 'px' ? 'active' : ''}`} onClick={ ( e ) => changeFontSetting( { type: 'line-height-unit', value: 'px' } ) }>PX</span>
@@ -70,7 +86,10 @@ const FontHeightComponent = ( props ) => {
 							<rect x="13.3335" y="2.6665" width="1.33333" height="10.6667" fill="#9CA3AF" />
 							<path d="M4.6665 12H5.88003L6.56684 9.83784H9.438L10.1196 12H11.3332L8.62726 4H7.37758L4.6665 12ZM7.99209 5.32502H8.01275L9.123 8.83992H6.87668L7.99209 5.32502Z" fill="#9CA3AF" />
 						</svg>
-						<input type="text" name="font-height" value={ propsValue[ 'letter-spacing' ] } onChange={ ( e ) => changeFontSetting( { type: 'letter-spacing', value: e.target.value } ) } />
+						<div className="ast-number-input">
+						{numberArrows( 'letter-spacing' )}
+							<input type="number" name="font-height" value={ propsValue[ 'letter-spacing' ] } onChange={ ( e ) => changeFontSetting( { type: 'letter-spacing', value: e.target.value } ) } />
+						</div>
 					</div>
 					<div className="ast-font-unit-wrapper">
 						<span className={`${propsValue['letter-spacing-unit'] === 'px' ? 'active' : ''}`} onClick={ ( e ) => changeFontSetting( { type: 'letter-spacing-unit', value: 'px' } ) }>PX</span>

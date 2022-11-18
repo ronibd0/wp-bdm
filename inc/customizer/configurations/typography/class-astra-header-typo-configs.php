@@ -47,7 +47,7 @@ if ( ! class_exists( 'Astra_Header_Typo_Configs' ) ) {
 						'default'           => astra_get_option( 'font-size-site-title' ),
 						'transport'         => 'postMessage',
 						'priority'          => 12,
-						'title'             => __( 'Size', 'astra' ),
+						'title'             => __( 'Font Size', 'astra' ),
 						'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
 						'suffix'            => array( 'px', 'em' ),
 						'input_attrs'       => array(

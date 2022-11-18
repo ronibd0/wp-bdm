@@ -175,9 +175,9 @@ class Astra_Heading_Colors_Loader {
 		/**
 		 * Theme button Font Defaults
 		 */
-		$defaults['font-weight-button']    = 'inherit';
-		$defaults['font-family-button']    = 'inherit';
-		$defaults['font-size-button']      = array(
+		$defaults['font-weight-button'] = 'inherit';
+		$defaults['font-family-button'] = 'inherit';
+		$defaults['font-size-button']   = array(
 			'desktop'      => '',
 			'tablet'       => '',
 			'mobile'       => '',
@@ -185,13 +185,15 @@ class Astra_Heading_Colors_Loader {
 			'tablet-unit'  => 'px',
 			'mobile-unit'  => 'px',
 		);
-		$defaults['text-transform-button'] = '';
 
-		/**
-		 * Check backward compatibility for button line height.
-		 */
-		$defaults['theme-btn-line-height']    = 1;
-		$defaults['theme-btn-letter-spacing'] = '';
+		$defaults['font-extras-button'] = array(
+			'line-height'         => ! isset( $astra_options['font-extras-button'] ) && isset( $astra_options['theme-btn-line-height'] ) ? $astra_options['theme-btn-line-height'] : 1,
+			'line-height-unit'    => 'em',
+			'letter-spacing'      => ! isset( $astra_options['font-extras-button'] ) && isset( $astra_options['theme-btn-letter-spacing'] ) ? $astra_options['theme-btn-letter-spacing'] : '',
+			'letter-spacing-unit' => 'px',
+			'text-transform'      => ! isset( $astra_options['font-extras-button'] ) && isset( $astra_options['text-transform-button'] ) ? $astra_options['text-transform-button'] : '',
+			'text-decoration'     => '',
+		);
 
 		return $defaults;
 	}

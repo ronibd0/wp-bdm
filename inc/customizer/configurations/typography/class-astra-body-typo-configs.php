@@ -93,7 +93,6 @@ if ( ! class_exists( 'Astra_Body_Typo_Configs' ) ) {
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_font_variant' ),
 					'default'           => astra_get_option( 'body-font-variant' ),
 					'ast_inherit'       => __( 'Default', 'astra' ),
-					'help'              => __( 'These variants will load from Google.', 'astra' ),
 					'section'           => $typo_section,
 					'priority'          => 6,
 					'title'             => __( 'Variants', 'astra' ),

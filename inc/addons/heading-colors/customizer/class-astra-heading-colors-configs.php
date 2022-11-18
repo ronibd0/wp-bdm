@@ -80,37 +80,7 @@ if ( ! class_exists( 'Astra_Heading_Colors_Configs' ) ) {
 					'default'   => astra_get_option( 'font-family-button' ),
 					'connect'   => ASTRA_THEME_SETTINGS . '[font-weight-button]',
 					'priority'  => 1,
-				),
-
-				/**
-				 * Option: Button Font Size
-				 */
-
-				array(
-					'name'              => 'font-size-button',
-					'parent'            => ASTRA_THEME_SETTINGS . '[button-text-typography]',
-					'type'              => 'sub-control',
-					'control'           => 'ast-responsive-slider',
-					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
-					'section'           => 'section-buttons',
-					'transport'         => 'postMessage',
-					'title'             => __( 'Size', 'astra' ),
-					'priority'          => 2,
-					'default'           => astra_get_option( 'font-size-button' ),
-					'suffix'            => array( 'px', 'em' ),
-					'input_attrs'       => array(
-						'px' => array(
-							'min'  => 0,
-							'step' => 1,
-							'max'  => 100,
-						),
-						'em' => array(
-							'min'  => 0,
-							'step' => 1,
-							'max'  => 20,
-						),
-					),
-					'divider'           => array( 'ast_class' => 'ast-bottom-divider ast-top-divider' ),
+					'divider'   => array( 'ast_class' => 'ast-sub-bottom-dotted-divider' ),
 				),
 
 				/**
@@ -127,74 +97,120 @@ if ( ! class_exists( 'Astra_Heading_Colors_Configs' ) ) {
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_font_weight' ),
 					'default'           => astra_get_option( 'font-weight-button' ),
 					'connect'           => 'font-family-button',
-					'priority'          => 3,
+					'priority'          => 2,
+					'divider'           => array( 'ast_class' => 'ast-sub-bottom-dotted-divider' ),
 				),
+
+				/**
+				 * Option: Button Font Size
+				 */
+
+				array(
+					'name'              => 'font-size-button',
+					'parent'            => ASTRA_THEME_SETTINGS . '[button-text-typography]',
+					'type'              => 'sub-control',
+					'control'           => 'ast-responsive-slider',
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
+					'section'           => 'section-buttons',
+					'transport'         => 'postMessage',
+					'title'             => __( 'Size', 'astra' ),
+					'priority'          => 3,
+					'default'           => astra_get_option( 'font-size-button' ),
+					'suffix'            => array( 'px', 'em' ),
+					'input_attrs'       => array(
+						'px' => array(
+							'min'  => 0,
+							'step' => 1,
+							'max'  => 100,
+						),
+						'em' => array(
+							'min'  => 0,
+							'step' => 1,
+							'max'  => 20,
+						),
+					),
+				),
+
+
+				/**
+				* Option: Button Text Extras
+				*/
+				array(
+					'name'     => 'font-extras-button',
+					'type'     => 'sub-control',
+					'parent'   => ASTRA_THEME_SETTINGS . '[button-text-typography]',
+					'control'  => 'ast-font-height',
+					'section'  => 'section-buttons',
+					'priority' => 4,
+					'default'  => astra_get_option( 'font-extras-button' ),
+				),
+
 
 				/**
 				 * Option: Button Text Transform
 				 */
-				array(
-					'name'      => 'text-transform-button',
-					'transport' => 'postMessage',
-					'default'   => astra_get_option( 'text-transform-button' ),
-					'title'     => __( 'Text Transform', 'astra' ),
-					'type'      => 'sub-control',
-					'parent'    => ASTRA_THEME_SETTINGS . '[button-text-typography]',
-					'section'   => 'section-buttons',
-					'control'   => 'ast-select',
-					'priority'  => 4,
-					'choices'   => array(
-						''           => __( 'Inherit', 'astra' ),
-						'none'       => __( 'None', 'astra' ),
-						'capitalize' => __( 'Capitalize', 'astra' ),
-						'uppercase'  => __( 'Uppercase', 'astra' ),
-						'lowercase'  => __( 'Lowercase', 'astra' ),
-					),
-				),
+				// array(
+				// 	'name'      => 'text-transform-button',
+				// 	'transport' => 'postMessage',
+				// 	'default'   => astra_get_option( 'text-transform-button' ),
+				// 	'title'     => __( 'Text Transform', 'astra' ),
+				// 	'type'      => 'sub-control',
+				// 	'parent'    => ASTRA_THEME_SETTINGS . '[button-text-typography]',
+				// 	'section'   => 'section-buttons',
+				// 	'control'   => 'ast-select',
+				// 	'priority'  => 4,
+				// 	'choices'   => array(
+				// 		''           => __( 'Inherit', 'astra' ),
+				// 		'none'       => __( 'None', 'astra' ),
+				// 		'capitalize' => __( 'Capitalize', 'astra' ),
+				// 		'uppercase'  => __( 'Uppercase', 'astra' ),
+				// 		'lowercase'  => __( 'Lowercase', 'astra' ),
+				// 	),
+				// ),
 
 				/**
 				 * Option: Theme Button Line Height
 				 */
-				array(
-					'name'              => 'theme-btn-line-height',
-					'control'           => 'ast-slider',
-					'transport'         => 'postMessage',
-					'type'              => 'sub-control',
-					'default'           => astra_get_option( 'theme-btn-line-height' ),
-					'parent'            => ASTRA_THEME_SETTINGS . '[button-text-typography]',
-					'section'           => 'section-buttons',
-					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
-					'title'             => __( 'Line Height', 'astra' ),
-					'suffix'            => 'em',
-					'priority'          => 5,
-					'input_attrs'       => array(
-						'min'  => 1,
-						'step' => 0.01,
-						'max'  => 5,
-					),
-				),
+				// array(
+				// 	'name'              => 'theme-btn-line-height',
+				// 	'control'           => 'ast-slider',
+				// 	'transport'         => 'postMessage',
+				// 	'type'              => 'sub-control',
+				// 	'default'           => astra_get_option( 'theme-btn-line-height' ),
+				// 	'parent'            => ASTRA_THEME_SETTINGS . '[button-text-typography]',
+				// 	'section'           => 'section-buttons',
+				// 	'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
+				// 	'title'             => __( 'Line Height', 'astra' ),
+				// 	'suffix'            => 'em',
+				// 	'priority'          => 5,
+				// 	'input_attrs'       => array(
+				// 		'min'  => 1,
+				// 		'step' => 0.01,
+				// 		'max'  => 5,
+				// 	),
+				// ),
 
 				/**
 				 * Option: Theme Button Line Height
 				 */
-				array(
-					'name'              => 'theme-btn-letter-spacing',
-					'control'           => 'ast-slider',
-					'transport'         => 'postMessage',
-					'type'              => 'sub-control',
-					'default'           => astra_get_option( 'theme-btn-letter-spacing' ),
-					'parent'            => ASTRA_THEME_SETTINGS . '[button-text-typography]',
-					'section'           => 'section-buttons',
-					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
-					'title'             => __( 'Letter Spacing', 'astra' ),
-					'suffix'            => 'px',
-					'priority'          => 6,
-					'input_attrs'       => array(
-						'min'  => 1,
-						'step' => 1,
-						'max'  => 100,
-					),
-				),
+				// array(
+				// 	'name'              => 'theme-btn-letter-spacing',
+				// 	'control'           => 'ast-slider',
+				// 	'transport'         => 'postMessage',
+				// 	'type'              => 'sub-control',
+				// 	'default'           => astra_get_option( 'theme-btn-letter-spacing' ),
+				// 	'parent'            => ASTRA_THEME_SETTINGS . '[button-text-typography]',
+				// 	'section'           => 'section-buttons',
+				// 	'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
+				// 	'title'             => __( 'Letter Spacing', 'astra' ),
+				// 	'suffix'            => 'px',
+				// 	'priority'          => 6,
+				// 	'input_attrs'       => array(
+				// 		'min'  => 1,
+				// 		'step' => 1,
+				// 		'max'  => 100,
+				// 	),
+				// ),
 
 			);
 

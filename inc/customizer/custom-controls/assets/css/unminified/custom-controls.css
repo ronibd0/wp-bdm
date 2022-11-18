@@ -2015,6 +2015,37 @@ input[type="text"].select2-search__field {
 	transform: translateY(-50%);
 }
 
+.ast-font-height-input .ast-number-input .plus-minus-control,
+.ast-font-spacing-input .ast-number-input .plus-minus-control {
+	position: absolute;
+	top: 50%;
+	right: 6px;
+	transform: translateY(-50%);
+}
+
+.ast-font-height-input .ast-number-input .plus-minus-control .dashicons,
+.ast-font-spacing-input .ast-number-input .plus-minus-control .dashicons {
+	font-size: 10px;
+	color: #9CA3AF;
+	width: 10px;
+    height: 10px;
+    display: inherit;
+	cursor: pointer;
+}
+
+div .ast-field-settings-modal .customize-control-ast-font-height {
+	margin-top: 15px;
+}
+
+.ast-font-height-input .ast-number-input input[type=number]::-webkit-inner-spin-button,
+.ast-font-height-input .ast-number-input input[type=number]::-webkit-outer-spin-button,
+.ast-font-spacing-input .ast-number-input input[type=number]::-webkit-inner-spin-button,
+.ast-font-spacing-input .ast-number-input input[type=number]::-webkit-outer-spin-button {
+	-webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none; 
+}
+
 .ast-font-unit-wrapper {
 	display: flex;
 	gap: 6px;
@@ -2140,6 +2171,66 @@ input[type="text"].select2-search__field {
 	inline-size: max-content;
 }
 
+.ast-customizer-font-varient-wrap .ast-multi-select__value-container {
+    overflow-x: hidden;
+    flex-wrap: nowrap;
+    height: 32px;
+    padding: 2px 5px;
+}
+
+.ast-customizer-font-varient-wrap .ast-multi-select__multi-value {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 12px; 
+    padding: 2px 2px 2px 2px;
+    min-width: auto;
+    color: #4B5563;
+    background-color: #F5F5F5;
+    border: 1px solid #D1D5DB;
+    border-radius: 2px;
+    padding-left: 5px;
+}
+
+.ast-customizer-font-varient-wrap .ast-multi-select__multi-value .ast-multi-select__multi-value__label {
+    line-height: normal;
+}
+
+.ast-customizer-font-varient-wrap .ast-multi-select__multi-value .ast-multi-select__multi-value__remove {
+    color: #4B5563;
+    padding-right: 0;
+}
+
+.ast-customizer-font-varient-wrap .ast-multi-select__multi-value .ast-multi-select__multi-value__remove:hover {
+    background-color: transparent;
+    color: #4B5563;
+}
+
+.ast-customizer-font-varient-wrap .ast-multi-select__control {
+    position: relative;
+    min-height: 32px;
+}
+
+.ast-customizer-font-varient-wrap .ast-multi-select__control:after {
+    content: "\f11c";
+    font-family: dashicons;
+    font-size: 16px;
+    margin-right: 7px;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.ast-customizer-font-varient-wrap .ast-multi-select__control:before { 
+    content:'';
+    position: absolute;
+    top: 3px;
+    right: 3px;
+    width: 50px;
+    height: 25px;
+    background: rgb(247,247,247);
+    background: linear-gradient(90deg, rgba(247,247,247,0) 0%, rgba(255,255,255,1) 50%, rgba(255,255,255,1) 100%);
+    pointer-events: none;
+    z-index: 1;
+}
 span.customize-control-title.ast-group-section-title {
     margin-bottom: 4px;
     font-weight: 600;
@@ -2996,6 +3087,14 @@ span.customize-control-title.ast-group-section-title {
 	top: 1px;
 }
 
+
+.customize-control-ast-responsive-slider .ast-slider-wrap .components-range-control__number {
+  width: calc(48px) !important;
+}
+
+.customize-control-ast-responsive-slider .ast-slider-wrap .components-range-control__number input{
+  text-align: center;
+}
 .customize-control-ast-responsive-spacing .customize-control-title {
   display: inline-block;
 }
@@ -3505,13 +3604,13 @@ span.customize-control-title.ast-group-section-title {
 
 /* Popup params padding */
 .ast-field-settings-modal .customize-control {
-  padding-left: 15px;
-  padding-right: 15px;
+  padding-left: 16px;
+  padding-right: 16px;
   box-sizing: border-box;
 }
 
 .ast-field-settings-modal .customize-control:first-child {
-  margin-top: 15px;
+  margin-top: 16px;
 }
 
 .ast-field-settings-modal .ui-tabs-nav .customize-control:first-child {
@@ -3519,7 +3618,7 @@ span.customize-control-title.ast-group-section-title {
 }
 
 .ast-field-settings-modal .customize-control:last-child {
-  padding-bottom: 20px;
+  padding-bottom: 16px;
 }
 
 .customize-control-ast-settings-group {

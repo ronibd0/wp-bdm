@@ -112,6 +112,37 @@
 	transform: translateY(-50%);
 }
 
+.ast-font-height-input .ast-number-input .plus-minus-control,
+.ast-font-spacing-input .ast-number-input .plus-minus-control {
+	position: absolute;
+	top: 50%;
+	left: 6px;
+	transform: translateY(-50%);
+}
+
+.ast-font-height-input .ast-number-input .plus-minus-control .dashicons,
+.ast-font-spacing-input .ast-number-input .plus-minus-control .dashicons {
+	font-size: 10px;
+	color: #9CA3AF;
+	width: 10px;
+    height: 10px;
+    display: inherit;
+	cursor: pointer;
+}
+
+div .ast-field-settings-modal .customize-control-ast-font-height {
+	margin-top: 15px;
+}
+
+.ast-font-height-input .ast-number-input input[type=number]::-webkit-inner-spin-button,
+.ast-font-height-input .ast-number-input input[type=number]::-webkit-outer-spin-button,
+.ast-font-spacing-input .ast-number-input input[type=number]::-webkit-inner-spin-button,
+.ast-font-spacing-input .ast-number-input input[type=number]::-webkit-outer-spin-button {
+	-webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none; 
+}
+
 .ast-font-unit-wrapper {
 	display: flex;
 	gap: 6px;

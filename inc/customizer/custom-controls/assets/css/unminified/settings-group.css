@@ -174,13 +174,13 @@
 
 /* Popup params padding */
 .ast-field-settings-modal .customize-control {
-  padding-left: 15px;
-  padding-right: 15px;
+  padding-left: 16px;
+  padding-right: 16px;
   box-sizing: border-box;
 }
 
 .ast-field-settings-modal .customize-control:first-child {
-  margin-top: 15px;
+  margin-top: 16px;
 }
 
 .ast-field-settings-modal .ui-tabs-nav .customize-control:first-child {
@@ -188,7 +188,7 @@
 }
 
 .ast-field-settings-modal .customize-control:last-child {
-  padding-bottom: 20px;
+  padding-bottom: 16px;
 }
 
 .customize-control-ast-settings-group {
