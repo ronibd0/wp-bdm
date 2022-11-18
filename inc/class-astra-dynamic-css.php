@@ -3043,13 +3043,19 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$parse_css .= astra_narrow_container_width( $container_layout, $narrow_container_max_width );
 
 			// Archive.
-			$parse_css .= astra_narrow_container_width( $archive_container_layout, $narrow_container_max_width );
+			if ( is_archive() ) {
+				$parse_css .= astra_narrow_container_width( $archive_container_layout, $narrow_container_max_width );
+			}
 
 			// Single Post.
-			$parse_css .= astra_narrow_container_width( $single_container_layout, $narrow_container_max_width );
+			if( is_singular() && ! is_singular( 'page' ) ) {
+				$parse_css .= astra_narrow_container_width( $single_container_layout, $narrow_container_max_width );
+			}
 
 			// Page.
-			$parse_css .= astra_narrow_container_width( $page_container_layout, $narrow_container_max_width );
+			if( is_singular( 'page' ) ) {
+				$parse_css .= astra_narrow_container_width( $page_container_layout, $narrow_container_max_width );
+			}
 
 			// Page Meta.
 			$parse_css .= astra_narrow_container_width( astra_get_option_meta( 'site-content-layout', '', true ), $narrow_container_max_width );
