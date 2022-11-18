@@ -1031,7 +1031,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 				array(
 					'taxonomy'   => 'nav_menu',
 					'hide_empty' => true,
-				) 
+				)
 			);
 
 			if ( is_array( $all_menus ) && count( $all_menus ) ) {
@@ -1587,6 +1587,8 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 					}
 					.customize-partial-edit-shortcut-astra-settings-breadcrumb-position .customize-partial-edit-shortcut-button{
 						top: -0.5em;
+						left: -10px;
+						font-size: 20px !important;
 					}
 					.ast-small-footer-section-1 .ast-footer-widget-1-area .customize-partial-edit-shortcut,
 					.ast-small-footer-section-2 .ast-footer-widget-2-area .customize-partial-edit-shortcut {
