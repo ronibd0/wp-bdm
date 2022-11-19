@@ -32,18 +32,18 @@ export const features = [
 	},
 	{
 		name: __( 'Colors and Backgrounds', 'astra' ),
-		free: __( 'Limited Featured', 'astra' ),
-		pro: __( 'Full Featured', 'astra' ),
+		free: __( 'Limited Features', 'astra' ),
+		pro: __( 'Full Features', 'astra' ),
 	},
 	{
 		name: __( 'Typography', 'astra' ),
-		free: __( 'Limited Featured', 'astra' ),
-		pro: __( 'Full Featured', 'astra' ),
+		free: __( 'Limited Features', 'astra' ),
+		pro: __( 'Full Features', 'astra' ),
 	},
 	{
 		name: __( 'Spacing', 'astra' ),
-		free: __( 'Limited Featured', 'astra' ),
-		pro: __( 'Full Featured', 'astra' ),
+		free: __( 'Limited Features', 'astra' ),
+		pro: __( 'Full Features', 'astra' ),
 	},
 	{
 		name: __( 'Full Width Site Layout', 'astra' ),
@@ -187,22 +187,22 @@ export const features = [
 	},
 	{
 		name: __( 'WooCommerce', 'astra' ),
-		free: __( 'Limited Featured', 'astra' ),
-		pro: __( 'Full Featured', 'astra' ),
+		free: __( 'Limited Features', 'astra' ),
+		pro: __( 'Full Features', 'astra' ),
 	},
 	{
 		name: __( 'LifterLMS', 'astra' ),
-		free: __( 'Limited Featured', 'astra' ),
-		pro: __( 'Full Featured', 'astra' ),
+		free: __( 'Limited Features', 'astra' ),
+		pro: __( 'Full Features', 'astra' ),
 	},
 	{
 		name: __( 'LearnDash', 'astra' ),
-		free: __( 'Limited Featured', 'astra' ),
-		pro: __( 'Full Featured', 'astra' ),
+		free: __( 'Limited Features', 'astra' ),
+		pro: __( 'Full Features', 'astra' ),
 	},
 	{
 		name: __( 'Easy Digital Downloads', 'astra' ),
-		free: __( 'Limited Featured', 'astra' ),
-		pro: __( 'Full Featured', 'astra' ),
+		free: __( 'Limited Features', 'astra' ),
+		pro: __( 'Full Features', 'astra' ),
 	},
 ];

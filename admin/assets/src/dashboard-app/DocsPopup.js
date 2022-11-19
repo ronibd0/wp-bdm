@@ -1,13 +1,14 @@
 import { Fragment, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import Docs from "./pages/docs/Docs";
+import { __ } from "@wordpress/i18n";
 
 const DocsPopup = () => {
 	const [open, setOpen] = useState(false);
 	return (
 		<div>
 			<button onClick={() => setOpen(true)} className="whitespace-nowrap text-sm font-medium leading-6 text-slate-600">
-				Knowledge base
+				{ __( 'Knowledge base', 'astra' ) }
 			</button>
 			<Transition.Root show={open} as={Fragment}>
 				<Dialog as="div" className="relative z-10" onClose={setOpen}>

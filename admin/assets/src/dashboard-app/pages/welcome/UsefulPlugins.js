@@ -83,8 +83,6 @@ const UsefulPlugins = () => {
 	const getStatusClass = (value) => {
 		if (value === "activated") {
 			return "text-[#4AB866] pointer-events-none";
-		} else if (value === "installed") {
-			return "text-slate-400";
 		} else {
 			return "text-astra";
 		}

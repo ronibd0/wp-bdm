@@ -1,16 +1,39 @@
 import { __ } from "@wordpress/i18n";
 import { useLocation } from 'react-router-dom';
 import Astra_Admin_Icons from "@Common/block-icons";
+import apiFetch from '@wordpress/api-fetch';
 
 const CustomLayouts = () => {
 	const query = new URLSearchParams( useLocation()?.search );
 	const allowAutoPlay = '1' === query.get( 'astra-activation-redirect' ) ? 1 : 0;
 
-	const onGetAstraPro = () => {
-		window.open(
-			astra_admin.upgrade_url,
-			'_blank'
-		);
+	const getAstraProTitle = () => {
+		return astra_admin.pro_installed_status ? __( 'Activate Now' ) : __( 'Upgrade Now' );
+	}
+
+	const onGetAstraPro = ( e ) => {
+		if( astra_admin.pro_installed_status ) {
+			const formData = new window.FormData();
+			formData.append( 'action', 'astra_recommended_plugin_activate' );
+			formData.append( 'security', astra_admin.plugin_manager_nonce );
+			formData.append( 'init', 'astra-addon/astra-addon.php' );
+			e.target.innerText = astra_admin.plugin_activating_text;
+
+			apiFetch( {
+				url: astra_admin.ajax_url,
+				method: 'POST',
+				body: formData,
+			} ).then( ( data ) => {
+				if( data.success ) {
+					window.open( astra_admin.astra_base_url, '_self' );
+				}
+			} );
+		} else {
+			window.open(
+				astra_admin.upgrade_url,
+				'_blank'
+			);
+		}
 	};
 
 	const onFreeVsProClick = () => {
@@ -64,7 +87,7 @@ const CustomLayouts = () => {
 							className="w-auto justify-center rounded-md border border-transparent bg-astra px-[2.9375rem] py-[0.6875rem] text-base leading-4 font-medium text-white shadow-sm hover:bg-astra-hover focus:outline-none focus:ring-2 focus:ring-astra-hover focus:ring-offset-2"
 							onClick={ onGetAstraPro }
 						>
-							{ __( 'Upgrade Now', 'astra' ) }
+							{ getAstraProTitle() }
 						</button>
 						<div>
 							<button

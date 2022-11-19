@@ -88,8 +88,6 @@ const AstraIntegration = () => {
 	const getStatusClass = (value) => {
 		if (value === "activated") {
 			return "text-[#4AB866] pointer-events-none";
-		} else if (value === "installed") {
-			return "text-slate-400 bg-slate-50 px-[0.8125rem]";
 		} else {
 			return "text-astra bg-slate-50 px-[0.8125rem]";
 		}
@@ -114,7 +112,7 @@ const AstraIntegration = () => {
 							{ plugin.isPro ? (
 								<span>{__('Pro', 'astra')}</span>
 							) : (
-								<span className="text-astra uppercase text-[0.625rem] leading-[0.625rem] font-semibold bg-blue-50 px-1 pt-0.5 pb-[0.1875rem] rounded-[0.1875rem]">
+								<span className="text-astra uppercase text-[0.625rem] leading-[0.7rem] font-semibold bg-blue-50 px-1 pt-0.5 pb-[0.1875rem] rounded-[0.1875rem]">
 									{__('Free', 'astra')}
 								</span>
 							) }

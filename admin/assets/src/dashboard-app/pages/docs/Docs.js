@@ -8,6 +8,7 @@ import SearchResults from "./SearchResults";
 const Docs = ({ setOpen }) => {
 	const [searchKeyword, setSearchKeyword] = useState("");
 	const [searchResults, setSearchResults] = useState(null);
+
 	useEffect(() => {
 		filterDocs();
 	}, [searchKeyword]);
@@ -21,11 +22,6 @@ const Docs = ({ setOpen }) => {
 			);
 			setSearchResults(data);
 		}
-	}
-
-	function resetSearch() {
-		setSearchKeyword('');
-		setSearchResults(null);
 	}
 
 	return (
@@ -45,7 +41,7 @@ const Docs = ({ setOpen }) => {
 					</a>
 					<div className="max-w-5xl mx-auto w-full relative">
 						<input
-							type="text"
+							type="search"
 							placeholder="Search"
 							className="w-full ast-docs-search-fields text-base"
 							onChange={(e) => setSearchKeyword(e.target.value)}
@@ -56,7 +52,6 @@ const Docs = ({ setOpen }) => {
 									width="20"
 									height="20"
 									viewBox="0 0 20 20"
-									onClick={ resetSearch }
 									fill="none"
 									xmlns="http://www.w3.org/2000/svg"
 								>
@@ -148,7 +143,7 @@ const Docs = ({ setOpen }) => {
 												fill="#4B5563"
 											/>
 										</svg>
-										<div className="absolute leading-4 top-7 right-6 py-0.5 px-1 text-[0.625rem] text-white bg-slate-800 rounded-[0.1875rem]">
+										<div className="absolute top-7 right-6 text-[0.625rem] leading-[0.7rem] text-white bg-slate-800 rounded-[0.1875rem] py-0.5 px-1 self-start">
 											{__("PRO", "astra")}
 										</div>
 

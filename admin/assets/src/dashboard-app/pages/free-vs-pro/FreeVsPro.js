@@ -1,6 +1,7 @@
 import { __ } from "@wordpress/i18n";
 import { features } from "./data";
 import Astra_Admin_Icons from '@Common/block-icons';
+import apiFetch from '@wordpress/api-fetch';
 
 const FreeVsPro = () => {
 	const checkStatus = (value) => {
@@ -13,11 +14,33 @@ const FreeVsPro = () => {
 		}
 	};
 
-	const onGetAstraPro = () => {
-		window.open(
-			astra_admin.upgrade_url,
-			'_blank'
-		);
+	const getAstraProTitle = () => {
+		return astra_admin.pro_installed_status ? __( 'Activate Now' ) : __( 'Upgrade Now' );
+	}
+
+	const onGetAstraPro = ( e ) => {
+		if( astra_admin.pro_installed_status ) {
+			const formData = new window.FormData();
+			formData.append( 'action', 'astra_recommended_plugin_activate' );
+			formData.append( 'security', astra_admin.plugin_manager_nonce );
+			formData.append( 'init', 'astra-addon/astra-addon.php' );
+			e.target.innerText = astra_admin.plugin_activating_text;
+
+			apiFetch( {
+				url: astra_admin.ajax_url,
+				method: 'POST',
+				body: formData,
+			} ).then( ( data ) => {
+				if( data.success ) {
+					window.open( astra_admin.astra_base_url, '_self' );
+				}
+			} );
+		} else {
+			window.open(
+				astra_admin.upgrade_url,
+				'_blank'
+			);
+		}
 	};
 
 	return (
@@ -29,7 +52,7 @@ const FreeVsPro = () => {
 						{ __( 'Astra Free vs Pro', 'astra' ) }
 					</h2>
 					<button onClick={ onGetAstraPro } className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-astra focus-visible:bg-astra-hover hover:bg-astra-hover focus:outline-none">
-						{ __( 'Get Astra Pro Now', 'astra' ) }
+						{ getAstraProTitle() }
 					</button>
 				</div>
 				{ /* Free VS Pro Data Table */ }
@@ -109,7 +132,7 @@ const FreeVsPro = () => {
 						{__( "Get access to powerful features for painless WordPress designing, without the high costs. With all the time you will save, it’s a product that pays for itself!", "astra" )}
 					</div>
 					<button onClick={ onGetAstraPro } className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-astra focus-visible:bg-astra-hover hover:bg-astra-hover focus:outline-none">
-						{__("Get Astra Pro Now", "astra")}
+						{ getAstraProTitle() }
 					</button>
 				</section>
 			</div>

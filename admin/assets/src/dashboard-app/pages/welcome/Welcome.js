@@ -6,6 +6,7 @@ import ProModules from "@DashboardApp/pages/Welcome/ProModules";
 import UsefulPlugins from "@DashboardApp/pages/Welcome/UsefulPlugins";
 import AstraIntegration from "@DashboardApp/pages/Welcome/AstraIntegration";
 import BulkExtensionController from "@DashboardApp/pages/Welcome/BulkExtensionController";
+import apiFetch from '@wordpress/api-fetch';
 
 const classNames = (...classes) => classes.filter(Boolean).join(" ");
 
@@ -15,8 +16,40 @@ const Welcome = () => {
 	const allowAutoPlay =
 		"1" === query.get("astra-activation-redirect") ? 1 : 0;
 
-	const onCreateNewPageClick = () => {
+	const onCustomizeClick = () => {
 		window.open(astra_admin.customize_url, "_self");
+	};
+
+	const getAstraProTitle = () => {
+		return astra_admin.pro_installed_status ? __( 'Activate Now' ) : __( 'Upgrade Now' );
+	}
+
+	const onGetAstraPro = ( e ) => {
+		e.preventDefault();
+		e.stopPropagation();
+
+		if( astra_admin.pro_installed_status ) {
+			const formData = new window.FormData();
+			formData.append( 'action', 'astra_recommended_plugin_activate' );
+			formData.append( 'security', astra_admin.plugin_manager_nonce );
+			formData.append( 'init', 'astra-addon/astra-addon.php' );
+			e.target.innerText = astra_admin.plugin_activating_text;
+
+			apiFetch( {
+				url: astra_admin.ajax_url,
+				method: 'POST',
+				body: formData,
+			} ).then( ( data ) => {
+				if( data.success ) {
+					window.open( astra_admin.astra_base_url, '_self' );
+				}
+			} );
+		} else {
+			window.open(
+				astra_admin.upgrade_url,
+				'_blank'
+			);
+		}
 	};
 
 	return (
@@ -26,8 +59,8 @@ const Welcome = () => {
 
 				{/* Banner section */}
 				{astra_admin.show_self_branding && (
-					<div className="grid grid-cols-1 gap-4 items-start lg:grid-cols-5 lg:gap-5 xl:gap-10 rounded-md bg-white overflow-hidden shadow-sm p-12 pt-[2.2rem]">
-						<div className="grid grid-cols-1 gap-4 lg:col-span-3 h-full md:mr-[40px]">
+					<div className="grid grid-cols-1 gap-4 items-start lg:grid-cols-5 lg:gap-0 xl:gap-0 rounded-md bg-white overflow-hidden shadow-sm px-8 py-8">
+						<div className="grid grid-cols-1 gap-4 lg:col-span-3 h-full md:mr-[50px]">
 							<section aria-labelledby="section-1-title h-full">
 								<h2 className="sr-only" id="section-1-title">
 									Welcome Banner
@@ -51,7 +84,7 @@ const Welcome = () => {
 													{ __( 'PRO', 'astra' ) }
 												</span> )
 											:
-												( <span className="ml-2 h-full inline-flex leading-4 flex-shrink-0 py-0.5 px-1 text-[0.625rem] text-astra bg-blue-50 rounded-[0.1875rem]">
+												( <span className="ml-2 h-full inline-flex leading-4 flex-shrink-0 py-0.5 px-1 text-[0.625rem] text-astra bg-blue-50 rounded-[0.1875rem] font-semibold">
 													{ __( 'FREE', 'astra' ) }
 												</span> )
 											}
@@ -68,7 +101,7 @@ const Welcome = () => {
 											<button
 												type="button"
 												className="sm:inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-astra focus-visible:bg-astra-hover hover:bg-astra-hover focus:outline-none mr-4 mb-2 sm:mb-0"
-												onClick={onCreateNewPageClick}
+												onClick={onCustomizeClick}
 											>
 												{__(
 													"Start Customising",
@@ -101,7 +134,7 @@ const Welcome = () => {
 						</div>
 
 						<div className="grid grid-cols-1 gap-4 lg:col-span-2 h-full">
-							<div className="mr-[80px] astra-video-container">
+							<div className="astra-video-container">
 								{/* Added rel=0 query paramter at the end to disable YouTube recommendations */}
 								<iframe
 									className="astra-video rounded-md"
@@ -117,14 +150,14 @@ const Welcome = () => {
 				)}
 
 				{/* Left Column */}
-				<div className="grid grid-cols-1 gap-4 items-start lg:grid-cols-3 lg:gap-5 xl:gap-10 mt-[32px]">
+				<div className="grid grid-cols-1 gap-[32px] items-start lg:grid-cols-3 lg:gap-[32px] xl:gap-[32px] mt-[32px]">
 					{/* Left column */}
 					<div
 						className={classNames(
 							astra_admin.show_self_branding
 								? "lg:col-span-2"
 								: "lg:col-span-3",
-							"grid grid-cols-1 gap-4"
+							"grid grid-cols-1 gap-[32px]"
 						)}
 					>
 						<section aria-labelledby="section-1-title h-full">
@@ -177,9 +210,10 @@ const Welcome = () => {
 											href={astra_admin.upgrade_url}
 											target="_blank"
 											rel="noreferrer"
+											onClick={ onGetAstraPro }
 										>
 											{" "}
-											{__("Upgrade Now", "astra")}{" "}
+											{ getAstraProTitle() }{" "}
 										</a>
 									)}
 								</div>
@@ -220,7 +254,7 @@ const Welcome = () => {
 							<h2 className="sr-only" id="section-1-title">
 								Your License
 							</h2>
-							<div className="rounded-md bg-white overflow-hidden shadow-sm flex flex-col justify-center h-full">
+							<div className="ast-welcome-screen rounded-md bg-white overflow-hidden shadow-sm flex flex-col justify-center h-full">
 								{wp.hooks.applyFilters(
 									`astra_dashboard.welcome_screen_after_integrations`,
 									<span />
@@ -231,7 +265,7 @@ const Welcome = () => {
 
 					{/* Right Column */}
 					{astra_admin.show_self_branding && (
-						<div className="space-y-4 flex h-full flex-col">
+						<div className="grid grid-cols-1 gap-[32px]">
 							{astra_admin.show_plugins && (
 								<section aria-labelledby="section-2-title">
 									<h2
@@ -264,7 +298,7 @@ const Welcome = () => {
 													"astra"
 												)}
 											</span>
-											<span className="inline-flex leading-4 flex-shrink-0 py-0.5 px-1 text-[0.625rem] text-white bg-slate-800 rounded-[0.1875rem]">
+											<span className="text-[0.625rem] leading-[0.7rem] text-white bg-slate-800 rounded-[0.1875rem] relative inline-flex flex-shrink-0 py-0.5 px-1 self-start">
 												{__("PRO", "astra")}
 											</span>
 										</h3>
@@ -323,7 +357,7 @@ const Welcome = () => {
 											{__("Rate Us", "astra")}
 										</h3>
 										<p className="text-slate-500 text-sm pb-2.5 pr-12">
-											<span className="text-2xl text-slate-800">
+											<span className="text-xl text-slate-800">
 												{" "}
 												★★★★★{" "}
 											</span>
