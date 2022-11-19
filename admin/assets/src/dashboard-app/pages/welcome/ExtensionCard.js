@@ -29,11 +29,25 @@ const ExtensionCard = ( props ) => {
 			key={slug}
 			className={ classNames(
 				! astra_admin.pro_available || ! condition
-				? 'bg-slate-50'
+				? 'bg-slate-50 group'
 				: 'bg-white',
-				'box-border relative border rounded-md h-20 px-4 py-3 flex items-start gap-x-4 snap-start hover:shadow-md transition astra-icon-transition group'
+				'box-border relative border rounded-md h-20 z-0 px-4 py-3 flex items-start gap-x-4 snap-start hover:shadow-md transition astra-icon-transition'
 			) }
 		>
+			{ ( astra_admin.pro_available && ! condition ) && (
+				<div className="absolute -top-[3rem] left-0 z-10 opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-opacity duration-300 ease-in-out">
+					<div
+						id="pro-tooltip-top"
+						role="tooltip"
+						className="text-left inline-block z-10 h-fit pb-2 pt-1 px-3 text-[0.75rem] leading-[1rem] text-white bg-slate-800 rounded-sm shadow-sm opacity-1 tooltip"
+					>
+						{ __( `${title} plugin needs to be installed / activated to enable this module.`, 'astra' ) }
+					</div>
+					<div
+						className="ml-auto mr-auto w-2 h-2 flex -mt-1 rotate-45 bg-slate-800 overflow-hidden"
+					></div>
+				</div>
+			) }
 			<div className="flex-1 min-w-0">
 				<p className="text-base font-medium text-slate-800 leading-7">
 					{ title }
@@ -43,7 +57,8 @@ const ExtensionCard = ( props ) => {
 						</div>
 					) }
 					{ ( astra_admin.pro_available && ! condition ) && (
-						<span className="inline-block align-middle ml-1 leading-none opacity-30 text-base dashicons dashicons-info" title={ __( `${title} plugin needs to be installed/activated to enable this module.`, 'astra' ) }></span>
+						<span className='ast-pro-addon-tooltip group inline-block align-middle ml-1 leading-none opacity-30 text-base dashicons dashicons-info'>
+						</span>
 					) }
 				</p>
 				{links.map( ( link ) => (
@@ -51,7 +66,7 @@ const ExtensionCard = ( props ) => {
 						key={Math.floor(Math.random() * 100000)}
 						className={ classNames(
 							link.link_class,
-							'focus-visible:text-slate-500 active:text-slate-500 focus:text-slate-400 text-slate-400 text-sm truncate'
+							( astra_admin.pro_available && ! condition ) ? 'focus-visible:text-slate-500 active:text-slate-500 focus:text-slate-400 text-slate-400 text-sm truncate pointer-events-none' : 'focus-visible:text-slate-500 active:text-slate-500 focus:text-slate-400 text-slate-400 text-sm truncate'
 						) }
 						href={ link.link_url }
 						target={ link.target_blank ? "_blank" : "_self" }
