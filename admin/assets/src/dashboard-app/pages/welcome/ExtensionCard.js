@@ -24,6 +24,22 @@ const ExtensionCard = ( props ) => {
 
 	const moduleActivationStatus = ( blocksStatuses && undefined !== blocksStatuses[slug] && slug == blocksStatuses[slug] ) ? true : false;
 
+	function getAddonTitleColorClass( condition ) {
+		if( condition ) {
+			return 'text-slate-800';
+		} else {
+			return 'text-[#475569]';
+		}
+	}
+
+	function getAddonLinksColorClass( condition, classes ) {
+		if( condition ) {
+			return classes;
+		} else {
+			return 'text-[#CBD5E1] ' + classes;
+		}
+	}
+
 	return (
 		<div
 			key={slug}
@@ -49,7 +65,7 @@ const ExtensionCard = ( props ) => {
 				</div>
 			) }
 			<div className="flex-1 min-w-0">
-				<p className="text-base font-medium text-slate-800 leading-7">
+				<p className={`text-base font-medium leading-7 ${getAddonTitleColorClass(condition)}`}>
 					{ title }
 					{ deprecated && (
 						<div className="inline-block align-top max-h-4 px-1.5 py-1 ml-1.5 text-[10px] leading-[10px] border border-slate-200 text-slate-400 rounded">
@@ -57,7 +73,7 @@ const ExtensionCard = ( props ) => {
 						</div>
 					) }
 					{ ( astra_admin.pro_available && ! condition ) && (
-						<span className='ast-pro-addon-tooltip group inline-block align-middle ml-1 leading-none opacity-30 text-base dashicons dashicons-info'>
+						<span className='group inline-block align-middle ml-1 leading-none opacity-30 text-base dashicons dashicons-info'>
 						</span>
 					) }
 				</p>
@@ -65,7 +81,7 @@ const ExtensionCard = ( props ) => {
 					<a
 						key={Math.floor(Math.random() * 100000)}
 						className={ classNames(
-							link.link_class,
+							getAddonLinksColorClass(condition, link.link_class),
 							( astra_admin.pro_available && ! condition ) ? 'focus-visible:text-slate-500 active:text-slate-500 focus:text-slate-400 text-slate-400 text-sm truncate pointer-events-none' : 'focus-visible:text-slate-500 active:text-slate-500 focus:text-slate-400 text-slate-400 text-sm truncate'
 						) }
 						href={ link.link_url }

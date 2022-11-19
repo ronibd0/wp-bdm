@@ -243,6 +243,7 @@ class Astra_Menu {
 			'version'                            => ASTRA_THEME_VERSION,
 			'pro_available'                      => defined( 'ASTRA_EXT_VER' ) ? true : false,
 			'pro_installed_status'               => 'installed' === self::get_plugin_status( 'astra-addon/astra-addon.php' ) ? true : false,
+			'spectra_plugin_status'              => self::get_plugin_status( 'ultimate-addons-for-gutenberg/ultimate-addons-for-gutenberg.php' ),
 			'theme_name'                         => astra_get_theme_name(),
 			'plugin_name'                        => astra_get_addon_name(),
 			'quick_settings'                     => self::astra_get_quick_links(),
@@ -885,9 +886,6 @@ class Astra_Menu {
 			array(),
 			ASTRA_THEME_VERSION
 		);
-
-		wp_enqueue_script( 'thickbox' );
-		wp_enqueue_style( 'thickbox' );
 
 		wp_enqueue_script( $handle );
 

@@ -1368,6 +1368,12 @@ select {
 }.text-\[\#4AB866\] {
   --tw-text-opacity: 1;
   color: rgb(74 184 102 / var(--tw-text-opacity));
+}.text-\[\#475569\] {
+  --tw-text-opacity: 1;
+  color: rgb(71 85 105 / var(--tw-text-opacity));
+}.text-\[\#CBD5E1\] {
+  --tw-text-opacity: 1;
+  color: rgb(203 213 225 / var(--tw-text-opacity));
 }.text-gray-50 {
   --tw-text-opacity: 1;
   color: rgb(249 250 251 / var(--tw-text-opacity));
