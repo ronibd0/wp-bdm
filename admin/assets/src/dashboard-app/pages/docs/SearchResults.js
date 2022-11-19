@@ -12,7 +12,7 @@ const SearchResults = ({ data }) => {
 						className="flex items-center justify-between text-slate-800 rounded-md p-2 pl-0 hover:bg-gray-50 group cursor-pointer"
 						key={key}
 					>
-						<div className="flex items-center">
+						<div className="flex items-center ast-kb-caret">
 							{Astra_Admin_Icons["caret"]}
 
 							<div className="text-base leading-[1.625rem] text-slate-800 ml-2">

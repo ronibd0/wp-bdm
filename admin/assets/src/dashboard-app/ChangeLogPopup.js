@@ -57,7 +57,7 @@ const ChangeLogPopup = () => {
 					<div className="absolute inset-0 overflow-hidden">
 						<Dialog.Overlay className="absolute inset-0" />
 
-						<div className="fixed inset-y-0 right-0 pl-10 max-w-full flex sm:mt-[2rem]">
+						<div className="fixed inset-y-0 right-0 pl-10 max-w-full flex sm:mt-[2rem] ast-changelog-popup-wrap">
 							<Transition.Child
 								as={Fragment}
 								enter="transform transition ease-in-out duration-150 sm:duration-150"

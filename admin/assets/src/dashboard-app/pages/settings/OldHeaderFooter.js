@@ -45,7 +45,7 @@ const OldHeaderFooter = () => {
 	};
 
 	return (
-		<section className='block border-b border-solid border-slate-200 px-12 py-8 justify-between'>
+		<section className='block border-b border-solid border-slate-200 px-8 py-8 justify-between'>
 			<div className='mr-16 w-full flex items-center'>
 				<h3 className="p-0 flex-1 justify-right inline-flex text-xl leading-8 font-semibold text-slate-800">
 					{ __( 'Legacy Header/Footer', 'astra' ) }

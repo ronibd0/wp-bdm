@@ -119,7 +119,7 @@ const SpectraScreen = () => {
 			<div className="mx-auto px-6 max-w-[45rem]">
 				<h1 className="sr-only"> Astra Free Vs Pro </h1>
 				<div className="flex flex-col items-center">
-					<div className="absolute top-0">
+					<div className="absolute top-0 tablet:none">
 						<svg width="629" height="807" viewBox="0 0 629 807" fill="none" xmlns="http://www.w3.org/2000/svg">
 							<path fillRule="evenodd" clipRule="evenodd" d="M155.35 384.598C22.04 384.731 -50.5339 218.96 41.6946 124.989L370.474 -210.002L405.115 4.20929L235.903 176.068C222.848 189.37 232.348 212.283 250.911 212.265L473.541 212.041C606.852 211.907 679.425 377.679 587.197 471.65L258.418 806.641L223.777 592.429L392.988 420.571C406.044 407.269 396.544 384.356 377.981 384.374L155.35 384.598Z" fill="url(#paint0_linear_3240_66110)" fillOpacity="0.48" />
 							<defs>

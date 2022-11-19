@@ -112,7 +112,7 @@ const StarterTemplates = () => {
 	};
 
 	return (
-		<main className="relative">
+		<main className="relative tablet:my-16">
 			{ /* <img src={starterTemp} alt="" className="blur-md" /> */ }
 			<div className="w-full blur-md opacity-40">
 				{ Astra_Admin_Icons['starter-canvas'] }

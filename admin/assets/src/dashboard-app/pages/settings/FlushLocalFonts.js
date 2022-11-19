@@ -31,7 +31,7 @@ const FlushLocalFonts = () => {
 	};
 
 	return (
-		<section className={`astra-dep-field-${enableLoadFontsLocally} block border-b border-solid border-slate-200 px-12 py-8 justify-between`}>
+		<section className={`astra-dep-field-${enableLoadFontsLocally} block border-b border-solid border-slate-200 px-8 py-8 justify-between`}>
 			<div className="w-full flex flex-col sm:flex-row justify-between">
 				<div>
 					<h3 className="p-0 text-xl leading-6 font-semibold text-slate-800">

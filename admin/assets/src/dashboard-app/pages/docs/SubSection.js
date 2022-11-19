@@ -60,19 +60,8 @@ const SubSection = ({ item }) => {
 								className="flex items-center justify-between text-slate-800 rounded-md p-2 pl-0 hover:bg-gray-50 group cursor-pointer focus:outline-0"
 								key={key}
 							>
-								<div className="flex items-center">
-									<svg
-										width="20"
-										height="20"
-										viewBox="0 0 20 20"
-										fill="none"
-										xmlns="http://www.w3.org/2000/svg"
-									>
-										<path
-											d="M8 6L14 10.03L8 14V6Z"
-											fill="#9CA3AF"
-										/>
-									</svg>
+								<div className="flex items-center ast-kb-caret">
+									{Astra_Admin_Icons["caret"]}
 
 									<div className="text-base leading-[1.625rem] text-slate-800 ml-2">
 										{ReactHtmlParser(item.title)}

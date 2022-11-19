@@ -23,6 +23,12 @@ module.exports = {
 				'overlay-light': '0px 2px 4px -2px rgba(16, 24, 40, 0.06)',
 				'overlay-modal': '0px 32px 64px -24px rgba(0, 0, 0, 0.24)',
 			},
+			screens: {
+				'tablet': {'max': '782px'},
+				// => @media (max-width: 782px) { ... }
+				'mobile': {'max': '600px'},
+				// => @media (max-width: 600px) { ... }
+			},
 			borderColor: (theme) => ({
 				...theme('colors'),
 			}),

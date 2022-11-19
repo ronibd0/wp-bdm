@@ -157,3 +157,50 @@
 [dir=rtl] .astra-dashboard-app button.bg-astra[aria-checked=true] span {
     transform: translateX(20px);
 }
+
+@media (max-width: 781px) {
+	div.ast-changelog-popup-wrap {
+		margin-top: 46px; // Managed as per admin bar height.
+	}
+	div .tablet\:w-full {
+		width: 100%;
+	}
+	div .tablet\:my-2 {
+		margin-top: 0.5rem;
+		margin-bottom: 0.5rem;
+	}
+	div .tablet\:my-4 {
+		margin-top: 1rem;
+		margin-bottom: 1rem;
+	}
+	div .tablet\:my-16 {
+		margin-top: 4rem;
+		margin-bottom: 4rem;
+	}
+	div .tablet\:block {
+		display: block;
+	}
+	div .tablet\:mr-2 {
+		margin-right: 0.5rem;
+	}
+	div .-tablet\:mt\:10 {
+		margin-top: -2.5rem;
+	}
+	div .tablet\:none {
+		display: none;
+	}
+}
+@media (max-width: 600px) {
+	.ast-kb-section {
+		margin-top: 20px;
+	}
+	.ast-kb-inner-wrap {
+		padding: 0;
+	}
+	.ast-kb-caret {
+		align-items: flex-start;
+	}
+	.ast-kb-caret svg {
+		margin-top: 3px;
+	}
+}

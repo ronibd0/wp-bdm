@@ -12,8 +12,8 @@ const DocsPopup = () => {
 			</button>
 			<Transition.Root show={open} as={Fragment}>
 				<Dialog as="div" className="relative z-10" onClose={setOpen}>
-					<div className="fixed inset-0 top-8 z-10 overflow-y-auto">
-						<div className="flex min-h-screen h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+					<div className="fixed inset-0 top-8 z-10 overflow-y-auto ast-kb-section">
+						<div className="flex min-h-screen h-full items-end justify-center p-4 text-center sm:items-center sm:p-0 ast-kb-inner-wrap">
 							<Transition.Child
 								as={Fragment}
 								enter="ease-out duration-300"

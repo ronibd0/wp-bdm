@@ -91,10 +91,10 @@ export default function MainNav() {
 					</div>
 					{astra_admin.show_self_branding && (
 						<div className="absolute bottom-2 lg:inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto ml-auto lg:ml-6 sm:pr-0">
-							<div className="text-sm font-medium leading-6 text-slate-600 mr-8">
+							<div className="text-sm font-medium leading-6 text-slate-600 mr-8 tablet:mr-2">
 								<DocsPopup />
 							</div>
-							<div className="flex items-center text-xs sm:text-sm font-medium leading-[1.375rem] text-slate-400 mr-8 divide-x divide-slate-200 gap-3">
+							<div className="flex items-center text-xs sm:text-sm font-medium leading-[1.375rem] text-slate-400 mr-4 divide-x divide-slate-200 gap-3">
 								<div className="">{astra_admin.version}</div>
 								{wp.hooks.applyFilters(
 									"astra_dashboard.after_navigation_version",
