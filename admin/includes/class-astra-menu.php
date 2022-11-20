@@ -748,7 +748,7 @@ class Astra_Menu {
 			array(
 				array(
 					'title'    => __( 'Spectra', 'astra' ),
-					'subtitle' => __( 'Feature-rich Gutenberg blocks that help build websites faster.', 'astra' ),
+					'subtitle' => __( 'Free WordPress Page Builder Plugin.', 'astra' ),
 					'isPro'    => false,
 					'status'   => self::get_plugin_status( 'ultimate-addons-for-gutenberg/ultimate-addons-for-gutenberg.php' ),
 					'slug'     => 'ultimate-addons-for-gutenberg',
@@ -772,7 +772,7 @@ class Astra_Menu {
 				),
 				array(
 					'title'    => __( 'CartFlows', 'astra' ),
-					'subtitle' => __( 'Create beautiful checkout pages & sales flows for WooCommerce.', 'astra' ),
+					'subtitle' => __( '#1 Sales Funnel Builder for WordPress.', 'astra' ),
 					'isPro'    => false,
 					'status'   => self::get_plugin_status( 'cartflows/cartflows.php' ),
 					'slug'     => 'cartflows',

@@ -80,11 +80,11 @@ const Welcome = () => {
 												)}
 											</h2>
 											{ astra_admin.pro_available ? (
-												<span className="ml-2 h-full inline-flex leading-4 flex-shrink-0 py-0.5 px-1 text-[0.625rem] text-white bg-slate-800 rounded-[0.1875rem] -tablet:mt:10">
+												<span className="ml-2 h-full inline-flex leading-[0.7rem] flex-shrink-0 py-0.5 px-1 text-[0.625rem] text-white bg-slate-800 rounded-[0.1875rem] -tablet:mt:10">
 													{ __( 'PRO', 'astra' ) }
 												</span> )
 											:
-												( <span className="ml-2 h-full inline-flex leading-4 flex-shrink-0 py-0.5 px-1 text-[0.625rem] text-astra bg-blue-50 rounded-[0.1875rem] font-semibold">
+												( <span className="ml-2 h-full inline-flex leading-4 flex-shrink-0 py-0.5 px-1 text-[0.625rem] text-astra bg-blue-50 rounded-[0.1875rem] font-semibold -tablet:mt:10">
 													{ __( 'FREE', 'astra' ) }
 												</span> )
 											}
