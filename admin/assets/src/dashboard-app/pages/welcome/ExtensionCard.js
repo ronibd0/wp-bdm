@@ -46,7 +46,7 @@ const ExtensionCard = ( props ) => {
 			className={ classNames(
 				! astra_admin.pro_available || ! condition
 				? 'bg-slate-50 group'
-				: 'bg-white',
+				: `bg-white ${moduleActivationStatus ? 'ast-addon-active' : 'ast-addon-inactive'} `,
 				'box-border relative border rounded-md h-20 z-0 px-4 py-3 flex items-start gap-x-4 snap-start hover:shadow-md transition astra-icon-transition'
 			) }
 		>

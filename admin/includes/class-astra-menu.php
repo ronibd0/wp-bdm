@@ -336,9 +336,10 @@ class Astra_Menu {
 	 * @since x.x.x
 	 */
 	public static function get_starter_template_plugin_data() {
+
 		$st_data = array(
-			'title'            => __( 'Starter Templates', 'astra' ),
-			'description'      => __( 'Create professional designed pixel perfect websites in minutes. Get access to 280+ pre-made full website templates for your favorite page builder.', 'astra' ),
+			'title'            => is_callable( 'Astra_Ext_White_Label_Markup::get_whitelabel_string' ) ? Astra_Ext_White_Label_Markup::get_whitelabel_string( 'astra-sites', 'name', __( 'Starter Templates', 'astra' ) ) : __( 'Starter Templates', 'astra' ),
+			'title'            => is_callable( 'Astra_Ext_White_Label_Markup::get_whitelabel_string' ) ? Astra_Ext_White_Label_Markup::get_whitelabel_string( 'astra-sites', 'description', __( 'Create professional designed pixel perfect websites in minutes. Get access to 280+ pre-made full website templates for your favorite page builder.', 'astra' ) ) : __( 'Create professional designed pixel perfect websites in minutes. Get access to 280+ pre-made full website templates for your favorite page builder.', 'astra' ),
 			'is_available'     => defined( 'ASTRA_PRO_SITES_VER' ) || defined( 'ASTRA_SITES_VER' ) ? true : false,
 			'redirection_link' => admin_url( 'themes.php?page=starter-templates' ),
 		);
@@ -661,6 +662,9 @@ class Astra_Menu {
 	 * @access public
 	 */
 	public static function astra_get_useful_plugins() {
+
+		$st_plugin_data = self::get_starter_template_plugin_data();
+
 		return apply_filters(
 			'astra_useful_plugins',
 			array(
@@ -676,47 +680,36 @@ class Astra_Menu {
 					),
 				),
 				array(
-					'title'    => __( 'Yoast SEO', 'astra' ),
-					'subtitle' => __( 'SEO plugin', 'astra' ),
-					'status'   => self::get_plugin_status( 'wordpress-seo/wp-seo.php' ),
-					'slug'     => 'wordpress-seo',
-					'path'     => 'wordpress-seo/wp-seo.php',
+					'title'    => __( 'Starter Templates', 'astra' ),
+					'subtitle' => __( '280+ Ready to Import Templates', 'astra' ),
+					'status'   => $st_plugin_data['status'],
+					'slug'     => $st_plugin_data['slug'],
+					'path'     => $st_plugin_data['path'],
 					'logoPath' => array(
 						'internal_icon' => true,
-						'icon_path'     => 'yoast-seo',
+						'icon_path'     => 'starter-logo',
 					),
 				),
 				array(
-					'title'    => __( 'Elementor', 'astra' ),
-					'subtitle' => __( 'Popular Page Builder', 'astra' ),
-					'status'   => self::get_plugin_status( 'elementor/elementor.php' ),
-					'slug'     => 'elementor',
-					'path'     => 'elementor/elementor.php',
+					'title'    => __( 'SureCart', 'astra' ),
+					'subtitle' => __( 'The new way to sell on WordPress.', 'astra' ),
+					'status'   => self::get_plugin_status( 'surecart/surecart.php' ),
+					'slug'     => 'surecart',
+					'path'     => 'surecart/surecart.php',
 					'logoPath' => array(
 						'internal_icon' => true,
-						'icon_path'     => 'elementor',
+						'icon_path'     => 'surecart',
 					),
 				),
 				array(
-					'title'    => __( 'WooCommerce', 'astra' ),
-					'subtitle' => __( 'eCommerce plugin', 'astra' ),
-					'status'   => self::get_plugin_status( 'woocommerce/woocommerce.php' ),
-					'slug'     => 'woocommerce',
-					'path'     => 'woocommerce/woocommerce.php',
+					'title'    => __( 'CartFlows', 'astra' ),
+					'subtitle' => __( '#1 Sales Funnel Builder for WordPress.', 'astra' ),
+					'status'   => self::get_plugin_status( 'cartflows/cartflows.php' ),
+					'slug'     => 'cartflows',
+					'path'     => 'cartflows/cartflows.php',
 					'logoPath' => array(
 						'internal_icon' => true,
-						'icon_path'     => 'woocommerce',
-					),
-				),
-				array(
-					'title'    => __( 'WPForms Lite', 'astra' ),
-					'subtitle' => __( 'WordPress form builder', 'astra' ),
-					'status'   => self::get_plugin_status( 'wpforms-lite/wpforms.php' ),
-					'slug'     => 'wpforms-lite',
-					'path'     => 'wpforms-lite/wpforms.php',
-					'logoPath' => array(
-						'internal_icon' => true,
-						'icon_path'     => 'wp-forms',
+						'icon_path'     => 'cart-flows',
 					),
 				),
 			)
