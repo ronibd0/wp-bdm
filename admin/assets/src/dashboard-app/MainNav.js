@@ -30,6 +30,10 @@ export default function MainNav() {
 		]
 	);
 
+	if( astra_admin.pro_available ) {
+		menus.pop();
+	}
+
 	const query = new URLSearchParams( useLocation()?.search );
 	const activePage = query.get( 'page' )
 		? query.get( 'page' )
