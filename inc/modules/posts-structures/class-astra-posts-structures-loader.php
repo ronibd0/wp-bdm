@@ -203,11 +203,9 @@ class Astra_Posts_Structure_Loader {
 				'course',
 				'lesson',
 
-				// 'courses',
 				'tutor_quiz',
 				'tutor_assignments',
 
-				// 'tribe_events',
 				'testimonial',
 				'frm_display',
 				'mec_esb',

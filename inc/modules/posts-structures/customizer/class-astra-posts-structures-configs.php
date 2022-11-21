@@ -1,6 +1,6 @@
 <?php
 /**
- * Posts Strctures Options for our theme.
+ * Posts Structures Options for our theme.
  *
  * @package     Astra
  * @author      Brainstorm Force
@@ -20,14 +20,24 @@ if ( ! class_exists( 'Astra_Customizer_Config_Base' ) ) {
 }
 
 /**
- * Register Posts Strctures Customizer Configurations.
+ * Register Posts Structures Customizer Configurations.
  *
  * @since x.x.x
  */
-class Astra_Posts_Strctures_Configs extends Astra_Customizer_Config_Base {
+class Astra_Posts_Structures_Configs extends Astra_Customizer_Config_Base {
 
 	/**
-	 * Register Posts Strctures Customizer Configurations.
+	 * Excluding some post types with avoiding narrow-width container layout.
+	 *
+	 * @return array
+	 * @since x.x.x
+	 */
+	public static function get_narrow_width_exculde_cpts() {
+		return apply_filters( 'astra_exculde_narrow_width_support_posttypes', array( 'product', 'course', 'lesson', 'tutor_quiz', 'tutor_assignments', 'sfwd-assignment', 'sfwd-essays', 'sfwd-transactions', 'sfwd-certificates', 'sfwd-quiz' ) );
+	}
+
+	/**
+	 * Register Posts Structures Customizer Configurations.
 	 *
 	 * @param Array                $configurations Astra Customizer Configurations.
 	 * @param WP_Customize_Manager $wp_customize instance of WP_Customize_Manager.
@@ -109,4 +119,4 @@ class Astra_Posts_Strctures_Configs extends Astra_Customizer_Config_Base {
 /**
  * Kicking this off by creating new object.
  */
-new Astra_Posts_Strctures_Configs();
+new Astra_Posts_Structures_Configs();
