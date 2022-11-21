@@ -202,6 +202,7 @@ class Astra_Posts_Structure_Loader {
 
 				'course',
 				'lesson',
+				'llms_membership',
 
 				'tutor_quiz',
 				'tutor_assignments',
@@ -225,7 +226,7 @@ class Astra_Posts_Structure_Loader {
 
 		$supported_post_types = array_reverse( array_unique( $queried_post_types ) );
 
-		return apply_filters( 'astra_dynamic_posts_strctures_posttypes', $supported_post_types );
+		return apply_filters( 'astra_dynamic_post_structure_posttypes', $supported_post_types );
 	}
 
 	/**
