@@ -3047,7 +3047,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				$parse_css .= astra_narrow_container_width( $archive_container_layout, $narrow_container_max_width );
 			}
 
-			// Single Post.
+			// Single Post & other post types.
 			if( is_singular() && ! is_singular( 'page' ) ) {
 				$parse_css .= astra_narrow_container_width( $single_container_layout, $narrow_container_max_width );
 			}
