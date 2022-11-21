@@ -45,14 +45,14 @@ const ExtensionCard = ( props ) => {
 			key={slug}
 			className={ classNames(
 				! astra_admin.pro_available || ! condition
-				? 'bg-slate-50'
+				? classNames( ! astra_admin.pro_available ? 'group' : '', 'bg-slate-50' )
 				: `bg-white ${moduleActivationStatus ? 'ast-addon-active' : 'ast-addon-inactive'} `,
 				'box-border relative border rounded-md h-20 z-0 px-4 py-3 flex items-start gap-x-4 snap-start hover:shadow-md transition astra-icon-transition'
 			) }
 		>
 
 			<div className="flex-1 min-w-0">
-				<p className={`flex items-center text-base font-medium leading-7 ${getAddonTitleColorClass(condition)}`}>
+				<div className={`flex items-center text-base font-medium leading-7 ${getAddonTitleColorClass(condition)}`}>
 					{ title }
 					{ deprecated && (
 						<div className="inline-block align-top max-h-4 px-1.5 py-1 ml-1.5 text-[10px] leading-[10px] border border-slate-200 text-slate-400 rounded">
@@ -79,7 +79,7 @@ const ExtensionCard = ( props ) => {
 							</div>
 						) }
 					</div>
-				</p>
+				</div>
 				{links.map( ( link ) => (
 					<a
 						key={Math.floor(Math.random() * 100000)}
@@ -95,7 +95,6 @@ const ExtensionCard = ( props ) => {
 					</a>
 				))}
 			</div>
-
 			{
 				<div
 					className={ classNames(
@@ -106,71 +105,71 @@ const ExtensionCard = ( props ) => {
 					{ ! astra_admin.pro_available && __( 'PRO', 'astra' ) }
 					{ ( astra_admin.pro_available && 'white-label' !== slug ) &&
 						<Switch
-							checked={ moduleActivationStatus }
-							onChange={ () => {
-								let status = false;
-								let moduleId = slug;
-								let moduleStatus = moduleActivationStatus ? 'deactivate' : 'activate';
+								checked={ moduleActivationStatus }
+								onChange={ () => {
+									let status = false;
+									let moduleId = slug;
+									let moduleStatus = moduleActivationStatus ? 'deactivate' : 'activate';
 
-								if ( ! moduleActivationStatus ) {
-									status = slug;
-								}
-
-								const optionsClone = { ...blocksStatuses };
-								optionsClone[ slug ] = status;
-
-								dispatch( {type:'UPDATE_BLOCK_STATUSES', payload: optionsClone} );
-
-								const formData = new window.FormData();
-
-								formData.append( 'action', 'astra_addon_update_module_status' );
-								formData.append( 'security', astra_addon_admin.update_nonce );
-								formData.append( 'module_status', moduleStatus ); // activate/deactivate.
-								formData.append( 'module_id', moduleId );
-
-								apiFetch( {
-									url: astra_admin.ajax_url,
-									method: 'POST',
-									body: formData,
-								} ).then( ( data ) => {
-									if ( data.success ) {
-										dispatch( {type: 'UPDATE_SETTINGS_SAVED_NOTIFICATION', payload: __( 'Successfully saved!' ) } );
-
-										const reFormData = new window.FormData();
-
-										reFormData.append( 'action', 'astra_refresh_assets_files' );
-										reFormData.append( 'security', astra_addon_admin.update_nonce );
-
-										apiFetch( {
-											url: astra_admin.ajax_url,
-											method: 'POST',
-											body: reFormData,
-										} ).then( ( data ) => {
-											dispatch( {type: 'UPDATE_SETTINGS_SAVED_NOTIFICATION', payload: __( 'Cache Cleared!' ) } );
-										} );
+									if ( ! moduleActivationStatus ) {
+										status = slug;
 									}
-								} );
-							} }
-							className={ classNames(
-								moduleActivationStatus ? 'bg-astra' : 'bg-slate-200',
-								'group relative inline-flex h-4 w-9 flex-shrink-0 cursor-pointer items-center justify-center rounded-full focus:outline-none focus:ring-2 focus:ring-astra focus:ring-offset-2'
-							) }
-						>
-							<span aria-hidden="true" className="pointer-events-none absolute h-full w-full rounded-md bg-white" />
-							<span
-								aria-hidden="true"
+
+									const optionsClone = { ...blocksStatuses };
+									optionsClone[ slug ] = status;
+
+									dispatch( {type:'UPDATE_BLOCK_STATUSES', payload: optionsClone} );
+
+									const formData = new window.FormData();
+
+									formData.append( 'action', 'astra_addon_update_module_status' );
+									formData.append( 'security', astra_addon_admin.update_nonce );
+									formData.append( 'module_status', moduleStatus ); // activate/deactivate.
+									formData.append( 'module_id', moduleId );
+
+									apiFetch( {
+										url: astra_admin.ajax_url,
+										method: 'POST',
+										body: formData,
+									} ).then( ( data ) => {
+										if ( data.success ) {
+											dispatch( {type: 'UPDATE_SETTINGS_SAVED_NOTIFICATION', payload: __( 'Successfully saved!' ) } );
+
+											const reFormData = new window.FormData();
+
+											reFormData.append( 'action', 'astra_refresh_assets_files' );
+											reFormData.append( 'security', astra_addon_admin.update_nonce );
+
+											apiFetch( {
+												url: astra_admin.ajax_url,
+												method: 'POST',
+												body: reFormData,
+											} ).then( ( data ) => {
+												dispatch( {type: 'UPDATE_SETTINGS_SAVED_NOTIFICATION', payload: __( 'Cache Cleared!' ) } );
+											} );
+										}
+									} );
+								} }
 								className={ classNames(
-									moduleActivationStatus ? 'bg-astra' : 'bg-gray-200',
-									'pointer-events-none absolute mx-auto h-4 w-9 rounded-full transition-colors duration-200 ease-in-out'
+									moduleActivationStatus ? 'bg-astra' : 'bg-slate-200',
+									'group relative inline-flex h-4 w-9 flex-shrink-0 cursor-pointer items-center justify-center rounded-full focus:outline-none focus:ring-2 focus:ring-astra focus:ring-offset-2'
 								) }
-							/>
-							<span
-								aria-hidden="true"
-								className={ classNames(
-									moduleActivationStatus ? 'translate-x-5' : 'translate-x-0',
-									'toggle-bubble pointer-events-none absolute left-0 inline-block h-5 w-5 transform rounded-full border border-gray-200 bg-white shadow ring-0 transition-transform duration-200 ease-in-out'
-								) }
-							/>
+							>
+								<span aria-hidden="true" className="pointer-events-none absolute h-full w-full rounded-md bg-white" />
+								<span
+									aria-hidden="true"
+									className={ classNames(
+										moduleActivationStatus ? 'bg-astra' : 'bg-gray-200',
+										'pointer-events-none absolute mx-auto h-4 w-9 rounded-full transition-colors duration-200 ease-in-out'
+									) }
+								/>
+								<span
+									aria-hidden="true"
+									className={ classNames(
+										moduleActivationStatus ? 'translate-x-5' : 'translate-x-0',
+										'toggle-bubble pointer-events-none absolute left-0 inline-block h-5 w-5 transform rounded-full border border-gray-200 bg-white shadow ring-0 transition-transform duration-200 ease-in-out'
+									) }
+								/>
 						</Switch>
 					}
 				</div>

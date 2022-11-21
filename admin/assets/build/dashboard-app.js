@@ -6413,7 +6413,7 @@ const ChangeLogPopup = () => {
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_1__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
     onClick: () => setOpen(true),
     title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("What's New?", "astra"),
-    className: "w-12 sm:w-10 h-10 flex items-center whitespace-nowrap justify-center cursor-pointer rounded-full border border-slate-200"
+    className: "w-10 h-10 flex items-center whitespace-nowrap justify-center cursor-pointer rounded-full border border-slate-200"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
     width: "18",
     height: "18",
@@ -7728,7 +7728,7 @@ const SubSection = _ref => {
     key: key
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "flex items-center ast-kb-caret"
-  }, _Common_block_icons__WEBPACK_IMPORTED_MODULE_2__["default"].caret, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, _Common_block_icons__WEBPACK_IMPORTED_MODULE_2__["default"].caret), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "text-base leading-[1.625rem] text-slate-800 ml-2"
   }, (0,react_html_parser__WEBPACK_IMPORTED_MODULE_3__["default"])(item.title))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "text-slate-600 invisible group-hover:visible"
@@ -9217,10 +9217,10 @@ const ExtensionCard = props => {
   }
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     key: slug,
-    className: classNames(!astra_admin.pro_available || !condition ? 'bg-slate-50' : `bg-white ${moduleActivationStatus ? 'ast-addon-active' : 'ast-addon-inactive'} `, 'box-border relative border rounded-md h-20 z-0 px-4 py-3 flex items-start gap-x-4 snap-start hover:shadow-md transition astra-icon-transition')
+    className: classNames(!astra_admin.pro_available || !condition ? classNames(!astra_admin.pro_available ? 'group' : '', 'bg-slate-50') : `bg-white ${moduleActivationStatus ? 'ast-addon-active' : 'ast-addon-inactive'} `, 'box-border relative border rounded-md h-20 z-0 px-4 py-3 flex items-start gap-x-4 snap-start hover:shadow-md transition astra-icon-transition')
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "flex-1 min-w-0"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: `flex items-center text-base font-medium leading-7 ${getAddonTitleColorClass(condition)}`
   }, title, deprecated && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "inline-block align-top max-h-4 px-1.5 py-1 ml-1.5 text-[10px] leading-[10px] border border-slate-200 text-slate-400 rounded"
@@ -9670,7 +9670,7 @@ const Welcome = () => {
     fill: "none",
     xmlns: "http://www.w3.org/2000/svg"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("g", {
-    "clip-path": "url(#clip0_2358_55923)"
+    clipPath: "url(#clip0_2358_55923)"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
     d: "M9.04894 2.92705C9.3483 2.00574 10.6517 2.00574 10.9511 2.92705L12.0206 6.21885C12.1545 6.63087 12.5385 6.90983 12.9717 6.90983H16.4329C17.4016 6.90983 17.8044 8.14945 17.0207 8.71885L14.2205 10.7533C13.87 11.0079 13.7234 11.4593 13.8572 11.8713L14.9268 15.1631C15.2261 16.0844 14.1717 16.8506 13.388 16.2812L10.5878 14.2467C10.2373 13.9921 9.7627 13.9921 9.41221 14.2467L6.61204 16.2812C5.82833 16.8506 4.77385 16.0844 5.0732 15.1631L6.14277 11.8713C6.27665 11.4593 6.12999 11.0079 5.7795 10.7533L2.97933 8.71885C2.19562 8.14945 2.59839 6.90983 3.56712 6.90983H7.02832C7.46154 6.90983 7.8455 6.63087 7.97937 6.21885L9.04894 2.92705Z",
     fill: "#334155"

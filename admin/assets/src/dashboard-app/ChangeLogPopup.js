@@ -30,7 +30,7 @@ const ChangeLogPopup = () => {
 			<button
 				onClick={() => setOpen(true)}
 				title={__("What's New?", "astra")}
-				className="w-12 sm:w-10 h-10 flex items-center whitespace-nowrap justify-center cursor-pointer rounded-full border border-slate-200"
+				className="w-10 h-10 flex items-center whitespace-nowrap justify-center cursor-pointer rounded-full border border-slate-200"
 			>
 				<svg
 					width="18"
