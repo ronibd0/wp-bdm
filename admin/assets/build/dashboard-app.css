@@ -2336,6 +2336,12 @@ select {
   .sm\:pb-\[28\.542\%\] {
     padding-bottom: 28.542%;
   }
+  .sm\:pb-\[36\%\] {
+    padding-bottom: 36%;
+  }
+  .sm\:pb-\[60\%\] {
+    padding-bottom: 60%;
+  }
   .sm\:text-sm {
     font-size: 0.875rem;
     line-height: 1.25rem;
@@ -2367,6 +2373,9 @@ select {
   .md\:px-6 {
     padding-left: 1.5rem;
     padding-right: 1.5rem;
+  }
+  .md\:pb-\[60\%\] {
+    padding-bottom: 60%;
   }
 }
 @media (min-width: 1024px) {
@@ -2450,6 +2459,9 @@ select {
   .lg\:gap-\[32px\] {
     gap: 32px;
   }
+  .lg\:p-0 {
+    padding: 0px;
+  }
   .lg\:py-0 {
     padding-top: 0px;
     padding-bottom: 0px;
@@ -2470,6 +2482,9 @@ select {
     padding-left: 1.25rem;
     padding-right: 1.25rem;
   }
+  .lg\:pb-\[28\.542\%\] {
+    padding-bottom: 28.542%;
+  }
 }
 @media (min-width: 1280px) {
   .xl\:gap-0 {
@@ -2477,6 +2492,14 @@ select {
   }
   .xl\:gap-\[32px\] {
     gap: 32px;
+  }
+  .xl\:pb-\[28\.542\%\] {
+    padding-bottom: 28.542%;
+  }
+}
+@media (min-width: 1536px) {
+  .\32xl\:pb-\[28\.542\%\] {
+    padding-bottom: 28.542%;
   }
 }
 @media (max-width: 782px) {

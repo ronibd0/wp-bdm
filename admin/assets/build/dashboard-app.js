@@ -9384,7 +9384,7 @@ const VideoPopup = _ref => {
   })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "fixed inset-0 z-[10000] overflow-y-auto"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "flex min-h-full justify-center p-4 text-center items-center sm:p-0"
+    className: "flex min-h-full justify-center p-4 text-center items-center lg:p-0"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_headlessui_react__WEBPACK_IMPORTED_MODULE_2__.Transition.Child, {
     as: react__WEBPACK_IMPORTED_MODULE_1__.Fragment,
     enter: "ease-out duration-300",
@@ -9394,7 +9394,7 @@ const VideoPopup = _ref => {
     leaveFrom: "opacity-100 translate-y-0 sm:scale-100",
     leaveTo: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "relative w-[60rem] pb-[57%] sm:pb-[28.542%]"
+    className: "relative w-[60rem] pb-[57%] sm:pb-[36%] 2xl:pb-[28.542%]"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("iframe", {
     className: "absolute inset-0 w-full h-full border-0 rounded-md",
     src: `https://www.youtube.com/embed/BAN-puzLheM?showinfo=0&autoplay=${videoPopup ? 1 : 0}&rel=0`,
