@@ -6631,7 +6631,7 @@ function MainNav() {
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "relative flex flex-col lg:flex-row justify-between h-28 lg:h-16 py-3 lg:py-0"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "lg:flex-1 flex items-center justify-center sm:items-stretch sm:justify-start"
+    className: "lg:flex-1 flex items-start justify-center sm:items-stretch sm:justify-start"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
     href: astra_admin.astra_base_url,
     className: "flex-shrink-0 flex items-center"
@@ -6640,21 +6640,21 @@ function MainNav() {
     src: astra_admin.logo_url,
     alt: "Workflow"
   })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "ml-4 sm:ml-8 sm:flex space-x-4 sm:space-x-8"
+    className: "ml-4 sm:ml-8 sm:flex gap-y-4 gap-x-8"
   }, menus.map((menu, key) => (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
     key: `?page=${menu.slug}&path=${menu.path}`
   }, menu.path === 'starter-templates' && astra_admin.starter_templates_data.is_available ? (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
     index: key,
     href: astra_admin.starter_templates_data.redirection_link,
     target: "_self",
-    className: `${activePage === menu.slug && activePath === menu.path ? 'border-astra text-astra active:text-astra focus:text-astra focus-visible:text-astra-hover hover:text-astra-hover inline-flex items-center px-1 border-b-2 text-sm leading-[0.875rem] font-medium' : 'border-transparent text-slate-500 active:text-astra focus-visible:border-slate-300 focus-visible:text-slate-800 hover:border-slate-300 hover:text-slate-800 inline-flex items-center px-1 border-b-2 text-sm leading-[0.875rem] font-medium'}`
+    className: `${activePage === menu.slug && activePath === menu.path ? 'mb-4 sm:mb-0 border-astra text-astra active:text-astra focus:text-astra focus-visible:text-astra-hover hover:text-astra-hover inline-flex items-center px-1 border-b-2 text-sm leading-[0.875rem] font-medium' : 'mb-4 sm:mb-0 border-transparent text-slate-500 active:text-astra focus-visible:border-slate-300 focus-visible:text-slate-800 hover:border-slate-300 hover:text-slate-800 inline-flex items-center px-1 border-b-2 text-sm leading-[0.875rem] font-medium'}`
   }, menu.name) : (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, {
     index: key,
     to: {
       pathname: 'admin.php',
       search: `?page=${menu.slug}${'' !== menu.path ? '&path=' + menu.path : ''}`
     },
-    className: `${activePage === menu.slug && activePath === menu.path ? 'border-astra text-astra active:text-astra focus:text-astra focus-visible:text-astra-hover hover:text-astra-hover inline-flex items-center px-1 border-b-2 text-sm leading-[0.875rem] font-medium' : 'border-transparent text-slate-500 active:text-astra focus-visible:border-slate-300 focus-visible:text-slate-800 hover:border-slate-300 hover:text-slate-800 inline-flex items-center px-1 border-b-2 text-sm leading-[0.875rem] font-medium'}`
+    className: `${activePage === menu.slug && activePath === menu.path ? 'mb-4 sm:mb-0 border-astra text-astra active:text-astra focus:text-astra focus-visible:text-astra-hover hover:text-astra-hover inline-flex items-center px-1 border-b-2 text-sm leading-[0.875rem] font-medium' : 'mb-4 sm:mb-0 border-transparent text-slate-500 active:text-astra focus-visible:border-slate-300 focus-visible:text-slate-800 hover:border-slate-300 hover:text-slate-800 inline-flex items-center px-1 border-b-2 text-sm leading-[0.875rem] font-medium'}`
   }, menu.name))))), astra_admin.show_self_branding && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "absolute bottom-2 lg:inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto ml-auto lg:ml-6 sm:pr-0"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
@@ -9217,24 +9217,26 @@ const ExtensionCard = props => {
   }
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     key: slug,
-    className: classNames(!astra_admin.pro_available || !condition ? 'bg-slate-50 group' : `bg-white ${moduleActivationStatus ? 'ast-addon-active' : 'ast-addon-inactive'} `, 'box-border relative border rounded-md h-20 z-0 px-4 py-3 flex items-start gap-x-4 snap-start hover:shadow-md transition astra-icon-transition')
-  }, astra_admin.pro_available && !condition && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "absolute -top-[3rem] left-0 z-10 opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-opacity duration-300 ease-in-out"
+    className: classNames(!astra_admin.pro_available || !condition ? 'bg-slate-50' : `bg-white ${moduleActivationStatus ? 'ast-addon-active' : 'ast-addon-inactive'} `, 'box-border relative border rounded-md h-20 z-0 px-4 py-3 flex items-start gap-x-4 snap-start hover:shadow-md transition astra-icon-transition')
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "flex-1 min-w-0"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
+    className: `flex items-center text-base font-medium leading-7 ${getAddonTitleColorClass(condition)}`
+  }, title, deprecated && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "inline-block align-top max-h-4 px-1.5 py-1 ml-1.5 text-[10px] leading-[10px] border border-slate-200 text-slate-400 rounded"
+  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)('Legacy', 'astra')), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "group"
+  }, astra_admin.pro_available && !condition && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+    className: "group inline-block align-middle ml-1 leading-none opacity-30 text-base dashicons dashicons-info"
+  }), astra_admin.pro_available && !condition && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "w-max max-w-[17.125rem] absolute -top-[2.8rem] left-4 rounded-[0.1875rem] z-10 opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-opacity duration-300 ease-in-out"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     id: "pro-tooltip-top",
     role: "tooltip",
-    className: "text-left inline-block z-10 h-fit pb-2 pt-1 px-3 text-[0.75rem] leading-[1rem] text-white bg-slate-800 rounded-sm shadow-sm opacity-1 tooltip"
+    className: "text-left inline-block z-10 h-fit py-2.5 px-3 text-[0.75rem] leading-[1.125rem] text-white bg-slate-800 rounded-sm shadow-sm opacity-1 tooltip"
   }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)(`${title} plugin needs to be installed / activated to enable this module.`, 'astra')), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "ml-auto mr-auto w-2 h-2 flex -mt-1 rotate-45 bg-slate-800 overflow-hidden"
-  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "flex-1 min-w-0"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
-    className: `text-base font-medium leading-7 ${getAddonTitleColorClass(condition)}`
-  }, title, deprecated && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "inline-block align-top max-h-4 px-1.5 py-1 ml-1.5 text-[10px] leading-[10px] border border-slate-200 text-slate-400 rounded"
-  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)('Legacy', 'astra')), astra_admin.pro_available && !condition && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
-    className: "group inline-block align-middle ml-1 leading-none opacity-30 text-base dashicons dashicons-info"
-  })), links.map(link => (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+    className: "ml-8 mr-auto w-2 h-2 flex -mt-1 rotate-45 bg-slate-800 overflow-hidden"
+  })))), links.map(link => (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
     key: Math.floor(Math.random() * 100000),
     className: classNames(getAddonLinksColorClass(condition, link.link_class), astra_admin.pro_available && !condition ? 'focus-visible:text-slate-500 active:text-slate-500 focus:text-slate-400 text-slate-400 text-sm truncate pointer-events-none' : 'focus-visible:text-slate-500 active:text-slate-500 focus:text-slate-400 text-slate-400 text-sm truncate'),
     href: link.link_url,
@@ -9657,10 +9659,28 @@ const Welcome = () => {
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h3", {
     className: "text-slate-800 text-base font-medium pb-2"
   }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Rate Us", "astra")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
-    className: "text-slate-500 text-sm pb-2.5 pr-12"
+    className: "text-slate-500 text-sm pb-2.5 pr-12 flex items-center"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
-    className: "text-xl text-slate-800"
-  }, " ", "\u2605\u2605\u2605\u2605\u2605", " "), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+    className: "text-xl text-slate-800 flex mr-2"
+  }, [1, 2, 3, 4, 5].map((item, key) => (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
+    key: key,
+    width: "20",
+    height: "20",
+    viewBox: "0 0 20 20",
+    fill: "none",
+    xmlns: "http://www.w3.org/2000/svg"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("g", {
+    "clip-path": "url(#clip0_2358_55923)"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+    d: "M9.04894 2.92705C9.3483 2.00574 10.6517 2.00574 10.9511 2.92705L12.0206 6.21885C12.1545 6.63087 12.5385 6.90983 12.9717 6.90983H16.4329C17.4016 6.90983 17.8044 8.14945 17.0207 8.71885L14.2205 10.7533C13.87 11.0079 13.7234 11.4593 13.8572 11.8713L14.9268 15.1631C15.2261 16.0844 14.1717 16.8506 13.388 16.2812L10.5878 14.2467C10.2373 13.9921 9.7627 13.9921 9.41221 14.2467L6.61204 16.2812C5.82833 16.8506 4.77385 16.0844 5.0732 15.1631L6.14277 11.8713C6.27665 11.4593 6.12999 11.0079 5.7795 10.7533L2.97933 8.71885C2.19562 8.14945 2.59839 6.90983 3.56712 6.90983H7.02832C7.46154 6.90983 7.8455 6.63087 7.97937 6.21885L9.04894 2.92705Z",
+    fill: "#334155"
+  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("defs", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("clipPath", {
+    id: "clip0_2358_55923"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
+    width: "20",
+    height: "20",
+    fill: "white"
+  })))))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
     className: "text-xs leading-4 align-text-bottom text-slate-400"
   }, " ", (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Based on 5k+ reviews", "astra"), " ")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
     className: "text-slate-500 text-sm pb-5"

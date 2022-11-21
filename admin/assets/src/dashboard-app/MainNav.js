@@ -43,7 +43,7 @@ export default function MainNav() {
 		<Disclosure as="nav" className="bg-white shadow">
 			<div className="max-w-3xl mx-auto px-3 sm:px-6 lg:max-w-full">
 				<div className="relative flex flex-col lg:flex-row justify-between h-28 lg:h-16 py-3 lg:py-0">
-					<div className="lg:flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
+					<div className="lg:flex-1 flex items-start justify-center sm:items-stretch sm:justify-start">
 						<a
 							href={astra_admin.astra_base_url}
 							className="flex-shrink-0 flex items-center"
@@ -54,14 +54,14 @@ export default function MainNav() {
 								alt="Workflow"
 							/>
 						</a>
-						<div className="ml-4 sm:ml-8 sm:flex space-x-4 sm:space-x-8">
+						<div className="ml-4 sm:ml-8 sm:flex gap-y-4 gap-x-8">
 							{ menus.map( ( menu, key ) => (
 								<Fragment key={ `?page=${ menu.slug }&path=${ menu.path }` }>
 									{ menu.path === 'starter-templates' && astra_admin.starter_templates_data.is_available
 										? ( <a index={ key } href={ astra_admin.starter_templates_data.redirection_link } target="_self" className={ `${
 											activePage === menu.slug && activePath === menu.path
-												? 'border-astra text-astra active:text-astra focus:text-astra focus-visible:text-astra-hover hover:text-astra-hover inline-flex items-center px-1 border-b-2 text-sm leading-[0.875rem] font-medium'
-												: 'border-transparent text-slate-500 active:text-astra focus-visible:border-slate-300 focus-visible:text-slate-800 hover:border-slate-300 hover:text-slate-800 inline-flex items-center px-1 border-b-2 text-sm leading-[0.875rem] font-medium'
+												? 'mb-4 sm:mb-0 border-astra text-astra active:text-astra focus:text-astra focus-visible:text-astra-hover hover:text-astra-hover inline-flex items-center px-1 border-b-2 text-sm leading-[0.875rem] font-medium'
+												: 'mb-4 sm:mb-0 border-transparent text-slate-500 active:text-astra focus-visible:border-slate-300 focus-visible:text-slate-800 hover:border-slate-300 hover:text-slate-800 inline-flex items-center px-1 border-b-2 text-sm leading-[0.875rem] font-medium'
 										}` }>
 											{ menu.name }
 										</a> )
@@ -77,8 +77,8 @@ export default function MainNav() {
 												}
 												className={ `${
 													activePage === menu.slug && activePath === menu.path
-														? 'border-astra text-astra active:text-astra focus:text-astra focus-visible:text-astra-hover hover:text-astra-hover inline-flex items-center px-1 border-b-2 text-sm leading-[0.875rem] font-medium'
-														: 'border-transparent text-slate-500 active:text-astra focus-visible:border-slate-300 focus-visible:text-slate-800 hover:border-slate-300 hover:text-slate-800 inline-flex items-center px-1 border-b-2 text-sm leading-[0.875rem] font-medium'
+														? 'mb-4 sm:mb-0 border-astra text-astra active:text-astra focus:text-astra focus-visible:text-astra-hover hover:text-astra-hover inline-flex items-center px-1 border-b-2 text-sm leading-[0.875rem] font-medium'
+														: 'mb-4 sm:mb-0 border-transparent text-slate-500 active:text-astra focus-visible:border-slate-300 focus-visible:text-slate-800 hover:border-slate-300 hover:text-slate-800 inline-flex items-center px-1 border-b-2 text-sm leading-[0.875rem] font-medium'
 												}` }
 											>
 												{ menu.name }
