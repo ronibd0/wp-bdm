@@ -154,8 +154,11 @@
 [dir=rtl] .astra-dashboard-app button.bg-astra[aria-checked=false] span {
     right: 0;
 }
-[dir=rtl] .astra-dashboard-app button.bg-astra[aria-checked=true] span {
-    transform: translateX(20px);
+.translate-x-5.toggle-bubble {
+	--tw-translate-x: 1.02rem;
+}
+[dir=rtl] .astra-dashboard-app button.bg-astra[aria-checked=true] .toggle-bubble {
+    transform: translateX(18px);
 }
 
 @media (max-width: 781px) {

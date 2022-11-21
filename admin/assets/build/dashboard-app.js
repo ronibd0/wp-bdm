@@ -6617,9 +6617,6 @@ function MainNav() {
     slug: astra_admin.home_slug,
     path: 'free-vs-pro'
   }]);
-  if (astra_admin.pro_available) {
-    menus.pop();
-  }
   const query = new URLSearchParams((_useLocation = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_5__.useLocation)()) === null || _useLocation === void 0 ? void 0 : _useLocation.search);
   const activePage = query.get('page') ? query.get('page') : astra_admin.home_slug;
   const activePath = query.get("path") ? query.get("path") : "";
@@ -8344,7 +8341,7 @@ const LoadFontsLocally = () => {
     className: classNames(enableLoadFontsLocallyStatus ? 'bg-astra' : 'bg-gray-200', 'pointer-events-none absolute mx-auto h-4 w-9 rounded-full transition-colors duration-200 ease-in-out')
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
     "aria-hidden": "true",
-    className: classNames(enableLoadFontsLocallyStatus ? 'translate-x-5' : 'translate-x-0', 'pointer-events-none absolute left-0 inline-block h-5 w-5 transform rounded-full border border-gray-200 bg-white shadow ring-0 transition-transform duration-200 ease-in-out')
+    className: classNames(enableLoadFontsLocallyStatus ? 'translate-x-5' : 'translate-x-0', 'toggle-bubble pointer-events-none absolute left-0 inline-block h-5 w-5 transform rounded-full border border-gray-200 bg-white shadow ring-0 transition-transform duration-200 ease-in-out')
   }))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
     className: "mt-2 w-9/12 text-sm text-slate-500 tablet:w-full"
   }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Enable this option to download Google fonts and save them on your server. This can be great for improving speed of your website and to comply with GDPR laws.', 'astra')));
@@ -8414,7 +8411,7 @@ const OldHeaderFooter = () => {
     });
   };
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("section", {
-    className: "block border-b border-solid border-slate-200 px-8 py-8 justify-between"
+    className: classNames(astra_admin.pro_available ? 'border-t' : '', 'block border-b border-solid border-slate-200 px-8 py-8 justify-between')
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "mr-16 w-full flex items-center"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h3", {
@@ -8422,10 +8419,16 @@ const OldHeaderFooter = () => {
   }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Legacy Header/Footer', 'astra')), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_headlessui_react__WEBPACK_IMPORTED_MODULE_4__.Switch, {
     checked: useOldHeaderFooterStatus,
     onChange: updateHeaderFooterVersion,
-    className: classNames(useOldHeaderFooterStatus ? 'bg-astra' : 'bg-slate-200', 'relative inline-flex flex-shrink-0 h-5 w-[2.4rem] items-center border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500')
+    className: classNames(useOldHeaderFooterStatus ? 'bg-astra' : 'bg-slate-200', 'group relative inline-flex h-4 w-9 flex-shrink-0 cursor-pointer items-center justify-center rounded-full focus:outline-none focus:ring-2 focus:ring-astra focus:ring-offset-2')
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
     "aria-hidden": "true",
-    className: classNames(useOldHeaderFooterStatus ? 'translate-x-5' : 'translate-x-0', 'pointer-events-none inline-block h-3.5 w-3.5 rounded-full bg-white shadow transform ring-0 transition ease-in-out duration-200')
+    className: "pointer-events-none absolute h-full w-full rounded-md bg-white"
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+    "aria-hidden": "true",
+    className: classNames(useOldHeaderFooterStatus ? 'bg-astra' : 'bg-gray-200', 'pointer-events-none absolute mx-auto h-4 w-9 rounded-full transition-colors duration-200 ease-in-out')
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+    "aria-hidden": "true",
+    className: classNames(useOldHeaderFooterStatus ? 'translate-x-5' : 'translate-x-0', 'toggle-bubble pointer-events-none absolute left-0 inline-block h-5 w-5 transform rounded-full border border-gray-200 bg-white shadow ring-0 transition-transform duration-200 ease-in-out')
   }))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
     className: "mt-2 w-11/12 text-sm text-slate-500"
   }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)(`${astra_admin.theme_name} Header/Footer Builder is a new and powerful way to design header and footer for your website. With this, you can give a creative look to your header/footer with less effort. Activating this feature will add advanced options to ${astra_admin.theme_name} customizer where you can create awesome new designs.`, "astra")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
@@ -8513,7 +8516,7 @@ const PreloadLocalFonts = () => {
     className: classNames(enablePreloadLocalFontsStatus ? 'bg-astra' : 'bg-gray-200', 'pointer-events-none absolute mx-auto h-4 w-9 rounded-full transition-colors duration-200 ease-in-out')
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
     "aria-hidden": "true",
-    className: classNames(enablePreloadLocalFontsStatus ? 'translate-x-5' : 'translate-x-0', 'pointer-events-none absolute left-0 inline-block h-5 w-5 transform rounded-full border border-gray-200 bg-white shadow ring-0 transition-transform duration-200 ease-in-out')
+    className: classNames(enablePreloadLocalFontsStatus ? 'translate-x-5' : 'translate-x-0', 'toggle-bubble pointer-events-none absolute left-0 inline-block h-5 w-5 transform rounded-full border border-gray-200 bg-white shadow ring-0 transition-transform duration-200 ease-in-out')
   }))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
     className: "mt-2 w-9/12 text-sm text-slate-500 tablet:w-full"
   }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('This option will load the font files right away on page load. Preloading Local Fonts can speeds up your website even further.', 'astra')));
@@ -9296,7 +9299,7 @@ const ExtensionCard = props => {
     className: classNames(moduleActivationStatus ? 'bg-astra' : 'bg-gray-200', 'pointer-events-none absolute mx-auto h-4 w-9 rounded-full transition-colors duration-200 ease-in-out')
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
     "aria-hidden": "true",
-    className: classNames(moduleActivationStatus ? 'translate-x-5' : 'translate-x-0', 'pointer-events-none absolute left-0 inline-block h-5 w-5 transform rounded-full border border-gray-200 bg-white shadow ring-0 transition-transform duration-200 ease-in-out')
+    className: classNames(moduleActivationStatus ? 'translate-x-5' : 'translate-x-0', 'toggle-bubble pointer-events-none absolute left-0 inline-block h-5 w-5 transform rounded-full border border-gray-200 bg-white shadow ring-0 transition-transform duration-200 ease-in-out')
   }))), !astra_admin.pro_available && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_ToolTip__WEBPACK_IMPORTED_MODULE_2__["default"], null));
 };
 /* harmony default export */ __webpack_exports__["default"] = (ExtensionCard);
