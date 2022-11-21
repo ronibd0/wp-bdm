@@ -96,6 +96,8 @@ if ( ! function_exists( 'astra_body_classes' ) ) {
 			$classes[] = 'ast-page-builder-template';
 		} elseif ( 'plain-container' == $content_layout ) {
 			$classes[] = 'ast-plain-container';
+		} elseif ( 'narrow-container' == $content_layout ) {
+			$classes[] = 'ast-narrow-container';
 		}
 
 		// Sidebar location.
