@@ -545,7 +545,6 @@ class Astra_WP_Editor_CSS {
 		// Boxed, Content-Boxed, page title alignment with Spectra Container Blocks.
 		$desktop_css['.ast-separate-container .editor-styles-wrapper .block-editor-block-list__layout.is-root-container > .uagb-is-root-container'] = array(
 			'max-width'            => 'var(--wp--custom--ast-content-width-size)',
-			'padding-' . $ltr_left => '0 !important',
 		);
 
 		// Full-Width Stretched Layout page title alignment.
@@ -560,25 +559,25 @@ class Astra_WP_Editor_CSS {
 		);
 
 		// Core / Spectra blocks compatibility to occupy same width as narrow container.
+		$desktop_css['.ast-narrow-container .editor-styles-wrapper .block-editor-block-list__layout.is-root-container'] = array(
+			'max-width'    => 'var(--wp--custom--ast-content-width-size)',
+			'margin-left'  => 'auto',
+			'margin-right' => 'auto',
+		);
 		$desktop_css['.ast-narrow-container .editor-styles-wrapper .block-editor-block-list__layout.is-root-container > *.wp-block, .ast-narrow-container .is-root-container > .alignfull > :where(:not(.alignleft):not(.alignright))'] = array(
-			'max-width' => 'var(--wp--custom--ast-content-width-size)',
-			'margin-left' => 'auto',
+			'max-width'    => 'var(--wp--custom--ast-content-width-size)',
+			'margin-left'  => 'auto',
 			'margin-right' => 'auto',
 		);
 		$desktop_css['.ast-narrow-container .is-root-container > .alignwide > :where(:not(.alignleft):not(.alignright))'] = array(
-			'max-width' => 'var(--wp--custom--ast-content-width-size)',
-			'margin-left' => 'auto',
+			'max-width'    => 'var(--wp--custom--ast-content-width-size)',
+			'margin-left'  => 'auto',
 			'margin-right' => 'auto',
 		);
 		$desktop_css['.ast-narrow-container .editor-styles-wrapper .is-root-container .wp-block-uagb-image--align-full .wp-block-uagb-image__figure'] = array(
-			'max-width' => '100%',
-		);
-		$desktop_css['.ast-narrow-container .editor-styles-wrapper .block-editor-block-list__layout.is-root-container > .uagb-is-root-container'] = array(
-			'max-width'            => 'var(--wp--custom--ast-content-width-size)',
-			'padding-left'         => '0 !important',
-			'padding-right'        => '0 !important',
-			'margin-left'          => 'auto !important',
-			'margin-right'         => 'auto !important',
+			'max-width'    => '100%',
+			'margin-left'  => 'auto',
+			'margin-right' => 'auto',
 		);
 
 		$content_links_underline = astra_get_option( 'underline-content-links' );

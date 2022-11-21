@@ -40,7 +40,6 @@ class Astra_Primary_Header_Loader {
 	 * @return array
 	 */
 	public function astra_body_header_classes( $classes ) {
-
 		/**
 		 * Add class for header width
 		 */
