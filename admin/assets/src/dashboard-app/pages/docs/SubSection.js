@@ -61,7 +61,9 @@ const SubSection = ({ item }) => {
 								key={key}
 							>
 								<div className="flex items-center ast-kb-caret">
-									{Astra_Admin_Icons["caret"]}
+									<span>
+										{Astra_Admin_Icons["caret"]}
+									</span>
 
 									<div className="text-base leading-[1.625rem] text-slate-800 ml-2">
 										{ReactHtmlParser(item.title)}
