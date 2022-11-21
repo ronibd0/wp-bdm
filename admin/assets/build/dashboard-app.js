@@ -9335,6 +9335,74 @@ const ToolTip = () => {
 
 /***/ }),
 
+/***/ "./assets/src/dashboard-app/pages/welcome/VideoPopup.js":
+/*!**************************************************************!*\
+  !*** ./assets/src/dashboard-app/pages/welcome/VideoPopup.js ***!
+  \**************************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _headlessui_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @headlessui/react */ "./node_modules/@headlessui/react/dist/components/transitions/transition.js");
+/* harmony import */ var _headlessui_react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @headlessui/react */ "./node_modules/@headlessui/react/dist/components/dialog/dialog.js");
+
+
+
+const VideoPopup = _ref => {
+  let {
+    allowAutoPlay,
+    videoPopup,
+    toggleVideoPopup
+  } = _ref;
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_headlessui_react__WEBPACK_IMPORTED_MODULE_2__.Transition.Root, {
+    show: videoPopup,
+    as: react__WEBPACK_IMPORTED_MODULE_1__.Fragment
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_headlessui_react__WEBPACK_IMPORTED_MODULE_3__.Dialog, {
+    as: "div",
+    className: "relative z-[10000]",
+    onClick: toggleVideoPopup,
+    onClose: toggleVideoPopup
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_headlessui_react__WEBPACK_IMPORTED_MODULE_2__.Transition.Child, {
+    as: react__WEBPACK_IMPORTED_MODULE_1__.Fragment,
+    enter: "ease-out duration-300",
+    enterFrom: "opacity-0",
+    enterTo: "opacity-100",
+    leave: "ease-in duration-200",
+    leaveFrom: "opacity-100",
+    leaveTo: "opacity-0"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "fixed inset-0 bg-slate-800 bg-opacity-90 transition-opacity"
+  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "fixed inset-0 z-[10000] overflow-y-auto"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "flex min-h-full justify-center p-4 text-center items-center sm:p-0"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_headlessui_react__WEBPACK_IMPORTED_MODULE_2__.Transition.Child, {
+    as: react__WEBPACK_IMPORTED_MODULE_1__.Fragment,
+    enter: "ease-out duration-300",
+    enterFrom: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95",
+    enterTo: "opacity-100 translate-y-0 sm:scale-100",
+    leave: "ease-in duration-200",
+    leaveFrom: "opacity-100 translate-y-0 sm:scale-100",
+    leaveTo: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "relative w-[60rem] pb-[57%] sm:pb-[28.542%]"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("iframe", {
+    className: "absolute inset-0 w-full h-full border-0 rounded-md",
+    src: `https://www.youtube.com/embed/BAN-puzLheM?showinfo=0&autoplay=${videoPopup ? 1 : 0}&rel=0`,
+    allow: "autoplay",
+    title: "YouTube video player",
+    frameBorder: "0",
+    allowFullScreen: true
+  })))))));
+};
+/* harmony default export */ __webpack_exports__["default"] = (VideoPopup);
+
+/***/ }),
+
 /***/ "./assets/src/dashboard-app/pages/welcome/Welcome.js":
 /*!***********************************************************!*\
   !*** ./assets/src/dashboard-app/pages/welcome/Welcome.js ***!
@@ -9347,7 +9415,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
 /* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
 /* harmony import */ var _DashboardApp_pages_Welcome_QuickSettings__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @DashboardApp/pages/Welcome/QuickSettings */ "./assets/src/dashboard-app/pages/Welcome/QuickSettings.js");
 /* harmony import */ var _Common_block_icons__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @Common/block-icons */ "./assets/src/common/block-icons.js");
 /* harmony import */ var _DashboardApp_pages_Welcome_ProModules__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @DashboardApp/pages/Welcome/ProModules */ "./assets/src/dashboard-app/pages/Welcome/ProModules.js");
@@ -9356,6 +9424,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _DashboardApp_pages_Welcome_BulkExtensionController__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @DashboardApp/pages/Welcome/BulkExtensionController */ "./assets/src/dashboard-app/pages/Welcome/BulkExtensionController.js");
 /* harmony import */ var _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @wordpress/api-fetch */ "@wordpress/api-fetch");
 /* harmony import */ var _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _VideoPopup__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./VideoPopup */ "./assets/src/dashboard-app/pages/welcome/VideoPopup.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_10__);
+
+
 
 
 
@@ -9374,7 +9447,7 @@ const classNames = function () {
 };
 const Welcome = () => {
   var _useLocation;
-  const query = new URLSearchParams((_useLocation = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_9__.useLocation)()) === null || _useLocation === void 0 ? void 0 : _useLocation.search);
+  const query = new URLSearchParams((_useLocation = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_11__.useLocation)()) === null || _useLocation === void 0 ? void 0 : _useLocation.search);
   const allowAutoPlay = "1" === query.get("astra-activation-redirect") ? 1 : 0;
   const onCustomizeClick = () => {
     window.open(astra_admin.customize_url, "_self");
@@ -9404,6 +9477,10 @@ const Welcome = () => {
       window.open(astra_admin.upgrade_url, '_blank');
     }
   };
+  const [videoPopup, setVideoPopup] = (0,react__WEBPACK_IMPORTED_MODULE_10__.useState)(false);
+  const toggleVideoPopup = () => {
+    setVideoPopup(!videoPopup);
+  };
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("main", {
     className: "py-[2.43rem]"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
@@ -9413,7 +9490,7 @@ const Welcome = () => {
   }, " Astra "), astra_admin.show_self_branding && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "grid grid-cols-1 gap-4 items-start lg:grid-cols-5 lg:gap-0 xl:gap-0 rounded-md bg-white overflow-hidden shadow-sm px-8 py-8"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "grid grid-cols-1 gap-4 lg:col-span-3 h-full md:mr-[50px]"
+    className: "grid grid-cols-1 gap-4 lg:col-span-3 h-full md:mr-[5.25rem]"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("section", {
     "aria-labelledby": "section-1-title h-full"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", {
@@ -9441,11 +9518,9 @@ const Welcome = () => {
     type: "button",
     className: "sm:inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-astra focus-visible:bg-astra-hover hover:bg-astra-hover focus:outline-none mr-4 mb-2 sm:mb-0",
     onClick: onCustomizeClick
-  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Start Customising", "astra")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Start Customising", "astra")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
     className: "inline-flex items-center text-base font-medium text-astra focus:text-astra focus-visible:text-astra-hover active:text-astra-hover hover:text-astra-hover",
-    href: `https://www.youtube.com/watch?v=BAN-puzLheM`,
-    target: "_blank",
-    rel: "noreferrer"
+    onClick: toggleVideoPopup
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
     className: "pt-0.5 pl-4 pr-3"
   }, " ", _Common_block_icons__WEBPACK_IMPORTED_MODULE_3__["default"].play, " "), (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)(`${astra_admin.theme_name} Theme Full Tutorial`, "astra"))))))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
@@ -9591,7 +9666,11 @@ const Welcome = () => {
     href: "https://wordpress.org/support/theme/astra/reviews/?rate=5#new-post",
     target: "_blank",
     rel: "noreferrer"
-  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Submit a Review →", "astra")))))))));
+  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Submit a Review →", "astra")))))))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_VideoPopup__WEBPACK_IMPORTED_MODULE_9__["default"], {
+    allowAutoPlay: allowAutoPlay,
+    videoPopup: videoPopup,
+    toggleVideoPopup: toggleVideoPopup
+  }));
 };
 /* harmony default export */ __webpack_exports__["default"] = (Welcome);
 

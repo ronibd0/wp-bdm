@@ -7,6 +7,8 @@ import UsefulPlugins from "@DashboardApp/pages/Welcome/UsefulPlugins";
 import AstraIntegration from "@DashboardApp/pages/Welcome/AstraIntegration";
 import BulkExtensionController from "@DashboardApp/pages/Welcome/BulkExtensionController";
 import apiFetch from '@wordpress/api-fetch';
+import VideoPopup from "./VideoPopup";
+import { useState } from "react";
 
 const classNames = (...classes) => classes.filter(Boolean).join(" ");
 
@@ -52,6 +54,12 @@ const Welcome = () => {
 		}
 	};
 
+	const [ videoPopup, setVideoPopup ] = useState( false );
+
+	const toggleVideoPopup = () => {
+		setVideoPopup( ! videoPopup );
+	};
+
 	return (
 		<main className="py-[2.43rem]">
 			<div className="max-w-3xl mx-auto px-6 lg:max-w-7xl">
@@ -60,7 +68,7 @@ const Welcome = () => {
 				{/* Banner section */}
 				{astra_admin.show_self_branding && (
 					<div className="grid grid-cols-1 gap-4 items-start lg:grid-cols-5 lg:gap-0 xl:gap-0 rounded-md bg-white overflow-hidden shadow-sm px-8 py-8">
-						<div className="grid grid-cols-1 gap-4 lg:col-span-3 h-full md:mr-[50px]">
+						<div className="grid grid-cols-1 gap-4 lg:col-span-3 h-full md:mr-[5.25rem]">
 							<section aria-labelledby="section-1-title h-full">
 								<h2 className="sr-only" id="section-1-title">
 									Welcome Banner
@@ -108,11 +116,9 @@ const Welcome = () => {
 													"astra"
 												)}
 											</button>
-											<a
+											<button
 												className="inline-flex items-center text-base font-medium text-astra focus:text-astra focus-visible:text-astra-hover active:text-astra-hover hover:text-astra-hover"
-												href={`https://www.youtube.com/watch?v=BAN-puzLheM`}
-												target="_blank"
-												rel="noreferrer"
+												onClick={ toggleVideoPopup }
 											>
 												<span className="pt-0.5 pl-4 pr-3">
 													{" "}
@@ -126,7 +132,7 @@ const Welcome = () => {
 													`${astra_admin.theme_name} Theme Full Tutorial`,
 													"astra"
 												)}
-											</a>
+											</button>
 										</span>
 									</div>
 								</div>
@@ -390,6 +396,7 @@ const Welcome = () => {
 					)}
 				</div>
 			</div>
+			<VideoPopup allowAutoPlay={ allowAutoPlay } videoPopup={ videoPopup } toggleVideoPopup={ toggleVideoPopup } />
 		</main>
 	);
 };
