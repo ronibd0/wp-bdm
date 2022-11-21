@@ -1131,7 +1131,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				),
 			);
 
-			$parse_css .= astra_parse_css( $single_post_outside_spacing_css_mobile, '', astra_get_tablet_breakpoint() );
+			$parse_css .= astra_parse_css( $single_post_outside_spacing_css_mobile, '', astra_get_mobile_breakpoint() );
 
 			/**
 			 * Single Post Outer spacing
