@@ -45,37 +45,40 @@ const ExtensionCard = ( props ) => {
 			key={slug}
 			className={ classNames(
 				! astra_admin.pro_available || ! condition
-				? 'bg-slate-50 group'
+				? 'bg-slate-50'
 				: `bg-white ${moduleActivationStatus ? 'ast-addon-active' : 'ast-addon-inactive'} `,
 				'box-border relative border rounded-md h-20 z-0 px-4 py-3 flex items-start gap-x-4 snap-start hover:shadow-md transition astra-icon-transition'
 			) }
 		>
-			{ ( astra_admin.pro_available && ! condition ) && (
-				<div className="absolute -top-[3rem] left-0 z-10 opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-opacity duration-300 ease-in-out">
-					<div
-						id="pro-tooltip-top"
-						role="tooltip"
-						className="text-left inline-block z-10 h-fit pb-2 pt-1 px-3 text-[0.75rem] leading-[1rem] text-white bg-slate-800 rounded-sm shadow-sm opacity-1 tooltip"
-					>
-						{ __( `${title} plugin needs to be installed / activated to enable this module.`, 'astra' ) }
-					</div>
-					<div
-						className="ml-auto mr-auto w-2 h-2 flex -mt-1 rotate-45 bg-slate-800 overflow-hidden"
-					></div>
-				</div>
-			) }
+
 			<div className="flex-1 min-w-0">
-				<p className={`text-base font-medium leading-7 ${getAddonTitleColorClass(condition)}`}>
+				<p className={`flex items-center text-base font-medium leading-7 ${getAddonTitleColorClass(condition)}`}>
 					{ title }
 					{ deprecated && (
 						<div className="inline-block align-top max-h-4 px-1.5 py-1 ml-1.5 text-[10px] leading-[10px] border border-slate-200 text-slate-400 rounded">
 							{ __( 'Legacy', 'astra' ) }
 						</div>
 					) }
-					{ ( astra_admin.pro_available && ! condition ) && (
-						<span className='group inline-block align-middle ml-1 leading-none opacity-30 text-base dashicons dashicons-info'>
-						</span>
-					) }
+					<div className='group'>
+						{ ( astra_admin.pro_available && ! condition ) && (
+							<span className='group inline-block align-middle ml-1 leading-none opacity-30 text-base dashicons dashicons-info'>
+							</span>
+						) }
+						{ ( astra_admin.pro_available && ! condition ) && (
+							<div className="w-max max-w-[17.125rem] absolute -top-[2.8rem] left-4 rounded-[0.1875rem] z-10 opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-opacity duration-300 ease-in-out">
+								<div
+									id="pro-tooltip-top"
+									role="tooltip"
+									className="text-left inline-block z-10 h-fit py-2.5 px-3 text-[0.75rem] leading-[1.125rem] text-white bg-slate-800 rounded-sm shadow-sm opacity-1 tooltip"
+								>
+									{ __( `${title} plugin needs to be installed / activated to enable this module.`, 'astra' ) }
+								</div>
+								<div
+									className="ml-8 mr-auto w-2 h-2 flex -mt-1 rotate-45 bg-slate-800 overflow-hidden"
+								></div>
+							</div>
+						) }
+					</div>
 				</p>
 				{links.map( ( link ) => (
 					<a

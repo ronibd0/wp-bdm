@@ -7,6 +7,8 @@ import UsefulPlugins from "@DashboardApp/pages/Welcome/UsefulPlugins";
 import AstraIntegration from "@DashboardApp/pages/Welcome/AstraIntegration";
 import BulkExtensionController from "@DashboardApp/pages/Welcome/BulkExtensionController";
 import apiFetch from '@wordpress/api-fetch';
+import VideoPopup from "./VideoPopup";
+import { useState } from "react";
 
 const classNames = (...classes) => classes.filter(Boolean).join(" ");
 
@@ -52,6 +54,12 @@ const Welcome = () => {
 		}
 	};
 
+	const [ videoPopup, setVideoPopup ] = useState( false );
+
+	const toggleVideoPopup = () => {
+		setVideoPopup( ! videoPopup );
+	};
+
 	return (
 		<main className="py-[2.43rem]">
 			<div className="max-w-3xl mx-auto px-6 lg:max-w-7xl">
@@ -60,7 +68,7 @@ const Welcome = () => {
 				{/* Banner section */}
 				{astra_admin.show_self_branding && (
 					<div className="grid grid-cols-1 gap-4 items-start lg:grid-cols-5 lg:gap-0 xl:gap-0 rounded-md bg-white overflow-hidden shadow-sm px-8 py-8">
-						<div className="grid grid-cols-1 gap-4 lg:col-span-3 h-full md:mr-[50px]">
+						<div className="grid grid-cols-1 gap-4 lg:col-span-3 h-full md:mr-[5.25rem]">
 							<section aria-labelledby="section-1-title h-full">
 								<h2 className="sr-only" id="section-1-title">
 									Welcome Banner
@@ -108,11 +116,9 @@ const Welcome = () => {
 													"astra"
 												)}
 											</button>
-											<a
+											<button
 												className="inline-flex items-center text-base font-medium text-astra focus:text-astra focus-visible:text-astra-hover active:text-astra-hover hover:text-astra-hover"
-												href={`https://www.youtube.com/watch?v=BAN-puzLheM`}
-												target="_blank"
-												rel="noreferrer"
+												onClick={ toggleVideoPopup }
 											>
 												<span className="pt-0.5 pl-4 pr-3">
 													{" "}
@@ -126,7 +132,7 @@ const Welcome = () => {
 													`${astra_admin.theme_name} Theme Full Tutorial`,
 													"astra"
 												)}
-											</a>
+											</button>
 										</span>
 									</div>
 								</div>
@@ -356,10 +362,21 @@ const Welcome = () => {
 										<h3 className="text-slate-800 text-base font-medium pb-2">
 											{__("Rate Us", "astra")}
 										</h3>
-										<p className="text-slate-500 text-sm pb-2.5 pr-12">
-											<span className="text-xl text-slate-800">
-												{" "}
-												★★★★★{" "}
+										<p className="text-slate-500 text-sm pb-2.5 pr-12 flex items-center">
+											<span className="text-xl text-slate-800 flex mr-2">
+												{ [1,2,3,4,5].map((item, key) => (
+													<svg key={key} width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+														<g clip-path="url(#clip0_2358_55923)">
+															<path d="M9.04894 2.92705C9.3483 2.00574 10.6517 2.00574 10.9511 2.92705L12.0206 6.21885C12.1545 6.63087 12.5385 6.90983 12.9717 6.90983H16.4329C17.4016 6.90983 17.8044 8.14945 17.0207 8.71885L14.2205 10.7533C13.87 11.0079 13.7234 11.4593 13.8572 11.8713L14.9268 15.1631C15.2261 16.0844 14.1717 16.8506 13.388 16.2812L10.5878 14.2467C10.2373 13.9921 9.7627 13.9921 9.41221 14.2467L6.61204 16.2812C5.82833 16.8506 4.77385 16.0844 5.0732 15.1631L6.14277 11.8713C6.27665 11.4593 6.12999 11.0079 5.7795 10.7533L2.97933 8.71885C2.19562 8.14945 2.59839 6.90983 3.56712 6.90983H7.02832C7.46154 6.90983 7.8455 6.63087 7.97937 6.21885L9.04894 2.92705Z" fill="#334155"/>
+														</g>
+														<defs>
+															<clipPath id="clip0_2358_55923">
+																<rect width="20" height="20" fill="white"/>
+															</clipPath>
+														</defs>
+													</svg>
+												))}
+
 											</span>
 											<span className="text-xs leading-4 align-text-bottom text-slate-400">
 												{" "}
@@ -390,6 +407,7 @@ const Welcome = () => {
 					)}
 				</div>
 			</div>
+			<VideoPopup allowAutoPlay={ allowAutoPlay } videoPopup={ videoPopup } toggleVideoPopup={ toggleVideoPopup } />
 		</main>
 	);
 };
