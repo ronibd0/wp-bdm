@@ -57,7 +57,7 @@ class Astra_Posts_Single_Structures_Configs extends Astra_Customizer_Config_Base
 				)
 				);
 		} else {
-			return array();
+			return Astra_Builder_Helper::$general_tab;
 		}
 	}
 
@@ -289,6 +289,7 @@ class Astra_Posts_Single_Structures_Configs extends Astra_Customizer_Config_Base
 					'title'    => isset( $post_type_object->labels->name ) ? ucfirst( $post_type_object->labels->name ) . __( ' Single Banner', 'astra' ) : ucfirst( $post_type ) . __( ' Single Banner', 'astra' ),
 					'type'     => 'section',
 					'section'  => $parent_section,
+					'panel'    => ( 'product' === $post_type ) ? 'woocommerce' : '',
 					'priority' => 1,
 				),
 

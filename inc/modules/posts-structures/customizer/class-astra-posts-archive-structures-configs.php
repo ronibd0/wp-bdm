@@ -30,6 +30,7 @@ class Astra_Posts_Archive_Structures_Configs extends Astra_Customizer_Config_Bas
 	 * Getting dynamic context for sidebar.
 	 * Compatibility case: Narrow width + dynamic customizer controls.
 	 *
+	 * @return mixed
 	 * @since x.x.x
 	 */
 	public function get_sidebar_context( $post_type ) {
@@ -57,7 +58,7 @@ class Astra_Posts_Archive_Structures_Configs extends Astra_Customizer_Config_Bas
 				)
 				);
 		} else {
-			return array();
+			return Astra_Builder_Helper::$general_tab;
 		}
 	}
 
@@ -268,6 +269,7 @@ class Astra_Posts_Archive_Structures_Configs extends Astra_Customizer_Config_Bas
 					'title'    => isset( $post_type_object->labels->name ) ? $post_type_object->labels->name . __( ' Archive Banner', 'astra' ) : ucfirst( $post_type ) . __( ' Archive Banner', 'astra' ),
 					'type'     => 'section',
 					'section'  => $parent_section,
+					'panel'    => ( 'product' === $post_type ) ? 'woocommerce' : '',
 					'priority' => 1,
 				),
 
