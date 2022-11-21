@@ -991,9 +991,11 @@ function hasWordPressWidgetBlockEditor() {
 			var dynamicStyle = '';
 			if( padding.desktop.top != '' || padding.tablet.top != '' || padding.mobile.top != '' ) {
 				dynamicStyle += '.ast-separate-container.ast-single-post #primary { padding-top: 0px;} ';
+				dynamicStyle += '.ast-narrow-container.ast-single-post #primary { padding-top: 0px;} ';
 			}
 			if( padding.desktop.bottom != '' || padding.tablet.bottom != '' || padding.mobile.bottom != '' ) {
 				dynamicStyle += '.ast-separate-container.ast-single-post #primary { padding-bottom: 0px;} ';
+				dynamicStyle += '.ast-narrow-container.ast-single-post #primary { padding-bottom: 0px;} ';
 			}
 			astra_add_dynamic_css( 'remove-header-spacing', dynamicStyle );
 
