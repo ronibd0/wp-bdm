@@ -107,7 +107,7 @@ if ( ! class_exists( 'Astra_Blog_Layout_Configs' ) ) {
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[archive-post-content-structure-divider]',
 					'section'  => 'section-blog',
-					'title'    => __( 'Structure', 'astra' ),
+					'title'    => __( 'Posts Structure', 'astra' ),
 					'type'     => 'control',
 					'control'  => 'ast-heading',
 					'priority' => 50,

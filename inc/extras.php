@@ -123,8 +123,6 @@ if ( ! function_exists( 'astra_get_content_layout' ) ) {
 	 */
 	function astra_get_content_layout() {
 
-		$supported_post_types = Astra_Posts_Structure_Loader::get_supported_post_types();
-
 		if ( is_singular() ) {
 
 			// If post meta value is empty,
@@ -135,9 +133,7 @@ if ( ! function_exists( 'astra_get_content_layout' ) ) {
 
 				$post_type = get_post_type();
 
-				if ( 'post' === $post_type || 'page' === $post_type || in_array( $post_type, $supported_post_types ) ) {
-					$content_layout = astra_get_option( 'single-' . get_post_type() . '-content-layout' );
-				}
+				$content_layout = astra_get_option( 'single-' . $post_type . '-content-layout' );
 
 				if ( 'default' == $content_layout || empty( $content_layout ) ) {
 
@@ -151,9 +147,7 @@ if ( ! function_exists( 'astra_get_content_layout' ) ) {
 			$content_layout = '';
 			$post_type      = get_post_type();
 
-			if ( 'post' === $post_type || in_array( $post_type, $supported_post_types ) ) {
-				$content_layout = astra_get_option( 'archive-' . get_post_type() . '-content-layout' );
-			}
+			$content_layout = astra_get_option( 'archive-' . $post_type . '-content-layout' );
 
 			if ( is_search() ) {
 				$content_layout = astra_get_option( 'archive-post-content-layout' );

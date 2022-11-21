@@ -421,7 +421,7 @@ function astra_banner_elements_order( $structure = array() ) {
 
 	if ( is_singular() ) {
 		$prefix    = 'single';
-		$structure = astra_get_option( 'ast-dynamic-' . $prefix . '-' . $post_type . '-structure', array( 'ast-dynamic-' . $prefix . '-' . $post_type . '-title', 'ast-dynamic-' . $prefix . '-' . $post_type . '-breadcrumb' ) );
+		$structure = astra_get_option( 'ast-dynamic-' . $prefix . '-' . $post_type . '-structure', array( 'ast-dynamic-' . $prefix . '-' . $post_type . '-title', 'ast-dynamic-' . $prefix . '-' . $post_type . '-meta' ) );
 	}
 
 	foreach ( $structure as $metaval ) {

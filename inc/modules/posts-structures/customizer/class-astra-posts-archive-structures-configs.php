@@ -224,12 +224,12 @@ class Astra_Posts_Archive_Structures_Configs extends Astra_Customizer_Config_Bas
 
 			$configurations = array_merge( $configurations, $this->get_layout_configuration( $parent_section, $post_type, $post_type_object ) );
 
-			$custom_texts = array();
+			$archive_structure_choices = array();
 
 			/**
 			 * Archive sortable title control.
 			 */
-			$custom_texts[$title_section . '-title'] = array(
+			$archive_structure_choices[$title_section . '-title'] = array(
 				'clone'       => false,
 				'is_parent'   => true,
 				'main_index'  => $title_section . '-title',
@@ -240,7 +240,7 @@ class Astra_Posts_Archive_Structures_Configs extends Astra_Customizer_Config_Bas
 			/**
 			 * Archive sortable title control.
 			 */
-			$custom_texts[$title_section . '-description'] = array(
+			$archive_structure_choices[$title_section . '-description'] = array(
 				'clone'       => false,
 				'is_parent'   => true,
 				'main_index'  => $title_section . '-description',
@@ -389,7 +389,7 @@ class Astra_Posts_Archive_Structures_Configs extends Astra_Customizer_Config_Bas
 						array(
 							$title_section . '-breadcrumb'  => __( 'Breadcrumb', 'astra' ),
 						),
-						$custom_texts
+						$archive_structure_choices
 					),
 				),
 
