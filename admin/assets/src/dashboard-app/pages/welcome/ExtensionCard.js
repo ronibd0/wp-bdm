@@ -69,7 +69,7 @@ const ExtensionCard = ( props ) => {
 								<div
 									id="pro-tooltip-top"
 									role="tooltip"
-									className="text-left inline-block z-10 h-fit py-2.5 px-3 text-[0.75rem] leading-[1.125rem] text-white bg-slate-800 rounded-sm shadow-sm opacity-1 tooltip"
+									className="text-left inline-block z-10 h-fit px-2.5 py-1.5 text-[0.75rem] leading-[1rem] text-white bg-slate-800 rounded-sm shadow-sm opacity-1 tooltip"
 								>
 									{ __( `${title} plugin needs to be installed / activated to enable this module.`, 'astra' ) }
 								</div>
@@ -145,7 +145,7 @@ const ExtensionCard = ( props ) => {
 												method: 'POST',
 												body: reFormData,
 											} ).then( ( data ) => {
-												dispatch( {type: 'UPDATE_SETTINGS_SAVED_NOTIFICATION', payload: __( 'Cache Cleared!' ) } );
+												// Do nothing.
 											} );
 										}
 									} );

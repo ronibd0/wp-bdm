@@ -42,7 +42,7 @@ const BulkExtensionController = () => {
 					method: 'POST',
 					body: reFormData,
 				} ).then( ( data ) => {
-					dispatch( {type: 'UPDATE_SETTINGS_SAVED_NOTIFICATION', payload: __( 'Cache Cleared!' ) } );
+					// Do nothing.
 				} );
 			}
 		} );
@@ -82,7 +82,7 @@ const BulkExtensionController = () => {
 					method: 'POST',
 					body: reFormData,
 				} ).then( ( data ) => {
-					dispatch( {type: 'UPDATE_SETTINGS_SAVED_NOTIFICATION', payload: __( 'Cache Cleared!' ) } );
+					// Do nothing.
 				} );
 			}
 		} );
