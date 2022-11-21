@@ -165,7 +165,7 @@ const ExtensionCard = ( props ) => {
 								aria-hidden="true"
 								className={ classNames(
 									moduleActivationStatus ? 'translate-x-5' : 'translate-x-0',
-									'pointer-events-none absolute left-0 inline-block h-5 w-5 transform rounded-full border border-gray-200 bg-white shadow ring-0 transition-transform duration-200 ease-in-out'
+									'toggle-bubble pointer-events-none absolute left-0 inline-block h-5 w-5 transform rounded-full border border-gray-200 bg-white shadow ring-0 transition-transform duration-200 ease-in-out'
 								) }
 							/>
 						</Switch>
