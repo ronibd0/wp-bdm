@@ -18,7 +18,7 @@ const VideoPopup = ({ allowAutoPlay, videoPopup, toggleVideoPopup }) => {
 				</Transition.Child>
 
 				<div className="fixed inset-0 z-[10000] overflow-y-auto">
-					<div className="flex min-h-full justify-center p-4 text-center items-center sm:p-0">
+					<div className="flex min-h-full justify-center p-4 text-center items-center lg:p-0">
 						<Transition.Child
 							as={Fragment}
 							enter="ease-out duration-300"
@@ -28,7 +28,7 @@ const VideoPopup = ({ allowAutoPlay, videoPopup, toggleVideoPopup }) => {
 							leaveFrom="opacity-100 translate-y-0 sm:scale-100"
 							leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
 						>
-							<div className="relative w-[60rem] pb-[57%] sm:pb-[28.542%]">
+							<div className="relative w-[60rem] pb-[57%] sm:pb-[36%] 2xl:pb-[28.542%]">
 								{/* Added rel=0 query paramter at the end to disable YouTube recommendations */}
 								<iframe
 									className="absolute inset-0 w-full h-full border-0 rounded-md"
