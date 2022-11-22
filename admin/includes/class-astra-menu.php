@@ -665,6 +665,18 @@ class Astra_Menu {
 
 		$st_plugin_data = self::get_starter_template_plugin_data();
 
+		/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+		$st_plugin_status = isset( $st_plugin_data['status'] ) ? $st_plugin_data['status'] : '';
+		/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+
+		/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+		$st_plugin_slug = isset( $st_plugin_data['slug'] ) ? $st_plugin_data['slug'] : '';
+		/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+
+		/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+		$st_plugin_path = isset( $st_plugin_data['path'] ) ? $st_plugin_data['path'] : '';
+		/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+
 		return apply_filters(
 			'astra_useful_plugins',
 			array(
@@ -682,11 +694,9 @@ class Astra_Menu {
 				array(
 					'title'    => __( 'Starter Templates', 'astra' ),
 					'subtitle' => __( '280+ Ready to Import Templates', 'astra' ),
-					// @codingStandardsIgnoreStart
-					'status'   => $st_plugin_data['status'],
-					'slug'     => $st_plugin_data['slug'],
-					'path'     => $st_plugin_data['path'],
-					// @codingStandardsIgnoreEnd
+					'status'   => $st_plugin_status,
+					'slug'     => $st_plugin_slug,
+					'path'     => $st_plugin_path,
 					'logoPath' => array(
 						'internal_icon' => true,
 						'icon_path'     => 'starter-logo',

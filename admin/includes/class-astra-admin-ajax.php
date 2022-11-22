@@ -212,9 +212,15 @@ class Astra_Admin_Ajax {
 		// @codingStandardsIgnoreStart
 		if ( isset( $get_bool_settings[ $sub_option_key ] ) ) {
 			if ( 'bool' === $get_bool_settings[ $sub_option_key ] ) {
-				$sub_option_value =  isset( $_POST['value'] ) && 'true' === sanitize_text_field( $_POST['value'] ) ? true : false;
+				/** @psalm-suppress PossiblyInvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+				$val = isset( $_POST['value'] ) && 'true' === sanitize_text_field( $_POST['value'] ) ? true : false;
+				/** @psalm-suppress PossiblyInvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+				$sub_option_value = $val;
 			} else {
-				$sub_option_value = isset( $_POST['value'] ) ? sanitize_text_field( wp_unslash( $_POST['value'] ) ) : '';
+				/** @psalm-suppress PossiblyInvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+				$val = isset( $_POST['value'] ) ? sanitize_text_field( wp_unslash( $_POST['value'] ) ) : '';
+				/** @psalm-suppress PossiblyInvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+				$sub_option_value = $val;
 			}
 		}
 		// @codingStandardsIgnoreEnd
