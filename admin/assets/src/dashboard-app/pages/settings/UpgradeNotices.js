@@ -41,7 +41,7 @@ const UpgradeNotices = () => {
 			if ( data.success ) {
 				let payloadStatus = __( 'Deactivated!', 'astra' );
 				if( assetStatus ) {
-					payloadStatus = __( 'Activated!' );
+					payloadStatus = __( 'Activated!', 'astra' );
 				}
 				dispatch( { type: 'UPDATE_SETTINGS_SAVED_NOTIFICATION', payload: payloadStatus } );
 				setUpgradeNoticesState( false );
