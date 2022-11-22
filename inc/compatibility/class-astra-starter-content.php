@@ -137,6 +137,7 @@ class Astra_Starter_Content {
 	/**
 	 * Load default astra settings.
 	 *
+	 * @since x.x.x
 	 * @param mixed $defaults defaults.
 	 * @return mixed value.
 	 */
