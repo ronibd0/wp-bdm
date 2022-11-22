@@ -1092,3 +1092,19 @@ function astra_theme_background_updater_3_9_4() {
 		update_option( 'astra-settings', $theme_options );
 	}
 }
+
+/**
+ * Handle backward compatibility on version 4.0.0
+ *
+ * @since x.x.x
+ * @return void
+ */
+function astra_theme_background_updater_4_0_0() {
+	$theme_options = get_option( 'astra-settings', array() );
+
+	// Check if user and disable smooth scroll.
+	if ( ! isset( $theme_options['enable-scroll-to-id'] ) ) {
+		$theme_options['enable-scroll-to-id'] = false;
+		update_option( 'astra-settings', $theme_options );
+	}
+}

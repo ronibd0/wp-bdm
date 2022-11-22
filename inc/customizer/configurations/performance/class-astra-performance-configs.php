@@ -31,6 +31,19 @@ class Astra_Performance_Configs extends Astra_Customizer_Config_Base {
 		$_configs = array(
 
 			/**
+			 * Option: Scroll to id.
+			 */
+			array(
+				'name'     => ASTRA_THEME_SETTINGS . '[enable-scroll-to-id]',
+				'default'  => astra_get_option( 'enable-scroll-to-id' ),
+				'type'     => 'control',
+				'control'  => 'ast-toggle-control',
+				'title'    => __( 'Enable Smooth Scroll to ID', 'astra' ),
+				'section'  => 'section-performance',
+				'priority' => 10,
+			),
+
+			/**
 			 * Option: Load Google fonts locally.
 			 */
 			array(
