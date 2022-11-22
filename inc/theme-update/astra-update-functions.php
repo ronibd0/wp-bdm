@@ -1094,13 +1094,16 @@ function astra_theme_background_updater_3_9_4() {
 }
 
 /**
- * Migrating Post Structure & Meta options in title area meta parts.
+ * x.x.x backward handling part.
+ *
+ * 1. Migrate existing setting & do required onboarding for new admin dashboard v4.0.0 app.
+ * 2. Migrating Post Structure & Meta options in title area meta parts.
  *
  * @since x.x.x
- *
  * @return void
  */
-function astra_post_structures_meta_migration() {
+function astra_theme_background_updater_4_0_0() {
+	// Dynamic customizer migration starts here.
 	$theme_options = get_option( 'astra-settings', array() );
 	if ( ! isset( $theme_options['dynamic-blog-layouts'] ) && ! isset( $theme_options['theme-dynamic-customizer-support'] ) ) {
 		$theme_options['dynamic-blog-layouts']             = false;
@@ -1271,5 +1274,22 @@ function astra_post_structures_meta_migration() {
 		$theme_options[ 'single-download-sidebar-layout' ] = isset( $theme_options[ 'edd-single-product-sidebar-layout' ] ) ? $theme_options[ 'edd-single-product-sidebar-layout' ] : 'default';
 
 		update_option( 'astra-settings', $theme_options );
+	}
+
+	// Admin backward handling starts here.
+	$admin_dashboard_settings = get_option( 'astra_admin_settings', array() );
+	if ( ! isset( $admin_dashboard_settings['theme-setup-admin-migrated'] ) ) {
+
+		$theme_options = get_option( 'astra-settings', array() );
+		if ( ! isset( $admin_dashboard_settings['self_hosted_gfonts'] ) ) {
+			$admin_dashboard_settings['self_hosted_gfonts'] = isset( $theme_options['load-google-fonts-locally'] ) ? $theme_options['load-google-fonts-locally'] : false;
+		}
+		if ( ! isset( $admin_dashboard_settings['preload_local_fonts'] ) ) {
+			$admin_dashboard_settings['preload_local_fonts'] = isset( $theme_options['preload-local-fonts'] ) ? $theme_options['preload-local-fonts'] : false;
+		}
+
+		// Consider admin part from theme side migrated.
+		$admin_dashboard_settings['theme-setup-admin-migrated'] = true;
+		update_option( 'astra_admin_settings', $admin_dashboard_settings );
 	}
 }
