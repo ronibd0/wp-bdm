@@ -16,7 +16,7 @@ class Astra_Menu {
 	 * Instance
 	 *
 	 * @access private
-	 * @var $instance
+	 * @var null $instance
 	 * @since x.x.x
 	 */
 	private static $instance;

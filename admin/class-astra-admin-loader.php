@@ -21,7 +21,7 @@ class Astra_Admin_Loader {
 	 * Instance
 	 *
 	 * @access private
-	 * @var $instance
+	 * @var null $instance
 	 * @since x.x.x
 	 */
 	private static $instance;
