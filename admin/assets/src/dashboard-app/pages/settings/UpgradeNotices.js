@@ -39,7 +39,7 @@ const UpgradeNotices = () => {
 			body: formData,
 		} ).then( (data) => {
 			if ( data.success ) {
-				let payloadStatus = __( 'Deactivated!' );
+				let payloadStatus = __( 'Deactivated!', 'astra' );
 				if( assetStatus ) {
 					payloadStatus = __( 'Activated!' );
 				}
