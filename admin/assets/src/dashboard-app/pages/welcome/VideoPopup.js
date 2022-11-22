@@ -28,7 +28,7 @@ const VideoPopup = ({ allowAutoPlay, videoPopup, toggleVideoPopup }) => {
 							leaveFrom="opacity-100 translate-y-0 sm:scale-100"
 							leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
 						>
-							<div className="relative w-[60rem] pb-[57%] sm:pb-[36%] 2xl:pb-[28.542%]">
+							<div className="relative w-[24rem] md:w-[34rem] lg:w-[60rem] h-[14rem] md:h-[19rem] lg:h-[34rem]">
 								{/* Added rel=0 query paramter at the end to disable YouTube recommendations */}
 								<iframe
 									className="absolute inset-0 w-full h-full border-0 rounded-md"
