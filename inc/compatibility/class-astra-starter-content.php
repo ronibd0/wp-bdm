@@ -1,6 +1,7 @@
 <?php
 /**
  * Starter Content Compatibility.
+ *
  * @since x.x.x
  * @package Astra
  */
@@ -61,6 +62,7 @@ class Astra_Starter_Content {
 
 	/**
 	 * Register listener to insert post.
+	 *
 	 * @since x.x.x
 	 * @param int      $post_ID Post Id.
 	 * @param \WP_Post $post Post object.
@@ -90,6 +92,7 @@ class Astra_Starter_Content {
 
 	/**
 	 *  Get customizer json
+	 *
 	 * @since x.x.x
 	 *  @return mixed value.
 	 */
@@ -118,6 +121,7 @@ class Astra_Starter_Content {
 
 	/**
 	 *  Save Astra customizer settings into database.
+	 *
 	 * @since x.x.x
 	 */
 	public function save_astra_settings() {
