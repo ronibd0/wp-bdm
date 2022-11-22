@@ -46,7 +46,7 @@ const FreeVsPro = () => {
 	return (
 		<main className="py-[2.43rem]">
 			<div className="max-w-3xl mx-auto px-6 lg:max-w-7xl">
-				<h1 className="sr-only"> Astra Free Vs Pro </h1>
+				<h1 className="sr-only"> {__("Astra Free Vs Pro", "astra")} </h1>
 				<div className="flex flex-row justify-between items-center">
 					<h2 className="text-lg sm:text-2xl font-semibold capitalize">
 						{ __( 'Astra Free vs Pro', 'astra' ) }

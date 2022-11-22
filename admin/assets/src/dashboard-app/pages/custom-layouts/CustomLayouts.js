@@ -6,6 +6,7 @@ import apiFetch from '@wordpress/api-fetch';
 const CustomLayouts = () => {
 	const query = new URLSearchParams( useLocation()?.search );
 	const allowAutoPlay = '1' === query.get( 'astra-activation-redirect' ) ? 1 : 0;
+	const videoID = 'FWRkzJQwcKU';
 
 	const getAstraProTitle = () => {
 		return astra_admin.pro_installed_status ? __( 'Activate Now' ) : __( 'Upgrade Now' );
@@ -72,7 +73,7 @@ const CustomLayouts = () => {
 								{/* Added rel=0 query parameter at the end to disable YouTube recommendations. */}
 								<iframe
 									className="absolute inset-0 w-full h-full rounded-md"
-									src={`https://www.youtube.com/embed/FWRkzJQwcKU?showinfo=0&autoplay=${allowAutoPlay}&mute=${allowAutoPlay}&rel=0`}
+									src={`https://www.youtube.com/embed/${videoID}?showinfo=0&autoplay=${allowAutoPlay}&mute=${allowAutoPlay}&rel=0`}
 									allow="autoplay"
 									title="YouTube video player"
 									frameBorder="0"

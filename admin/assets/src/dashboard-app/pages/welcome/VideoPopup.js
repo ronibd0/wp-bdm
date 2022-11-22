@@ -1,7 +1,9 @@
-import { Fragment, useState } from "react";
+import { Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 
 const VideoPopup = ({ allowAutoPlay, videoPopup, toggleVideoPopup }) => {
+	const videoID = 'BAN-puzLheM';
+
 	return (
 		<Transition.Root show={videoPopup} as={Fragment}>
 			<Dialog as="div" className="relative z-[10000]" onClick={ toggleVideoPopup } onClose={ toggleVideoPopup } >
@@ -32,7 +34,7 @@ const VideoPopup = ({ allowAutoPlay, videoPopup, toggleVideoPopup }) => {
 								{/* Added rel=0 query paramter at the end to disable YouTube recommendations */}
 								<iframe
 									className="absolute inset-0 w-full h-full border-0 rounded-md"
-									src={`https://www.youtube.com/embed/BAN-puzLheM?showinfo=0&autoplay=${ videoPopup ? 1 : 0 }&rel=0`}
+									src={`https://www.youtube.com/embed/${videoID}?showinfo=0&autoplay=${ videoPopup ? 1 : 0 }&rel=0`}
 									allow="autoplay"
 									title="YouTube video player"
 									frameBorder="0"

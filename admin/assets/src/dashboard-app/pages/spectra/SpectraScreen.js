@@ -39,6 +39,7 @@ const spectraFeatures = [
 const SpectraScreen = () => {
 	const query = new URLSearchParams(useLocation()?.search);
 	const allowAutoPlay = "1" === query.get("astra-activation-redirect") ? 1 : 0;
+	const videoID = 'GLNzTxArR6Y';
 
 	const handleSpectraPluginAction = (e) => {
 
@@ -116,18 +117,10 @@ const SpectraScreen = () => {
 	return (
 		<main className="bg-white pb-14 pt-20">
 			<div className="mx-auto px-6 max-w-[45rem]">
-				<h1 className="sr-only"> Astra Free Vs Pro </h1>
+				<h1 className="sr-only"> {__("Spectra - WordPress Free Page Builder", "astra")} </h1>
 				<div className="flex flex-col items-center">
 					<div className="absolute top-0 tablet:none">
-						<svg width="629" height="807" viewBox="0 0 629 807" fill="none" xmlns="http://www.w3.org/2000/svg">
-							<path fillRule="evenodd" clipRule="evenodd" d="M155.35 384.598C22.04 384.731 -50.5339 218.96 41.6946 124.989L370.474 -210.002L405.115 4.20929L235.903 176.068C222.848 189.37 232.348 212.283 250.911 212.265L473.541 212.041C606.852 211.907 679.425 377.679 587.197 471.65L258.418 806.641L223.777 592.429L392.988 420.571C406.044 407.269 396.544 384.356 377.981 384.374L155.35 384.598Z" fill="url(#paint0_linear_3240_66110)" fillOpacity="0.48" />
-							<defs>
-								<linearGradient id="paint0_linear_3240_66110" x1="240.999" y1="-289" x2="252.522" y2="770.375" gradientUnits="userSpaceOnUse">
-									<stop stopColor="#F4E3CC" />
-									<stop offset="1" stopColor="#F4E3CC" stopOpacity="0"/>
-								</linearGradient>
-							</defs>
-						</svg>
+						{Astra_Admin_Icons['spectraBackgroundLogo']}
 					</div>
 				</div>
 				<div className="relative flex flex-col items-center">
@@ -150,7 +143,7 @@ const SpectraScreen = () => {
 						{/* Added rel=0 query parameter at the end to disable YouTube recommendations */}
 						<iframe
 							className="absolute inset-0 w-full h-full rounded-md"
-							src={`https://www.youtube.com/embed/GLNzTxArR6Y?showinfo=0&autoplay=${allowAutoPlay}&mute=${allowAutoPlay}&rel=0`}
+							src={`https://www.youtube.com/embed/${videoID}?showinfo=0&autoplay=${allowAutoPlay}&mute=${allowAutoPlay}&rel=0`}
 							allow="autoplay"
 							title="YouTube video player"
 							frameBorder="0"

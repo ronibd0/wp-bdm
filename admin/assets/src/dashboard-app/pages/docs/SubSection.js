@@ -31,21 +31,7 @@ const SubSection = ({ item }) => {
 						sectionData ? "rotate-0" : "-rotate-90"
 					} transition-rotate duration-300 ease-in-out`}
 				>
-					<svg
-						width="24"
-						height="24"
-						viewBox="0 0 24 24"
-						fill="none"
-						xmlns="http://www.w3.org/2000/svg"
-					>
-						<path
-							d="M19 9L12 16L5 9"
-							stroke="#4B5563"
-							strokeWidth="2"
-							strokeLinecap="round"
-							strokeLinejoin="round"
-						/>
-					</svg>
+					{Astra_Admin_Icons["expand"]}
 				</div>
 			</button>
 			{/* Sub Section Items */}

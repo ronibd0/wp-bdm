@@ -1,5 +1,6 @@
 import { __ } from '@wordpress/i18n';
 const classNames = ( ...classes ) => ( classes.filter( Boolean ).join( ' ' ) );
+import Astra_Admin_Icons from "@Common/block-icons";
 
 const QuickSettings = () => {
 
@@ -44,9 +45,7 @@ const QuickSettings = () => {
 			</div>
 
 			<div className="relative inline-flex flex-shrink-0 py-0.5 px-1 text-[0.625rem] leading-[0.7rem] text-gray-50 rounded-[0.1875rem] group-hover:text-slate-300">
-				<svg width="15" height="16" viewBox="0 0 15 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-					<path d="M3.79815 1.63672H13.6976M13.6976 1.63672V11.5362M13.6976 1.63672L0.969727 14.3646" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
-				</svg>
+				{ Astra_Admin_Icons["customize"] }
 			</div>
 		</div>
 	} );
