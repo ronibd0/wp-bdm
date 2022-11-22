@@ -117,7 +117,8 @@ class Astra_Starter_Content {
 	}
 
 	/**
-	 *  Save astra customizer settings into database.
+	 *  Save Astra customizer settings into database.
+	 * @since x.x.x
 	 */
 	public function save_astra_settings() {
 		
