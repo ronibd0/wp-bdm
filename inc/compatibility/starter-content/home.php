@@ -219,7 +219,7 @@ $astra_default_home_content = '<!-- wp:cover {"minHeight":720,"minHeightUnit":"p
 <!-- /wp:group -->
 
 <!-- wp:group {"align":"full","style":{"color":{"gradient":"linear-gradient(35deg,rgb(6,0,151) 0%,rgb(130,4,255) 64%,rgb(193,15,255) 98%)"},"spacing":{"padding":{"top":"104px","bottom":"104px"}}},"layout":{"inherit":false,"contentSize":"520px","type":"constrained"}} -->
-<div class="wp-block-group alignfull has-background" style="background:linear-gradient(35deg,rgb(6,0,151) 0%,rgb(130,4,255) 64%,rgb(193,15,255) 98%);padding-top:104px;padding-bottom:104px"><!-- wp:heading {"textAlign":"center","style":{"color":{"text":"#ffffff"}}} -->
+<div class="wp-block-group alignfull has-background" id="contact" style="background:linear-gradient(35deg,rgb(6,0,151) 0%,rgb(130,4,255) 64%,rgb(193,15,255) 98%);padding-top:104px;padding-bottom:104px"><!-- wp:heading {"textAlign":"center","style":{"color":{"text":"#ffffff"}}} -->
 <h2 class="has-text-align-center has-text-color" style="color:#ffffff">Get a professional website today!</h2>
 <!-- /wp:heading -->
 

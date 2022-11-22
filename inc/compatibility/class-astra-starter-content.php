@@ -14,7 +14,7 @@ class Astra_Starter_Content {
 	const ABOUT_SLUG    = '#about';
 	const SERVICES_SLUG = '#services';
 	const REVIEWS_SLUG  = '#reviews';
-	const FAQ_SLUG      = '#faq';
+	const WHY_US_SLUG   = '#whyus';
 	const CONTACT_SLUG  = '#contact';
 
 	/**
@@ -190,14 +190,14 @@ class Astra_Starter_Content {
 				'object_id' => '{{' . self::HOME_SLUG . '}}',
 			),
 			'about'    => array(
-				'title' => __( 'About', 'astra' ),
-				'type'  => 'custom',
-				'url'   => '{{' . self::ABOUT_SLUG . '}}',
-			),
-			'services' => array(
 				'title' => __( 'Services', 'astra' ),
 				'type'  => 'custom',
 				'url'   => '{{' . self::SERVICES_SLUG . '}}',
+			),
+			'services' => array(
+				'title' => __( 'About', 'astra' ),
+				'type'  => 'custom',
+				'url'   => '{{' . self::ABOUT_SLUG . '}}',
 			),
 			'reviews'  => array(
 				'title' => __( 'Reviews', 'astra' ),
@@ -205,9 +205,9 @@ class Astra_Starter_Content {
 				'url'   => '{{' . self::REVIEWS_SLUG . '}}',
 			),
 			'faq'      => array(
-				'title' => __( 'FAQ', 'astra' ),
+				'title' => __( 'Why Us', 'astra' ),
 				'type'  => 'custom',
-				'url'   => '{{' . self::FAQ_SLUG . '}}',
+				'url'   => '{{' . self::WHY_US_SLUG . '}}',
 			),
 			'contact'  => array(
 				'title' => __( 'Contact', 'astra' ),
