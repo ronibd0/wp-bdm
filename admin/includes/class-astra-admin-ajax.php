@@ -42,7 +42,9 @@ class Astra_Admin_Ajax {
 	 */
 	public static function get_instance() {
 		if ( ! isset( self::$instance ) ) {
+			/** @psalm-suppress InvalidPropertyAssignmentValue */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			self::$instance = new self();
+			/** @psalm-suppress InvalidPropertyAssignmentValue */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 		}
 		return self::$instance;
 	}
@@ -158,7 +160,9 @@ class Astra_Admin_Ajax {
 			wp_send_json_error( $response_data );
 		}
 
+		/** @psalm-suppress PossiblyInvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 		$migrate = isset( $_POST['status'] ) ? sanitize_key( $_POST['status'] ) : '';
+		/** @psalm-suppress PossiblyInvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 		$migrate = ( 'true' === $migrate ) ? true : false;
 		/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 		$migration_flag = astra_get_option( 'v3-option-migration', false );
@@ -200,14 +204,24 @@ class Astra_Admin_Ajax {
 		}
 
 		$get_bool_settings = $this->astra_admin_settings_typewise();
+		/** @psalm-suppress PossiblyInvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 		$sub_option_key    = isset( $_POST['key'] ) ? sanitize_text_field( wp_unslash( $_POST['key'] ) ) : '';
+		/** @psalm-suppress PossiblyInvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 		$sub_option_value  = '';
 
 		if ( isset( $get_bool_settings[ $sub_option_key ] ) ) {
 			if ( 'bool' === $get_bool_settings[ $sub_option_key ] ) {
-				$sub_option_value = 'true' === sanitize_text_field( $_POST['value'] ) ? true : false;
+				/** @psalm-suppress PossiblyInvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+				/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+				$sub_option_value =  isset( $_POST['value'] ) && 'true' === sanitize_text_field( $_POST['value'] ) ? true : false;
+				/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+				/** @psalm-suppress PossiblyInvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			} else {
-				$sub_option_value = sanitize_text_field( wp_unslash( $_POST['value'] ) );
+				/** @psalm-suppress PossiblyInvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+				/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+				$sub_option_value = isset( $_POST['value'] ) ? sanitize_text_field( wp_unslash( $_POST['value'] ) ) : '';
+				/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+				/** @psalm-suppress PossiblyInvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			}
 		}
 
@@ -339,7 +353,7 @@ class Astra_Admin_Ajax {
 		$plugin_init = ( isset( $_POST['init'] ) ) ? sanitize_text_field( wp_unslash( $_POST['init'] ) ) : '';
 		/** @psalm-suppress PossiblyInvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 
-		$deactivate = deactivate_plugins( $plugin_init, false, false );
+		$deactivate = deactivate_plugins( $plugin_init, true, false );
 
 		if ( is_wp_error( $deactivate ) ) {
 			wp_send_json_error(

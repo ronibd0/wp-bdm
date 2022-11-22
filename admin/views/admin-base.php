@@ -15,9 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <div class="ast-menu-page-wrapper">
 	<div id="ast-menu-page">
 		<div class="ast-menu-page-content">
-			<?php
-				do_action( 'astra_render_admin_page_content', $menu_page_slug, $page_action );
-			?>
+			<div id="astra-dashboard-app" class="astra-dashboard-app"> </div>
 		</div>
 	</div>
 </div>

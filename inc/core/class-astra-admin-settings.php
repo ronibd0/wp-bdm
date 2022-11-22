@@ -444,7 +444,9 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 
 			$parent_page = 'themes.php';
 
+			/** @psalm-suppress InvalidLiteralArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			if ( strpos( $parent_page, '?' ) !== false ) {
+				/** @psalm-suppress InvalidLiteralArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 				$query_var = '&page=' . Astra_Menu::get_theme_page_slug();
 			} else {
 				$query_var = '?page=' . Astra_Menu::get_theme_page_slug();

@@ -29,7 +29,9 @@ class Astra_Menu {
 	 */
 	public static function get_instance() {
 		if ( ! isset( self::$instance ) ) {
+			/** @psalm-suppress InvalidPropertyAssignmentValue */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			self::$instance = new self();
+			/** @psalm-suppress InvalidPropertyAssignmentValue */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 		}
 		return self::$instance;
 	}
@@ -74,9 +76,6 @@ class Astra_Menu {
 		add_action( 'admin_init', array( $this, 'settings_admin_scripts' ) );
 
 		add_action( 'after_setup_theme', array( $this, 'init_admin_settings' ), 99 );
-
-		// Start dashboard view.
-		add_action( 'astra_render_admin_page_content', array( $this, 'render_content' ), 10, 2 );
 	}
 
 	/**
@@ -120,7 +119,9 @@ class Astra_Menu {
 	 */
 	public function settings_admin_scripts() {
 		// Enqueue admin scripts.
+		/** @psalm-suppress PossiblyInvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 		if ( ! empty( $_GET['page'] ) && ( self::$plugin_slug === $_GET['page'] || false !== strpos( $_GET['page'], self::$plugin_slug . '_' ) ) ) { //phpcs:ignore
+			/** @psalm-suppress PossiblyInvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			add_action( 'admin_enqueue_scripts', array( $this, 'styles_scripts' ) );
 			add_filter( 'admin_footer_text', array( $this, 'astra_admin_footer_link' ), 99 );
 		}
@@ -168,7 +169,9 @@ class Astra_Menu {
 				__( 'Custom Layouts', 'astra' ),
 				__( 'Custom Layouts', 'astra' ),
 				$capability,
+				/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 				( defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'advanced-hooks' ) ) ? 'edit.php?post_type=astra-advanced-hook' : 'admin.php?page=' . self::$plugin_slug . '&path=custom-layouts'
+				/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			);
 		}
 
@@ -195,29 +198,17 @@ class Astra_Menu {
 	 */
 	public function render_admin_dashboard() {
 		$page_action    = '';
-		$menu_page_slug = ( ! empty( $_GET['page'] ) ) ? sanitize_text_field( wp_unslash( $_GET['page'] ) ) : self::$plugin_slug; //phpcs:ignore
 
 		if ( isset( $_GET['action'] ) ) { //phpcs:ignore
+			/** @psalm-suppress PossiblyInvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			$page_action = sanitize_text_field( wp_unslash( $_GET['action'] ) ); //phpcs:ignore
+			/** @psalm-suppress PossiblyInvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			$page_action = str_replace( '_', '-', $page_action );
 		}
 
+		/** @psalm-suppress MissingFile */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 		include_once ASTRA_THEME_ADMIN_DIR . 'views/admin-base.php';
-	}
-
-	/**
-	 * Renders the admin settings content.
-	 *
-	 * @since x.x.x
-	 * @param sting $menu_page_slug current page name.
-	 * @param sting $page_action current page action.
-	 *
-	 * @return void
-	 */
-	public function render_content( $menu_page_slug, $page_action ) {
-		if ( self::$plugin_slug === $menu_page_slug ) {
-			include_once ASTRA_THEME_ADMIN_DIR . 'views/dashboard-app.php';
-		}
+		/** @psalm-suppress MissingFile */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 	}
 
 	/**
@@ -249,7 +240,9 @@ class Astra_Menu {
 			'quick_settings'                     => self::astra_get_quick_links(),
 			'ajax_url'                           => admin_url( 'admin-ajax.php' ),
 			'is_whitelabel'                      => astra_is_white_labelled(),
-			'show_self_branding'                 => is_callable( 'Astra_Ext_White_Label_Markup::show_branding' ) ? Astra_Ext_White_Label_Markup::show_branding() : true,
+			/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+			'show_self_branding'                 => defined( 'ASTRA_EXT_VER' ) && is_callable( 'Astra_Ext_White_Label_Markup::show_branding' ) ? Astra_Ext_White_Label_Markup::show_branding() : true,
+			/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			'admin_url'                          => admin_url( 'admin.php' ),
 			'home_slug'                          => self::$plugin_slug,
 			'upgrade_url'                        => ASTRA_PRO_UPGRADE_URL,
@@ -337,12 +330,14 @@ class Astra_Menu {
 	 */
 	public static function get_starter_template_plugin_data() {
 
+		/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 		$st_data = array(
 			'title'            => is_callable( 'Astra_Ext_White_Label_Markup::get_whitelabel_string' ) ? Astra_Ext_White_Label_Markup::get_whitelabel_string( 'astra-sites', 'name', __( 'Starter Templates', 'astra' ) ) : __( 'Starter Templates', 'astra' ),
 			'title'            => is_callable( 'Astra_Ext_White_Label_Markup::get_whitelabel_string' ) ? Astra_Ext_White_Label_Markup::get_whitelabel_string( 'astra-sites', 'description', __( 'Create professional designed pixel perfect websites in minutes. Get access to 280+ pre-made full website templates for your favorite page builder.', 'astra' ) ) : __( 'Create professional designed pixel perfect websites in minutes. Get access to 280+ pre-made full website templates for your favorite page builder.', 'astra' ),
 			'is_available'     => defined( 'ASTRA_PRO_SITES_VER' ) || defined( 'ASTRA_SITES_VER' ) ? true : false,
 			'redirection_link' => admin_url( 'themes.php?page=starter-templates' ),
 		);
+		/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 
 		$skip_free_version = false;
 		$pro_plugin_status = self::get_plugin_status( 'astra-pro-sites/astra-pro-sites.php' );
@@ -682,9 +677,11 @@ class Astra_Menu {
 				array(
 					'title'    => __( 'Starter Templates', 'astra' ),
 					'subtitle' => __( '280+ Ready to Import Templates', 'astra' ),
+					/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 					'status'   => $st_plugin_data['status'],
 					'slug'     => $st_plugin_data['slug'],
 					'path'     => $st_plugin_data['path'],
+					/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 					'logoPath' => array(
 						'internal_icon' => true,
 						'icon_path'     => 'starter-logo',
@@ -816,10 +813,12 @@ class Astra_Menu {
 		$build_url         = ASTRA_THEME_ADMIN_URL . 'assets/build/';
 		$script_asset_path = $build_path . 'dashboard-app.asset.php';
 
+		/** @psalm-suppress MissingFile */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 		$script_info = file_exists( $script_asset_path ) ? include $script_asset_path : array(
 			'dependencies' => array(),
 			'version'      => ASTRA_THEME_VERSION,
 		);
+		/** @psalm-suppress MissingFile */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 
 		$script_dep = array_merge( $script_info['dependencies'], array( 'updates', 'wp-hooks' ) );
 
