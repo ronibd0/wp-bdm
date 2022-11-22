@@ -155,6 +155,7 @@ class Astra_Starter_Content {
 	/**
 	 * Load default color palettes.
 	 *
+	 * @since x.x.x
 	 * @param mixed $defaults defaults.
 	 * @return mixed value.
 	 */
