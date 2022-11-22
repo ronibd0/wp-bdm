@@ -132,6 +132,7 @@ class Astra_Admin_Ajax {
 
 	/**
 	 * Migrate to New Header Builder
+	 * @since x.x.x
 	 */
 	public function migrate_to_builder() {
 
