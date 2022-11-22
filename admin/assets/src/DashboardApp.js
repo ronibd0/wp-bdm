@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-/* Main Compnent */
+/* Main Component */
 import './common/all-config.scss';
 import './common/common';
 import SettingsWrap from '@DashboardApp/SettingsWrap';
