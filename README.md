@@ -74,13 +74,15 @@ https://websitedemos.net/web-design-agency-08/wp-content/uploads/sites/796/2021/
 https://websitedemos.net/web-design-agency-08/wp-content/uploads/sites/796/2021/05/boy-with-code-container.png
 https://websitedemos.net/web-design-agency-08/wp-content/uploads/sites/796/2021/05/web-browser.png
 
-Images used in the wp preview are all licensed under Creative Commons ( CC0 ) License ( https://pxhere.com )
-
-Icon used in wp preview are all licensed under Massachusetts Institute of Technology ( MIT ) License ( https://heroicons.com )
-
 The same site as screenshot can be imported from here https://websitedemos.net/web-design-agency-08/.
 
 For more information, refer to this document on how to create a page like in the screenshot - https://wpastra.com/docs/replicating-the-screenshot/.
+
+### WP-Preview Starter Content Licenses ###
+
+Images used in the WordPress preview starter content are all licensed under Creative Commons ( CC0 ) License ( https://pxhere.com )
+
+Icon used in WordPress preview starter content are all licensed under Massachusetts Institute of Technology ( MIT ) License ( https://heroicons.com )
 
 ### Normalizing styles ###
 
