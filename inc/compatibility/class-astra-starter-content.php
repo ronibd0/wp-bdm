@@ -1,7 +1,7 @@
 <?php
 /**
  * Starter Content Compatibility.
- *
+ * @since x.x.x
  * @package Astra
  */
 
