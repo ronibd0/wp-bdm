@@ -48,7 +48,7 @@ const SubSection = ({ item }) => {
 					</svg>
 				</div>
 			</button>
-			{/* SUb Section Items */}
+			{/* Sub Section Items */}
 			{sectionData && (
 				<div className="mt-5">
 					<div className="space-y-1 mb-5">
