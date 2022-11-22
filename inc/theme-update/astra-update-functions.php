@@ -1099,7 +1099,7 @@ function astra_theme_background_updater_3_9_4() {
  * @since x.x.x
  * @return void
  */
-function astra_theme_background_updater_4_0_1() {
+function astra_theme_background_updater_4_0_0() {
 	$theme_options = get_option( 'astra-settings', array() );
 
 	// Check if user and disable smooth scroll.
