@@ -382,8 +382,8 @@ if ( ! function_exists( 'astra_get_video_from_post' ) ) {
  * Get last word of string to get metakey of custom post structure.
  *
  * @since x.x.x
- * @param string $string.
- * @return string $last_word.
+ * @param string $string from this get last word.
+ * @return string $last_word result.
  */
 function ast_get_last_meta_word( $string ) {
 	$string    = explode( '-', $string );
@@ -395,7 +395,7 @@ function ast_get_last_meta_word( $string ) {
  * Custom single post Title & Meta order display.
  *
  * @since x.x.x
- * @param array $structure.
+ * @param array $structure archive or single post structure.
  * @return mixed
  */
 function astra_banner_elements_order( $structure = array() ) {

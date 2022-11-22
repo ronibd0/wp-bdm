@@ -368,7 +368,7 @@ if ( ! function_exists( 'astra_header_custom_item_outside_menu' ) ) {
  *
  * => Used in files:
  *
- * /template-parts/content-single.php
+ * /template-parts/single/page-layout.php
  *
  * @since x.x.x
  */

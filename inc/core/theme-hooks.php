@@ -444,7 +444,9 @@ function astra_entry_content_single() {
 }
 
 /**
- * Entry content single-page
+ * Entry content single-page.
+ *
+ * @since x.x.x
  */
 function astra_entry_content_single_page() {
 	do_action( 'astra_entry_content_single_page' );

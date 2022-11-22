@@ -30,6 +30,7 @@ class Astra_Posts_Archive_Structures_Configs extends Astra_Customizer_Config_Bas
 	 * Getting dynamic context for sidebar.
 	 * Compatibility case: Narrow width + dynamic customizer controls.
 	 *
+	 * @param string $post_type On basis of this will decide to hide sidebar control or not.
 	 * @return mixed
 	 * @since x.x.x
 	 */
@@ -66,6 +67,7 @@ class Astra_Posts_Archive_Structures_Configs extends Astra_Customizer_Config_Bas
 	 * Getting content layout dynamically.
 	 * Compatibility case: Narrow width + dynamic customizer controls.
 	 *
+	 * @param string $post_type On basis of this will decide to show narrow-width layout or not.
 	 * @since x.x.x
 	 */
 	public function get_content_layout_choices( $post_type ) {
@@ -469,7 +471,7 @@ class Astra_Posts_Archive_Structures_Configs extends Astra_Customizer_Config_Bas
 					'control'   => 'ast-selector',
 					'section'   => $title_section,
 					'priority'  => 21,
-					'title'     => __( 'Content Alignment', 'astra' ),
+					'title'     => __( 'Horizontal Alignment', 'astra' ),
 					'context'   => Astra_Builder_Helper::$general_tab,
 					'transport' => 'postMessage',
 					'choices'   => array(

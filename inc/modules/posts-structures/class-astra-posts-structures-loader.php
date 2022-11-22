@@ -25,7 +25,7 @@ class Astra_Posts_Structure_Loader {
 	/**
 	 * Instance
 	 *
-	 * @var $customizer_defaults
+	 * @var array $customizer_defaults
 	 */
 	private static $customizer_defaults = array();
 
