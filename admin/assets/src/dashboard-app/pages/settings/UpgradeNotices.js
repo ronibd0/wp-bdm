@@ -67,7 +67,7 @@ const UpgradeNotices = () => {
 					className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-astra transition focus:bg-astra-hover hover:bg-astra-hover focus:outline-none h-9"
 					onClick={onUpgradeLinkTrigger}
 				>
-					{__("Upgrade to Astra Pro", "astra-addon")}
+					{__("Upgrade to Astra Pro", "astra")}
 				</button>
 			</div>
 			<p className="mt-2 w-full md:w-9/12 text-sm text-slate-500 tablet:w-full">
