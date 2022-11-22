@@ -1111,7 +1111,7 @@ function astra_theme_background_updater_4_0_0() {
 			$admin_dashboard_settings['preload_local_fonts'] = isset( $theme_options['preload-local-fonts'] ) ? $theme_options['preload-local-fonts'] : false;
 		}
 
-		// Consider admin part from addon side migrated.
+		// Consider admin part from theme side migrated.
 		$admin_dashboard_settings['theme-setup-admin-migrated'] = true;
 		update_option( 'astra_admin_settings', $admin_dashboard_settings );
 	}
