@@ -90,7 +90,7 @@ class Astra_Starter_Content {
 
 	/**
 	 *  Get customizer json
-	 *
+	 * @since x.x.x
 	 *  @return mixed value.
 	 */
 	public function get_customizer_json() {
