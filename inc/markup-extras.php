@@ -107,7 +107,7 @@ if ( ! function_exists( 'astra_body_classes' ) ) {
 		// Current Astra verion.
 		$classes[] = esc_attr( 'astra-' . ASTRA_THEME_VERSION );
 
-		if( ! Astra_Builder_Helper::$is_header_footer_builder_active ) {
+		if ( ! Astra_Builder_Helper::$is_header_footer_builder_active ) {
 			$menu_item    = astra_get_option( 'header-main-rt-section' );
 			$outside_menu = astra_get_option( 'header-display-outside-menu' );
 
@@ -1404,7 +1404,7 @@ if ( ! function_exists( 'astra_get_post_thumbnail' ) ) {
 		$check_is_singular = is_singular();
 
 		$featured_image = true;
-		$post_type = get_post_type();
+		$post_type      = get_post_type();
 
 		if ( $check_is_singular ) {
 			$is_featured_image = astra_get_option_meta( 'ast-featured-img' );

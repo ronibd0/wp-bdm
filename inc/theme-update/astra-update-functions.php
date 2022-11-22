@@ -1265,13 +1265,13 @@ function astra_theme_background_updater_4_0_0() {
 		}
 
 		// Set page specific structure, as page only has featured image at top & title beneath to it, hardcoded writing it here.
-		$theme_options[ 'ast-dynamic-single-page-structure' ] = array( 'ast-dynamic-single-page-image', 'ast-dynamic-single-page-title' );
+		$theme_options['ast-dynamic-single-page-structure'] = array( 'ast-dynamic-single-page-image', 'ast-dynamic-single-page-title' );
 
 		// EDD content layout & sidebar layout migration in new dynamic option.
-		$theme_options[ 'archive-download-content-layout' ] = isset( $theme_options[ 'edd-archive-product-layout' ] ) ? $theme_options[ 'edd-archive-product-layout' ] : 'default';
-		$theme_options[ 'archive-download-sidebar-layout' ] = isset( $theme_options[ 'edd-sidebar-layout' ] ) ? $theme_options[ 'edd-sidebar-layout' ] : 'no-sidebar';
-		$theme_options[ 'single-download-content-layout' ] = isset( $theme_options[ 'edd-single-product-layout' ] ) ? $theme_options[ 'edd-single-product-layout' ] : 'default';
-		$theme_options[ 'single-download-sidebar-layout' ] = isset( $theme_options[ 'edd-single-product-sidebar-layout' ] ) ? $theme_options[ 'edd-single-product-sidebar-layout' ] : 'default';
+		$theme_options['archive-download-content-layout'] = isset( $theme_options['edd-archive-product-layout'] ) ? $theme_options['edd-archive-product-layout'] : 'default';
+		$theme_options['archive-download-sidebar-layout'] = isset( $theme_options['edd-sidebar-layout'] ) ? $theme_options['edd-sidebar-layout'] : 'no-sidebar';
+		$theme_options['single-download-content-layout']  = isset( $theme_options['edd-single-product-layout'] ) ? $theme_options['edd-single-product-layout'] : 'default';
+		$theme_options['single-download-sidebar-layout']  = isset( $theme_options['edd-single-product-sidebar-layout'] ) ? $theme_options['edd-single-product-sidebar-layout'] : 'default';
 
 		update_option( 'astra-settings', $theme_options );
 	}

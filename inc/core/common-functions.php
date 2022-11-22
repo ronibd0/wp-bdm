@@ -1638,7 +1638,7 @@ function astra_load_woocommerce_login_form_password_icon() {
  * Function to add narrow width properties in the frontend.
  *
  * @since x.x.x
- * @param string  $location container layout for single-post, archives, pages, page meta.
+ * @param string $location container layout for single-post, archives, pages, page meta.
  * @param string $narrow_container_max_width  dynamic container width in px.
  * @return string Parsed CSS based on $location and $narrow_container_max_width.
  */

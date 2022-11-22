@@ -49,7 +49,7 @@ class Astra_Posts_Strctures_Markup {
 	 */
 	public function astra_archive_custom_title( $title ) {
 		$post_type = get_post_type();
-		$title = ! empty( astra_get_option( 'ast-dynamic-archive-' . $post_type . '-custom-title', '' ) ) ? astra_get_option( 'ast-dynamic-archive-' . $post_type . '-custom-title' ) : $title;
+		$title     = ! empty( astra_get_option( 'ast-dynamic-archive-' . $post_type . '-custom-title', '' ) ) ? astra_get_option( 'ast-dynamic-archive-' . $post_type . '-custom-title' ) : $title;
 		return $title;
 	}
 
@@ -123,7 +123,7 @@ class Astra_Posts_Strctures_Markup {
 			}
 		} elseif ( class_exists( 'WooCommerce' ) && ( is_shop() || is_product_taxonomy() ) ) {
 			// For custom title page.
-			if( is_shop() ) {
+			if ( is_shop() ) {
 				add_filter( 'woocommerce_page_title', array( $this, 'astra_archive_custom_title' ) );
 			}
 			add_filter( 'woocommerce_show_page_title', '__return_false' );
@@ -150,13 +150,13 @@ class Astra_Posts_Strctures_Markup {
 
 			do_action( 'astra_after_archive_' . $post_type . '_banner_content' );
 
-			if( is_shop() ) {
+			if ( is_shop() ) {
 				remove_filter( 'woocommerce_page_title', array( $this, 'astra_archive_custom_title' ) );
 			}
 		} elseif ( 'archive' === $type ) {
 			$is_post_type_archive = is_post_type_archive( $post_type ) ? true : false;
 
-			if( $is_post_type_archive ) {
+			if ( $is_post_type_archive ) {
 				add_filter( 'get_the_archive_title', array( $this, 'astra_archive_custom_title' ) );
 			}
 
@@ -166,7 +166,7 @@ class Astra_Posts_Strctures_Markup {
 
 			do_action( 'astra_after_archive_' . $post_type . '_banner_content' );
 
-			if( $is_post_type_archive ) {
+			if ( $is_post_type_archive ) {
 				remove_filter( 'get_the_archive_title', array( $this, 'astra_archive_custom_title' ) );
 			}
 		}

@@ -56,7 +56,7 @@ if ( ! class_exists( 'Astra_Edd_Archive_Layout_Configs' ) ) {
 						'min'  => 1,
 						'max'  => 6,
 					),
-					'divider'  => ( defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'edd' ) ) ? array() : array( 'ast_class' => 'ast-top-section-divider' ),
+					'divider'           => ( defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'edd' ) ) ? array() : array( 'ast_class' => 'ast-top-section-divider' ),
 					'transport'         => 'postMessage',
 				),
 

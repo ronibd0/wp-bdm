@@ -435,7 +435,7 @@ function astra_banner_elements_order( $structure = array() ) {
 
 			case 'single-title':
 				do_action( 'astra_single_post_banner_title_before' );
-				if( 'page' === $post_type ) {
+				if ( 'page' === $post_type ) {
 					astra_the_title(
 						'<h1 class="entry-title" ' . astra_attr(
 							'article-title-content-page',

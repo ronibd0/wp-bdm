@@ -246,7 +246,7 @@ function astra_post_archive_strcture_dynamic_css( $dynamic_css, $dynamic_css_fil
 				'line-height'    => esc_attr( $banner_text_line_height ),
 				'text-transform' => esc_attr( $banner_text_transform ),
 			),
-			$selector . ' h1'       => array(
+			$selector . ' h1'                       => array(
 				'color'          => esc_attr( $title_color ),
 				'font-family'    => astra_get_css_value( $banner_title_font_family, 'font' ),
 				'font-weight'    => astra_get_css_value( $banner_title_font_weight, 'font' ),
@@ -269,7 +269,7 @@ function astra_post_archive_strcture_dynamic_css( $dynamic_css, $dynamic_css_fil
 		 * Tablet CSS.
 		 */
 		$css_output_tablet = array(
-			$selector                         => array(
+			$selector         => array(
 				'text-align'     => $tab_h_alignment,
 				'min-height'     => $tab_banner_height,
 				'padding-top'    => astra_responsive_spacing( $banner_padding, 'top', 'tablet' ),
@@ -284,7 +284,7 @@ function astra_post_archive_strcture_dynamic_css( $dynamic_css, $dynamic_css_fil
 			$selector . ' h1' => array(
 				'font-size' => astra_responsive_font( $banner_title_font_size, 'tablet' ),
 			),
-			$selector . ' *'                  => array(
+			$selector . ' *'  => array(
 				'font-size' => astra_responsive_font( $banner_text_font_size, 'tablet' ),
 			),
 		);
@@ -293,7 +293,7 @@ function astra_post_archive_strcture_dynamic_css( $dynamic_css, $dynamic_css_fil
 		 * Mobile CSS.
 		 */
 		$css_output_mobile = array(
-			$selector                         => array(
+			$selector         => array(
 				'text-align'     => $mob_h_alignment,
 				'min-height'     => $mob_banner_height,
 				'padding-top'    => astra_responsive_spacing( $banner_padding, 'top', 'mobile' ),
@@ -308,7 +308,7 @@ function astra_post_archive_strcture_dynamic_css( $dynamic_css, $dynamic_css_fil
 			$selector . ' h1' => array(
 				'font-size' => astra_responsive_font( $banner_title_font_size, 'mobile' ),
 			),
-			$selector . ' *'                  => array(
+			$selector . ' *'  => array(
 				'font-size' => astra_responsive_font( $banner_text_font_size, 'mobile' ),
 			),
 		);

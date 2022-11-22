@@ -839,10 +839,10 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 		public function theme_defaults( $defaults ) {
 
 			// Container.
-			$defaults['edd-content-layout']         = 'plain-container';
+			$defaults['edd-content-layout'] = 'plain-container';
 
 			// Sidebar.
-			$defaults['edd-general-sidebar-layout']        = 'default';
+			$defaults['edd-general-sidebar-layout'] = 'default';
 
 			// Edd Archive.
 			$defaults['edd-archive-grids'] = array(

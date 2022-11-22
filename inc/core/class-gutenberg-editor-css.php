@@ -35,18 +35,18 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 			$post_id     = astra_get_post_id();
 			$is_site_rtl = is_rtl();
 
-			$site_content_width          = astra_get_option( 'site-content-width', 1200 ) + 56;
-			$headings_font_family        = astra_get_option( 'headings-font-family' );
-			$headings_font_weight        = astra_get_option( 'headings-font-weight' );
-			$headings_text_transform     = astra_get_option( 'headings-text-transform' );
-			$headings_line_height        = astra_get_option( 'headings-line-height' );
-			$body_font_family            = astra_body_font_family();
-			$para_margin_bottom          = astra_get_option( 'para-margin-bottom' );
-			$theme_color                 = astra_get_option( 'theme-color' );
-			$link_color                  = astra_get_option( 'link-color', $theme_color );
-			$heading_base_color          = astra_get_option( 'heading-base-color' );
-			$highlight_theme_color       = astra_get_foreground_color( $theme_color );
-			$ast_narrow_width            = astra_get_option( 'narrow-container-max-width', apply_filters( 'astra_narrow_container_width', 750 ) ) . 'px';
+			$site_content_width      = astra_get_option( 'site-content-width', 1200 ) + 56;
+			$headings_font_family    = astra_get_option( 'headings-font-family' );
+			$headings_font_weight    = astra_get_option( 'headings-font-weight' );
+			$headings_text_transform = astra_get_option( 'headings-text-transform' );
+			$headings_line_height    = astra_get_option( 'headings-line-height' );
+			$body_font_family        = astra_body_font_family();
+			$para_margin_bottom      = astra_get_option( 'para-margin-bottom' );
+			$theme_color             = astra_get_option( 'theme-color' );
+			$link_color              = astra_get_option( 'link-color', $theme_color );
+			$heading_base_color      = astra_get_option( 'heading-base-color' );
+			$highlight_theme_color   = astra_get_foreground_color( $theme_color );
+			$ast_narrow_width        = astra_get_option( 'narrow-container-max-width', apply_filters( 'astra_narrow_container_width', 750 ) ) . 'px';
 
 			$body_font_weight    = astra_get_option( 'body-font-weight' );
 			$body_font_size      = astra_get_option( 'font-size-body' );
@@ -279,9 +279,9 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 
 			$ast_content_width = apply_filters( 'astra_block_content_width', '910px' );
 
-			$content_width_size = ( true === $improve_gb_ui ) ? $ast_content_width : '1200px';
-			$css                = ':root{ --wp--custom--ast-content-width-size: ' . $content_width_size . ' }';
-			$css                .= '.ast-narrow-container { --wp--custom--ast-content-width-size: ' . $ast_narrow_width . ' }';
+			$content_width_size             = ( true === $improve_gb_ui ) ? $ast_content_width : '1200px';
+			$css                            = ':root{ --wp--custom--ast-content-width-size: ' . $content_width_size . ' }';
+			$css                           .= '.ast-narrow-container { --wp--custom--ast-content-width-size: ' . $ast_narrow_width . ' }';
 			$astra_apply_content_background = astra_apply_content_background_fullwidth_layouts();
 
 			$desktop_css = array(

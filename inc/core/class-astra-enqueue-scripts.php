@@ -118,7 +118,7 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 				$editor_default_content_layout = astra_get_option( 'site-content-layout', 'full-width' );
 				$classes                      .= ' ast-default-layout-' . $editor_default_content_layout;
 			} else {
-				$classes                      .= ' ast-default-layout-' . $editor_default_content_layout;
+				$classes .= ' ast-default-layout-' . $editor_default_content_layout;
 			}
 
 			if ( 'content-boxed-container' == $content_layout ) {

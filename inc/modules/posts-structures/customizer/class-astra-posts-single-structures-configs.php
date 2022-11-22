@@ -33,7 +33,7 @@ class Astra_Posts_Single_Structures_Configs extends Astra_Customizer_Config_Base
 	 * @since x.x.x
 	 */
 	public function get_sidebar_context( $post_type ) {
-		if( ! in_array( $post_type, Astra_Posts_Structures_Configs::get_narrow_width_exculde_cpts() ) ) {
+		if ( ! in_array( $post_type, Astra_Posts_Structures_Configs::get_narrow_width_exculde_cpts() ) ) {
 			return array(
 				'relation' => 'AND',
 				Astra_Builder_Helper::$general_tab_config,
@@ -54,8 +54,8 @@ class Astra_Posts_Single_Structures_Configs extends Astra_Customizer_Config_Base
 						'operator' => '!=',
 						'value'    => 'narrow-container',
 					),
-				)
-				);
+				),
+			);
 		} else {
 			return Astra_Builder_Helper::$general_tab;
 		}
@@ -68,7 +68,7 @@ class Astra_Posts_Single_Structures_Configs extends Astra_Customizer_Config_Base
 	 * @since x.x.x
 	 */
 	public function get_content_layout_choices( $post_type ) {
-		if( ! in_array( $post_type, Astra_Posts_Structures_Configs::get_narrow_width_exculde_cpts() ) ) {
+		if ( ! in_array( $post_type, Astra_Posts_Structures_Configs::get_narrow_width_exculde_cpts() ) ) {
 			return array(
 				'default'                 => array(
 					'label' => __( 'Default', 'astra' ),
@@ -215,7 +215,7 @@ class Astra_Posts_Single_Structures_Configs extends Astra_Customizer_Config_Base
 			if ( 'product' === $post_type ) {
 				$parent_section = 'section-woo-shop-single';
 			} elseif ( 'post' === $post_type ) {
-				$parent_section             = 'section-blog-single';
+				$parent_section = 'section-blog-single';
 			} elseif ( 'page' === $post_type ) {
 				$parent_section = 'section-page-dynamic-group';
 			} elseif ( 'download' === $post_type ) {
@@ -629,14 +629,14 @@ class Astra_Posts_Single_Structures_Configs extends Astra_Customizer_Config_Base
 				 * Option: Featured Image Custom Banner BG.
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[' . $title_section . '-banner-background]',
-					'type'     => 'control',
-					'default'  => astra_get_option( $title_section . '-banner-background', Astra_Posts_Structure_Loader::get_customizer_default( 'responsive-background' ) ),
-					'section'  => $title_section,
-					'control'  => 'ast-responsive-background',
-					'title'    => __( 'Background', 'astra' ),
-					'transport'   => 'postMessage',
-					'context'  => array(
+					'name'      => ASTRA_THEME_SETTINGS . '[' . $title_section . '-banner-background]',
+					'type'      => 'control',
+					'default'   => astra_get_option( $title_section . '-banner-background', Astra_Posts_Structure_Loader::get_customizer_default( 'responsive-background' ) ),
+					'section'   => $title_section,
+					'control'   => 'ast-responsive-background',
+					'title'     => __( 'Background', 'astra' ),
+					'transport' => 'postMessage',
+					'context'   => array(
 						Astra_Builder_Helper::$design_tab_config,
 						'relation' => 'AND',
 						array(
@@ -650,7 +650,7 @@ class Astra_Posts_Single_Structures_Configs extends Astra_Customizer_Config_Base
 							'value'    => 'layout-2',
 						),
 					),
-					'priority' => 5,
+					'priority'  => 5,
 				),
 
 				/**
@@ -1139,17 +1139,17 @@ class Astra_Posts_Single_Structures_Configs extends Astra_Customizer_Config_Base
 					 * Option: Taxonomy Selection.
 					 */
 					$_configs[] = array(
-						'name'       => $title_section . '-taxonomy' . $control_suffix,
-						'parent'     => ASTRA_THEME_SETTINGS . '[' . $title_section . '-metadata]',
-						'default'    => astra_get_option( $title_section . '-taxonomy' . $control_suffix ),
-						'linked'     => $title_section . '-taxonomy' . $control_suffix,
-						'type'       => 'sub-control',
-						'control'    => 'ast-select',
-						'transport'  => 'refresh',
-						'section'    => $title_section,
-						'priority'   => 5,
-						'title'      => __( 'Select Taxonomy', 'astra' ),
-						'choices'    => $taxonomies,
+						'name'      => $title_section . '-taxonomy' . $control_suffix,
+						'parent'    => ASTRA_THEME_SETTINGS . '[' . $title_section . '-metadata]',
+						'default'   => astra_get_option( $title_section . '-taxonomy' . $control_suffix ),
+						'linked'    => $title_section . '-taxonomy' . $control_suffix,
+						'type'      => 'sub-control',
+						'control'   => 'ast-select',
+						'transport' => 'refresh',
+						'section'   => $title_section,
+						'priority'  => 5,
+						'title'     => __( 'Select Taxonomy', 'astra' ),
+						'choices'   => $taxonomies,
 					);
 				}
 			}

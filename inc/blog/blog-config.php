@@ -14,9 +14,8 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Prepare markup for taxonomies.
  *
  * @param string $control_tax Taxonomy subcontrol name.
- * @param int $loop_count Meta loop counter to decide separator appearance.
+ * @param int    $loop_count Meta loop counter to decide separator appearance.
  * @param string $separator Separator.
- *
  *
  * @return string $output Taxonomy output.
  */
@@ -38,7 +37,7 @@ function astra_get_dynamic_taxonomy( $control_tax, $loop_count, $separator ) {
 			$term_links[] = '<a href="' . esc_attr( get_term_link( $term->slug, $tax_type ) ) . '">' . __( $term->name ) . '</a>';
 		}
 
-		$all_terms = join( ', ', $term_links );
+		$all_terms  = join( ', ', $term_links );
 		$output_str = '<span class="ast-terms-link">' . __( $all_terms ) . '</span>';
 
 		return ( 1 != $loop_count ) ? ' ' . $separator . ' ' . $output_str : $output_str;

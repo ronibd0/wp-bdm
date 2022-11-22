@@ -3015,14 +3015,14 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$parse_css .= astra_narrow_container_width( $container_layout, $narrow_container_max_width );
 
 			$post_type = get_post_type();
-			if( is_singular() ) {
+			if ( is_singular() ) {
 				// Single layouts.
-				$single_container_layout    = astra_get_option( 'single-' . $post_type . '-content-layout', '' );
-				$parse_css .= astra_narrow_container_width( $single_container_layout, $narrow_container_max_width );
+				$single_container_layout = astra_get_option( 'single-' . $post_type . '-content-layout', '' );
+				$parse_css              .= astra_narrow_container_width( $single_container_layout, $narrow_container_max_width );
 			} else {
 				// Archive layouts.
-				$archive_container_layout   = astra_get_option( 'archive-' . $post_type . '-content-layout', '' );
-				$parse_css .= astra_narrow_container_width( $archive_container_layout, $narrow_container_max_width );
+				$archive_container_layout = astra_get_option( 'archive-' . $post_type . '-content-layout', '' );
+				$parse_css               .= astra_narrow_container_width( $archive_container_layout, $narrow_container_max_width );
 			}
 
 			// Page Meta.

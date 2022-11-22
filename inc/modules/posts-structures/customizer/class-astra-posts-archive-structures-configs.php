@@ -34,7 +34,7 @@ class Astra_Posts_Archive_Structures_Configs extends Astra_Customizer_Config_Bas
 	 * @since x.x.x
 	 */
 	public function get_sidebar_context( $post_type ) {
-		if( ! in_array( $post_type, Astra_Posts_Structures_Configs::get_narrow_width_exculde_cpts() ) ) {
+		if ( ! in_array( $post_type, Astra_Posts_Structures_Configs::get_narrow_width_exculde_cpts() ) ) {
 			return array(
 				'relation' => 'AND',
 				Astra_Builder_Helper::$general_tab_config,
@@ -55,8 +55,8 @@ class Astra_Posts_Archive_Structures_Configs extends Astra_Customizer_Config_Bas
 						'operator' => '!=',
 						'value'    => 'narrow-container',
 					),
-				)
-				);
+				),
+			);
 		} else {
 			return Astra_Builder_Helper::$general_tab;
 		}
@@ -69,7 +69,7 @@ class Astra_Posts_Archive_Structures_Configs extends Astra_Customizer_Config_Bas
 	 * @since x.x.x
 	 */
 	public function get_content_layout_choices( $post_type ) {
-		if( ! in_array( $post_type, Astra_Posts_Structures_Configs::get_narrow_width_exculde_cpts() ) ) {
+		if ( ! in_array( $post_type, Astra_Posts_Structures_Configs::get_narrow_width_exculde_cpts() ) ) {
 			return array(
 				'default'                 => array(
 					'label' => __( 'Default', 'astra' ),
@@ -230,7 +230,7 @@ class Astra_Posts_Archive_Structures_Configs extends Astra_Customizer_Config_Bas
 			/**
 			 * Archive sortable title control.
 			 */
-			$archive_structure_choices[$title_section . '-title'] = array(
+			$archive_structure_choices[ $title_section . '-title' ] = array(
 				'clone'       => false,
 				'is_parent'   => true,
 				'main_index'  => $title_section . '-title',
@@ -241,7 +241,7 @@ class Astra_Posts_Archive_Structures_Configs extends Astra_Customizer_Config_Bas
 			/**
 			 * Archive sortable title control.
 			 */
-			$archive_structure_choices[$title_section . '-description'] = array(
+			$archive_structure_choices[ $title_section . '-description' ] = array(
 				'clone'       => false,
 				'is_parent'   => true,
 				'main_index'  => $title_section . '-description',
@@ -389,7 +389,7 @@ class Astra_Posts_Archive_Structures_Configs extends Astra_Customizer_Config_Bas
 					'divider'           => ( 'post' !== $post_type ) ? array( 'ast_class' => 'ast-top-divider ast-bottom-spacing' ) : array( 'ast_class' => 'ast-bottom-spacing' ),
 					'choices'           => array_merge(
 						array(
-							$title_section . '-breadcrumb'  => __( 'Breadcrumb', 'astra' ),
+							$title_section . '-breadcrumb' => __( 'Breadcrumb', 'astra' ),
 						),
 						$archive_structure_choices
 					),
@@ -405,7 +405,7 @@ class Astra_Posts_Archive_Structures_Configs extends Astra_Customizer_Config_Bas
 					'linked'   => $title_section . '-title',
 					'type'     => 'sub-control',
 					'control'  => 'ast-text-input',
-					'settings'  => array(),
+					'settings' => array(),
 					'section'  => $title_section,
 					'priority' => 1,
 					'title'    => ( 'post' === $post_type ) ? __( 'Blog Title', 'astra' ) : __( 'Archive Title', 'astra' ),
@@ -430,18 +430,18 @@ class Astra_Posts_Archive_Structures_Configs extends Astra_Customizer_Config_Bas
 				 * Description support for archive.
 				 */
 				array(
-					'name'     => $title_section . '-custom-description',
-					'parent'   => ASTRA_THEME_SETTINGS . '[' . $title_section . '-structure]',
-					'default'  => astra_get_option( $title_section . '-custom-description', '' ),
-					'linked'   => $title_section . '-description',
-					'type'     => 'sub-control',
-					'control'  => 'ast-text-input',
-					'input_attrs'       => array(
-						'textarea'  => true,
+					'name'        => $title_section . '-custom-description',
+					'parent'      => ASTRA_THEME_SETTINGS . '[' . $title_section . '-structure]',
+					'default'     => astra_get_option( $title_section . '-custom-description', '' ),
+					'linked'      => $title_section . '-description',
+					'type'        => 'sub-control',
+					'control'     => 'ast-text-input',
+					'input_attrs' => array(
+						'textarea' => true,
 					),
-					'section'  => $title_section,
-					'priority' => 1,
-					'title'    => ( 'post' === $post_type ) ? __( 'Blog Description', 'astra' ) : __( 'Archive Description', 'astra' ),
+					'section'     => $title_section,
+					'priority'    => 1,
+					'title'       => ( 'post' === $post_type ) ? __( 'Blog Description', 'astra' ) : __( 'Archive Description', 'astra' ),
 				),
 
 				/**

@@ -25,7 +25,7 @@ if ( apply_filters( 'astra_display_single_layout1_header_banner', true ) ) { ?>
 					'class' => '',
 				)
 			);
-	?>
+			?>
 >
 
 	<?php astra_entry_content_before(); ?>
