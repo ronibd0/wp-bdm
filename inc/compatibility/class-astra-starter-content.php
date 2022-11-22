@@ -174,6 +174,7 @@ class Astra_Starter_Content {
 	 * Return starter content definition.
 	 *
 	 * @return mixed|void 
+	 * @since x.x.x
 	 */
 	public function get() {
 
