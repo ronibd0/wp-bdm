@@ -61,7 +61,7 @@ class Astra_Starter_Content {
 
 	/**
 	 * Register listener to insert post.
-	 *
+	 * @since x.x.x
 	 * @param int      $post_ID Post Id.
 	 * @param \WP_Post $post Post object.
 	 * @param bool     $update Is update.
