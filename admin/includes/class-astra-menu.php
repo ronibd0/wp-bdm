@@ -162,7 +162,10 @@ class Astra_Menu {
 		);
 
 		// Add Custom Layout submenu.
+		/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 		$show_custom_layout_submenu = ( defined( 'ASTRA_EXT_VER' ) && ! Astra_Ext_Extension::is_active( 'advanced-hooks' ) ) ? false : true;
+		/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+
 		if ( $show_custom_layout_submenu ) {
 			add_submenu_page(
 				self::$plugin_slug,
@@ -226,6 +229,10 @@ class Astra_Menu {
 
 		wp_enqueue_style( 'wp-components' );
 
+		/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+		$show_self_branding = defined( 'ASTRA_EXT_VER' ) && is_callable( 'Astra_Ext_White_Label_Markup::show_branding' ) ? Astra_Ext_White_Label_Markup::show_branding() : true;
+		/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+
 		$localize = array(
 			'current_user'                       => ! empty( wp_get_current_user()->user_firstname ) ? ucfirst( wp_get_current_user()->user_firstname ) : ucfirst( wp_get_current_user()->display_name ),
 			'admin_base_url'                     => admin_url(),
@@ -240,9 +247,7 @@ class Astra_Menu {
 			'quick_settings'                     => self::astra_get_quick_links(),
 			'ajax_url'                           => admin_url( 'admin-ajax.php' ),
 			'is_whitelabel'                      => astra_is_white_labelled(),
-			/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-			'show_self_branding'                 => defined( 'ASTRA_EXT_VER' ) && is_callable( 'Astra_Ext_White_Label_Markup::show_branding' ) ? Astra_Ext_White_Label_Markup::show_branding() : true,
-			/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+			'show_self_branding'                 => $show_self_branding,
 			'admin_url'                          => admin_url( 'admin.php' ),
 			'home_slug'                          => self::$plugin_slug,
 			'upgrade_url'                        => ASTRA_PRO_UPGRADE_URL,
@@ -333,7 +338,7 @@ class Astra_Menu {
 		/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 		$st_data = array(
 			'title'            => is_callable( 'Astra_Ext_White_Label_Markup::get_whitelabel_string' ) ? Astra_Ext_White_Label_Markup::get_whitelabel_string( 'astra-sites', 'name', __( 'Starter Templates', 'astra' ) ) : __( 'Starter Templates', 'astra' ),
-			'title'            => is_callable( 'Astra_Ext_White_Label_Markup::get_whitelabel_string' ) ? Astra_Ext_White_Label_Markup::get_whitelabel_string( 'astra-sites', 'description', __( 'Create professional designed pixel perfect websites in minutes. Get access to 280+ pre-made full website templates for your favorite page builder.', 'astra' ) ) : __( 'Create professional designed pixel perfect websites in minutes. Get access to 280+ pre-made full website templates for your favorite page builder.', 'astra' ),
+			'description'      => is_callable( 'Astra_Ext_White_Label_Markup::get_whitelabel_string' ) ? Astra_Ext_White_Label_Markup::get_whitelabel_string( 'astra-sites', 'description', __( 'Create professional designed pixel perfect websites in minutes. Get access to 280+ pre-made full website templates for your favorite page builder.', 'astra' ) ) : __( 'Create professional designed pixel perfect websites in minutes. Get access to 280+ pre-made full website templates for your favorite page builder.', 'astra' ),
 			'is_available'     => defined( 'ASTRA_PRO_SITES_VER' ) || defined( 'ASTRA_SITES_VER' ) ? true : false,
 			'redirection_link' => admin_url( 'themes.php?page=starter-templates' ),
 		);
@@ -677,11 +682,11 @@ class Astra_Menu {
 				array(
 					'title'    => __( 'Starter Templates', 'astra' ),
 					'subtitle' => __( '280+ Ready to Import Templates', 'astra' ),
-					/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+					// @codingStandardsIgnoreStart
 					'status'   => $st_plugin_data['status'],
 					'slug'     => $st_plugin_data['slug'],
 					'path'     => $st_plugin_data['path'],
-					/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+					// @codingStandardsIgnoreEnd
 					'logoPath' => array(
 						'internal_icon' => true,
 						'icon_path'     => 'starter-logo',

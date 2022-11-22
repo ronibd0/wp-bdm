@@ -209,21 +209,15 @@ class Astra_Admin_Ajax {
 		/** @psalm-suppress PossiblyInvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 		$sub_option_value  = '';
 
+		// @codingStandardsIgnoreStart
 		if ( isset( $get_bool_settings[ $sub_option_key ] ) ) {
 			if ( 'bool' === $get_bool_settings[ $sub_option_key ] ) {
-				/** @psalm-suppress PossiblyInvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-				/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 				$sub_option_value =  isset( $_POST['value'] ) && 'true' === sanitize_text_field( $_POST['value'] ) ? true : false;
-				/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-				/** @psalm-suppress PossiblyInvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			} else {
-				/** @psalm-suppress PossiblyInvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-				/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 				$sub_option_value = isset( $_POST['value'] ) ? sanitize_text_field( wp_unslash( $_POST['value'] ) ) : '';
-				/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-				/** @psalm-suppress PossiblyInvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			}
 		}
+		// @codingStandardsIgnoreEnd
 
 		Astra_API_Init::update_admin_settings_option( $sub_option_key, $sub_option_value );
 
@@ -294,14 +288,14 @@ class Astra_Admin_Ajax {
 		$activate = activate_plugin( $plugin_init, '', false, true );
 
 		if ( is_wp_error( $activate ) ) {
+			/** @psalm-suppress PossiblyNullReference */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			wp_send_json_error(
 				array(
 					'success' => false,
-					/** @psalm-suppress PossiblyNullReference */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 					'message' => $activate->get_error_message(),
-					/** @psalm-suppress PossiblyNullReference */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 				)
 			);
+			/** @psalm-suppress PossiblyNullReference */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 		}
 
 		wp_send_json_success(
