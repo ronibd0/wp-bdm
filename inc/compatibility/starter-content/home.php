@@ -156,7 +156,7 @@ $astra_default_home_content = '<!-- wp:cover {"minHeight":720,"minHeightUnit":"p
 
 <!-- wp:group {"align":"full","backgroundColor":"ast-global-color-4","layout":{"inherit":false,"contentSize":"800px","type":"constrained"}} -->
 <div class="wp-block-group alignfull has-ast-global-color-4-background-color has-background" id="reviews"><!-- wp:image {"align":"center","id":235,"sizeSlug":"full","linkDestination":"none"} -->
-<figure class="wp-block-image aligncenter size-full"><img src="' . trailingslashit( get_template_directory_uri() ) . 'inc/assets/images/starter-content/avatar.svg" alt="" class="wp-image-235"/></figure>
+<figure class="wp-block-image aligncenter size-full"><img src="' . trailingslashit( get_template_directory_uri() ) . 'inc/assets/images/starter-content/avatar.png" alt="" class="wp-image-235"/></figure>
 <!-- /wp:image -->
 
 <!-- wp:paragraph {"align":"center","style":{"typography":{"fontSize":"22px","lineHeight":1.6}}} -->
