@@ -1,7 +1,8 @@
 <?php
 /**
  * Home starter content.
- *
+ * 
+ * @since x.x.x
  * @package Astra\Compatibility\Starter_Content
  */
 
