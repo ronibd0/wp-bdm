@@ -779,41 +779,6 @@ class Astra_Menu {
 		);
 	}
 
-	/**
-	 * Get Theme Rollback versions.
-	 *
-	 * @since x.x.x
-	 * @param $product astra-theme / astra-addon
-	 * @return array
-	 * @access public
-	 */
-	public static function astra_get_rollback_versions( $product = 'astra-theme' ) {
-
-		$rollback_versions = Astra_Rollback_version::get_theme_all_versions();
-
-		if ( 'astra-addon' === $product ) {
-			$product_id        = bsf_extract_product_id( ASTRA_EXT_DIR );
-			$product_details   = get_brainstorm_product( $product_id );
-			$installed_version = isset( $product_details['version'] ) ? $product_details['version'] : '';
-			$product_versions  = BSF_Rollback_Version::bsf_get_product_versions( $product_id ); // Get Remote versions
-			// Show versions above than latest install version of the product.
-			$rollback_versions = BSF_Rollback_Version::sort_product_versions( $product_versions, $installed_version );
-		}
-
-		$rollback_versions_options = array();
-
-		foreach ( $rollback_versions as $version ) {
-
-			$version = array(
-				'label' => $version,
-				'value' => $version,
-			);
-
-			$rollback_versions_options[] = $version;
-		}
-
-		return $rollback_versions_options;
-	}
 
 	/**
 	 * Get Changelogs from API.
