@@ -1,5 +1,6 @@
 v4.0.1 (Unreleased)
-- New: Theme preview for wordpress.org
+- New: Added elegant starter-content theme support for wordpress.org preview & for fresh setup.
+- Improvement: Introduced new filter 'astra_global_color_palette' to extend default color palette settings.
 
 v4.0.0 (Unreleased)
 - Fix: Off-canvas - Full screen - Mobile Menu gets very long scroll when Elementor plugin is activated.
