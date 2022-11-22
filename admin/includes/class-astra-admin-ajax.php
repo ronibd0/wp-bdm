@@ -29,7 +29,7 @@ class Astra_Admin_Ajax {
 	 * Instance
 	 *
 	 * @access private
-	 * @var object Class object.
+	 * @var $instance
 	 * @since x.x.x
 	 */
 	private static $instance;
@@ -48,9 +48,9 @@ class Astra_Admin_Ajax {
 	}
 
 	/**
-	 * Erros class instance.
+	 * Errors class instance.
 	 *
-	 * @var object
+	 * @var array
 	 * @since x.x.x
 	 */
 	private $errors = array();
@@ -100,14 +100,14 @@ class Astra_Admin_Ajax {
 	 */
 	public function disable_astra_pro_notices() {
 
-		$response_data = array( 'messsage' => $this->get_error_msg( 'permission' ) );
+		$response_data = array( 'message' => $this->get_error_msg( 'permission' ) );
 
 		if ( ! current_user_can( 'manage_options' ) ) {
 			wp_send_json_error( $response_data );
 		}
 
 		if ( empty( $_POST ) ) {
-			$response_data = array( 'messsage' => $this->get_error_msg( 'invalid' ) );
+			$response_data = array( 'message' => $this->get_error_msg( 'invalid' ) );
 			wp_send_json_error( $response_data );
 		}
 
@@ -115,7 +115,7 @@ class Astra_Admin_Ajax {
 		 * Nonce verification.
 		 */
 		if ( ! check_ajax_referer( 'astra_update_admin_setting', 'security', false ) ) {
-			$response_data = array( 'messsage' => $this->get_error_msg( 'nonce' ) );
+			$response_data = array( 'message' => $this->get_error_msg( 'nonce' ) );
 			wp_send_json_error( $response_data );
 		}
 
@@ -136,14 +136,14 @@ class Astra_Admin_Ajax {
 	 */
 	public function migrate_to_builder() {
 
-		$response_data = array( 'messsage' => $this->get_error_msg( 'permission' ) );
+		$response_data = array( 'message' => $this->get_error_msg( 'permission' ) );
 
 		if ( ! current_user_can( 'manage_options' ) ) {
 			wp_send_json_error( $response_data );
 		}
 
 		if ( empty( $_POST ) ) {
-			$response_data = array( 'messsage' => $this->get_error_msg( 'invalid' ) );
+			$response_data = array( 'message' => $this->get_error_msg( 'invalid' ) );
 			wp_send_json_error( $response_data );
 		}
 
@@ -151,7 +151,7 @@ class Astra_Admin_Ajax {
 		 * Nonce verification.
 		 */
 		if ( ! check_ajax_referer( 'astra_update_admin_setting', 'security', false ) ) {
-			$response_data = array( 'messsage' => $this->get_error_msg( 'nonce' ) );
+			$response_data = array( 'message' => $this->get_error_msg( 'nonce' ) );
 			wp_send_json_error( $response_data );
 		}
 
@@ -177,14 +177,14 @@ class Astra_Admin_Ajax {
 	 */
 	public function astra_update_admin_setting() {
 
-		$response_data = array( 'messsage' => $this->get_error_msg( 'permission' ) );
+		$response_data = array( 'message' => $this->get_error_msg( 'permission' ) );
 
 		if ( ! current_user_can( 'manage_options' ) ) {
 			wp_send_json_error( $response_data );
 		}
 
 		if ( empty( $_POST ) ) {
-			$response_data = array( 'messsage' => $this->get_error_msg( 'invalid' ) );
+			$response_data = array( 'message' => $this->get_error_msg( 'invalid' ) );
 			wp_send_json_error( $response_data );
 		}
 
@@ -192,7 +192,7 @@ class Astra_Admin_Ajax {
 		 * Nonce verification.
 		 */
 		if ( ! check_ajax_referer( 'astra_update_admin_setting', 'security', false ) ) {
-			$response_data = array( 'messsage' => $this->get_error_msg( 'nonce' ) );
+			$response_data = array( 'message' => $this->get_error_msg( 'nonce' ) );
 			wp_send_json_error( $response_data );
 		}
 
@@ -211,7 +211,7 @@ class Astra_Admin_Ajax {
 		Astra_API_Init::update_admin_settings_option( $sub_option_key, $sub_option_value );
 
 		$response_data = array(
-			'messsage' => __( 'Successfully saved data!', 'astra' ),
+			'message' => __( 'Successfully saved data!', 'astra' ),
 		);
 
 		wp_send_json_success( $response_data );
@@ -240,14 +240,14 @@ class Astra_Admin_Ajax {
 	 */
 	public function required_plugin_activate() {
 
-		$response_data = array( 'messsage' => $this->get_error_msg( 'permission' ) );
+		$response_data = array( 'message' => $this->get_error_msg( 'permission' ) );
 
 		if ( ! current_user_can( 'manage_options' ) ) {
 			wp_send_json_error( $response_data );
 		}
 
 		if ( empty( $_POST ) ) {
-			$response_data = array( 'messsage' => $this->get_error_msg( 'invalid' ) );
+			$response_data = array( 'message' => $this->get_error_msg( 'invalid' ) );
 			wp_send_json_error( $response_data );
 		}
 
@@ -255,7 +255,7 @@ class Astra_Admin_Ajax {
 		 * Nonce verification.
 		 */
 		if ( ! check_ajax_referer( 'astra_plugin_manager_nonce', 'security', false ) ) {
-			$response_data = array( 'messsage' => $this->get_error_msg( 'nonce' ) );
+			$response_data = array( 'message' => $this->get_error_msg( 'nonce' ) );
 			wp_send_json_error( $response_data );
 		}
 
@@ -296,14 +296,14 @@ class Astra_Admin_Ajax {
 	 */
 	public function required_plugin_deactivate() {
 
-		$response_data = array( 'messsage' => $this->get_error_msg( 'permission' ) );
+		$response_data = array( 'message' => $this->get_error_msg( 'permission' ) );
 
 		if ( ! current_user_can( 'manage_options' ) ) {
 			wp_send_json_error( $response_data );
 		}
 
 		if ( empty( $_POST ) ) {
-			$response_data = array( 'messsage' => $this->get_error_msg( 'invalid' ) );
+			$response_data = array( 'message' => $this->get_error_msg( 'invalid' ) );
 			wp_send_json_error( $response_data );
 		}
 
@@ -311,7 +311,7 @@ class Astra_Admin_Ajax {
 		 * Nonce verification.
 		 */
 		if ( ! check_ajax_referer( 'astra_plugin_manager_nonce', 'security', false ) ) {
-			$response_data = array( 'messsage' => $this->get_error_msg( 'nonce' ) );
+			$response_data = array( 'message' => $this->get_error_msg( 'nonce' ) );
 			wp_send_json_error( $response_data );
 		}
 
@@ -326,7 +326,7 @@ class Astra_Admin_Ajax {
 
 		$plugin_init = ( isset( $_POST['init'] ) ) ? sanitize_text_field( wp_unslash( $_POST['init'] ) ) : '';
 
-		$deactivate = deactivate_plugins( $plugin_init, '', false );
+		$deactivate = deactivate_plugins( $plugin_init, false, false );
 
 		if ( is_wp_error( $deactivate ) ) {
 			wp_send_json_error(

@@ -16,7 +16,7 @@ class Astra_Menu {
 	 * Instance
 	 *
 	 * @access private
-	 * @var object Class object.
+	 * @var $instance
 	 * @since x.x.x
 	 */
 	private static $instance;
@@ -37,7 +37,7 @@ class Astra_Menu {
 	/**
 	 * Page title
 	 *
-	 * @since 1.0
+	 * @since x.x.x
 	 * @var string $page_title
 	 */
 	public static $page_title = 'Astra';
@@ -45,8 +45,8 @@ class Astra_Menu {
 	/**
 	 * Plugin slug
 	 *
-	 * @since 1.0
-	 * @var array $plugin_slug
+	 * @since x.x.x
+	 * @var string $plugin_slug
 	 */
 	public static $plugin_slug = 'astra';
 

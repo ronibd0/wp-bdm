@@ -3,6 +3,7 @@ import { Transition } from '@headlessui/react';
 import { CheckCircleIcon } from '@heroicons/react/outline'
 import { XIcon } from '@heroicons/react/solid'
 import { useSelector, useDispatch } from 'react-redux';
+import { __ } from '@wordpress/i18n';
 
 export default function SettingsSavedNotification() {
 
@@ -50,7 +51,7 @@ export default function SettingsSavedNotification() {
 												dispatch( {type: 'UPDATE_SETTINGS_SAVED_NOTIFICATION', payload: '' } );
 											}}
 										>
-											<span className="sr-only">Close</span>
+											<span className="sr-only"> { __( 'Close ', 'astra' ) } </span>
 											<XIcon className="h-5 w-5" aria-hidden="true" />
 										</button>
 									</div>

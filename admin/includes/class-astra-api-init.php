@@ -21,7 +21,7 @@ class Astra_API_Init extends WP_REST_Controller {
 	 * Instance
 	 *
 	 * @access private
-	 * @var object Class object.
+	 * @var $instance
 	 * @since x.x.x
 	 */
 	private static $instance;
