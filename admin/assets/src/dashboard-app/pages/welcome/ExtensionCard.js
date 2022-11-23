@@ -40,13 +40,21 @@ const ExtensionCard = ( props ) => {
 		}
 	}
 
+	function getWrapperClass( condition, addon ) {
+		if( condition || 'white-label' === addon ) {
+			return 'ast-addon-active';
+		} else {
+			return 'ast-addon-inactive';
+		}
+	}
+
 	return (
 		<div
 			key={slug}
 			className={ classNames(
 				! astra_admin.pro_available || ! condition
 				? classNames( ! astra_admin.pro_available ? 'group' : '', 'bg-slate-50' )
-				: `bg-white ${moduleActivationStatus ? 'ast-addon-active' : 'ast-addon-inactive'} `,
+				: `bg-white ${getWrapperClass( moduleActivationStatus, slug )} `,
 				'box-border relative border rounded-md h-20 z-0 px-4 py-3 flex items-start gap-x-4 snap-start hover:shadow-md transition astra-icon-transition'
 			) }
 		>
