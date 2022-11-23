@@ -9,7 +9,7 @@
  * @since       Astra x.x.x
  */
 
-if ( apply_filters( 'astra_display_single_layout1_header_banner', true ) ) { ?>
+if ( apply_filters( 'astra_single_layout_one_banner_visibility', true ) ) { ?>
 
 	<header class="entry-header <?php astra_entry_header_class(); ?>">
 		<?php astra_banner_elements_order(); ?>

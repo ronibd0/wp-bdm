@@ -78,7 +78,7 @@ class Astra_Posts_Strctures_Markup {
 		// If banner title section is disabled then halt further processing.
 		if ( 'single' === $type ) {
 			if ( false === astra_get_option( 'ast-single-' . $post_type . '-title', true ) ) {
-				add_filter( 'astra_display_single_layout1_header_banner', '__return_false' );
+				add_filter( 'astra_single_layout_one_banner_visibility', '__return_false' );
 				return;
 			}
 		} else {
@@ -102,7 +102,7 @@ class Astra_Posts_Strctures_Markup {
 			do_action( 'astra_after_single_' . $post_type . '_banner_content' );
 
 			add_filter( 'astra_remove_entry_header_content', '__return_true' );
-			add_filter( 'astra_display_single_layout1_header_banner', '__return_false' );
+			add_filter( 'astra_single_layout_one_banner_visibility', '__return_false' );
 		} elseif ( ( is_front_page() && is_home() ) || ( is_home() ) ) {
 			if ( true === astra_get_option( 'ast-dynamic-archive-post-banner-on-blog', false ) ) {
 				// For latest posts page.
