@@ -42,6 +42,7 @@ const BulkExtensionController = () => {
 					method: 'POST',
 					body: reFormData,
 				} ).then( ( data ) => {
+					location.reload();
 					// Do nothing.
 				} );
 			}
@@ -82,6 +83,7 @@ const BulkExtensionController = () => {
 					method: 'POST',
 					body: reFormData,
 				} ).then( ( data ) => {
+					location.reload();
 					// Do nothing.
 				} );
 			}
