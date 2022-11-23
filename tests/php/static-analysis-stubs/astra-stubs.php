@@ -455,7 +455,7 @@ namespace {
          * @return array
          * @access public
          */
-        public static function astra_get_integrations_status()
+        public static function astra_get_integrations()
         {
         }
         /**
