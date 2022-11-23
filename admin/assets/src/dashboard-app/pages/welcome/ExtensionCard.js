@@ -141,7 +141,7 @@ const ExtensionCard = ( props ) => {
 										body: formData,
 									} ).then( ( data ) => {
 										if ( data.success ) {
-											dispatch( {type: 'UPDATE_SETTINGS_SAVED_NOTIFICATION', payload: __( 'Successfully saved!' ) } );
+											dispatch( {type: 'UPDATE_SETTINGS_SAVED_NOTIFICATION', payload: __( 'Successfully saved!', 'astra' ) } );
 
 											const reFormData = new window.FormData();
 
