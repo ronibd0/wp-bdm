@@ -131,7 +131,7 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 			} elseif ( 'plain-container' == $content_layout ) {
 				$classes .= ' ast-plain-container';
 			} elseif ( 'narrow-container' == $content_layout ) {
-				$classes .= 'ast-narrow-container';
+				$classes .= ' ast-narrow-container';
 			}
 
 			$site_layout = astra_get_option( 'site-layout' );
