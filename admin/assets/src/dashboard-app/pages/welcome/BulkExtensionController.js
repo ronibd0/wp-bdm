@@ -43,6 +43,7 @@ const BulkExtensionController = () => {
 					body: reFormData,
 				} ).then( ( data ) => {
 					dispatch( {type: 'UPDATE_SETTINGS_SAVED_NOTIFICATION', payload: __( 'Cache Cleared!', 'astra' ) } );
+					location.reload();
 				} );
 			}
 		} );
@@ -83,6 +84,7 @@ const BulkExtensionController = () => {
 					body: reFormData,
 				} ).then( ( data ) => {
 					dispatch( {type: 'UPDATE_SETTINGS_SAVED_NOTIFICATION', payload: __( 'Cache Cleared!', 'astra' ) } );
+					location.reload();
 				} );
 			}
 		} );

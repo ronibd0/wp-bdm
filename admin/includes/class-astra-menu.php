@@ -608,7 +608,7 @@ class Astra_Menu {
 				'woocommerce'           => array(
 					'title'     => __( 'WooCommerce', 'astra' ),
 					'class'     => 'ast-addon',
-					'condition' => class_exists( 'WooCommerce' ) ? true : false,
+					'condition' => defined( 'ASTRA_EXT_VER' ) && class_exists( 'WooCommerce' ) ? true : false,
 					'title_url' => astra_get_pro_url( 'https://wpastra.com/docs/woocommerce-module-overview/', 'welcome_page', 'features', 'astra_theme' ),
 					'links'     => array(
 						array(
@@ -622,7 +622,7 @@ class Astra_Menu {
 				'edd'                   => array(
 					'title'     => __( 'Easy Digital Downloads', 'astra' ),
 					'class'     => 'ast-addon',
-					'condition' => class_exists( 'Easy_Digital_Downloads' ) ? true : false,
+					'condition' => defined( 'ASTRA_EXT_VER' ) && class_exists( 'Easy_Digital_Downloads' ) ? true : false,
 					'title_url' => astra_get_pro_url( 'https://wpastra.com/docs/easy-digital-downloads-module-overview/', 'welcome_page', 'features', 'astra_theme' ),
 					'links'     => array(
 						array(
@@ -635,7 +635,7 @@ class Astra_Menu {
 				),
 				'learndash'             => array(
 					'title'       => __( 'LearnDash', 'astra' ),
-					'condition'   => class_exists( 'SFWD_LMS' ) ? true : false,
+					'condition'   => defined( 'ASTRA_EXT_VER' ) && class_exists( 'SFWD_LMS' ) ? true : false,
 					'description' => __( 'Supercharge your LearnDash website with amazing design features.', 'astra' ),
 					'class'       => 'ast-addon',
 					'title_url'   => astra_get_pro_url( 'https://wpastra.com/docs/learndash-integration-in-astra-pro/', 'welcome_page', 'features', 'astra_theme' ),
@@ -651,7 +651,7 @@ class Astra_Menu {
 				'lifterlms'             => array(
 					'title'     => __( 'LifterLMS', 'astra' ),
 					'class'     => 'ast-addon',
-					'condition' => class_exists( 'LifterLMS' ) ? true : false,
+					'condition' => defined( 'ASTRA_EXT_VER' ) && class_exists( 'LifterLMS' ) ? true : false,
 					'title_url' => astra_get_pro_url( 'https://wpastra.com/docs/lifterlms-module-pro/', 'welcome_page', 'features', 'astra_theme' ),
 					'links'     => array(
 						array(

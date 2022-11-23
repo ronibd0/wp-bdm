@@ -25,7 +25,7 @@ const ExtensionCard = ( props ) => {
 	const moduleActivationStatus = ( blocksStatuses && undefined !== blocksStatuses[slug] && slug == blocksStatuses[slug] ) ? true : false;
 
 	function getAddonTitleColorClass( condition ) {
-		if( condition ) {
+		if( condition || ! astra_admin.pro_available ) {
 			return 'text-slate-800';
 		} else {
 			return 'text-[#475569]';
@@ -33,7 +33,7 @@ const ExtensionCard = ( props ) => {
 	}
 
 	function getAddonLinksColorClass( condition, classes ) {
-		if( condition ) {
+		if( condition || ! astra_admin.pro_available ) {
 			return classes;
 		} else {
 			return 'text-[#CBD5E1] ' + classes;
