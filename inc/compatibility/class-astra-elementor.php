@@ -92,7 +92,7 @@ if ( ! class_exists( 'Astra_Elementor' ) ) :
 					'.elementor-widget-heading .elementor-heading-title' => array(
 						'margin' => '0',
 					),
-					'.elementor-page #ast-mobile-header button.ast-menu-toggle' => array(
+					'.elementor-page .ast-menu-toggle' => array(
 						'color' => 'unset !important',
 						'background' => 'unset !important',
 					),
