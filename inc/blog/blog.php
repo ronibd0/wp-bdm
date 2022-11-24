@@ -385,7 +385,7 @@ if ( ! function_exists( 'astra_get_video_from_post' ) ) {
  * @param string $string from this get last word.
  * @return string $last_word result.
  */
-function ast_get_last_meta_word( $string ) {
+function astra_get_last_meta_word( $string ) {
 	$string    = explode( '-', $string );
 	$last_word = array_pop( $string );
 	return $last_word;
@@ -428,7 +428,7 @@ function astra_banner_elements_order( $structure = array() ) {
 	}
 
 	foreach ( $structure as $metaval ) {
-		$meta_key = $prefix . '-' . ast_get_last_meta_word( $metaval );
+		$meta_key = $prefix . '-' . astra_get_last_meta_word( $metaval );
 		switch ( $meta_key ) {
 			case 'single-breadcrumb':
 				do_action( 'astra_single_post_banner_breadcrumb_before' );

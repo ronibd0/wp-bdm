@@ -3014,7 +3014,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			// Global.
 			$parse_css .= astra_narrow_container_width( $container_layout, $narrow_container_max_width );
 
-			$post_type = get_post_type();
+			$post_type = strval( get_post_type() );
 			if ( is_singular() ) {
 				// Single layouts.
 				$single_container_layout = astra_get_option( 'single-' . $post_type . '-content-layout', '' );

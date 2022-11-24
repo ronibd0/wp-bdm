@@ -835,10 +835,13 @@ if ( ! function_exists( 'astra_the_title' ) ) {
 	function astra_the_title( $before = '', $after = '', $post_id = 0, $echo = true ) {
 
 		$title             = '';
-		$blog_post_title   = astra_get_option( 'ast-archive-post-structure', array( 'ast-archive-post-title', 'ast-archive-post-description' ) );
-		$single_post_title = astra_get_option( 'ast-single-post-structure', array( 'ast-dynamic-single-post-title', 'ast-dynamic-single-post-breadcrumb' ) );
+		$post_type         = strval( get_post_type() );
+		$blog_post_title   = astra_get_option( 'ast-dynamic-archive-' . $post_type . '-structure', array( 'ast-dynamic-archive-' . $post_type . '-title', 'ast-dynamic-archive-' . $post_type . '-description' ) );
+		$single_post_title = astra_get_option( 'ast-dynamic-single-' . $post_type . '-structure', 'page' === $post_type ? array( 'ast-dynamic-single-' . $post_type . '-image', 'ast-dynamic-single-' . $post_type . '-title' ) : array( 'ast-dynamic-single-' . $post_type . '-title', 'ast-dynamic-single-' . $post_type . '-meta' ) );
 
-		if ( ( ! is_singular() && in_array( 'title-meta', $blog_post_title ) ) || ( is_single() && ( in_array( 'ast-dynamic-single-post-title', $single_post_title ) || in_array( 'ast-dynamic-single-post-meta', $single_post_title ) ) ) || is_page() ) {
+		if ( ( ! is_singular() && ( in_array( 'ast-dynamic-archive-' . $post_type . '-title', $blog_post_title ) || in_array( 'ast-dynamic-archive-' . $post_type . '-meta', $blog_post_title ) ) )
+			|| ( is_singular() && ( in_array( 'ast-dynamic-single-' . $post_type . '-title', $single_post_title ) || in_array( 'ast-dynamic-single-' . $post_type . '-meta', $single_post_title ) ) )
+		) {
 			if ( apply_filters( 'astra_the_title_enabled', true ) ) {
 
 				$title  = astra_get_the_title( $post_id );
@@ -940,7 +943,7 @@ function astra_get_taxonomy_banner_legacy_layout() {
 				$post_type        = strval( get_post_type() );
 				$banner_structure = astra_get_option( 'ast-dynamic-archive-' . $post_type . '-structure', array( 'ast-dynamic-archive-' . $post_type . '-title', 'ast-dynamic-archive-' . $post_type . '-description' ) );
 			foreach ( $banner_structure as $metaval ) {
-				$meta_key = 'archive-' . ast_get_last_meta_word( $metaval );
+				$meta_key = 'archive-' . astra_get_last_meta_word( $metaval );
 				switch ( $meta_key ) {
 					case 'archive-title':
 						do_action( 'astra_before_archive_title' );

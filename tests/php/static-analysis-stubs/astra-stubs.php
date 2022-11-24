@@ -12867,7 +12867,7 @@ namespace {
      * @param string $string from this get last word.
      * @return string $last_word result.
      */
-    function ast_get_last_meta_word($string)
+    function astra_get_last_meta_word($string)
     {
     }
     /**

@@ -37,10 +37,9 @@ if ( ! function_exists( 'astra_page_layout' ) ) {
 
 				$post_type = get_post_type();
 
+				if ( in_array( $post_type, $supported_post_types ) ) {
 
-				if ( 'post' === $post_type || 'page' === $post_type || 'product' === $post_type || in_array( $post_type, $supported_post_types ) ) {
-
-					$layout = astra_get_option( 'single-' . get_post_type() . '-sidebar-layout' );
+					$layout = astra_get_option( 'single-' . $post_type . '-sidebar-layout' );
 				}
 
 				if ( 'default' == $layout || empty( $layout ) ) {
@@ -68,8 +67,8 @@ if ( ! function_exists( 'astra_page_layout' ) ) {
 				$post_type = get_post_type();
 				$layout    = '';
 
-				if ( 'post' === $post_type || in_array( $post_type, $supported_post_types ) ) {
-					$layout = astra_get_option( 'archive-' . get_post_type() . '-sidebar-layout' );
+				if ( in_array( $post_type, $supported_post_types ) ) {
+					$layout = astra_get_option( 'archive-' . $post_type . '-sidebar-layout' );
 				}
 
 				if ( 'default' == $layout || empty( $layout ) ) {
