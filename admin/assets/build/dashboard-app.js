@@ -7175,7 +7175,7 @@ const classNames = function () {
 const QuickSettings = () => {
   const allQuickLinks = astra_admin.quick_settings;
   const onQuickSettingTrigger = sectionLink => {
-    window.open(sectionLink, '_self');
+    window.open(sectionLink, '_blank');
   };
   const renderQuickLinks = Object.entries(allQuickLinks).map(_ref => {
     let [index, block] = _ref;
@@ -7191,7 +7191,8 @@ const QuickSettings = () => {
     }, block.title), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
       className: classNames(block.isPro ? 'pointer-events-none' : '', 'focus:text-slate-400 text-slate-400 text-base truncate leading-7 focus:text-slate-400 focus-visible:text-slate-400-hover active:text-astra-hover group-hover:text-astra-hover'),
       href: block.quick_url,
-      rel: "noreferrer"
+      rel: "noreferrer",
+      target: "_blank"
     }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Customize', 'astra'))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
       className: "relative inline-flex flex-shrink-0 py-0.5 px-1 text-[0.625rem] leading-[0.7rem] text-gray-50 rounded-[0.1875rem] group-hover:text-slate-300"
     }, _Common_block_icons__WEBPACK_IMPORTED_MODULE_2__["default"].customize));
