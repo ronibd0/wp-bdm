@@ -8,8 +8,7 @@
  * @since x.x.x
  */
 
-global $post;
-$post_type      = $post->post_type;
+$post_type      = strval( get_post_type() );
 $banner_control = 'ast-dynamic-archive-' . esc_attr( $post_type );
 // Conditionally updating data section & class.
 $attr = 'class="ast-archive-entry-banner"';

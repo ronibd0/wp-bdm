@@ -235,14 +235,14 @@ class Astra_Posts_Structure_Loader {
 	 * @since x.x.x
 	 */
 	public function preview_scripts() {
-		/**
-		 * Load unminified if SCRIPT_DEBUG is true.
-		 * Directory and Extension.
-		 */
 		/** @psalm-suppress RedundantCondition */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 		$dir_name    = ( SCRIPT_DEBUG ) ? 'unminified' : 'minified';
+		/** @psalm-suppress RedundantCondition */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+
+		/** @psalm-suppress RedundantCondition */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 		$file_prefix = ( SCRIPT_DEBUG ) ? '' : '.min';
 		/** @psalm-suppress RedundantCondition */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+
 		wp_enqueue_script( 'astra-post-strctures-customizer-preview', ASTRA_THEME_POST_STRUCTURE_URI . 'assets/js/' . $dir_name . '/customizer-preview' . $file_prefix . '.js', array( 'customize-preview', 'astra-customizer-preview-js' ), ASTRA_THEME_VERSION, true );
 
 		// Localize variables for further JS.

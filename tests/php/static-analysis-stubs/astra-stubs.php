@@ -11545,12 +11545,11 @@ namespace {
          *
          * @param string $parent_section Section of dynamic customizer.
          * @param string $post_type Post Type.
-         * @param object $post_type_object Object of Derived Post Type.
          * @since x.x.x
          *
          * @return array Customizer Configurations.
          */
-        public function get_layout_configuration($parent_section, $post_type, $post_type_object)
+        public function get_layout_configuration($parent_section, $post_type)
         {
         }
         /**
@@ -11597,12 +11596,11 @@ namespace {
          *
          * @param string $parent_section Section of dynamic customizer.
          * @param string $post_type Post Type.
-         * @param object $post_type_object Object of Derived Post Type.
          * @since x.x.x
          *
          * @return array Customizer Configurations.
          */
-        public function get_layout_configuration($parent_section, $post_type, $post_type_object)
+        public function get_layout_configuration($parent_section, $post_type)
         {
         }
         /**

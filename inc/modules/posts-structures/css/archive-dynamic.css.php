@@ -191,7 +191,9 @@ function astra_post_archive_strcture_dynamic_css( $dynamic_css, $dynamic_css_fil
 					$css_output_tablet[ 'body.archive ' . $selector ]  = astra_get_responsive_background_obj( $custom_background, 'tablet' );
 					$css_output_mobile[ 'body.archive ' . $selector ]  = astra_get_responsive_background_obj( $custom_background, 'mobile' );
 				} else {
+					/** @psalm-suppress RedundantCondition */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 					global $wp_query;
+					/** @psalm-suppress RedundantCondition */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 					$overlay_color = astra_get_option( 'ast-dynamic-archive-' . $current_post_type . '-banner-featured-overlay', '' );
 					$taxonomy      = $wp_query->get_queried_object();
 					if ( is_callable( 'is_shop' ) && is_shop() && '' !== $overlay_color ) {
@@ -332,7 +334,9 @@ function astra_post_archive_strcture_dynamic_css( $dynamic_css, $dynamic_css_fil
 					$css_output_tablet[ $selector . '[data-banner-background-type="custom"]' ]  = astra_get_responsive_background_obj( $custom_background, 'tablet' );
 					$css_output_mobile[ $selector . '[data-banner-background-type="custom"]' ]  = astra_get_responsive_background_obj( $custom_background, 'mobile' );
 				} else {
+					/** @psalm-suppress RedundantCondition */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 					global $wp_query;
+					/** @psalm-suppress RedundantCondition */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 					$overlay_color = astra_get_option( 'ast-dynamic-archive-' . $current_post_type . '-banner-featured-overlay', '' );
 					$taxonomy      = $wp_query->get_queried_object();
 					if ( is_callable( 'is_shop' ) && is_shop() && '' !== $overlay_color ) {

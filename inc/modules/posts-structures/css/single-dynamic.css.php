@@ -331,7 +331,9 @@ function astra_post_single_structure_dynamic_css( $dynamic_css, $dynamic_css_fil
 		}
 
 		if ( $use_featured_background ) {
-			$feat_image_src = wp_get_attachment_url( get_post_thumbnail_id( get_the_ID() ) );
+			/** @psalm-suppress PossiblyFalseArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+			$feat_image_src = wp_get_attachment_url( get_post_thumbnail_id( astra_get_post_id() ) );
+			/** @psalm-suppress PossiblyFalseArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			if ( $feat_image_src ) {
 				$css_output_desktop[ $selector . '[data-banner-background-type="featured"]' ] = array(
 					'background'            => 'url( ' . esc_url( $feat_image_src ) . ' )',

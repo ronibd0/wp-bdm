@@ -128,12 +128,11 @@ class Astra_Posts_Single_Structures_Configs extends Astra_Customizer_Config_Base
 	 *
 	 * @param string $parent_section Section of dynamic customizer.
 	 * @param string $post_type Post Type.
-	 * @param object $post_type_object Object of Derived Post Type.
 	 * @since x.x.x
 	 *
 	 * @return array Customizer Configurations.
 	 */
-	public function get_layout_configuration( $parent_section, $post_type, $post_type_object ) {
+	public function get_layout_configuration( $parent_section, $post_type ) {
 		return array(
 			array(
 				'name'              => ASTRA_THEME_SETTINGS . '[single-' . $post_type . '-content-layout]',
@@ -228,7 +227,9 @@ class Astra_Posts_Single_Structures_Configs extends Astra_Customizer_Config_Base
 
 			$taxonomy_meta = array();
 			$clone_limit = 0;
+			/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			if ( count( $taxonomies ) > 1 ) {
+				/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 				$clone_limit = 3;
 				$to_clone    = true;
 				if ( absint( astra_get_option( $title_section . '-taxonomy-clone-tracker', 1 ) ) === $clone_limit ) {
@@ -270,7 +271,7 @@ class Astra_Posts_Single_Structures_Configs extends Astra_Customizer_Config_Base
 				'title'       => __( 'Featured Image', 'astra' ),
 			);
 
-			$configurations = array_merge( $configurations, $this->get_layout_configuration( $parent_section, $post_type, $post_type_object ) );
+			$configurations = array_merge( $configurations, $this->get_layout_configuration( $parent_section, $post_type ) );
 
 			$_configs = array(
 
@@ -1133,7 +1134,9 @@ class Astra_Posts_Single_Structures_Configs extends Astra_Customizer_Config_Base
 				),
 			);
 
+			/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			if ( count( $taxonomies ) > 1 ) {
+				/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 				for ( $index = 1; $index <= $clone_limit; $index++ ) {
 
 					$control_suffix = ( 1 === $index ) ? '' : '-' . ( $index - 1 );
