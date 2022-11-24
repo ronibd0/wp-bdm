@@ -94,15 +94,15 @@ export default function MainNav() {
 							<div className="text-sm font-medium leading-6 text-slate-600 mr-3 tablet:mr-2">
 								<DocsPopup />
 							</div>
-							<div className="flex items-center text-[0.625rem] sm:text-sm font-medium leading-[1.375rem] text-slate-400 mr-1 sm:mr-4 divide-x divide-slate-200 gap-3 pl-1 sm:pl-3">
+							<div className="flex items-center text-[0.625rem] sm:text-sm font-medium leading-[1.375rem] text-slate-400 mr-1 sm:mr-3 divide-x divide-slate-200 gap-3 pl-1 sm:pl-3">
 								<div className="flex items-center">
 									<span>{astra_admin.version}</span>
-									<span className="ml-1 sm:ml-2 text-[0.625rem] leading-[0.625rem] border border-slate-400 rounded-[0.1875rem] relative inline-flex flex-shrink-0 py-0.5 px-1">CORE</span>
+									<span className="ml-1 sm:ml-2 text-[0.625rem] leading-[0.7rem] border border-slate-400 rounded-[0.1875rem] relative inline-flex flex-shrink-0 py-0.5 px-1"> { __( 'CORE', 'astra' ) } </span>
 								</div>
 								{ astra_admin.pro_available && (
 									<div className="flex items-center pl-3">
 										<span>{astra_admin.plugin_ver}</span>
-										<span className="ml-1 sm:ml-2 text-[0.625rem] leading-[0.625rem] text-white border border-slate-800 bg-slate-800 rounded-[0.1875rem] relative inline-flex flex-shrink-0 py-0.5 px-1">PRO</span>
+										<span className="ml-1 sm:ml-2 text-[0.625rem] leading-[0.7rem] text-white border border-slate-800 bg-slate-800 rounded-[0.1875rem] relative inline-flex flex-shrink-0 py-0.5 px-1"> {  __( 'PRO', 'astra' ) } </span>
 									</div>
 								)}
 								{wp.hooks.applyFilters(
