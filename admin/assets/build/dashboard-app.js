@@ -9008,7 +9008,7 @@ const StarterTemplates = () => {
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "w-full blur-md opacity-40"
   }, _Common_block_icons__WEBPACK_IMPORTED_MODULE_2__["default"]["starter-canvas"]), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "max-w-[39rem] h-max bg-white m-auto shadow-overlay-modal text-center rounded-lg p-8 absolute inset-0"
+    className: "max-w-[39rem] h-max bg-white m-auto shadow-overlay-modal text-center rounded-lg p-8 absolute inset-3 top-20 sm:top-0 sm:inset-0"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "mx-auto flex items-center justify-center"
   }, _Common_block_icons__WEBPACK_IMPORTED_MODULE_2__["default"]["starter-logo"]), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
