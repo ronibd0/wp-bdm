@@ -6414,7 +6414,7 @@ const ChangeLogPopup = () => {
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_1__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
     onClick: () => setOpen(true),
     title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("What's New?", "astra"),
-    className: "w-10 h-10 flex items-center whitespace-nowrap justify-center cursor-pointer rounded-full border border-slate-200"
+    className: "w-8 sm:w-10 h-8 sm:h-10 flex items-center whitespace-nowrap justify-center cursor-pointer rounded-full border border-slate-200"
   }, _Common_block_icons__WEBPACK_IMPORTED_MODULE_3__["default"].horn), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_headlessui_react__WEBPACK_IMPORTED_MODULE_4__.Transition.Root, {
     show: open,
     as: react__WEBPACK_IMPORTED_MODULE_1__.Fragment
@@ -6528,7 +6528,7 @@ const DocsPopup = () => {
   const [open, setOpen] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(false);
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
     onClick: () => setOpen(true),
-    className: "whitespace-nowrap text-sm font-medium leading-6 text-slate-600"
+    className: "text-xs sm:text-sm font-medium leading-6 text-slate-600"
   }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Knowledge base', 'astra')), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_headlessui_react__WEBPACK_IMPORTED_MODULE_4__.Transition.Root, {
     show: open,
     as: react__WEBPACK_IMPORTED_MODULE_1__.Fragment
@@ -6645,14 +6645,20 @@ function MainNav() {
     },
     className: `${activePage === menu.slug && activePath === menu.path ? 'mb-4 sm:mb-0 border-astra text-astra active:text-astra focus:text-astra focus-visible:text-astra-hover hover:text-astra-hover inline-flex items-center px-1 border-b-2 text-sm leading-[0.875rem] font-medium' : 'mb-4 sm:mb-0 border-transparent text-slate-500 active:text-astra focus-visible:border-slate-300 focus-visible:text-slate-800 hover:border-slate-300 hover:text-slate-800 inline-flex items-center px-1 border-b-2 text-sm leading-[0.875rem] font-medium'}`
   }, menu.name))))), astra_admin.show_self_branding && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "absolute bottom-2 lg:inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto ml-auto lg:ml-6 sm:pr-0"
+    className: "absolute bottom-2 lg:inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto ml-auto lg:ml-6 sm:pr-0 divide-x divide-slate-200"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "text-sm font-medium leading-6 text-slate-600 mr-8 tablet:mr-2"
+    className: "text-sm font-medium leading-6 text-slate-600 mr-3 tablet:mr-2"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_DocsPopup__WEBPACK_IMPORTED_MODULE_3__["default"], null)), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "flex items-center text-xs sm:text-sm font-medium leading-[1.375rem] text-slate-400 mr-4 divide-x divide-slate-200 gap-3"
+    className: "flex items-center text-[0.625rem] sm:text-sm font-medium leading-[1.375rem] text-slate-400 mr-1 sm:mr-4 divide-x divide-slate-200 gap-3 pl-1 sm:pl-3"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: ""
-  }, astra_admin.version), wp.hooks.applyFilters("astra_dashboard.after_navigation_version", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_ChangeLogPopup__WEBPACK_IMPORTED_MODULE_2__["default"], null)), !astra_admin.show_self_branding && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "flex items-center"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, astra_admin.version), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+    className: "ml-1 sm:ml-2 text-[0.625rem] leading-[0.7rem] border border-slate-400 rounded-[0.1875rem] relative py-0.5 px-1"
+  }, "CORE")), astra_admin.pro_available && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "flex items-center pl-3"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, astra_admin.plugin_ver), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+    className: "ml-1 sm:ml-2 text-[0.625rem] leading-[0.7rem] text-white bg-slate-800 rounded-[0.1875rem] relative py-0.5 px-1"
+  }, "PRO")), wp.hooks.applyFilters("astra_dashboard.after_navigation_version", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_ChangeLogPopup__WEBPACK_IMPORTED_MODULE_2__["default"], null)), !astra_admin.show_self_branding && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "flex items-center whitespace-nowrap text-sm font-medium leading-[1.375rem] text-slate-400 mr-8 divide-x divide-slate-200 gap-3"
