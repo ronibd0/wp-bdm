@@ -26,7 +26,7 @@ add_filter( 'astra_dynamic_theme_css', 'astra_post_single_structure_dynamic_css'
  */
 function astra_post_single_structure_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 
-	$current_post_type    = get_post_type();
+	$current_post_type    = strval( get_post_type() );
 	$supported_post_types = Astra_Posts_Structure_Loader::get_supported_post_types();
 
 	if ( ! is_singular( $current_post_type ) ) {

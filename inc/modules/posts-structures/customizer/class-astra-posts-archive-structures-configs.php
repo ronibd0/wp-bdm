@@ -129,12 +129,11 @@ class Astra_Posts_Archive_Structures_Configs extends Astra_Customizer_Config_Bas
 	 *
 	 * @param string $parent_section Section of dynamic customizer.
 	 * @param string $post_type Post Type.
-	 * @param object $post_type_object Object of Derived Post Type.
 	 * @since x.x.x
 	 *
 	 * @return array Customizer Configurations.
 	 */
-	public function get_layout_configuration( $parent_section, $post_type, $post_type_object ) {
+	public function get_layout_configuration( $parent_section, $post_type ) {
 		if ( 'page' === $post_type ) {
 			return array(); // Page archive not require.
 		}
@@ -225,7 +224,7 @@ class Astra_Posts_Archive_Structures_Configs extends Astra_Customizer_Config_Bas
 				$parent_section = $section;
 			}
 
-			$configurations = array_merge( $configurations, $this->get_layout_configuration( $parent_section, $post_type, $post_type_object ) );
+			$configurations = array_merge( $configurations, $this->get_layout_configuration( $parent_section, $post_type ) );
 
 			$archive_structure_choices = array();
 

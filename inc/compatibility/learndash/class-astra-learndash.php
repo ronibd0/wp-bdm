@@ -327,7 +327,7 @@ if ( ! class_exists( 'Astra_LearnDash' ) ) :
 				}
 
 				$supported_post_types = Astra_Posts_Structure_Loader::get_supported_post_types();
-				$post_type            = get_post_type();
+				$post_type            = strval( get_post_type() );
 
 
 				if ( in_array( $post_type, $supported_post_types ) ) {
@@ -391,7 +391,7 @@ if ( ! class_exists( 'Astra_LearnDash' ) ) :
 				}
 
 				$supported_post_types = Astra_Posts_Structure_Loader::get_supported_post_types();
-				$post_type            = get_post_type();
+				$post_type            = strval( get_post_type() );
 
 				if ( in_array( $post_type, $supported_post_types ) ) {
 					$dynamic_sidebar_layout = '';

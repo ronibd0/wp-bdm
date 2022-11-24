@@ -45,10 +45,10 @@ class Astra_Posts_Strctures_Markup {
 	 *
 	 * @param string $title Default archive title.
 	 * @since x.x.x
-	 * @return void
+	 * @return string
 	 */
 	public function astra_archive_custom_title( $title ) {
-		$post_type = get_post_type();
+		$post_type = strval( get_post_type() );
 		$title     = ! empty( astra_get_option( 'ast-dynamic-archive-' . $post_type . '-custom-title', '' ) ) ? astra_get_option( 'ast-dynamic-archive-' . $post_type . '-custom-title' ) : $title;
 		return $title;
 	}

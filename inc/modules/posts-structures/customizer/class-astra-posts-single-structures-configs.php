@@ -227,6 +227,7 @@ class Astra_Posts_Single_Structures_Configs extends Astra_Customizer_Config_Base
 			}
 
 			$taxonomy_meta = array();
+			$clone_limit = 0;
 			if ( count( $taxonomies ) > 1 ) {
 				$clone_limit = 3;
 				$to_clone    = true;

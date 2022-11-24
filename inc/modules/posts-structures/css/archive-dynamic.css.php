@@ -26,7 +26,7 @@ add_filter( 'astra_dynamic_theme_css', 'astra_post_archive_strcture_dynamic_css'
  */
 function astra_post_archive_strcture_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 
-	$current_post_type    = get_post_type();
+	$current_post_type    = strval( get_post_type() );
 	$supported_post_types = Astra_Posts_Structure_Loader::get_supported_post_types();
 
 	if ( ! in_array( $current_post_type, $supported_post_types ) ) {
@@ -200,16 +200,18 @@ function astra_post_archive_strcture_dynamic_css( $dynamic_css, $dynamic_css_fil
 					if ( ! empty( $taxonomy->term_id ) ) {
 						$thumbnail_id   = get_term_meta( $taxonomy->term_id, 'thumbnail_id', true );
 						$feat_image_src = wp_get_attachment_url( $thumbnail_id );
-						$css_output_desktop[ $selector . '[data-banner-background-type="featured"]' ] = array(
-							'background'            => 'url( ' . esc_url( $feat_image_src ) . ' )',
-							'background-repeat'     => 'no-repeat',
-							'background-attachment' => 'scroll',
-							'background-position'   => 'center center',
-							'background-size'       => 'cover',
-						);
-						if ( '' !== $overlay_color ) {
-							$css_output_desktop[ $selector . '[data-banner-background-type="featured"]' ]['background']            = 'url( ' . esc_url( $feat_image_src ) . ' ) ' . $overlay_color;
-							$css_output_desktop[ $selector . '[data-banner-background-type="featured"]' ]['background-blend-mode'] = 'multiply';
+						if( $feat_image_src ) {
+							$css_output_desktop[ $selector . '[data-banner-background-type="featured"]' ] = array(
+								'background'            => 'url( ' . esc_url( $feat_image_src ) . ' )',
+								'background-repeat'     => 'no-repeat',
+								'background-attachment' => 'scroll',
+								'background-position'   => 'center center',
+								'background-size'       => 'cover',
+							);
+							if ( '' !== $overlay_color ) {
+								$css_output_desktop[ $selector . '[data-banner-background-type="featured"]' ]['background']            = 'url( ' . esc_url( $feat_image_src ) . ' ) ' . $overlay_color;
+								$css_output_desktop[ $selector . '[data-banner-background-type="featured"]' ]['background-blend-mode'] = 'multiply';
+							}
 						}
 					}
 				}
@@ -339,16 +341,18 @@ function astra_post_archive_strcture_dynamic_css( $dynamic_css, $dynamic_css_fil
 					if ( ! empty( $taxonomy->term_id ) ) {
 						$thumbnail_id   = get_term_meta( $taxonomy->term_id, 'thumbnail_id', true );
 						$feat_image_src = wp_get_attachment_url( $thumbnail_id );
-						$css_output_desktop[ $selector . '[data-banner-background-type="featured"]' ] = array(
-							'background'            => 'url( ' . esc_url( $feat_image_src ) . ' )',
-							'background-repeat'     => 'no-repeat',
-							'background-attachment' => 'scroll',
-							'background-position'   => 'center center',
-							'background-size'       => 'cover',
-						);
-						if ( '' !== $overlay_color ) {
-							$css_output_desktop[ $selector . '[data-banner-background-type="featured"]' ]['background']            = 'url( ' . esc_url( $feat_image_src ) . ' ) ' . $overlay_color;
-							$css_output_desktop[ $selector . '[data-banner-background-type="featured"]' ]['background-blend-mode'] = 'multiply';
+						if( $feat_image_src ) {
+							$css_output_desktop[ $selector . '[data-banner-background-type="featured"]' ] = array(
+								'background'            => 'url( ' . esc_url( $feat_image_src ) . ' )',
+								'background-repeat'     => 'no-repeat',
+								'background-attachment' => 'scroll',
+								'background-position'   => 'center center',
+								'background-size'       => 'cover',
+							);
+							if ( '' !== $overlay_color ) {
+								$css_output_desktop[ $selector . '[data-banner-background-type="featured"]' ]['background']            = 'url( ' . esc_url( $feat_image_src ) . ' ) ' . $overlay_color;
+								$css_output_desktop[ $selector . '[data-banner-background-type="featured"]' ]['background-blend-mode'] = 'multiply';
+							}
 						}
 					}
 				}

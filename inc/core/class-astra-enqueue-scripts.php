@@ -109,8 +109,7 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 				$content_layout = astra_get_option( 'site-content-layout' );
 			}
 
-			$post_type                     = get_post_type();
-			$editor_default_content_layout = astra_get_option( 'single-' . $post_type . '-content-layout' );
+			$editor_default_content_layout = astra_get_option( 'single-' . strval( get_post_type() ) . '-content-layout' );
 
 			if ( 'default' === $editor_default_content_layout || empty( $editor_default_content_layout ) ) {
 				// Get the GLOBAL content layout value.

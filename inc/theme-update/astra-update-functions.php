@@ -1160,12 +1160,11 @@ function astra_theme_background_updater_4_0_0() {
 				'background-media'      => '',
 			),
 		);
+		// Single post structure.
 		foreach ( $post_types as $index => $post_type ) {
-			// Single post structure.
-			$single_post_structure   = isset( $theme_options['blog-single-post-structure'] ) ? $theme_options['blog-single-post-structure'] : array(
-				'single-image',
-				'single-title-meta',
-			);
+			/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+			$single_post_structure   = isset( $theme_options['blog-single-post-structure'] ) ? $theme_options['blog-single-post-structure'] : array( 'single-image', 'single-title-meta' );
+			/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			$migrated_post_structure = array();
 
 			if ( ! empty( $single_post_structure ) ) {
@@ -1185,11 +1184,9 @@ function astra_theme_background_updater_4_0_0() {
 			}
 
 			// Single post meta.
-			$single_post_meta       = isset( $theme_options['blog-single-meta'] ) ? $theme_options['blog-single-meta'] : array(
-				'comments',
-				'category',
-				'author',
-			);
+			/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+			$single_post_meta       = isset( $theme_options['blog-single-meta'] ) ? $theme_options['blog-single-meta'] : array( 'comments', 'category', 'author' );
+			/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			$migrated_post_metadata = array();
 
 			if ( ! empty( $single_post_meta ) ) {
@@ -1212,7 +1209,7 @@ function astra_theme_background_updater_4_0_0() {
 								$theme_options[ $tax_slug ] = 'category';
 
 								$tax_counter = $tax_counter + 1;
-								$tax_slug    = $tax_counter ? 'ast-dynamic-single-' . esc_attr( $post_type ) . '-taxonomy-' . $tax_counter : 'ast-dynamic-single-' . esc_attr( $post_type ) . '-taxonomy';
+								$tax_slug    = 'ast-dynamic-single-' . esc_attr( $post_type ) . '-taxonomy-' . $tax_counter;
 							}
 							break;
 						case 'tag':
@@ -1221,7 +1218,7 @@ function astra_theme_background_updater_4_0_0() {
 								$theme_options[ $tax_slug ] = 'post_tag';
 
 								$tax_counter = $tax_counter + 1;
-								$tax_slug    = $tax_counter ? 'ast-dynamic-single-' . esc_attr( $post_type ) . '-taxonomy-' . $tax_counter : 'ast-dynamic-single-' . esc_attr( $post_type ) . '-taxonomy';
+								$tax_slug    = 'ast-dynamic-single-' . esc_attr( $post_type ) . '-taxonomy-' . $tax_counter;
 							}
 							break;
 						default:
@@ -1243,6 +1240,7 @@ function astra_theme_background_updater_4_0_0() {
 			$theme_options[ 'ast-dynamic-archive-' . esc_attr( $post_type ) . '-banner-custom-bg' ]  = $archive_summary_box_bg;
 
 			// Archive title font support.
+			/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			$theme_options[ 'ast-dynamic-archive-' . esc_attr( $post_type ) . '-title-font-family' ]    = ! empty( $theme_options['font-family-archive-summary-title'] ) ? $theme_options['font-family-archive-summary-title'] : '';
 			$theme_options[ 'ast-dynamic-archive-' . esc_attr( $post_type ) . '-title-font-size' ]      = $archive_title_font_size;
 			$theme_options[ 'ast-dynamic-archive-' . esc_attr( $post_type ) . '-title-font-weight' ]    = ! empty( $theme_options['font-weight-archive-summary-title'] ) ? $theme_options['font-weight-archive-summary-title'] : '';
@@ -1262,6 +1260,7 @@ function astra_theme_background_updater_4_0_0() {
 			$theme_options[ 'ast-dynamic-single-' . esc_attr( $post_type ) . '-title-font-weight' ]    = ! empty( $theme_options['font-weight-entry-title'] ) ? $theme_options['font-weight-entry-title'] : '';
 			$theme_options[ 'ast-dynamic-single-' . esc_attr( $post_type ) . '-title-text-transform' ] = ! empty( $theme_options['text-transform-entry-title'] ) ? $theme_options['text-transform-entry-title'] : 'capitalize';
 			$theme_options[ 'ast-dynamic-single-' . esc_attr( $post_type ) . '-title-line-height' ]    = ! empty( $theme_options['line-height-entry-title'] ) ? $theme_options['line-height-entry-title'] : '';
+			/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 		}
 
 		// Set page specific structure, as page only has featured image at top & title beneath to it, hardcoded writing it here.

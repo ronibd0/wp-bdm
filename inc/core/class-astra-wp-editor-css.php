@@ -318,7 +318,7 @@ class Astra_WP_Editor_CSS {
 		}
 
 		// Site title (Page Title) on Block Editor.
-		$post_type                           = get_post_type();
+		$post_type                           = strval( get_post_type() );
 		$site_title_font_family              = astra_get_option( 'ast-dynamic-single-' . esc_attr( $post_type ) . '-title-font-family' );
 		$site_title_font_weight              = astra_get_option( 'ast-dynamic-single-' . esc_attr( $post_type ) . '-title-font-weight' );
 		$site_title_line_height              = astra_get_option( 'ast-dynamic-single-' . esc_attr( $post_type ) . '-title-line-height' );

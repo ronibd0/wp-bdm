@@ -587,7 +587,7 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 				}
 
 				$supported_post_types = Astra_Posts_Structure_Loader::get_supported_post_types();
-				$post_type            = get_post_type();
+				$post_type            = strval( get_post_type() );
 
 				if ( in_array( $post_type, $supported_post_types ) ) {
 					$dynamic_sidebar_layout = '';
@@ -643,7 +643,7 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 				$llms_layout = astra_get_option( 'lifterlms-content-layout' );
 
 				$supported_post_types = Astra_Posts_Structure_Loader::get_supported_post_types();
-				$post_type            = get_post_type();
+				$post_type            = strval( get_post_type() );
 
 				if ( in_array( $post_type, $supported_post_types ) ) {
 					$dynamic_sidebar_layout = '';

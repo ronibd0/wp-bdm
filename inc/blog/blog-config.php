@@ -29,12 +29,14 @@ function astra_get_dynamic_taxonomy( $control_tax, $loop_count, $separator ) {
 	}
 
 	$terms = get_the_terms( $post_id, $tax_type );
-	if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) {
+	if ( $terms && ! empty( $terms ) && ! is_wp_error( $terms ) ) {
 
 		$term_links = array();
 
+		/** @psalm-suppress PossibleRawObjectIteration */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 		foreach ( $terms as $term ) {
-			$term_links[] = '<a href="' . esc_attr( get_term_link( $term->slug, $tax_type ) ) . '">' . __( $term->name ) . '</a>';
+			/** @psalm-suppress PossibleRawObjectIteration */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+			$term_links[] = '<a href="' . esc_url( get_term_link( $term->slug, $tax_type ) ) . '">' . __( $term->name ) . '</a>';
 		}
 
 		$all_terms  = join( ', ', $term_links );
