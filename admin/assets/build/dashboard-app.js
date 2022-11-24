@@ -6653,11 +6653,11 @@ function MainNav() {
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "flex items-center"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, astra_admin.version), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
-    className: "ml-1 sm:ml-2 text-[0.625rem] leading-[0.7rem] border border-slate-400 rounded-[0.1875rem] relative py-0.5 px-1"
+    className: "ml-1 sm:ml-2 text-[0.625rem] leading-[0.625rem] border border-slate-400 rounded-[0.1875rem] relative inline-flex flex-shrink-0 py-0.5 px-1"
   }, "CORE")), astra_admin.pro_available && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "flex items-center pl-3"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, astra_admin.plugin_ver), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
-    className: "ml-1 sm:ml-2 text-[0.625rem] leading-[0.7rem] text-white bg-slate-800 rounded-[0.1875rem] relative py-0.5 px-1"
+    className: "ml-1 sm:ml-2 text-[0.625rem] leading-[0.625rem] text-white border border-slate-800 bg-slate-800 rounded-[0.1875rem] relative inline-flex flex-shrink-0 py-0.5 px-1"
   }, "PRO")), wp.hooks.applyFilters("astra_dashboard.after_navigation_version", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_ChangeLogPopup__WEBPACK_IMPORTED_MODULE_2__["default"], null)), !astra_admin.show_self_branding && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {

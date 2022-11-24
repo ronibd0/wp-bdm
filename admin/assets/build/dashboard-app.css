@@ -1239,6 +1239,10 @@ select {
   --tw-border-opacity: 1;
   border-color: rgb(255 255 255 / var(--tw-border-opacity));
 }
+.border-slate-800 {
+  --tw-border-opacity: 1;
+  border-color: rgb(30 41 59 / var(--tw-border-opacity));
+}
 .border-t-slate-200 {
   --tw-border-opacity: 1;
   border-top-color: rgb(226 232 240 / var(--tw-border-opacity));
@@ -1605,6 +1609,9 @@ select {
 }
 .leading-\[1rem\] {
   line-height: 1rem;
+}
+.leading-\[0\.625rem\] {
+  line-height: 0.625rem;
 }
 .tracking-\[0\.0125rem\] {
   letter-spacing: 0.0125rem;
