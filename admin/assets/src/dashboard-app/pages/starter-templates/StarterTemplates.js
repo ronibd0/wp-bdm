@@ -119,7 +119,7 @@ const StarterTemplates = () => {
 
 			{ /* Model Component section */ }
 			<div>
-				<div className="max-w-[39rem] h-max bg-white m-auto shadow-overlay-modal text-center rounded-lg p-8 absolute inset-3 top-20 sm:top-0 sm:inset-0">
+				<div className="max-w-[39rem] h-max bg-white m-auto shadow-overlay-modal text-center rounded-lg p-8 absolute inset-3 top-[150%] sm:top-0 sm:inset-0">
 					<div>
 						<div className="mx-auto flex items-center justify-center">
 							{ Astra_Admin_Icons['starter-logo'] }

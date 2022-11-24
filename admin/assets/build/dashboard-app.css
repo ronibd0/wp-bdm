@@ -640,6 +640,9 @@ select {
 .right-2 {
   right: 0.5rem;
 }
+.top-\[150\%\] {
+  top: 150%;
+}
 .z-50 {
   z-index: 50;
 }
