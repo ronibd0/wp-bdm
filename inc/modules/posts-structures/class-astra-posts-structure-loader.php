@@ -234,7 +234,7 @@ class Astra_Posts_Structure_Loader {
 	 */
 	public function preview_scripts() {
 		/** @psalm-suppress RedundantCondition */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-		$dir_name    = ( SCRIPT_DEBUG ) ? 'unminified' : 'minified';
+		$dir_name = ( SCRIPT_DEBUG ) ? 'unminified' : 'minified';
 		/** @psalm-suppress RedundantCondition */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 
 		/** @psalm-suppress RedundantCondition */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort

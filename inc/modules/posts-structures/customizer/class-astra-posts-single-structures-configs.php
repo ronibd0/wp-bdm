@@ -228,7 +228,7 @@ class Astra_Posts_Single_Structures_Configs extends Astra_Customizer_Config_Base
 			}
 
 			$taxonomy_meta = array();
-			$clone_limit = 0;
+			$clone_limit   = 0;
 			/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			if ( count( $taxonomies ) > 1 ) {
 				/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort

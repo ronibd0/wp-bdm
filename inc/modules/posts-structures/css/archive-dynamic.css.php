@@ -208,7 +208,7 @@ function astra_post_archive_strcture_dynamic_css( $dynamic_css, $dynamic_css_fil
 					if ( ! empty( $taxonomy->term_id ) ) {
 						$thumbnail_id   = get_term_meta( $taxonomy->term_id, 'thumbnail_id', true );
 						$feat_image_src = wp_get_attachment_url( $thumbnail_id );
-						if( $feat_image_src ) {
+						if ( $feat_image_src ) {
 							$css_output_desktop[ $selector . '[data-banner-background-type="featured"]' ] = array(
 								'background'            => 'url( ' . esc_url( $feat_image_src ) . ' )',
 								'background-repeat'     => 'no-repeat',
@@ -357,7 +357,7 @@ function astra_post_archive_strcture_dynamic_css( $dynamic_css, $dynamic_css_fil
 					if ( ! empty( $taxonomy->term_id ) ) {
 						$thumbnail_id   = get_term_meta( $taxonomy->term_id, 'thumbnail_id', true );
 						$feat_image_src = wp_get_attachment_url( $thumbnail_id );
-						if( $feat_image_src ) {
+						if ( $feat_image_src ) {
 							$css_output_desktop[ $selector . '[data-banner-background-type="featured"]' ] = array(
 								'background'            => 'url( ' . esc_url( $feat_image_src ) . ' )',
 								'background-repeat'     => 'no-repeat',
