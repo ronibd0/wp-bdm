@@ -1,6 +1,6 @@
 <?php
 /**
- * Post Strctures loader for Astra theme.
+ * Post Structures loader for Astra theme.
  *
  * @package     Astra
  * @author      Brainstorm Force
@@ -8,8 +8,6 @@
  * @link        https://www.brainstormforce.com
  * @since       Astra x.x.x
  */
-
-use SureCartCore\Support\Arr;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.

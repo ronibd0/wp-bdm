@@ -16099,7 +16099,7 @@ namespace {
      *
      * => Used in files:
      *
-     * /template-parts/single/page-header.php
+     * /template-parts/single/content-header.php
      *
      * @since x.x.x
      */
