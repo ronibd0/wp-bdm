@@ -104,8 +104,8 @@ class Astra_Menu {
 	 */
 	public function initialize_hooks() {
 
-		self::$page_title      = apply_filters( 'astra_page_title', __( 'Astra', 'astra' ) );
-		self::$plugin_slug     = self::get_theme_page_slug();
+		self::$page_title  = apply_filters( 'astra_page_title', __( 'Astra', 'astra' ) );
+		self::$plugin_slug = self::get_theme_page_slug();
 
 		add_action( 'admin_menu', array( $this, 'setup_menu' ) );
 		add_action( 'admin_init', array( $this, 'settings_admin_scripts' ) );
@@ -214,7 +214,7 @@ class Astra_Menu {
 			);
 		}
 
-		if( ! astra_is_white_labelled() ) {
+		if ( ! astra_is_white_labelled() ) {
 			// Add Spectra submenu.
 			add_submenu_page(
 				self::$plugin_slug,
@@ -236,7 +236,7 @@ class Astra_Menu {
 	 * @return void
 	 */
 	public function render_admin_dashboard() {
-		$page_action    = '';
+		$page_action = '';
 
 		if ( isset( $_GET['action'] ) ) { //phpcs:ignore
 			/** @psalm-suppress PossiblyInvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
