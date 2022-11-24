@@ -35,7 +35,7 @@ if ( ! function_exists( 'astra_page_layout' ) ) {
 
 			if ( empty( $layout ) ) {
 
-				$post_type = get_post_type();
+				$post_type = strval( get_post_type() );
 
 				if ( in_array( $post_type, $supported_post_types ) ) {
 
@@ -64,7 +64,7 @@ if ( ! function_exists( 'astra_page_layout' ) ) {
 				}
 			} else {
 
-				$post_type = get_post_type();
+				$post_type = strval( get_post_type() );
 				$layout    = '';
 
 				if ( in_array( $post_type, $supported_post_types ) ) {
