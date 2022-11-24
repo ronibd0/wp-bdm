@@ -8,8 +8,7 @@
  * @since x.x.x
  */
 
-global $post;
-$post_type      = $post->post_type;
+$post_type      = strval( get_post_type() );
 $banner_control = 'ast-dynamic-single-' . esc_attr( $post_type );
 
 // Conditionally updating data section & class.

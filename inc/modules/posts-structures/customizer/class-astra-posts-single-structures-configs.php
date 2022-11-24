@@ -207,7 +207,9 @@ class Astra_Posts_Single_Structures_Configs extends Astra_Customizer_Config_Base
 					$taxonomies[ $value ] = $value;
 				}
 			}
+			/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			$taxonomies = array_reverse( $taxonomies );
+			/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 
 			$section          = 'single-posttype-' . $post_type;
 			$title_section    = 'ast-dynamic-single-' . $post_type;
