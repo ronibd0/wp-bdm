@@ -1,6 +1,6 @@
 <?php
 /**
- * Post Strctures - Archive Dynamic CSS
+ * Post Structures - Archive Dynamic CSS
  *
  * @package Astra
  * @since x.x.x
@@ -11,20 +11,20 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Post Strctures
+ * Post Structures
  */
-add_filter( 'astra_dynamic_theme_css', 'astra_post_archive_strcture_dynamic_css' );
+add_filter( 'astra_dynamic_theme_css', 'astra_post_archive_structure_dynamic_css' );
 
 /**
  * Archive Dynamic CSS
  *
  * @param  string $dynamic_css          Astra Dynamic CSS.
  * @param  string $dynamic_css_filtered Astra Dynamic CSS Filters.
- * @return String Generated dynamic CSS for Post Strctures.
+ * @return String Generated dynamic CSS for Post Structures.
  *
  * @since x.x.x
  */
-function astra_post_archive_strcture_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
+function astra_post_archive_structure_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 
 	$current_post_type    = strval( get_post_type() );
 	$supported_post_types = Astra_Posts_Structure_Loader::get_supported_post_types();
@@ -132,7 +132,7 @@ function astra_post_archive_strcture_dynamic_css( $dynamic_css, $dynamic_css_fil
 			$selector . ' a:hover, ' . $selector . ' a:hover *' => array(
 				'color' => esc_attr( $link_hover_color ),
 			),
-			$selector . ' > *:not(:last-child)'     => array(
+			$selector . ' .ast-container > *:not(:last-child)'     => array(
 				'margin-bottom' => $elements_gap . 'px',
 			),
 		);
@@ -270,7 +270,7 @@ function astra_post_archive_strcture_dynamic_css( $dynamic_css, $dynamic_css_fil
 			$selector . ' a:hover, ' . $selector . ' a:hover *' => array(
 				'color' => esc_attr( $link_hover_color ),
 			),
-			$selector . ' > *:not(:last-child)'     => array(
+			$selector . ' .ast-container > *:not(:last-child)'     => array(
 				'margin-bottom' => $elements_gap . 'px',
 			),
 		);
@@ -290,6 +290,10 @@ function astra_post_archive_strcture_dynamic_css( $dynamic_css, $dynamic_css_fil
 				'margin-right'   => astra_responsive_spacing( $banner_margin, 'right', 'tablet' ),
 				'margin-bottom'  => astra_responsive_spacing( $banner_margin, 'bottom', 'tablet' ),
 				'margin-left'    => astra_responsive_spacing( $banner_margin, 'left', 'tablet' ),
+			),
+			$selector . ' .ast-container'                   => array(
+				'padding-left' => '0',
+				'padding-right' => '0',
 			),
 			$selector . ' h1' => array(
 				'font-size' => astra_responsive_font( $banner_title_font_size, 'tablet' ),

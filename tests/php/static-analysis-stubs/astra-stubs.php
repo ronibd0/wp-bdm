@@ -15920,7 +15920,7 @@ namespace {
      *
      * @since x.x.x
      */
-    function astra_post_archive_strcture_dynamic_css($dynamic_css, $dynamic_css_filtered = '')
+    function astra_post_archive_structure_dynamic_css($dynamic_css, $dynamic_css_filtered = '')
     {
     }
     /**
