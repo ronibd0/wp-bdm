@@ -132,6 +132,9 @@ function astra_post_single_structure_dynamic_css( $dynamic_css, $dynamic_css_fil
 	$banner_meta_line_height = astra_get_option( 'ast-dynamic-single-' . $current_post_type . '-meta-line-height' );
 	$banner_meta_transform   = astra_get_option( 'ast-dynamic-single-' . $current_post_type . '-meta-transform' );
 
+	$css_output_min_tablet  = array();
+	$narrow_container_width = astra_get_option( 'narrow-container-max-width', apply_filters( 'astra_narrow_container_width', 750 ) );
+
 	// Few settings from banner section are also applicable to 'layout-1' so adding this condition & compatibility.
 	if ( 'layout-1' === $layout_type ) {
 		/**
@@ -156,9 +159,6 @@ function astra_post_single_structure_dynamic_css( $dynamic_css, $dynamic_css_fil
 				'font-size'      => astra_responsive_font( $banner_text_font_size, 'desktop' ),
 				'line-height'    => esc_attr( $banner_text_line_height ),
 				'text-transform' => esc_attr( $banner_text_transform ),
-			),
-			$selector . ' .ast-container > *:not(:last-child)' => array(
-				'margin-bottom' => $elements_gap . 'px',
 			),
 			$selector . ' .entry-title'             => array(
 				'color'          => esc_attr( $title_color ),
@@ -250,6 +250,9 @@ function astra_post_single_structure_dynamic_css( $dynamic_css, $dynamic_css_fil
 			'.ast-page-builder-template ' . $selector . ' .ast-container' => array(
 				'max-width' => '100%',
 			),
+			$selector . ' .ast-container'                 => array(
+				'width' => '100%',
+			),
 			$selector . ' .entry-title'                   => array(
 				'color'          => esc_attr( $title_color ),
 				'font-family'    => astra_get_css_value( $banner_title_font_family, 'font' ),
@@ -270,6 +273,15 @@ function astra_post_single_structure_dynamic_css( $dynamic_css, $dynamic_css_fil
 			),
 			$selector . ' a:hover, ' . $selector . ' a:hover *' => array(
 				'color' => esc_attr( $link_hover_color ),
+			),
+		);
+
+		/**
+		 * Min tablet width CSS.
+		 */
+		$css_output_min_tablet = array(
+			'.ast-narrow-container ' . $selector . ' .ast-container' => array(
+				'max-width' => $narrow_container_width . 'px',
 			),
 		);
 
@@ -386,6 +398,7 @@ function astra_post_single_structure_dynamic_css( $dynamic_css, $dynamic_css_fil
 
 	/* Parse CSS from array() */
 	$dynamic_css .= astra_parse_css( $css_output_desktop );
+	$dynamic_css .= astra_parse_css( $css_output_min_tablet, astra_get_tablet_breakpoint( '', 1 ) );
 	$dynamic_css .= astra_parse_css( $css_output_tablet, '', astra_get_tablet_breakpoint() );
 	$dynamic_css .= astra_parse_css( $css_output_mobile, '', astra_get_mobile_breakpoint() );
 
