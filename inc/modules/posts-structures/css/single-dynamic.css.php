@@ -251,9 +251,7 @@ function astra_post_single_structure_dynamic_css( $dynamic_css, $dynamic_css_fil
 				'max-width' => '100%',
 			),
 			$selector . ' .ast-container'                 => array(
-				'width'         => '100%',
-				'padding-left'  => '0',
-				'padding-right' => '0',
+				'width' => '100%',
 			),
 			$selector . ' .entry-title'                   => array(
 				'color'          => esc_attr( $title_color ),
@@ -283,7 +281,9 @@ function astra_post_single_structure_dynamic_css( $dynamic_css, $dynamic_css_fil
 		 */
 		$css_output_min_tablet = array(
 			'.ast-narrow-container ' . $selector . ' .ast-container' => array(
-				'max-width' => $narrow_container_width . 'px',
+				'max-width'     => $narrow_container_width . 'px',
+				'padding-left'  => '0',
+				'padding-right' => '0',
 			),
 		);
 
@@ -306,6 +306,10 @@ function astra_post_single_structure_dynamic_css( $dynamic_css, $dynamic_css_fil
 			$selector . '[data-banner-layout="layout-2"]' => astra_get_responsive_background_obj( $custom_background, 'tablet' ),
 			$selector . ' .entry-title'                   => array(
 				'font-size' => astra_responsive_font( $banner_title_font_size, 'tablet' ),
+			),
+			$selector . ' .ast-container'                 => array(
+				'padding-left'  => '0',
+				'padding-right' => '0',
 			),
 			$selector . ' *'                              => array(
 				'font-size' => astra_responsive_font( $banner_text_font_size, 'tablet' ),
