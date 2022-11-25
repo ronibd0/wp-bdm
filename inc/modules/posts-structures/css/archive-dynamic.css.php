@@ -269,6 +269,8 @@ function astra_post_archive_structure_dynamic_css( $dynamic_css, $dynamic_css_fi
 			),
 			$selector . ' .ast-container'           => array(
 				'width' => '100%',
+				'padding-left'  => '0',
+				'padding-right' => '0',
 			),
 			'.ast-page-builder-template ' . $selector . ' .ast-container' => array(
 				'max-width' => '100%',
@@ -311,10 +313,6 @@ function astra_post_archive_structure_dynamic_css( $dynamic_css, $dynamic_css_fi
 				'margin-right'   => astra_responsive_spacing( $banner_margin, 'right', 'tablet' ),
 				'margin-bottom'  => astra_responsive_spacing( $banner_margin, 'bottom', 'tablet' ),
 				'margin-left'    => astra_responsive_spacing( $banner_margin, 'left', 'tablet' ),
-			),
-			$selector . ' .ast-container' => array(
-				'padding-left'  => '0',
-				'padding-right' => '0',
 			),
 			$selector . ' h1'             => array(
 				'font-size' => astra_responsive_font( $banner_title_font_size, 'tablet' ),
