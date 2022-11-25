@@ -157,7 +157,7 @@ function astra_post_single_structure_dynamic_css( $dynamic_css, $dynamic_css_fil
 				'line-height'    => esc_attr( $banner_text_line_height ),
 				'text-transform' => esc_attr( $banner_text_transform ),
 			),
-			$selector . ' .ast-container > *:not(:last-child)'     => array(
+			$selector . ' .ast-container > *:not(:last-child)' => array(
 				'margin-bottom' => $elements_gap . 'px',
 			),
 			$selector . ' .entry-title'             => array(
@@ -244,8 +244,11 @@ function astra_post_single_structure_dynamic_css( $dynamic_css, $dynamic_css_fil
 				'line-height'    => esc_attr( $banner_text_line_height ),
 				'text-transform' => esc_attr( $banner_text_transform ),
 			),
-			$selector . ' .ast-container > *:not(:last-child)'           => array(
+			$selector . ' .ast-container > *:not(:last-child)' => array(
 				'margin-bottom' => $elements_gap . 'px',
+			),
+			'.ast-page-builder-template ' . $selector . ' .ast-container' => array(
+				'max-width' => '100%',
 			),
 			$selector . ' .entry-title'                   => array(
 				'color'          => esc_attr( $title_color ),
@@ -286,8 +289,8 @@ function astra_post_single_structure_dynamic_css( $dynamic_css, $dynamic_css_fil
 				'margin-bottom'  => astra_responsive_spacing( $banner_margin, 'bottom', 'tablet' ),
 				'margin-left'    => astra_responsive_spacing( $banner_margin, 'left', 'tablet' ),
 			),
-			$selector . ' .ast-container'                   => array(
-				'padding-left' => '0',
+			$selector . ' .ast-container'                 => array(
+				'padding-left'  => '0',
 				'padding-right' => '0',
 			),
 			$selector . '[data-banner-layout="layout-2"]' => astra_get_responsive_background_obj( $custom_background, 'tablet' ),

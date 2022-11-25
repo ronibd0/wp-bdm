@@ -132,7 +132,7 @@ function astra_post_archive_structure_dynamic_css( $dynamic_css, $dynamic_css_fi
 			$selector . ' a:hover, ' . $selector . ' a:hover *' => array(
 				'color' => esc_attr( $link_hover_color ),
 			),
-			$selector . ' .ast-container > *:not(:last-child)'     => array(
+			$selector . ' .ast-container > *:not(:last-child)' => array(
 				'margin-bottom' => $elements_gap . 'px',
 			),
 		);
@@ -264,13 +264,16 @@ function astra_post_archive_structure_dynamic_css( $dynamic_css, $dynamic_css_fi
 				'line-height'    => esc_attr( $banner_title_line_height ),
 				'text-transform' => esc_attr( $banner_title_transform ),
 			),
+			'.ast-page-builder-template ' . $selector . ' .ast-container' => array(
+				'max-width' => '100%',
+			),
 			$selector . ' a, ' . $selector . ' a *' => array(
 				'color' => esc_attr( $link_color ),
 			),
 			$selector . ' a:hover, ' . $selector . ' a:hover *' => array(
 				'color' => esc_attr( $link_hover_color ),
 			),
-			$selector . ' .ast-container > *:not(:last-child)'     => array(
+			$selector . ' .ast-container > *:not(:last-child)' => array(
 				'margin-bottom' => $elements_gap . 'px',
 			),
 		);
@@ -279,7 +282,7 @@ function astra_post_archive_structure_dynamic_css( $dynamic_css, $dynamic_css_fi
 		 * Tablet CSS.
 		 */
 		$css_output_tablet = array(
-			$selector         => array(
+			$selector                     => array(
 				'text-align'     => $tab_h_alignment,
 				'min-height'     => $tab_banner_height,
 				'padding-top'    => astra_responsive_spacing( $banner_padding, 'top', 'tablet' ),
@@ -291,14 +294,14 @@ function astra_post_archive_structure_dynamic_css( $dynamic_css, $dynamic_css_fi
 				'margin-bottom'  => astra_responsive_spacing( $banner_margin, 'bottom', 'tablet' ),
 				'margin-left'    => astra_responsive_spacing( $banner_margin, 'left', 'tablet' ),
 			),
-			$selector . ' .ast-container'                   => array(
-				'padding-left' => '0',
+			$selector . ' .ast-container' => array(
+				'padding-left'  => '0',
 				'padding-right' => '0',
 			),
-			$selector . ' h1' => array(
+			$selector . ' h1'             => array(
 				'font-size' => astra_responsive_font( $banner_title_font_size, 'tablet' ),
 			),
-			$selector . ' *'  => array(
+			$selector . ' *'              => array(
 				'font-size' => astra_responsive_font( $banner_text_font_size, 'tablet' ),
 			),
 		);
