@@ -268,7 +268,7 @@ function astra_post_archive_structure_dynamic_css( $dynamic_css, $dynamic_css_fi
 				'text-transform' => esc_attr( $banner_title_transform ),
 			),
 			$selector . ' .ast-container'           => array(
-				'width' => '100%',
+				'width'         => '100%',
 				'padding-left'  => '0',
 				'padding-right' => '0',
 			),
@@ -302,7 +302,7 @@ function astra_post_archive_structure_dynamic_css( $dynamic_css, $dynamic_css_fi
 		 * Tablet CSS.
 		 */
 		$css_output_tablet = array(
-			$selector                     => array(
+			$selector         => array(
 				'text-align'     => $tab_h_alignment,
 				'min-height'     => $tab_banner_height,
 				'padding-top'    => astra_responsive_spacing( $banner_padding, 'top', 'tablet' ),
@@ -314,10 +314,10 @@ function astra_post_archive_structure_dynamic_css( $dynamic_css, $dynamic_css_fi
 				'margin-bottom'  => astra_responsive_spacing( $banner_margin, 'bottom', 'tablet' ),
 				'margin-left'    => astra_responsive_spacing( $banner_margin, 'left', 'tablet' ),
 			),
-			$selector . ' h1'             => array(
+			$selector . ' h1' => array(
 				'font-size' => astra_responsive_font( $banner_title_font_size, 'tablet' ),
 			),
-			$selector . ' *'              => array(
+			$selector . ' *'  => array(
 				'font-size' => astra_responsive_font( $banner_text_font_size, 'tablet' ),
 			),
 		);

@@ -251,7 +251,7 @@ function astra_post_single_structure_dynamic_css( $dynamic_css, $dynamic_css_fil
 				'max-width' => '100%',
 			),
 			$selector . ' .ast-container'                 => array(
-				'width' => '100%',
+				'width'         => '100%',
 				'padding-left'  => '0',
 				'padding-right' => '0',
 			),
