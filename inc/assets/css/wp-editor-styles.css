@@ -474,7 +474,7 @@ pre.wp-block.wp-block-code {
 }
 
 .editor-styles-wrapper blockquote {
-  padding: 0 1.2em 1.2em;
+  padding: 1.2em 1.2em 1.2em;
   margin: 1.5em;
   border: none;
 }

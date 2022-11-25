@@ -323,6 +323,7 @@ class Astra_WP_Editor_CSS {
 		$site_title_font_weight              = astra_get_option( 'ast-dynamic-single-' . esc_attr( $post_type ) . '-title-font-weight' );
 		$site_title_line_height              = astra_get_option( 'ast-dynamic-single-' . esc_attr( $post_type ) . '-title-line-height' );
 		$site_title_font_size                = astra_get_option( 'ast-dynamic-single-' . esc_attr( $post_type ) . '-title-font-size' );
+		$site_title_font_size_fallback       = astra_get_option( 'font-size-page-title' );
 		$site_title_text_transform           = astra_get_option( 'ast-dynamic-single-' . esc_attr( $post_type ) . '-title-text-transform', $headings_text_transform );
 		$is_widget_title_support_font_weight = Astra_Dynamic_CSS::support_font_css_to_widget_and_in_editor();
 		$font_weight_prop                    = ( $is_widget_title_support_font_weight ) ? 'inherit' : 'normal';
@@ -342,6 +343,9 @@ class Astra_WP_Editor_CSS {
 		}
 		if ( 'inherit' == $site_title_font_weight || '' == $site_title_font_weight ) {
 			$site_title_font_weight = 'normal';
+		}
+		if( '' == $site_title_font_size ) {
+			$site_title_font_size = $site_title_font_size_fallback;
 		}
 
 		// check the selection color in-case of empty/no theme color.
@@ -422,7 +426,6 @@ class Astra_WP_Editor_CSS {
 			'.block-editor-block-list__layout .block-editor-block-list__block ::selection, .block-editor-block-list__layout .block-editor-block-list__block.is-multi-selected .editor-block-list__block-edit' => array(
 				'color' => esc_attr( $selection_text_color ),
 			),
-
 			'#editor .edit-post-visual-editor' => $background_style_data,
 			'.edit-post-visual-editor .editor-styles-wrapper' => astra_get_responsive_background_obj( $content_background, 'desktop' ),
 
@@ -523,17 +526,6 @@ class Astra_WP_Editor_CSS {
 			'.editor-styles-wrapper .is-root-container.block-editor-block-list__layout > .wp-block-heading' => array(
 				'margin-bottom' => '20px',
 			),
-
-			/**
-			 * Site title (Page Title) on Block Editor.
-			 */
-			'body .edit-post-visual-editor__post-title-wrapper > h1:first-of-type' => array(
-				'font-size'      => astra_responsive_font( $site_title_font_size, 'desktop' ),
-				'font-weight'    => astra_get_css_value( $site_title_font_weight, 'font' ),
-				'font-family'    => astra_get_css_value( $site_title_font_family, 'font', $body_font_family ),
-				'line-height'    => esc_attr( $site_title_line_height ),
-				'text-transform' => esc_attr( $site_title_text_transform ),
-			),
 		);
 
 		// Boxed, Content-Boxed, page title alignment with Spectra Container Blocks.
@@ -572,6 +564,47 @@ class Astra_WP_Editor_CSS {
 			'max-width'    => '100%',
 			'margin-left'  => 'auto',
 			'margin-right' => 'auto',
+		);
+		
+		/**
+		 * Site title (Page Title) on Block Editor.
+		 */
+		$desktop_css['.editor-styles-wrapper .edit-post-visual-editor__post-title-wrapper > h1'] = array(
+			'font-size'      => astra_responsive_font( $site_title_font_size, 'desktop' ),
+			'font-weight'    => astra_get_css_value( $site_title_font_weight, 'font' ),
+			'font-family'    => astra_get_css_value( $site_title_font_family, 'font', $body_font_family ),
+			'line-height'    => esc_attr( $site_title_line_height ),
+			'text-transform' => esc_attr( $site_title_text_transform ),
+		);
+
+		/** Block editor experience improvements */
+
+		// List block alignment same as frontend.
+		$default_ul_line_height = 1.85714285714286;
+		$desktop_css['.editor-styles-wrapper .is-root-container ul'] = array(
+			'padding-inline-start' => 0,
+			'padding-left'         => '1em',
+			'line-height'          => $default_ul_line_height,
+			'margin-block-end'     => '1.5em',
+		);
+
+		// Text decoration same as applied in frontend.
+		$desktop_css['.editor-styles-wrapper .is-root-container a:where(:not(.wp-element-button))'] = array(
+			'text-decoration' => 'underline',
+		);
+
+		// Consistent spacing between blocks.
+		$desktop_css['.edit-post-visual-editor .editor-styles-wrapper > .is-root-container'] = array(
+			'padding-top'     => 0,
+		);
+		$desktop_css['.editor-styles-wrapper .is-root-container .wp-block-quote'] = array(
+			'margin-block-end'     => '1.5em',
+		);
+		$desktop_css['.editor-styles-wrapper .is-root-container .wp-block-image'] = array(
+			'margin-block-end'     => '1em',
+		);
+		$desktop_css['.editor-styles-wrapper .is-root-container p'] = array(
+			'margin-block-start'     => 0,
 		);
 
 		$content_links_underline = astra_get_option( 'underline-content-links' );
