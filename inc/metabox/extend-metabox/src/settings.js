@@ -31,7 +31,7 @@ const MetaSettings = props => {
 	const topTableSpacing = <tr className="ast-extra-spacing"><td className="ast-border"></td><td></td></tr>;
 	const bottomTableSpacing = <tr className="ast-extra-spacing ast-extra-spacing-bottom"><td className="ast-border"></td><td></td></tr>;
 
-	const icon = parse( svgIcons['astra-brand-icon'] );
+	const icon = parse( svgIcons['astra-meta-settings'] );
 	const sidebarOptions = Object.entries( astMetaParams.sidebar_options ).map( ( [ key, name ] ) => {
 		return ( { label: name, value: key } );
 	} );

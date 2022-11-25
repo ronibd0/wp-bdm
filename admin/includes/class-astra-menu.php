@@ -59,41 +59,6 @@ class Astra_Menu {
 	 */
 	public function __construct() {
 		$this->initialize_hooks();
-
-		add_action( 'astra_get_knowledge_base_data', array( $this, 'astra_kb_data_scheduler' ) );
-		add_filter( 'init', array( $this, 'astra_run_scheduled_docs_job' ) );
-	}
-
-	/**
-	 * Astra's REST knowledge base data.
-	 *
-	 * @since x.x.x
-	 * @return mixed
-	 */
-	public static function astra_get_knowledge_base_data() {
-		return json_decode( wp_remote_retrieve_body( wp_remote_get( 'https://wpastra.com/wp-json/powerful-docs/v1/get-docs' ) ) );
-	}
-
-	/**
-	 * Perform scheduler for Astra knowledge base data retriever for processing further in admin dashboard.
-	 *
-	 * @since x.x.x
-	 * @return void
-	 */
-	public function astra_kb_data_scheduler() {
-		update_option( 'astra_docs_data', self::astra_get_knowledge_base_data() );
-	}
-
-	/**
-	 * Run scheduled job for Astra knowledge base data.
-	 *
-	 * @since x.x.x
-	 * @return void
-	 */
-	public function astra_run_scheduled_docs_job() {
-		if ( ! wp_next_scheduled( 'astra_get_knowledge_base_data' ) && ! wp_installing() ) {
-			wp_schedule_event( time(), 'daily', 'astra_get_knowledge_base_data' );
-		}
 	}
 
 	/**
@@ -306,7 +271,7 @@ class Astra_Menu {
 			'plugin_activated_text'              => __( 'Activated', 'astra' ),
 			'plugin_activate_text'               => __( 'Activate', 'astra' ),
 			'starter_templates_data'             => self::get_starter_template_plugin_data(),
-			'astra_docs_data'                    => get_option( 'astra_docs_data', self::astra_get_knowledge_base_data() ),
+			'astra_docs_data'                    => get_option( 'astra_docs_data', Astra_API_Init::astra_get_knowledge_base_data() ),
 			'upgrade_notice'                     => astra_showcase_upgrade_notices(),
 		);
 
