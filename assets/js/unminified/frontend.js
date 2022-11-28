@@ -1058,7 +1058,7 @@ astScrollToTopHandler = function ( masthead, astScrollTop ) {
 	}
 
 	/**
-	 * Scroll to specific hash link.
+	 * Scroll to top.
 	 *
 	 * @since x.x.x
 	 */
