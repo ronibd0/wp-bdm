@@ -686,6 +686,9 @@ class Astra_WP_Editor_CSS {
 			'.editor-styles-wrapper h6'          => array(
 				'font-size' => astra_responsive_font( $heading_h6_font_size, 'tablet' ),
 			),
+			'.edit-post-visual-editor__post-title-wrapper' => array(
+				'margin-top' => '0'
+			),
 			'#editor .edit-post-visual-editor'   => astra_get_responsive_background_obj( $site_background, 'tablet' ),
 			'.edit-post-visual-editor .editor-styles-wrapper' => astra_get_responsive_background_obj( $content_background, 'tablet' ),
 		);
