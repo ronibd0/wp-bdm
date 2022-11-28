@@ -80,8 +80,8 @@ class Astra_Scroll_To_Top_Loader {
 	 * @since x.x.x
 	 */
 	public function preview_scripts() {
-	/** @psalm-suppress RedundantCondition */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-	if ( SCRIPT_DEBUG ) {
+		/** @psalm-suppress RedundantCondition */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+		if ( SCRIPT_DEBUG ) {
 			/** @psalm-suppress RedundantCondition */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			wp_enqueue_script( 'astra-scroll-to-top-customize-preview-js', ASTRA_SCROLL_TO_TOP_URL . 'assets/js/unminified/customizer-preview.js', array( 'customize-preview', 'astra-customizer-preview-js' ), ASTRA_THEME_VERSION, true );
 		} else {
