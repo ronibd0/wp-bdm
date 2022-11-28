@@ -585,7 +585,7 @@ class Astra_WP_Editor_CSS {
 			'padding-inline-start' => 0,
 			'padding-left'         => '1em',
 			'line-height'          => $default_ul_line_height,
-			'margin-block-end'     => '1.5em',
+			'margin-bottom'        => '1.5em',
 		);
 
 		// Text decoration same as applied in frontend.
@@ -595,16 +595,16 @@ class Astra_WP_Editor_CSS {
 
 		// Consistent spacing between blocks.
 		$desktop_css['.edit-post-visual-editor .editor-styles-wrapper > .is-root-container'] = array(
-			'padding-top'     => 0,
+			'padding-top' => 0,
 		);
 		$desktop_css['.editor-styles-wrapper .is-root-container .wp-block-quote'] = array(
-			'margin-block-end'     => '1.5em',
+			'margin-bottom' => '1.5em',
 		);
 		$desktop_css['.editor-styles-wrapper .is-root-container .wp-block-image'] = array(
-			'margin-block-end'     => '1em',
+			'margin-bottom' => '1em',
 		);
 		$desktop_css['.editor-styles-wrapper .is-root-container p'] = array(
-			'margin-block-start'     => 0,
+			'margin-top' => 0,
 		);
 
 		$content_links_underline = astra_get_option( 'underline-content-links' );
