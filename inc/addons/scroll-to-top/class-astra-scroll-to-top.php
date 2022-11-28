@@ -28,7 +28,9 @@ class Astra_Scroll_To_Top {
 	 */
 	public static function get_instance() {
 		if ( ! isset( self::$instance ) ) {
+			/** @psalm-suppress InvalidPropertyAssignmentValue */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			self::$instance = new self();
+			/** @psalm-suppress InvalidPropertyAssignmentValue */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 		}
 		return self::$instance;
 	}
