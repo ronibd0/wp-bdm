@@ -11,7 +11,7 @@ describe( 'Scroll to top option under the customizer', () => {
 		await setCustomize( scrollToTopIconColor );
 		let ppStatus = false;
 		while ( false === ppStatus ) {
-			await createNewPost( {postType: 'post', title: 'post-1' } );
+			await createNewPost( { postType: 'post', title: 'post-1' } );
 			ppStatus = await publishPost();
 			await createNewPost( { postType: 'post', title: 'post-2' } );
 			ppStatus = await publishPost();
