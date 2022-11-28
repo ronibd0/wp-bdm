@@ -6,8 +6,6 @@
  * @package Astra
  */
 
-use function Amp\delay;
-
 define( 'ASTRA_SCROLL_TO_TOP_DIR', ASTRA_THEME_DIR . 'inc/addons/scroll-to-top/' );
 define( 'ASTRA_SCROLL_TO_TOP_URL', ASTRA_THEME_URI . 'inc/addons/scroll-to-top/' );
 
