@@ -16,7 +16,7 @@ class Astra_Scroll_To_Top_Loader {
 	/**
 	 * Member Variable
 	 *
-	 * @var instance
+	 * @var null $instance
 	 */
 	private static $instance;
 

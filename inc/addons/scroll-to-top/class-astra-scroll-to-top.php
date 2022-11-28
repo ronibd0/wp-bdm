@@ -19,7 +19,7 @@ class Astra_Scroll_To_Top {
 	/**
 	 * Member Variable
 	 *
-	 * @var object instance
+	 * @var null $instance
 	 */
 	private static $instance;
 
