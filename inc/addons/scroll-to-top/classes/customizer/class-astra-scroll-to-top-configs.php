@@ -138,7 +138,7 @@ class Astra_Scroll_To_Top_Configs extends Astra_Customizer_Config_Base {
 				'name'     => ASTRA_THEME_SETTINGS . '[scroll-on-top-color-group]',
 				'default'  => astra_get_option( 'scroll-on-top-color-group' ),
 				'type'     => 'control',
-				'control'  => Astra_Theme_Extension::$group_control,
+				'control'  => 'ast-color-group',
 				'title'    => __( 'Icon Color', 'astra' ),
 				'section'  => 'section-scroll-to-top',
 				'context'  => array(
@@ -158,7 +158,7 @@ class Astra_Scroll_To_Top_Configs extends Astra_Customizer_Config_Base {
 				'name'      => ASTRA_THEME_SETTINGS . '[scroll-on-top-bg-color-group]',
 				'default'   => astra_get_option( 'scroll-on-top-bg-color-group' ),
 				'type'      => 'control',
-				'control'   => Astra_Theme_Extension::$group_control,
+				'control'   => 'ast-color-group',
 				'title'     => __( 'Background Color', 'astra' ),
 				'section'   => 'section-scroll-to-top',
 				'transport' => 'postMessage',

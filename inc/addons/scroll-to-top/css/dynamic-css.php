@@ -79,7 +79,7 @@ function astra_scroll_to_top_dynamic_css( $dynamic_css, $dynamic_css_filtered = 
 		),
 	);
 
-	$scroll_css .= astra_parse_css( $svg_width, '', astra_addon_get_tablet_breakpoint() );
+	$scroll_css .= astra_parse_css( $svg_width, '', astra_get_tablet_breakpoint() );
 
 	return $dynamic_css . $scroll_css;
 }
