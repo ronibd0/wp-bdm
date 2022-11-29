@@ -627,8 +627,8 @@ class Astra_WP_Editor_CSS {
 			);
 		}
 
-        // Content background color fallback - inherit desktop bg color if tablet bg color not set.
-        $content_background = astra_responsive_bg_color_fallback( $content_background, 'tablet' );
+		// Content background color fallback - inherit desktop bg color if tablet bg color not set.
+		$content_background = astra_responsive_bg_color_fallback( $content_background, 'tablet' );
 
 		$tablet_css = array(
 			':root, body .editor-styles-wrapper' => array(
@@ -660,8 +660,8 @@ class Astra_WP_Editor_CSS {
 			'.editor-styles-wrapper'             => astra_get_responsive_background_obj( $content_background, 'tablet' ),
 		);
 
-        // Content background color fallback - inherit desktop bg color if mobile bg color not set.
-        $content_background = astra_responsive_bg_color_fallback( $content_background, 'mobile' );
+		// Content background color fallback - inherit desktop bg color if mobile bg color not set.
+		$content_background = astra_responsive_bg_color_fallback( $content_background, 'mobile' );
 
 		$mobile_css = array(
 			':root, body .editor-styles-wrapper' => array(
