@@ -12861,13 +12861,23 @@ namespace {
     {
     }
     /**
-     * Get last word of string to get metakey of custom post structure.
+     * Get last word of string to get meta-key of custom post structure.
      *
      * @since x.x.x
      * @param string $string from this get last word.
      * @return string $last_word result.
      */
     function astra_get_last_meta_word($string)
+    {
+    }
+	/**
+	 * Get the current archive description.
+	 *
+	 * @since x.x.x
+	 * @param string $post_type post type.
+	 * @return string $description Description for archive.
+	 */
+    function astra_get_archive_description($post_type)
     {
     }
     /**

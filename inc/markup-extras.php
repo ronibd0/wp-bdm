@@ -1346,27 +1346,41 @@ if ( ! function_exists( 'astra_entry_header_class' ) ) {
 	/**
 	 * Astra entry header class
 	 *
+	 * @param $echo output being echoed or not.
+	 *
 	 * @since 1.0.15
 	 */
-	function astra_entry_header_class() {
+	function astra_entry_header_class( $echo = true ) {
 
 		$post_id          = astra_get_post_id();
 		$classes          = array();
 		$title_markup     = astra_the_title( '', '', $post_id, false );
 		$thumb_markup     = astra_get_post_thumbnail( '', '', false );
-		$post_meta_markup = astra_single_get_post_meta( '', '', false );
+		$post_meta_markup = astra_single_get_post_meta( false );
 		$post_type        = get_post_type();
 		$single_structure = 'page' === $post_type ? astra_get_option( 'ast-dynamic-single-page-structure', array( 'ast-dynamic-single-page-image', 'ast-dynamic-single-page-title' ) ) : astra_get_option( 'ast-dynamic-single-' . esc_attr( $post_type ) . '-structure', array( 'ast-dynamic-single-' . $post_type . '-title', 'ast-dynamic-single-' . $post_type . '-meta' ) );
 
 		if ( empty( $single_structure ) ) {
 			$classes[] = 'ast-header-without-markup';
 		} else {
+			if ( 1 === count( $single_structure ) && in_array( 'ast-dynamic-single-' . $post_type . '-title', $single_structure ) && empty( $title_markup ) ) {
+				$classes[] = 'ast-header-without-markup';
+			}
+
 			if ( empty( $title_markup ) ) {
 				$classes[] = 'ast-no-title';
 			}
 
+			if ( 1 === count( $single_structure ) && in_array( 'ast-dynamic-single-' . $post_type . '-image', $single_structure ) && empty( $thumb_markup ) ) {
+				$classes[] = 'ast-header-without-markup';
+			}
+
 			if ( empty( $thumb_markup ) ) {
 				$classes[] = 'ast-no-thumbnail';
+			}
+
+			if ( 1 === count( $single_structure ) && in_array( 'ast-dynamic-single-' . $post_type . '-meta', $single_structure ) && empty( $post_meta_markup ) ) {
+				$classes[] = 'ast-header-without-markup';
 			}
 
 			if ( empty( $post_meta_markup ) ) {
@@ -1377,7 +1391,11 @@ if ( ! function_exists( 'astra_entry_header_class' ) ) {
 		$classes = array_unique( apply_filters( 'astra_entry_header_class', $classes ) );
 		$classes = array_map( 'sanitize_html_class', $classes );
 
-		echo esc_attr( join( ' ', $classes ) );
+		if ( $echo ) {
+			echo esc_attr( join( ' ', $classes ) );
+		} else {
+			return ( join( ' ', $classes ) );
+		}
 	}
 }
 
