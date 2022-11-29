@@ -755,3 +755,8 @@ h5.wp-block.has-background,
 h6.wp-block.has-background {
   padding: 1.25em 2.375em;
 }
+
+.components-angle-picker-control .components-input-control__container .components-input-control__input {
+  padding-right: calc(10px);
+  padding-left: calc(10px);
+}
