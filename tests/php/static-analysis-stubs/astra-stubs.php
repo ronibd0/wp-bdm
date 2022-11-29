@@ -16756,6 +16756,16 @@ namespace {
     {
     }
     /**
+     * Set fallback css value for content background for responsive devices.
+     * @param  array  content_background background css properties.
+     * @param  string resp_device        tablet or mobile.
+     * @return array  content_background updated background css properties.
+     * @since x.x.x
+     */
+    function astra_responsive_bg_color_fallback( $content_background, $resp_device )
+    {
+    }
+    /**
      * Search Form for Astra theme.
      *
      * @package     Astra

@@ -1670,3 +1670,17 @@ function astra_narrow_container_width( $location, $narrow_container_max_width ) 
 		return '';
 	}
 }
+
+/**
+ * Set fallback css value for content background for responsive devices.
+ * @param  array  content_background background css properties.
+ * @param  string resp_device        tablet or mobile.
+ * @return array  content_background updated background css properties.
+ * @since x.x.x
+ */
+function astra_responsive_bg_color_fallback( $content_background, $resp_device ) {
+    if ( isset( $content_background[ $resp_device ][ 'background-color' ] ) && isset( $content_background[ 'desktop' ][ 'background-color' ] ) && '' === $content_background[ $resp_device ][ 'background-color' ] ) {
+        $content_background[ $resp_device ][ 'background-color' ] = $content_background[ 'desktop' ][ 'background-color' ];
+    }
+    return $content_background;
+}
