@@ -1353,38 +1353,51 @@ if ( ! function_exists( 'astra_entry_header_class' ) ) {
 	function astra_entry_header_class( $echo = true ) {
 
 		$post_id          = astra_get_post_id();
+		$post_type        = get_post_type();
 		$classes          = array();
 		$title_markup     = astra_the_title( '', '', $post_id, false );
 		$thumb_markup     = astra_get_post_thumbnail( '', '', false );
 		$post_meta_markup = astra_single_get_post_meta( false );
-		$post_type        = get_post_type();
 		$single_structure = 'page' === $post_type ? astra_get_option( 'ast-dynamic-single-page-structure', array( 'ast-dynamic-single-page-image', 'ast-dynamic-single-page-title' ) ) : astra_get_option( 'ast-dynamic-single-' . esc_attr( $post_type ) . '-structure', array( 'ast-dynamic-single-' . $post_type . '-title', 'ast-dynamic-single-' . $post_type . '-meta' ) );
 
 		if ( empty( $single_structure ) ) {
 			$classes[] = 'ast-header-without-markup';
 		} else {
-			if ( 1 === count( $single_structure ) && in_array( 'ast-dynamic-single-' . $post_type . '-title', $single_structure ) && empty( $title_markup ) ) {
+			$header_without_markup_counter = 0;
+			foreach ( $single_structure as $key ) {
+				$structure_key = 'single-' . astra_get_last_meta_word( $key );
+				switch ( $structure_key ) {
+					case 'single-title':
+						if ( empty( $title_markup ) ) {
+							$classes[] = 'ast-no-title';
+							$header_without_markup_counter += 1;
+						}
+					break;
+					case 'single-excerpt':
+						if ( empty( get_the_excerpt() ) ) {
+							$classes[] = 'ast-no-excerpt';
+							$header_without_markup_counter += 1;
+						}
+					break;
+					case 'single-meta':
+						if ( empty( $post_meta_markup ) ) {
+							$classes[] = 'ast-no-meta';
+							$header_without_markup_counter += 1;
+						}
+					break;
+					case 'single-image':
+						if ( empty( $thumb_markup ) ) {
+							$classes[] = 'ast-no-thumbnail';
+							$header_without_markup_counter += 1;
+						}
+					break;
+					default:
+					break;
+				}
+			}
+
+			if ( $header_without_markup_counter === count( $single_structure ) ) {
 				$classes[] = 'ast-header-without-markup';
-			}
-
-			if ( empty( $title_markup ) ) {
-				$classes[] = 'ast-no-title';
-			}
-
-			if ( 1 === count( $single_structure ) && in_array( 'ast-dynamic-single-' . $post_type . '-image', $single_structure ) && empty( $thumb_markup ) ) {
-				$classes[] = 'ast-header-without-markup';
-			}
-
-			if ( empty( $thumb_markup ) ) {
-				$classes[] = 'ast-no-thumbnail';
-			}
-
-			if ( 1 === count( $single_structure ) && in_array( 'ast-dynamic-single-' . $post_type . '-meta', $single_structure ) && empty( $post_meta_markup ) ) {
-				$classes[] = 'ast-header-without-markup';
-			}
-
-			if ( empty( $post_meta_markup ) ) {
-				$classes[] = 'ast-no-meta';
 			}
 		}
 

@@ -12684,7 +12684,7 @@ namespace {
     /**
      * Post meta
      *
-     * @param  string $post_meta Post meta.
+     * @param  array $post_meta Post meta.
      * @param  string $separator Separator.
      * @return string            post meta markup.
      */
@@ -15838,10 +15838,12 @@ namespace {
     }
     /**
      * Astra entry header class
+	 *
+	 * @param $echo output being echoed or not.
      *
      * @since 1.0.15
      */
-    function astra_entry_header_class()
+    function astra_entry_header_class($echo = \true)
     {
     }
     /**
