@@ -1350,19 +1350,17 @@ if ( ! function_exists( 'astra_entry_header_class' ) ) {
 	 */
 	function astra_entry_header_class() {
 
-		$post_id                    = astra_get_post_id();
-		$classes                    = array();
-		$title_markup               = astra_the_title( '', '', $post_id, false );
-		$thumb_markup               = astra_get_post_thumbnail( '', '', false );
-		$post_meta_markup           = astra_single_get_post_meta( '', '', false );
-		$blog_single_post_structure = astra_get_option( 'ast-single-post-structure', array( 'ast-dynamic-single-post-title', 'ast-dynamic-single-post-breadcrumb' ) );
+		$post_id          = astra_get_post_id();
+		$classes          = array();
+		$title_markup     = astra_the_title( '', '', $post_id, false );
+		$thumb_markup     = astra_get_post_thumbnail( '', '', false );
+		$post_meta_markup = astra_single_get_post_meta( '', '', false );
+		$post_type        = get_post_type();
+		$single_structure = 'page' === $post_type ? astra_get_option( 'ast-dynamic-single-page-structure', array( 'ast-dynamic-single-page-image', 'ast-dynamic-single-page-title' ) ) : astra_get_option( 'ast-dynamic-single-' . esc_attr( $post_type ) . '-structure', array( 'ast-dynamic-single-' . $post_type . '-title', 'ast-dynamic-single-' . $post_type . '-meta' ) );
 
-		if ( ! $blog_single_post_structure || ( 'ast-dynamic-single-post-image' === astra_get_prop( $blog_single_post_structure, 0 ) && empty( $thumb_markup ) && ( in_array( 'ast-dynamic-single-post-title', $blog_single_post_structure ) || in_array( 'ast-dynamic-single-post-meta', $blog_single_post_structure ) ) ) ) {
-			$classes[] = 'ast-header-without-markup';
-		} elseif ( empty( $title_markup ) && empty( $thumb_markup ) && ( is_page() || empty( $post_meta_markup ) ) ) {
+		if ( empty( $single_structure ) ) {
 			$classes[] = 'ast-header-without-markup';
 		} else {
-
 			if ( empty( $title_markup ) ) {
 				$classes[] = 'ast-no-title';
 			}
@@ -1371,7 +1369,7 @@ if ( ! function_exists( 'astra_entry_header_class' ) ) {
 				$classes[] = 'ast-no-thumbnail';
 			}
 
-			if ( is_page() || empty( $post_meta_markup ) ) {
+			if ( empty( $post_meta_markup ) ) {
 				$classes[] = 'ast-no-meta';
 			}
 		}
