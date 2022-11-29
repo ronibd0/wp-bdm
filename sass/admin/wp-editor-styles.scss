@@ -467,3 +467,15 @@ pre.wp-block {
 		}
     }
 }
+
+// Added css for gradirnt color picker
+.block-editor-page {
+	.components-angle-picker-control {
+		.components-input-control__container {
+			.components-input-control__input {
+				padding-left: calc(10px);
+				padding-right: calc(10px);
+			}
+		}
+	}
+}
