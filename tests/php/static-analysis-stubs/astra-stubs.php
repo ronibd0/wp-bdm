@@ -16756,7 +16756,7 @@ namespace {
     {
     }
     /**
-     * Set fallback css value for content background for responsive devices.
+     * Set fallback css value for content background color for responsive devices.
      * @param  array  content_background background css properties.
      * @param  string resp_device        tablet or mobile.
      * @return array  content_background updated background css properties.
