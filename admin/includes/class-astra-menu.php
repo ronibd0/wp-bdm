@@ -675,6 +675,8 @@ class Astra_Menu {
 		$st_plugin_redirection = isset( $st_plugin_data['redirection'] ) ? $st_plugin_data['redirection'] : '';
 		/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 
+		$surecart_redirection = empty( get_option( 'sc_api_token', '' ) ) ? 'sc-getting-started' : 'sc-dashboard';
+
 		return apply_filters(
 			'astra_useful_plugins',
 			array(
@@ -708,7 +710,7 @@ class Astra_Menu {
 					'status'      => self::get_plugin_status( 'surecart/surecart.php' ),
 					'slug'        => 'surecart',
 					'path'        => 'surecart/surecart.php',
-					'redirection' => admin_url( 'admin.php?page=sc-dashboard' ),
+					'redirection' => admin_url( 'admin.php?page=' . esc_attr( $surecart_redirection ) ),
 					'logoPath'    => array(
 						'internal_icon' => true,
 						'icon_path'     => 'surecart',
@@ -752,6 +754,7 @@ class Astra_Menu {
 	 * @access public
 	 */
 	public static function astra_get_integrations() {
+		$surecart_redirection = empty( get_option( 'sc_api_token', '' ) ) ? 'sc-getting-started' : 'sc-dashboard';
 		return apply_filters(
 			'astra_integrated_plugins',
 			array(
@@ -773,7 +776,7 @@ class Astra_Menu {
 					'subtitle'    => __( 'Simplifying selling online with WordPress.', 'astra' ),
 					'isPro'       => false,
 					'status'      => self::get_plugin_status( 'surecart/surecart.php' ),
-					'redirection' => admin_url( 'admin.php?page=sc-dashboard' ),
+					'redirection' => admin_url( 'admin.php?page=' . esc_attr( $surecart_redirection ) ),
 					'slug'        => 'surecart',
 					'path'        => 'surecart/surecart.php',
 					'logoPath'    => array(
