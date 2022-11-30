@@ -12684,7 +12684,7 @@ namespace {
     /**
      * Post meta
      *
-     * @param  string $post_meta Post meta.
+     * @param  array $post_meta Post meta.
      * @param  string $separator Separator.
      * @return string            post meta markup.
      */
@@ -12861,13 +12861,23 @@ namespace {
     {
     }
     /**
-     * Get last word of string to get metakey of custom post structure.
+     * Get last word of string to get meta-key of custom post structure.
      *
      * @since x.x.x
      * @param string $string from this get last word.
      * @return string $last_word result.
      */
     function astra_get_last_meta_word($string)
+    {
+    }
+	/**
+	 * Get the current archive description.
+	 *
+	 * @since x.x.x
+	 * @param string $post_type post type.
+	 * @return string $description Description for archive.
+	 */
+    function astra_get_archive_description($post_type)
     {
     }
     /**
@@ -15828,10 +15838,12 @@ namespace {
     }
     /**
      * Astra entry header class
+	 *
+	 * @param bool $echo output being echoed or not.
      *
      * @since 1.0.15
      */
-    function astra_entry_header_class()
+    function astra_entry_header_class($echo = \true)
     {
     }
     /**
