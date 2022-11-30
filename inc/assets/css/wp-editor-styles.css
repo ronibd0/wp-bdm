@@ -688,6 +688,6 @@ pre.wp-block.wp-block-code {
 }
 
 .block-editor-page .components-angle-picker-control .components-input-control__container .components-input-control__input {
-  padding-left: calc(10px);
-  padding-right: calc(10px);
+  padding-left: 10px;
+  padding-right: 10px;
 }
