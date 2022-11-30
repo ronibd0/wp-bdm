@@ -180,43 +180,9 @@ if ( ! class_exists( 'Astra_Archive_Typo_Configs' ) ) {
 			} else {
 
 				$new_configs = array(
-
-					/**
-					 * Option: Archive Summary Box Title Font Size
-					 */
-
-					array(
-						'name'              => ASTRA_THEME_SETTINGS . '[font-size-archive-summary-title]',
-						'control'           => 'ast-responsive-slider',
-						'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
-						'section'           => 'section-blog',
-						'type'              => 'control',
-						'transport'         => 'postMessage',
-						'title'             => __( 'Archive Title Font Size', 'astra' ),
-						'priority'          => 140,
-						'default'           => astra_get_option( 'font-size-archive-summary-title' ),
-						'suffix'            => array( 'px', 'em' ),
-						'input_attrs'       => array(
-							'px' => array(
-								'min'  => 0,
-								'step' => 1,
-								'max'  => 100,
-							),
-							'em' => array(
-								'min'  => 0,
-								'step' => 0.01,
-								'max'  => 20,
-							),
-						),
-						'context'           => ( true === Astra_Builder_Helper::$is_header_footer_builder_active ) ?
-							Astra_Builder_Helper::$design_tab : Astra_Builder_Helper::$general_tab,
-						'divider'           => array( 'ast_class' => 'ast-section-spacing ast-bottom-section-divider' ),
-					),
-
 					/**
 					 * Option: Blog - Post Title Font Size
 					 */
-
 					array(
 						'name'              => ASTRA_THEME_SETTINGS . '[font-size-page-title]',
 						'control'           => 'ast-responsive-slider',
@@ -245,9 +211,8 @@ if ( ! class_exists( 'Astra_Archive_Typo_Configs' ) ) {
 						'divider'           => array( 'ast_class' => 'ast-section-spacing' ),
 					),
 				);
+				$_configs    = array_merge( $_configs, $new_configs );
 			}
-
-			$_configs = array_merge( $_configs, $new_configs );
 
 			$configurations = array_merge( $configurations, $_configs );
 

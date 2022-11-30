@@ -111,18 +111,9 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 				'astra_theme_defaults',
 				array(
 					// Blog Single.
-					'blog-single-post-structure'           => array(
-						'single-image',
-						'single-title-meta',
-					),
-
 					'blog-single-width'                    => 'default',
 					'blog-single-max-width'                => 1200,
-					'blog-single-meta'                     => array(
-						'comments',
-						'category',
-						'author',
-					),
+
 					// Blog.
 					'blog-post-structure'                  => array(
 						'image',
@@ -324,6 +315,7 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 					// Site Layout.
 					'site-layout'                          => 'ast-full-width-layout',
 					'site-content-width'                   => 1200,
+					'narrow-container-max-width'           => 750,
 					'site-layout-outside-bg-obj-responsive' => array(
 						'desktop' => array(
 							'background-color'      => '',
@@ -467,14 +459,6 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 						'tablet-unit'  => 'px',
 						'mobile-unit'  => 'px',
 					),
-					'font-size-entry-title'                => array(
-						'desktop'      => 30,
-						'tablet'       => '',
-						'mobile'       => '',
-						'desktop-unit' => 'px',
-						'tablet-unit'  => 'px',
-						'mobile-unit'  => 'px',
-					),
 					'single-post-outside-spacing'          => array(
 						'desktop'      => array(
 							'top'    => '',
@@ -494,14 +478,6 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 							'bottom' => '',
 							'left'   => '',
 						),
-						'desktop-unit' => 'px',
-						'tablet-unit'  => 'px',
-						'mobile-unit'  => 'px',
-					),
-					'font-size-archive-summary-title'      => array(
-						'desktop'      => 40,
-						'tablet'       => '',
-						'mobile'       => '',
 						'desktop-unit' => 'px',
 						'tablet-unit'  => 'px',
 						'mobile-unit'  => 'px',
@@ -582,9 +558,8 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 					// toogle menu target.
 					'mobile-header-toggle-target'          => 'icon',
 
-					// Performance.
-					'load-google-fonts-locally'            => false,
-					'preload-local-fonts'                  => false,
+					// Misc.
+					'enable-scroll-to-id'                  => true,
 				)
 			);
 
