@@ -514,19 +514,6 @@ class Astra_Menu {
 						),
 					),
 				),
-				'scroll-to-top'         => array(
-					'title'     => __( 'Scroll To Top', 'astra' ),
-					'class'     => 'ast-addon',
-					'title_url' => astra_get_pro_url( 'https://wpastra.com/docs/scroll-to-top-pro/', 'welcome_page', 'features', 'astra_theme' ),
-					'links'     => array(
-						array(
-							'link_class'   => 'ast-learn-more',
-							'link_url'     => astra_get_pro_url( 'https://wpastra.com/docs/scroll-to-top-pro/', 'welcome_page', 'features', 'astra_theme' ),
-							'link_text'    => __( 'Documentation', 'astra' ),
-							'target_blank' => true,
-						),
-					),
-				),
 				'nav-menu'              => array(
 					'title'     => __( 'Nav Menu', 'astra' ),
 					'class'     => 'ast-addon',
