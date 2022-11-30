@@ -365,7 +365,7 @@ function astra_post_single_structure_dynamic_css( $dynamic_css, $dynamic_css_fil
 					'background-size'       => 'cover',
 				);
 				$overlay_color = astra_get_option( 'ast-dynamic-single-' . $current_post_type . '-banner-featured-overlay', '' );
-				if ( '' !== $overlay_color ) {
+				if ( '' !== $overlay_color && 'unset' !== $overlay_color ) {
 					$css_output_desktop[ $selector . '[data-banner-background-type="featured"]' ]['background']            = 'url( ' . esc_url( $feat_image_src ) . ' ) ' . $overlay_color;
 					$css_output_desktop[ $selector . '[data-banner-background-type="featured"]' ]['background-blend-mode'] = 'multiply';
 				}
