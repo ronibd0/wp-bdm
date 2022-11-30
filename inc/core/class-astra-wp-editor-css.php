@@ -424,7 +424,7 @@ class Astra_WP_Editor_CSS {
 			),
 
 			'#editor .edit-post-visual-editor' => $background_style_data,
-			'.edit-post-visual-editor .editor-styles-wrapper' => astra_get_responsive_background_obj( $content_background, 'desktop' ),
+			'.editor-styles-wrapper'           => astra_get_responsive_background_obj( $content_background, 'desktop' ),
 
 			'.editor-styles-wrapper, #customize-controls .editor-styles-wrapper' => array(
 				'font-family'    => astra_get_font_family( $body_font_family ),
@@ -627,9 +627,6 @@ class Astra_WP_Editor_CSS {
 			);
 		}
 
-		// Content background color fallback - inherit desktop bg color if tablet bg color not set.
-		$content_background = astra_responsive_bg_color_fallback( $content_background, 'tablet' );
-
 		$tablet_css = array(
 			':root, body .editor-styles-wrapper' => array(
 				'--wp--custom--ast-default-block-top-padding' => $tablet_top_spacing,
@@ -659,9 +656,6 @@ class Astra_WP_Editor_CSS {
 			'#editor .edit-post-visual-editor'   => astra_get_responsive_background_obj( $site_background, 'tablet' ),
 			'.editor-styles-wrapper'             => astra_get_responsive_background_obj( $content_background, 'tablet' ),
 		);
-
-		// Content background color fallback - inherit desktop bg color if mobile bg color not set.
-		$content_background = astra_responsive_bg_color_fallback( $content_background, 'mobile' );
 
 		$mobile_css = array(
 			':root, body .editor-styles-wrapper' => array(
