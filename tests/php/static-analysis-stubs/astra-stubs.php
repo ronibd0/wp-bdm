@@ -15839,7 +15839,7 @@ namespace {
     /**
      * Astra entry header class
 	 *
-	 * @param $echo output being echoed or not.
+	 * @param bool $echo output being echoed or not.
      *
      * @since 1.0.15
      */

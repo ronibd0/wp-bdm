@@ -1346,14 +1346,14 @@ if ( ! function_exists( 'astra_entry_header_class' ) ) {
 	/**
 	 * Astra entry header class
 	 *
-	 * @param $echo output being echoed or not.
+	 * @param bool $echo output being echoed or not.
 	 *
 	 * @since 1.0.15
 	 */
 	function astra_entry_header_class( $echo = true ) {
 
 		$post_id          = astra_get_post_id();
-		$post_type        = get_post_type();
+		$post_type        = strval( get_post_type() );
 		$classes          = array();
 		$title_markup     = astra_the_title( '', '', $post_id, false );
 		$thumb_markup     = astra_get_post_thumbnail( '', '', false );
