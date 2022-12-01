@@ -270,53 +270,6 @@ if ( ! function_exists( 'astra_get_blog_post_title_meta' ) ) {
 }
 
 /**
- * Single Post Title & Meta Order
- */
-if ( ! function_exists( 'astra_get_single_post_title_meta' ) ) {
-
-	/**
-	 * Blog post Thumbnail
-	 *
-	 * @since  1.0.8
-	 */
-	function astra_get_single_post_title_meta() {
-
-		// Single Post Title and Single Post Meta.
-		do_action( 'astra_single_post_order_before' );
-
-		?>
-		<div class="ast-single-post-order">
-			<?php
-
-			do_action( 'astra_single_post_title_before' );
-
-			astra_the_title(
-				'<h1 class="entry-title" ' . astra_attr(
-					'article-title-blog-single',
-					array(
-						'class' => '',
-					)
-				) . '>',
-				'</h1>'
-			);
-
-			do_action( 'astra_single_post_title_after' );
-
-			do_action( 'astra_single_post_meta_before' );
-
-			astra_single_get_post_meta();
-
-			do_action( 'astra_single_post_meta_after' );
-
-			?>
-		</div>
-		<?php
-
-		do_action( 'astra_single_post_order_after' );
-	}
-}
-
-/**
  * Get audio files from post content
  */
 if ( ! function_exists( 'astra_get_audios_from_post' ) ) {
