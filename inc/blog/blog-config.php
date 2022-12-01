@@ -165,16 +165,20 @@ if ( ! function_exists( 'astra_post_date' ) ) {
 /**
  * Function to get Author name.
  *
- * @return string $author_name Author name.
+ * @return null|string $author_name Author name.
  * @since x.x.x
  */
 function astra_post_author_name() {
 	$author_name = '';
 	if ( empty( get_the_author() ) ) {
+		/** @psalm-suppress InvalidGlobal */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 		global $post;
-		$user_id = $post->post_author;
-		if ( $user_id ) {
+		/** @psalm-suppress InvalidGlobal */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+		if ( is_object( $post ) && isset( $post->post_author ) ) {
+			$user_id = $post->post_author;
+			/** @psalm-suppress InvalidGlobal */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			global $authordata;
+				/** @psalm-suppress InvalidGlobal */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			$author_data = '';
 			if ( ! $authordata ) {
 				$author_data = get_userdata( $user_id );

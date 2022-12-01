@@ -12965,7 +12965,7 @@ namespace {
 	/**
 	 * Function to get Author name.
 	 *
-	 * @return string $author_name Author name.
+	 * @return null|string $author_name Author name.
 	 */
     function astra_post_author_name()
     {
