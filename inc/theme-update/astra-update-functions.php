@@ -1346,3 +1346,113 @@ function astra_theme_background_updater_4_0_0() {
 		update_option( 'astra-settings', $theme_options );
 	}
 }
+
+/**
+ * Handle backward compatibility on version 4.0.1
+ *
+ * @since x.x.x
+ * @return void
+ */
+function astra_theme_background_updater_4_0_1() {
+
+	$theme_options = get_option( 'astra-settings', array() );
+
+	// Push current payment inside sortable payment.
+	$current_payment_list = array();
+
+	$visa_payment       = isset( $theme_options['single-product-payment-visa'] ) ? $theme_options['single-product-payment-visa'] : '';
+	$mastercard_payment = isset( $theme_options['single-product-payment-mastercard'] ) ? $theme_options['single-product-payment-mastercard'] : '';
+	$amex_payment       = isset( $theme_options['single-product-payment-amex'] ) ? $theme_options['single-product-payment-amex'] : '';
+	$discover_payment   = isset( $theme_options['single-product-payment-discover'] ) ? $theme_options['single-product-payment-discover'] : '';
+	$paypal_payment     = isset( $theme_options['single-product-payment-paypal'] ) ? $theme_options['single-product-payment-paypal'] : '';
+	$apple_pay_payment  = isset( $theme_options['single-product-payment-apple-pay'] ) ? $theme_options['single-product-payment-apple-pay'] : '';
+
+
+	$visa_payment ? array_push(
+		$current_payment_list,
+		array(
+			'id'      => 'item-visa',
+			'enabled' => true,
+			'source'  => 'icon',
+			'icon'    => 'cc-visa',
+			'image'   => '',
+			'label'   => 'Visa',
+		)
+	) : '';
+
+	$mastercard_payment ? array_push(
+		$current_payment_list,
+		array(
+			'id'      => 'item-mastercard',
+			'enabled' => true,
+			'source'  => 'icon',
+			'icon'    => 'cc-mastercard',
+			'image'   => '',
+			'label'   => 'Mastercard',
+		)
+	) : '';
+
+	$amex_payment ? array_push(
+		$current_payment_list,
+		array(
+			'id'      => 'item-amex',
+			'enabled' => true,
+			'source'  => 'icon',
+			'icon'    => 'cc-amex',
+			'image'   => '',
+			'label'   => 'Amex',
+		)
+	) : '';
+
+	$discover_payment ? array_push(
+		$current_payment_list,
+		array(
+			'id'      => 'item-discover',
+			'enabled' => true,
+			'source'  => 'icon',
+			'icon'    => 'cc-discover',
+			'image'   => '',
+			'label'   => 'Discover',
+		)
+	) : '';
+
+	$paypal_payment ? array_push(
+		$current_payment_list,
+		array(
+			'id'      => 'item-paypal',
+			'enabled' => true,
+			'source'  => 'icon',
+			'icon'    => 'cc-paypal',
+			'image'   => '',
+			'label'   => 'Paypal',
+		)
+	) : '';
+
+	$apple_pay_payment ? array_push(
+		$current_payment_list,
+		array(
+			'id'      => 'item-apple-pay',
+			'enabled' => true,
+			'source'  => 'icon',
+			'icon'    => 'cc-apple-pay',
+			'image'   => '',
+			'label'   => 'Apple Pay',
+		)
+	) : '';
+
+
+	if ( $visa_payment || $mastercard_payment || $amex_payment || $discover_payment || $paypal_payment || $apple_pay_payment ) {
+		array_merge(
+			$current_payment_list,
+			$theme_options['single-product-payment-list']['items']
+		);
+
+		$theme_options['single-product-payment-list'] = array_merge(
+			$current_payment_list,
+			$theme_options['single-product-payment-list']['items']
+		);
+	}
+
+	update_option( 'astra-settings', $theme_options );
+
+}
