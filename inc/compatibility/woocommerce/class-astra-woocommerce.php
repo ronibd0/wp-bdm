@@ -2768,7 +2768,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 					.ast-single-product-payments ul li svg, 
 					.ast-single-product-payments ul li img {
 						height: 30px;
-						width: auto;
+						width: 100%;
 					}
 
 				';
@@ -3403,7 +3403,8 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 												}
 											} else {
 												if ( isset( $single['icon'] ) && $single['icon'] ) {
-													$selected_icon = in_array( $single['icon'], $colored_varients ) && 'inherit' !== $if_color_version ? $single['icon'] . '-c' : $single['icon'];
+
+													$selected_icon = in_array( $single['icon'], $colored_varients ) && 'inherit_text_color' !== $if_color_version ? $single['icon'] . '-c' : $single['icon'];
 													?>
 													<li class="ast-custom-payment">
 													<?php echo Astra_Builder_UI_Controller::fetch_svg_icon( $selected_icon, false ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>

@@ -1367,7 +1367,7 @@ function astra_theme_background_updater_4_0_1() {
 	$paypal_payment     = isset( $theme_options['single-product-payment-paypal'] ) ? $theme_options['single-product-payment-paypal'] : '';
 	$apple_pay_payment  = isset( $theme_options['single-product-payment-apple-pay'] ) ? $theme_options['single-product-payment-apple-pay'] : '';
 
-	$visa_payment ? array_push(
+	false !== $visa_payment ? array_push(
 		$current_payment_list,
 		array(
 			'id'      => 'item-visa',
@@ -1379,7 +1379,7 @@ function astra_theme_background_updater_4_0_1() {
 		)
 	) : '';
 
-	$mastercard_payment ? array_push(
+	false !== $mastercard_payment ? array_push(
 		$current_payment_list,
 		array(
 			'id'      => 'item-mastercard',
@@ -1391,7 +1391,7 @@ function astra_theme_background_updater_4_0_1() {
 		)
 	) : '';
 
-	$amex_payment ? array_push(
+	false !== $mastercard_payment ? array_push(
 		$current_payment_list,
 		array(
 			'id'      => 'item-amex',
@@ -1403,7 +1403,7 @@ function astra_theme_background_updater_4_0_1() {
 		)
 	) : '';
 
-	$discover_payment ? array_push(
+	false !== $discover_payment ? array_push(
 		$current_payment_list,
 		array(
 			'id'      => 'item-discover',
@@ -1415,7 +1415,7 @@ function astra_theme_background_updater_4_0_1() {
 		)
 	) : '';
 
-	$paypal_payment ? array_push(
+	false !== $paypal_payment ? array_push(
 		$current_payment_list,
 		array(
 			'id'      => 'item-paypal',
@@ -1427,7 +1427,7 @@ function astra_theme_background_updater_4_0_1() {
 		)
 	) : '';
 
-	$apple_pay_payment ? array_push(
+	false !== $apple_pay_payment ? array_push(
 		$current_payment_list,
 		array(
 			'id'      => 'item-apple-pay',
@@ -1439,13 +1439,14 @@ function astra_theme_background_updater_4_0_1() {
 		)
 	) : '';
 
-	if( $current_payment_list ) {
+	if ( $current_payment_list ) {
 		$theme_options['single-product-payment-list'] =
-		array( 'items' =>
-			array_merge(
-				$current_payment_list,
-				$theme_options['single-product-payment-list']['items']
-			),
+		array(
+			'items' =>
+							array_merge(
+								$current_payment_list,
+								$theme_options['single-product-payment-list']['items']
+							),
 		);
 
 		update_option( 'astra-settings', $theme_options );
