@@ -93,7 +93,7 @@ if ( ! class_exists( 'Astra_Elementor' ) ) :
 						'margin' => '0',
 					),
 					'.elementor-page .ast-menu-toggle' => array(
-						'color' => 'unset !important',
+						'color'      => 'unset !important',
 						'background' => 'unset !important',
 					),
 				);
