@@ -4829,6 +4829,10 @@ span.customize-control-title.ast-group-section-title {
   padding-left: 15px;
   box-sizing: border-box;
 }
+.ast-control-wrap .ast-color-picker-alpha.color-picker-hex {
+    margin-right: -5px;
+    margin-left: -5px;
+}
 
 .ast-field-settings-modal .customize-control:first-child {
   margin-top: 15px;
@@ -5228,7 +5232,7 @@ span.customize-control-title.ast-group-section-title {
 .ast-sortable-subfields-wrap .customize-control {
 	box-sizing: border-box;
     position: relative;
-    padding-right: 12px;
+    padding-right: 9px;
 }
 /**
  * ast-list-icons inside sortable compatibility CSS.
@@ -7747,6 +7751,10 @@ span.customize-control-title.ast-group-section-title {
   padding-left: 15px;
   box-sizing: border-box;
 }
+.ast-control-wrap .ast-color-picker-alpha {
+    margin-right: -5px;
+    margin-left: -5px;
+}
 
 .ast-field-settings-modal .customize-control:first-child {
   margin-top: 15px;
@@ -8146,7 +8154,7 @@ span.customize-control-title.ast-group-section-title {
 .ast-sortable-subfields-wrap .customize-control {
 	box-sizing: border-box;
     position: relative;
-    padding-right: 12px;
+    padding-right: 9px;
 }
 /**
  * ast-list-icons inside sortable compatibility CSS.

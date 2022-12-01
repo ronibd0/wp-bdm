@@ -3438,6 +3438,10 @@ span.customize-control-title.ast-group-section-title {
   padding-right: 15px;
   box-sizing: border-box;
 }
+.ast-control-wrap .ast-color-picker-alpha {
+    margin-left: -5px;
+    margin-right: -5px;
+}
 
 .ast-field-settings-modal .customize-control:first-child {
   margin-top: 15px;
@@ -3837,7 +3841,7 @@ span.customize-control-title.ast-group-section-title {
 .ast-sortable-subfields-wrap .customize-control {
 	box-sizing: border-box;
     position: relative;
-    padding-left: 12px;
+    padding-left: 9px;
 }
 /**
  * ast-list-icons inside sortable compatibility CSS.
