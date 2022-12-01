@@ -1367,7 +1367,6 @@ function astra_theme_background_updater_4_0_1() {
 	$paypal_payment     = isset( $theme_options['single-product-payment-paypal'] ) ? $theme_options['single-product-payment-paypal'] : '';
 	$apple_pay_payment  = isset( $theme_options['single-product-payment-apple-pay'] ) ? $theme_options['single-product-payment-apple-pay'] : '';
 
-
 	$visa_payment ? array_push(
 		$current_payment_list,
 		array(
@@ -1440,11 +1439,16 @@ function astra_theme_background_updater_4_0_1() {
 		)
 	) : '';
 
-	$theme_options['single-product-payment-list'] = array_merge(
-		$current_payment_list,
-		$theme_options['single-product-payment-list']['items']
-	);
+	if( $current_payment_list ) {
+		$theme_options['single-product-payment-list'] =
+		array( 'items' =>
+			array_merge(
+				$current_payment_list,
+				$theme_options['single-product-payment-list']['items']
+			),
+		);
 
-	update_option( 'astra-settings', $theme_options );
+		update_option( 'astra-settings', $theme_options );
+	}
 
 }
