@@ -1442,10 +1442,6 @@ function astra_theme_background_updater_4_0_1() {
 
 
 	if ( $visa_payment || $mastercard_payment || $amex_payment || $discover_payment || $paypal_payment || $apple_pay_payment ) {
-		array_merge(
-			$current_payment_list,
-			$theme_options['single-product-payment-list']['items']
-		);
 
 		$theme_options['single-product-payment-list'] = array_merge(
 			$current_payment_list,
