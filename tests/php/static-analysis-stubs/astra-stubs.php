@@ -13097,14 +13097,6 @@ namespace {
     {
     }
     /**
-     * Blog post Thumbnail
-     *
-     * @since  1.0.8
-     */
-    function astra_get_single_post_title_meta()
-    {
-    }
-    /**
      * Get audio files from post content
      *
      * @param  number $post_id Post id.
