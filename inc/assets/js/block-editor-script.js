@@ -144,6 +144,23 @@ function astra_onload_function() {
 				});
 			}
 
+			// Show title wrapper outline & icon only when clicked.
+			const titleInput     = document.querySelector( '.editor-post-title__input' );
+			const visibilityIcon = document.querySelector( '.title-visibility' );
+			document.addEventListener('click', function ( event ) {
+				if( ! titleBlock.contains( event.target ) ){
+					visibilityIcon.classList.remove('show-visibility-icon');
+					titleInput.classList.remove('show-editor-title-outline');
+				}
+			});
+			titleBlock.addEventListener('click', function () {
+				visibilityIcon.classList.add('show-visibility-icon');
+				titleInput.classList.add('show-editor-title-outline');
+			});
+			titleInput.addEventListener('input', function (){
+				this.classList.add('show-editor-title-outline');
+			});
+
 			var responsivePreview = document.querySelectorAll( '.is-tablet-preview, .is-mobile-preview' );
 			if( responsivePreview.length ) {
 				document.body.classList.add( 'responsive-enabled' );
