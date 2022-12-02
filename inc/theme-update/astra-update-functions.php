@@ -1357,7 +1357,7 @@ function astra_theme_background_updater_4_0_1() {
 
 	$theme_options = get_option( 'astra-settings', array() );
 
-	// Push current payment inside sortable payment.
+	// Push current payment options inside sortable payment.
 	$current_payment_list = array();
 
 	$visa_payment       = isset( $theme_options['single-product-payment-visa'] ) ? $theme_options['single-product-payment-visa'] : '';
@@ -1415,7 +1415,7 @@ function astra_theme_background_updater_4_0_1() {
 		)
 	) : '';
 
-	false !== $paypal_payment ? array_push(
+	$paypal_payment ? array_push(
 		$current_payment_list,
 		array(
 			'id'      => 'item-paypal',
@@ -1427,7 +1427,7 @@ function astra_theme_background_updater_4_0_1() {
 		)
 	) : '';
 
-	false !== $apple_pay_payment ? array_push(
+	$apple_pay_payment ? array_push(
 		$current_payment_list,
 		array(
 			'id'      => 'item-apple-pay',
@@ -1443,10 +1443,10 @@ function astra_theme_background_updater_4_0_1() {
 		$theme_options['single-product-payment-list'] =
 		array(
 			'items' =>
-							array_merge(
-								$current_payment_list,
-								$theme_options['single-product-payment-list']['items']
-							),
+				array_merge(
+					$current_payment_list,
+					$theme_options['single-product-payment-list']['items']
+				),
 		);
 
 		update_option( 'astra-settings', $theme_options );
