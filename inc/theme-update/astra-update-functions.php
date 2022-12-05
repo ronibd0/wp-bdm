@@ -1333,4 +1333,10 @@ function astra_theme_background_updater_4_0_0() {
 		$theme_options['enable-scroll-to-id'] = false;
 		update_option( 'astra-settings', $theme_options );
 	}
+
+	// Block editor experience improvements compatibility flag.
+	if ( ! isset( $theme_options['block-editor-exp-compat'] ) ) {
+		$theme_options['block-editor-exp-compat'] = false;
+		update_option( 'astra-settings', $theme_options );
+	}	
 }
