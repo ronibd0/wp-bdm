@@ -12962,6 +12962,14 @@ namespace {
     function astra_post_date()
     {
     }
+	/**
+	 * Function to get Author name.
+	 *
+	 * @return null|string $author_name Author name.
+	 */
+    function astra_post_author_name()
+    {
+    }
     /**
      * Function to get Author of Post
      *
@@ -13094,14 +13102,6 @@ namespace {
      * @since  1.0.8
      */
     function astra_get_blog_post_title_meta()
-    {
-    }
-    /**
-     * Blog post Thumbnail
-     *
-     * @since  1.0.8
-     */
-    function astra_get_single_post_title_meta()
     {
     }
     /**

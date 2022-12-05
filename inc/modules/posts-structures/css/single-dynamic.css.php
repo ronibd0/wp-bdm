@@ -74,7 +74,7 @@ function astra_post_single_structure_dynamic_css( $dynamic_css, $dynamic_css_fil
 	$width_type     = astra_get_option( 'ast-dynamic-single-' . $current_post_type . '-banner-width-type', 'fullwidth' );
 	$custom_width   = astra_get_option( 'ast-dynamic-single-' . $current_post_type . '-banner-custom-width', 1200 );
 
-	$single_structure = astra_get_option( 'ast-dynamic-single-' . $current_post_type . '-structure', 'page' === $current_post_type ? array( 'ast-dynamic-single-' . $current_post_type . '-image', 'ast-dynamic-single-' . $current_post_type . '-title' ) : array( 'ast-dynamic-single-' . $current_post_type . '-title', 'ast-dynamic-single-' . $current_post_type . '-meta' ) );
+	$single_structure        = astra_get_option( 'ast-dynamic-single-' . $current_post_type . '-structure', 'page' === $current_post_type ? array( 'ast-dynamic-single-' . $current_post_type . '-image', 'ast-dynamic-single-' . $current_post_type . '-title' ) : array( 'ast-dynamic-single-' . $current_post_type . '-title', 'ast-dynamic-single-' . $current_post_type . '-meta' ) );
 	$use_featured_background = astra_get_option( 'ast-dynamic-single-' . $current_post_type . '-featured-as-background', false );
 	$custom_background       = astra_get_option(
 		'ast-dynamic-single-' . $current_post_type . '-banner-background',
@@ -261,6 +261,7 @@ function astra_post_single_structure_dynamic_css( $dynamic_css, $dynamic_css_fil
 				'font-size'      => astra_responsive_font( $banner_title_font_size, 'desktop' ),
 				'line-height'    => esc_attr( $banner_title_line_height ),
 				'text-transform' => esc_attr( $banner_title_transform ),
+				'margin-bottom'  => '0',
 			),
 			$selector . ' .entry-meta, ' . $selector . ' .entry-meta *' => array(
 				'font-family'    => astra_get_css_value( $banner_meta_font_family, 'font' ),
