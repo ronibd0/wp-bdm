@@ -3413,6 +3413,15 @@ namespace {
         public static function gutenberg_core_patterns_compat()
         {
         }
+		/**
+		 * Block editor experience improvement changes.
+		 *
+		 * @since x.x.x
+		 * @return boolean true for old users & false for new users.
+		 */
+		public static function block_editor_exp_compat() 
+        {
+		}
         /**
          * Font CSS support for widget-title heading fonts & fonts which are not working in editor.
          *

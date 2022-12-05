@@ -3968,7 +3968,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		 * Block editor experience improvement changes.
 		 *
 		 * @since x.x.x
-		 * @return boolean false if it is an existing user , true if not.
+		 * @return boolean true for old users & false for new users.
 		 */
 		public static function block_editor_exp_compat() {
 			$astra_settings = get_option( ASTRA_THEME_SETTINGS );
