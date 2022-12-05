@@ -280,17 +280,21 @@ html {
   transition: all 0.2s;
 }
 
+.edit-post-visual-editor__post-title-wrapper h1.editor-post-title__input.is-selected {
+  box-shadow: 0 0 0 1px var(--wp-admin-theme-color);
+}
+
 .edit-post-visual-editor__post-title-wrapper.invisible {
   opacity: 0.5;
 }
 
-.edit-post-visual-editor__post-title-wrapper .show-visibility-icon {
+.edit-post-visual-editor__post-title-wrapper .ast-show-visibility-icon {
   pointer-events: all;
   opacity: 1;
   color: var(--wp-admin-theme-color);
 }
 
-.edit-post-visual-editor__post-title-wrapper .show-editor-title-outline {
+.edit-post-visual-editor__post-title-wrapper .ast-show-editor-title-outline {
   box-shadow: 0 0 0 1px var(--wp-admin-theme-color);
 }
 

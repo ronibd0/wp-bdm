@@ -110,16 +110,19 @@ html {
 	h1.editor-post-title__input {
 		padding: 10px 6px;
 		transition: all 0.2s;
+		&.is-selected {
+			box-shadow: 0 0 0 1px var(--wp-admin-theme-color);
+		}
 	}
 	&.invisible {
 		opacity: 0.5;
 	}
-	.show-visibility-icon {
+	.ast-show-visibility-icon {
 		pointer-events: all;
 		opacity: 1;
 		color: var(--wp-admin-theme-color);
 	}
-	.show-editor-title-outline {
+	.ast-show-editor-title-outline {
 		box-shadow: 0 0 0 1px var(--wp-admin-theme-color);
 	}
 }
