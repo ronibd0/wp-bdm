@@ -79,7 +79,7 @@ const UpgradeNotices = () => {
 	};
 
 	const getAstraProTitle = () => {
-		return astra_admin.pro_installed_status ? __( 'Activate Now' ) : __( 'Upgrade Now' );
+		return astra_admin.pro_installed_status ? __( 'Activate Now', 'astra' ) : __( 'Upgrade Now', 'astra' );
 	}
 
 	return (
