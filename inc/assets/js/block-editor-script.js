@@ -166,6 +166,7 @@ function astra_onload_function() {
 				titleInput.classList.add('ast-show-editor-title-outline');
 			});
 			titleInput.addEventListener('input', function (){
+				visibilityIcon.classList.add('ast-show-visibility-icon');
 				this.classList.add('ast-show-editor-title-outline');
 			});
 

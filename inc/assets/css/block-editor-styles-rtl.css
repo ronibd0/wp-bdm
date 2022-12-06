@@ -633,7 +633,6 @@ h6 {
 }
 
 .edit-post-visual-editor__post-title-wrapper .ast-show-visibility-icon {
-  pointer-events: all;
   opacity: 1;
   color: var(--wp-admin-theme-color);
 }
