@@ -262,6 +262,13 @@ class Astra_Posts_Single_Structures_Configs extends Astra_Customizer_Config_Base
 					'title'         => __( 'Taxonomy', 'astra' ),
 				);
 			}
+			$taxonomy_meta[ 'date' ] = array(
+				'clone'         => false,
+				'is_parent'     => true,
+				'main_index'    => 'date',
+				'clone_limit'   => 1,
+				'title'         => __( 'Date', 'astra' ),
+			);
 
 			$structure_sub_controls = array();
 			// Add featured as background sub-control.
@@ -520,10 +527,63 @@ class Astra_Posts_Single_Structures_Configs extends Astra_Customizer_Config_Base
 						array(
 							'comments' => __( 'Comments', 'astra' ),
 							'author'   => __( 'Author', 'astra' ),
-							'date'     => __( 'Publish Date', 'astra' ),
 						),
 						$taxonomy_meta
 					),
+				),
+
+				/**
+				 * Option: Date Meta Type.
+				 */
+				array(
+					'name'       => $title_section . '-meta-date-type',
+					'parent'    => ASTRA_THEME_SETTINGS . '[' . $title_section . '-metadata]',
+					'type'       => 'sub-control',
+					'control'    => 'ast-selector',
+					'section'    => $title_section,
+					'default'    => astra_get_option( $title_section . '-meta-date-type', 'published' ),
+					'priority'   => 1,
+					'linked'    => 'date',
+					'transport' => 'refresh',
+					'title'      => __( 'Type', 'astra' ),
+					'choices'    => array(
+						'published' => __( 'Published', 'astra' ),
+						'updated'    => __( 'Last Updated', 'astra' ),
+					),
+					'divider'    => array( 'ast_class' => 'ast-top-divider ast-bottom-spacing' ),
+					'responsive' => false,
+					'renderAs'   => 'text',
+				),
+
+				/**
+				 * Title support for archive.
+				 */
+				array(
+					'name'     => $title_section . '-date-format',
+					'parent'   => ASTRA_THEME_SETTINGS . '[' . $title_section . '-metadata]',
+					'default'  => astra_get_option( $title_section . '-date-format', get_option( 'date_format' ) ),
+					'linked'   => 'date',
+					'type'     => 'sub-control',
+					'control'  => 'ast-text-input',
+					'settings' => array(),
+					'section'  => $title_section,
+					'priority' => 2,
+					'title'    => __( 'Format', 'astra' ),
+				),
+
+				/**
+				 * Date format description for meta.
+				 */
+				array(
+					'name'     => $title_section . '-date-format-support',
+					'parent'   => ASTRA_THEME_SETTINGS . '[' . $title_section . '-metadata]',
+					'linked'   => 'date',
+					'type'     => 'sub-control',
+					'control'  => 'ast-description',
+					'section'  => $title_section,
+					'priority' => 3,
+					'label'    => '',
+					'help'     => sprintf( __( 'Follow date format instructions from %1$s here. %2$s', 'astra' ), '<a href="https://wordpress.org/support/article/formatting-date-and-time/#format-string-examples" target="_blank">', '</a>' ),
 				),
 
 				/**

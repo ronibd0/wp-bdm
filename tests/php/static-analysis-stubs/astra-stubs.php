@@ -12955,6 +12955,14 @@ namespace {
     {
     }
     /**
+     * Get post format as per new configurations set in customizer.
+     *
+     * @return string HTML markup for date span.
+     */
+    function astra_get_dynamic_post_format()
+    {
+    }
+	/**
      * Function to get Date of Post
      *
      * @return html                Markup.

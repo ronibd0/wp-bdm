@@ -1,3 +1,7 @@
+v4.0.1 (Unreleased)
+- New: Published, last-updated date support for post meta date field.
+- New: Date format option for post meta date field.
+
 v4.0.0 (Unreleased)
 - New: Redesigned the entire admin area with better user experience.
 - New: Narrow Width Container layout for Single Posts, Blogs/Archives & Pages.
