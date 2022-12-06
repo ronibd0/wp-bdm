@@ -25,6 +25,13 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	$astra_options = Astra_Theme_Options::get_astra_options();
 
 	/**
+	 * Update Astra default color and typography values. To not update directly on existing users site, added backwards.
+	 *
+	 * @since 4.0.0
+	 */
+	$apply_new_default_color_typo_values = astra_check_default_color_typo();
+
+	/**
 	 * Header Builder - Desktop Defaults.
 	 */
 	$defaults['header-desktop-items'] = array(
@@ -836,7 +843,21 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	/**
 	 * Global Color Palette.
 	 */
-	$defaults['global-color-palette'] = array(
+	$defaults['global-color-palette'] = $apply_new_default_color_typo_values ? array(
+		'palette' => array(
+			'#046bd2',
+			'#045cb4',
+			'#1e293b',
+			'#334155',
+			'#f9fafb',
+			'#FFFFFF',
+			'#e2e8f0',
+			'#cbd5e1',
+			'#94a3b8',
+		),
+	)
+	:
+	array(
 		'palette' => array(
 			'#0170B9',
 			'#3a3a3a',

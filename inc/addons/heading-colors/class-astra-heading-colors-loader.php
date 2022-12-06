@@ -116,7 +116,7 @@ class Astra_Heading_Colors_Loader {
 		$defaults['font-family-h2'] = 'inherit';
 		$defaults['font-weight-h2'] = 'inherit';
 		$defaults['font-extras-h2'] = array(
-			'line-height'         => ! isset( $astra_options['font-extras-h2'] ) && isset( $astra_options['line-height-h2'] ) ? $astra_options['line-height-h2'] : '',
+			'line-height'         => ! isset( $astra_options['font-extras-h2'] ) && isset( $astra_options['line-height-h2'] ) ? $astra_options['line-height-h2'] : '1.25',
 			'line-height-unit'    => 'em',
 			'letter-spacing'      => '',
 			'letter-spacing-unit' => 'px',

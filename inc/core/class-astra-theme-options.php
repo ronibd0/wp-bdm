@@ -422,7 +422,7 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 					'body-font-variant'                    => '',
 					'body-font-weight'                     => 'inherit',
 					'font-size-body'                       => array(
-						'desktop'      => 15,
+						'desktop'      => $apply_new_default_color_typo_values ? 16 : 15,
 						'tablet'       => '',
 						'mobile'       => '',
 						'desktop-unit' => 'px',
@@ -430,7 +430,7 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 						'mobile-unit'  => 'px',
 					),
 					'body-font-extras'                     => array(
-						'line-height'         => ! isset( $astra_options['body-font-extras'] ) && isset( $astra_options['body-line-height'] ) ? $astra_options['body-line-height'] : '',
+						'line-height'         => ! isset( $astra_options['body-font-extras'] ) && isset( $astra_options['body-line-height'] ) ? $astra_options['body-line-height'] : '1.6',
 						'line-height-unit'    => 'em',
 						'letter-spacing'      => '',
 						'letter-spacing-unit' => 'px',
@@ -449,7 +449,7 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 					'underline-content-links'              => true,
 					'body-text-transform'                  => '',
 					'headings-font-family'                 => 'inherit',
-					'headings-font-weight'                 => 'inherit',
+					'headings-font-weight'                 => $apply_new_default_values ? '600' : 'inherit',
 					'font-size-site-title'                 => array(
 						'desktop'      => 35,
 						'tablet'       => '',
