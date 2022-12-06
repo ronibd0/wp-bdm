@@ -160,7 +160,7 @@ function astra_onload_function() {
 			titleBlock.addEventListener('focusout', function (){
 				visibilityIcon.classList.remove('ast-show-visibility-icon');
 				titleInput.classList.remove('ast-show-editor-title-outline');
-		    });
+			});
 			titleBlock.addEventListener('click', function (){
 				visibilityIcon.classList.add('ast-show-visibility-icon');
 				titleInput.classList.add('ast-show-editor-title-outline');
