@@ -579,7 +579,9 @@ class Astra_WP_Editor_CSS {
 			'color'          => esc_attr( $site_title_color ),
 		);
 
-		/** Block editor experience improvements */
+		/**
+		 * Block editor experience improvements & fixes introduced with v4.0.0.
+		 */
 
 		// List block alignment same as frontend.
 		$default_ul_line_height = 1.85714285714286;
