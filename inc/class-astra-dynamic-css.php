@@ -1026,7 +1026,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			 *
 			 * @since 2.6.1
 			 */
-			if ( self::gutenberg_media_text_block_css_compat() && is_singular() && self::block_editor_exp_compat() ) {
+			if ( self::gutenberg_media_text_block_css_compat() && is_singular() && self::v4_block_editor_compat() ) {
 				$remove_primary_padding_on_mobile_css = array(
 					'.ast-plain-container.ast-no-sidebar #primary' => array(
 						'padding' => 0,
@@ -3965,15 +3965,15 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		}
 
 		/**
-		 * Block editor experience improvement changes.
+		 * Block editor experience improvements & fixes.
 		 *
 		 * @since x.x.x
 		 * @return boolean true for old users & false for new users.
 		 */
-		public static function block_editor_exp_compat() {
+		public static function v4_block_editor_compat() {
 			$astra_settings = get_option( ASTRA_THEME_SETTINGS );
-			$astra_settings['block-editor-exp-compat'] = isset( $astra_settings['block-editor-exp-compat'] ) ? true : false;
-			return apply_filters( 'astra_block_editor_experience_compatibility', $astra_settings['block-editor-exp-compat'] );
+			$astra_settings['v4-block-editor-compat'] = isset( $astra_settings['v4-block-editor-compat'] ) ? true : false;
+			return apply_filters( 'astra_v4_block_editor_compatibility', $astra_settings['v4-block-editor-compat'] );
 		}
 
 		/**

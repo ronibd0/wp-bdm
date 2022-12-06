@@ -3550,12 +3550,12 @@ namespace {
         {
         }
 		/**
-		 * Block editor experience improvement changes.
+		 * Block editor experience improvements & fixes.
 		 *
 		 * @since x.x.x
 		 * @return boolean true for old users & false for new users.
 		 */
-		public static function block_editor_exp_compat() 
+		public static function v4_block_editor_compat() 
         {
 		}
         /**
