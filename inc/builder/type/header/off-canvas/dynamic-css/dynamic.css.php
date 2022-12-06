@@ -541,7 +541,8 @@ function astra_dropdown_type_static_css() {
 		$dropdown_type_css .= '
 		.ast-mobile-header-content.content-align-flex-end .main-header-bar-navigation .menu-item-has-children > .ast-menu-toggle,
 		.ast-desktop-header-content.content-align-flex-end .main-header-bar-navigation .menu-item-has-children > .ast-menu-toggle {
-		  	left: calc( 20px - 0.907em);
+			left: calc( 20px - 0.907em);
+			display: flex;
 		}
 		.ast-mobile-header-content .ast-search-menu-icon,
 		.ast-mobile-header-content .ast-search-menu-icon.slide-search,
