@@ -382,7 +382,6 @@ h6{
 		padding: 0 !important;
 		box-shadow: 0 0 0 1px var(--wp-admin-theme-color);
 		transition: all 0.2s;
-		pointer-events: none;
 		&:before {
 			width: 100%;
 			height: 100%;
@@ -422,7 +421,6 @@ h6{
 		}
 	}
 	.ast-show-visibility-icon {
-		pointer-events: all;
 		opacity: 1;
 		color: var(--wp-admin-theme-color);
 	}
