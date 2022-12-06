@@ -1335,8 +1335,8 @@ function astra_theme_background_updater_4_0_0() {
 	}
 
 	// Block editor experience improvements backward compatibility flag.
-	if ( ! isset( $theme_options['block-editor-exp-compat'] ) ) {
-		$theme_options['block-editor-exp-compat'] = false;
+	if ( ! isset( $theme_options['v4-block-editor-compat'] ) ) {
+		$theme_options['v4-block-editor-compat'] = false;
 		update_option( 'astra-settings', $theme_options );
 	}
  
