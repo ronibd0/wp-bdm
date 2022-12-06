@@ -144,17 +144,16 @@ function astra_onload_function() {
 				});
 			}
 
-			// Show title wrapper outline & eye icon only when clicked.
-			const titleInput     = document.querySelector( '.editor-post-title__input' );
-			const visibilityIcon = document.querySelector( '.title-visibility' );
-
-			document.addEventListener('mouseup', function ( event ) {
+			// Show post/page title wrapper outline & eye icon only when clicked.
+			const titleInput     = document.querySelector('.editor-post-title__input');
+			const visibilityIcon = document.querySelector('.title-visibility');
+			document.addEventListener('click', function (event){
 				if( ! titleBlock.contains( event.target ) ){
 					visibilityIcon.classList.remove('ast-show-visibility-icon');
 					titleInput.classList.remove('ast-show-editor-title-outline');
 				}
 			});
-			titleBlock.addEventListener('click', function () {
+			titleBlock.addEventListener('click', function (){
 				visibilityIcon.classList.add('ast-show-visibility-icon');
 				titleInput.classList.add('ast-show-editor-title-outline');
 			});
