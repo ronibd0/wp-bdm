@@ -897,7 +897,6 @@ astScrollToTopHandler = function ( masthead, astScrollTop ) {
 			return;
 		}
 
-		menu.setAttribute( 'aria-expanded', 'false' );
 		if ( -1 === menu.className.indexOf( 'nav-menu' ) ) {
 			menu.className += ' nav-menu';
 		}
@@ -935,79 +934,95 @@ astScrollToTopHandler = function ( masthead, astScrollTop ) {
 
 	// Tab navigation for accessibility.
 	function tabNavigation() {
-		const dropdownToggleLinks = document.querySelectorAll( 'nav.site-navigation .menu-item-has-children:not(.astra-megamenu-li) > a .ast-header-navigation-arrow' );
-		const siteNavigationSubMenu = document.querySelectorAll( 'nav.site-navigation .sub-menu' );
-		const menuLi = document.querySelectorAll( 'nav.site-navigation .menu-item-has-children' );
+		const dropdownToggleLinks = document.querySelectorAll('nav.site-navigation .menu-item-has-children > a .ast-header-navigation-arrow');
+		const siteNavigationSubMenu = document.querySelectorAll('nav.site-navigation .sub-menu');
+		const menuLi = document.querySelectorAll('nav.site-navigation .menu-item-has-children');
+		const megaMenuFullWidth = document.querySelectorAll('.astra-full-megamenu-wrapper');
 
-		if( dropdownToggleLinks ) {
+		if (dropdownToggleLinks) {
 
-		dropdownToggleLinks.forEach( element => {
-			element.addEventListener( 'keydown', function( e ) {
+			dropdownToggleLinks.forEach(element => {
+				element.addEventListener('keydown', function (e) {
 
-				if ( 'Enter' === e.key ) {
+					if ('Enter' === e.key) {
+						if (!e.target.closest('li').querySelector('.sub-menu').classList.contains('astra-megamenu')) {
+							setTimeout(() => {
+								e.target.closest('li').querySelector('.sub-menu').classList.toggle('toggled-on');
+								e.target.closest('li').classList.toggle('ast-menu-hover');
 
-					setTimeout(() => {
-						e.target.closest('li').querySelector( '.sub-menu' ).classList.toggle('toggled-on');
-						e.target.closest('li').classList.toggle( 'ast-menu-hover' );
-
-						if ( 'false' === e.target.getAttribute( 'aria-expanded' ) || ! e.target.getAttribute( 'aria-expanded' ) ) {
-							e.target.setAttribute( 'aria-expanded', 'true' );
+								if ('false' === e.target.getAttribute('aria-expanded') || !e.target.getAttribute('aria-expanded')) {
+									e.target.setAttribute('aria-expanded', 'true');
+								} else {
+									e.target.setAttribute('aria-expanded', 'false');
+								}
+							}, 10);
 						} else {
-							e.target.setAttribute( 'aria-expanded', 'false' );
+							// This is to handle mega menu
+							setTimeout(() => {
+								e.target.closest('li').querySelector('.sub-menu').classList.toggle('astra-megamenu-focus');
+								e.target.closest('li').querySelector('.astra-full-megamenu-wrapper').classList.toggle('astra-megamenu-wrapper-focus');
+								e.target.closest('li').classList.toggle('ast-menu-hover');
+							}, 10);
 						}
-					}, 10);
-				}
-			} );
-		});
-
-		if( siteNavigationSubMenu || menuLi ) {
-			// Close sub-menus when clicking elsewhere
-			document.addEventListener( 'click', function( e ) {
-				closeNavigationMenu( siteNavigationSubMenu, dropdownToggleLinks, menuLi );
-			}, false );
-		}
-
-	
-		if( siteNavigationSubMenu || menuLi ) {
-			// Close sub-menus on escape key
-			document.addEventListener( 'keydown', function( e ) {
-				if ( 'Escape' === e.key ) {
-					closeNavigationMenu( siteNavigationSubMenu, dropdownToggleLinks, menuLi );
-				}
-			}, false );
-		}
-
-		}
-
-		const allParentMenu = document.querySelectorAll( 'nav.site-navigation .ast-nav-menu > .menu-item-has-children > a .ast-header-navigation-arrow' );
-
-		if( allParentMenu ) {
-			allParentMenu.forEach(element => {
-				element.addEventListener( 'keydown', function( e ) {
-					if ( ! e.target.closest('li').classList.contains( 'ast-menu-hover' ) && 'Enter' === e.key ) {
-						closeNavigationMenu( siteNavigationSubMenu, dropdownToggleLinks, menuLi );
 					}
-				}, false );
+				});
+			});
+
+			if (siteNavigationSubMenu || menuLi) {
+				// Close sub-menus when clicking elsewhere
+				document.addEventListener('click', function (e) {
+					closeNavigationMenu(siteNavigationSubMenu, dropdownToggleLinks, menuLi, megaMenuFullWidth);
+				}, false);
+			}
+
+			if (siteNavigationSubMenu || menuLi) {
+				// Close sub-menus on escape key
+				document.addEventListener('keydown', function (e) {
+					if ('Escape' === e.key) {
+						closeNavigationMenu(siteNavigationSubMenu, dropdownToggleLinks, menuLi, megaMenuFullWidth);
+					}
+				}, false);
+			}
+
+		}
+
+		const allParentMenu = document.querySelectorAll('nav.site-navigation .ast-nav-menu > .menu-item-has-children > a .ast-header-navigation-arrow');
+
+		if (allParentMenu) {
+			allParentMenu.forEach(element => {
+				element.addEventListener('keydown', function (e) {
+					if (!e.target.closest('li').classList.contains('ast-menu-hover') && 'Enter' === e.key) {
+						closeNavigationMenu(siteNavigationSubMenu, dropdownToggleLinks, menuLi, megaMenuFullWidth);
+					}
+				}, false);
 			});
 		}
 	}
 
-	function closeNavigationMenu( siteNavigationSubMenu, dropdownToggleLinks, menuLi  ) {
-		if( menuLi ) {
+	function closeNavigationMenu(siteNavigationSubMenu, dropdownToggleLinks, menuLi, megaMenuFullWidth) {
+		if (siteNavigationSubMenu) {
+			siteNavigationSubMenu.forEach(element => {
+				element.classList.remove('astra-megamenu-focus');
+				element.classList.remove('toggled-on');
+			});
+		}
+
+		if (menuLi) {
 			menuLi.forEach(element => {
 				element.classList.remove('ast-menu-hover');
 			});
 		}
 
-		if( siteNavigationSubMenu ) {
-			siteNavigationSubMenu.forEach(element => {
-				element.classList.remove('toggled-on');
+		if (megaMenuFullWidth) {
+			megaMenuFullWidth.forEach(element => {
+				element.classList.remove('astra-megamenu-wrapper-focus')
 			});
 		}
 
-		if( dropdownToggleLinks ) {
+
+		if (dropdownToggleLinks) {
 			dropdownToggleLinks.forEach(element => {
-				element.setAttribute( 'aria-expanded', 'false' );
+				element.setAttribute('aria-expanded', 'false');
 			});
 		}
 	}
