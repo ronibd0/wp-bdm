@@ -1334,9 +1334,21 @@ function astra_theme_background_updater_4_0_0() {
 		update_option( 'astra-settings', $theme_options );
 	}
 
-	// Block editor experience improvements compatibility flag.
+	// Block editor experience improvements backward compatibility flag.
 	if ( ! isset( $theme_options['block-editor-exp-compat'] ) ) {
 		$theme_options['block-editor-exp-compat'] = false;
 		update_option( 'astra-settings', $theme_options );
-	}	
+	}
+ 
+	// Check if existing user and disable scroll to top if disabled from pro addons list.
+	$scroll_to_top_visibility = false;
+	/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+	if ( defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'scroll-to-top' ) ) {
+		/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+		$scroll_to_top_visibility = true;
+	}
+	if ( ! isset( $theme_options['scroll-to-top-enable'] ) ) {
+		$theme_options['scroll-to-top-enable'] = $scroll_to_top_visibility;
+		update_option( 'astra-settings', $theme_options );
+	}
 }
