@@ -588,16 +588,7 @@ h6 {
   padding: 0 !important;
   box-shadow: 0 0 0 1px var(--wp-admin-theme-color);
   transition: all 0.2s;
-}
-
-.edit-post-visual-editor__post-title-wrapper .title-visibility:hover {
-  opacity: 1;
-  color: var(--wp-admin-theme-color);
-}
-
-.edit-post-visual-editor__post-title-wrapper .title-visibility:hover:after {
-  opacity: 1;
-  visibility: visible;
+  pointer-events: none;
 }
 
 .edit-post-visual-editor__post-title-wrapper .title-visibility:before {
@@ -643,6 +634,7 @@ h6 {
 }
 
 .edit-post-visual-editor__post-title-wrapper .ast-show-visibility-icon {
+  pointer-events: all;
   opacity: 1;
   color: var(--wp-admin-theme-color);
 }
