@@ -134,24 +134,24 @@ if ( ! function_exists( 'astra_get_post_meta' ) ) {
  * @since x.x.x
  */
 function astra_get_dynamic_post_format() {
-	$post_type = strval( get_post_type() );
-	$date_type = astra_get_option( 'ast-dynamic-single-' . esc_attr( $post_type ) . '-meta-date-type', 'published' );
+	$post_type   = strval( get_post_type() );
+	$date_type   = astra_get_option( 'ast-dynamic-single-' . esc_attr( $post_type ) . '-meta-date-type', 'published' );
 	$date_format = apply_filters( 'astra_post_date_format', astra_get_option( 'ast-dynamic-single-' . esc_attr( $post_type ) . '-date-format', get_option( 'date_format' ) ) );
 
 	$published_date = esc_html( get_the_date( $date_format ) );
-	$modified_date = esc_html( get_the_modified_date( $date_format ) );
+	$modified_date  = esc_html( get_the_modified_date( $date_format ) );
 
-	if( 'updated' === $date_type ) {
-		$class = 'updated';
+	if ( 'updated' === $date_type ) {
+		$class    = 'updated';
 		$itemprop = 'dateModified';
-		$date = sprintf(
+		$date     = sprintf(
 			esc_html( '%s' ),
 			$modified_date
 		);
 	} else {
-		$class = 'published';
+		$class    = 'published';
 		$itemprop = 'datePublished';
-		$date = sprintf(
+		$date     = sprintf(
 			esc_html( '%s' ),
 			$published_date
 		);
@@ -174,10 +174,10 @@ if ( ! function_exists( 'astra_post_date' ) ) {
 	 * @return html                Markup.
 	 */
 	function astra_post_date() {
-		$output        = '';
-		$output       .= '<span class="posted-on">';
-		$output       .= astra_get_dynamic_post_format();
-		$output       .= '</span>';
+		$output  = '';
+		$output .= '<span class="posted-on">';
+		$output .= astra_get_dynamic_post_format();
+		$output .= '</span>';
 		return apply_filters( 'astra_post_date', $output );
 	}
 }

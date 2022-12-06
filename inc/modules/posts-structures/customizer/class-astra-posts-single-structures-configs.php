@@ -262,12 +262,12 @@ class Astra_Posts_Single_Structures_Configs extends Astra_Customizer_Config_Base
 					'title'         => __( 'Taxonomy', 'astra' ),
 				);
 			}
-			$taxonomy_meta[ 'date' ] = array(
-				'clone'         => false,
-				'is_parent'     => true,
-				'main_index'    => 'date',
-				'clone_limit'   => 1,
-				'title'         => __( 'Date', 'astra' ),
+			$taxonomy_meta['date'] = array(
+				'clone'       => false,
+				'is_parent'   => true,
+				'main_index'  => 'date',
+				'clone_limit' => 1,
+				'title'       => __( 'Date', 'astra' ),
 			);
 
 			$structure_sub_controls = array();
@@ -537,18 +537,18 @@ class Astra_Posts_Single_Structures_Configs extends Astra_Customizer_Config_Base
 				 */
 				array(
 					'name'       => $title_section . '-meta-date-type',
-					'parent'    => ASTRA_THEME_SETTINGS . '[' . $title_section . '-metadata]',
+					'parent'     => ASTRA_THEME_SETTINGS . '[' . $title_section . '-metadata]',
 					'type'       => 'sub-control',
 					'control'    => 'ast-selector',
 					'section'    => $title_section,
 					'default'    => astra_get_option( $title_section . '-meta-date-type', 'published' ),
 					'priority'   => 1,
-					'linked'    => 'date',
-					'transport' => 'refresh',
+					'linked'     => 'date',
+					'transport'  => 'refresh',
 					'title'      => __( 'Type', 'astra' ),
 					'choices'    => array(
 						'published' => __( 'Published', 'astra' ),
-						'updated'    => __( 'Last Updated', 'astra' ),
+						'updated'   => __( 'Last Updated', 'astra' ),
 					),
 					'divider'    => array( 'ast_class' => 'ast-top-divider ast-bottom-spacing' ),
 					'responsive' => false,
