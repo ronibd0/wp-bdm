@@ -371,7 +371,7 @@ add_filter( 'astra_customizer_configurations', 'astra_remove_controls', 99 );
  * @return string The menu item.
  */
 function astra_dropdown_icon_to_menu_link( $title, $item, $args, $depth ) {
-	$role = 'presentation';
+	$role = 'application';
 	$icon = '';
 
 	/**
@@ -418,9 +418,12 @@ function astra_dropdown_icon_to_menu_link( $title, $item, $args, $depth ) {
 		// Assign icons to only those menu which are registered by Astra.
 		$icon = Astra_Icons::get_icons( 'arrow' );
 	}
+
+	$astra_arrow_icon = $icon ? '<span role="' . esc_attr( $role ) . '" class="dropdown-menu-toggle ast-header-navigation-arrow" tabindex="0" aria-expanded="false" >' . $icon . '</span> ' : '';
+
 	foreach ( $item->classes as $value ) {
 		if ( 'menu-item-has-children' === $value ) {
-			$title = $title . '<span role="' . esc_attr( $role ) . '" class="dropdown-menu-toggle" >' . $icon . '</span>';
+			$title = $title . $astra_arrow_icon;
 		}
 	}
 	if ( 0 < $depth ) {
