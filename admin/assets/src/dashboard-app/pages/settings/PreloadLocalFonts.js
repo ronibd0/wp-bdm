@@ -1,6 +1,6 @@
 import { __ } from '@wordpress/i18n';
 import { useSelector, useDispatch } from 'react-redux';
-import { Switch } from '@headlessui/react'
+import { Switch } from '@headlessui/react';
 import apiFetch from '@wordpress/api-fetch';
 
 function classNames( ...classes ) {
