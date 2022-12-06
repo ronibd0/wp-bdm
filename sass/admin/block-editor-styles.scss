@@ -363,14 +363,6 @@ h6{
     margin-left: auto !important;
     margin-right: auto !important;
 	margin-bottom: 1.5em;
-	&:hover {
-		h1.editor-post-title__input {
-			box-shadow: 0 0 0 1px var(--wp-admin-theme-color);
-		}
-		.title-visibility {
-			opacity: 1;
-		}
-	}
 	&.invisible {
 		opacity: 0.5;
 	}
@@ -435,6 +427,13 @@ h6{
 				color: var(--wp-admin-theme-color);
 			}
 		}
+	}
+	.ast-show-visibility-icon {
+		opacity: 1;
+		color: var(--wp-admin-theme-color);
+	}
+	.ast-show-editor-title-outline {
+		box-shadow: 0 0 0 1px var(--wp-admin-theme-color);
 	}
 }
 .ast-page-builder-template, .ast-stacked-title-visibility {
