@@ -2300,6 +2300,10 @@ body {
   line-height: inherit;
 }
 
+.ast-header-break-point .main-header-bar-navigation .menu-item-has-children > .ast-menu-toggle > .ast-icon.icon-arrow {
+  pointer-events: none;
+}
+
 .ast-header-break-point .main-header-bar-navigation .menu-item-has-children .sub-menu {
   display: none;
 }
