@@ -896,24 +896,49 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			// Single Product Payments.
 			$defaults['single-product-payment-icon-color'] = 'inherit';
 			$defaults['single-product-payment-text']       = __( 'Guaranteed Safe Checkout', 'astra' );
-			$defaults['single-product-payment-visa']       = true;
-			$defaults['single-product-payment-mastercard'] = true;
-			$defaults['single-product-payment-amex']       = true;
-			$defaults['single-product-payment-discover']   = true;
-			$defaults['single-product-payment-paypal']     = false;
-			$defaults['single-product-payment-apple-pay']  = false;
 
 			$defaults['single-product-payment-list'] = array(
 				'items' =>
 					array(
 						array(
-							'id'      => 'item-1',
+							'id'      => 'item-visa',
 							'enabled' => true,
 							'source'  => 'icon',
-							'icon'    => '',
+							'icon'    => 'cc-visa',
 							'image'   => '',
+							'label'   => __( 'Visa', 'astra' ),
 						),
 					),
+				array(
+					array(
+						'id'      => 'item-mastercard',
+						'enabled' => true,
+						'source'  => 'icon',
+						'icon'    => 'cc-mastercard',
+						'image'   => '',
+						'label'   => __( 'Mastercard', 'astra' ),
+					),
+				),
+				array(
+					array(
+						'id'      => 'item-amex',
+						'enabled' => true,
+						'source'  => 'icon',
+						'icon'    => 'cc-amex',
+						'image'   => '',
+						'label'   => __( 'Amex', 'astra' ),
+					),
+				),
+				array(
+					array(
+						'id'      => 'item-discover',
+						'enabled' => true,
+						'source'  => 'icon',
+						'icon'    => 'cc-discover',
+						'image'   => '',
+						'label'   => __( 'Discover', 'astra' ),
+					),
+				),
 			);
 
 			return $defaults;

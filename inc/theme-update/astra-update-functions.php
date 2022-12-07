@@ -1375,7 +1375,7 @@ function astra_theme_background_updater_4_0_1() {
 			'source'  => 'icon',
 			'icon'    => 'cc-visa',
 			'image'   => '',
-			'label'   => 'Visa',
+			'label'   => __( 'Visa', 'astra' ),
 		)
 	) : '';
 
@@ -1387,8 +1387,8 @@ function astra_theme_background_updater_4_0_1() {
 			'source'  => 'icon',
 			'icon'    => 'cc-mastercard',
 			'image'   => '',
-			'label'   => 'Mastercard',
-		)
+			'label'   => __( 'Mastercard', 'astra' ),
+		) 
 	) : '';
 
 	false !== $mastercard_payment ? array_push(
@@ -1399,7 +1399,7 @@ function astra_theme_background_updater_4_0_1() {
 			'source'  => 'icon',
 			'icon'    => 'cc-amex',
 			'image'   => '',
-			'label'   => 'Amex',
+			'label'   => __( 'Amex', 'astra' ),
 		)
 	) : '';
 
@@ -1411,7 +1411,7 @@ function astra_theme_background_updater_4_0_1() {
 			'source'  => 'icon',
 			'icon'    => 'cc-discover',
 			'image'   => '',
-			'label'   => 'Discover',
+			'label'   => __( 'Discover', 'astra' ),
 		)
 	) : '';
 
@@ -1423,7 +1423,7 @@ function astra_theme_background_updater_4_0_1() {
 			'source'  => 'icon',
 			'icon'    => 'cc-paypal',
 			'image'   => '',
-			'label'   => 'Paypal',
+			'label'   => __( 'Paypal', 'astra' ),
 		)
 	) : '';
 
@@ -1435,7 +1435,7 @@ function astra_theme_background_updater_4_0_1() {
 			'source'  => 'icon',
 			'icon'    => 'cc-apple-pay',
 			'image'   => '',
-			'label'   => 'Apple Pay',
+			'label'   => __( 'Apple Pay', 'astra' ),
 		)
 	) : '';
 
