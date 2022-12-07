@@ -419,7 +419,7 @@ function astra_dropdown_icon_to_menu_link( $title, $item, $args, $depth ) {
 		$icon = Astra_Icons::get_icons( 'arrow' );
 	}
 
-	$astra_arrow_icon = $icon ? '<span role="' . esc_attr( $role ) . '" class="dropdown-menu-toggle ast-header-navigation-arrow" tabindex="0" aria-expanded="false" >' . $icon . '</span> ' : '';
+	$astra_arrow_icon = $icon ? '<span role="' . esc_attr( $role ) . '" class="dropdown-menu-toggle ast-header-navigation-arrow" tabindex="0" aria-expanded="false" aria-label="' . esc_attr__( 'Menu Toggle', 'astra' ) . '" >' . $icon . '</span> ' : '';
 
 	foreach ( $item->classes as $value ) {
 		if ( 'menu-item-has-children' === $value ) {

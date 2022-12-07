@@ -625,6 +625,13 @@ astScrollToTopHandler = function ( masthead, astScrollTop ) {
 
 		event.preventDefault();
 
+
+		if ('false' === event.target.getAttribute('aria-expanded') || ! event.target.getAttribute('aria-expanded')) {
+			event.target.setAttribute('aria-expanded', 'true');
+		} else {
+			event.target.setAttribute('aria-expanded', 'false');
+		}
+
 		var parent_li = this.parentNode;
 
 		if ( parent_li.classList.contains('ast-submenu-expanded') && document.querySelector('header.site-header').classList.contains('ast-builder-menu-toggle-link') ) {
@@ -959,9 +966,22 @@ astScrollToTopHandler = function ( masthead, astScrollTop ) {
 						} else {
 							// This is to handle mega menu
 							setTimeout(() => {
-								e.target.closest('li').querySelector('.sub-menu').classList.toggle('astra-megamenu-focus');
-								e.target.closest('li').querySelector('.astra-full-megamenu-wrapper').classList.toggle('astra-megamenu-wrapper-focus');
+								const subMenuTarget = e.target.closest('li').querySelector('.sub-menu');
+								const fullMegaMenuWrapper = e.target.closest('li').querySelector('.astra-full-megamenu-wrapper');
+								if( subMenuTarget ) {
+									subMenuTarget.classList.toggle('astra-megamenu-focus');
+								}
+
+								if( fullMegaMenuWrapper ) {
+									fullMegaMenuWrapper.classList.toggle('astra-megamenu-wrapper-focus');
+								}
 								e.target.closest('li').classList.toggle('ast-menu-hover');
+
+								if ('false' === e.target.getAttribute('aria-expanded') || !e.target.getAttribute('aria-expanded')) {
+									e.target.setAttribute('aria-expanded', 'true');
+								} else {
+									e.target.setAttribute('aria-expanded', 'false');
+								}
 							}, 10);
 						}
 					}
