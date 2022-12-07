@@ -1370,7 +1370,7 @@ function astra_theme_background_updater_4_0_1() {
 	false !== $visa_payment ? array_push(
 		$current_payment_list,
 		array(
-			'id'      => 'item-1',
+			'id'      => 'item-0.1',
 			'enabled' => true,
 			'source'  => 'icon',
 			'icon'    => 'cc-visa',
@@ -1382,7 +1382,7 @@ function astra_theme_background_updater_4_0_1() {
 	false !== $mastercard_payment ? array_push(
 		$current_payment_list,
 		array(
-			'id'      => 'item-2',
+			'id'      => 'item-0.2',
 			'enabled' => true,
 			'source'  => 'icon',
 			'icon'    => 'cc-mastercard',
@@ -1394,7 +1394,7 @@ function astra_theme_background_updater_4_0_1() {
 	false !== $mastercard_payment ? array_push(
 		$current_payment_list,
 		array(
-			'id'      => 'item-3',
+			'id'      => 'item-0.3',
 			'enabled' => true,
 			'source'  => 'icon',
 			'icon'    => 'cc-amex',
@@ -1406,7 +1406,7 @@ function astra_theme_background_updater_4_0_1() {
 	false !== $discover_payment ? array_push(
 		$current_payment_list,
 		array(
-			'id'      => 'item-4',
+			'id'      => 'item-0.4',
 			'enabled' => true,
 			'source'  => 'icon',
 			'icon'    => 'cc-discover',
@@ -1418,7 +1418,7 @@ function astra_theme_background_updater_4_0_1() {
 	$paypal_payment ? array_push(
 		$current_payment_list,
 		array(
-			'id'      => 'item-5',
+			'id'      => 'item-0.5',
 			'enabled' => true,
 			'source'  => 'icon',
 			'icon'    => 'cc-paypal',
@@ -1430,7 +1430,7 @@ function astra_theme_background_updater_4_0_1() {
 	$apple_pay_payment ? array_push(
 		$current_payment_list,
 		array(
-			'id'      => 'item-6',
+			'id'      => 'item-0.5',
 			'enabled' => true,
 			'source'  => 'icon',
 			'icon'    => 'cc-apple-pay',
