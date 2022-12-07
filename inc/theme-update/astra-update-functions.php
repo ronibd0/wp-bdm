@@ -1334,12 +1334,6 @@ function astra_theme_background_updater_4_0_0() {
 		update_option( 'astra-settings', $theme_options );
 	}
 
-	// Block editor experience improvements backward compatibility flag.
-	if ( ! isset( $theme_options['v4-block-editor-compat'] ) ) {
-		$theme_options['v4-block-editor-compat'] = false;
-		update_option( 'astra-settings', $theme_options );
-	}
- 
 	// Check if existing user and disable scroll to top if disabled from pro addons list.
 	$scroll_to_top_visibility = false;
 	/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort

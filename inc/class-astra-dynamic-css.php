@@ -1026,7 +1026,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			 *
 			 * @since 2.6.1
 			 */
-			if ( self::gutenberg_media_text_block_css_compat() && is_singular() && self::v4_block_editor_compat() ) {
+			if ( self::gutenberg_media_text_block_css_compat() && is_singular() ) {
 				$remove_primary_padding_on_mobile_css = array(
 					'.ast-plain-container.ast-no-sidebar #primary' => array(
 						'padding' => 0,
@@ -3962,18 +3962,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$astra_settings = get_option( ASTRA_THEME_SETTINGS );
 			$astra_settings['guntenberg-button-pattern-compat-css'] = isset( $astra_settings['guntenberg-button-pattern-compat-css'] ) ? false : true;
 			return apply_filters( 'astra_gutenberg_patterns_compatibility', $astra_settings['guntenberg-button-pattern-compat-css'] );
-		}
-
-		/**
-		 * Block editor experience improvements & fixes.
-		 *
-		 * @since x.x.x
-		 * @return boolean true for old users & false for new users.
-		 */
-		public static function v4_block_editor_compat() {
-			$astra_settings = get_option( ASTRA_THEME_SETTINGS );
-			$astra_settings['v4-block-editor-compat'] = isset( $astra_settings['v4-block-editor-compat'] ) ? true : false;
-			return apply_filters( 'astra_v4_block_editor_compatibility', $astra_settings['v4-block-editor-compat'] );
 		}
 
 		/**
