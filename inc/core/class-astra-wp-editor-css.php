@@ -592,11 +592,6 @@ class Astra_WP_Editor_CSS {
 			'margin-bottom'        => '1.5em',
 		);
 
-		// Text decoration same as applied in frontend.
-		$desktop_css['.editor-styles-wrapper .is-root-container a:where(:not(.wp-element-button))'] = array(
-			'text-decoration' => 'underline',
-		);
-
 		// Consistent spacing between blocks.
 		$desktop_css['.edit-post-visual-editor .editor-styles-wrapper > .is-root-container'] = array(
 			'padding-top' => 0,
@@ -614,7 +609,7 @@ class Astra_WP_Editor_CSS {
 		$content_links_underline = astra_get_option( 'underline-content-links' );
 
 		if ( $content_links_underline ) {
-			$desktop_css['.edit-post-visual-editor a'] = array(
+			$desktop_css['.editor-styles-wrapper .is-root-container a'] = array(
 				'text-decoration' => 'underline',
 			);
 
