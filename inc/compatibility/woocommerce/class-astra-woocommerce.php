@@ -901,44 +901,38 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				'items' =>
 					array(
 						array(
-							'id'      => 'item-visa',
+							'id'      => 'item-1',
 							'enabled' => true,
 							'source'  => 'icon',
 							'icon'    => 'cc-visa',
 							'image'   => '',
 							'label'   => __( 'Visa', 'astra' ),
 						),
+						array(
+							'id'      => 'item-2',
+							'enabled' => true,
+							'source'  => 'icon',
+							'icon'    => 'cc-mastercard',
+							'image'   => '',
+							'label'   => __( 'Mastercard', 'astra' ),
+						),
+						array(
+							'id'      => 'item-3',
+							'enabled' => true,
+							'source'  => 'icon',
+							'icon'    => 'cc-amex',
+							'image'   => '',
+							'label'   => __( 'Amex', 'astra' ),
+						),
+						array(
+							'id'      => 'item-4',
+							'enabled' => true,
+							'source'  => 'icon',
+							'icon'    => 'cc-discover',
+							'image'   => '',
+							'label'   => __( 'Discover', 'astra' ),
+						),
 					),
-				array(
-					array(
-						'id'      => 'item-mastercard',
-						'enabled' => true,
-						'source'  => 'icon',
-						'icon'    => 'cc-mastercard',
-						'image'   => '',
-						'label'   => __( 'Mastercard', 'astra' ),
-					),
-				),
-				array(
-					array(
-						'id'      => 'item-amex',
-						'enabled' => true,
-						'source'  => 'icon',
-						'icon'    => 'cc-amex',
-						'image'   => '',
-						'label'   => __( 'Amex', 'astra' ),
-					),
-				),
-				array(
-					array(
-						'id'      => 'item-discover',
-						'enabled' => true,
-						'source'  => 'icon',
-						'icon'    => 'cc-discover',
-						'image'   => '',
-						'label'   => __( 'Discover', 'astra' ),
-					),
-				),
 			);
 
 			return $defaults;
