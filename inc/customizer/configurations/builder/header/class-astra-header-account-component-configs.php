@@ -176,7 +176,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 				'name'      => ASTRA_THEME_SETTINGS . '[header-account-logged-in-text]',
 				'default'   => astra_get_option( 'header-account-logged-in-text' ),
 				'type'      => 'control',
-				'control'   => 'text',
+				'control'   => 'ast-text-input',
 				'section'   => $_section,
 				'title'     => __( 'Text', 'astra' ),
 				'priority'  => 3,
@@ -214,7 +214,6 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 					'selector'        => '.ast-header-account',
 					'render_callback' => array( 'Astra_Builder_UI_Controller', 'render_account' ),
 				),
-				'divider'           => array( 'ast_class' => 'ast-top-dotted-divider' ),
 			),
 
 			/**
