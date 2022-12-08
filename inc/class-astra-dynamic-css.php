@@ -163,7 +163,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$h4_text_transform  = '';
 			$h4_letter_spacing  = '';
 			$h4_text_decoration = '';
-			
+
 
 			$h5_font_family     = '';
 			$h5_font_weight     = '';
@@ -377,7 +377,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$theme_btn_font_size      = astra_get_option( 'font-size-button' );
 			$theme_btn_font_weight    = astra_get_option( 'font-weight-button' );
 			$theme_btn_text_transform = astra_get_option( 'text-transform-button' );
-			$theme_btn_line_height    = astra_get_option( 'theme-btn-line-height' );
+			$theme_btn_line_height    = astra_get_font_extras( astra_get_option( 'font-extras-button' ), 'line-height', 'line-height-unit' );
 			$theme_btn_letter_spacing = astra_get_option( 'theme-btn-letter-spacing' );
 
 			if ( false === Astra_Builder_Helper::$is_header_footer_builder_active ) {
@@ -496,7 +496,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'line-height'     => esc_attr( $h4_line_height ),
 					'text-decoration' => esc_attr( $h4_text_decoration ),
 					'letter-spacing'  => esc_attr( $h4_letter_spacing ),
-					
+
 				);
 
 				$h4_properties = array_merge( $h4_properties, $h4_font_properties );
@@ -2087,6 +2087,8 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			 * Elementor & Gutenberg button backward compatibility for default styling.
 			 */
 			if ( self::page_builder_button_style_css() ) {
+
+				error_log($theme_btn_line_height);
 
 				$search_button_selector       = ( ! $block_editor_legacy_setup || $is_wp_5_8_support_enabled ) ? ', form[CLASS*="wp-block-search__"].wp-block-search .wp-block-search__inside-wrapper .wp-block-search__button' : '';
 				$search_button_hover_selector = ( ! $block_editor_legacy_setup || $is_wp_5_8_support_enabled ) ? ', form[CLASS*="wp-block-search__"].wp-block-search .wp-block-search__inside-wrapper .wp-block-search__button:hover, form[CLASS*="wp-block-search__"].wp-block-search .wp-block-search__inside-wrapper .wp-block-search__button:focus' : '';
