@@ -556,7 +556,7 @@ class Astra_Posts_Single_Structures_Configs extends Astra_Customizer_Config_Base
 				),
 
 				/**
-				 * Title support for archive.
+				 * Date format support for meta field.
 				 */
 				array(
 					'name'     => $title_section . '-date-format',
