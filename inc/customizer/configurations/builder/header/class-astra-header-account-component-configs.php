@@ -522,7 +522,8 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 							'value'    => 'text',
 						),
 					),
-				)
+				),
+				array( 'ast_class' => 'ast-top-section-divider' )
 			)
 		);
 
