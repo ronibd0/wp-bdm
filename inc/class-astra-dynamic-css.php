@@ -4008,7 +4008,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		}
 
 		/**
-		 * Block editor experience improvement changes.
+		 * Block editor experience improvements css introduced with v4.0.0.
 		 *
 		 * @since x.x.x
 		 * @return boolean false if it is an existing user , true if not.
@@ -4016,7 +4016,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		public static function v4_block_editor_compat() {
 			$astra_settings = get_option( ASTRA_THEME_SETTINGS );
 			$astra_settings['v4-block-editor-compat'] = isset( $astra_settings['v4-block-editor-compat'] ) ? false : true;
-			return apply_filters( 'astra_block_editor_experience_compatibility', $astra_settings['v4-block-editor-compat'] );
+			return apply_filters( 'astra_v4_block_editor_compat', $astra_settings['v4-block-editor-compat'] );
 		}
 
 		/**
