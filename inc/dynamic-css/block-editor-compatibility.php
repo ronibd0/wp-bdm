@@ -215,6 +215,7 @@ function astra_load_modern_block_editor_ui( $dynamic_css ) {
 
 	// Spectra Compatibility - page title alignment with page container layouts.
 	$spectra_gutenberg_compat_css = Astra_Dynamic_CSS::spectra_gutenberg_compat_css();
+	$v4_block_editor_compat       = Astra_Dynamic_CSS::v4_block_editor_compat();
 
 	$dynamic_css .= '
 		html body {
@@ -504,6 +505,15 @@ function astra_load_modern_block_editor_ui( $dynamic_css ) {
 			max-width: 100%;
 			margin-left: auto;
 			margin-right: auto;
+		}
+	';
+
+	// Block editor experience improvements introduced with v4.0.0.
+	$dynamic_css .= '
+		@media(max-width: 921px) {		
+			.ast-plain-container .site-main .entry-header .entry-title {
+				margin-top: 0.67em;
+			}
 		}
 	';
 

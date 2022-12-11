@@ -324,7 +324,7 @@ class Astra_WP_Editor_CSS {
 		$site_title_line_height              = astra_get_option( 'ast-dynamic-single-' . esc_attr( $post_type ) . '-title-line-height', astra_get_option( 'ast-dynamic-single-' . esc_attr( $post_type ) . '-text-line-height' ) );
 		$site_title_font_size                = astra_get_option( 'ast-dynamic-single-' . esc_attr( $post_type ) . '-title-font-size' );
 		$site_title_font_size_fallback       = astra_get_option( 'ast-dynamic-single-' . esc_attr( $post_type ) . '-text-font-size', astra_get_option( 'font-size-page-title' ) );
-		$site_title_text_transform           = astra_get_option( 'ast-dynamic-single-' . esc_attr( $post_type ) . '-title-text-transform', astra_get_option( 'ast-dynamic-single-' . esc_attr( $post_type ) . '-text-transform') );
+		$site_title_text_transform           = astra_get_option( 'ast-dynamic-single-' . esc_attr( $post_type ) . '-title-text-transform' );
 		$site_title_color                    = astra_get_option( 'ast-dynamic-single-' . esc_attr( $post_type ) . '-banner-title-color', astra_get_option( 'ast-dynamic-single-' . esc_attr( $post_type ) . '-banner-text-color' )  );
 		$is_widget_title_support_font_weight = Astra_Dynamic_CSS::support_font_css_to_widget_and_in_editor();
 		$font_weight_prop                    = ( $is_widget_title_support_font_weight ) ? 'inherit' : 'normal';
@@ -347,6 +347,9 @@ class Astra_WP_Editor_CSS {
 		}
 		if( '' == $site_title_font_size ) {
 			$site_title_font_size = $site_title_font_size_fallback;
+		}
+		if( '' === $site_title_font_size['desktop'] ) {
+			$font_size_desktop_fallback = astra_get_option( 'font-size-page-title' );
 		}
 
 		// check the selection color in-case of empty/no theme color.
@@ -568,10 +571,10 @@ class Astra_WP_Editor_CSS {
 		);
 		
 		/**
-		 * Site title (Page Title) on Block Editor.
+		 * Desktop site title.
 		 */
 		$desktop_css['.editor-styles-wrapper .edit-post-visual-editor__post-title-wrapper > h1'] = array(
-			'font-size'      => astra_responsive_font( $site_title_font_size, 'desktop' ),
+			'font-size'      => astra_responsive_font( isset( $font_size_desktop_fallback ) ? $font_size_desktop_fallback : $site_title_font_size, 'desktop' ),
 			'font-weight'    => astra_get_css_value( $site_title_font_weight, 'font' ),
 			'font-family'    => astra_get_css_value( $site_title_font_family, 'font', $body_font_family ),
 			'line-height'    => esc_attr( $site_title_line_height ),
@@ -693,6 +696,13 @@ class Astra_WP_Editor_CSS {
 			'.editor-styles-wrapper'             => astra_get_responsive_background_obj( $content_background, 'tablet' ),
 		);
 
+		/**
+		 * Tablet site title.
+		 */
+		$tablet_css['.editor-styles-wrapper .edit-post-visual-editor__post-title-wrapper > h1'] = array(
+			'font-size'      => astra_responsive_font( $site_title_font_size, 'tablet' ),
+		);
+
 		$mobile_css = array(
 			':root, body .editor-styles-wrapper' => array(
 				'--wp--custom--ast-default-block-top-padding' => $mobile_top_spacing,
@@ -721,6 +731,13 @@ class Astra_WP_Editor_CSS {
 			),
 			'#editor .edit-post-visual-editor'   => astra_get_responsive_background_obj( $site_background, 'mobile' ),
 			'.editor-styles-wrapper'             => astra_get_responsive_background_obj( $content_background, 'mobile' ),
+		);
+
+		/**
+		 * Mobile site title.
+		 */
+		$mobile_css['.editor-styles-wrapper .edit-post-visual-editor__post-title-wrapper > h1'] = array(
+			'font-size'      => astra_responsive_font( $site_title_font_size, 'mobile' ),
 		);
 
 		$css .= astra_parse_css( $desktop_css );
