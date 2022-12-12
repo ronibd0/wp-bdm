@@ -2088,8 +2088,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			 */
 			if ( self::page_builder_button_style_css() ) {
 
-				error_log($theme_btn_line_height);
-
 				$search_button_selector       = ( ! $block_editor_legacy_setup || $is_wp_5_8_support_enabled ) ? ', form[CLASS*="wp-block-search__"].wp-block-search .wp-block-search__inside-wrapper .wp-block-search__button' : '';
 				$search_button_hover_selector = ( ! $block_editor_legacy_setup || $is_wp_5_8_support_enabled ) ? ', form[CLASS*="wp-block-search__"].wp-block-search .wp-block-search__inside-wrapper .wp-block-search__button:hover, form[CLASS*="wp-block-search__"].wp-block-search .wp-block-search__inside-wrapper .wp-block-search__button:focus' : '';
 
