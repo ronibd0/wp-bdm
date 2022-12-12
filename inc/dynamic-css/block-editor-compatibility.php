@@ -509,7 +509,7 @@ function astra_load_modern_block_editor_ui( $dynamic_css ) {
 	';
 
 	// Block editor experience improvements introduced with v4.0.0.
-	if ( $v4_block_editor_compat ) {	
+	if ( $v4_block_editor_compat ) {
 		$dynamic_css .= '
 			@media(max-width: 921px) {		
 				.ast-plain-container .site-main .entry-header > :first-child:is(.entry-title){
