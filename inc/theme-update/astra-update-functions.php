@@ -1345,19 +1345,9 @@ function astra_theme_background_updater_4_0_0() {
 		$theme_options['scroll-to-top-enable'] = $scroll_to_top_visibility;
 		update_option( 'astra-settings', $theme_options );
 	}
-}
-
-/**
- * Set flag to avoid direct reflections on live site & to maintain backward compatibility for existing users.
- *
- * Backward flag purpose - To keep structure defaults updation by filter.
- *
- * @since 4.0.0
- * @return void
- */
-function astra_update_color_typo_defaults() {
-	$theme_options = get_option( 'astra-settings', array() );
-
+	/**
+	 * This is only for default color palette and typography.
+	 */
 	if ( ! isset( $theme_options['astra-default-color-typo-update'] ) ) {
 		$theme_options['astra-default-color-typo-update'] = false;
 		update_option( 'astra-settings', $theme_options );

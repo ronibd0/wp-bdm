@@ -33,6 +33,12 @@ class Astra_Posts_Structure_Loader {
 	 * @since x.x.x
 	 */
 	public function __construct() {
+		/**
+		* Update Astra default color and typography values. To not update directly on existing users site, added backwards.
+		*
+		* @since 4.0.0
+		*/
+		$apply_new_default_color_typo_values                = astra_check_default_color_typo();
 		self::$customizer_defaults['responsive-background'] = array(
 			'desktop' => array(
 				'background-color'      => '',
@@ -92,6 +98,15 @@ class Astra_Posts_Structure_Loader {
 
 		self::$customizer_defaults['font-size'] = array(
 			'desktop'      => '',
+			'tablet'       => '',
+			'mobile'       => '',
+			'desktop-unit' => 'px',
+			'tablet-unit'  => 'px',
+			'mobile-unit'  => 'px',
+		);
+
+		self::$customizer_defaults['title-font-size'] = array(
+			'desktop'      => $apply_new_default_color_typo_values ? '32' : '',
 			'tablet'       => '',
 			'mobile'       => '',
 			'desktop-unit' => 'px',
@@ -264,6 +279,26 @@ class Astra_Posts_Structure_Loader {
 	 */
 	public static function get_customizer_default( $key ) {
 		return isset( self::$customizer_defaults[ $key ] ) ? self::$customizer_defaults[ $key ] : array();
+	}
+
+	/**
+	 * Get dynamic font default.
+	 *
+	 * @param string $key Retrieve default for this parameter.
+	 *
+	 * @since x.x.x
+	 */
+	public static function get_dynamic_font_extras_default( $dynamic_font_extras, $line_height, $text_transform ) {
+		$astra_options             = Astra_Theme_Options::get_astra_options();
+		$astra_dynamic_font_extras = array(
+			'line-height'         => ! isset( $astra_options[ $dynamic_font_extras ] ) && isset( $astra_options[ $line_height ] ) ? $astra_options[ $line_height ] : '1.6',
+			'line-height-unit'    => 'em',
+			'letter-spacing'      => '',
+			'letter-spacing-unit' => 'px',
+			'text-transform'      => ! isset( $astra_options[ $dynamic_font_extras ] ) && isset( $astra_options[ $text_transform ] ) ? $astra_options[ $text_transform ] : '',
+			'text-decoration'     => '',
+		);
+		return $astra_dynamic_font_extras;
 	}
 }
 

@@ -325,7 +325,7 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 					'narrow-container-max-width'           => 750,
 					'site-layout-outside-bg-obj-responsive' => array(
 						'desktop' => array(
-							'background-color'      => '',
+							'background-color'      => $apply_new_default_values ? 'var(--ast-global-color-4)' : '',
 							'background-image'      => '',
 							'background-repeat'     => 'repeat',
 							'background-position'   => 'center center',
@@ -451,7 +451,7 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 					'headings-font-family'                 => 'inherit',
 					'headings-font-weight'                 => $apply_new_default_values ? '600' : 'inherit',
 					'font-size-site-title'                 => array(
-						'desktop'      => 35,
+						'desktop'      => $apply_new_default_color_typo_values ? 26 : 35,
 						'tablet'       => '',
 						'mobile'       => '',
 						'desktop-unit' => 'px',

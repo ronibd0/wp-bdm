@@ -1136,6 +1136,13 @@ function astra_prepare_divider_defaults( $defaults, $index ) {
  */
 function astra_prepare_button_defaults( $defaults, $index ) {
 
+	/**
+	* Update Astra default color and typography values. To not update directly on existing users site, added backwards.
+	*
+	* @since 4.0.0
+	*/
+	$apply_new_default_color_typo_values = astra_check_default_color_typo();
+
 	$astra_options = Astra_Theme_Options::get_astra_options();
 
 	$_prefix = 'button' . $index;
@@ -1220,7 +1227,7 @@ function astra_prepare_button_defaults( $defaults, $index ) {
 	);
 	$defaults[ 'header-' . $_prefix . '-border-radius' ] = '';
 
-	$defaults[ 'section-hb-button-' . $index . '-padding' ]   = Astra_Builder_Helper::$default_responsive_spacing;
+	$defaults[ 'section-hb-button-' . $index . '-padding' ]   = $apply_new_default_color_typo_values ? Astra_Builder_Helper::$default_button_responsive_spacing : Astra_Builder_Helper::$default_responsive_spacing;
 	$defaults[ 'section-hb-button-' . $index . '-margin' ]    = Astra_Builder_Helper::$default_responsive_spacing;
 	$defaults[ 'sticky-header-button' . $index . '-padding' ] = Astra_Builder_Helper::$default_responsive_spacing;
 
@@ -1694,6 +1701,13 @@ function astra_prepare_widget_defaults( $defaults, $index ) {
  */
 function astra_prepare_menu_defaults( $defaults, $index ) {
 
+	/**
+	* Update Astra default color and typography values. To not update directly on existing users site, added backwards.
+	*
+	* @since 4.0.0
+	*/
+	$apply_new_default_color_typo_values = astra_check_default_color_typo();
+
 	$_prefix = 'menu' . $index;
 
 	// Specify all the default values for Menu from here.
@@ -1732,7 +1746,7 @@ function astra_prepare_menu_defaults( $defaults, $index ) {
 	);
 
 	$defaults[ 'header-' . $_prefix . '-color-responsive' ] = array(
-		'desktop' => '',
+		'desktop' => $apply_new_default_color_typo_values ? 'var(--ast-global-color-3)' : '',
 		'tablet'  => '',
 		'mobile'  => '',
 	);
@@ -1744,7 +1758,7 @@ function astra_prepare_menu_defaults( $defaults, $index ) {
 	);
 
 	$defaults[ 'header-' . $_prefix . '-h-color-responsive' ] = array(
-		'desktop' => '',
+		'desktop' => $apply_new_default_color_typo_values ? 'var(--ast-global-color-1)' : '',
 		'tablet'  => '',
 		'mobile'  => '',
 	);
@@ -1756,7 +1770,7 @@ function astra_prepare_menu_defaults( $defaults, $index ) {
 	);
 
 	$defaults[ 'header-' . $_prefix . '-a-color-responsive' ] = array(
-		'desktop' => '',
+		'desktop' => $apply_new_default_color_typo_values ? 'var(--ast-global-color-1)' : '',
 		'tablet'  => '',
 		'mobile'  => '',
 	);
