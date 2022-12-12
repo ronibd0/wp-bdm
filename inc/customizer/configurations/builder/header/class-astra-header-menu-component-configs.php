@@ -346,7 +346,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'section'   => $_section,
 						'priority'  => 41,
 						'title'     => __( 'Stack on Responsive', 'astra' ),
-						'context'   => Astra_Builder_Helper::$general_tab,
+						'context'   => Astra_Builder_Helper::$responsive_general_tab,
 						'transport' => 'postMessage',
 					),
 
