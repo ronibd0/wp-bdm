@@ -345,7 +345,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'control'   => 'ast-toggle-control',
 						'section'   => $_section,
 						'priority'  => 41,
-						'divider'   => array( 'ast_class' => 'ast-top-dotted-divider' ),
+						'divider'   => array( 'ast_class' => 'ast-top-section-divider' ),
 						'title'     => __( 'Stack on Responsive', 'astra' ),
 						'context'   => Astra_Builder_Helper::$responsive_general_tab,
 						'transport' => 'postMessage',
