@@ -193,10 +193,6 @@ html {
   padding-left: 10px;
 }
 
-.wp-embed-responsive.editor-styles-wrapper [data-block] {
-  margin-top: 15px;
-}
-
 .wp-embed-responsive.editor-styles-wrapper .wp-block-pullquote {
   border: none;
 }
