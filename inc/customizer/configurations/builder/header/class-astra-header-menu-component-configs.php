@@ -345,7 +345,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'control'   => 'ast-toggle-control',
 						'section'   => $_section,
 						'priority'  => 41,
-						'title'     => __( 'Stack on Mobile', 'astra' ),
+						'title'     => __( 'Stack on Responsive', 'astra' ),
 						'context'   => Astra_Builder_Helper::$general_tab,
 						'transport' => 'postMessage',
 					),
