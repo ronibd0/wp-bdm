@@ -57,7 +57,7 @@ function astra_post_archive_structure_dynamic_css( $dynamic_css, $dynamic_css_fi
 	}
 
 	$elements_gap   = astra_get_option( 'ast-dynamic-archive-' . $current_post_type . '-elements-gap', 10 );
-	$banner_padding = astra_get_option( 'ast-dynamic-archive-' . $current_post_type . '-banner-padding' );
+	$banner_padding = astra_get_option( 'ast-dynamic-archive-' . $current_post_type . '-banner-padding', Astra_Posts_Structure_Loader::get_customizer_default( 'responsive-padding' ) );
 	$banner_margin  = astra_get_option( 'ast-dynamic-archive-' . $current_post_type . '-banner-margin' );
 
 	$banner_height      = astra_get_option( 'ast-dynamic-archive-' . $current_post_type . '-banner-height' );
@@ -412,9 +412,6 @@ function astra_post_archive_structure_dynamic_css( $dynamic_css, $dynamic_css_fi
 			text-align: center;
 			position: relative;
 			background: #eeeeee;
-		}
-		.ast-archive-entry-banner .ast-container {
-			padding: 50px 20px;
 		}
 		.ast-archive-entry-banner[data-banner-width-type="custom"] {
 			margin: 0 auto;
