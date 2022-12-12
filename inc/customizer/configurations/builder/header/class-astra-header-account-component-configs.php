@@ -344,6 +344,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 				'default'           => astra_get_option( 'header-account-image-width' ),
 				'title'             => __( 'Avatar Width', 'astra' ),
 				'type'              => 'control',
+				'divider'           => defined( 'ASTRA_EXT_VER' ) ? array() : array( 'ast_class' => 'ast-bottom-dotted-divider' ),
 				'control'           => 'ast-responsive-slider',
 				'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
 				'input_attrs'       => array(
@@ -375,7 +376,6 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 				'type'              => 'control',
 				'suffix'            => 'px',
 				'control'           => 'ast-responsive-slider',
-				'divider'           => array( 'ast_class' => 'ast-bottom-dotted-divider' ),
 				'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
 				'input_attrs'       => array(
 					'min'  => 0,
@@ -411,6 +411,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 				'priority'          => 5,
 				'transport'         => 'postMessage',
 				'control'           => 'ast-color',
+				'divider'           => defined( 'ASTRA_EXT_VER' ) ? array() : array( 'ast_class' => 'ast-bottom-dotted-divider' ),
 				'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_alpha_color' ),
 				'title'             => __( 'Icon Color', 'astra' ),
 				'context'           => array(
@@ -441,6 +442,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 				'section'           => $_section,
 				'priority'          => 18,
 				'transport'         => 'postMessage',
+				'divider'           => array( 'ast_class' => 'ast-bottom-dotted-divider' ),
 				'control'           => 'ast-color',
 				'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_alpha_color' ),
 				'title'             => __( 'Profile Text Color', 'astra' ),
@@ -460,21 +462,6 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 						),
 					),
 				),
-			),
-
-			/**
-			 * Option: Divider
-			 */
-			array(
-				'name'     => ASTRA_THEME_SETTINGS . '[header-account-spacing-divider]',
-				'section'  => 'section-header-account',
-				'title'    => __( 'Spacing', 'astra' ),
-				'type'     => 'control',
-				'control'  => 'ast-heading',
-				'priority' => 510,
-				'settings' => array(),
-				'context'  => Astra_Builder_Helper::$design_tab,
-				'divider'  => array( 'ast_class' => 'ast-section-spacing' ),
 			),
 
 			/**
