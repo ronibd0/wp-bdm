@@ -589,8 +589,6 @@ class Astra_WP_Editor_CSS {
 		// List block alignment same as frontend.
 		$default_ul_line_height = 1.85714285714286;
 		$desktop_css['.editor-styles-wrapper .is-root-container ul'] = array(
-			'padding-inline-start' => 0,
-			'padding-left'         => '1em',
 			'line-height'          => $default_ul_line_height,
 			'margin-bottom'        => '1.5em',
 		);

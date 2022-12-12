@@ -489,9 +489,6 @@ function astra_load_modern_block_editor_ui( $dynamic_css ) {
 					margin-right: 0;
 				}
 			}
-			.entry-content[ast-blocks-layout] > ul, .entry-content[ast-blocks-layout] > ol {
-				margin-' . esc_attr( $ltr_left ) . ': 1em;
-			}
 		';
 	}
 
@@ -515,6 +512,9 @@ function astra_load_modern_block_editor_ui( $dynamic_css ) {
 				.ast-plain-container .site-main .entry-header > :first-child:is(.entry-title){
 					margin-top: 0.67em;
 				}
+			}
+			.entry-content[ast-blocks-layout] > ul, .entry-content[ast-blocks-layout] > ol {
+				padding: revert;
 			}
 		';
 	}
