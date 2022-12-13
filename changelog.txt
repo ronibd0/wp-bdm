@@ -1,3 +1,6 @@
+v4.0.1 (Unreleased)
+- Fix: Margin applying for the last child 'li' tag inside widget section.
+
 v4.0.0 (Unreleased)
 - New: Redesigned the entire admin area with better user experience.
 - New: Narrow Width Container layout for Single Posts, Blogs/Archives & Pages.

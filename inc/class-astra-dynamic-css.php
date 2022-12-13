@@ -4026,10 +4026,10 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				word-break: break-word;
 				line-height: 2;
 			}
-			#secondary li {
+			#secondary > li {
 				margin-bottom: ' . esc_attr( $secondary_li_bottom_spacing ) . ';
 			}
-			#secondary li:last-child {
+			#secondary > li:last-child {
 				margin-bottom: 0;
 			}
 			@media (max-width: 768px) {
