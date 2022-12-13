@@ -401,7 +401,9 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'priority'   => 90,
 						'context'    => Astra_Builder_Helper::$design_tab,
 						'responsive' => true,
+						/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 						'divider'    => array( 'ast_class' => ( defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'colors-and-background' ) ) ? 'ast-bottom-dotted-divider' : '' ),
+						/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 					),
 
 					// Option: Menu Color.
