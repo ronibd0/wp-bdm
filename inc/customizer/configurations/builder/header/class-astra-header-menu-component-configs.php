@@ -37,6 +37,10 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 
 			$component_limit = defined( 'ASTRA_EXT_VER' ) ? Astra_Builder_Helper::$component_limit : Astra_Builder_Helper::$num_of_header_menu;
 
+			/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+			$custom_req_divider = array( 'ast_class' => ( defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'colors-and-background' ) ) ? 'ast-bottom-dotted-divider' : '' );
+			/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+
 			for ( $index = 1; $index <= $component_limit; $index++ ) {
 
 				$_section = 'section-hb-menu-' . $index;
@@ -401,9 +405,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'priority'   => 90,
 						'context'    => Astra_Builder_Helper::$design_tab,
 						'responsive' => true,
-						/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-						'divider'    => array( 'ast_class' => ( defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'colors-and-background' ) ) ? 'ast-bottom-dotted-divider' : '' ),
-						/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+						'divider'    => $custom_req_divider,
 					),
 
 					// Option: Menu Color.
