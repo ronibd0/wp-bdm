@@ -166,7 +166,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 				),
 				'responsive' => false,
 				'renderAs'   => 'text',
-				'divider'    => array( 'ast_class' => ( defined( 'ASTRA_EXT_VER' ) ) ? 'ast-bottom-dotted-divider' : 'ast-section-spacing ast-bottom-dotted-divider' ),
+				'divider'    => array( 'ast_class' => 'ast-bottom-dotted-divider ast-section-spacing' ),
 			),
 
 			/**
@@ -210,6 +210,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 				'priority'          => 6,
 				'transport'         => 'postMessage',
 				'context'           => $login_link_context,
+				'divider'    => array( 'ast_class' => 'ast-section-spacing' ),
 				'partial'           => array(
 					'selector'        => '.ast-header-account',
 					'render_callback' => array( 'Astra_Builder_UI_Controller', 'render_account' ),
@@ -444,9 +445,6 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 				'priority'    => 15,
 				'title'       => __( 'Text Options', 'astra' ),
 				'settings'    => array(),
-				'input_attrs' => array(
-					'class' => 'ast-control-reduce-top-space',
-				),
 				'context'           => array(
 					Astra_Builder_Helper::$design_tab_config,
 					array(
@@ -476,6 +474,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 				'priority'          => 18,
 				'transport'         => 'postMessage',
 				'control'           => 'ast-color',
+				'divider'           => array( 'ast_class' => 'ast-bottom-spacing ast-section-spacing' ),
 				'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_alpha_color' ),
 				'title'             => __( 'Profile Text Color', 'astra' ),
 				'context'           => array(
@@ -556,7 +555,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 						),
 					),
 				),
-				array()
+				array( 'ast_class' => 'ast-section-spacing' ),
 			)
 		);
 
