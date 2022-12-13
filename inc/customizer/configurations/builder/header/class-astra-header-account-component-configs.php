@@ -442,7 +442,6 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 				'section'           => $_section,
 				'priority'          => 18,
 				'transport'         => 'postMessage',
-				'divider'           => array( 'ast_class' => 'ast-bottom-dotted-divider' ),
 				'control'           => 'ast-color',
 				'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_alpha_color' ),
 				'title'             => __( 'Profile Text Color', 'astra' ),
@@ -462,6 +461,20 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 						),
 					),
 				),
+			),
+
+			/**
+			 * Option: Divider
+			 */
+			array(
+				'name'     => ASTRA_THEME_SETTINGS . '[header-account-spacing-divider]',
+				'section'  => 'section-header-account',
+				'title'    => __( 'Spacing', 'astra' ),
+				'type'     => 'control',
+				'control'  => 'ast-heading',
+				'priority' => 510,
+				'settings' => array(),
+				'context'  => Astra_Builder_Helper::$design_tab,
 			),
 
 			/**
