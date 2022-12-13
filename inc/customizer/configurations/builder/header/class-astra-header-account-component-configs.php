@@ -344,7 +344,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 				'default'           => astra_get_option( 'header-account-image-width' ),
 				'title'             => __( 'Avatar Width', 'astra' ),
 				'type'              => 'control',
-				'divider'           => defined( 'ASTRA_EXT_VER' ) ? array() : array( 'ast_class' => 'ast-bottom-dotted-divider' ),
+				'divider'           => defined( 'ASTRA_EXT_VER' ) ? array( 'ast_class' => 'ast-bottom-spacing' ) : array( 'ast_class' => 'ast-bottom-dotted-divider' ),
 				'control'           => 'ast-responsive-slider',
 				'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
 				'input_attrs'       => array(
@@ -376,6 +376,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 				'type'              => 'control',
 				'suffix'            => 'px',
 				'control'           => 'ast-responsive-slider',
+				'divider'           => array( 'ast_class' => 'ast-bottom-dotted-divider' ),
 				'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
 				'input_attrs'       => array(
 					'min'  => 0,
@@ -411,7 +412,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 				'priority'          => 5,
 				'transport'         => 'postMessage',
 				'control'           => 'ast-color',
-				'divider'           => defined( 'ASTRA_EXT_VER' ) ? array() : array( 'ast_class' => 'ast-bottom-dotted-divider' ),
+				'divider'           => defined( 'ASTRA_EXT_VER' ) ? array( 'ast_class' => 'ast-bottom-spacing' ) : array( 'ast_class' => 'ast-bottom-dotted-divider' ),
 				'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_alpha_color' ),
 				'title'             => __( 'Icon Color', 'astra' ),
 				'context'           => array(
@@ -427,6 +428,38 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 							'setting'  => ASTRA_THEME_SETTINGS . '[header-account-logout-style]',
 							'operator' => '==',
 							'value'    => 'icon',
+						),
+					),
+				),
+			),
+
+			/**
+			 * Option: Text design options.
+			 */
+			array(
+				'name'        => ASTRA_THEME_SETTINGS . '[header-account-text-design-options]',
+				'type'        => 'control',
+				'control'     => 'ast-heading',
+				'section'     => $_section,
+				'priority'    => 15,
+				'title'       => __( 'Text Options', 'astra' ),
+				'settings'    => array(),
+				'input_attrs' => array(
+					'class' => 'ast-control-reduce-top-space',
+				),
+				'context'           => array(
+					Astra_Builder_Helper::$design_tab_config,
+					array(
+						'relation' => 'OR',
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[header-account-login-style]',
+							'operator' => '==',
+							'value'    => 'text',
+						),
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[header-account-logout-style]',
+							'operator' => '==',
+							'value'    => 'text',
 						),
 					),
 				),
@@ -523,7 +556,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 						),
 					),
 				),
-				array( 'ast_class' => 'ast-top-section-divider' )
+				array()
 			)
 		);
 
