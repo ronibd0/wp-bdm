@@ -3376,6 +3376,7 @@ li[ID*="accordion-section-ast-dynamic-archive-"].control-section-ast_section {
 #sub-accordion-section-section-sidebars > .customize-control-ast-heading ~ .customize-control-ast-heading  {
     margin-top: 32px;
 }
+
 .ast-typo-presets {
 	width: 100%;
     display: flex;
@@ -3518,7 +3519,7 @@ div .ast-field-settings-modal .customize-control-ast-font-height {
 .ast-font-spacing-input .ast-number-input input[type=number]::-webkit-outer-spin-button {
 	-webkit-appearance: none;
     -moz-appearance: none;
-    appearance: none;
+    appearance: none; 
 }
 
 .ast-font-unit-wrapper {
@@ -3656,7 +3657,7 @@ div .ast-field-settings-modal .customize-control-ast-font-height {
 .ast-customizer-font-varient-wrap .ast-multi-select__multi-value {
     margin-top: 0;
     margin-bottom: 0;
-    font-size: 12px;
+    font-size: 12px; 
     padding: 2px 2px 2px 2px;
     min-width: auto;
     color: #4B5563;
@@ -3698,7 +3699,7 @@ div .ast-field-settings-modal .customize-control-ast-font-height {
     z-index: 1;
 }
 
-.ast-customizer-font-varient-wrap .ast-multi-select__control:before {
+.ast-customizer-font-varient-wrap .ast-multi-select__control:before { 
     content:'';
     position: absolute;
     top: 3px;
