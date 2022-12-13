@@ -97,7 +97,7 @@ class Astra_Menu {
 	public function admin_submenu_css() {
 		echo '<style class="astra-menu-appearance-style">
 				#toplevel_page_' . esc_attr( self::$plugin_slug ) . ' .wp-menu-image.svg {
-					background-size: 19px auto !important;
+					background-size: 18px auto !important;
 				}
 			</style>';
 	}
