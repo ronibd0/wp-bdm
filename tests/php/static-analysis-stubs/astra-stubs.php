@@ -9256,9 +9256,10 @@ namespace {
          *
          * @param string $section_id section id.
          * @param array  $required_condition Required Condition.
+		 * @param array  $divider_setup Required divider setup.
          * @return array
          */
-        public static function prepare_typography_options($section_id, $required_condition = array())
+        public static function prepare_typography_options($section_id, $required_condition = array(), $divider_setup = array())
         {
         }
         /**
