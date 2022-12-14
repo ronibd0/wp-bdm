@@ -40,20 +40,7 @@
             selector + ' .menu-item > .menu-link'
         );
 
-        wp.customize( 'astra-settings[font-extras-header-mobile-menu]', function( value ) {
-            value.bind( function( data ) {
-                const selectorParent = '.ast-builder-menu-mobile .main-navigation';
-
-                let dynamicStyle = selectorParent + ' .menu-item > .menu-link { ';
-                dynamicStyle += 'letter-spacing : ' + data['letter-spacing'] + data['letter-spacing-unit'] + ";" ;
-                dynamicStyle += 'text-decoration : ' + data['text-decoration'] + ";";
-                dynamicStyle += 'text-transform : ' + data['text-transform']  + ';}' ;
-                astra_add_dynamic_css( 'font-extras-header-mobile-menu', dynamicStyle );
-                
-                let lineHeightStyle =  ' .menu-item > .menu-link, ' + selectorParent + ' .menu-item > .ast-menu-toggle { line-height : ' + data['line-height'] + data['line-height-unit'] + ";}";
-                astra_add_dynamic_css( 'font-extras-header-mobile-menu-line-height', lineHeightStyle );
-            });
-        });
+		astra_font_extras_css( 'font-extras-header-mobile-menu', '.ast-builder-menu-mobile .main-navigation .menu-item > .menu-link' );
 
     /**
      * Color CSS.

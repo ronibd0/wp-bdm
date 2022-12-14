@@ -258,6 +258,7 @@ if ( ! class_exists( 'Astra_Body_Typo_Configs' ) ) {
 					'type'     => 'sub-control',
 					'parent'   => ASTRA_THEME_SETTINGS . '[ast-headings-font-settings]',
 					'control'  => 'ast-font-height',
+					'transport'         => 'postMessage',
 					'section'  => $typo_section,
 					'priority' => 26,
 					'default'  => astra_get_option( 'headings-font-height-settings' ),

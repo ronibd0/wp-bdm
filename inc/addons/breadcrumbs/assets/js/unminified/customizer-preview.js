@@ -24,16 +24,7 @@
 
 
 	/* Breadcrumb default, Yoast SEO Breadcrumb, Breadcrumb NavXT, Ran Math Breadcrumb, SEOPress Breadcrumb - Line Height */
-	wp.customize( 'astra-settings[breadcrumb-font-extras]', function( value ) {
-		value.bind( function( data ) {
-			const globalSelector = '.ast-breadcrumbs-wrapper .ast-breadcrumbs-name, .ast-breadcrumbs-wrapper .ast-breadcrumbs-item, .ast-breadcrumbs-wrapper .ast-breadcrumbs .separator, .ast-breadcrumbs-wrapper a, .ast-breadcrumbs-wrapper .breadcrumb_last, .ast-breadcrumbs-wrapper span, .ast-breadcrumbs-wrapper a, .ast-breadcrumbs-wrapper .breadcrumbs, .ast-breadcrumbs-wrapper .current-item, .ast-breadcrumbs-wrapper a, .ast-breadcrumbs-wrapper .last, .ast-breadcrumbs-wrapper .separator, .ast-breadcrumbs-wrapper .breadcrumb-item, .ast-breadcrumbs-wrapper .breadcrumb-item.active, .ast-breadcrumbs-wrapper .breadcrumb-item:after, .ast-breadcrumbs-inner nav, .ast-breadcrumbs-inner nav .breadcrumb-item, .ast-breadcrumbs-inner nav .breadcrumb-item:after';
-			let dynamicStyle = globalSelector + ' { line-height : ' + data['line-height'] + data['line-height-unit'] + ";";
-			dynamicStyle += 'letter-spacing : ' + data['letter-spacing'] + data['letter-spacing-unit'] + ";" ;
-			dynamicStyle += 'text-decoration : ' + data['text-decoration'] + ";";
-			dynamicStyle += 'text-transform : ' + data['text-transform']  + ';}' ;
-			astra_add_dynamic_css( 'breadcrumb-font-extras', dynamicStyle );
-		});
-	});
+	astra_font_extras_css( 'breadcrumb-font-extras', '.ast-breadcrumbs-wrapper .ast-breadcrumbs-name, .ast-breadcrumbs-wrapper .ast-breadcrumbs-item, .ast-breadcrumbs-wrapper .ast-breadcrumbs .separator, .ast-breadcrumbs-wrapper a, .ast-breadcrumbs-wrapper .breadcrumb_last, .ast-breadcrumbs-wrapper span, .ast-breadcrumbs-wrapper a, .ast-breadcrumbs-wrapper .breadcrumbs, .ast-breadcrumbs-wrapper .current-item, .ast-breadcrumbs-wrapper a, .ast-breadcrumbs-wrapper .last, .ast-breadcrumbs-wrapper .separator, .ast-breadcrumbs-wrapper .breadcrumb-item, .ast-breadcrumbs-wrapper .breadcrumb-item.active, .ast-breadcrumbs-wrapper .breadcrumb-item:after, .ast-breadcrumbs-inner nav, .ast-breadcrumbs-inner nav .breadcrumb-item, .ast-breadcrumbs-inner nav .breadcrumb-item:after' );
 
 	/* Breadcrumb default, Yoast SEO Breadcrumb, Breadcrumb NavXT, Ran Math Breadcrumb, SEOPress Breadcrumb - Text Color */
 	astra_color_responsive_css(
