@@ -92,7 +92,7 @@ function astra_post_single_structure_dynamic_css( $dynamic_css, $dynamic_css_fil
 
 	// Banner Title typography dynamic stylings.
 	$banner_title_font_family = astra_get_option( 'ast-dynamic-single-' . $current_post_type . '-title-font-family' );
-	$banner_title_font_weight = astra_get_option( 'ast-dynamic-single-' . $current_post_type . '-title-font-weight' );
+	$banner_title_font_weight = astra_get_option( 'ast-dynamic-single-' . $current_post_type . '-title-font-weight', Astra_Posts_Structure_Loader::get_customizer_default( 'title-font-weight' ) );
 	$banner_title_font_size   = astra_get_option( 'ast-dynamic-single-' . $current_post_type . '-title-font-size', Astra_Posts_Structure_Loader::get_customizer_default( 'title-font-size' ) );
 	$banner_title_line_height = astra_get_font_extras( astra_get_option( 'ast-dynamic-single-' . $current_post_type . '-title-font-extras' ), 'line-height', 'line-height-unit' );
 	$banner_title_transform   = astra_get_font_extras( astra_get_option( 'ast-dynamic-single-' . $current_post_type . '-title-font-extras' ), 'text-transform' );

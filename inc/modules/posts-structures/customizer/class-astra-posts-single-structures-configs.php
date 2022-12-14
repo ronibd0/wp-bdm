@@ -854,7 +854,7 @@ class Astra_Posts_Single_Structures_Configs extends Astra_Customizer_Config_Base
 					'control'           => 'ast-font',
 					'font_type'         => 'ast-font-weight',
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_font_weight' ),
-					'default'           => astra_get_option( $title_section . '-title-font-weight', 'inherit' ),
+					'default'           => astra_get_option( $title_section . '-title-font-weight', Astra_Posts_Structure_Loader::get_customizer_default( 'title-font-weight' ) ),
 					'title'             => __( 'Weight', 'astra' ),
 					'connect'           => $title_section . '-title-font-family',
 					'divider'           => array( 'ast_class' => 'ast-sub-bottom-dotted-divider' ),

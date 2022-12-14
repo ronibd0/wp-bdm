@@ -34,10 +34,10 @@ class Astra_Posts_Structure_Loader {
 	 */
 	public function __construct() {
 		/**
-		* Update Astra default color and typography values. To not update directly on existing users site, added backwards.
-		*
-		* @since x.x.x
-		*/
+		 * Update Astra default color and typography values. To not update directly on existing users site, added backwards.
+		 *
+		 * @since x.x.x
+		 */
 		$apply_new_default_color_typo_values = Astra_Dynamic_CSS::astra_check_default_color_typo();
 
 		self::$customizer_defaults['responsive-background'] = array(
@@ -138,6 +138,8 @@ class Astra_Posts_Structure_Loader {
 			'tablet-unit'  => 'px',
 			'mobile-unit'  => 'px',
 		);
+
+		self::$customizer_defaults['title-font-weight'] = $apply_new_default_color_typo_values ? '600' : 'inherit';
 
 		self::$customizer_defaults['responsive-slider'] = array(
 			'desktop' => '',
@@ -316,20 +318,21 @@ class Astra_Posts_Structure_Loader {
 	public static function astra_get_dynamic_font_extras_default( $dynamic_font_extras, $line_height, $text_transform, $type ) {
 		$astra_options = Astra_Theme_Options::get_astra_options();
 		switch ( $type ) {
-			case ( $type == 'title' ):
+			case 'title':
 				$dynamic_line_height = '1.25';
 				break;
-			case ( $type == 'text' ):
+			case 'text':
 				$dynamic_line_height = '1.625';
 				break;
-			case ( $type == 'meta' ):
+			case 'meta':
 				$dynamic_line_height = '1.45';
 				break;
 			default:
 				$dynamic_line_height = '';
+				break;
 		}
 
-		$astra_dynamic_font_extras = array(
+		return array(
 			'line-height'         => ! isset( $astra_options[ $dynamic_font_extras ] ) && isset( $astra_options[ $line_height ] ) ? $astra_options[ $line_height ] : $dynamic_line_height,
 			'line-height-unit'    => 'em',
 			'letter-spacing'      => '',
@@ -337,7 +340,6 @@ class Astra_Posts_Structure_Loader {
 			'text-transform'      => ! isset( $astra_options[ $dynamic_font_extras ] ) && isset( $astra_options[ $text_transform ] ) ? $astra_options[ $text_transform ] : '',
 			'text-decoration'     => '',
 		);
-		return $astra_dynamic_font_extras;
 	}
 }
 

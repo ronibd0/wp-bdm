@@ -71,10 +71,10 @@ class Astra_Related_Posts_Loader {
 	public function theme_defaults( $defaults ) {
 
 		/**
-		* Update Astra default color and typography values. To not update directly on existing users site, added backwards.
-		*
-		* @since x.x.x
-		*/
+		 * Update Astra default color and typography values. To not update directly on existing users site, added backwards.
+		 *
+		 * @since x.x.x
+		 */
 		$apply_new_default_color_typo_values = Astra_Dynamic_CSS::astra_check_default_color_typo();
 
 		// Related Posts.

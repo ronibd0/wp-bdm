@@ -1135,10 +1135,10 @@ function astra_prepare_divider_defaults( $defaults, $index ) {
 function astra_prepare_button_defaults( $defaults, $index ) {
 
 	/**
-	* Update Astra default color and typography values. To not update directly on existing users site, added backwards.
-	*
-	* @since x.x.x
-	*/
+	 * Update Astra default color and typography values. To not update directly on existing users site, added backwards.
+	 *
+	 * @since x.x.x
+	 */
 	$apply_new_default_color_typo_values = Astra_Dynamic_CSS::astra_check_default_color_typo();
 
 	$astra_options = Astra_Theme_Options::get_astra_options();
@@ -1698,10 +1698,10 @@ function astra_prepare_widget_defaults( $defaults, $index ) {
 function astra_prepare_menu_defaults( $defaults, $index ) {
 
 	/**
-	* Update Astra default color and typography values. To not update directly on existing users site, added backwards.
-	*
-	* @since x.x.x
-	*/
+	 * Update Astra default color and typography values. To not update directly on existing users site, added backwards.
+	 *
+	 * @since x.x.x
+	 */
 	$apply_new_default_color_typo_values = Astra_Dynamic_CSS::astra_check_default_color_typo();
 
 	$_prefix = 'menu' . $index;
