@@ -36,7 +36,7 @@ class Astra_Posts_Structure_Loader {
 		/**
 		* Update Astra default color and typography values. To not update directly on existing users site, added backwards.
 		*
-		* @since 4.0.0
+		* @since x.x.x
 		*/
 		$apply_new_default_color_typo_values                = astra_check_default_color_typo();
 		self::$customizer_defaults['responsive-background'] = array(
@@ -312,7 +312,7 @@ class Astra_Posts_Structure_Loader {
 	 *
 	 * @since x.x.x
 	 */
-	public static function get_dynamic_font_extras_default( $dynamic_font_extras, $line_height, $text_transform ) {
+	public static function astra_get_dynamic_font_extras_default( $dynamic_font_extras, $line_height, $text_transform ) {
 		$astra_options             = Astra_Theme_Options::get_astra_options();
 		$astra_dynamic_font_extras = array(
 			'line-height'         => ! isset( $astra_options[ $dynamic_font_extras ] ) && isset( $astra_options[ $line_height ] ) ? $astra_options[ $line_height ] : '1.6',

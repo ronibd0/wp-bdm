@@ -823,7 +823,7 @@ class Astra_Posts_Single_Structures_Configs extends Astra_Customizer_Config_Base
 					'section' => $title_section,
 					'type'    => 'sub-control',
 					'control' => 'ast-font-height',
-					'default' => astra_get_option( $title_section . '-text-font-extras', Astra_Posts_Structure_Loader::get_dynamic_font_extras_default( $title_section . '-text-font-extras', 'body-text-line-height', 'body-text-transform' ) ),
+					'default' => astra_get_option( $title_section . '-text-font-extras', Astra_Posts_Structure_Loader::astra_get_dynamic_font_extras_default( $title_section . '-text-font-extras', 'body-text-line-height', 'body-text-transform' ) ),
 					'title'   => __( 'Font Extras', 'astra' ),
 				),
 
@@ -898,7 +898,7 @@ class Astra_Posts_Single_Structures_Configs extends Astra_Customizer_Config_Base
 					'section' => $title_section,
 					'type'    => 'sub-control',
 					'control' => 'ast-font-height',
-					'default' => astra_get_option( $title_section . '-title-font-extras', Astra_Posts_Structure_Loader::get_dynamic_font_extras_default( $title_section . '-title-font-extras', 'heading-line-height', 'heading-text-transform' ) ),
+					'default' => astra_get_option( $title_section . '-title-font-extras', Astra_Posts_Structure_Loader::astra_get_dynamic_font_extras_default( $title_section . '-title-font-extras', 'heading-line-height', 'heading-text-transform' ) ),
 					'title'   => __( 'Font Extras', 'astra' ),
 				),
 
@@ -992,7 +992,7 @@ class Astra_Posts_Single_Structures_Configs extends Astra_Customizer_Config_Base
 					'section' => $title_section,
 					'type'    => 'sub-control',
 					'control' => 'ast-font-height',
-					'default' => astra_get_option( $title_section . '-meta-font-extras', Astra_Posts_Structure_Loader::get_dynamic_font_extras_default( $title_section . '-meta-font-extras', 'meta-line-height', 'meta-text-transform' ) ),
+					'default' => astra_get_option( $title_section . '-meta-font-extras', Astra_Posts_Structure_Loader::astra_get_dynamic_font_extras_default( $title_section . '-meta-font-extras', 'meta-line-height', 'meta-text-transform' ) ),
 					'title'   => __( 'Font Extras', 'astra' ),
 				),
 

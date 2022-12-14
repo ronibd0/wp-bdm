@@ -27,7 +27,7 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	/**
 	 * Update Astra default color and typography values. To not update directly on existing users site, added backwards.
 	 *
-	 * @since 4.0.0
+	 * @since x.x.x
 	 */
 	$apply_new_default_color_typo_values = astra_check_default_color_typo();
 
@@ -1137,7 +1137,7 @@ function astra_prepare_button_defaults( $defaults, $index ) {
 	/**
 	* Update Astra default color and typography values. To not update directly on existing users site, added backwards.
 	*
-	* @since 4.0.0
+	* @since x.x.x
 	*/
 	$apply_new_default_color_typo_values = astra_check_default_color_typo();
 
@@ -1700,7 +1700,7 @@ function astra_prepare_menu_defaults( $defaults, $index ) {
 	/**
 	* Update Astra default color and typography values. To not update directly on existing users site, added backwards.
 	*
-	* @since 4.0.0
+	* @since x.x.x
 	*/
 	$apply_new_default_color_typo_values = astra_check_default_color_typo();
 
