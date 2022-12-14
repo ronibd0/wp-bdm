@@ -173,7 +173,7 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 			'height' => astra_get_css_value( $cart_icon_size_desktop, 'px' ),
 			'width'  => astra_get_css_value( $cart_icon_size_desktop, 'px' ),
 		),
-		'.ast-cart-menu-wrap'                         => array(
+		'.ast-cart-menu-wrap, i.astra-icon.ast-icon-shopping-' . $header_woo_cart_list => array(
 			'font-size' => astra_get_css_value( $cart_icon_size_desktop, 'px' ),
 		),
 		$selector . ' a.cart-container *'             => array(
@@ -327,7 +327,7 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 			'height' => astra_get_css_value( $cart_icon_size_mobile, 'px' ),
 			'width'  => astra_get_css_value( $cart_icon_size_mobile, 'px' ),
 		),
-		'.ast-header-break-point.ast-hfb-header .ast-cart-menu-wrap' => array(
+		'.ast-header-break-point.ast-hfb-header .ast-cart-menu-wrap, i.astra-icon.ast-icon-shopping-' . $header_woo_cart_list => array(
 			'font-size' => astra_get_css_value( $cart_icon_size_mobile, 'px' ),
 		),
 
@@ -405,7 +405,7 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 			'height' => astra_get_css_value( $cart_icon_size_tablet, 'px' ),
 			'width'  => astra_get_css_value( $cart_icon_size_tablet, 'px' ),
 		),
-		'.ast-header-break-point.ast-hfb-header .ast-cart-menu-wrap' => array(
+		'.ast-header-break-point.ast-hfb-header .ast-cart-menu-wrap, i.astra-icon.ast-icon-shopping-' . $header_woo_cart_list => array(
 			'font-size' => astra_get_css_value( $cart_icon_size_tablet, 'px' ),
 		),
 
