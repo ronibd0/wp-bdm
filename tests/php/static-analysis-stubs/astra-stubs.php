@@ -3609,6 +3609,14 @@ namespace {
         public static function load_cart_static_css()
         {
         }
+        /**
+         * Check is new structural things are updated.
+         *
+         * @return bool true|false.
+         */
+        public static function astra_check_default_color_typo()
+        {
+        }
     }
     /**
      * Global palette class
@@ -11775,7 +11783,7 @@ namespace {
          *
          * @since x.x.x
          */
-        public static function astra_get_dynamic_font_extras_default($dynamic_font_extras, $line_height, $text_transform)
+        public static function astra_get_dynamic_font_extras_default($dynamic_font_extras, $line_height, $text_transform, $type)
         {
         }
     }
@@ -14696,14 +14704,6 @@ namespace {
      * @return string Parsed CSS based on $location and $narrow_container_max_width.
      */
     function astra_narrow_container_width($location, $narrow_container_max_width)
-    {
-    }
-    /**
-     * Check is new structural things are updated.
-     *
-     * @return bool true|false.
-     */
-    function astra_check_default_color_typo()
     {
     }
     /**
