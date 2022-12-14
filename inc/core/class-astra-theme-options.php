@@ -588,7 +588,7 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 		/**
 		 * Get astra-options DB values.
 		 *
-		 * @since x.x.x
+		 * @return array Return array of theme options from database.
 		 */
 		public static function get_astra_options() {
 			return get_option( ASTRA_THEME_SETTINGS );

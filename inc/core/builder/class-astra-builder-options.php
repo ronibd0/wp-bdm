@@ -591,8 +591,6 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	);
 	$defaults['font-weight-section-footer-copyright']    = 'inherit';
 	$defaults['font-family-section-footer-copyright']    = 'inherit';
-	$defaults['text-transform-section-footer-copyright'] = '';
-	$defaults['line-height-section-footer-copyright']    = '';
 	$defaults['font-extras-section-footer-copyright']    = array(
 		'line-height'         => ! isset( $astra_options['font-extras-section-footer-copyright'] ) && isset( $astra_options['line-height-section-footer-copyright'] ) ? $astra_options['line-height-widget-content'] : '',
 		'line-height-unit'    => 'em',
@@ -1329,8 +1327,6 @@ function astra_prepare_html_defaults( $defaults, $index ) {
 	);
 	$defaults[ 'font-weight-' . $_section ]               = 'inherit';
 	$defaults[ 'font-family-' . $_section ]               = 'inherit';
-	$defaults[ 'line-height-' . $_section ]               = '';
-	$defaults[ 'text-transform-' . $_section ]            = '';
 	$defaults[ 'font-extras-' . $_section ]               = array(
 		'line-height'         => ! isset( $astra_options[ 'font-extras-' . $_section ] ) && isset( $astra_options[ 'line-height-' . $_section ] ) ? $astra_options[ 'line-height-' . $_section ] : '',
 		'line-height-unit'    => 'em',

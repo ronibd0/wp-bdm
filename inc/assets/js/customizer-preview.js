@@ -68,7 +68,7 @@
                             defaultTarget.wp.customize.panel( section_id ).focus();
                         }
                     }
-                  
+
                 }
             }
         );
@@ -316,14 +316,10 @@ const bodyFontFamily = [
 	'body-font-variant',
 	'font-size-body',
 	'body-font-weight',
-	'body-text-transform',
-	'body-line-height',
     'body-font-extras',
 	'headings-font-family',
 	'headings-font-variant',
 	'headings-font-weight',
-	'headings-text-transform',
-	'headings-line-height',
 ];
 
 bodyFontFamily.forEach(element => {
