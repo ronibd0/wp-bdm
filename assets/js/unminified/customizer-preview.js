@@ -1074,7 +1074,6 @@ function hasWordPressWidgetBlockEditor() {
 	if (true == astraCustomizer.includeAnchorsInHeadindsCss) {
 		astra_generate_outside_font_family_css('astra-settings[headings-font-family]', 'h1, .entry-content h1, .entry-content h1 a, h2, .entry-content h2, .entry-content h2 a, h3, .entry-content h3, .entry-content h3 a, h4, .entry-content h4, .entry-content h4 a, h5, .entry-content h5, .entry-content h5 a, h6, .entry-content h6, .entry-content h6 a, .site-title, .site-title a');
 		astra_generate_font_weight_css( 'astra-settings[headings-font-family]', 'astra-settings[headings-font-weight]', 'font-weight', 'h1, .entry-content h1, .entry-content h1 a, h2, .entry-content h2, .entry-content h2 a, h3, .entry-content h3, .entry-content h3 a, h4, .entry-content h4, .entry-content h4 a, h5, .entry-content h5, .entry-content h5 a, h6, .entry-content h6, .entry-content h6 a, .site-title, .site-title a' );
-		astra_css('astra-settings[headings-text-transform]', 'text-transform', 'h1, .entry-content h1, .entry-content h1 a, h2, .entry-content h2, .entry-content h2 a, h3, .entry-content h3, .entry-content h3 a, h4, .entry-content h4, .entry-content h4 a, h5, .entry-content h5, .entry-content h5 a, h6, .entry-content h6, .entry-content h6 a, .site-title, .site-title a');
 		wp.customize( 'astra-settings[headings-font-extras]', function( value ) {
 			value.bind( function( data ) {
 				var globalSelector = '.entry-content h1, .entry-content h1 a, h2, .entry-content h2, .entry-content h2 a, h3, .entry-content h3, .entry-content h3 a, h4, .entry-content h4, .entry-content h4 a, h5, .entry-content h5, .entry-content h5 a, h6, .entry-content h6, .entry-content h6 a, .site-title, .site-title a';
@@ -1089,7 +1088,6 @@ function hasWordPressWidgetBlockEditor() {
 	} else {
 		astra_generate_outside_font_family_css('astra-settings[headings-font-family]', 'h1, .entry-content h1, h2, .entry-content h2, h3, .entry-content h3, h4, .entry-content h4, h5, .entry-content h5, h6, .entry-content h6, .site-title, .site-title a');
 		astra_generate_font_weight_css( 'astra-settings[headings-font-family]', 'astra-settings[headings-font-weight]', 'font-weight', 'h1, .entry-content h1, h2, .entry-content h2, h3, .entry-content h3, h4, .entry-content h4, h5, .entry-content h5, h6, .entry-content h6, .site-title, .site-title a' );
-		astra_css('astra-settings[headings-text-transform]', 'text-transform', 'h1, .entry-content h1, h2, .entry-content h2, h3, .entry-content h3, h4, .entry-content h4, h5, .entry-content h5, h6, .entry-content h6, .site-title, .site-title a');
 		wp.customize( 'astra-settings[headings-font-extras]', function( value ) {
 			value.bind( function( data ) {
 				var globalSelector = '.entry-content h1, h2, .entry-content h2, h3, .entry-content h3, h4, .entry-content h4, h5, .entry-content h5, h6, .entry-content h6, .site-title, .site-title a';
@@ -1478,9 +1476,6 @@ function hasWordPressWidgetBlockEditor() {
 	// Site Title - Font Size
 	astra_responsive_font_size( 'astra-settings[font-size-site-title]', '.site-title, .site-title a' );
 
-	// Site Title - Line Height
-	astra_css( 'astra-settings[line-height-site-title]', 'line-height', '.site-title, .site-title a' );
-
 	wp.customize( 'astra-settings[font-extras-site-title]', function( value ) {
 		value.bind( function( data ) {
 			let dynamicStyle = '';
@@ -1492,9 +1487,6 @@ function hasWordPressWidgetBlockEditor() {
 			astra_add_dynamic_css( 'font-extras-site-title', dynamicStyle );
 		});
 	});
-
-	// Site Title - Text Transform
-	astra_css( 'astra-settings[text-transform-site-title]', 'text-transform', '.site-title, .site-title a' );
 
 	// Site tagline - Font family
 	astra_generate_outside_font_family_css( 'astra-settings[font-family-site-tagline]', '.site-header .site-description' );
