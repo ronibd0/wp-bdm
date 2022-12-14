@@ -4704,6 +4704,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		 * Check is new structural things are updated.
 		 *
 		 * @return bool true|false.
+		 * @since x.x.x
 		 */
 		public static function astra_check_default_color_typo() {
 			$astra_settings = get_option( ASTRA_THEME_SETTINGS );
