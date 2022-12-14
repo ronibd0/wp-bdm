@@ -849,7 +849,6 @@
 .component-color-indicator {
     width: 25px;
     height: 16px;
-    margin-left: 0.8rem;
     display: inline-block;
 }
 
@@ -1224,6 +1223,7 @@
     width: max-content;
 }
 
+.astra-color-picker-wrap .components-custom-gradient-picker__inserter .components-color-picker,
 .astra-color-picker-wrap .astra-popover-color .ast-gradient-ui .components-color-picker,
 .astra-color-picker-wrap .astra-popover-color .ast-gradient-ui .react-colorful {
     width: 216px;
@@ -1953,6 +1953,14 @@ li[ID*="accordion-section-ast-dynamic-archive-"].control-section-ast_section {
     margin-top: 23px;
 }
 
+/* sidebar specific  */
+#sub-accordion-section-section-sidebars > .customize-control-ast-heading {
+    margin-top: 16px;
+}
+
+#sub-accordion-section-section-sidebars > .customize-control-ast-heading ~ .customize-control-ast-heading  {
+    margin-top: 32px;
+}
 .ast-typo-presets {
 	width: 100%;
     display: flex;
@@ -2685,7 +2693,7 @@ span.customize-control-title.ast-group-section-title {
 .customize-control-ast-responsive-color .ast-responsive-btns {
   position: relative;
   right: -5px;
-  top: 3px;
+  top: 2px;
 }
 .ast-field-settings-modal .customize-control-ast-responsive-background .ast-responsive-btns,
 .ast-field-settings-modal .customize-control-ast-responsive-color .ast-responsive-btns  {
