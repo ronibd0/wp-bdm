@@ -849,7 +849,6 @@
 .component-color-indicator {
     width: 25px;
     height: 16px;
-    margin-right: 0.8rem;
     display: inline-block;
 }
 
@@ -2243,7 +2242,6 @@
 .component-color-indicator {
     width: 25px;
     height: 16px;
-    margin-right: 0.8rem;
     display: inline-block;
 }
 
@@ -3348,6 +3346,14 @@ li[ID*="accordion-section-ast-dynamic-archive-"].control-section-ast_section {
     margin-top: 23px;
 }
 
+/* sidebar specific  */
+#sub-accordion-section-section-sidebars > .customize-control-ast-heading {
+    margin-top: 16px;
+}
+
+#sub-accordion-section-section-sidebars > .customize-control-ast-heading ~ .customize-control-ast-heading  {
+    margin-top: 32px;
+}
 .ast-typo-presets {
 	width: 100%;
     display: flex;
@@ -5215,7 +5221,7 @@ span.customize-control-title.ast-group-section-title {
 .ast-sortable-item.show:hover {
   opacity: 1;
 }
-.ast-sortable-item .dashicons-arrow-down-alt2, .ast-sortable-item .dashicons-admin-page, .ast-sortable-item .dashicons-remove {
+.ast-sortable-item .dashicons-arrow-down-alt2, .ast-sortable-item .dashicons-remove {
     margin-left: -6px;
 }
 .ast-sortable-item .dashicons-admin-page, .ast-sortable-item .dashicons-arrow-down-alt2, .ast-sortable-item .dashicons-remove {
@@ -6270,6 +6276,14 @@ li[ID*="accordion-section-ast-dynamic-archive-"].control-section-ast_section {
     margin-top: 23px;
 }
 
+/* sidebar specific  */
+#sub-accordion-section-section-sidebars > .customize-control-ast-heading {
+    margin-top: 16px;
+}
+
+#sub-accordion-section-section-sidebars > .customize-control-ast-heading ~ .customize-control-ast-heading  {
+    margin-top: 32px;
+}
 .ast-typo-presets {
 	width: 100%;
     display: flex;
@@ -8137,7 +8151,7 @@ span.customize-control-title.ast-group-section-title {
 .ast-sortable-item.show:hover {
   opacity: 1;
 }
-.ast-sortable-item .dashicons-arrow-down-alt2, .ast-sortable-item .dashicons-admin-page, .ast-sortable-item .dashicons-remove {
+.ast-sortable-item .dashicons-arrow-down-alt2, .ast-sortable-item .dashicons-remove {
     margin-left: -6px;
 }
 .ast-sortable-item .dashicons-admin-page, .ast-sortable-item .dashicons-arrow-down-alt2, .ast-sortable-item .dashicons-remove {
