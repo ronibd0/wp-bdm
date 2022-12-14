@@ -3550,6 +3550,15 @@ namespace {
         {
         }
         /**
+         * Block editor experience improvements css introduced with v4.0.0.
+         *
+         * @since x.x.x
+         * @return boolean false if it is an existing user, true if not.
+         */
+        public static function v4_block_editor_compat()
+        {
+        }
+        /**
          * Font CSS support for widget-title heading fonts & fonts which are not working in editor.
          *
          * 1. Adding Font-weight support to widget titles.
