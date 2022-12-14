@@ -1644,23 +1644,44 @@ function hasWordPressWidgetBlockEditor() {
 	astra_generate_outside_font_family_css( 'astra-settings[related-posts-title-font-family]', '.ast-related-post-content .entry-header .ast-related-post-title, .ast-related-post-content .entry-header .ast-related-post-title a' );
 	astra_css( 'astra-settings[related-posts-title-font-weight]', 'font-weight', '.ast-related-post-content .entry-header .ast-related-post-title, .ast-related-post-content .entry-header .ast-related-post-title a' );
 	astra_responsive_font_size( 'astra-settings[related-posts-title-font-size]', '.ast-related-post-content .entry-header .ast-related-post-title, .ast-related-post-content .entry-header .ast-related-post-title a' );
-	astra_css( 'astra-settings[related-posts-title-line-height]', 'line-height', '.ast-related-post-content .entry-header .ast-related-post-title, .ast-related-post-content .entry-header .ast-related-post-title a' );
-	astra_css( 'astra-settings[related-posts-title-text-transform]', 'text-transform', '.ast-related-post-content .entry-header .ast-related-post-title, .ast-related-post-content .entry-header .ast-related-post-title a' );
+	wp.customize( 'astra-settings[related-posts-title-font-extras]', function( value ) {
+		value.bind( function( data ) {
+			let dynamicStyle = '.ast-related-post-content .entry-header .ast-related-post-title, .ast-related-post-content .entry-header .ast-related-post-title a' + ' { line-height : ' + data['line-height'] + data['line-height-unit'] + ";";
+			dynamicStyle += 'letter-spacing : ' + data['letter-spacing'] + data['letter-spacing-unit'] + ";" ;
+			dynamicStyle += 'text-decoration : ' + data['text-decoration'] + ";";
+			dynamicStyle += 'text-transform : ' + data['text-transform']  + ';}' ;
+			astra_add_dynamic_css( 'related-posts-title-font-extras', dynamicStyle );
+		});
+	});
 
 	// Related Posts - Customizer preview for Section Title.
 	astra_generate_outside_font_family_css( 'astra-settings[related-posts-section-title-font-family]', '.ast-single-related-posts-container .ast-related-posts-title-section .ast-related-posts-title' );
 	astra_css( 'astra-settings[related-posts-section-title-font-weight]', 'font-weight', '.ast-single-related-posts-container .ast-related-posts-title-section .ast-related-posts-title' );
 	astra_responsive_font_size( 'astra-settings[related-posts-section-title-font-size]', '.ast-single-related-posts-container .ast-related-posts-title-section .ast-related-posts-title' );
-	astra_css( 'astra-settings[related-posts-section-title-line-height]', 'line-height', '.ast-single-related-posts-container .ast-related-posts-title-section .ast-related-posts-title' );
-	astra_css( 'astra-settings[related-posts-section-title-text-transform]', 'text-transform', '.ast-single-related-posts-container .ast-related-posts-title-section .ast-related-posts-title' );
 	astra_css( 'astra-settings[releted-posts-title-alignment]', 'text-align', '.ast-single-related-posts-container .ast-related-posts-title-section .ast-related-posts-title' );
+	wp.customize( 'astra-settings[related-posts-section-title-font-extras]', function( value ) {
+		value.bind( function( data ) {
+			let dynamicStyle = '.ast-single-related-posts-container .ast-related-posts-title-section .ast-related-posts-title' + ' { line-height : ' + data['line-height'] + data['line-height-unit'] + ";";
+			dynamicStyle += 'letter-spacing : ' + data['letter-spacing'] + data['letter-spacing-unit'] + ";" ;
+			dynamicStyle += 'text-decoration : ' + data['text-decoration'] + ";";
+			dynamicStyle += 'text-transform : ' + data['text-transform']  + ';}' ;
+			astra_add_dynamic_css( 'related-posts-section-title-font-extras', dynamicStyle );
+		});
+	});
 
 	// Related Posts - Customizer preview for Post Meta.
 	astra_generate_outside_font_family_css( 'astra-settings[related-posts-meta-font-family]', '.ast-related-post-content .entry-meta, .ast-related-post-content .entry-meta *' );
 	astra_css( 'astra-settings[related-posts-meta-font-weight]', 'font-weight', '.ast-related-post-content .entry-meta, .ast-related-post-content .entry-meta *' );
 	astra_responsive_font_size( 'astra-settings[related-posts-meta-font-size]', '.ast-related-post-content .entry-meta, .ast-related-post-content .entry-meta *' );
-	astra_css( 'astra-settings[related-posts-meta-line-height]', 'line-height', '.ast-related-post-content .entry-meta, .ast-related-post-content .entry-meta *' );
-	astra_css( 'astra-settings[related-posts-meta-text-transform]', 'text-transform', '.ast-related-post-content .entry-meta, .ast-related-post-content .entry-meta *' );
+	wp.customize( 'astra-settings[related-posts-meta-font-extras]', function( value ) {
+		value.bind( function( data ) {
+			let dynamicStyle = '.ast-related-post-content .entry-meta, .ast-related-post-content .entry-meta *' + ' { line-height : ' + data['line-height'] + data['line-height-unit'] + ";";
+			dynamicStyle += 'letter-spacing : ' + data['letter-spacing'] + data['letter-spacing-unit'] + ";" ;
+			dynamicStyle += 'text-decoration : ' + data['text-decoration'] + ";";
+			dynamicStyle += 'text-transform : ' + data['text-transform']  + ';}' ;
+			astra_add_dynamic_css( 'related-posts-meta-font-extras', dynamicStyle );
+		});
+	});
 
 	// Related Posts - Customizer preview for Post Content.
 	astra_generate_outside_font_family_css( 'astra-settings[related-posts-content-font-family]', '.ast-related-post-content .ast-related-post-excerpt' );
