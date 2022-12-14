@@ -1856,7 +1856,7 @@ textarea,
 
 .entry-title,
 .entry-title a {
-  font-weight: 500;
+  font-weight: normal;
 }
 
 /* Astra Respnosive oEmbed Video container */
