@@ -135,7 +135,7 @@ class Astra_Related_Posts_Loader {
 
 		// Related Posts - Title typo.
 		$defaults['related-posts-title-font-family']    = 'inherit';
-		$defaults['related-posts-title-font-weight']    = 'inherit';
+		$defaults['related-posts-title-font-weight']    = $apply_new_default_color_typo_values ? '500' : 'inherit';
 		$defaults['related-posts-title-text-transform'] = '';
 		$defaults['related-posts-title-line-height']    = '1';
 		$defaults['related-posts-title-font-size']      = array(
@@ -147,7 +147,7 @@ class Astra_Related_Posts_Loader {
 			'mobile-unit'  => 'px',
 		);
 		$defaults['related-posts-title-font-extras']    = array(
-			'line-height'         => ! isset( $astra_options['related-posts-title-font-extras'] ) && isset( $astra_options['related-posts-title-line-height'] ) ? $astra_options['related-posts-title-line-height'] : '1.6',
+			'line-height'         => ! isset( $astra_options['related-posts-title-font-extras'] ) && isset( $astra_options['related-posts-title-line-height'] ) ? $astra_options['related-posts-title-line-height'] : '1',
 			'line-height-unit'    => 'em',
 			'letter-spacing'      => '',
 			'letter-spacing-unit' => 'px',
