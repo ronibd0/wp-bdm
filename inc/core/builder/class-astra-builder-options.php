@@ -599,11 +599,11 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	$defaults['font-weight-section-footer-copyright']    = 'inherit';
 	$defaults['font-family-section-footer-copyright']    = 'inherit';
 	$defaults['font-extras-section-footer-copyright']    = array(
-		'line-height'         => ! isset( $astra_options['font-extras-section-footer-copyright'] ) && isset( $astra_options['line-height-section-footer-copyright'] ) ? $astra_options['line-height-widget-content'] : '',
+		'line-height'         => ! isset( $astra_options['font-extras-section-footer-copyright'] ) && isset( $astra_options['line-height-section-footer-copyright'] ) ? $astra_options['line-height-section-footer-copyright'] : '',
 		'line-height-unit'    => 'em',
 		'letter-spacing'      => '',
 		'letter-spacing-unit' => 'px',
-		'text-transform'      => ! isset( $astra_options['font-extras-section-footer-copyright'] ) && isset( $astra_options['text-transform-section-footer-copyright'] ) ? $astra_options['text-transform-widget-content'] : '',
+		'text-transform'      => ! isset( $astra_options['font-extras-section-footer-copyright'] ) && isset( $astra_options['text-transform-section-footer-copyright'] ) ? $astra_options['text-transform-section-footer-copyright'] : '',
 		'text-decoration'     => '',
 	);
 
