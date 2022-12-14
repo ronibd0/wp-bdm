@@ -4699,5 +4699,15 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			}
 			return $cart_static_css;
 		}
+
+		/**
+		 * Check is new structural things are updated.
+		 *
+		 * @return bool true|false.
+		 */
+		public static function astra_check_default_color_typo() {
+			$astra_settings = get_option( ASTRA_THEME_SETTINGS );
+			return apply_filters( 'astra_get_option_update-default-color-typo', isset( $astra_settings['update-default-color-typo'] ) ? false : true ); // phpcs:ignore WordPress.NamingConventions.ValidHookName.UseUnderscores
+		}
 	}
 }

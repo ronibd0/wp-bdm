@@ -75,7 +75,7 @@ class Astra_Related_Posts_Loader {
 		*
 		* @since x.x.x
 		*/
-		$apply_new_default_color_typo_values = astra_check_default_color_typo();
+		$apply_new_default_color_typo_values = Astra_Dynamic_CSS::astra_check_default_color_typo();
 
 		// Related Posts.
 		$defaults['enable-related-posts']          = false;

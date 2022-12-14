@@ -94,7 +94,7 @@ class Astra_Heading_Colors_Loader {
 		*
 		* @since x.x.x
 		*/
-		$apply_new_default_color_typo_values = astra_check_default_color_typo();
+		$apply_new_default_color_typo_values = Astra_Dynamic_CSS::astra_check_default_color_typo();
 
 		/**
 		* Heading Tags <h1> to <h6>

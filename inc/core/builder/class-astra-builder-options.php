@@ -29,7 +29,7 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	 *
 	 * @since x.x.x
 	 */
-	$apply_new_default_color_typo_values = astra_check_default_color_typo();
+	$apply_new_default_color_typo_values = Astra_Dynamic_CSS::astra_check_default_color_typo();
 
 	/**
 	 * Header Builder - Desktop Defaults.
@@ -1139,7 +1139,7 @@ function astra_prepare_button_defaults( $defaults, $index ) {
 	*
 	* @since x.x.x
 	*/
-	$apply_new_default_color_typo_values = astra_check_default_color_typo();
+	$apply_new_default_color_typo_values = Astra_Dynamic_CSS::astra_check_default_color_typo();
 
 	$astra_options = Astra_Theme_Options::get_astra_options();
 
@@ -1702,7 +1702,7 @@ function astra_prepare_menu_defaults( $defaults, $index ) {
 	*
 	* @since x.x.x
 	*/
-	$apply_new_default_color_typo_values = astra_check_default_color_typo();
+	$apply_new_default_color_typo_values = Astra_Dynamic_CSS::astra_check_default_color_typo();
 
 	$_prefix = 'menu' . $index;
 

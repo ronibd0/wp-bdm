@@ -123,7 +123,7 @@ class Astra_Global_Palette {
 		 *
 		 * @since x.x.x
 		 */
-		$apply_new_default_color_typo_values = astra_check_default_color_typo();
+		$apply_new_default_color_typo_values = Astra_Dynamic_CSS::astra_check_default_color_typo();
 		return array(
 			'currentPalette' => 'palette_1',
 			'palettes'       => $apply_new_default_color_typo_values ? array(
