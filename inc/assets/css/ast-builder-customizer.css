@@ -745,32 +745,32 @@
 }
 
 .ahfb-builder-areas .components-button.ahfb-row-actions:hover, .ahfb-builder-areas .components-button.ahfb-row-actions:focus {
-    background: var(--ast-customizer-color-1) !important;
-    color: white !important;
+    background: var(--ast-customizer-color-1);
+    color: white;
     border-color: var(--ast-customizer-color-1);
 }
 
 .ahfb-builder-areas .components-button.ahfb-row-actions:hover {
-	background: white!important;
-    color: var(--ast-customizer-color-1) !important;
+	background: white;
+    color: var(--ast-customizer-color-1);
     border-color: var(--ast-customizer-color-1);
 	border: 1px solid;
 	border-right: 1px dashed var(--ast-customizer-color-7);
 }
 
 .ahfb-builder-areas:hover .components-button.ahfb-row-actions {
-	background: white!important;
+	background: white;
 }
 
 .ahfb-builder-areas .components-button.ahfb-row-actions:hover ~ .ahfb-builder-group-horizontal {
-	border: 1px solid var(--ast-customizer-color-1)!important;
-	border-left: none!important;
-    box-shadow: 5px 3px 10px rgb(0 39 36 / 7%)!important;
-	background-color: white!important;
+	border: 1px solid var(--ast-customizer-color-1);
+	border-left: none;
+    box-shadow: 5px 3px 10px rgb(0 39 36 / 7%);
+	background-color: white;
 }
 
 .ahfb-builder-areas .components-button.ahfb-row-actions:hover ~ .ahfb-builder-group-horizontal .ahfb-builder-item-add-icon {
-	background-color: white!important;
+	background-color: white;
 }
 
 
