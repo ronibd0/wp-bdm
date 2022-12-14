@@ -1678,5 +1678,5 @@ function astra_narrow_container_width( $location, $narrow_container_max_width ) 
  */
 function astra_check_default_color_typo() {
 	$astra_settings = get_option( ASTRA_THEME_SETTINGS );
-	return apply_filters( 'astra_get_option_default-color-typo', isset( $astra_settings['update-default-color-typo'] ) ? false : true ); // phpcs:ignore WordPress.NamingConventions.ValidHookName.UseUnderscores
+	return apply_filters( 'astra_get_option_update-default-color-typo', isset( $astra_settings['update-default-color-typo'] ) ? false : true ); // phpcs:ignore WordPress.NamingConventions.ValidHookName.UseUnderscores
 }

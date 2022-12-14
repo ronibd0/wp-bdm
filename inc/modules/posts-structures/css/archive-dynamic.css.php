@@ -89,7 +89,7 @@ function astra_post_archive_structure_dynamic_css( $dynamic_css, $dynamic_css_fi
 	$banner_title_font_weight = astra_get_option( 'ast-dynamic-archive-' . $current_post_type . '-title-font-weight' );
 	$banner_title_font_size   = astra_get_option( 'ast-dynamic-archive-' . $current_post_type . '-title-font-size', Astra_Posts_Structure_Loader::get_customizer_default( 'title-font-size' ) );
 	$banner_title_line_height = astra_get_font_extras( astra_get_option( 'ast-dynamic-archive-' . $current_post_type . '-title-font-extras' ), 'line-height', 'line-height-unit' );
-	$banner_title_transform   = astra_get_font_extras( astra_get_option( 'ast-dynamic-archive-' . $current_post_type . '-title-font-extras', 'capitalize' ), 'text-transform' );
+	$banner_title_transform   = astra_get_font_extras( astra_get_option( 'ast-dynamic-archive-' . $current_post_type . '-title-font-extras' ), 'text-transform' );
 	$banner_title_spacing     = astra_get_font_extras( astra_get_option( 'ast-dynamic-archive-' . $current_post_type . '-title-font-extras' ), 'letter-spacing', 'letter-spacing-unit' );
 	$banner_title_decoration  = astra_get_font_extras( astra_get_option( 'ast-dynamic-archive-' . $current_post_type . '-title-font-extras' ), 'text-decoration' );
 
@@ -250,13 +250,13 @@ function astra_post_archive_structure_dynamic_css( $dynamic_css, $dynamic_css_fi
 				'text-align'      => $desk_h_alignment,
 				'justify-content' => $vert_alignment,
 				'min-height'      => $desk_banner_height,
-				'margin-top'     => astra_responsive_spacing( $banner_margin, 'top', 'desktop' ),
-				'margin-bottom'  => astra_responsive_spacing( $banner_margin, 'bottom', 'desktop' ),
-				'margin-left'    => astra_responsive_spacing( $banner_margin, 'left', 'desktop' ),
-				'margin-right'   => astra_responsive_spacing( $banner_margin, 'right', 'desktop' ),
+				'margin-top'      => astra_responsive_spacing( $banner_margin, 'top', 'desktop' ),
+				'margin-bottom'   => astra_responsive_spacing( $banner_margin, 'bottom', 'desktop' ),
+				'margin-left'     => astra_responsive_spacing( $banner_margin, 'left', 'desktop' ),
+				'margin-right'    => astra_responsive_spacing( $banner_margin, 'right', 'desktop' ),
 			),
-			$selector . ' .ast-container'          => array(
-				'width' => '100%',
+			$selector . ' .ast-container'           => array(
+				'width'          => '100%',
 				'padding-top'    => astra_responsive_spacing( $banner_padding, 'top', 'desktop' ),
 				'padding-right'  => astra_responsive_spacing( $banner_padding, 'right', 'desktop' ),
 				'padding-bottom' => astra_responsive_spacing( $banner_padding, 'bottom', 'desktop' ),
