@@ -316,10 +316,11 @@ const bodyFontFamily = [
 	'body-font-variant',
 	'font-size-body',
 	'body-font-weight',
-    'body-font-extras',
+	'body-font-extras',
 	'headings-font-family',
 	'headings-font-variant',
 	'headings-font-weight',
+	'headings-font-extras'
 ];
 
 bodyFontFamily.forEach(element => {
