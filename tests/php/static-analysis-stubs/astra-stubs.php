@@ -3609,6 +3609,14 @@ namespace {
         public static function load_cart_static_css()
         {
         }
+        /**
+         * Check is new structural things are updated.
+         *
+         * @return bool true|false.
+         */
+        public static function astra_check_default_color_typo()
+        {
+        }
     }
     /**
      * Global palette class
@@ -6896,6 +6904,12 @@ namespace {
          * @var string[][]
          */
         public static $default_responsive_spacing = array('desktop' => array('top' => '', 'right' => '', 'bottom' => '', 'left' => ''), 'tablet' => array('top' => '', 'right' => '', 'bottom' => '', 'left' => ''), 'mobile' => array('top' => '', 'right' => '', 'bottom' => '', 'left' => ''), 'desktop-unit' => 'px', 'tablet-unit' => 'px', 'mobile-unit' => 'px');
+        /**
+         * Default button responsive spacing control value.
+         *
+         * @var string[][]
+         */
+        public static $default_button_responsive_spacing = array('desktop' => array('top' => '12', 'right' => '20', 'bottom' => '12', 'left' => '20'), 'tablet' => array('top' => '', 'right' => '', 'bottom' => '', 'left' => ''), 'mobile' => array('top' => '', 'right' => '', 'bottom' => '', 'left' => ''), 'desktop-unit' => 'px', 'tablet-unit' => 'px', 'mobile-unit' => 'px');
         /**
          * Config Tablet device context.
          *
@@ -11760,6 +11774,16 @@ namespace {
          * @since x.x.x
          */
         public static function get_customizer_default($key)
+        {
+        }
+        /**
+         * Get dynamic font default.
+         *
+         * @param string $key Retrieve default for this parameter.
+         *
+         * @since x.x.x
+         */
+        public static function astra_get_dynamic_font_extras_default($dynamic_font_extras, $line_height, $text_transform, $type)
         {
         }
     }

@@ -70,6 +70,13 @@ class Astra_Related_Posts_Loader {
 	 */
 	public function theme_defaults( $defaults ) {
 
+		/**
+		 * Update Astra default color and typography values. To not update directly on existing users site, added backwards.
+		 *
+		 * @since x.x.x
+		 */
+		$apply_new_default_color_typo_values = Astra_Dynamic_CSS::astra_check_default_color_typo();
+
 		// Related Posts.
 		$defaults['enable-related-posts']          = false;
 		$defaults['related-posts-title']           = __( 'Related Posts', 'astra' );
@@ -106,9 +113,9 @@ class Astra_Related_Posts_Loader {
 		$defaults['related-posts-section-title-font-family']    = 'inherit';
 		$defaults['related-posts-section-title-font-weight']    = 'inherit';
 		$defaults['related-posts-section-title-text-transform'] = '';
-		$defaults['related-posts-section-title-line-height']    = '';
+		$defaults['related-posts-section-title-line-height']    = $apply_new_default_color_typo_values ? '1.25' : '';
 		$defaults['related-posts-section-title-font-size']      = array(
-			'desktop'      => '30',
+			'desktop'      => $apply_new_default_color_typo_values ? '26' : '30',
 			'tablet'       => '',
 			'mobile'       => '',
 			'desktop-unit' => 'px',

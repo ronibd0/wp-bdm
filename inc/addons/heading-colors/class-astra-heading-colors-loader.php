@@ -89,6 +89,12 @@ class Astra_Heading_Colors_Loader {
 	public function theme_defaults( $defaults ) {
 
 		$astra_options = Astra_Theme_Options::get_astra_options();
+		/**
+		 * Update Astra default color and typography values. To not update directly on existing users site, added backwards.
+		 *
+		 * @since x.x.x
+		 */
+		$apply_new_default_color_typo_values = Astra_Dynamic_CSS::astra_check_default_color_typo();
 
 		/**
 		* Heading Tags <h1> to <h6>
@@ -116,7 +122,7 @@ class Astra_Heading_Colors_Loader {
 		$defaults['font-family-h2'] = 'inherit';
 		$defaults['font-weight-h2'] = 'inherit';
 		$defaults['font-extras-h2'] = array(
-			'line-height'         => ! isset( $astra_options['font-extras-h2'] ) && isset( $astra_options['line-height-h2'] ) ? $astra_options['line-height-h2'] : '',
+			'line-height'         => ! isset( $astra_options['font-extras-h2'] ) && isset( $astra_options['line-height-h2'] ) ? $astra_options['line-height-h2'] : '1.25',
 			'line-height-unit'    => 'em',
 			'letter-spacing'      => '',
 			'letter-spacing-unit' => 'px',
@@ -175,10 +181,10 @@ class Astra_Heading_Colors_Loader {
 		/**
 		 * Theme button Font Defaults
 		 */
-		$defaults['font-weight-button'] = 'inherit';
+		$defaults['font-weight-button'] = $apply_new_default_color_typo_values ? '500' : 'inherit';
 		$defaults['font-family-button'] = 'inherit';
 		$defaults['font-size-button']   = array(
-			'desktop'      => '',
+			'desktop'      => $apply_new_default_color_typo_values ? '16' : '',
 			'tablet'       => '',
 			'mobile'       => '',
 			'desktop-unit' => 'px',
