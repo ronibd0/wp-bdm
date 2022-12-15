@@ -3297,11 +3297,12 @@ li[ID*="accordion-section-ast-dynamic-archive-"].control-section-ast_section {
 }
 
 .customize-control.ast-sub-top-dotted-divider {
-    padding-top: 12px;
+    padding-top: 20px;
 }
 
 .customize-control.ast-sub-bottom-dotted-divider {
-    padding-bottom: 12px;
+    padding-bottom: 20px;
+	margin-bottom: 10px;
 }
 
 .customize-control.ast-top-section-divider::before,
@@ -3454,7 +3455,7 @@ li[ID*="accordion-section-ast-dynamic-archive-"].control-section-ast_section {
 	justify-content: space-between;
 	gap: 20px;
 	align-items: center;
-	padding-bottom: 12px;
+	padding-bottom: 20px;
 	border-bottom: 1px dashed #D4D4D4;
 }
 
@@ -3545,7 +3546,7 @@ div .ast-field-settings-modal .customize-control-ast-font-extras {
 	justify-content: space-between;
 	align-items: center;
 	gap: 10px;
-	padding-top: 12px;
+	padding-top: 20px;
 }
 
 .ast-font-transform-wrapper, .ast-font-decoration-wrapper {
@@ -6475,11 +6476,12 @@ li[ID*="accordion-section-ast-dynamic-archive-"].control-section-ast_section {
 }
 
 .customize-control.ast-sub-top-dotted-divider {
-    padding-top: 12px;
+    padding-top: 20px;
 }
 
 .customize-control.ast-sub-bottom-dotted-divider {
-    padding-bottom: 12px;
+    padding-bottom: 20px;
+	margin-bottom: 10px;
 }
 
 .customize-control.ast-top-section-divider::before,
@@ -6632,7 +6634,7 @@ li[ID*="accordion-section-ast-dynamic-archive-"].control-section-ast_section {
 	justify-content: space-between;
 	gap: 20px;
 	align-items: center;
-	padding-bottom: 12px;
+	padding-bottom: 20px;
 	border-bottom: 1px dashed #D4D4D4;
 }
 
@@ -6723,7 +6725,7 @@ div .ast-field-settings-modal .customize-control-ast-font-extras {
 	justify-content: space-between;
 	align-items: center;
 	gap: 10px;
-	padding-top: 12px;
+	padding-top: 20px;
 }
 
 .ast-font-transform-wrapper, .ast-font-decoration-wrapper {

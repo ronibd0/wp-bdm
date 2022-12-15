@@ -168,11 +168,12 @@
 }
 
 .customize-control.ast-sub-top-dotted-divider {
-    padding-top: 12px;
+    padding-top: 20px;
 }
 
 .customize-control.ast-sub-bottom-dotted-divider {
-    padding-bottom: 12px;
+    padding-bottom: 20px;
+	margin-bottom: 10px;
 }
 
 .customize-control.ast-top-section-divider::before,
