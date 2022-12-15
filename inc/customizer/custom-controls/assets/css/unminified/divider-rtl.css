@@ -169,6 +169,15 @@
     margin-bottom: 16px;
 }
 
+.customize-control.ast-sub-top-dotted-divider {
+    padding-top: 20px;
+}
+
+.customize-control.ast-sub-bottom-dotted-divider {
+    padding-bottom: 20px;
+	margin-bottom: 10px;
+}
+
 .customize-control.ast-top-section-divider::before,
 .customize-control.ast-bottom-section-divider::after {
     content: '';
@@ -179,13 +188,24 @@
     height: 1px;
 }
 
-
+.customize-control.ast-sub-top-dotted-divider::before,
 .customize-control.ast-top-section-divider::before {
     top: 0;
 }
 
+.customize-control.ast-sub-bottom-dotted-divider::after,
 .customize-control.ast-bottom-section-divider::after {
     bottom: 0;
+}
+
+.customize-control.ast-sub-top-dotted-divider::before,
+.customize-control.ast-sub-bottom-dotted-divider::after {
+    content: '';
+    border-top: 1px dashed var(--ast-customizer-color-7);
+    width: calc(100% - 30px);
+    height: 1px;
+    position: absolute;
+    right: 15px;
 }
 
 
@@ -213,11 +233,6 @@
 #customize-control-body-font-variant,
 #customize-control-headings-font-variant {
     margin-top: 0;
-}
-
-#customize-control-body-font-variant .customize-control-title,
-#customize-control-headings-font-variant .customize-control-title {
-    margin-top: 23px;
 }
 
 /* sidebar specific  */
