@@ -88,12 +88,13 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 			/**
 			 * Theme Button Typography
 			 */
-			$theme_btn_font_family    = astra_get_option( 'font-family-button' );
-			$theme_btn_font_size      = astra_get_option( 'font-size-button' );
-			$theme_btn_font_weight    = astra_get_option( 'font-weight-button' );
-			$theme_btn_text_transform = astra_get_option( 'text-transform-button' );
-			$theme_btn_line_height    = astra_get_option( 'theme-btn-line-height' );
-			$theme_btn_letter_spacing = astra_get_option( 'theme-btn-letter-spacing' );
+			$theme_btn_font_family     = astra_get_option( 'font-family-button' );
+			$theme_btn_font_size       = astra_get_option( 'font-size-button' );
+			$theme_btn_font_weight     = astra_get_option( 'font-weight-button' );
+			$theme_btn_text_transform  = astra_get_font_extras( astra_get_option( 'font-extras-button' ), 'text-transform' );
+			$theme_btn_line_height     = astra_get_font_extras( astra_get_option( 'font-extras-button' ), 'line-height', 'line-height-unit' );
+			$theme_btn_letter_spacing  = astra_get_font_extras( astra_get_option( 'font-extras-button' ), 'letter-spacing', 'letter-spacing-unit' );
+			$theme_btn_text_decoration = astra_get_font_extras( astra_get_option( 'font-extras-button' ), 'text-decoration' );
 
 			$h1_font_family = astra_get_option( 'font-family-h1' );
 			$h1_font_weight = astra_get_option( 'font-weight-h1' );
@@ -672,6 +673,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 						'line-height'         => esc_attr( $theme_btn_line_height ),
 						'text-transform'      => esc_attr( $theme_btn_text_transform ),
 						'letter-spacing'      => astra_get_css_value( $theme_btn_letter_spacing, 'px' ),
+						'text-decoration'     => esc_attr( $theme_btn_text_decoration ),
 						'font-size'           => astra_responsive_font( $theme_btn_font_size, 'desktop' ),
 						'border-radius'       => astra_get_css_value( $btn_border_radius, 'px' ),
 						'padding-top'         => astra_responsive_spacing( $theme_btn_padding, 'top', 'desktop' ),

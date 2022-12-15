@@ -476,15 +476,21 @@ final class Astra_Builder_Base_Configuration {
 							'title'       => __( 'Size', 'astra' ),
 							'type'        => 'sub-control',
 							'section'     => $_section,
-							'control'     => 'ast-responsive',
+							'control'     => 'ast-responsive-slider',
+							'suffix'      => array( 'px', 'em' ),
 							'input_attrs' => array(
-								'min' => 0,
+								'px' => array(
+									'min'  => 0,
+									'step' => 1,
+									'max'  => 100,
+								),
+								'em' => array(
+									'min'  => 0,
+									'step' => 0.01,
+									'max'  => 20,
+								),
 							),
 							'priority'    => 2,
-							'units'       => array(
-								'px' => 'px',
-								'em' => 'em',
-							),
 						),
 
 						/**
@@ -512,15 +518,21 @@ final class Astra_Builder_Base_Configuration {
 							'title'       => __( 'Size', 'astra' ),
 							'type'        => 'sub-control',
 							'section'     => $_section,
-							'control'     => 'ast-responsive',
+							'control'     => 'ast-responsive-slider',
+							'suffix'      => array( 'px', 'em' ),
 							'input_attrs' => array(
-								'min' => 0,
+								'px' => array(
+									'min'  => 0,
+									'step' => 1,
+									'max'  => 100,
+								),
+								'em' => array(
+									'min'  => 0,
+									'step' => 0.01,
+									'max'  => 20,
+								),
 							),
 							'priority'    => 2,
-							'units'       => array(
-								'px' => 'px',
-								'em' => 'em',
-							),
 						),
 					);
 				} else {
@@ -536,15 +548,21 @@ final class Astra_Builder_Base_Configuration {
 							'title'       => __( 'Title Font Size', 'astra' ),
 							'type'        => 'control',
 							'section'     => $_section,
-							'control'     => 'ast-responsive',
+							'control'     => 'ast-responsive-slider',
+							'suffix'      => array( 'px', 'em' ),
 							'input_attrs' => array(
-								'min' => 0,
+								'px' => array(
+									'min'  => 0,
+									'step' => 1,
+									'max'  => 100,
+								),
+								'em' => array(
+									'min'  => 0,
+									'step' => 0.01,
+									'max'  => 20,
+								),
 							),
 							'priority'    => 90,
-							'units'       => array(
-								'px' => 'px',
-								'em' => 'em',
-							),
 						),
 
 						/**
@@ -557,15 +575,21 @@ final class Astra_Builder_Base_Configuration {
 							'title'       => __( 'Content Font Size', 'astra' ),
 							'type'        => 'control',
 							'section'     => $_section,
-							'control'     => 'ast-responsive',
+							'control'     => 'ast-responsive-slider',
+							'suffix'      => array( 'px', 'em' ),
 							'input_attrs' => array(
-								'min' => 0,
+								'px' => array(
+									'min'  => 0,
+									'step' => 1,
+									'max'  => 100,
+								),
+								'em' => array(
+									'min'  => 0,
+									'step' => 0.01,
+									'max'  => 20,
+								),
 							),
 							'priority'    => 91,
-							'units'       => array(
-								'px' => 'px',
-								'em' => 'em',
-							),
 						),
 					);
 				}

@@ -745,16 +745,15 @@
 }
 
 .ahfb-builder-areas .components-button.ahfb-row-actions:hover, .ahfb-builder-areas .components-button.ahfb-row-actions:focus {
-    background: var(--ast-customizer-color-1);
-    color: white;
+    background: var(--ast-customizer-color-1) !important;
+    color: white !important;
     border-color: var(--ast-customizer-color-1);
 }
 
 .ahfb-builder-areas .components-button.ahfb-row-actions:hover {
 	background: white;
     color: var(--ast-customizer-color-1);
-    border-color: var(--ast-customizer-color-1);
-	border: 1px solid;
+	border: 1px solid var(--ast-customizer-color-1);
 	border-left: 1px dashed var(--ast-customizer-color-7);
 }
 
@@ -1912,16 +1911,17 @@ button.components-button.ahfb-sorter-item-expand {
 	opacity: 0;
 	visibility: hidden;
 	transition: color 0.15s ease, opacity 0.1s ease, visibility 0.1s ease;
-	top: 1px;
-	right: 0px;
-	height: 15px;
-	background-color: #e3e3e3;
-	padding-top: 10px;
-	border-radius: 3px 3px 0 0;
+	top: 0;
+	right: -1px;
+	background-color: var(--ast-customizer-color-9);
+	border: 1px solid var(--ast-customizer-color-1);
+	border-radius: 4px 4px 0 0;
+	border-bottom: 0;
 }
 
 .ahfb-slide-up span {
 	font-size: 14px;
+	line-height: 20px;
 	padding-right: 2px;
 }
 
@@ -1948,7 +1948,7 @@ button.components-button.ahfb-sorter-item-expand {
 }
 
 .ahfb-slide-up [data-tooltip]:hover::before {
-	right: 0px;
+	right: -1px;
 }
 
 [data-tooltip]::after {

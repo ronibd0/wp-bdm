@@ -1,6 +1,5 @@
 import SettingsGroupComponent from './settings-group-component';
 import BorderComponent from '../border/border-component';
-import ResponsiveComponent from '../responsive/responsive-component';
 import ResponsiveSliderComponent from '../responsive-slider/responsive-slider-component';
 import ResponsiveSpacingComponent from '../responsive-spacing/responsive-spacing-component';
 import SliderComponent from '../slider/slider-component';
@@ -20,7 +19,6 @@ import {
 	astraGetColor,
 	astraGetResponsiveBgJs,
 	astraGetResponsiveColorJs,
-	astraGetResponsiveJs,
 	astraGetResponsiveSliderJs,
 	astraGetResponsiveSpacingJs
 } from '../common/responsive-helper';
@@ -263,9 +261,6 @@ export const settingsGroupControl = wp.customize.astraControl.extend( {
 				case "ast-responsive-color":
 					astraGetResponsiveColorJs( control, "#customize-control-" + control_type.name )
 					break;
-				case "ast-responsive":
-					astraGetResponsiveJs( control )
-					break;
 				case "ast-responsive-slider":
 					astraGetResponsiveSliderJs( control )
 					break;
@@ -375,11 +370,6 @@ export const settingsGroupControl = wp.customize.astraControl.extend( {
 				value: value,
 				name: attr.name
 			});
-
-			if ('ast-responsive' == control) {
-				var is_responsive = 'undefined' == typeof attr.responsive ? true : attr.responsive;
-				attr.responsive = is_responsive;
-			}
 
 			var control_clean_name = attr.name.replace('[', '-');
 			control_clean_name = control_clean_name.replace(']', '');
@@ -499,7 +489,6 @@ export const settingsGroupControl = wp.customize.astraControl.extend( {
 			'ast-responsive-color' : ResponsiveColorComponent,
 			'ast-color' : ColorComponent,
 			'ast-border' : BorderComponent,
-			'ast-responsive' : ResponsiveComponent,
 			'ast-responsive-slider' : ResponsiveSliderComponent,
 			'ast-slider' : SliderComponent,
 			'ast-responsive-spacing' : ResponsiveSpacingComponent,

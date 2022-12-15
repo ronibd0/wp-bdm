@@ -154,25 +154,26 @@ class Astra_WP_Editor_CSS {
 		/**
 		 * Button theme compatibility.
 		 */
-		$btn_color                = astra_get_option( 'button-color' );
-		$btn_bg_color             = astra_get_option( 'button-bg-color', '', $theme_color );
-		$btn_h_color              = astra_get_option( 'button-h-color' );
-		$btn_bg_h_color           = astra_get_option( 'button-bg-h-color', '', $link_h_color );
-		$btn_border_radius        = astra_get_option( 'button-radius' );
-		$theme_btn_padding        = astra_get_option( 'theme-button-padding' );
-		$btn_border_size          = astra_get_option( 'theme-button-border-group-border-size' );
-		$btn_border_color         = astra_get_option( 'theme-button-border-group-border-color' );
-		$btn_border_h_color       = astra_get_option( 'theme-button-border-group-border-h-color' );
-		$theme_btn_font_family    = astra_get_option( 'font-family-button' );
-		$theme_btn_font_size      = astra_get_option( 'font-size-button' );
-		$theme_btn_font_weight    = astra_get_option( 'font-weight-button' );
-		$theme_btn_text_transform = astra_get_option( 'text-transform-button' );
-		$theme_btn_line_height    = astra_get_option( 'theme-btn-line-height' );
-		$theme_btn_letter_spacing = astra_get_option( 'theme-btn-letter-spacing' );
-		$theme_btn_top_border     = ( isset( $btn_border_size['top'] ) && ( '' !== $btn_border_size['top'] && '0' !== $btn_border_size['top'] ) ) ? astra_get_css_value( $btn_border_size['top'], 'px' ) : '';
-		$theme_btn_right_border   = ( isset( $btn_border_size['right'] ) && ( '' !== $btn_border_size['right'] && '0' !== $btn_border_size['right'] ) ) ? astra_get_css_value( $btn_border_size['right'], 'px' ) : '';
-		$theme_btn_left_border    = ( isset( $btn_border_size['left'] ) && ( '' !== $btn_border_size['left'] && '0' !== $btn_border_size['left'] ) ) ? astra_get_css_value( $btn_border_size['left'], 'px' ) : '';
-		$theme_btn_bottom_border  = ( isset( $btn_border_size['bottom'] ) && ( '' !== $btn_border_size['bottom'] && '0' !== $btn_border_size['bottom'] ) ) ? astra_get_css_value( $btn_border_size['bottom'], 'px' ) : '';
+		$btn_color                 = astra_get_option( 'button-color' );
+		$btn_bg_color              = astra_get_option( 'button-bg-color', '', $theme_color );
+		$btn_h_color               = astra_get_option( 'button-h-color' );
+		$btn_bg_h_color            = astra_get_option( 'button-bg-h-color', '', $link_h_color );
+		$btn_border_radius         = astra_get_option( 'button-radius' );
+		$theme_btn_padding         = astra_get_option( 'theme-button-padding' );
+		$btn_border_size           = astra_get_option( 'theme-button-border-group-border-size' );
+		$btn_border_color          = astra_get_option( 'theme-button-border-group-border-color' );
+		$btn_border_h_color        = astra_get_option( 'theme-button-border-group-border-h-color' );
+		$theme_btn_font_family     = astra_get_option( 'font-family-button' );
+		$theme_btn_font_size       = astra_get_option( 'font-size-button' );
+		$theme_btn_font_weight     = astra_get_option( 'font-weight-button' );
+		$theme_btn_text_transform  = astra_get_font_extras( astra_get_option( 'font-extras-button' ), 'text-transform' );
+		$theme_btn_line_height     = astra_get_font_extras( astra_get_option( 'font-extras-button' ), 'line-height', 'line-height-unit' );
+		$theme_btn_letter_spacing  = astra_get_font_extras( astra_get_option( 'font-extras-button' ), 'letter-spacing', 'letter-spacing-unit' );
+		$theme_btn_text_decoration = astra_get_font_extras( astra_get_option( 'font-extras-button' ), 'text-decoration' );
+		$theme_btn_top_border      = ( isset( $btn_border_size['top'] ) && ( '' !== $btn_border_size['top'] && '0' !== $btn_border_size['top'] ) ) ? astra_get_css_value( $btn_border_size['top'], 'px' ) : '';
+		$theme_btn_right_border    = ( isset( $btn_border_size['right'] ) && ( '' !== $btn_border_size['right'] && '0' !== $btn_border_size['right'] ) ) ? astra_get_css_value( $btn_border_size['right'], 'px' ) : '';
+		$theme_btn_left_border     = ( isset( $btn_border_size['left'] ) && ( '' !== $btn_border_size['left'] && '0' !== $btn_border_size['left'] ) ) ? astra_get_css_value( $btn_border_size['left'], 'px' ) : '';
+		$theme_btn_bottom_border   = ( isset( $btn_border_size['bottom'] ) && ( '' !== $btn_border_size['bottom'] && '0' !== $btn_border_size['bottom'] ) ) ? astra_get_css_value( $btn_border_size['bottom'], 'px' ) : '';
 
 		/**
 		 * Headings typography.
@@ -565,6 +566,7 @@ class Astra_WP_Editor_CSS {
 				'line-height'         => esc_attr( $theme_btn_line_height ),
 				'text-transform'      => esc_attr( $theme_btn_text_transform ),
 				'letter-spacing'      => astra_get_css_value( $theme_btn_letter_spacing, 'px' ),
+				'text-decoration'     => esc_attr( $theme_btn_text_decoration ),
 				'font-size'           => astra_responsive_font( $theme_btn_font_size, 'desktop' ),
 				'border-radius'       => astra_get_css_value( $btn_border_radius, 'px' ),
 				'padding-top'         => astra_responsive_spacing( $theme_btn_padding, 'top', 'desktop' ),
@@ -621,7 +623,7 @@ class Astra_WP_Editor_CSS {
 			'margin-left'  => 'auto',
 			'margin-right' => 'auto',
 		);
-		
+
 		/**
 		 * Desktop site title.
 		 */

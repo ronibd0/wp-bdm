@@ -3655,7 +3655,7 @@ div .ast-field-settings-modal .customize-control-ast-font-extras {
 .ast-customizer-font-varient-wrap .ast-multi-select__multi-value {
     margin-top: 0;
     margin-bottom: 0;
-    font-size: 12px;
+    font-size: 12px; 
     padding: 2px 2px 2px 2px;
     min-width: auto;
     color: #4B5563;
@@ -3697,7 +3697,7 @@ div .ast-field-settings-modal .customize-control-ast-font-extras {
     z-index: 1;
 }
 
-.ast-customizer-font-varient-wrap .ast-multi-select__control:before {
+.ast-customizer-font-varient-wrap .ast-multi-select__control:before { 
     content:'';
     position: absolute;
     top: 3px;
