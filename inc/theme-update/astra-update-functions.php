@@ -1345,11 +1345,10 @@ function astra_theme_background_updater_4_0_0() {
 		$theme_options['scroll-to-top-enable'] = $scroll_to_top_visibility;
 		update_option( 'astra-settings', $theme_options );
 	}
-	/**
-	 * This is only for default color palette and typography.
-	 */
-	if ( ! isset( $theme_options['astra-default-color-typo-update'] ) ) {
-		$theme_options['astra-default-color-typo-update'] = false;
+
+	// Default colors & typography flag.
+	if ( ! isset( $theme_options['update-default-color-typo'] ) ) {
+		$theme_options['update-default-color-typo'] = false;
 		update_option( 'astra-settings', $theme_options );
 	}
 
@@ -1358,5 +1357,4 @@ function astra_theme_background_updater_4_0_0() {
 		$theme_options['v4-block-editor-compat'] = false;
 		update_option( 'astra-settings', $theme_options );
 	}
-
 }
