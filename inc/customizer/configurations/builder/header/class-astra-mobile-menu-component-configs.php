@@ -394,7 +394,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'parent'   => ASTRA_THEME_SETTINGS . '[header-mobile-menu-header-menu-typography]',
 					'section'  => $_section,
 					'type'     => 'sub-control',
-					'control'  => 'ast-font-height',
+					'control'  => 'ast-font-extras',
 					'priority' => 24,
 					'default'  => astra_get_option( 'font-extras-header-mobile-menu' ),
 					'title'    => __( 'Font Extras', 'astra' ),
@@ -414,7 +414,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'context'  => Astra_Builder_Helper::$design_tab,
 					'divider'  => array( 'ast_class' => 'ast-section-spacing' ),
 				),
-				
+
 
 				// Option - Menu Space.
 				array(

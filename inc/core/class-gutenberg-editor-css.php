@@ -51,7 +51,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 			$link_color                  = astra_get_option( 'link-color', $theme_color );
 			$heading_base_color          = astra_get_option( 'heading-base-color' );
 			$highlight_theme_color       = astra_get_foreground_color( $theme_color );
-			$ast_narrow_width        = astra_get_option( 'narrow-container-max-width', apply_filters( 'astra_narrow_container_width', 750 ) ) . 'px';
+			$ast_narrow_width            = astra_get_option( 'narrow-container-max-width', apply_filters( 'astra_narrow_container_width', 750 ) ) . 'px';
 
 			$body_font_weight    = astra_get_option( 'body-font-weight' );
 			$body_font_size      = astra_get_option( 'font-size-body' );

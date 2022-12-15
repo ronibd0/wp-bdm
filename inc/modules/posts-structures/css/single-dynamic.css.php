@@ -118,7 +118,7 @@ function astra_post_single_structure_dynamic_css( $dynamic_css, $dynamic_css_fil
 		 */
 		$css_output_desktop = array(
 			$selector                               => array(
-				'text-align'     => $desk_h_alignment,
+				'text-align' => $desk_h_alignment,
 			),
 			$selector . ', ' . $selector . ' *'     => array(
 				'color'           => esc_attr( $text_color ),
@@ -200,13 +200,13 @@ function astra_post_single_structure_dynamic_css( $dynamic_css, $dynamic_css_fil
 				'text-align'      => $desk_h_alignment,
 				'justify-content' => $vert_alignment,
 				'min-height'      => $desk_banner_height,
-				'margin-top'     => astra_responsive_spacing( $banner_margin, 'top', 'desktop' ),
-				'margin-right'   => astra_responsive_spacing( $banner_margin, 'right', 'desktop' ),
-				'margin-bottom'  => astra_responsive_spacing( $banner_margin, 'bottom', 'desktop' ),
-				'margin-left'    => astra_responsive_spacing( $banner_margin, 'left', 'desktop' ),
+				'margin-top'      => astra_responsive_spacing( $banner_margin, 'top', 'desktop' ),
+				'margin-right'    => astra_responsive_spacing( $banner_margin, 'right', 'desktop' ),
+				'margin-bottom'   => astra_responsive_spacing( $banner_margin, 'bottom', 'desktop' ),
+				'margin-left'     => astra_responsive_spacing( $banner_margin, 'left', 'desktop' ),
 			),
 			$selector . ' .ast-container'                 => array(
-				'width' => '100%',
+				'width'          => '100%',
 				'padding-top'    => astra_responsive_spacing( $banner_padding, 'top', 'desktop' ),
 				'padding-right'  => astra_responsive_spacing( $banner_padding, 'right', 'desktop' ),
 				'padding-bottom' => astra_responsive_spacing( $banner_padding, 'bottom', 'desktop' ),

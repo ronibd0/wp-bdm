@@ -3458,13 +3458,13 @@ li[ID*="accordion-section-ast-dynamic-archive-"].control-section-ast_section {
 	border-bottom: 1px dashed #D4D4D4;
 }
 
-.ast-font-height-wrapper, .ast-font-spacing-wrapper{
+.ast-font-extras-wrapper, .ast-font-spacing-wrapper{
 	display: flex;
 	align-items: center;
 	gap: 8px;
 }
 
-.ast-font-height-wrapper .ast-font-height-input, .ast-font-spacing-wrapper .ast-font-spacing-input {
+.ast-font-extras-wrapper .ast-font-extras-input, .ast-font-spacing-wrapper .ast-font-spacing-input {
 	position: relative;
 	display: flex;
 	align-items: center;
@@ -3473,7 +3473,7 @@ li[ID*="accordion-section-ast-dynamic-archive-"].control-section-ast_section {
 	width: 100%;
 }
 
-.ast-font-height-wrapper .ast-font-height-input input, .ast-font-spacing-wrapper .ast-font-spacing-input input {
+.ast-font-extras-wrapper .ast-font-extras-input input, .ast-font-spacing-wrapper .ast-font-spacing-input input {
 	padding: 0;
 	padding-right: 26px;
 	border: none;
@@ -3482,14 +3482,14 @@ li[ID*="accordion-section-ast-dynamic-archive-"].control-section-ast_section {
 	border: 1px solid #d1d5db;
 }
 
-.ast-font-height-wrapper .ast-font-height-input svg, .ast-font-spacing-wrapper .ast-font-spacing-input svg {
+.ast-font-extras-wrapper .ast-font-extras-input svg, .ast-font-spacing-wrapper .ast-font-spacing-input svg {
 	position: absolute;
 	top: 50%;
 	right: 6px;
 	transform: translateY(-50%);
 }
 
-.ast-font-height-input .ast-number-input .plus-minus-control,
+.ast-font-extras-input .ast-number-input .plus-minus-control,
 .ast-font-spacing-input .ast-number-input .plus-minus-control {
 	position: absolute;
 	top: 50%;
@@ -3497,7 +3497,7 @@ li[ID*="accordion-section-ast-dynamic-archive-"].control-section-ast_section {
 	transform: translateY(-50%);
 }
 
-.ast-font-height-input .ast-number-input .plus-minus-control .dashicons,
+.ast-font-extras-input .ast-number-input .plus-minus-control .dashicons,
 .ast-font-spacing-input .ast-number-input .plus-minus-control .dashicons {
 	font-size: 10px;
 	color: #9CA3AF;
@@ -3507,17 +3507,17 @@ li[ID*="accordion-section-ast-dynamic-archive-"].control-section-ast_section {
 	cursor: pointer;
 }
 
-div .ast-field-settings-modal .customize-control-ast-font-height {
+div .ast-field-settings-modal .customize-control-ast-font-extras {
 	margin-top: 15px;
 }
 
-.ast-font-height-input .ast-number-input input[type=number]::-webkit-inner-spin-button,
-.ast-font-height-input .ast-number-input input[type=number]::-webkit-outer-spin-button,
+.ast-font-extras-input .ast-number-input input[type=number]::-webkit-inner-spin-button,
+.ast-font-extras-input .ast-number-input input[type=number]::-webkit-outer-spin-button,
 .ast-font-spacing-input .ast-number-input input[type=number]::-webkit-inner-spin-button,
 .ast-font-spacing-input .ast-number-input input[type=number]::-webkit-outer-spin-button {
 	-webkit-appearance: none;
     -moz-appearance: none;
-    appearance: none; 
+    appearance: none;
 }
 
 .ast-font-unit-wrapper {
@@ -3655,7 +3655,7 @@ div .ast-field-settings-modal .customize-control-ast-font-height {
 .ast-customizer-font-varient-wrap .ast-multi-select__multi-value {
     margin-top: 0;
     margin-bottom: 0;
-    font-size: 12px; 
+    font-size: 12px;
     padding: 2px 2px 2px 2px;
     min-width: auto;
     color: #4B5563;
@@ -3697,7 +3697,7 @@ div .ast-field-settings-modal .customize-control-ast-font-height {
     z-index: 1;
 }
 
-.ast-customizer-font-varient-wrap .ast-multi-select__control:before { 
+.ast-customizer-font-varient-wrap .ast-multi-select__control:before {
     content:'';
     position: absolute;
     top: 3px;
@@ -5007,7 +5007,7 @@ span.customize-control-title.ast-group-section-title {
 
 .ast-field-settings-wrap .ast-field-settings-modal {
   border-radius: 3px;
-  margin-top: 15px;
+  margin-top: 10px;
   margin-bottom: 20px;
 }
 
@@ -6636,13 +6636,13 @@ li[ID*="accordion-section-ast-dynamic-archive-"].control-section-ast_section {
 	border-bottom: 1px dashed #D4D4D4;
 }
 
-.ast-font-height-wrapper, .ast-font-spacing-wrapper{
+.ast-font-extras-wrapper, .ast-font-spacing-wrapper{
 	display: flex;
 	align-items: center;
 	gap: 8px;
 }
 
-.ast-font-height-wrapper .ast-font-height-input, .ast-font-spacing-wrapper .ast-font-spacing-input {
+.ast-font-extras-wrapper .ast-font-extras-input, .ast-font-spacing-wrapper .ast-font-spacing-input {
 	position: relative;
 	display: flex;
 	align-items: center;
@@ -6651,7 +6651,7 @@ li[ID*="accordion-section-ast-dynamic-archive-"].control-section-ast_section {
 	width: 100%;
 }
 
-.ast-font-height-wrapper .ast-font-height-input input, .ast-font-spacing-wrapper .ast-font-spacing-input input {
+.ast-font-extras-wrapper .ast-font-extras-input input, .ast-font-spacing-wrapper .ast-font-spacing-input input {
 	padding: 0;
 	padding-right: 26px;
 	border: none;
@@ -6660,14 +6660,14 @@ li[ID*="accordion-section-ast-dynamic-archive-"].control-section-ast_section {
 	border: 1px solid #d1d5db;
 }
 
-.ast-font-height-wrapper .ast-font-height-input svg, .ast-font-spacing-wrapper .ast-font-spacing-input svg {
+.ast-font-extras-wrapper .ast-font-extras-input svg, .ast-font-spacing-wrapper .ast-font-spacing-input svg {
 	position: absolute;
 	top: 50%;
 	right: 6px;
 	transform: translateY(-50%);
 }
 
-.ast-font-height-input .ast-number-input .plus-minus-control,
+.ast-font-extras-input .ast-number-input .plus-minus-control,
 .ast-font-spacing-input .ast-number-input .plus-minus-control {
 	position: absolute;
 	top: 50%;
@@ -6675,7 +6675,7 @@ li[ID*="accordion-section-ast-dynamic-archive-"].control-section-ast_section {
 	transform: translateY(-50%);
 }
 
-.ast-font-height-input .ast-number-input .plus-minus-control .dashicons,
+.ast-font-extras-input .ast-number-input .plus-minus-control .dashicons,
 .ast-font-spacing-input .ast-number-input .plus-minus-control .dashicons {
 	font-size: 10px;
 	color: #9CA3AF;
@@ -6685,17 +6685,17 @@ li[ID*="accordion-section-ast-dynamic-archive-"].control-section-ast_section {
 	cursor: pointer;
 }
 
-div .ast-field-settings-modal .customize-control-ast-font-height {
+div .ast-field-settings-modal .customize-control-ast-font-extras {
 	margin-top: 15px;
 }
 
-.ast-font-height-input .ast-number-input input[type=number]::-webkit-inner-spin-button,
-.ast-font-height-input .ast-number-input input[type=number]::-webkit-outer-spin-button,
+.ast-font-extras-input .ast-number-input input[type=number]::-webkit-inner-spin-button,
+.ast-font-extras-input .ast-number-input input[type=number]::-webkit-outer-spin-button,
 .ast-font-spacing-input .ast-number-input input[type=number]::-webkit-inner-spin-button,
 .ast-font-spacing-input .ast-number-input input[type=number]::-webkit-outer-spin-button {
 	-webkit-appearance: none;
     -moz-appearance: none;
-    appearance: none; 
+    appearance: none;
 }
 
 .ast-font-unit-wrapper {

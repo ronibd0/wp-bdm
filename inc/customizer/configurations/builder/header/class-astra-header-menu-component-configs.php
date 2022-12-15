@@ -600,7 +600,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						),
 					),
 
-	
+
 					/**
 					 * Option: Primary Menu Font Extras
 					 */
@@ -609,7 +609,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'parent'   => ASTRA_THEME_SETTINGS . '[header-' . $_prefix . '-header-menu-typography]',
 						'section'  => $_section,
 						'type'     => 'sub-control',
-						'control'  => 'ast-font-height',
+						'control'  => 'ast-font-extras',
 						'priority' => 26,
 						'default'  => astra_get_option( 'header-' . $_prefix . '-font-extras' ),
 						'title'    => __( 'Font Extras', 'astra' ),

@@ -138,7 +138,7 @@ if ( ! class_exists( 'Astra_Heading_Colors_Configs' ) ) {
 					'name'     => 'font-extras-button',
 					'type'     => 'sub-control',
 					'parent'   => ASTRA_THEME_SETTINGS . '[button-text-typography]',
-					'control'  => 'ast-font-height',
+					'control'  => 'ast-font-extras',
 					'section'  => 'section-buttons',
 					'priority' => 4,
 					'default'  => astra_get_option( 'font-extras-button' ),

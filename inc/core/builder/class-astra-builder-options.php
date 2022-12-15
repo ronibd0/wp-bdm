@@ -580,15 +580,15 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	/**
 	 * Footer Copyright.
 	 */
-	$defaults['footer-copyright-editor']                 = 'Copyright [copyright] [current_year] [site_title] | Powered by [theme_author]';
-	$defaults['footer-copyright-color']                  = '';
-	$defaults['line-height-section-footer-copyright']    = 2;
-	$defaults['footer-copyright-alignment']              = array(
+	$defaults['footer-copyright-editor']              = 'Copyright [copyright] [current_year] [site_title] | Powered by [theme_author]';
+	$defaults['footer-copyright-color']               = '';
+	$defaults['line-height-section-footer-copyright'] = 2;
+	$defaults['footer-copyright-alignment']           = array(
 		'desktop' => 'center',
 		'tablet'  => 'center',
 		'mobile'  => 'center',
 	);
-	$defaults['font-size-section-footer-copyright']      = array(
+	$defaults['font-size-section-footer-copyright']   = array(
 		'desktop'      => '',
 		'tablet'       => '',
 		'mobile'       => '',
@@ -596,9 +596,9 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 		'tablet-unit'  => 'px',
 		'mobile-unit'  => 'px',
 	);
-	$defaults['font-weight-section-footer-copyright']    = 'inherit';
-	$defaults['font-family-section-footer-copyright']    = 'inherit';
-	$defaults['font-extras-section-footer-copyright']    = array(
+	$defaults['font-weight-section-footer-copyright'] = 'inherit';
+	$defaults['font-family-section-footer-copyright'] = 'inherit';
+	$defaults['font-extras-section-footer-copyright'] = array(
 		'line-height'         => ! isset( $astra_options['font-extras-section-footer-copyright'] ) && isset( $astra_options['line-height-section-footer-copyright'] ) ? $astra_options['line-height-section-footer-copyright'] : '',
 		'line-height-unit'    => 'em',
 		'letter-spacing'      => '',

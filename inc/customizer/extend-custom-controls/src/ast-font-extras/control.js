@@ -1,4 +1,4 @@
-import FontHeightComponent from './ast-font-height.js';
+import FontHeightComponent from './ast-font-extras.js';
 
 export const astFontHeightControl = wp.customize.astraControl.extend( {
 	renderContent: function renderContent() {

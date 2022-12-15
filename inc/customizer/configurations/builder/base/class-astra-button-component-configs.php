@@ -418,7 +418,7 @@ class Astra_Button_Component_Configs {
 					'parent'   => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-' . $_prefix . '-text-typography]',
 					'section'  => $_section,
 					'type'     => 'sub-control',
-					'control'  => 'ast-font-height',
+					'control'  => 'ast-font-extras',
 					'priority' => 5,
 					'default'  => astra_get_option( 'breadcrumb-font-extras' ),
 					'context'  => Astra_Builder_Helper::$general_tab,

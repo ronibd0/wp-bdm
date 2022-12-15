@@ -154,7 +154,7 @@ if ( ! class_exists( 'Astra_Body_Typo_Configs' ) ) {
 					'name'     => 'body-font-extras',
 					'type'     => 'sub-control',
 					'parent'   => ASTRA_THEME_SETTINGS . '[ast-body-font-settings]',
-					'control'  => 'ast-font-height',
+					'control'  => 'ast-font-extras',
 					'section'  => $typo_section,
 					'priority' => 25,
 					'default'  => astra_get_option( 'body-font-extras' ),
@@ -254,16 +254,16 @@ if ( ! class_exists( 'Astra_Body_Typo_Configs' ) ) {
 				 * Option: Heading Font Height
 				 */
 				array(
-					'name'     => 'headings-font-extras',
-					'type'     => 'sub-control',
-					'parent'   => ASTRA_THEME_SETTINGS . '[ast-headings-font-settings]',
-					'control'  => 'ast-font-height',
-					'transport'         => 'postMessage',
-					'section'  => $typo_section,
-					'priority' => 26,
-					'default'  => astra_get_option( 'headings-font-height-settings' ),
-					'title'    => __( 'Font Extras', 'astra' ),
-					'divider'  => array( 'ast_class' => 'ast-sub-top-dotted-divider' ),
+					'name'      => 'headings-font-extras',
+					'type'      => 'sub-control',
+					'parent'    => ASTRA_THEME_SETTINGS . '[ast-headings-font-settings]',
+					'control'   => 'ast-font-extras',
+					'transport' => 'postMessage',
+					'section'   => $typo_section,
+					'priority'  => 26,
+					'default'   => astra_get_option( 'headings-font-height-settings' ),
+					'title'     => __( 'Font Extras', 'astra' ),
+					'divider'   => array( 'ast_class' => 'ast-sub-top-dotted-divider' ),
 				),
 
 				/**
