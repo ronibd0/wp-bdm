@@ -20,8 +20,6 @@ add_filter( 'astra_theme_defaults', 'astra_hf_builder_customizer_defaults' );
  */
 function astra_hf_builder_customizer_defaults( $defaults ) {
 
-	$palette_css_var_prefix = Astra_Global_Palette::get_css_variable_prefix();
-
 	$astra_options = Astra_Theme_Options::get_astra_options();
 
 	/**
@@ -1727,6 +1725,7 @@ function astra_prepare_menu_defaults( $defaults, $index ) {
 	 * @since x.x.x
 	 */
 	$apply_new_default_color_typo_values = Astra_Dynamic_CSS::astra_check_default_color_typo();
+	$astra_options                       = Astra_Theme_Options::get_astra_options();
 
 	$_prefix = 'menu' . $index;
 
@@ -1800,8 +1799,6 @@ function astra_prepare_menu_defaults( $defaults, $index ) {
 
 	$defaults[ 'section-hb-menu-' . $index . '-margin' ]  = Astra_Builder_Helper::$default_responsive_spacing;
 	$defaults[ 'header-menu' . $index . '-menu-spacing' ] = Astra_Builder_Helper::$default_responsive_spacing;
-
-
 
 	/**
 	 * Submenu
