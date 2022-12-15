@@ -123,11 +123,8 @@ class Astra_WP_Editor_CSS {
 		$site_content_width   = astra_get_option( 'site-content-width', 1200 );
 		$headings_font_family = astra_get_option( 'headings-font-family' );
 		$headings_font_weight = astra_get_option( 'headings-font-weight' );
-		/** @psalm-suppress UndefinedFunction */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 		$headings_text_transform = astra_get_font_extras( astra_get_option( 'headings-font-extras' ), 'text-transform' );
-		/** @psalm-suppress UndefinedFunction */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 		$headings_line_height        = astra_get_font_extras( astra_get_option( 'headings-font-extras' ), 'line-height', 'line-height-unit' );
-		$single_post_title_font_size = astra_get_option( 'font-size-entry-title' );
 		$body_font_family            = astra_body_font_family();
 		$para_margin_bottom          = astra_get_option( 'para-margin-bottom', '1.6' );
 		$theme_color                 = astra_get_option( 'theme-color' );
@@ -180,68 +177,44 @@ class Astra_WP_Editor_CSS {
 		 */
 		$h1_font_family = astra_get_option( 'font-family-h1' );
 		$h1_font_weight = astra_get_option( 'font-weight-h1' );
-		/** @psalm-suppress UndefinedFunction  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 		$h1_line_height = astra_get_font_extras( astra_get_option( 'font-extras-h1' ), 'line-height', 'line-height-unit' );
-		/** @psalm-suppress UndefinedFunction */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 		$h1_text_transform = astra_get_font_extras( astra_get_option( 'font-extras-h1' ), 'text-transform' );
-		/** @psalm-suppress UndefinedFunction */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 		$h1_letter_spacing = astra_get_font_extras( astra_get_option( 'font-extras-h1' ), 'letter-spacing', 'letter-spacing-unit' );
-		/** @psalm-suppress UndefinedFunction */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 		$h1_text_decoration = astra_get_font_extras( astra_get_option( 'font-extras-h1' ), 'text-decoration' );
 
 		$h2_font_family = astra_get_option( 'font-family-h2' );
 		$h2_font_weight = astra_get_option( 'font-weight-h2' );
-		/** @psalm-suppress UndefinedFunction  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 		$h2_line_height = astra_get_font_extras( astra_get_option( 'font-extras-h2' ), 'line-height', 'line-height-unit' );
-		/** @psalm-suppress UndefinedFunction */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 		$h2_text_transform = astra_get_font_extras( astra_get_option( 'font-extras-h2' ), 'text-transform' );
-		/** @psalm-suppress UndefinedFunction */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 		$h2_letter_spacing = astra_get_font_extras( astra_get_option( 'font-extras-h2' ), 'letter-spacing', 'letter-spacing-unit' );
-		/** @psalm-suppress UndefinedFunction */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 		$h2_text_decoration = astra_get_font_extras( astra_get_option( 'font-extras-h2' ), 'text-decoration' );
 
 		$h3_font_family = astra_get_option( 'font-family-h3' );
 		$h3_font_weight = astra_get_option( 'font-weight-h3' );
-		/** @psalm-suppress UndefinedFunction  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 		$h3_line_height = astra_get_font_extras( astra_get_option( 'font-extras-h3' ), 'line-height', 'line-height-unit' );
-		/** @psalm-suppress UndefinedFunction */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 		$h3_text_transform = astra_get_font_extras( astra_get_option( 'font-extras-h3' ), 'text-transform' );
-		/** @psalm-suppress UndefinedFunction */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 		$h3_letter_spacing = astra_get_font_extras( astra_get_option( 'font-extras-h3' ), 'letter-spacing', 'letter-spacing-unit' );
-		/** @psalm-suppress UndefinedFunction */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 		$h3_text_decoration = astra_get_font_extras( astra_get_option( 'font-extras-h3' ), 'text-decoration' );
 
 		$h4_font_family = astra_get_option( 'font-family-h4' );
 		$h4_font_weight = astra_get_option( 'font-weight-h4' );
-		/** @psalm-suppress UndefinedFunction  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 		$h4_line_height = astra_get_font_extras( astra_get_option( 'font-extras-h4' ), 'line-height', 'line-height-unit' );
-		/** @psalm-suppress UndefinedFunction */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 		$h4_text_transform = astra_get_font_extras( astra_get_option( 'font-extras-h4' ), 'text-transform' );
-		/** @psalm-suppress UndefinedFunction */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 		$h4_letter_spacing = astra_get_font_extras( astra_get_option( 'font-extras-h4' ), 'letter-spacing', 'letter-spacing-unit' );
-		/** @psalm-suppress UndefinedFunction */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 		$h4_text_decoration = astra_get_font_extras( astra_get_option( 'font-extras-h4' ), 'text-decoration' );
 
 		$h5_font_family = astra_get_option( 'font-family-h5' );
 		$h5_font_weight = astra_get_option( 'font-weight-h5' );
-		/** @psalm-suppress UndefinedFunction  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 		$h5_line_height = astra_get_font_extras( astra_get_option( 'font-extras-h5' ), 'line-height', 'line-height-unit' );
-		/** @psalm-suppress UndefinedFunction */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 		$h5_text_transform = astra_get_font_extras( astra_get_option( 'font-extras-h5' ), 'text-transform' );
-		/** @psalm-suppress UndefinedFunction */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 		$h5_letter_spacing = astra_get_font_extras( astra_get_option( 'font-extras-h5' ), 'letter-spacing', 'letter-spacing-unit' );
-		/** @psalm-suppress UndefinedFunction */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 		$h5_text_decoration = astra_get_font_extras( astra_get_option( 'font-extras-h5' ), 'text-decoration' );
 
 		$h6_font_family = astra_get_option( 'font-family-h6' );
 		$h6_font_weight = astra_get_option( 'font-weight-h6' );
-		/** @psalm-suppress UndefinedFunction  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 		$h6_line_height = astra_get_font_extras( astra_get_option( 'font-extras-h6' ), 'line-height', 'line-height-unit' );
-		/** @psalm-suppress UndefinedFunction */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 		$h6_text_transform = astra_get_font_extras( astra_get_option( 'font-extras-h6' ), 'text-transform' );
-		/** @psalm-suppress UndefinedFunction */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 		$h6_letter_spacing = astra_get_font_extras( astra_get_option( 'font-extras-h6' ), 'letter-spacing', 'letter-spacing-unit' );
-		/** @psalm-suppress UndefinedFunction */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 		$h6_text_decoration = astra_get_font_extras( astra_get_option( 'font-extras-h6' ), 'text-decoration' );
 
 		// Fallback for H1 - headings typography.
