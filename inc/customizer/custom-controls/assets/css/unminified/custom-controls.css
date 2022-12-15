@@ -1969,11 +1969,6 @@ li[ID*="accordion-section-ast-dynamic-archive-"].control-section-ast_section {
     margin-top: 0;
 }
 
-#customize-control-body-font-variant .customize-control-title,
-#customize-control-headings-font-variant .customize-control-title {
-    margin-top: 23px;
-}
-
 /* sidebar specific  */
 #sub-accordion-section-section-sidebars > .customize-control-ast-heading {
     margin-top: 16px;
