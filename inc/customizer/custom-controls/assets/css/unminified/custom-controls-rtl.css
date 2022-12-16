@@ -1173,6 +1173,7 @@
 	padding: 4px;
 	background: transparent;
 	box-shadow: none;
+	cursor: pointer;
 }
 .astra-color-clear-button.components-button:focus:not(:disabled) {
 	outline: unset;
@@ -2566,6 +2567,7 @@
 	padding: 4px;
 	background: transparent;
 	box-shadow: none;
+	cursor: pointer;
 }
 .astra-color-clear-button.components-button:focus:not(:disabled) {
 	outline: unset;
@@ -3519,11 +3521,10 @@ div .ast-field-settings-modal .customize-control-ast-font-extras {
 .ast-font-unit-wrapper {
 	display: flex;
 	gap: 6px;
-	font-size: 12px;
+	font-size: 11px;
 	font-weight: 500;
 	color: #9CA3AF;
 }
-
 .ast-font-unit-wrapper span {
 	cursor: pointer;
 }
@@ -5388,12 +5389,14 @@ span.customize-control-title.ast-group-section-title {
   text-align: center;
   user-select: none;
   opacity: 0.6;
+  cursor: pointer;
 }
 
 .customize-control-ast-responsive-slider .ast-responsive-units li.single-unit.active {
   opacity: 1;
   font-weight: 600;
   color: #0073aa;
+  cursor: default;
 }
 .ast-field-settings-modal .ast-fields-wrap > .customize-control-ast-responsive-slider + .customize-control-ast-font {
     margin-top: 8px;
@@ -6693,11 +6696,10 @@ div .ast-field-settings-modal .customize-control-ast-font-extras {
 .ast-font-unit-wrapper {
 	display: flex;
 	gap: 6px;
-	font-size: 12px;
+	font-size: 11px;
 	font-weight: 500;
 	color: #9CA3AF;
 }
-
 .ast-font-unit-wrapper span {
 	cursor: pointer;
 }
@@ -8562,12 +8564,14 @@ span.customize-control-title.ast-group-section-title {
   text-align: center;
   user-select: none;
   opacity: 0.6;
+  cursor: pointer;
 }
 
 .customize-control-ast-responsive-slider .ast-responsive-units li.single-unit.active {
   opacity: 1;
   font-weight: 600;
   color: #0073aa;
+  cursor: default;
 }
 .ast-field-settings-modal .ast-fields-wrap > .customize-control-ast-responsive-slider + .customize-control-ast-font {
     margin-top: 8px;
