@@ -1469,7 +1469,6 @@ li#customize-control-astra-settings-header-desktop-items, li#customize-control-a
     background: white;
     position: relative;
     border: 1px solid #D1D5DB;
-    border-bottom: none;
     white-space: nowrap;
     position: relative;
     margin: 0 0 10px;
@@ -1570,6 +1569,12 @@ li#customize-control-astra-settings-header-desktop-items, li#customize-control-a
     transform: rotate(45deg);
     box-shadow: 0px 0px 0px 1px #fff;
     transition: opacity 0.2s ease;
+}
+.ahfb-sorter-item-panel-content > * {
+    margin: 10px 0;
+}
+.ahfb-sorter-row .customize-control-description {
+	white-space: pre-wrap;
 }
 
 button.components-button.ahfb-sorter-item-expand {
