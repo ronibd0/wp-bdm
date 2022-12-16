@@ -6654,7 +6654,7 @@ li[ID*="accordion-section-ast-dynamic-archive-"].control-section-ast_section {
 
 .ast-font-extras-wrapper .ast-font-extras-input input, .ast-font-spacing-wrapper .ast-font-spacing-input input {
 	padding: 0;
-	padding-right: 26px;
+	padding-right: 22px;
 	border: none;
 	min-height: 32px;
 	border-radius: 3px;
@@ -6664,7 +6664,7 @@ li[ID*="accordion-section-ast-dynamic-archive-"].control-section-ast_section {
 .ast-font-extras-wrapper .ast-font-extras-input svg, .ast-font-spacing-wrapper .ast-font-spacing-input svg {
 	position: absolute;
 	top: 50%;
-	right: 6px;
+	right: 5px;
 	transform: translateY(-50%);
 }
 
