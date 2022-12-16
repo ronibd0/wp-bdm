@@ -3491,7 +3491,9 @@ li[ID*="accordion-section-ast-dynamic-archive-"].control-section-ast_section {
 .ast-font-spacing-input .ast-number-input .plus-minus-control {
 	position: absolute;
 	top: 50%;
-	left: 6px;
+	width: 14px;
+	background: #fff;
+	left: 1px;
 	transform: translateY(-50%);
 }
 
@@ -3499,9 +3501,9 @@ li[ID*="accordion-section-ast-dynamic-archive-"].control-section-ast_section {
 .ast-font-spacing-input .ast-number-input .plus-minus-control .dashicons {
 	font-size: 10px;
 	color: #9CA3AF;
-	width: 10px;
-    height: 10px;
-    display: inherit;
+	width: 12px;
+	height: 10px;
+	display: inherit;
 	cursor: pointer;
 }
 
@@ -3535,6 +3537,7 @@ div .ast-field-settings-modal .customize-control-ast-font-extras {
 
 .ast-font-unit-wrapper .active {
 	color: #0284c7;
+	cursor: default;
 }
 
 .ast-font-styling-second {
@@ -5832,7 +5835,7 @@ span.select2-container.select2-container--default.select2-container--open li.sel
 }
 
 .ast-variant-select [CLASS*="-multiValue"] > div:first-child {
-  padding: 0 6px 0 0;
+  padding: 0;
 }
 
 .ast-upgrade-pro-wrap .ast-upgrade-trigger, .ast-upgrade-pro-wrap .ast-upgrade-pro-innerwrap {
@@ -6625,7 +6628,7 @@ li[ID*="accordion-section-ast-dynamic-archive-"].control-section-ast_section {
 .ast-font-styling {
 	display: flex;
 	justify-content: space-between;
-	gap: 20px;
+	gap: 15px;
 	align-items: center;
 	padding-bottom: 20px;
 	border-bottom: 1px dashed #D4D4D4;
@@ -6666,7 +6669,9 @@ li[ID*="accordion-section-ast-dynamic-archive-"].control-section-ast_section {
 .ast-font-spacing-input .ast-number-input .plus-minus-control {
 	position: absolute;
 	top: 50%;
-	left: 6px;
+	width: 14px;
+	background: #fff;
+	left: 1px;
 	transform: translateY(-50%);
 }
 
@@ -6674,9 +6679,9 @@ li[ID*="accordion-section-ast-dynamic-archive-"].control-section-ast_section {
 .ast-font-spacing-input .ast-number-input .plus-minus-control .dashicons {
 	font-size: 10px;
 	color: #9CA3AF;
-	width: 10px;
-    height: 10px;
-    display: inherit;
+	width: 12px;
+	height: 10px;
+	display: inherit;
 	cursor: pointer;
 }
 
@@ -6710,6 +6715,7 @@ div .ast-field-settings-modal .customize-control-ast-font-extras {
 
 .ast-font-unit-wrapper .active {
 	color: #0284c7;
+	cursor: default;
 }
 
 .ast-font-styling-second {
@@ -9007,7 +9013,7 @@ span.select2-container.select2-container--default.select2-container--open li.sel
 }
 
 .ast-variant-select [CLASS*="-multiValue"] > div:first-child {
-  padding: 0 6px 0 0;
+  padding: 0;
 }
 
 .ast-upgrade-pro-wrap .ast-upgrade-trigger, .ast-upgrade-pro-wrap .ast-upgrade-pro-innerwrap {

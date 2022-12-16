@@ -195,7 +195,7 @@ function astra_hb_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 
 		$css_output_tablet = array(
 
-			$mobile_selector                             => array(
+			$mobile_selector . ' .menu-item > .menu-link'                            => array(
 				'font-size' => astra_get_font_css_value( $menu_font_size_tablet, $menu_font_size_tablet_unit ),
 			),
 			$mobile_selector . ' .main-header-menu .menu-item > .menu-link' => array(
@@ -247,7 +247,7 @@ function astra_hb_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 
 		$css_output_mobile = array(
 
-			$mobile_selector                              => array(
+			$mobile_selector . ' .menu-item > .menu-link'                             => array(
 				'font-size' => astra_get_font_css_value( $menu_font_size_mobile, $menu_font_size_mobile_unit ),
 			),
 			$mobile_selector . ' .main-header-menu .menu-item > .menu-link' => array(

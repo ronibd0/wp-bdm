@@ -75,7 +75,7 @@
 .ast-font-styling {
 	display: flex;
 	justify-content: space-between;
-	gap: 20px;
+	gap: 15px;
 	align-items: center;
 	padding-bottom: 20px;
 	border-bottom: 1px dashed #D4D4D4;
@@ -116,7 +116,9 @@
 .ast-font-spacing-input .ast-number-input .plus-minus-control {
 	position: absolute;
 	top: 50%;
-	right: 6px;
+	width: 14px;
+	background: #fff;
+	right: 1px;
 	transform: translateY(-50%);
 }
 
@@ -124,9 +126,9 @@
 .ast-font-spacing-input .ast-number-input .plus-minus-control .dashicons {
 	font-size: 10px;
 	color: #9CA3AF;
-	width: 10px;
-    height: 10px;
-    display: inherit;
+	width: 12px;
+	height: 10px;
+	display: inherit;
 	cursor: pointer;
 }
 
@@ -160,6 +162,7 @@ div .ast-field-settings-modal .customize-control-ast-font-extras {
 
 .ast-font-unit-wrapper .active {
 	color: #0284c7;
+	cursor: default;
 }
 
 .ast-font-styling-second {

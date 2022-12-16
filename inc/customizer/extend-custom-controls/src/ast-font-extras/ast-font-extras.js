@@ -33,7 +33,7 @@ const FontHeightComponent = ( props ) => {
 			newProps[ 'text-decoration' ] = data.value;
 		}
 		if ( data.type === 'line-height' ) {
-			newProps[ 'line-height' ] = +data.value;
+			newProps[ 'line-height' ] = data.value;
 		}
 		if ( data.type === 'line-height-unit' ) {
 			newProps[ 'line-height-unit' ] = data.value;
