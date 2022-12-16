@@ -1,14 +1,13 @@
 .ast-customizer-font-varient-wrap .ast-multi-select__value-container {
     overflow-x: hidden;
     flex-wrap: nowrap;
-    height: 32px;
     padding: 2px 5px;
 }
 
 .ast-customizer-font-varient-wrap .ast-multi-select__multi-value {
     margin-top: 0;
     margin-bottom: 0;
-    font-size: 12px; 
+    font-size: 12px;
     padding: 2px 2px 2px 2px;
     min-width: auto;
     color: #4B5563;
@@ -37,8 +36,11 @@
 }
 
 .ast-customizer-font-varient-wrap .ast-multi-select__control {
-    position: relative;
-    min-height: 32px;
+	position: relative;
+    max-height: 32px;
+    display: inline-flex;
+    width: 100%;
+    align-content: center;
 }
 
 .ast-customizer-font-varient-wrap .ast-multi-select__control:after {
@@ -50,7 +52,7 @@
     z-index: 1;
 }
 
-.ast-customizer-font-varient-wrap .ast-multi-select__control:before { 
+.ast-customizer-font-varient-wrap .ast-multi-select__control:before {
     content:'';
     position: absolute;
     top: 3px;

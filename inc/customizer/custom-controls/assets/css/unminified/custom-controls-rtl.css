@@ -3450,7 +3450,7 @@ li[ID*="accordion-section-ast-dynamic-archive-"].control-section-ast_section {
 .ast-font-styling {
 	display: flex;
 	justify-content: space-between;
-	gap: 20px;
+	gap: 15px;
 	align-items: center;
 	padding-bottom: 20px;
 	border-bottom: 1px dashed #D4D4D4;
@@ -3648,14 +3648,13 @@ div .ast-field-settings-modal .customize-control-ast-font-extras {
 .ast-customizer-font-varient-wrap .ast-multi-select__value-container {
     overflow-x: hidden;
     flex-wrap: nowrap;
-    height: 32px;
     padding: 2px 5px;
 }
 
 .ast-customizer-font-varient-wrap .ast-multi-select__multi-value {
     margin-top: 0;
     margin-bottom: 0;
-    font-size: 12px; 
+    font-size: 12px;
     padding: 2px 2px 2px 2px;
     min-width: auto;
     color: #4B5563;
@@ -3684,8 +3683,11 @@ div .ast-field-settings-modal .customize-control-ast-font-extras {
 }
 
 .ast-customizer-font-varient-wrap .ast-multi-select__control {
-    position: relative;
-    min-height: 32px;
+	position: relative;
+    max-height: 32px;
+    display: inline-flex;
+    width: 100%;
+    align-content: center;
 }
 
 .ast-customizer-font-varient-wrap .ast-multi-select__control:after {
@@ -3697,7 +3699,7 @@ div .ast-field-settings-modal .customize-control-ast-font-extras {
     z-index: 1;
 }
 
-.ast-customizer-font-varient-wrap .ast-multi-select__control:before { 
+.ast-customizer-font-varient-wrap .ast-multi-select__control:before {
     content:'';
     position: absolute;
     top: 3px;
@@ -3709,6 +3711,7 @@ div .ast-field-settings-modal .customize-control-ast-font-extras {
     pointer-events: none;
     z-index: 1;
 }
+
 span.customize-control-title.ast-group-section-title {
     margin-bottom: 4px;
     font-weight: 600;
@@ -6826,14 +6829,13 @@ div .ast-field-settings-modal .customize-control-ast-font-extras {
 .ast-customizer-font-varient-wrap .ast-multi-select__value-container {
     overflow-x: hidden;
     flex-wrap: nowrap;
-    height: 32px;
     padding: 2px 5px;
 }
 
 .ast-customizer-font-varient-wrap .ast-multi-select__multi-value {
     margin-top: 0;
     margin-bottom: 0;
-    font-size: 12px; 
+    font-size: 12px;
     padding: 2px 2px 2px 2px;
     min-width: auto;
     color: #4B5563;
@@ -6862,8 +6864,11 @@ div .ast-field-settings-modal .customize-control-ast-font-extras {
 }
 
 .ast-customizer-font-varient-wrap .ast-multi-select__control {
-    position: relative;
-    min-height: 32px;
+	position: relative;
+    max-height: 32px;
+    display: inline-flex;
+    width: 100%;
+    align-content: center;
 }
 
 .ast-customizer-font-varient-wrap .ast-multi-select__control:after {
@@ -6875,7 +6880,7 @@ div .ast-field-settings-modal .customize-control-ast-font-extras {
     z-index: 1;
 }
 
-.ast-customizer-font-varient-wrap .ast-multi-select__control:before { 
+.ast-customizer-font-varient-wrap .ast-multi-select__control:before {
     content:'';
     position: absolute;
     top: 3px;
@@ -6887,6 +6892,7 @@ div .ast-field-settings-modal .customize-control-ast-font-extras {
     pointer-events: none;
     z-index: 1;
 }
+
 span.customize-control-title.ast-group-section-title {
     margin-bottom: 4px;
     font-weight: 600;
