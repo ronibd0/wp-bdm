@@ -1257,12 +1257,21 @@ function astra_theme_background_updater_4_0_0() {
 			/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 
 			/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-			$theme_options[ 'ast-dynamic-archive-' . esc_attr( $post_type ) . '-title-text-transform' ] = ! empty( $theme_options['text-transform-archive-summary-title'] ) ? $theme_options['text-transform-archive-summary-title'] : 'capitalize';
+			$archive_dynamic_line_height = ! empty( $theme_options['line-height-archive-summary-title'] ) ? $theme_options['line-height-archive-summary-title'] : '';
 			/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 
 			/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-			$theme_options[ 'ast-dynamic-archive-' . esc_attr( $post_type ) . '-title-line-height' ] = ! empty( $theme_options['line-height-archive-summary-title'] ) ? $theme_options['line-height-archive-summary-title'] : '';
+			$archive_dynamic_text_transform = ! empty( $theme_options['text-transform-archive-summary-title'] ) ? $theme_options['text-transform-archive-summary-title'] : 'capitalize';
 			/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+
+			$theme_options[ 'ast-dynamic-archive-' . esc_attr( $post_type ) . '-title-font-extras' ] = array(
+				'line-height'         => $archive_dynamic_line_height,
+				'line-height-unit'    => 'em',
+				'letter-spacing'      => '',
+				'letter-spacing-unit' => 'px',
+				'text-transform'      => $archive_dynamic_text_transform,
+				'text-decoration'     => '',
+			);
 
 			// Archive title colors support.
 			/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
@@ -1292,12 +1301,21 @@ function astra_theme_background_updater_4_0_0() {
 			/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 
 			/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-			$theme_options[ 'ast-dynamic-single-' . esc_attr( $post_type ) . '-title-text-transform' ] = ! empty( $theme_options['text-transform-entry-title'] ) ? $theme_options['text-transform-entry-title'] : 'capitalize';
+			$single_dynamic_line_height = ! empty( $theme_options['line-height-entry-title'] ) ? $theme_options['line-height-entry-title'] : '';
 			/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 
 			/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-			$theme_options[ 'ast-dynamic-single-' . esc_attr( $post_type ) . '-title-line-height' ] = ! empty( $theme_options['line-height-entry-title'] ) ? $theme_options['line-height-entry-title'] : '';
+			$single_dynamic_text_transform = ! empty( $theme_options['text-transform-entry-title'] ) ? $theme_options['text-transform-entry-title'] : 'capitalize';
 			/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+
+			$theme_options[ 'ast-dynamic-single-' . esc_attr( $post_type ) . '-title-font-extras' ] = array(
+				'line-height'         => $single_dynamic_line_height,
+				'line-height-unit'    => 'em',
+				'letter-spacing'      => '',
+				'letter-spacing-unit' => 'px',
+				'text-transform'      => $single_dynamic_text_transform,
+				'text-decoration'     => '',
+			);
 		}
 
 		// Set page specific structure, as page only has featured image at top & title beneath to it, hardcoded writing it here.
