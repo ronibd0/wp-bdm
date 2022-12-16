@@ -509,7 +509,7 @@ function astra_load_modern_block_editor_ui( $dynamic_css ) {
 	if ( $v4_block_editor_compat ) {
 		$dynamic_css .= '
 			@media(max-width: ' . $tablet_breakpoint . 'px) {	
-				.ast-plain-container .entry-header {
+				.ast-plain-container .site-main .entry-header {
 					margin-top: 1.5em;
 				}
 			}
