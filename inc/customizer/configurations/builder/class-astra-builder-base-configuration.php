@@ -235,12 +235,12 @@ final class Astra_Builder_Base_Configuration {
 	 */
 	public static function prepare_visibility_tab( $_section, $builder_type = 'header' ) {
 
-		$astra_options = Astra_Theme_Options::get_astra_options();
+
 
 		$configs = array();
 
 		if ( 'footer' === $builder_type ) {
-
+			$astra_options = Astra_Theme_Options::get_astra_options();
 			/**
 			 * Option: Visibility
 			 */
@@ -249,9 +249,9 @@ final class Astra_Builder_Base_Configuration {
 				'default'   => astra_get_option(
 					'' . $_section . '-visibility-responsive',
 					array(
-						'desktop' => ! isset( $astra_options[ '' . $_section . '-visibility-responsive' ] ) && isset( $astra_options[ '' . $_section . '-hide-desktop' ] ) ? 0 === $astra_options[ '' . $_section . '-hide-desktop' ] ? 1 : 0 : 1,
-						'tablet'  => ! isset( $astra_options[ '' . $_section . '-visibility-responsive' ] ) && isset( $astra_options[ '' . $_section . '-hide-tablet' ] ) ? 0 === $astra_options[ '' . $_section . '-hide-tablet' ] ? 1 : 0 : 1,
-						'mobile'  => ! isset( $astra_options[ '' . $_section . '-visibility-responsive' ] ) && isset( $astra_options[ '' . $_section . '-hide-mobile' ] ) ? 0 === $astra_options[ '' . $_section . '-hide-mobile' ] ? 1 : 0 : 1,
+						'desktop' => ! isset( $astra_options[ '' . $_section . '-visibility-responsive' ] ) && isset( $astra_options[ '' . $_section . '-hide-desktop' ] ) ? ( 0 === $astra_options[ '' . $_section . '-hide-desktop' ] ? 1 : 0 ) : 1,
+						'tablet'  => ! isset( $astra_options[ '' . $_section . '-visibility-responsive' ] ) && isset( $astra_options[ '' . $_section . '-hide-tablet' ] ) ? ( 0 === $astra_options[ '' . $_section . '-hide-tablet' ] ? 1 : 0 ) : 1,
+						'mobile'  => ! isset( $astra_options[ '' . $_section . '-visibility-responsive' ] ) && isset( $astra_options[ '' . $_section . '-hide-mobile' ] ) ? ( 0 === $astra_options[ '' . $_section . '-hide-mobile' ] ? 1 : 0 ) : 1,
 					)
 				),
 				'type'      => 'control',

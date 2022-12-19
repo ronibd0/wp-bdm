@@ -1572,7 +1572,8 @@ function astra_prepare_social_icon_defaults( $defaults, $index ) {
  */
 function astra_prepare_widget_defaults( $defaults, $index ) {
 
-	$astra_options = Astra_Theme_Options::get_astra_options();
+	$astra_options                       = Astra_Theme_Options::get_astra_options();
+	$apply_new_default_color_typo_values = Astra_Dynamic_CSS::astra_check_default_color_typo();
 
 	// Widget Header defaults.
 
@@ -1701,8 +1702,8 @@ function astra_prepare_widget_defaults( $defaults, $index ) {
 
 	$defaults[ 'footer-widget-alignment-' . $index ] = array(
 		'desktop' => 'left',
-		'tablet'  => 'center',
-		'mobile'  => 'center',
+		'tablet'  => $apply_new_default_color_typo_values ? '' : 'center',
+		'mobile'  => $apply_new_default_color_typo_values ? '' : 'center',
 	);
 
 	$defaults[ 'sidebar-widgets-footer-widget-' . $index . '-margin' ] = Astra_Builder_Helper::$default_responsive_spacing;
