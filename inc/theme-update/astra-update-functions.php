@@ -1237,7 +1237,8 @@ function astra_theme_background_updater_4_0_0() {
 			$theme_options[ 'ast-archive-' . esc_attr( $post_type ) . '-title' ] = true;
 
 			// Single layout compatibilities.
-			$theme_options[ 'ast-single-' . esc_attr( $post_type ) . '-title' ] = true;
+			$single_banner_layout = ( 'product' === $post_type ) ? false : true;
+			$theme_options[ 'ast-single-' . esc_attr( $post_type ) . '-title' ] = $single_banner_layout;
 
 			// BG color support.
 			$theme_options[ 'ast-dynamic-archive-' . esc_attr( $post_type ) . '-banner-image-type' ] = ! empty( $theme_options['archive-summary-box-bg-color'] ) ? 'custom' : 'none';

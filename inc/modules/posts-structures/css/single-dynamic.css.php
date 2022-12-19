@@ -44,9 +44,6 @@ function astra_post_single_structure_dynamic_css( $dynamic_css, $dynamic_css_fil
 
 	if ( $layout_2_active ) {
 		$selector = '.ast-single-entry-banner[data-post-type="' . $current_post_type . '"]';
-	} elseif ( 'layout-1' === $layout_type && 'product' === $current_post_type ) {
-		// For specific post types layout-1 is different, that's why adding this compatibility. Ex: Single Product.
-		$selector = '.ast-single-entry-banner[data-post-type="' . $current_post_type . '"]';
 	} else {
 		$selector = '.entry-header';
 	}

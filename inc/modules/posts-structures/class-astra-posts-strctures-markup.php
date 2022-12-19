@@ -121,37 +121,42 @@ class Astra_Posts_Strctures_Markup {
 
 				remove_filter( 'astra_the_blog_home_page_title', array( $this, 'astra_archive_custom_title' ) );
 			}
-		} elseif ( class_exists( 'WooCommerce' ) && ( is_shop() || is_product_taxonomy() ) ) {
-			// For custom title page.
-			if ( is_shop() ) {
-				add_filter( 'woocommerce_page_title', array( $this, 'astra_archive_custom_title' ) );
-			}
-			add_filter( 'woocommerce_show_page_title', '__return_false' );
+		} elseif ( class_exists( 'WooCommerce' ) ) {
+			if ( is_shop() || is_product_taxonomy() ) {
+				// For custom title page.
+				if ( is_shop() ) {
+					add_filter( 'woocommerce_page_title', array( $this, 'astra_archive_custom_title' ) );
+				}
+				add_filter( 'woocommerce_show_page_title', '__return_false' );
 
-			remove_action(
-				'woocommerce_before_main_content',
-				'woocommerce_breadcrumb',
-				20
-			);
+				remove_action(
+					'woocommerce_before_main_content',
+					'woocommerce_breadcrumb',
+					20
+				);
 
-			remove_action(
-				'woocommerce_archive_description',
-				'woocommerce_taxonomy_archive_description'
-			);
+				remove_action(
+					'woocommerce_archive_description',
+					'woocommerce_taxonomy_archive_description'
+				);
 
-			remove_action(
-				'woocommerce_archive_description',
-				'woocommerce_product_archive_description'
-			);
+				remove_action(
+					'woocommerce_archive_description',
+					'woocommerce_product_archive_description'
+				);
 
-			do_action( 'astra_before_archive_' . $post_type . '_banner_content' );
+				do_action( 'astra_before_archive_' . $post_type . '_banner_content' );
 
-			get_template_part( 'template-parts/archive-banner' );
+				get_template_part( 'template-parts/archive-banner' );
 
-			do_action( 'astra_after_archive_' . $post_type . '_banner_content' );
+				do_action( 'astra_after_archive_' . $post_type . '_banner_content' );
 
-			if ( is_shop() ) {
-				remove_filter( 'woocommerce_page_title', array( $this, 'astra_archive_custom_title' ) );
+				if ( is_shop() ) {
+					remove_filter( 'woocommerce_page_title', array( $this, 'astra_archive_custom_title' ) );
+				}
+			} elseif( 'single' === $type && 'product' === $post_type && 'layout-1' === $layout_type ) {
+				// Adding layout 1 support to Product post type for single layout.
+				add_action( 'astra_primary_content_top', array( $this, 'astra_force_add_layout_1' ) );
 			}
 		} elseif ( 'archive' === $type ) {
 			$is_post_type_archive = is_post_type_archive( $post_type ) ? true : false;
@@ -170,6 +175,26 @@ class Astra_Posts_Strctures_Markup {
 				remove_filter( 'get_the_archive_title', array( $this, 'astra_archive_custom_title' ) );
 			}
 		}
+	}
+
+	/**
+	 * Enable layout 1 for some cases. Ex. WC Product.
+	 *
+	 * @since x.x.x
+	 * @return void
+	 */
+	public function astra_force_add_layout_1() {
+		?>
+			<header class="entry-header <?php astra_entry_header_class(); ?>">
+				<?php
+					astra_single_header_top();
+
+					astra_banner_elements_order();
+
+					astra_single_header_bottom();
+				?>
+			</header> <!-- .entry-header -->
+		<?php
 	}
 }
 
