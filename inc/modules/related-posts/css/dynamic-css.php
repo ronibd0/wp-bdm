@@ -168,7 +168,6 @@ function astra_related_posts_css( $dynamic_css ) {
 				'text-transform'  => esc_attr( $related_post_content_text_transform ),
 				'text-decoration' => esc_attr( $related_post_content_text_decoration ),
 				'letter-spacing'  => esc_attr( $related_post_content_letter_spacing ),
-				'color'           => esc_attr( $related_posts_meta_color ),
 				'color'           => esc_attr( $related_post_text_color ),
 			),
 		);
