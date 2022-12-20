@@ -55,7 +55,7 @@ if ( ! class_exists( 'Astra_Content_Typo_Configs' ) ) {
 					'default'     => astra_get_option( 'font-size-h1' ),
 					'transport'   => 'postMessage',
 					'priority'    => 6,
-					'title'       => __( 'Size', 'astra' ),
+					'title'       => __( 'Font Size', 'astra' ),
 					'control'     => 'ast-responsive-slider',
 					'suffix'      => array( 'px', 'em' ),
 					'input_attrs' => array(
@@ -95,7 +95,7 @@ if ( ! class_exists( 'Astra_Content_Typo_Configs' ) ) {
 					'default'     => astra_get_option( 'font-size-h2' ),
 					'transport'   => 'postMessage',
 					'priority'    => 11,
-					'title'       => __( 'Size', 'astra' ),
+					'title'       => __( 'Font Size', 'astra' ),
 					'control'     => 'ast-responsive-slider',
 					'suffix'      => array( 'px', 'em' ),
 					'input_attrs' => array(
@@ -135,7 +135,7 @@ if ( ! class_exists( 'Astra_Content_Typo_Configs' ) ) {
 					'priority'    => 16,
 					'default'     => astra_get_option( 'font-size-h3' ),
 					'transport'   => 'postMessage',
-					'title'       => __( 'Size', 'astra' ),
+					'title'       => __( 'Font Size', 'astra' ),
 					'control'     => 'ast-responsive-slider',
 					'suffix'      => array( 'px', 'em' ),
 					'input_attrs' => array(
@@ -175,7 +175,7 @@ if ( ! class_exists( 'Astra_Content_Typo_Configs' ) ) {
 					'default'     => astra_get_option( 'font-size-h4' ),
 					'transport'   => 'postMessage',
 					'priority'    => 21,
-					'title'       => __( 'Size', 'astra' ),
+					'title'       => __( 'Font Size', 'astra' ),
 					'control'     => 'ast-responsive-slider',
 					'suffix'      => array( 'px', 'em' ),
 					'input_attrs' => array(
@@ -215,7 +215,7 @@ if ( ! class_exists( 'Astra_Content_Typo_Configs' ) ) {
 					'default'     => astra_get_option( 'font-size-h5' ),
 					'transport'   => 'postMessage',
 					'priority'    => 26,
-					'title'       => __( 'Size', 'astra' ),
+					'title'       => __( 'Font Size', 'astra' ),
 					'control'     => 'ast-responsive-slider',
 					'suffix'      => array( 'px', 'em' ),
 					'input_attrs' => array(
@@ -255,7 +255,7 @@ if ( ! class_exists( 'Astra_Content_Typo_Configs' ) ) {
 					'default'     => astra_get_option( 'font-size-h6' ),
 					'transport'   => 'postMessage',
 					'priority'    => 31,
-					'title'       => __( 'Size', 'astra' ),
+					'title'       => __( 'Font Size', 'astra' ),
 					'control'     => 'ast-responsive-slider',
 					'suffix'      => array( 'px', 'em' ),
 					'input_attrs' => array(

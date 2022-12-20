@@ -110,7 +110,7 @@ class Astra_Heading_Colors_Loader {
 		$defaults['font-family-h1'] = 'inherit';
 		$defaults['font-weight-h1'] = 'inherit';
 		$defaults['font-extras-h1'] = array(
-			'line-height'         => ! isset( $astra_options['font-extras-h1'] ) && isset( $astra_options['line-height-h1'] ) ? $astra_options['line-height-h1'] : '',
+			'line-height'         => ! isset( $astra_options['font-extras-h1'] ) && isset( $astra_options['line-height-h1'] ) ? $astra_options['line-height-h1'] : '1.4',
 			'line-height-unit'    => 'em',
 			'letter-spacing'      => '',
 			'letter-spacing-unit' => 'px',
@@ -134,7 +134,7 @@ class Astra_Heading_Colors_Loader {
 		$defaults['font-family-h3'] = 'inherit';
 		$defaults['font-weight-h3'] = 'inherit';
 		$defaults['font-extras-h3'] = array(
-			'line-height'         => ! isset( $astra_options['font-extras-h3'] ) && isset( $astra_options['line-height-h3'] ) ? $astra_options['line-height-h3'] : '',
+			'line-height'         => ! isset( $astra_options['font-extras-h3'] ) && isset( $astra_options['line-height-h3'] ) ? $astra_options['line-height-h3'] : '1.2',
 			'line-height-unit'    => 'em',
 			'letter-spacing'      => '',
 			'letter-spacing-unit' => 'px',
@@ -146,7 +146,7 @@ class Astra_Heading_Colors_Loader {
 		$defaults['font-family-h4'] = 'inherit';
 		$defaults['font-weight-h4'] = 'inherit';
 		$defaults['font-extras-h4'] = array(
-			'line-height'         => ! isset( $astra_options['font-extras-h4'] ) && isset( $astra_options['line-height-h4'] ) ? $astra_options['line-height-h4'] : '',
+			'line-height'         => ! isset( $astra_options['font-extras-h4'] ) && isset( $astra_options['line-height-h4'] ) ? $astra_options['line-height-h4'] : '1.2',
 			'line-height-unit'    => 'em',
 			'letter-spacing'      => '',
 			'letter-spacing-unit' => 'px',
@@ -158,7 +158,7 @@ class Astra_Heading_Colors_Loader {
 		$defaults['font-family-h5'] = 'inherit';
 		$defaults['font-weight-h5'] = 'inherit';
 		$defaults['font-extras-h5'] = array(
-			'line-height'         => ! isset( $astra_options['font-extras-h5'] ) && isset( $astra_options['line-height-h5'] ) ? $astra_options['line-height-h5'] : '',
+			'line-height'         => ! isset( $astra_options['font-extras-h5'] ) && isset( $astra_options['line-height-h5'] ) ? $astra_options['line-height-h5'] : '1.2',
 			'line-height-unit'    => 'em',
 			'letter-spacing'      => '',
 			'letter-spacing-unit' => 'px',
@@ -170,7 +170,7 @@ class Astra_Heading_Colors_Loader {
 		$defaults['font-family-h6'] = 'inherit';
 		$defaults['font-weight-h6'] = 'inherit';
 		$defaults['font-extras-h6'] = array(
-			'line-height'         => ! isset( $astra_options['font-extras-h6'] ) && isset( $astra_options['line-height-h6'] ) ? $astra_options['line-height-h6'] : '',
+			'line-height'         => ! isset( $astra_options['font-extras-h6'] ) && isset( $astra_options['line-height-h6'] ) ? $astra_options['line-height-h6'] : '1.25',
 			'line-height-unit'    => 'em',
 			'letter-spacing'      => '',
 			'letter-spacing-unit' => 'px',

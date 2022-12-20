@@ -50,7 +50,7 @@ const UpgradeToPro = () => {
 					{getAstraProTitle()}
 				</button>
 			</div>
-			<div className="absolute top-4 right-4 leading-4 py-0.5 px-1 text-[0.625rem] text-white bg-slate-800 rounded-[0.1875rem]">
+			<div className="absolute top-4 right-4 leading-[0.625rem] font-semibold text-[0.625rem] text-white bg-slate-800 rounded-[0.1875rem] py-[0.1875rem] px-1.5">
 				{__('PRO', 'astra')}
 			</div>
 		</div>

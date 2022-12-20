@@ -75,7 +75,7 @@
 .ast-font-styling {
 	display: flex;
 	justify-content: space-between;
-	gap: 20px;
+	gap: 15px;
 	align-items: center;
 	padding-bottom: 20px;
 	border-bottom: 1px dashed #D4D4D4;
@@ -98,7 +98,7 @@
 
 .ast-font-extras-wrapper .ast-font-extras-input input, .ast-font-spacing-wrapper .ast-font-spacing-input input {
 	padding: 0;
-	padding-left: 26px;
+	padding-left: 22px;
 	border: none;
 	min-height: 32px;
 	border-radius: 3px;
@@ -108,7 +108,7 @@
 .ast-font-extras-wrapper .ast-font-extras-input svg, .ast-font-spacing-wrapper .ast-font-spacing-input svg {
 	position: absolute;
 	top: 50%;
-	left: 6px;
+	left: 5px;
 	transform: translateY(-50%);
 }
 
@@ -116,7 +116,9 @@
 .ast-font-spacing-input .ast-number-input .plus-minus-control {
 	position: absolute;
 	top: 50%;
-	right: 6px;
+	width: 14px;
+	background: #fff;
+	right: 1px;
 	transform: translateY(-50%);
 }
 
@@ -124,9 +126,9 @@
 .ast-font-spacing-input .ast-number-input .plus-minus-control .dashicons {
 	font-size: 10px;
 	color: #9CA3AF;
-	width: 10px;
-    height: 10px;
-    display: inherit;
+	width: 12px;
+	height: 10px;
+	display: inherit;
 	cursor: pointer;
 }
 
@@ -146,11 +148,10 @@ div .ast-field-settings-modal .customize-control-ast-font-extras {
 .ast-font-unit-wrapper {
 	display: flex;
 	gap: 6px;
-	font-size: 12px;
+	font-size: 11px;
 	font-weight: 500;
 	color: #9CA3AF;
 }
-
 .ast-font-unit-wrapper span {
 	cursor: pointer;
 }
@@ -161,6 +162,7 @@ div .ast-field-settings-modal .customize-control-ast-font-extras {
 
 .ast-font-unit-wrapper .active {
 	color: #0284c7;
+	cursor: default;
 }
 
 .ast-font-styling-second {

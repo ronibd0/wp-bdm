@@ -80,7 +80,7 @@ export const settingsGroupControl = wp.customize.astraControl.extend( {
 		jQuery( '.wp-full-overlay-sidebar-content, .wp-picker-container' ).click( function( e ) {
 			let id = undefined !== e.target ? e.target.id : '',
 				ignoreCloseTrigger = id.indexOf( 'react-select-' ) != -1 ? true  : false;
-			if ( ! ignoreCloseTrigger && ! jQuery( e.target ).closest( '.ast-field-settings-modal' ).length ) {
+			if ( ! ignoreCloseTrigger && ! jQuery( e.target ).closest( '.ast-field-settings-modal' ).length && ! jQuery( e.target ).closest( '.ast-multi-select__multi-value__remove' ).length ) {
 				jQuery( '.ast-adv-toggle-icon.open' ).trigger( 'click' );
 			}
 		});
