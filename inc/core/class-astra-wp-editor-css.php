@@ -335,11 +335,16 @@ class Astra_WP_Editor_CSS {
 		$post_type                           = strval( get_post_type() );
 		$site_title_font_family              = astra_get_option( 'ast-dynamic-single-' . esc_attr( $post_type ) . '-title-font-family', astra_get_option( 'ast-dynamic-single-' . esc_attr( $post_type ) . '-text-font-family' ) );
 		$site_title_font_weight              = astra_get_option( 'ast-dynamic-single-' . esc_attr( $post_type ) . '-title-font-weight', astra_get_option( 'ast-dynamic-single-' . esc_attr( $post_type ) . '-text-font-weight' ) );
-		$site_title_line_height              = astra_get_option( 'ast-dynamic-single-' . esc_attr( $post_type ) . '-title-line-height', astra_get_option( 'ast-dynamic-single-' . esc_attr( $post_type ) . '-text-line-height' ) );
 		$site_title_font_size                = astra_get_option( 'ast-dynamic-single-' . esc_attr( $post_type ) . '-title-font-size' );
 		$site_title_font_size_fallback       = astra_get_option( 'ast-dynamic-single-' . esc_attr( $post_type ) . '-text-font-size', Astra_Posts_Structure_Loader::get_customizer_default( 'title-font-size' ) );
-		$site_title_text_transform           = astra_get_option( 'ast-dynamic-single-' . esc_attr( $post_type ) . '-title-text-transform' );
 		$site_title_color                    = astra_get_option( 'ast-dynamic-single-' . esc_attr( $post_type ) . '-banner-title-color', astra_get_option( 'ast-dynamic-single-' . esc_attr( $post_type ) . '-banner-text-color' ) );
+		$site_title_font_extras              = astra_get_option( 'ast-dynamic-single-' . esc_attr( $post_type ) . '-text-font-extras' );
+		$site_text_decoration                = astra_get_font_extras( $site_title_font_extras, 'text-decoration' );
+		$site_text_line_height               = astra_get_font_extras( $site_title_font_extras, 'line-height', 'line-height-unit');
+		$site_title_text_transform           = astra_get_font_extras( astra_get_option( 'ast-dynamic-single-' . esc_attr( $post_type ) . '-title-font-extras', $site_title_font_extras ), 'text-transform' );
+		$site_title_line_height              = astra_get_font_extras( astra_get_option( 'ast-dynamic-single-' . esc_attr( $post_type ) . '-title-font-extras', $site_title_font_extras ), 'line-height', 'line-height-unit' );
+		$site_title_spacing                  = astra_get_font_extras( astra_get_option( 'ast-dynamic-single-' . esc_attr( $post_type ) . '-title-font-extras', $site_title_font_extras ), 'letter-spacing', 'letter-spacing-unit' );
+		$site_title_decoration               = astra_get_font_extras( astra_get_option( 'ast-dynamic-single-' . esc_attr( $post_type ) . '-title-font-extras', $site_title_font_extras ), 'text-decoration' );
 		$is_widget_title_support_font_weight = Astra_Dynamic_CSS::support_font_css_to_widget_and_in_editor();
 		$font_weight_prop                    = ( $is_widget_title_support_font_weight ) ? 'inherit' : 'normal';
 
@@ -601,12 +606,19 @@ class Astra_WP_Editor_CSS {
 		 * Desktop site title.
 		 */
 		$desktop_css['.editor-styles-wrapper .edit-post-visual-editor__post-title-wrapper > h1'] = array(
-			'font-size'      => astra_responsive_font( isset( $font_size_desktop_fallback ) ? $font_size_desktop_fallback : $site_title_font_size, 'desktop' ),
-			'font-weight'    => astra_get_css_value( $site_title_font_weight, 'font' ),
-			'font-family'    => astra_get_css_value( $site_title_font_family, 'font', $body_font_family ),
-			'line-height'    => esc_attr( $site_title_line_height ),
-			'text-transform' => esc_attr( $site_title_text_transform ),
-			'color'          => esc_attr( $site_title_color ),
+			'font-size'       => astra_responsive_font( isset( $font_size_desktop_fallback ) ? $font_size_desktop_fallback : $site_title_font_size, 'desktop' ),
+			'font-weight'     => astra_get_css_value( $site_title_font_weight, 'font' ),
+			'font-family'     => astra_get_css_value( $site_title_font_family, 'font', $body_font_family ),
+			'line-height'     => esc_attr( $site_title_line_height ),
+			'text-transform'  => esc_attr( $site_title_text_transform ),
+			'color'           => esc_attr( $site_title_color ),
+			'letter-spacing'  => esc_attr( $site_title_spacing ),
+			'text-decoration' => esc_attr( $site_title_decoration ),
+		);
+
+		$desktop_css['.editor-styles-wrapper .edit-post-visual-editor__post-title-wrapper'] = array(
+			'text-decoration' => esc_attr( $site_text_decoration ),
+			'line-height'     => esc_attr( $site_text_line_height ),
 		);
 
 		/**
