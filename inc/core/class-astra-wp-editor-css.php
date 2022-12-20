@@ -337,7 +337,7 @@ class Astra_WP_Editor_CSS {
 		$site_title_font_weight              = astra_get_option( 'ast-dynamic-single-' . esc_attr( $post_type ) . '-title-font-weight', astra_get_option( 'ast-dynamic-single-' . esc_attr( $post_type ) . '-text-font-weight' ) );
 		$site_title_line_height              = astra_get_option( 'ast-dynamic-single-' . esc_attr( $post_type ) . '-title-line-height', astra_get_option( 'ast-dynamic-single-' . esc_attr( $post_type ) . '-text-line-height' ) );
 		$site_title_font_size                = astra_get_option( 'ast-dynamic-single-' . esc_attr( $post_type ) . '-title-font-size' );
-		$site_title_font_size_fallback       = astra_get_option( 'ast-dynamic-single-' . esc_attr( $post_type ) . '-text-font-size', astra_get_option( 'font-size-page-title' ) );
+		$site_title_font_size_fallback       = astra_get_option( 'ast-dynamic-single-' . esc_attr( $post_type ) . '-text-font-size', Astra_Posts_Structure_Loader::get_customizer_default( 'title-font-size' ) );
 		$site_title_text_transform           = astra_get_option( 'ast-dynamic-single-' . esc_attr( $post_type ) . '-title-text-transform' );
 		$site_title_color                    = astra_get_option( 'ast-dynamic-single-' . esc_attr( $post_type ) . '-banner-title-color', astra_get_option( 'ast-dynamic-single-' . esc_attr( $post_type ) . '-banner-text-color' ) );
 		$is_widget_title_support_font_weight = Astra_Dynamic_CSS::support_font_css_to_widget_and_in_editor();
@@ -357,13 +357,13 @@ class Astra_WP_Editor_CSS {
 			$site_title_line_height = $headings_line_height;
 		}
 		if ( 'inherit' == $site_title_font_weight || '' == $site_title_font_weight ) {
-			$site_title_font_weight = 'normal';
+			$site_title_font_weight = Astra_Posts_Structure_Loader::get_customizer_default( 'title-font-weight' );
 		}
 		if ( '' == $site_title_font_size ) {
 			$site_title_font_size = $site_title_font_size_fallback;
 		}
 		if ( '' === $site_title_font_size['desktop'] ) {
-			$font_size_desktop_fallback = astra_get_option( 'font-size-page-title' );
+			$font_size_desktop_fallback = Astra_Posts_Structure_Loader::get_customizer_default( 'title-font-size' );
 		}
 
 		// check the selection color in-case of empty/no theme color.

@@ -4101,6 +4101,15 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			}
 			';
 
+			if ( defined( 'CFVSW_VER' ) ) {
+				$sidebar_static_css .= '
+					#secondary .cfvsw-filters li{
+						margin-bottom: 0;
+						margin-top: 0;
+					}
+				';
+			}
+		
 			$sidebar_static_css .= '
 				@media (min-width: 993px) {
 					.ast-left-sidebar #secondary {
