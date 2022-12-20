@@ -89,7 +89,7 @@ class Astra_Posts_Strctures_Markup {
 			}
 			if ( 'layout-1' === $layout_type ) {
 				// WooCommerce specific compatibility - As layout-1 support needs to add externally.
-				if( class_exists( 'WooCommerce' ) && ( is_shop() || is_product_taxonomy() ) ) {
+				if ( class_exists( 'WooCommerce' ) && ( is_shop() || is_product_taxonomy() ) ) {
 					$this->astra_woocommerce_banner_layout_1_compatibility();
 					add_action( 'astra_primary_content_top', array( $this, 'astra_force_render_banner_layout_1' ) );
 				}
@@ -138,7 +138,7 @@ class Astra_Posts_Strctures_Markup {
 			if ( is_shop() ) {
 				remove_filter( 'woocommerce_page_title', array( $this, 'astra_archive_custom_title' ) );
 			}
-		} elseif( class_exists( 'WooCommerce' ) && 'single' === $type && 'product' === $post_type && 'layout-1' === $layout_type ) {
+		} elseif ( class_exists( 'WooCommerce' ) && 'single' === $type && 'product' === $post_type && 'layout-1' === $layout_type ) {
 			// Adding layout 1 support to Product post type for single layout.
 			add_action( 'astra_primary_content_top', array( $this, 'astra_force_render_banner_layout_1' ) );
 		} elseif ( 'archive' === $type ) {
@@ -199,21 +199,28 @@ class Astra_Posts_Strctures_Markup {
 	 */
 	public function astra_force_render_banner_layout_1() {
 		$is_singular = is_singular() ? true : false;
-		if( $is_singular ) {
-			?> <header class="entry-header <?php astra_entry_header_class(); ?>"> <?php
+		if ( $is_singular ) {
+			?> <header class="entry-header <?php astra_entry_header_class(); ?>"> 
+			<?php
 			astra_single_header_top();
 		} else {
-			?> <section class="ast-archive-description"> <?php
+			?>
+			 <section class="ast-archive-description"> 
+			<?php
 			do_action( 'astra_before_archive_title' );
 		}
 
 		astra_banner_elements_order();
 
-		if( $is_singular ) {
-			?> </header> <!-- .entry-header --> <?php
+		if ( $is_singular ) {
+			?>
+			 </header> <!-- .entry-header --> 
+			<?php
 			astra_single_header_bottom();
 		} else {
-			?> </section> <?php
+			?>
+			 </section> 
+			<?php
 			do_action( 'astra_after_archive_title' );
 		}
 	}

@@ -400,9 +400,9 @@ function astra_banner_elements_order( $structure = array() ) {
 
 	$post_type = $post->post_type;
 
-	$prefix    = 'archive';
-	$structure = astra_get_option( 'ast-dynamic-' . $prefix . '-' . $post_type . '-structure', array( 'ast-dynamic-' . $prefix . '-' . $post_type . '-title', 'ast-dynamic-' . $prefix . '-' . $post_type . '-description' ) );
-	$layout_type         = astra_get_option( 'ast-dynamic-single-' . $post_type . '-layout', 'layout-1' );
+	$prefix      = 'archive';
+	$structure   = astra_get_option( 'ast-dynamic-' . $prefix . '-' . $post_type . '-structure', array( 'ast-dynamic-' . $prefix . '-' . $post_type . '-title', 'ast-dynamic-' . $prefix . '-' . $post_type . '-description' ) );
+	$layout_type = astra_get_option( 'ast-dynamic-single-' . $post_type . '-layout', 'layout-1' );
 
 	if ( is_singular() ) {
 		$prefix    = 'single';
