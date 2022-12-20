@@ -1346,10 +1346,15 @@ function astra_theme_background_updater_4_0_0() {
 		update_option( 'astra-settings', $theme_options );
 	}
 
+	// Default colors & typography flag.
+	if ( ! isset( $theme_options['update-default-color-typo'] ) ) {
+		$theme_options['update-default-color-typo'] = false;
+		update_option( 'astra-settings', $theme_options );
+	}
+
 	// Block editor experience improvements compatibility flag.
 	if ( ! isset( $theme_options['v4-block-editor-compat'] ) ) {
 		$theme_options['v4-block-editor-compat'] = false;
 		update_option( 'astra-settings', $theme_options );
 	}
-
 }

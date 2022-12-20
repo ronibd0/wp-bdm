@@ -238,14 +238,20 @@ if ( ! class_exists( 'Astra_Existing_Button_Configs' ) ) {
 					'type'        => 'sub-control',
 					'parent'      => ASTRA_THEME_SETTINGS . '[primary-header-button-text-typography]',
 					'section'     => 'section-primary-menu',
-					'control'     => 'ast-responsive',
 					'default'     => astra_get_option( 'primary-header-button-font-size' ),
+					'control'     => 'ast-responsive-slider',
+					'suffix'      => array( 'px', 'em' ),
 					'input_attrs' => array(
-						'min' => 0,
-					),
-					'units'       => array(
-						'px' => 'px',
-						'em' => 'em',
+						'px' => array(
+							'min'  => 0,
+							'step' => 1,
+							'max'  => 100,
+						),
+						'em' => array(
+							'min'  => 0,
+							'step' => 0.01,
+							'max'  => 20,
+						),
 					),
 				),
 
