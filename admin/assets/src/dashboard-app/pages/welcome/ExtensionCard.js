@@ -106,8 +106,8 @@ const ExtensionCard = ( props ) => {
 			{
 				<div
 					className={ classNames(
-						! astra_admin.pro_available ? 'text-[0.625rem] leading-[0.625rem] font-semibold text-white bg-slate-800 border border-slate-800 rounded-[0.1875rem]' : 'self-center',
-						( astra_admin.pro_available && ! condition ) ? 'relative inline-flex flex-shrink-0 py-[0.1875rem] px-1.5 opacity-30 pointer-events-none' : 'relative inline-flex flex-shrink-0 py-[0.1875rem] px-1.5'
+						! astra_admin.pro_available ? 'text-[0.625rem] leading-[1rem] font-medium text-white bg-slate-800 border border-slate-800 rounded-[0.1875rem]' : 'self-center',
+						( astra_admin.pro_available && ! condition ) ? 'relative inline-flex flex-shrink-0 py-[0rem] px-1.5 opacity-30 pointer-events-none' : 'relative inline-flex flex-shrink-0 py-[0rem] px-1.5'
 					) }
 				>
 					{ ! astra_admin.pro_available && __( 'PRO', 'astra' ) }

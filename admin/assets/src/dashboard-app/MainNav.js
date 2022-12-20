@@ -97,12 +97,12 @@ export default function MainNav() {
 							<div className="flex items-center text-[0.625rem] sm:text-sm font-medium leading-[1.375rem] text-slate-400 mr-1 sm:mr-3 divide-x divide-slate-200 gap-3 pl-1 sm:pl-3">
 								<div className="flex items-center">
 									<span>{astra_admin.version}</span>
-									<span className="ml-1 sm:ml-2 text-[0.625rem] leading-[0.625rem] font-semibold border border-slate-400 rounded-[0.1875rem] relative inline-flex flex-shrink-0 py-[0.1875rem] px-1.5"> { __( 'CORE', 'astra' ) } </span>
+									<span className="ml-1 sm:ml-2 text-[0.625rem] leading-[1rem] font-medium border border-slate-400 rounded-[0.1875rem] relative inline-flex flex-shrink-0 py-[0rem] px-1.5"> { __( 'CORE', 'astra' ) } </span>
 								</div>
 								{ astra_admin.pro_available && (
 									<div className="flex items-center pl-3">
 										<span>{astra_admin.plugin_ver}</span>
-										<span className="ml-1 sm:ml-2 text-[0.625rem] leading-[0.625rem] font-semibold text-white border border-slate-800 bg-slate-800 rounded-[0.1875rem] relative inline-flex flex-shrink-0 py-[0.1875rem] px-1.5"> {  __( 'PRO', 'astra' ) } </span>
+										<span className="ml-1 sm:ml-2 text-[0.625rem] leading-[1rem] font-medium text-white border border-slate-800 bg-slate-800 rounded-[0.1875rem] relative inline-flex flex-shrink-0 py-[0rem] px-1.5"> {  __( 'PRO', 'astra' ) } </span>
 									</div>
 								)}
 								{wp.hooks.applyFilters(

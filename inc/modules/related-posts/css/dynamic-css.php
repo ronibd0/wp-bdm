@@ -57,11 +57,13 @@ function astra_related_posts_css( $dynamic_css ) {
 		$related_post_meta_text_decoration = astra_get_font_extras( astra_get_option( 'related-posts-meta-font-extras' ), 'text-decoration' );
 
 		// Related Posts -> Content typography dyanamic stylings.
-		$related_post_content_font_family    = astra_get_option( 'related-posts-content-font-family' );
-		$related_post_content_font_weight    = astra_get_option( 'related-posts-content-font-weight' );
-		$related_post_content_font_size      = astra_get_option( 'related-posts-content-font-size' );
-		$related_post_content_line_height    = astra_get_option( 'related-posts-content-line-height' );
-		$related_post_content_text_transform = astra_get_option( 'related-posts-content-text-transform' );
+		$related_post_content_font_family     = astra_get_option( 'related-posts-content-font-family' );
+		$related_post_content_font_weight     = astra_get_option( 'related-posts-content-font-weight' );
+		$related_post_content_font_size       = astra_get_option( 'related-posts-content-font-size' );
+		$related_post_content_text_transform  = astra_get_font_extras( astra_get_option( 'related-posts-content-font-extras' ), 'text-transform' );
+		$related_post_content_line_height     = astra_get_font_extras( astra_get_option( 'related-posts-content-font-extras' ), 'line-height', 'line-height-unit' );
+		$related_post_content_letter_spacing  = astra_get_font_extras( astra_get_option( 'related-posts-content-font-extras' ), 'letter-spacing', 'letter-spacing-unit' );
+		$related_post_content_text_decoration = astra_get_font_extras( astra_get_option( 'related-posts-content-font-extras' ), 'text-decoration' );
 
 		// Related Posts -> Section Title typography dyanamic stylings.
 		$related_posts_section_title_font_family     = astra_get_option( 'related-posts-section-title-font-family' );
@@ -159,12 +161,15 @@ function astra_related_posts_css( $dynamic_css ) {
 			 * Related Posts - Content
 			 */
 			'.ast-related-post-excerpt'           => array(
-				'font-family'    => astra_get_css_value( $related_post_content_font_family, 'font' ),
-				'font-weight'    => astra_get_css_value( $related_post_content_font_weight, 'font' ),
-				'font-size'      => astra_responsive_font( $related_post_content_font_size, 'desktop' ),
-				'line-height'    => esc_attr( $related_post_content_line_height ),
-				'text-transform' => esc_attr( $related_post_content_text_transform ),
-				'color'          => esc_attr( $related_post_text_color ),
+				'font-family'     => astra_get_css_value( $related_post_content_font_family, 'font' ),
+				'font-weight'     => astra_get_css_value( $related_post_content_font_weight, 'font' ),
+				'font-size'       => astra_responsive_font( $related_post_content_font_size, 'desktop' ),
+				'line-height'     => esc_attr( $related_post_content_line_height ),
+				'text-transform'  => esc_attr( $related_post_content_text_transform ),
+				'text-decoration' => esc_attr( $related_post_content_text_decoration ),
+				'letter-spacing'  => esc_attr( $related_post_content_letter_spacing ),
+				'color'           => esc_attr( $related_posts_meta_color ),
+				'color'           => esc_attr( $related_post_text_color ),
 			),
 		);
 
