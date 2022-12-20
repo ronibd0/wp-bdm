@@ -91,7 +91,7 @@ const Docs = ({ setOpen }) => {
 									<div className="p-6">
 										{ Astra_Admin_Icons['support'] }
 
-										<div className="absolute top-7 right-6 text-[0.625rem] leading-[0.625rem] text-white bg-slate-800 rounded-[0.1875rem] py-[0.1875rem] px-1.5 self-start">
+										<div className="absolute top-7 right-6 text-[0.625rem] leading-[0.625rem] text-white bg-slate-800 font-semibold rounded-[0.1875rem] py-[0.1875rem] px-1.5 self-start">
 											{__("PRO", "astra")}
 										</div>
 

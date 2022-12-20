@@ -7515,7 +7515,7 @@ const Docs = _ref => {
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "p-6"
   }, _Common_block_icons__WEBPACK_IMPORTED_MODULE_5__["default"].support, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "absolute top-7 right-6 text-[0.625rem] leading-[0.625rem] text-white bg-slate-800 rounded-[0.1875rem] py-[0.1875rem] px-1.5 self-start"
+    className: "absolute top-7 right-6 text-[0.625rem] leading-[0.625rem] text-white bg-slate-800 font-semibold rounded-[0.1875rem] py-[0.1875rem] px-1.5 self-start"
   }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("PRO", "astra")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h3", {
     className: "relative flex items-center text-slate-800 text-base font-medium pb-2 mt-4"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
@@ -7714,7 +7714,7 @@ const UpgradeToPro = () => {
     onClick: onUpgradeProTrigger,
     className: "text-sm text-astra text-medium"
   }, getAstraProTitle())), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "absolute top-4 right-4 leading-4 py-0.5 px-1 text-[0.625rem] text-white bg-slate-800 rounded-[0.1875rem]"
+    className: "absolute top-4 right-4 leading-[0.625rem] font-semibold text-[0.625rem] text-white bg-slate-800 rounded-[0.1875rem] py-[0.1875rem] px-1.5"
   }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('PRO', 'astra')));
 };
 /* harmony default export */ __webpack_exports__["default"] = (UpgradeToPro);

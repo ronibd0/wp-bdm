@@ -1338,9 +1338,9 @@ select {
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
 }
-.py-\[0\.75rem\] {
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
+.py-\[0\.1875rem\] {
+  padding-top: 0.1875rem;
+  padding-bottom: 0.1875rem;
 }
 .px-1\.5 {
   padding-left: 0.375rem;
@@ -1422,10 +1422,6 @@ select {
   padding-left: 0.5rem;
   padding-right: 0.5rem;
 }
-.py-\[0\.1875rem\] {
-  padding-top: 0.1875rem;
-  padding-bottom: 0.1875rem;
-}
 .pl-10 {
   padding-left: 2.5rem;
 }
@@ -1443,9 +1439,6 @@ select {
 }
 .pt-0\.5 {
   padding-top: 0.125rem;
-}
-.pb-\[0\.15625rem\] {
-  padding-bottom: 0.15625rem;
 }
 .pt-0 {
   padding-top: 0px;
@@ -1595,9 +1588,6 @@ select {
 .leading-4 {
   line-height: 1rem;
 }
-.leading-\[0\.7rem\] {
-  line-height: 0.7rem;
-}
 .leading-\[1\.625rem\] {
   line-height: 1.625rem;
 }
@@ -1621,6 +1611,9 @@ select {
 }
 .leading-\[1rem\] {
   line-height: 1rem;
+}
+.leading-\[0\.7rem\] {
+  line-height: 0.7rem;
 }
 .tracking-\[0\.0125rem\] {
   letter-spacing: 0.0125rem;
@@ -1888,7 +1881,7 @@ select {
   opacity: 0.4;
 }
 
-.ast-menu-page-wrapper {
+.ast-menu-page-wrapper, .ast-kb-section {
   font-family: Inter, sans-serif;
 }
 
