@@ -77,13 +77,13 @@ class Astra_Posts_Strctures_Markup {
 
 		// If banner title section is disabled then halt further processing.
 		if ( 'single' === $type ) {
-			if ( false === astra_get_option( 'ast-single-' . $post_type . '-title', true ) ) {
+			if ( false === astra_get_option( 'ast-single-' . $post_type . '-title', ( class_exists( 'WooCommerce' ) && 'product' === $post_type ) ? false : true ) ) {
 				add_filter( 'astra_single_layout_one_banner_visibility', '__return_false' );
 				return;
 			}
 		} else {
 			// If layout-1 is set then no need to process further.
-			if ( false === astra_get_option( 'ast-archive-' . $post_type . '-title', true ) ) {
+			if ( false === astra_get_option( 'ast-archive-' . $post_type . '-title', ( class_exists( 'WooCommerce' ) && 'product' === $post_type ) ? false : true ) ) {
 				add_filter( 'astra_the_title_enabled', '__return_false' );
 				return;
 			}

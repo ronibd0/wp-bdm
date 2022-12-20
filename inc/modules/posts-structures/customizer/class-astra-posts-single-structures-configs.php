@@ -302,7 +302,7 @@ class Astra_Posts_Single_Structures_Configs extends Astra_Customizer_Config_Base
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[ast-single-' . $post_type . '-title]',
 					'type'     => 'control',
-					'default'  => astra_get_option( 'ast-single-' . $post_type . '-title', true ),
+					'default'  => astra_get_option( 'ast-single-' . $post_type . '-title', ( class_exists( 'WooCommerce' ) && 'product' === $post_type ) ? false : true ),
 					'control'  => 'ast-section-toggle',
 					'section'  => $parent_section,
 					'priority' => 2,
