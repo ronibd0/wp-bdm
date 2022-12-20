@@ -1,6 +1,3 @@
-v4.0.1 (Unreleased)
-- Fix: Margin applying for the last child 'li' tag inside widget section.
-
 v4.0.0 (Unreleased)
 - New: Redesigned the entire admin area with better user experience.
 - New: Narrow Width Container layout for Single Posts, Blogs/Archives & Pages.
@@ -21,6 +18,7 @@ v4.0.0 (Unreleased)
 - Fix: Block editor - Color gradient angle input field not visible in the block settings.
 - Fix: Block editor - Content background gets explicitly set to white in responsive view.
 - Fix: WooCommerce - Sticky add to cart is not working on old header footer.
+- Fix: Margin applying for the last child 'li' tag inside widget section.
 
 v3.9.4
 - New: WooCommerce Cart - "Cart Page" click action introduced to redirect the user to the cart page.
