@@ -104,9 +104,9 @@ class Astra_Related_Posts_Loader {
 			'author',
 		);
 		// Related Posts - Color styles.
-		$defaults['related-posts-text-color']            = '';
+		$defaults['related-posts-text-color']            = $apply_new_default_color_typo_values ? 'var(--ast-global-color-2)' : '';
 		$defaults['related-posts-link-color']            = '';
-		$defaults['related-posts-title-color']           = '';
+		$defaults['related-posts-title-color']           = $apply_new_default_color_typo_values ? 'var(--ast-global-color-2)' : '';
 		$defaults['related-posts-background-color']      = '';
 		$defaults['related-posts-meta-color']            = '';
 		$defaults['related-posts-link-hover-color']      = '';
