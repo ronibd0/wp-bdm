@@ -1234,10 +1234,11 @@ function astra_theme_background_updater_4_0_0() {
 			}
 
 			// Archive layout compatibilities.
-			$theme_options[ 'ast-archive-' . esc_attr( $post_type ) . '-title' ] = true;
+			$archive_banner_layout = ( class_exists( 'WooCommerce' ) && 'product' === $post_type ) ? false : true; // Setting WooCommerce archive option disabled as WC already added their header content on archive.
+			$theme_options[ 'ast-archive-' . esc_attr( $post_type ) . '-title' ] = $archive_banner_layout;
 
 			// Single layout compatibilities.
-			$single_banner_layout = ( 'product' === $post_type ) ? false : true;
+			$single_banner_layout = ( class_exists( 'WooCommerce' ) && 'product' === $post_type ) ? false : true; // Setting WC single option disabled as there is no any header set from default WooCommerce.
 			$theme_options[ 'ast-single-' . esc_attr( $post_type ) . '-title' ] = $single_banner_layout;
 
 			// BG color support.
