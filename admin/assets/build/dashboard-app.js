@@ -9126,7 +9126,7 @@ const ExtensionCard = props => {
     target: link.target_blank ? "_blank" : "_self",
     rel: "noreferrer"
   }, link.link_text))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: classNames(!astra_admin.pro_available ? 'text-[0.625rem] leading-[0.625rem] font-semibold text-white bg-slate-800 border border-slate-800 rounded-[0.1875rem]' : 'self-center', astra_admin.pro_available && !condition ? 'relative inline-flex flex-shrink-0 pt-0.5 pb-[0.15625rem] px-1 opacity-30 pointer-events-none' : 'relative inline-flex flex-shrink-0 pt-0.5 pb-[0.15625rem] px-1')
+    className: classNames(!astra_admin.pro_available ? 'text-[0.625rem] leading-[0.625rem] font-semibold text-white bg-slate-800 border border-slate-800 rounded-[0.1875rem]' : 'self-center', astra_admin.pro_available && !condition ? 'relative inline-flex flex-shrink-0 py-[0.1875rem] px-1.5 opacity-30 pointer-events-none' : 'relative inline-flex flex-shrink-0 py-[0.1875rem] px-1.5')
   }, !astra_admin.pro_available && (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)('PRO', 'astra'), astra_admin.pro_available && 'white-label' !== slug && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_headlessui_react__WEBPACK_IMPORTED_MODULE_5__.Switch, {
     checked: moduleActivationStatus,
     onChange: () => {
