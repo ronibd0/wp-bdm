@@ -267,7 +267,7 @@ class Astra_Posts_Archive_Structures_Configs extends Astra_Customizer_Config_Bas
 
 				array(
 					'name'     => $title_section,
-					'title' => ( 'post' === $post_type ) ? __( 'Blog Title', 'astra' ) : ucfirst( $post_type ) . __( ' Title', 'astra' ),
+					'title'    => ( 'post' === $post_type ) ? __( 'Blog Title', 'astra' ) : ucfirst( $post_type ) . __( ' Title', 'astra' ),
 					'type'     => 'section',
 					'section'  => $parent_section,
 					'panel'    => ( 'product' === $post_type ) ? 'woocommerce' : '',
