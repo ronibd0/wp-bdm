@@ -213,7 +213,7 @@ function astra_post_single_structure_dynamic_css( $dynamic_css, $dynamic_css_fil
 				'padding-left'   => astra_responsive_spacing( $banner_padding, 'left', 'desktop' ),
 			),
 			$selector . '[data-banner-layout="layout-2"]' => astra_get_responsive_background_obj( $custom_background, 'desktop' ),
-			$selector . ', ' . $selector . ' *'           => array(
+			$selector . ' .ast-container *'           => array(
 				'color'           => esc_attr( $text_color ),
 				'font-family'     => astra_get_css_value( $banner_text_font_family, 'font' ),
 				'font-weight'     => astra_get_css_value( $banner_text_font_weight, 'font' ),
