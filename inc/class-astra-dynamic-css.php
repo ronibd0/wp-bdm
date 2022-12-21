@@ -2183,14 +2183,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 				if ( 'color-typo' === self::elementor_default_color_font_setting() || 'typo' === self::elementor_default_color_font_setting() ) {
 					$ele_btn_typo_builder_desktop = array(
-						'.elementor-button-wrapper .elementor-button' => array(
-							'font-family'     => astra_get_font_family( $theme_btn_font_family ),
-							'font-weight'     => esc_attr( $theme_btn_font_weight ),
-							'line-height'     => esc_attr( $theme_btn_line_height ),
-							'text-transform'  => esc_attr( $theme_btn_text_transform ),
-							'text-decoration' => esc_attr( $theme_btn_text_decoration ),
-							'letter-spacing'  => esc_attr( $theme_btn_letter_spacing ),
-						),
+						'.elementor-button-wrapper .elementor-button' => astra_get_font_array_css( 'font-family-button', 'font-weight-button', $theme_btn_font_size, 'font-extras-button' ),
 						'body .elementor-button.elementor-size-sm, body .elementor-button.elementor-size-xs, body .elementor-button.elementor-size-md, body .elementor-button.elementor-size-lg, body .elementor-button.elementor-size-xl, body .elementor-button' => array(
 							'font-size' => astra_responsive_font( $theme_btn_font_size, 'desktop' ),
 						),
@@ -4109,7 +4102,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					}
 				';
 			}
-		
+
 			$sidebar_static_css .= '
 				@media (min-width: 993px) {
 					.ast-left-sidebar #secondary {
