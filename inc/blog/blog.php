@@ -402,7 +402,7 @@ function astra_banner_elements_order( $structure = array() ) {
 
 	$prefix      = 'archive';
 	$structure   = astra_get_option( 'ast-dynamic-' . $prefix . '-' . $post_type . '-structure', array( 'ast-dynamic-' . $prefix . '-' . $post_type . '-title', 'ast-dynamic-' . $prefix . '-' . $post_type . '-description' ) );
-	$layout_type = astra_get_option( 'ast-dynamic-single-' . $post_type . '-layout', 'layout-1' );
+	$layout_type = astra_get_option( 'ast-dynamic-' . $prefix . '-' . $post_type . '-layout', 'layout-1' );
 
 	if ( is_singular() ) {
 		$prefix    = 'single';
@@ -410,6 +410,7 @@ function astra_banner_elements_order( $structure = array() ) {
 		if ( 'page' === $post_type ) {
 			$structure = astra_get_option( 'ast-dynamic-single-page-structure', array( 'ast-dynamic-single-page-image', 'ast-dynamic-single-page-title' ) );
 		}
+		$layout_type = astra_get_option( 'ast-dynamic-' . $prefix . '-' . $post_type . '-layout', 'layout-1' );
 	}
 
 	foreach ( $structure as $metaval ) {
