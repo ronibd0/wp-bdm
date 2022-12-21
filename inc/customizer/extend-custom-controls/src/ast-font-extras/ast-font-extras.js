@@ -52,8 +52,8 @@ const FontExtrasComponent = ( props ) => {
 		const currentValueMinus = 'line-height' === type ? Math.max( 0, currentValue - 1 ) : currentValue - 1;
 		return (
 			<div className="plus-minus-control">
-				<Dashicon onClick={ () =>changeFontSetting( { type: type, value: currentValue + 1 } ) } icon="arrow-up-alt2" />
-				<Dashicon onClick={ () =>changeFontSetting( { type: type, value: currentValueMinus } ) } icon="arrow-down-alt2" />
+				<Dashicon onClick={ () =>changeFontSetting( { type: type, value: parseInt( currentValue + 1 ) } ) } icon="arrow-up-alt2" />
+				<Dashicon onClick={ () =>changeFontSetting( { type: type, value: parseInt( currentValueMinus ) } ) } icon="arrow-down-alt2" />
 			</div>
 		)
 	}
