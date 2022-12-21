@@ -356,9 +356,6 @@ class Astra_WP_Editor_CSS {
 		if ( '' == $site_title_text_transform ) {
 			$site_title_text_transform = '' === $headings_text_transform ? astra_get_option( 'text-transform-h1' ) : $headings_text_transform;
 		}
-		if ( '' == $site_title_line_height ) {
-			$site_title_line_height = $headings_line_height;
-		}
 		if ( 'inherit' == $site_title_font_weight || '' == $site_title_font_weight ) {
 			$site_title_font_weight = Astra_Posts_Structure_Loader::get_customizer_default( 'title-font-weight' );
 		}
