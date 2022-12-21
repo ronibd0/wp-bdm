@@ -344,7 +344,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$theme_btn_font_family     = astra_get_option( 'font-family-button' );
 			$theme_btn_font_size       = astra_get_option( 'font-size-button' );
 			$theme_btn_font_weight     = astra_get_option( 'font-weight-button' );
-			$theme_btn_text_transform  = astra_get_font_extras( astra_get_option( 'font-extra-button' ), 'text-transform' );
+			$theme_btn_text_transform  = astra_get_font_extras( astra_get_option( 'font-extras-button' ), 'text-transform' );
 			$theme_btn_line_height     = astra_get_font_extras( astra_get_option( 'font-extras-button' ), 'line-height', 'line-height-unit' );
 			$theme_btn_letter_spacing  = astra_get_font_extras( astra_get_option( 'font-extras-button' ), 'letter-spacing', 'letter-spacing-unit' );
 			$theme_btn_text_decoration = astra_get_font_extras( astra_get_option( 'font-extras-button' ), 'text-decoration' );
@@ -2088,8 +2088,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'line-height'         => esc_attr( $theme_btn_line_height ),
 						'text-transform'      => esc_attr( $theme_btn_text_transform ),
 						'text-decoration'     => esc_attr( $theme_btn_text_decoration ),
-
-						'letter-spacing'      => astra_get_css_value( $theme_btn_letter_spacing, 'px' ),
+						'letter-spacing'      => esc_attr( $theme_btn_letter_spacing ),
 					),
 					'button:focus, .menu-toggle:hover, button:hover, .ast-button:hover, .ast-custom-button:hover .button:hover, .ast-custom-button:hover , input[type=reset]:hover, input[type=reset]:focus, input#submit:hover, input#submit:focus, input[type="button"]:hover, input[type="button"]:focus, input[type="submit"]:hover, input[type="submit"]:focus' . $search_button_hover_selector . $file_block_button_hover_selector => array(
 						'color'            => esc_attr( $btn_text_hover_color ),
@@ -2190,7 +2189,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 							'line-height'     => esc_attr( $theme_btn_line_height ),
 							'text-transform'  => esc_attr( $theme_btn_text_transform ),
 							'text-decoration' => esc_attr( $theme_btn_text_decoration ),
-							'letter-spacing'  => astra_get_css_value( $theme_btn_letter_spacing, 'px' ),
+							'letter-spacing'  => esc_attr( $theme_btn_letter_spacing ),
 						),
 						'body .elementor-button.elementor-size-sm, body .elementor-button.elementor-size-xs, body .elementor-button.elementor-size-md, body .elementor-button.elementor-size-lg, body .elementor-button.elementor-size-xl, body .elementor-button' => array(
 							'font-size' => astra_responsive_font( $theme_btn_font_size, 'desktop' ),
@@ -2242,7 +2241,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'line-height'      => esc_attr( $theme_btn_line_height ),
 						'text-transform'   => esc_attr( $theme_btn_text_transform ),
 						'text-decoration'  => esc_attr( $theme_btn_text_decoration ),
-						'letter-spacing'   => astra_get_css_value( $theme_btn_letter_spacing, 'px' ),
+						'letter-spacing'   => esc_attr( $theme_btn_letter_spacing ),
 						'font-size'        => astra_responsive_font( $theme_btn_font_size, 'desktop' ),
 						'border-radius'    => astra_get_css_value( $btn_border_radius, 'px' ),
 						'padding'          => '15px 30px',
@@ -2318,7 +2317,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'line-height'         => esc_attr( $theme_btn_line_height ),
 						'text-transform'      => esc_attr( $theme_btn_text_transform ),
 						'text-decoration'     => esc_attr( $theme_btn_text_decoration ),
-						'letter-spacing'      => astra_get_css_value( $theme_btn_letter_spacing, 'px' ),
+						'letter-spacing'      => esc_attr( $theme_btn_letter_spacing ),
 						'font-size'           => astra_responsive_font( $theme_btn_font_size, 'desktop' ),
 						'border-radius'       => astra_get_css_value( $btn_border_radius, 'px' ),
 						'padding-top'         => astra_responsive_spacing( $theme_btn_padding, 'top', 'desktop' ),
@@ -2379,7 +2378,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'font-size'        => astra_get_font_css_value( $theme_btn_font_size['desktop'], $theme_btn_font_size['desktop-unit'] ),
 						'text-transform'   => esc_attr( $theme_btn_text_transform ),
 						'text-decoration'  => esc_attr( $theme_btn_text_decoration ),
-						'letter-spacing'   => astra_get_css_value( $theme_btn_letter_spacing, 'px' ),
+						'letter-spacing'   => esc_attr( $theme_btn_letter_spacing ),
 					),
 					'button:focus, .menu-toggle:hover, button:hover, .ast-button:hover, .ast-custom-button:hover .button:hover, .ast-custom-button:hover, input[type=reset]:hover, input[type=reset]:focus, input#submit:hover, input#submit:focus, input[type="button"]:hover, input[type="button"]:focus, input[type="submit"]:hover, input[type="submit"]:focus' . $search_button_hover_selector => array(
 						'color'            => esc_attr( $btn_text_hover_color ),
@@ -4102,6 +4101,15 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			}
 			';
 
+			if ( defined( 'CFVSW_VER' ) ) {
+				$sidebar_static_css .= '
+					#secondary .cfvsw-filters li{
+						margin-bottom: 0;
+						margin-top: 0;
+					}
+				';
+			}
+		
 			$sidebar_static_css .= '
 				@media (min-width: 993px) {
 					.ast-left-sidebar #secondary {

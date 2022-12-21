@@ -420,7 +420,7 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 					// Typography.
 					'body-font-family'                     => 'inherit',
 					'body-font-variant'                    => '',
-					'body-font-weight'                     => 'inherit',
+					'body-font-weight'                     => $apply_new_default_color_typo_values ? '400' : 'inherit',
 					'font-size-body'                       => array(
 						'desktop'      => $apply_new_default_color_typo_values ? 16 : 15,
 						'tablet'       => '',

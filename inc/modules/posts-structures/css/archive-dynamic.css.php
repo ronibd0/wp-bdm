@@ -32,7 +32,7 @@ function astra_post_archive_structure_dynamic_css( $dynamic_css, $dynamic_css_fi
 	if ( ! in_array( $current_post_type, $supported_post_types ) ) {
 		return $dynamic_css;
 	}
-	if ( false === astra_get_option( 'ast-archive-' . $current_post_type . '-title', true ) ) {
+	if ( false === astra_get_option( 'ast-archive-' . $current_post_type . '-title', ( class_exists( 'WooCommerce' ) && 'product' === $current_post_type ) ? false : true ) ) {
 		return $dynamic_css;
 	}
 
@@ -57,7 +57,7 @@ function astra_post_archive_structure_dynamic_css( $dynamic_css, $dynamic_css_fi
 	}
 
 	$elements_gap   = astra_get_option( 'ast-dynamic-archive-' . $current_post_type . '-elements-gap', 10 );
-	$banner_padding = astra_get_option( 'ast-dynamic-archive-' . $current_post_type . '-banner-padding', Astra_Posts_Structure_Loader::get_customizer_default( 'responsive-padding' ) );
+	$banner_padding = astra_get_option( 'ast-dynamic-archive-' . $current_post_type . '-banner-padding', ( class_exists( 'WooCommerce' ) && 'product' === $current_post_type ) ? Astra_Posts_Structure_Loader::get_customizer_default( 'responsive-spacing' ) : Astra_Posts_Structure_Loader::get_customizer_default( 'responsive-padding' ) );
 	$banner_margin  = astra_get_option( 'ast-dynamic-archive-' . $current_post_type . '-banner-margin' );
 
 	$banner_height      = astra_get_option( 'ast-dynamic-archive-' . $current_post_type . '-banner-height' );
@@ -117,7 +117,7 @@ function astra_post_archive_structure_dynamic_css( $dynamic_css, $dynamic_css_fi
 				'margin-left'    => astra_responsive_spacing( $banner_margin, 'left', 'desktop' ),
 				'margin-right'   => astra_responsive_spacing( $banner_margin, 'right', 'desktop' ),
 			),
-			$selector . ', ' . $selector . ' *'     => array(
+			$selector . ' *'     => array(
 				'color'           => esc_attr( $text_color ),
 				'font-family'     => astra_get_css_value( $banner_text_font_family, 'font' ),
 				'font-weight'     => astra_get_css_value( $banner_text_font_weight, 'font' ),
@@ -143,7 +143,7 @@ function astra_post_archive_structure_dynamic_css( $dynamic_css, $dynamic_css_fi
 			$selector . ' a:hover, ' . $selector . ' a:hover *' => array(
 				'color' => esc_attr( $link_hover_color ),
 			),
-			$selector . ' .ast-container > *:not(:last-child)' => array(
+			$selector . ' > *:not(:last-child)'     => array(
 				'margin-bottom' => $elements_gap . 'px',
 			),
 		);
@@ -262,7 +262,7 @@ function astra_post_archive_structure_dynamic_css( $dynamic_css, $dynamic_css_fi
 				'padding-bottom' => astra_responsive_spacing( $banner_padding, 'bottom', 'desktop' ),
 				'padding-left'   => astra_responsive_spacing( $banner_padding, 'left', 'desktop' ),
 			),
-			$selector . ', ' . $selector . ' *'     => array(
+			$selector . ' .ast-container *'     => array(
 				'color'           => esc_attr( $text_color ),
 				'font-family'     => astra_get_css_value( $banner_text_font_family, 'font' ),
 				'font-weight'     => astra_get_css_value( $banner_text_font_weight, 'font' ),
@@ -272,7 +272,7 @@ function astra_post_archive_structure_dynamic_css( $dynamic_css, $dynamic_css_fi
 				'text-decoration' => esc_attr( $banner_text_decoration ),
 				'letter-spacing'  => esc_attr( $banner_text_spacing ),
 			),
-			$selector . ' h1'                       => array(
+			$selector . ' .ast-container h1'                       => array(
 				'color'           => esc_attr( $title_color ),
 				'font-family'     => astra_get_css_value( $banner_title_font_family, 'font' ),
 				'font-weight'     => astra_get_css_value( $banner_title_font_weight, 'font' ),

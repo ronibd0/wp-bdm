@@ -35,7 +35,7 @@ function astra_post_single_structure_dynamic_css( $dynamic_css, $dynamic_css_fil
 	if ( ! in_array( $current_post_type, $supported_post_types ) ) {
 		return $dynamic_css;
 	}
-	if ( false === astra_get_option( 'ast-single-' . $current_post_type . '-title', true ) ) {
+	if ( false === astra_get_option( 'ast-single-' . $current_post_type . '-title', ( class_exists( 'WooCommerce' ) && 'product' === $current_post_type ) ? false : true ) ) {
 		return $dynamic_css;
 	}
 
@@ -43,9 +43,6 @@ function astra_post_single_structure_dynamic_css( $dynamic_css, $dynamic_css_fil
 	$layout_2_active = ( 'layout-2' === $layout_type ) ? true : false;
 
 	if ( $layout_2_active ) {
-		$selector = '.ast-single-entry-banner[data-post-type="' . $current_post_type . '"]';
-	} elseif ( 'layout-1' === $layout_type && 'product' === $current_post_type ) {
-		// For specific post types layout-1 is different, that's why adding this compatibility. Ex: Single Product.
 		$selector = '.ast-single-entry-banner[data-post-type="' . $current_post_type . '"]';
 	} else {
 		$selector = '.entry-header';
@@ -120,7 +117,7 @@ function astra_post_single_structure_dynamic_css( $dynamic_css, $dynamic_css_fil
 			$selector                               => array(
 				'text-align' => $desk_h_alignment,
 			),
-			$selector . ', ' . $selector . ' *'     => array(
+			$selector . ' *'     => array(
 				'color'           => esc_attr( $text_color ),
 				'font-family'     => astra_get_css_value( $banner_text_font_family, 'font' ),
 				'font-weight'     => astra_get_css_value( $banner_text_font_weight, 'font' ),
@@ -154,6 +151,9 @@ function astra_post_single_structure_dynamic_css( $dynamic_css, $dynamic_css_fil
 			),
 			$selector . ' a:hover, ' . $selector . ' a:hover *' => array(
 				'color' => esc_attr( $link_hover_color ),
+			),
+			$selector . ' > *:not(:last-child)'     => array(
+				'margin-bottom' => $elements_gap . 'px',
 			),
 		);
 		/**
@@ -213,7 +213,7 @@ function astra_post_single_structure_dynamic_css( $dynamic_css, $dynamic_css_fil
 				'padding-left'   => astra_responsive_spacing( $banner_padding, 'left', 'desktop' ),
 			),
 			$selector . '[data-banner-layout="layout-2"]' => astra_get_responsive_background_obj( $custom_background, 'desktop' ),
-			$selector . ', ' . $selector . ' *'           => array(
+			$selector . ' .ast-container *'           => array(
 				'color'           => esc_attr( $text_color ),
 				'font-family'     => astra_get_css_value( $banner_text_font_family, 'font' ),
 				'font-weight'     => astra_get_css_value( $banner_text_font_weight, 'font' ),

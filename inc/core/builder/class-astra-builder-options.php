@@ -579,7 +579,7 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	 * Footer Copyright.
 	 */
 	$defaults['footer-copyright-editor']              = 'Copyright [copyright] [current_year] [site_title] | Powered by [theme_author]';
-	$defaults['footer-copyright-color']               = '';
+	$defaults['footer-copyright-color']               = $apply_new_default_color_typo_values ? 'var(--ast-global-color-3)' : '';
 	$defaults['line-height-section-footer-copyright'] = 2;
 	$defaults['footer-copyright-alignment']           = array(
 		'desktop' => 'center',
@@ -587,7 +587,7 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 		'mobile'  => 'center',
 	);
 	$defaults['font-size-section-footer-copyright']   = array(
-		'desktop'      => '',
+		'desktop'      => $apply_new_default_color_typo_values ? 16 : '',
 		'tablet'       => '',
 		'mobile'       => '',
 		'desktop-unit' => 'px',

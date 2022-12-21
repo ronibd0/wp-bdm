@@ -65,7 +65,9 @@ function astra_refresh_customizer( control ) {
 		tablet_break_point    = AstraPostStrcturesData.tablet_break_point || 768,
 		mobile_break_point    = AstraPostStrcturesData.mobile_break_point || 544;
 
-	// For single layouts.
+	/**
+	 * For single layouts.
+	 */
 	for ( var index = 0; index < postTypesCount; index++ ) {
 		var postType = postTypes[ index ],
 			layoutType = ( undefined !== wp.customize( 'astra-settings[ast-dynamic-single-' + postType + '-layout]' ) ) ? wp.customize( 'astra-settings[ast-dynamic-single-' + postType + '-layout]' ).get() : 'both',
@@ -167,24 +169,29 @@ function astra_refresh_customizer( control ) {
 
 		// Banner - Title.
 		astra_generate_outside_font_family_css( 'astra-settings[ast-dynamic-single-' + postType + '-title-font-family]', postTypeSelector + ' header.entry-header .entry-title, .ast-single-entry-banner[data-post-type="' + postType + '"] .entry-title' );
+		astra_generate_font_weight_css( 'astra-settings[ast-dynamic-single-' + postType + '-title-font-family]', 'astra-settings[ast-dynamic-single-' + postType + '-title-font-weight]', 'font-weight', postTypeSelector + ' header.entry-header .entry-title, .ast-single-entry-banner[data-post-type="' + postType + '"] .entry-title' );
 		astra_css( 'astra-settings[ast-dynamic-single-' + postType + '-title-font-weight]', 'font-weight', postTypeSelector + ' header.entry-header .entry-title, .ast-single-entry-banner[data-post-type="' + postType + '"] .entry-title' );
 		astra_responsive_font_size( 'astra-settings[ast-dynamic-single-' + postType + '-title-font-size]', postTypeSelector + ' header.entry-header .entry-title, .ast-single-entry-banner[data-post-type="' + postType + '"] .entry-title' );
 		astra_font_extras_css( 'ast-dynamic-single-' + postType + '-title-font-extras', postTypeSelector + ' header.entry-header .entry-title, .ast-single-entry-banner[data-post-type="' + postType + '"] .entry-title' );
 
 		// Banner - Text.
 		astra_generate_outside_font_family_css( 'astra-settings[ast-dynamic-single-' + postType + '-text-font-family]', postTypeSelector + ' header.entry-header *, .ast-single-entry-banner[data-post-type="' + postType + '"] *' );
+		astra_generate_font_weight_css( 'astra-settings[ast-dynamic-single-' + postType + '-text-font-family]', 'astra-settings[ast-dynamic-single-' + postType + '-text-font-weight]', 'font-weight', postTypeSelector + ' header.entry-header *, .ast-single-entry-banner[data-post-type="' + postType + '"] *' );
 		astra_css( 'astra-settings[ast-dynamic-single-' + postType + '-text-font-weight]', 'font-weight', postTypeSelector + ' header.entry-header *, .ast-single-entry-banner[data-post-type="' + postType + '"] *' );
 		astra_responsive_font_size( 'astra-settings[ast-dynamic-single-' + postType + '-text-font-size]', postTypeSelector + ' header.entry-header *, .ast-single-entry-banner[data-post-type="' + postType + '"] *' );
-		astra_font_extras_css( 'ast-dynamic-single-' + postType + '-text-font-extras', postTypeSelector + ' header.entry-header *, .ast-single-entry-banner[data-post-type="' + postType + '"] *' );
+		astra_font_extras_css( 'ast-dynamic-single-' + postType + '-text-font-extras', postTypeSelector + ' header.entry-header *, .ast-single-entry-banner[data-post-type="' + postType + '"] .ast-container *' );
 
 		// Banner - Meta.
 		astra_generate_outside_font_family_css( 'astra-settings[ast-dynamic-single-' + postType + '-meta-font-family]', postTypeSelector + ' header.entry-header .entry-meta, ' + postTypeSelector + ' header.entry-header .entry-meta *, .ast-single-entry-banner[data-post-type="' + postType + '"] .entry-meta, .ast-single-entry-banner[data-post-type="' + postType + '"] .entry-meta *' );
+		astra_generate_font_weight_css( 'astra-settings[ast-dynamic-single-' + postType + '-meta-font-family]', 'astra-settings[ast-dynamic-single-' + postType + '-meta-font-weight]', 'font-weight', postTypeSelector + ' header.entry-header .entry-meta, ' + postTypeSelector + ' header.entry-header .entry-meta *, .ast-single-entry-banner[data-post-type="' + postType + '"] .entry-meta, .ast-single-entry-banner[data-post-type="' + postType + '"] .entry-meta *' );
 		astra_css( 'astra-settings[ast-dynamic-single-' + postType + '-meta-font-weight]', 'font-weight', postTypeSelector + ' header.entry-header .entry-meta, ' + postTypeSelector + ' header.entry-header .entry-meta *, .ast-single-entry-banner[data-post-type="' + postType + '"] .entry-meta, .ast-single-entry-banner[data-post-type="' + postType + '"] .entry-meta *' );
 		astra_responsive_font_size( 'astra-settings[ast-dynamic-single-' + postType + '-meta-font-size]', postTypeSelector + ' header.entry-header .entry-meta, ' + postTypeSelector + ' header.entry-header .entry-meta *, .ast-single-entry-banner[data-post-type="' + postType + '"] .entry-meta, .ast-single-entry-banner[data-post-type="' + postType + '"] .entry-meta *' );
 		astra_font_extras_css( 'ast-dynamic-single-' + postType + '-meta-font-extras', postTypeSelector + ' header.entry-header .entry-meta, ' + postTypeSelector + ' header.entry-header .entry-meta *, .ast-single-entry-banner[data-post-type="' + postType + '"] .entry-meta, .ast-single-entry-banner[data-post-type="' + postType + '"] .entry-meta *' );
 	}
 
-	// For archive layouts.
+	/**
+	 * For archive layouts.
+	 */
 	for ( var index = 0; index < postTypesCount; index++ ) {
 		var postType = postTypes[ index ],
 			layoutType = ( undefined !== wp.customize( 'astra-settings[ast-dynamic-archive-' + postType + '-layout]' ) ) ? wp.customize( 'astra-settings[ast-dynamic-archive-' + postType + '-layout]' ).get() : 'both';
@@ -315,15 +322,17 @@ function astra_refresh_customizer( control ) {
 
 		// Banner - Title.
 		astra_generate_outside_font_family_css( 'astra-settings[ast-dynamic-archive-' + postType + '-title-font-family]', '.ast-archive-entry-banner[data-post-type="' + postType + '"] h1, body.archive .ast-archive-description h1, .ast-archive-entry-banner[data-post-type="' + postType + '"] h1 *, body.archive .ast-archive-description h1 *' );
+		astra_generate_font_weight_css( 'astra-settings[ast-dynamic-archive-' + postType + '-title-font-family]', 'astra-settings[ast-dynamic-archive-' + postType + '-title-font-weight]', 'font-weight', '.ast-archive-entry-banner[data-post-type="' + postType + '"] h1, body.archive .ast-archive-description h1, .ast-archive-entry-banner[data-post-type="' + postType + '"] h1 *, body.archive .ast-archive-description h1 *' );
 		astra_css( 'astra-settings[ast-dynamic-archive-' + postType + '-title-font-weight]', 'font-weight', '.ast-archive-entry-banner[data-post-type="' + postType + '"] h1, body.archive .ast-archive-description h1, .ast-archive-entry-banner[data-post-type="' + postType + '"] h1 *, body.archive .ast-archive-description h1 *' );
-		astra_responsive_font_size( 'astra-settings[ast-dynamic-archive-' + postType + '-title-font-size]', '.ast-archive-entry-banner[data-post-type="' + postType + '"] h1, body.archive .ast-archive-description h1, .ast-archive-entry-banner[data-post-type="' + postType + '"] h1 *, body.archive .ast-archive-description h1 *' );
-		astra_font_extras_css( 'ast-dynamic-archive-' + postType + '-title-font-extras', '.ast-archive-entry-banner[data-post-type="' + postType + '"] h1, body.archive .ast-archive-description h1, .ast-archive-entry-banner[data-post-type="' + postType + '"] h1 *, body.archive .ast-archive-description h1 *' );
+		astra_responsive_font_size( 'astra-settings[ast-dynamic-archive-' + postType + '-title-font-size]', '.ast-archive-entry-banner[data-post-type="' + postType + '"] h1, body.archive .ast-archive-description .ast-archive-title, .ast-archive-entry-banner[data-post-type="' + postType + '"] h1 *, body.archive .ast-archive-description .ast-archive-title *' );
+		astra_font_extras_css( 'ast-dynamic-archive-' + postType + '-title-font-extras', '.ast-archive-entry-banner[data-post-type="' + postType + '"] .ast-container h1, body.archive .ast-archive-description .ast-archive-title, .ast-archive-entry-banner[data-post-type="' + postType + '"] .ast-container h1 *, body.archive .ast-archive-description h1 *' );
 
 		// Banner - Text.
 		astra_generate_outside_font_family_css( 'astra-settings[ast-dynamic-archive-' + postType + '-text-font-family]', '.ast-archive-entry-banner[data-post-type="' + postType + '"], .ast-archive-entry-banner[data-post-type="' + postType + '"] *, body.archive .ast-archive-description, body.archive .ast-archive-description *' );
+		astra_generate_font_weight_css( 'astra-settings[ast-dynamic-archive-' + postType + '-text-font-family]', 'astra-settings[ast-dynamic-archive-' + postType + '-text-font-weight]', 'font-weight', '.ast-archive-entry-banner[data-post-type="' + postType + '"], .ast-archive-entry-banner[data-post-type="' + postType + '"] *, body.archive .ast-archive-description, body.archive .ast-archive-description *' );
 		astra_css( 'astra-settings[ast-dynamic-archive-' + postType + '-text-font-weight]', 'font-weight', '.ast-archive-entry-banner[data-post-type="' + postType + '"], .ast-archive-entry-banner[data-post-type="' + postType + '"] *, body.archive .ast-archive-description, body.archive .ast-archive-description *' );
 		astra_responsive_font_size( 'astra-settings[ast-dynamic-archive-' + postType + '-text-font-size]', '.ast-archive-entry-banner[data-post-type="' + postType + '"], .ast-archive-entry-banner[data-post-type="' + postType + '"] *, body.archive .ast-archive-description, body.archive .ast-archive-description *' );
-		astra_font_extras_css( 'ast-dynamic-archive-' + postType + '-text-font-extras', '.ast-archive-entry-banner[data-post-type="' + postType + '"], .ast-archive-entry-banner[data-post-type="' + postType + '"] *, body.archive .ast-archive-description, body.archive .ast-archive-description *' );
+		astra_font_extras_css( 'ast-dynamic-archive-' + postType + '-text-font-extras', '.ast-archive-entry-banner[data-post-type="' + postType + '"] .ast-container *, body.archive .ast-archive-description *' );
 	}
 
 } )( jQuery );
