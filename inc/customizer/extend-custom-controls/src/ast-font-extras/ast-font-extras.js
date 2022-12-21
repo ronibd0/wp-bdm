@@ -1,11 +1,10 @@
-import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { Fragment } from '@wordpress/element';
 import { useEffect } from 'react';
 import { Dashicon } from "@wordpress/components";
 
 
-const FontHeightComponent = ( props ) => {
+const FontExtrasComponent = ( props ) => {
 
 	const defaultValue = {
 		"letter-spacing": '',
@@ -119,4 +118,4 @@ const FontHeightComponent = ( props ) => {
 	);
 };
 
-export default React.memo( FontHeightComponent );
+export default React.memo( FontExtrasComponent );
