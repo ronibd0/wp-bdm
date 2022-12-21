@@ -969,6 +969,16 @@ function astra_search_static_css() {
 }
 
 /**
+ * Showcase "Upgrade to Pro" notices for Astra & here is the filter work as central control to enable/disable those notices from customizer, meta settings, admin area, pro post types pages.
+ *
+ * @since 3.9.4
+ * @return bool
+ */
+function astra_showcase_upgrade_notices() {
+	return ( ! defined( 'ASTRA_EXT_VER' ) && astra_get_option( 'ast-disable-upgrade-notices', true ) ) ? true : false;
+}
+
+/**
  * Function which will return CSS for font-extras control.
  * It includes - line-height, letter-spacing, text-decoration, font-style.
  *
@@ -989,11 +999,29 @@ function astra_get_font_extras( $config, $setting, $unit = false ) {
 }
 
 /**
- * Showcase "Upgrade to Pro" notices for Astra & here is the filter work as central control to enable/disable those notices from customizer, meta settings, admin area, pro post types pages.
+ * Function which will return CSS array for font specific props for further parsing CSS.
+ * It includes - font-family, font-weight, font-size, line-height, text-transform, letter-spacing, text-decoration, color (optional).
  *
- * @since 3.9.4
- * @return bool
+ * @param string $font_family Font family.
+ * @param string $font_weight Font weight.
+ * @param array  $font_size Font size.
+ * @param array  $font_extras contains all font controls.
+ * @param string $color In most of cases color is also added, so included optional param here.
+ *
+ * @param array  array of build CSS font settings.
+ *
+ * @since x.x.x
  */
-function astra_showcase_upgrade_notices() {
-	return ( ! defined( 'ASTRA_EXT_VER' ) && astra_get_option( 'ast-disable-upgrade-notices', true ) ) ? true : false;
+function astra_get_font_array_css( $font_family, $font_weight, $font_size, $font_extras, $color = '' ) {
+	$font_extras_ast_option = astra_get_option( $font_extras );
+	return array(
+		'color'           => esc_attr( $color ),
+		'font-family'     => astra_get_css_value( astra_get_option( $font_family ), 'font' ),
+		'font-weight'     => astra_get_css_value( astra_get_option( $font_weight ), 'font' ),
+		'font-size'       => astra_responsive_font( $font_size, 'desktop' ),
+		'line-height'     => astra_get_font_extras( $font_extras_ast_option, 'line-height', 'line-height-unit' ),
+		'text-transform'  => astra_get_font_extras( $font_extras_ast_option, 'text-transform' ),
+		'letter-spacing'  => astra_get_font_extras( $font_extras_ast_option, 'letter-spacing', 'letter-spacing-unit' ),
+		'text-decoration' => astra_get_font_extras( $font_extras_ast_option, 'text-decoration' ),
+	);
 }
