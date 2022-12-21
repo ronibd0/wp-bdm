@@ -1005,7 +1005,7 @@ function astra_get_font_extras( $config, $setting, $unit = false ) {
  * @param string $font_family Font family.
  * @param string $font_weight Font weight.
  * @param array  $font_size Font size.
- * @param array  $font_extras contains all font controls.
+ * @param string $font_extras contains all font controls.
  * @param string $color In most of cases color is also added, so included optional param here.
  *
  * @param array  array of build CSS font settings.
