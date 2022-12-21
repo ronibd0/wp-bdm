@@ -117,7 +117,7 @@ function astra_post_archive_structure_dynamic_css( $dynamic_css, $dynamic_css_fi
 				'margin-left'    => astra_responsive_spacing( $banner_margin, 'left', 'desktop' ),
 				'margin-right'   => astra_responsive_spacing( $banner_margin, 'right', 'desktop' ),
 			),
-			$selector . ', ' . $selector . ' *'     => array(
+			$selector . ' *'     => array(
 				'color'           => esc_attr( $text_color ),
 				'font-family'     => astra_get_css_value( $banner_text_font_family, 'font' ),
 				'font-weight'     => astra_get_css_value( $banner_text_font_weight, 'font' ),
