@@ -75,7 +75,7 @@
 .ast-font-styling {
 	display: flex;
 	justify-content: space-between;
-	gap: 20px;
+	gap: 15px;
 	align-items: center;
 	padding-bottom: 20px;
 	border-bottom: 1px dashed #D4D4D4;
@@ -94,39 +94,37 @@
 	background: #fff;
 	max-width: 72px;
 	width: 100%;
+	border: 1px solid #d1d5db;
+	border-radius: 3px;
+	padding: 0 3px;
 }
 
 .ast-font-extras-wrapper .ast-font-extras-input input, .ast-font-spacing-wrapper .ast-font-spacing-input input {
 	padding: 0;
-	padding-right: 26px;
 	border: none;
 	min-height: 32px;
 	border-radius: 3px;
-	border: 1px solid #d1d5db;
+	border: none !important;
+	box-shadow: none !important;
+	text-align: center;
+	padding: 0 5px;
+}
+.ast-font-extras-input:hover, .ast-font-spacing-input:hover {
+	border-color: var(--ast-customizer-color-2);
 }
 
 .ast-font-extras-wrapper .ast-font-extras-input svg, .ast-font-spacing-wrapper .ast-font-spacing-input svg {
-	position: absolute;
-	top: 50%;
-	right: 6px;
-	transform: translateY(-50%);
+	width: 38px;
+	height: 28px;
 }
 
-.ast-font-extras-input .ast-number-input .plus-minus-control,
-.ast-font-spacing-input .ast-number-input .plus-minus-control {
-	position: absolute;
-	top: 50%;
-	left: 6px;
-	transform: translateY(-50%);
-}
-
-.ast-font-extras-input .ast-number-input .plus-minus-control .dashicons,
-.ast-font-spacing-input .ast-number-input .plus-minus-control .dashicons {
+.ast-font-extras-input .plus-minus-control .dashicons,
+.ast-font-spacing-input .plus-minus-control .dashicons {
 	font-size: 10px;
 	color: #9CA3AF;
-	width: 10px;
-    height: 10px;
-    display: inherit;
+	width: 12px;
+	height: 10px;
+	display: inherit;
 	cursor: pointer;
 }
 
@@ -134,23 +132,22 @@ div .ast-field-settings-modal .customize-control-ast-font-extras {
 	margin-top: 15px;
 }
 
-.ast-font-extras-input .ast-number-input input[type=number]::-webkit-inner-spin-button,
-.ast-font-extras-input .ast-number-input input[type=number]::-webkit-outer-spin-button,
-.ast-font-spacing-input .ast-number-input input[type=number]::-webkit-inner-spin-button,
-.ast-font-spacing-input .ast-number-input input[type=number]::-webkit-outer-spin-button {
+.ast-font-extras-input input[type=number]::-webkit-inner-spin-button,
+.ast-font-extras-input input[type=number]::-webkit-outer-spin-button,
+.ast-font-spacing-input input[type=number]::-webkit-inner-spin-button,
+.ast-font-spacing-input input[type=number]::-webkit-outer-spin-button {
 	-webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
+	-moz-appearance: none;
+	appearance: none;
 }
 
 .ast-font-unit-wrapper {
 	display: flex;
 	gap: 6px;
-	font-size: 12px;
+	font-size: 11px;
 	font-weight: 500;
 	color: #9CA3AF;
 }
-
 .ast-font-unit-wrapper span {
 	cursor: pointer;
 }
@@ -161,6 +158,7 @@ div .ast-field-settings-modal .customize-control-ast-font-extras {
 
 .ast-font-unit-wrapper .active {
 	color: #0284c7;
+	cursor: default;
 }
 
 .ast-font-styling-second {

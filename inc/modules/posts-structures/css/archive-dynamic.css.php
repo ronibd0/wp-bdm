@@ -32,7 +32,7 @@ function astra_post_archive_structure_dynamic_css( $dynamic_css, $dynamic_css_fi
 	if ( ! in_array( $current_post_type, $supported_post_types ) ) {
 		return $dynamic_css;
 	}
-	if ( false === astra_get_option( 'ast-archive-' . $current_post_type . '-title', true ) ) {
+	if ( false === astra_get_option( 'ast-archive-' . $current_post_type . '-title', ( class_exists( 'WooCommerce' ) && 'product' === $current_post_type ) ? false : true ) ) {
 		return $dynamic_css;
 	}
 
@@ -57,7 +57,7 @@ function astra_post_archive_structure_dynamic_css( $dynamic_css, $dynamic_css_fi
 	}
 
 	$elements_gap   = astra_get_option( 'ast-dynamic-archive-' . $current_post_type . '-elements-gap', 10 );
-	$banner_padding = astra_get_option( 'ast-dynamic-archive-' . $current_post_type . '-banner-padding', Astra_Posts_Structure_Loader::get_customizer_default( 'responsive-padding' ) );
+	$banner_padding = astra_get_option( 'ast-dynamic-archive-' . $current_post_type . '-banner-padding', ( class_exists( 'WooCommerce' ) && 'product' === $current_post_type ) ? Astra_Posts_Structure_Loader::get_customizer_default( 'responsive-spacing' ) : Astra_Posts_Structure_Loader::get_customizer_default( 'responsive-padding' ) );
 	$banner_margin  = astra_get_option( 'ast-dynamic-archive-' . $current_post_type . '-banner-margin' );
 
 	$banner_height      = astra_get_option( 'ast-dynamic-archive-' . $current_post_type . '-banner-height' );
@@ -143,7 +143,7 @@ function astra_post_archive_structure_dynamic_css( $dynamic_css, $dynamic_css_fi
 			$selector . ' a:hover, ' . $selector . ' a:hover *' => array(
 				'color' => esc_attr( $link_hover_color ),
 			),
-			$selector . ' .ast-container > *:not(:last-child)' => array(
+			$selector . ' > *:not(:last-child)'     => array(
 				'margin-bottom' => $elements_gap . 'px',
 			),
 		);

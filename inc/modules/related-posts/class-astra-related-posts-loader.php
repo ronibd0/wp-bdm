@@ -104,9 +104,9 @@ class Astra_Related_Posts_Loader {
 			'author',
 		);
 		// Related Posts - Color styles.
-		$defaults['related-posts-text-color']            = '';
+		$defaults['related-posts-text-color']            = $apply_new_default_color_typo_values ? 'var(--ast-global-color-2)' : '';
 		$defaults['related-posts-link-color']            = '';
-		$defaults['related-posts-title-color']           = '';
+		$defaults['related-posts-title-color']           = $apply_new_default_color_typo_values ? 'var(--ast-global-color-2)' : '';
 		$defaults['related-posts-background-color']      = '';
 		$defaults['related-posts-meta-color']            = '';
 		$defaults['related-posts-link-hover-color']      = '';
@@ -178,11 +178,17 @@ class Astra_Related_Posts_Loader {
 		);
 
 		// Related Posts - Content typo.
-		$defaults['related-posts-content-font-family']    = 'inherit';
-		$defaults['related-posts-content-font-weight']    = 'inherit';
-		$defaults['related-posts-content-text-transform'] = '';
-		$defaults['related-posts-content-line-height']    = '';
-		$defaults['related-posts-content-font-size']      = array(
+		$defaults['related-posts-content-font-family'] = 'inherit';
+		$defaults['related-posts-content-font-weight'] = 'inherit';
+		$defaults['related-posts-content-font-extras'] = array(
+			'line-height'         => ! isset( $astra_options['related-posts-content-font-extras'] ) && isset( $astra_options['related-posts-content-line-height'] ) ? $astra_options['related-posts-content-line-height'] : '',
+			'line-height-unit'    => 'em',
+			'letter-spacing'      => '',
+			'letter-spacing-unit' => 'px',
+			'text-transform'      => ! isset( $astra_options['related-posts-content-font-extras'] ) && isset( $astra_options['related-posts-content-text-transform'] ) ? $astra_options['related-posts-content-text-transform'] : '',
+			'text-decoration'     => '',
+		);
+		$defaults['related-posts-content-font-size']   = array(
 			'desktop'      => '',
 			'tablet'       => '',
 			'mobile'       => '',

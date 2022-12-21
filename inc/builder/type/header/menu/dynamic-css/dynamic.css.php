@@ -195,7 +195,7 @@ function astra_hb_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 
 		$css_output_tablet = array(
 
-			$mobile_selector                             => array(
+			$mobile_selector . ' .menu-item > .menu-link' => array(
 				'font-size' => astra_get_font_css_value( $menu_font_size_tablet, $menu_font_size_tablet_unit ),
 			),
 			$mobile_selector . ' .main-header-menu .menu-item > .menu-link' => array(
@@ -207,7 +207,7 @@ function astra_hb_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 			$selector . ' .main-header-menu .menu-item > .menu-link' => array(
 				'color' => $menu_resp_color_tablet,
 			),
-			$selector . ' .menu-item > .ast-menu-toggle' => array(
+			$selector . ' .menu-item > .ast-menu-toggle'  => array(
 				'color' => $menu_resp_color_tablet,
 			),
 			$selector . ' .menu-item:hover > .menu-link, ' . $selector . ' .inline-on-mobile .menu-item:hover > .ast-menu-toggle' => array(
@@ -232,7 +232,7 @@ function astra_hb_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 				'content' => 'unset',
 			),
 			// Margin CSS.
-			$margin_selector                             => array(
+			$margin_selector                              => array(
 				'margin-top'    => astra_responsive_spacing( $margin, 'top', 'tablet' ),
 				'margin-bottom' => astra_responsive_spacing( $margin, 'bottom', 'tablet' ),
 				'margin-left'   => astra_responsive_spacing( $margin, 'left', 'tablet' ),
@@ -247,7 +247,7 @@ function astra_hb_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 
 		$css_output_mobile = array(
 
-			$mobile_selector                              => array(
+			$mobile_selector . ' .menu-item > .menu-link' => array(
 				'font-size' => astra_get_font_css_value( $menu_font_size_mobile, $menu_font_size_mobile_unit ),
 			),
 			$mobile_selector . ' .main-header-menu .menu-item > .menu-link' => array(

@@ -77,7 +77,7 @@ if ( ! class_exists( 'Astra_Header_Typo_Configs' ) ) {
 						'default'           => astra_get_option( 'font-size-site-tagline' ),
 						'transport'         => 'postMessage',
 						'priority'          => 16,
-						'title'             => __( 'Size', 'astra' ),
+						'title'             => __( 'Font Size', 'astra' ),
 						'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
 						'suffix'            => array( 'px', 'em' ),
 						'input_attrs'       => array(
@@ -101,7 +101,7 @@ if ( ! class_exists( 'Astra_Header_Typo_Configs' ) ) {
 					/**
 					 * Option: Site Title Font Size
 					 */
-	
+
 					array(
 						'name'              => ASTRA_THEME_SETTINGS . '[font-size-site-title]',
 						'type'              => 'control',
