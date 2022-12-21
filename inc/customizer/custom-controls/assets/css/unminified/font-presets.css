@@ -94,36 +94,29 @@
 	background: #fff;
 	max-width: 72px;
 	width: 100%;
+	border: 1px solid #d1d5db;
+	border-radius: 3px;
+	padding: 0 3px;
 }
 
 .ast-font-extras-wrapper .ast-font-extras-input input, .ast-font-spacing-wrapper .ast-font-spacing-input input {
 	padding: 0;
-	padding-left: 22px;
 	border: none;
 	min-height: 32px;
 	border-radius: 3px;
-	border: 1px solid #d1d5db;
+	border: none !important;
+	box-shadow: none !important;
+	text-align: center;
+	padding: 0 5px;
 }
 
 .ast-font-extras-wrapper .ast-font-extras-input svg, .ast-font-spacing-wrapper .ast-font-spacing-input svg {
-	position: absolute;
-	top: 50%;
-	left: 5px;
-	transform: translateY(-50%);
+	width: 38px;
+	height: 28px;
 }
 
-.ast-font-extras-input .ast-number-input .plus-minus-control,
-.ast-font-spacing-input .ast-number-input .plus-minus-control {
-	position: absolute;
-	top: 50%;
-	width: 14px;
-	background: #fff;
-	right: 1px;
-	transform: translateY(-50%);
-}
-
-.ast-font-extras-input .ast-number-input .plus-minus-control .dashicons,
-.ast-font-spacing-input .ast-number-input .plus-minus-control .dashicons {
+.ast-font-extras-input .plus-minus-control .dashicons,
+.ast-font-spacing-input .plus-minus-control .dashicons {
 	font-size: 10px;
 	color: #9CA3AF;
 	width: 12px;
@@ -136,13 +129,13 @@ div .ast-field-settings-modal .customize-control-ast-font-extras {
 	margin-top: 15px;
 }
 
-.ast-font-extras-input .ast-number-input input[type=number]::-webkit-inner-spin-button,
-.ast-font-extras-input .ast-number-input input[type=number]::-webkit-outer-spin-button,
-.ast-font-spacing-input .ast-number-input input[type=number]::-webkit-inner-spin-button,
-.ast-font-spacing-input .ast-number-input input[type=number]::-webkit-outer-spin-button {
+.ast-font-extras-input input[type=number]::-webkit-inner-spin-button,
+.ast-font-extras-input input[type=number]::-webkit-outer-spin-button,
+.ast-font-spacing-input input[type=number]::-webkit-inner-spin-button,
+.ast-font-spacing-input input[type=number]::-webkit-outer-spin-button {
 	-webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
+	-moz-appearance: none;
+	appearance: none;
 }
 
 .ast-font-unit-wrapper {
