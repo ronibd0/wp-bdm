@@ -45,7 +45,7 @@ function astra_post_single_structure_dynamic_css( $dynamic_css, $dynamic_css_fil
 	if ( $layout_2_active ) {
 		$selector = '.ast-single-entry-banner[data-post-type="' . $current_post_type . '"]';
 	} else {
-		$selector = '.entry-header';
+		$selector = 'header.entry-header';
 	}
 
 	$horz_alignment   = astra_get_option( 'ast-dynamic-single-' . $current_post_type . '-horizontal-alignment' );
