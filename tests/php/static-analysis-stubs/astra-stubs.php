@@ -5151,7 +5151,7 @@ namespace {
         /**
          * Return starter content definition.
          *
-         * @return mixed|void
+         * @return mixed|void 
          * @since x.x.x
          */
         public function get()
@@ -7787,7 +7787,7 @@ namespace {
         public function __construct()
         {
         }
-        /**
+        /** 
          * Comment count wrapper opening div.
          *
          * @param array $args markup arguments.
@@ -7797,7 +7797,7 @@ namespace {
         public function comment_count_wrapper_open($args)
         {
         }
-        /**
+        /** 
          * Comment count wrapper closing div.
          *
          * @param array $args markup arguments.
@@ -7807,7 +7807,7 @@ namespace {
         public function comment_count_wrapper_close($args)
         {
         }
-        /**
+        /** 
          * Comment data wrapper opening div.
          *
          * @param array $args markup arguments.
@@ -7817,7 +7817,7 @@ namespace {
         public function ast_comment_data_wrap_open($args)
         {
         }
-        /**
+        /** 
          * Comment data wrapper closing div.
          *
          * @param array $args markup arguments.
@@ -7827,7 +7827,7 @@ namespace {
         public function ast_comment_data_wrap_close($args)
         {
         }
-        /**
+        /** 
          * Comment meta wrapper opening div.
          *
          * @param array $args markup arguments.
@@ -7837,7 +7837,7 @@ namespace {
         public function ast_comment_meta_wrap_open($args)
         {
         }
-        /**
+        /** 
          * Comment meta wrapper closing div.
          *
          * @param array $args markup arguments.
@@ -7847,7 +7847,7 @@ namespace {
         public function ast_comment_meta_wrap_close($args)
         {
         }
-        /**
+        /** 
          * Comment time div attributes.
          *
          * @since 3.3.0
@@ -7856,7 +7856,7 @@ namespace {
         public function ast_comment_time_attr()
         {
         }
-        /**
+        /** 
          * Comment cite wrapper div attributes.
          *
          * @since 3.3.0
@@ -7901,16 +7901,16 @@ namespace {
         public function ast_grid_col_6()
         {
         }
-        /**
+        /** 
          * Comment form grid classes.
          *
-         * @since 3.3.0
+         * @since 3.3.0 
          * @return string.
          */
         public function comment_form_grid_class()
         {
         }
-        /**
+        /** 
          * Removed grid layout classes and make common class for same style
          *
          * @since 3.3.0
@@ -7919,7 +7919,7 @@ namespace {
         public function ast_grid_lg_12()
         {
         }
-        /**
+        /** 
          * Layout-4 grid css backward comaptibility.
          *
          * @return string.
@@ -7927,7 +7927,7 @@ namespace {
         public function ast_layout_4_grid()
         {
         }
-        /**
+        /** 
          * Layout-2 grid css backward comaptibility.
          *
          * @return string.
@@ -7935,7 +7935,7 @@ namespace {
         public function ast_layout_2_grid()
         {
         }
-        /**
+        /** 
          * Layout-1 grid css backward comaptibility.
          *
          * @return string.
@@ -7943,7 +7943,7 @@ namespace {
         public function ast_layout_1_grid()
         {
         }
-        /**
+        /** 
          * Layout-3 grid css backward comaptibility.
          *
          * @return string.
@@ -7951,7 +7951,7 @@ namespace {
         public function ast_layout_3_grid()
         {
         }
-        /**
+        /** 
          * Layout-5 grid css backward comaptibility.
          *
          * @return string.
@@ -7959,7 +7959,7 @@ namespace {
         public function ast_layout_5_grid()
         {
         }
-        /**
+        /** 
          * Layout-6 grid css backward comaptibility.
          *
          * @return string.
@@ -7969,7 +7969,7 @@ namespace {
         }
         /**
          * Footer widget opening div.
-         *
+         * 
          * @since 3.3.0
          * @param array $args div attributes.
          * @return array.
@@ -7979,7 +7979,7 @@ namespace {
         }
         /**
          * Footer widget closing div.
-         *
+         * 
          * @since 3.3.0
          * @param array $args div attributes.
          * @return array.
@@ -8009,7 +8009,7 @@ namespace {
         }
         /**
          * Footer widget opening div.
-         *
+         * 
          * @since 3.3.0
          * @param array $args div attributes.
          * @return array.
@@ -13773,7 +13773,7 @@ namespace {
     }
     /**
      * Home starter content.
-     *
+     * 
      * @since x.x.x
      * @package Astra\Compatibility\Starter_Content
      */
@@ -14936,6 +14936,20 @@ namespace {
     {
     }
     /**
+     * Deprecating is_astra_addon_3_5_0_version function.
+     *
+     * Checking if Astra Addon is of v3.5.0 or on higher version.
+     *
+     * @since 3.7.4
+     * @deprecated is_astra_addon_3_5_0_version() Use astra_addon_has_3_5_0_version()
+     * @see astra_addon_has_3_5_0_version()
+     *
+     * @return bool true|false based on version_compare of ASTRA_EXT_VER
+     */
+    function is_astra_addon_3_5_0_version()
+    {
+    }
+    /**
      * Deprecating prepare_button_defaults function.
      *
      * Default configurations for builder button components.
@@ -15595,7 +15609,7 @@ namespace {
     /**
      * Old Header Menu Last Item - Dynamic CSS.
      *
-     * @param string $dynamic_css
+     * @param string $dynamic_css 
      * @since 3.5.0
      */
     function astra_old_header_custom_menu_css($dynamic_css)
@@ -15847,6 +15861,15 @@ namespace {
     {
     }
     /**
+     * Check the Astra addon 3.5.0 version is using or not.
+     * As this is major update and frequently we used version_compare, added a function for this for easy maintenance.
+     *
+     * @since  3.5.0
+     */
+    function astra_addon_has_3_5_0_version()
+    {
+    }
+    /**
      * Check the Astra addon version.
      * For  major update and frequently we used version_compare, added a function for this for easy maintenance.
      *
@@ -16034,22 +16057,6 @@ namespace {
     function astra_showcase_upgrade_notices()
     {
     }
-	/**
-	 * Function which will return CSS array for font specific props for further parsing CSS.
-	 * It includes - font-family, font-weight, font-size, line-height, text-transform, letter-spacing, text-decoration, color (optional).
-	 *
-	 * @param string $font_family Font family.
-	 * @param string $font_weight Font weight.
-	 * @param array  $font_size Font size.
-	 * @param string $font_extras contains all font controls.
-	 * @param string $color In most of cases color is also added, so included optional param here.
-	 *
-	 * @param array  array of build CSS font settings.
-	 *
-	 * @since x.x.x
-	 */
-	function astra_get_font_array_css( $font_family, $font_weight, $font_size, $font_extras, $color = '' ) {
-	}
     /**
      * Create instance of Astra_WebFont_Loader class.
      *
