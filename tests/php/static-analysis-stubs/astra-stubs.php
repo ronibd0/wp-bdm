@@ -14936,20 +14936,6 @@ namespace {
     {
     }
     /**
-     * Deprecating is_astra_addon_3_5_0_version function.
-     *
-     * Checking if Astra Addon is of v3.5.0 or on higher version.
-     *
-     * @since 3.7.4
-     * @deprecated is_astra_addon_3_5_0_version() Use astra_addon_has_3_5_0_version()
-     * @see astra_addon_has_3_5_0_version()
-     *
-     * @return bool true|false based on version_compare of ASTRA_EXT_VER
-     */
-    function is_astra_addon_3_5_0_version()
-    {
-    }
-    /**
      * Deprecating prepare_button_defaults function.
      *
      * Default configurations for builder button components.
@@ -15858,15 +15844,6 @@ namespace {
      * @return bool
      */
     function astra_is_elemetor_active()
-    {
-    }
-    /**
-     * Check the Astra addon 3.5.0 version is using or not.
-     * As this is major update and frequently we used version_compare, added a function for this for easy maintenance.
-     *
-     * @since  3.5.0
-     */
-    function astra_addon_has_3_5_0_version()
     {
     }
     /**

@@ -94,8 +94,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$body_text_transform  = astra_get_font_extras( astra_get_option( 'body-font-extras' ), 'text-transform' );
 			$body_letter_spacing  = astra_get_font_extras( astra_get_option( 'body-font-extras' ), 'letter-spacing', 'letter-spacing-unit' );
 			$body_text_decoration = astra_get_font_extras( astra_get_option( 'body-font-extras' ), 'text-decoration' );
-			$headings_font_family = astra_get_option( 'headings-font-family' );
-			$headings_font_weight = astra_get_option( 'headings-font-weight' );
 
 			$site_title_font_size   = astra_get_option( 'font-size-site-title' );
 			$site_tagline_font_size = astra_get_option( 'font-size-site-tagline' );
@@ -111,7 +109,10 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			/**
 			 * Heading Typography - h1 - h3.
 			 */
-			$headings_font_transform = astra_get_option( 'headings-text-transform', $body_text_transform );
+			$headings_font_family    = astra_get_option( 'headings-font-family' );
+			$headings_font_weight    = astra_get_option( 'headings-font-weight' );
+			$headings_line_height    = astra_get_font_extras( astra_get_option( 'headings-font-extras' ), 'line-height', 'line-height-unit' );
+			$headings_font_transform = astra_get_font_extras( astra_get_option( 'headings-font-extras' ), 'text-transform' );
 
 			$h1_font_family     = astra_get_option( 'font-family-h1' );
 			$h1_font_weight     = astra_get_option( 'font-weight-h1' );
@@ -3073,25 +3074,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				$parse_css             .= astra_parse_css( $min_site_container_css, '', astra_get_tablet_breakpoint() );
 			}
 
-			if ( astra_addon_has_3_5_0_version() ) {
-				$mega_menu_css = array(
-					'.ast-desktop .main-header-menu .astra-full-megamenu-wrapper .sub-menu, .ast-desktop .main-header-menu .astra-megamenu .sub-menu' => array(
-						'box-shadow' => 'none',
-					),
-					'.ast-desktop .main-header-menu.ast-menu-shadow .astra-full-megamenu-wrapper' => array(
-						'box-shadow' => '0 4px 10px -2px rgba(0, 0, 0, 0.1)',
-					),
-					'.ast-desktop .main-header-menu > .menu-item .astra-full-megamenu-wrapper:before' => array(
-						'position'  => 'absolute',
-						'content'   => '',
-						'top'       => '0',
-						'right'     => '0',
-						'width'     => '100%',
-						'transform' => 'translateY(-100%)',
-					),
-				);
-				$parse_css    .= astra_parse_css( $mega_menu_css );
-			}
 			/**
 			 * Astra Fonts
 			 */
