@@ -39,16 +39,16 @@ function astra_related_posts_css( $dynamic_css ) {
 		$mobile_grid        = ( isset( $related_posts_grid['mobile'] ) ) ? $related_posts_grid['mobile'] : 'full';
 
 		// Related Posts -> Post Title typography dynamic stylings.
-		$related_post_title_font_size       = astra_get_option( 'related-posts-title-font-size' );
+		$related_post_title_font_size = astra_get_option( 'related-posts-title-font-size' );
 
 		// Related Posts -> Post Meta typography dynamic stylings.
-		$related_post_meta_font_size       = astra_get_option( 'related-posts-meta-font-size' );
+		$related_post_meta_font_size = astra_get_option( 'related-posts-meta-font-size' );
 
 		// Related Posts -> Content typography dynamic stylings.
-		$related_post_content_font_size       = astra_get_option( 'related-posts-content-font-size' );
+		$related_post_content_font_size = astra_get_option( 'related-posts-content-font-size' );
 
 		// Related Posts -> Section Title typography dynamic stylings.
-		$related_posts_section_title_font_size       = astra_get_option( 'related-posts-section-title-font-size' );
+		$related_posts_section_title_font_size = astra_get_option( 'related-posts-section-title-font-size' );
 
 		// Setting up container BG color by default to Related Posts's section BG color.
 		$content_bg_obj     = astra_get_option( 'content-bg-obj-responsive' );
@@ -85,8 +85,8 @@ function astra_related_posts_css( $dynamic_css ) {
 			 * Related Posts - Section Title
 			 */
 			'.ast-related-posts-title'            => astra_get_font_array_css( 'related-posts-section-title-font-family', 'related-posts-section-title-font-weight', $related_posts_section_title_font_size, 'related-posts-section-title-font-extras', $related_posts_title_color ),
-			'.ast-related-posts-title-section .ast-related-posts-title'            => array(
-				'text-align'      => esc_attr( $related_posts_title_alignment ),
+			'.ast-related-posts-title-section .ast-related-posts-title' => array(
+				'text-align' => esc_attr( $related_posts_title_alignment ),
 			),
 			/**
 			 * Related Posts - Post Title

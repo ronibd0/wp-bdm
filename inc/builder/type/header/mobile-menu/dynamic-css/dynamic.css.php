@@ -47,7 +47,7 @@ function astra_hb_mobile_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered =
 	$menu_resp_bg_color_hover  = astra_get_option( 'header-mobile-menu-h-bg-color-responsive' );
 	$menu_resp_color_active    = astra_get_option( 'header-mobile-menu-a-color-responsive' );
 	$menu_resp_bg_color_active = astra_get_option( 'header-mobile-menu-a-bg-color-responsive' );
-	
+
 	$menu_resp_color_desktop = ( isset( $menu_resp_color['desktop'] ) ) ? $menu_resp_color['desktop'] : '';
 	$menu_resp_color_tablet  = ( isset( $menu_resp_color['tablet'] ) ) ? $menu_resp_color['tablet'] : '';
 	$menu_resp_color_mobile  = ( isset( $menu_resp_color['mobile'] ) ) ? $menu_resp_color['mobile'] : '';
@@ -69,25 +69,13 @@ function astra_hb_mobile_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered =
 	$menu_resp_bg_color_active_mobile  = ( isset( $menu_resp_bg_color_active['mobile'] ) ) ? $menu_resp_bg_color_active['mobile'] : '';
 
 	// Typography.
-	$menu_font_family = astra_get_option( 'header-mobile-menu-font-family' );
-	$menu_font_size   = astra_get_option( 'header-mobile-menu-font-size' );
-	$menu_font_weight = astra_get_option( 'header-mobile-menu-font-weight' );
-	/** @psalm-suppress UndefinedFunction  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-	$menu_text_transform = astra_get_font_extras( astra_get_option( 'font-extras-h1' ), 'text-transform' );
-	/** @psalm-suppress UndefinedFunction  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-	$menu_line_height = astra_get_font_extras( astra_get_option( 'font-extras-h1' ), 'line-height', 'line-height-unit' );
-	/** @psalm-suppress UndefinedFunction  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-	$menu_letter_spacing = astra_get_font_extras( astra_get_option( 'font-extras-header-mobile-menu' ), 'letter-spacing', 'letter-spacing-unit' );
-	/** @psalm-suppress UndefinedFunction  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-	$menu_text_decoration = astra_get_font_extras( astra_get_option( 'font-extras-header-mobile-menu' ), 'text-decoration' );
-
+	$menu_font_size              = astra_get_option( 'header-mobile-menu-font-size' );
 	$menu_font_size_desktop      = ( isset( $menu_font_size['desktop'] ) ) ? $menu_font_size['desktop'] : '';
 	$menu_font_size_tablet       = ( isset( $menu_font_size['tablet'] ) ) ? $menu_font_size['tablet'] : '';
 	$menu_font_size_mobile       = ( isset( $menu_font_size['mobile'] ) ) ? $menu_font_size['mobile'] : '';
 	$menu_font_size_desktop_unit = ( isset( $menu_font_size['desktop-unit'] ) ) ? $menu_font_size['desktop-unit'] : '';
 	$menu_font_size_tablet_unit  = ( isset( $menu_font_size['tablet-unit'] ) ) ? $menu_font_size['tablet-unit'] : '';
 	$menu_font_size_mobile_unit  = ( isset( $menu_font_size['mobile-unit'] ) ) ? $menu_font_size['mobile-unit'] : '';
-
 
 	// Spacing.
 	$menu_spacing = astra_get_option( 'header-mobile-menu-menu-spacing' );
@@ -115,14 +103,7 @@ function astra_hb_mobile_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered =
 
 	$css_output_desktop = array(
 
-		$selector . ' .menu-item > .menu-link'             => array(
-			'font-family'     => astra_get_font_family( $menu_font_family ),
-			'font-weight'     => esc_attr( $menu_font_weight ),
-			'line-height'     => esc_attr( $menu_line_height ),
-			'text-transform'  => esc_attr( $menu_text_transform ),
-			'letter-spacing'  => esc_attr( $menu_letter_spacing ),
-			'text-decoration' => esc_attr( $menu_text_decoration ),
-		),
+		$selector . ' .menu-item > .menu-link'             => astra_get_font_array_css( 'header-mobile-menu-font-family', 'header-mobile-menu-font-weight', array(), 'font-extras-header-mobile-menu' ),
 		$selector                                          => array(
 			'font-size' => astra_get_font_css_value( $menu_font_size_desktop, $menu_font_size_desktop_unit ),
 		),
@@ -260,7 +241,7 @@ function astra_hb_mobile_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered =
 	$css_output_mobile[ $selector . ' .main-header-menu, ' . $selector . ' .main-header-menu .sub-menu' ] = astra_get_responsive_background_obj( $menu_resp_bg_color, 'mobile' );
 
 	if ( true === $sub_menu_divider_toggle ) {
-		
+
 		$css_output_desktop_submenu = array(
 			'.ast-hfb-header ' . $selector . ' .main-header-menu, .ast-hfb-header ' . $selector . ' .main-header-menu, .ast-hfb-header .ast-mobile-header-content ' . $selector . ' .main-header-menu, .ast-hfb-header .ast-mobile-popup-content ' . $selector . ' .main-header-menu' => array(
 				'border-top-width' => $sub_menu_divider_size . 'px',
@@ -282,7 +263,7 @@ function astra_hb_mobile_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered =
 			),
 		);
 	}
-	
+
 	$css_output_desktop_submenu[ $selector . ' .menu-item.menu-item-has-children > .ast-menu-toggle' ] = array(
 		'top'   => $menu_spacing_desktop_top,
 		'right' => astra_calculate_spacing( astra_responsive_spacing( $menu_spacing, 'right', 'desktop' ), '-', '0.907', 'em' ),

@@ -116,9 +116,7 @@ class Astra_WP_Editor_CSS {
 	 * @return String CSS to be loaded in the editor interface.
 	 */
 	public static function get_css() {
-		$is_site_rtl = is_rtl();
-		$ltr_left    = $is_site_rtl ? 'right' : 'left';
-		$ltr_right   = $is_site_rtl ? 'left' : 'right';
+		$ltr_left = is_rtl() ? 'right' : 'left';
 
 		$site_content_width      = astra_get_option( 'site-content-width', 1200 );
 		$headings_font_family    = astra_get_option( 'headings-font-family' );
@@ -454,13 +452,7 @@ class Astra_WP_Editor_CSS {
 				'line-height'    => esc_attr( $body_line_height ),
 				'text-transform' => esc_attr( $body_text_transform ),
 			),
-			'.editor-styles-wrapper h1, .editor-styles-wrapper h2, .editor-styles-wrapper h3, .editor-styles-wrapper h4, .editor-styles-wrapper h5, .editor-styles-wrapper h6' => array(
-				'font-family'    => astra_get_css_value( $headings_font_family, 'font' ),
-				'font-weight'    => astra_get_css_value( $headings_font_weight, 'font' ),
-				'text-transform' => esc_attr( $headings_text_transform ),
-				'line-height'    => esc_attr( $headings_line_height ),
-				'color'          => esc_attr( $heading_base_color ),
-			),
+			'.editor-styles-wrapper h1, .editor-styles-wrapper h2, .editor-styles-wrapper h3, .editor-styles-wrapper h4, .editor-styles-wrapper h5, .editor-styles-wrapper h6' => astra_get_font_array_css( 'headings-font-family', 'headings-font-weight', array(), 'headings-font-extras', $heading_base_color ),
 
 			// Headings H1 - H6 typography.
 			'.editor-styles-wrapper h1'        => array(

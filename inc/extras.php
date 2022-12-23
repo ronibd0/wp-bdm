@@ -1002,11 +1002,11 @@ function astra_get_font_extras( $config, $setting, $unit = false ) {
  * Function which will return CSS array for font specific props for further parsing CSS.
  * It includes - font-family, font-weight, font-size, line-height, text-transform, letter-spacing, text-decoration, color (optional).
  *
- * @param string $font_family Font family.
- * @param string $font_weight Font weight.
- * @param array  $font_size Font size.
- * @param string $font_extras contains all font controls.
- * @param string $color In most of cases color is also added, so included optional param here.
+ * @param string                                  $font_family Font family.
+ * @param string                                  $font_weight Font weight.
+ * @param array                                   $font_size Font size.
+ * @param string                                  $font_extras contains all font controls.
+ * @param string                                  $color In most of cases color is also added, so included optional param here.
  *
  * @param array  array of build CSS font settings.
  *
@@ -1018,7 +1018,7 @@ function astra_get_font_array_css( $font_family, $font_weight, $font_size, $font
 		'color'           => esc_attr( $color ),
 		'font-family'     => astra_get_css_value( astra_get_option( $font_family ), 'font' ),
 		'font-weight'     => astra_get_css_value( astra_get_option( $font_weight ), 'font' ),
-		'font-size'       => astra_responsive_font( $font_size, 'desktop' ),
+		'font-size'       => ! empty( $font_size ) ? astra_responsive_font( $font_size, 'desktop' ) : '',
 		'line-height'     => astra_get_font_extras( $font_extras_ast_option, 'line-height', 'line-height-unit' ),
 		'text-transform'  => astra_get_font_extras( $font_extras_ast_option, 'text-transform' ),
 		'letter-spacing'  => astra_get_font_extras( $font_extras_ast_option, 'letter-spacing', 'letter-spacing-unit' ),
