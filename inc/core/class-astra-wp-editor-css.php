@@ -452,7 +452,7 @@ class Astra_WP_Editor_CSS {
 				'line-height'    => esc_attr( $body_line_height ),
 				'text-transform' => esc_attr( $body_text_transform ),
 			),
-			'.editor-styles-wrapper h1, .editor-styles-wrapper h2, .editor-styles-wrapper h3, .editor-styles-wrapper h4, .editor-styles-wrapper h5, .editor-styles-wrapper h6' => astra_get_font_array_css( 'headings-font-family', 'headings-font-weight', array(), 'headings-font-extras', $heading_base_color ),
+			'.editor-styles-wrapper h1, .editor-styles-wrapper h2, .editor-styles-wrapper h3, .editor-styles-wrapper h4, .editor-styles-wrapper h5, .editor-styles-wrapper h6' => astra_get_font_array_css( astra_get_option( 'headings-font-family' ), astra_get_option( 'headings-font-weight' ), array(), 'headings-font-extras', $heading_base_color ),
 
 			// Headings H1 - H6 typography.
 			'.editor-styles-wrapper h1'        => array(

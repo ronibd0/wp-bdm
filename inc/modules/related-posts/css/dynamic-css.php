@@ -84,19 +84,19 @@ function astra_related_posts_css( $dynamic_css ) {
 			/**
 			 * Related Posts - Section Title
 			 */
-			'.ast-related-posts-title'            => astra_get_font_array_css( 'related-posts-section-title-font-family', 'related-posts-section-title-font-weight', $related_posts_section_title_font_size, 'related-posts-section-title-font-extras', $related_posts_title_color ),
+			'.ast-related-posts-title'            => astra_get_font_array_css( astra_get_option( 'related-posts-section-title-font-family' ), astra_get_option( 'related-posts-section-title-font-weight' ), $related_posts_section_title_font_size, 'related-posts-section-title-font-extras', $related_posts_title_color ),
 			'.ast-related-posts-title-section .ast-related-posts-title' => array(
 				'text-align' => esc_attr( $related_posts_title_alignment ),
 			),
 			/**
 			 * Related Posts - Post Title
 			 */
-			'.ast-related-post-content .entry-header .ast-related-post-title, .ast-related-post-content .entry-header .ast-related-post-title a' => astra_get_font_array_css( 'related-posts-title-font-family', 'related-posts-title-font-weight', $related_post_title_font_size, 'related-posts-title-font-extras', $related_post_text_color ),
+			'.ast-related-post-content .entry-header .ast-related-post-title, .ast-related-post-content .entry-header .ast-related-post-title a' => astra_get_font_array_css( astra_get_option( 'related-posts-title-font-family' ), astra_get_option( 'related-posts-title-font-weight' ), $related_post_title_font_size, 'related-posts-title-font-extras', $related_post_text_color ),
 
 			/**
 			 * Related Posts - Meta
 			 */
-			'.ast-related-post-content .entry-meta, .ast-related-post-content .entry-meta *' => astra_get_font_array_css( 'related-posts-meta-font-family', 'related-posts-meta-font-weight', $related_post_meta_font_size, 'related-posts-meta-font-extras', $related_posts_meta_color ),
+			'.ast-related-post-content .entry-meta, .ast-related-post-content .entry-meta *' => astra_get_font_array_css( astra_get_option( 'related-posts-meta-font-family' ), astra_get_option( 'related-posts-meta-font-weight' ), $related_post_meta_font_size, 'related-posts-meta-font-extras', $related_posts_meta_color ),
 
 			'.ast-related-post-content .entry-meta a:hover, .ast-related-post-content .entry-meta span a span:hover' => array(
 				'color' => esc_attr( $related_posts_meta_link_hover_color ),
@@ -113,7 +113,7 @@ function astra_related_posts_css( $dynamic_css ) {
 			/**
 			 * Related Posts - Content
 			 */
-			'.ast-related-post-excerpt'           => astra_get_font_array_css( 'related-posts-content-font-family', 'related-posts-content-font-weight', $related_post_content_font_size, 'related-posts-content-font-extras', $related_post_text_color ),
+			'.ast-related-post-excerpt'           => astra_get_font_array_css( astra_get_option( 'related-posts-content-font-family' ), astra_get_option( 'related-posts-content-font-weight' ), $related_post_content_font_size, 'related-posts-content-font-extras', $related_post_text_color ),
 		);
 
 		if ( astra_has_global_color_format_support() ) {

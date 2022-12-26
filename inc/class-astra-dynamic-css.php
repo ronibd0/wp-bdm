@@ -535,7 +535,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				self::conditional_headings_css_selectors(
 					'h1, .entry-content h1, .entry-content h1 a, h2, .entry-content h2, .entry-content h2 a, h3, .entry-content h3, .entry-content h3 a, h4, .entry-content h4, .entry-content h4 a, h5, .entry-content h5, .entry-content h5 a, h6, .entry-content h6, .entry-content h6 a, .site-title, .site-title a',
 					'h1, .entry-content h1, h2, .entry-content h2, h3, .entry-content h3, h4, .entry-content h4, h5, .entry-content h5, h6, .entry-content h6, .site-title, .site-title a'
-				)                                        => astra_get_font_array_css( 'headings-font-family', 'headings-font-weight', array(), 'headings-font-extras' ),
+				)                                        => astra_get_font_array_css( astra_get_option( 'headings-font-family' ), astra_get_option( 'headings-font-weight' ), array(), 'headings-font-extras' ),
 
 				'.ast-site-identity .site-title a'       => array(
 					'color' => esc_attr( $title_color ),
@@ -2175,7 +2175,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 				if ( 'color-typo' === self::elementor_default_color_font_setting() || 'typo' === self::elementor_default_color_font_setting() ) {
 					$ele_btn_typo_builder_desktop = array(
-						'.elementor-button-wrapper .elementor-button' => astra_get_font_array_css( 'font-family-button', 'font-weight-button', $theme_btn_font_size, 'font-extras-button' ),
+						'.elementor-button-wrapper .elementor-button' => astra_get_font_array_css( astra_get_option( 'font-family-button' ), astra_get_option( 'font-weight-button' ), $theme_btn_font_size, 'font-extras-button' ),
 						'body .elementor-button.elementor-size-sm, body .elementor-button.elementor-size-xs, body .elementor-button.elementor-size-md, body .elementor-button.elementor-size-lg, body .elementor-button.elementor-size-xl, body .elementor-button' => array(
 							'font-size' => astra_responsive_font( $theme_btn_font_size, 'desktop' ),
 						),

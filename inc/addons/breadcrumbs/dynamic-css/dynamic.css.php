@@ -146,7 +146,7 @@ function astra_breadcrumb_section_dynamic_css( $dynamic_css, $dynamic_css_filter
 				'color' => esc_attr( $breadcrumb_separator_color['desktop'] ),
 			),
 
-			'.ast-breadcrumbs-wrapper a, .ast-breadcrumbs-wrapper .breadcrumb_last, .ast-breadcrumbs-wrapper span' => astra_get_font_array_css( 'breadcrumb-font-family', 'breadcrumb-font-weight', $breadcrumb_font_size, 'breadcrumb-font-extras' ),
+			'.ast-breadcrumbs-wrapper a, .ast-breadcrumbs-wrapper .breadcrumb_last, .ast-breadcrumbs-wrapper span' => astra_get_font_array_css( astra_get_option( 'breadcrumb-font-family' ), astra_get_option( 'breadcrumb-font-weight' ), $breadcrumb_font_size, 'breadcrumb-font-extras' ),
 		);
 
 		/* Yoast SEO Breadcrumb CSS - Tablet */
@@ -205,7 +205,7 @@ function astra_breadcrumb_section_dynamic_css( $dynamic_css, $dynamic_css_filter
 				'color' => esc_attr( $breadcrumb_separator_color['desktop'] ),
 			),
 
-			'.ast-breadcrumbs-wrapper a, .ast-breadcrumbs-wrapper .breadcrumbs, .ast-breadcrumbs-wrapper .current-item' => astra_get_font_array_css( 'breadcrumb-font-family', 'breadcrumb-font-weight', $breadcrumb_font_size, 'breadcrumb-font-extras' ),
+			'.ast-breadcrumbs-wrapper a, .ast-breadcrumbs-wrapper .breadcrumbs, .ast-breadcrumbs-wrapper .current-item' => astra_get_font_array_css( astra_get_option( 'breadcrumb-font-family' ), astra_get_option( 'breadcrumb-font-weight' ), $breadcrumb_font_size, 'breadcrumb-font-extras' ),
 		);
 
 		/* Breadcrumb NavXT CSS - Tablet */
@@ -264,7 +264,7 @@ function astra_breadcrumb_section_dynamic_css( $dynamic_css, $dynamic_css_filter
 				'color' => esc_attr( $breadcrumb_separator_color['desktop'] ),
 			),
 
-			'.ast-breadcrumbs-wrapper a, .ast-breadcrumbs-wrapper .last, .ast-breadcrumbs-wrapper .separator' => astra_get_font_array_css( 'breadcrumb-font-family', 'breadcrumb-font-weight', $breadcrumb_font_size, 'breadcrumb-font-extras' ),
+			'.ast-breadcrumbs-wrapper a, .ast-breadcrumbs-wrapper .last, .ast-breadcrumbs-wrapper .separator' => astra_get_font_array_css( astra_get_option( 'breadcrumb-font-family' ), astra_get_option( 'breadcrumb-font-weight' ), $breadcrumb_font_size, 'breadcrumb-font-extras' ),
 		);
 
 		/* Rank Math CSS - Tablet */
@@ -322,7 +322,7 @@ function astra_breadcrumb_section_dynamic_css( $dynamic_css, $dynamic_css_filter
 			'.ast-breadcrumbs-inner .breadcrumb-item:after' => array(
 				'color' => esc_attr( $breadcrumb_separator_color['desktop'] ),
 			),
-			'.ast-breadcrumbs-inner, .ast-breadcrumbs-inner .breadcrumb-item, .ast-breadcrumbs-inner .breadcrumb-item.active, .ast-breadcrumbs-inner .breadcrumb-item:after' => astra_get_font_array_css( 'breadcrumb-font-family', 'breadcrumb-font-weight', $breadcrumb_font_size, 'breadcrumb-font-extras' ),
+			'.ast-breadcrumbs-inner, .ast-breadcrumbs-inner .breadcrumb-item, .ast-breadcrumbs-inner .breadcrumb-item.active, .ast-breadcrumbs-inner .breadcrumb-item:after' => astra_get_font_array_css( astra_get_option( 'breadcrumb-font-family' ), astra_get_option( 'breadcrumb-font-weight' ), $breadcrumb_font_size, 'breadcrumb-font-extras' ),
 		);
 
 		/* SEOPress CSS - Tablet */
@@ -379,7 +379,7 @@ function astra_breadcrumb_section_dynamic_css( $dynamic_css, $dynamic_css_filter
 				'color' => esc_attr( $breadcrumb_separator_color['desktop'] ),
 			),
 
-			'.ast-breadcrumbs-wrapper, .ast-breadcrumbs-wrapper a' => astra_get_font_array_css( 'breadcrumb-font-family', 'breadcrumb-font-weight', $breadcrumb_font_size, 'breadcrumb-font-extras' ),
+			'.ast-breadcrumbs-wrapper, .ast-breadcrumbs-wrapper a' => astra_get_font_array_css( astra_get_option( 'breadcrumb-font-family' ), astra_get_option( 'breadcrumb-font-weight' ), $breadcrumb_font_size, 'breadcrumb-font-extras' ),
 		);
 
 		/* Default Breadcrumb CSS - Tablet */

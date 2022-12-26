@@ -103,7 +103,7 @@ function astra_hb_mobile_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered =
 
 	$css_output_desktop = array(
 
-		$selector . ' .menu-item > .menu-link'             => astra_get_font_array_css( 'header-mobile-menu-font-family', 'header-mobile-menu-font-weight', array(), 'font-extras-header-mobile-menu' ),
+		$selector . ' .menu-item > .menu-link'             => astra_get_font_array_css( astra_get_option( 'header-mobile-menu-font-family' ), astra_get_option( 'header-mobile-menu-font-weight' ), array(), 'font-extras-header-mobile-menu' ),
 		$selector                                          => array(
 			'font-size' => astra_get_font_css_value( $menu_font_size_desktop, $menu_font_size_desktop_unit ),
 		),

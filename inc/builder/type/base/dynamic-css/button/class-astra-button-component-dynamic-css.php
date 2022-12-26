@@ -85,7 +85,7 @@ class Astra_Button_Component_Dynamic_CSS {
 				/**
 				 * Button font size.
 				 */
-				$selector . '[data-section*="section-' . $context . '-button-"] .ast-builder-button-wrap .ast-custom-button' => astra_get_font_array_css( $builder_type . '-' . $_prefix . '-font-family', $builder_type . '-' . $_prefix . '-font-weight', $button_font_size, $builder_type . '-' . $_prefix . '-font-extras' ),
+				$selector . '[data-section*="section-' . $context . '-button-"] .ast-builder-button-wrap .ast-custom-button' => astra_get_font_array_css( astra_get_option( $builder_type . '-' . $_prefix . '-font-family', 'inherit' ), astra_get_option( $builder_type . '-' . $_prefix . '-font-weight', 'inherit' ), $button_font_size, $builder_type . '-' . $_prefix . '-font-extras' ),
 
 				/**
 				 * Button Colors.

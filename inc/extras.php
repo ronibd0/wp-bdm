@@ -1006,8 +1006,8 @@ function astra_get_font_array_css( $font_family, $font_weight, $font_size, $font
 	$font_extras_ast_option = astra_get_option( $font_extras );
 	return array(
 		'color'           => esc_attr( $color ),
-		'font-family'     => astra_get_css_value( astra_get_option( $font_family ), 'font' ),
-		'font-weight'     => astra_get_css_value( astra_get_option( $font_weight ), 'font' ),
+		'font-family'     => astra_get_css_value( $font_family, 'font' ),
+		'font-weight'     => astra_get_css_value( $font_weight, 'font' ),
 		'font-size'       => ! empty( $font_size ) ? astra_responsive_font( $font_size, 'desktop' ) : '',
 		'line-height'     => astra_get_font_extras( $font_extras_ast_option, 'line-height', 'line-height-unit' ),
 		'text-transform'  => astra_get_font_extras( $font_extras_ast_option, 'text-transform' ),
