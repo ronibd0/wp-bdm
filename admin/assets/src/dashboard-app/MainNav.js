@@ -18,7 +18,7 @@ export default function MainNav() {
 				path: 'settings',
 			},
 			{
-				name: __( 'Starter Templates', 'astra' ),
+				name: astra_admin.starter_templates_data.title,
 				slug: astra_admin.home_slug,
 				path: 'starter-templates',
 			},
