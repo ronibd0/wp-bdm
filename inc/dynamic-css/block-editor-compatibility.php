@@ -513,8 +513,9 @@ function astra_load_modern_block_editor_ui( $dynamic_css ) {
 					margin-top: 1.5em;
 				}
 			}
-			.entry-content[ast-blocks-layout] > ul, .entry-content[ast-blocks-layout] > ol {
+			.entry-content ul, .entry-content ol {
 				padding: revert;
+				margin: revert;
 			}
 		';
 	}
