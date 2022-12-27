@@ -234,9 +234,6 @@ final class Astra_Builder_Base_Configuration {
 	 * @return array
 	 */
 	public static function prepare_visibility_tab( $_section, $builder_type = 'header' ) {
-
-
-
 		$configs = array();
 
 		if ( 'footer' === $builder_type ) {
