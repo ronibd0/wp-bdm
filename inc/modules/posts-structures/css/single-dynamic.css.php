@@ -182,10 +182,10 @@ function astra_post_single_structure_dynamic_css( $dynamic_css, $dynamic_css_fil
 				'margin-bottom' => '0',
 			),
 			$selector . ' .entry-meta, ' . $selector . ' .entry-meta *' => astra_get_font_array_css( astra_get_option( 'ast-dynamic-single-' . $current_post_type . '-meta-font-family' ), astra_get_option( 'ast-dynamic-single-' . $current_post_type . '-meta-font-weight' ), $banner_meta_font_size, 'ast-dynamic-single-' . $current_post_type . '-meta-font-extras' ),
-			$selector . ' a, ' . $selector . ' a *'       => array(
+			$selector . ' .ast-container a, ' . $selector . ' .ast-container a *'       => array(
 				'color' => esc_attr( $link_color ),
 			),
-			$selector . ' a:hover, ' . $selector . ' a:hover *' => array(
+			$selector . ' .ast-container a:hover, ' . $selector . ' .ast-container a:hover *' => array(
 				'color' => esc_attr( $link_hover_color ),
 			),
 		);
