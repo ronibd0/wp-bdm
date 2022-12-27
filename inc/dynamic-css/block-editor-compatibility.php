@@ -494,10 +494,6 @@ function astra_load_modern_block_editor_ui( $dynamic_css ) {
 
 	// Spectra compatibility for narrow width container.
 	$dynamic_css .= '
-		.ast-narrow-container .site-content .ast-container {
-			padding-left: 0;
-			padding-right: 0;
-		}
 		.ast-narrow-container .site-content .wp-block-uagb-image--align-full .wp-block-uagb-image__figure {
 			max-width: 100%;
 			margin-left: auto;
