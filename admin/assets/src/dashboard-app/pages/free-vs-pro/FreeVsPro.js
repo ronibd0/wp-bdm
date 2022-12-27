@@ -125,7 +125,7 @@ const FreeVsPro = () => {
 
 				<section className="mt-6 py-10 flex flex-col bg-slate-200 items-center justify-center shadow-overlay-light rounded-md">
 					<div className="mb-3">
-						<span className="py-0.5 px-1 text-[0.625rem] text-white bg-slate-800 rounded-[0.1875rem]">
+						<span className="ml-1 sm:ml-2 text-[0.625rem] leading-[1rem] font-medium text-white border border-slate-800 bg-slate-800 rounded-[0.1875rem] relative inline-flex flex-shrink-0 py-[0rem] px-1.5">
 							{__("PRO", "astra")}
 						</span>
 					</div>
