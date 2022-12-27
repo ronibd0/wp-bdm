@@ -18,7 +18,7 @@ export default function MainNav() {
 				path: 'settings',
 			},
 			{
-				name: __( 'Starter Templates', 'astra' ),
+				name: astra_admin.starter_templates_data.title,
 				slug: astra_admin.home_slug,
 				path: 'starter-templates',
 			},
@@ -116,7 +116,16 @@ export default function MainNav() {
 					{!astra_admin.show_self_branding && (
 						<div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
 							<div className="flex items-center whitespace-nowrap text-sm font-medium leading-[1.375rem] text-slate-400 mr-8 divide-x divide-slate-200 gap-3">
-								<div className="">{astra_admin.version}</div>
+								<div className="flex items-center">
+									<span>{astra_admin.version}</span>
+									<span className="ml-1 sm:ml-2 text-[0.625rem] leading-[1rem] font-medium border border-slate-400 rounded-[0.1875rem] relative inline-flex flex-shrink-0 py-[0rem] px-1.5"> { __( 'CORE', 'astra' ) } </span>
+								</div>
+								{ astra_admin.pro_available && (
+									<div className="flex items-center pl-3">
+										<span>{astra_admin.plugin_ver}</span>
+										<span className="ml-1 sm:ml-2 text-[0.625rem] leading-[1rem] font-medium text-white border border-slate-800 bg-slate-800 rounded-[0.1875rem] relative inline-flex flex-shrink-0 py-[0rem] px-1.5"> {  __( 'PRO', 'astra' ) } </span>
+									</div>
+								)}
 								{wp.hooks.applyFilters(
 									"astra_dashboard.after_navigation_version",
 									<span />

@@ -112,8 +112,6 @@
 .customize-control.ast-top-dotted-divider,
 #customize-control-astra-settings-edd-archive-variable-button-text,
 #customize-control-astra-settings-header-account-logged-out-text,
-#customize-control-blogname,
-#customize-control-blogdescription,
 #customize-control-astra-settings-shop-load-more-text,
 #customize-control-astra-settings-single-product-shipping-text,
 #customize-control-astra-settings-checkout-back-to-cart-button-text,
@@ -126,6 +124,10 @@
     margin-top: 24px;
     padding-top: 24px;
     border-top: 1px dashed var(--ast-customizer-color-7);
+}
+
+#customize-control-blogname, #customize-control-blogdescription, {
+	margin-top: 16px;
 }
 
 #customize-control-astra-settings-product-sale-percent-value .ast-control-tooltip {

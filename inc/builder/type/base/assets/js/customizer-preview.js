@@ -700,54 +700,32 @@ function astra_builder_visibility_css( section, selector, default_property = 'fl
     var tablet_break_point    = astraBuilderPreview.tablet_break_point || 768,
 		mobile_break_point    = astraBuilderPreview.mobile_break_point || 544;
 
-	// Header Desktop visibility.
-	wp.customize( 'astra-settings[' + section + '-hide-desktop]', function( setting ) {
-		setting.bind( function( desktop_visible ) {
+	wp.customize( 'astra-settings[' + section + '-visibility-responsive]', function( setting ) {
+		setting.bind( function( visibility ) {
 
-			var dynamicStyle = '';
-			var is_hidden = ( ! desktop_visible ) ? default_property : 'none';
+			let dynamicStyle = '';
+			let is_desktop = ( ! visibility['desktop'] ) ? 'none' : default_property ;
+			let is_tablet = ( ! visibility['tablet'] ) ? 'none' : default_property ;
+			let is_mobile = ( ! visibility['mobile'] ) ? 'none' : default_property ;
 
 			dynamicStyle += selector + ' {';
-			dynamicStyle += 'display: ' + is_hidden + ';';
+			dynamicStyle += 'display: ' + is_desktop + ';';
 			dynamicStyle += '} ';
-
-			astra_add_dynamic_css( section + '-hide-desktop', dynamicStyle );
-		} );
-
-	} );
-
-	// Header Tablet visibility.
-	wp.customize( 'astra-settings[' + section + '-hide-tablet]', function( setting ) {
-		setting.bind( function( tablet_visible ) {
-
-			var dynamicStyle = '';
-			var is_hidden = ( ! tablet_visible ) ? default_property : 'none';
 
 			dynamicStyle +=  '@media (min-width: ' + mobile_break_point + 'px) and (max-width: ' + tablet_break_point + 'px) {';
 			dynamicStyle += '.ast-header-break-point ' + selector + ' {';
-			dynamicStyle += 'display: ' + is_hidden + ';';
+			dynamicStyle += 'display: ' + is_tablet + ';';
 			dynamicStyle += '} ';
 			dynamicStyle += '} ';
-
-			astra_add_dynamic_css( section + '-hide-tablet', dynamicStyle );
-		} );
-
-	} );
-
-	// Header Mobile visibility.
-	wp.customize( 'astra-settings[' + section + '-hide-mobile]', function( setting ) {
-		setting.bind( function( mobile_visible ) {
-
-			var dynamicStyle = '';
-			var is_hidden = ( ! mobile_visible ) ? default_property : 'none';
 
 			dynamicStyle +=  '@media (max-width: ' + mobile_break_point + 'px) {';
 			dynamicStyle += '.ast-header-break-point ' + selector + ' {';
-			dynamicStyle += 'display: ' + is_hidden + ';';
+			dynamicStyle += 'display: ' + is_mobile + ';';
 			dynamicStyle += '} ';
 			dynamicStyle += '} ';
 
-			astra_add_dynamic_css( section + '-hide-mobile', dynamicStyle );
+			astra_add_dynamic_css( section + '-visibility-responsive', dynamicStyle );
 		} );
+
 	} );
 }
