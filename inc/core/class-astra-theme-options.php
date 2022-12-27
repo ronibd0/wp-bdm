@@ -104,6 +104,13 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 			 */
 			$apply_new_default_values = astra_button_default_padding_updated();
 
+			/**
+			 * Update Astra default color and typography values. To not update directly on existing users site, added backwards.
+			 *
+			 * @since x.x.x
+			 */
+			$apply_new_default_color_typo_values = Astra_Dynamic_CSS::astra_check_default_color_typo();
+
 			$astra_options = self::get_astra_options();
 
 			// Defaults list of options.
@@ -111,18 +118,9 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 				'astra_theme_defaults',
 				array(
 					// Blog Single.
-					'blog-single-post-structure'           => array(
-						'single-image',
-						'single-title-meta',
-					),
-
 					'blog-single-width'                    => 'default',
 					'blog-single-max-width'                => 1200,
-					'blog-single-meta'                     => array(
-						'comments',
-						'category',
-						'author',
-					),
+
 					// Blog.
 					'blog-post-structure'                  => array(
 						'image',
@@ -347,9 +345,10 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 					// Site Layout.
 					'site-layout'                          => 'ast-full-width-layout',
 					'site-content-width'                   => 1200,
+					'narrow-container-max-width'           => 750,
 					'site-layout-outside-bg-obj-responsive' => array(
 						'desktop' => array(
-							'background-color'      => '',
+							'background-color'      => $apply_new_default_values ? 'var(--ast-global-color-4)' : '',
 							'background-image'      => '',
 							'background-repeat'     => 'repeat',
 							'background-position'   => 'center center',
@@ -444,27 +443,38 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 					// Typography.
 					'body-font-family'                     => 'inherit',
 					'body-font-variant'                    => '',
-					'body-font-weight'                     => 'inherit',
+					'body-font-weight'                     => $apply_new_default_color_typo_values ? '400' : 'inherit',
 					'font-size-body'                       => array(
-						'desktop'      => 15,
+						'desktop'      => $apply_new_default_color_typo_values ? 16 : 15,
 						'tablet'       => '',
 						'mobile'       => '',
 						'desktop-unit' => 'px',
 						'tablet-unit'  => 'px',
 						'mobile-unit'  => 'px',
 					),
-
-					'body-line-height'                     => '',
+					'body-font-extras'                     => array(
+						'line-height'         => ! isset( $astra_options['body-font-extras'] ) && isset( $astra_options['body-line-height'] ) ? $astra_options['body-line-height'] : '1.6',
+						'line-height-unit'    => 'em',
+						'letter-spacing'      => '',
+						'letter-spacing-unit' => 'px',
+						'text-transform'      => ! isset( $astra_options['body-font-extras'] ) && isset( $astra_options['body-text-transform'] ) ? $astra_options['body-text-transform'] : '',
+						'text-decoration'     => '',
+					),
+					'headings-font-height-settings'        => array(
+						'line-height'         => ! isset( $astra_options['headings-font-extras'] ) && isset( $astra_options['headings-line-height'] ) ? $astra_options['headings-line-height'] : '',
+						'line-height-unit'    => 'em',
+						'letter-spacing'      => '',
+						'letter-spacing-unit' => 'px',
+						'text-transform'      => ! isset( $astra_options['headings-font-extras'] ) && isset( $astra_options['headings-text-transform'] ) ? $astra_options['headings-text-transform'] : '',
+						'text-decoration'     => '',
+					),
 					'para-margin-bottom'                   => '',
 					'underline-content-links'              => true,
-					'enable-dotted-focus'                  => false,
 					'body-text-transform'                  => '',
 					'headings-font-family'                 => 'inherit',
-					'headings-font-weight'                 => 'inherit',
-					'headings-text-transform'              => '',
-					'headings-line-height'                 => '',
+					'headings-font-weight'                 => $apply_new_default_values ? '600' : 'inherit',
 					'font-size-site-title'                 => array(
-						'desktop'      => 35,
+						'desktop'      => $apply_new_default_color_typo_values ? 26 : 35,
 						'tablet'       => '',
 						'mobile'       => '',
 						'desktop-unit' => 'px',
@@ -473,14 +483,6 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 					),
 					'font-size-site-tagline'               => array(
 						'desktop'      => 15,
-						'tablet'       => '',
-						'mobile'       => '',
-						'desktop-unit' => 'px',
-						'tablet-unit'  => 'px',
-						'mobile-unit'  => 'px',
-					),
-					'font-size-entry-title'                => array(
-						'desktop'      => 30,
 						'tablet'       => '',
 						'mobile'       => '',
 						'desktop-unit' => 'px',
@@ -510,16 +512,8 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 						'tablet-unit'  => 'px',
 						'mobile-unit'  => 'px',
 					),
-					'font-size-archive-summary-title'      => array(
-						'desktop'      => 40,
-						'tablet'       => '',
-						'mobile'       => '',
-						'desktop-unit' => 'px',
-						'tablet-unit'  => 'px',
-						'mobile-unit'  => 'px',
-					),
 					'font-size-page-title'                 => array(
-						'desktop'      => 30,
+						'desktop'      => $apply_new_default_color_typo_values ? 26 : 30,
 						'tablet'       => '',
 						'mobile'       => '',
 						'desktop-unit' => 'px',
@@ -527,7 +521,7 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 						'mobile-unit'  => 'px',
 					),
 					'font-size-h1'                         => array(
-						'desktop'      => 40,
+						'desktop'      => $apply_new_default_color_typo_values ? 40 : 40,
 						'tablet'       => '',
 						'mobile'       => '',
 						'desktop-unit' => 'px',
@@ -535,7 +529,7 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 						'mobile-unit'  => 'px',
 					),
 					'font-size-h2'                         => array(
-						'desktop'      => 30,
+						'desktop'      => $apply_new_default_color_typo_values ? 32 : 30,
 						'tablet'       => '',
 						'mobile'       => '',
 						'desktop-unit' => 'px',
@@ -543,7 +537,7 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 						'mobile-unit'  => 'px',
 					),
 					'font-size-h3'                         => array(
-						'desktop'      => 25,
+						'desktop'      => $apply_new_default_color_typo_values ? 26 : 25,
 						'tablet'       => '',
 						'mobile'       => '',
 						'desktop-unit' => 'px',
@@ -551,7 +545,7 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 						'mobile-unit'  => 'px',
 					),
 					'font-size-h4'                         => array(
-						'desktop'      => 20,
+						'desktop'      => $apply_new_default_color_typo_values ? 24 : 20,
 						'tablet'       => '',
 						'mobile'       => '',
 						'desktop-unit' => 'px',
@@ -559,7 +553,7 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 						'mobile-unit'  => 'px',
 					),
 					'font-size-h5'                         => array(
-						'desktop'      => 18,
+						'desktop'      => $apply_new_default_color_typo_values ? 20 : 18,
 						'tablet'       => '',
 						'mobile'       => '',
 						'desktop-unit' => 'px',
@@ -567,7 +561,7 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 						'mobile-unit'  => 'px',
 					),
 					'font-size-h6'                         => array(
-						'desktop'      => 15,
+						'desktop'      => $apply_new_default_color_typo_values ? 16 : 15,
 						'tablet'       => '',
 						'mobile'       => '',
 						'desktop-unit' => 'px',
@@ -594,9 +588,8 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 					// toogle menu target.
 					'mobile-header-toggle-target'          => 'icon',
 
-					// Performance.
-					'load-google-fonts-locally'            => false,
-					'preload-local-fonts'                  => false,
+					// Misc.
+					'enable-scroll-to-id'                  => true,
 				)
 			);
 
@@ -626,6 +619,7 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 		 * Get astra-options DB values.
 		 *
 		 * @since x.x.x
+		 * @return array Return array of theme options from database.
 		 */
 		public static function get_astra_options() {
 			return get_option( ASTRA_THEME_SETTINGS );
