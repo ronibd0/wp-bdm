@@ -72,7 +72,7 @@ class Astra_Posts_Structure_Loader {
 				'background-media'      => '',
 			),
 		);
-		self::$customizer_defaults['responsive-spacing'] = array(
+		self::$customizer_defaults['responsive-spacing']    = array(
 			'desktop'      => array(
 				'top'    => '',
 				'right'  => '',
@@ -95,7 +95,7 @@ class Astra_Posts_Structure_Loader {
 			'tablet-unit'  => 'px',
 			'mobile-unit'  => 'px',
 		);
-		self::$customizer_defaults['responsive-padding'] = array(
+		self::$customizer_defaults['responsive-padding']    = array(
 			'desktop'      => array(
 				'top'    => 3,
 				'right'  => 3,
@@ -118,7 +118,7 @@ class Astra_Posts_Structure_Loader {
 			'tablet-unit'  => 'em',
 			'mobile-unit'  => 'em',
 		);
-		self::$customizer_defaults['font-size'] = array(
+		self::$customizer_defaults['font-size']             = array(
 			'desktop'      => '',
 			'tablet'       => '',
 			'mobile'       => '',
@@ -126,7 +126,7 @@ class Astra_Posts_Structure_Loader {
 			'tablet-unit'  => 'px',
 			'mobile-unit'  => 'px',
 		);
-		self::$customizer_defaults['title-font-size'] = array(
+		self::$customizer_defaults['title-font-size']       = array(
 			'desktop'      => $apply_new_default_color_typo_values ? '32' : '',
 			'tablet'       => '',
 			'mobile'       => '',
@@ -134,18 +134,18 @@ class Astra_Posts_Structure_Loader {
 			'tablet-unit'  => 'px',
 			'mobile-unit'  => 'px',
 		);
-		self::$customizer_defaults['title-font-weight'] = $apply_new_default_color_typo_values ? '600' : 'inherit';
-		self::$customizer_defaults['responsive-slider'] = array(
+		self::$customizer_defaults['title-font-weight']     = $apply_new_default_color_typo_values ? '600' : 'inherit';
+		self::$customizer_defaults['responsive-slider']     = array(
 			'desktop' => '',
 			'tablet'  => '',
 			'mobile'  => '',
 		);
-		self::$customizer_defaults['responsive-color'] = array(
+		self::$customizer_defaults['responsive-color']      = array(
 			'desktop' => '',
 			'tablet'  => '',
 			'mobile'  => '',
 		);
-		self::$customizer_defaults['font-extras'] = array(
+		self::$customizer_defaults['font-extras']           = array(
 			'line-height'         => '',
 			'line-height-unit'    => 'em',
 			'letter-spacing'      => '',
