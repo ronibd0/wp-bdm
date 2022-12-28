@@ -11785,16 +11785,6 @@ namespace {
         public static function get_customizer_default($key)
         {
         }
-        /**
-         * Get dynamic font default.
-         *
-         * @param string $key Retrieve default for this parameter.
-         *
-         * @since x.x.x
-         */
-        public static function astra_get_dynamic_font_extras_default($dynamic_font_extras, $line_height, $text_transform, $type)
-        {
-        }
     }
     /**
      * Register Posts Structures Customizer Configurations.
