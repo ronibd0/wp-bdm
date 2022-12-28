@@ -11681,7 +11681,7 @@ namespace {
      *
      * @since x.x.x
      */
-    class Astra_Posts_Strctures_Markup
+    class Astra_Posts_Structure_Markup
     {
         /**
          *  Constructor
