@@ -1003,7 +1003,17 @@ function astra_get_font_extras( $config, $setting, $unit = false ) {
  * @since x.x.x
  */
 function astra_get_font_array_css( $font_family, $font_weight, $font_size, $font_extras, $color = '' ) {
-	$font_extras_ast_option = astra_get_option( $font_extras );
+	$font_extras_ast_option = astra_get_option(
+		$font_extras,
+		array(
+			'line-height'         => '',
+			'line-height-unit'    => 'em',
+			'letter-spacing'      => '',
+			'letter-spacing-unit' => 'px',
+			'text-transform'      => '',
+			'text-decoration'     => '',
+		) 
+	);
 	return array(
 		'color'           => esc_attr( $color ),
 		'font-family'     => astra_get_css_value( $font_family, 'font' ),
