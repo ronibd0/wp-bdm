@@ -153,9 +153,61 @@ class Astra_Posts_Structure_Loader {
 			'mobile'  => '',
 		);
 
-		add_action( 'customize_register', array( $this, 'posts_strctures_customize_register' ), 2 );
+		add_filter( 'astra_theme_defaults', array( $this, 'update_dynamic_theme_defaults' ) );
+		add_action( 'customize_register', array( $this, 'posts_structures_customize_register' ), 2 );
 		add_action( 'astra_get_fonts', array( $this, 'add_fonts' ), 1 );
 		add_action( 'customize_preview_init', array( $this, 'preview_scripts' ) );
+	}
+
+	/**
+	 * Set Options Default Values
+	 *
+	 * @param array $defaults Astra options default value array.
+	 * @return array
+	 * @since x.x.x
+	 */
+	public function update_dynamic_theme_defaults( $defaults ) {
+		$post_types = self::get_supported_post_types();
+		foreach ( $post_types as $index => $post_type ) {
+			// Single Banner - Font Support.
+			$title_section = 'ast-dynamic-single-' . $post_type;
+			$defaults[$title_section . '-title-font-extras']    = array(
+				'line-height'         => '1.25',
+				'line-height-unit'    => 'em',
+				'letter-spacing'      => '',
+				'letter-spacing-unit' => 'px',
+				'text-transform'      => '',
+				'text-decoration'     => '',
+			);
+			$defaults[$title_section . '-text-font-extras']    = array(
+				'line-height'         => '1.62',
+				'line-height-unit'    => 'em',
+				'letter-spacing'      => '',
+				'letter-spacing-unit' => 'px',
+				'text-transform'      => '',
+				'text-decoration'     => '',
+			);
+
+			// Archive Banner - Font Support.
+			$title_section = 'ast-dynamic-archive-' . $post_type;
+			$defaults[$title_section . '-title-font-extras']    = array(
+				'line-height'         => '1.25',
+				'line-height-unit'    => 'em',
+				'letter-spacing'      => '',
+				'letter-spacing-unit' => 'px',
+				'text-transform'      => '',
+				'text-decoration'     => '',
+			);
+			$defaults[$title_section . '-text-font-extras']    = array(
+				'line-height'         => '1.62',
+				'line-height-unit'    => 'em',
+				'letter-spacing'      => '',
+				'letter-spacing-unit' => 'px',
+				'text-transform'      => '',
+				'text-decoration'     => '',
+			);
+		}
+		return $defaults;
 	}
 
 	/**
@@ -202,7 +254,7 @@ class Astra_Posts_Structure_Loader {
 	 *
 	 * @since x.x.x
 	 */
-	public function posts_strctures_customize_register( $wp_customize ) {
+	public function posts_structures_customize_register( $wp_customize ) {
 
 		/**
 		 * Register Config control in Related Posts.

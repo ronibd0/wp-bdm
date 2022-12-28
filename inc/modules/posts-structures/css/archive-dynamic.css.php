@@ -106,7 +106,7 @@ function astra_post_archive_structure_dynamic_css( $dynamic_css, $dynamic_css_fi
 				'margin-right'   => astra_responsive_spacing( $banner_margin, 'right', 'desktop' ),
 			),
 			$selector . ' *'                        => astra_get_font_array_css( astra_get_option( 'ast-dynamic-archive-' . $current_post_type . '-text-font-family' ), astra_get_option( 'ast-dynamic-archive-' . $current_post_type . '-text-font-weight' ), $banner_text_font_size, 'ast-dynamic-archive-' . $current_post_type . '-text-font-extras', $text_color ),
-			$selector . ' .ast-archive-title, ' . $selector . ' .ast-archive-title *' => astra_get_font_array_css( astra_get_option( 'ast-dynamic-archive-' . $current_post_type . '-title-font-family' ), astra_get_option( 'ast-dynamic-archive-' . $current_post_type . '-title-font-weight' ), $banner_title_font_size, 'ast-dynamic-archive-' . $current_post_type . '-title-font-extras', $title_color ),
+			$selector . ' .ast-archive-title, ' . $selector . ' .ast-archive-title *' => astra_get_font_array_css( astra_get_option( 'ast-dynamic-archive-' . $current_post_type . '-title-font-family' ), astra_get_option( 'ast-dynamic-archive-' . $current_post_type . '-title-font-weight', Astra_Posts_Structure_Loader::get_customizer_default( 'title-font-weight' ) ), $banner_title_font_size, 'ast-dynamic-archive-' . $current_post_type . '-title-font-extras', $title_color ),
 			$selector . ' a, ' . $selector . ' a *' => array(
 				'color' => esc_attr( $link_color ),
 			),
@@ -233,7 +233,7 @@ function astra_post_archive_structure_dynamic_css( $dynamic_css, $dynamic_css_fi
 				'padding-left'   => astra_responsive_spacing( $banner_padding, 'left', 'desktop' ),
 			),
 			$selector . ' .ast-container *'         => astra_get_font_array_css( astra_get_option( 'ast-dynamic-archive-' . $current_post_type . '-text-font-family' ), astra_get_option( 'ast-dynamic-archive-' . $current_post_type . '-text-font-weight' ), $banner_text_font_size, 'ast-dynamic-archive-' . $current_post_type . '-text-font-extras', $text_color ),
-			$selector . ' .ast-container h1'        => astra_get_font_array_css( astra_get_option( 'ast-dynamic-archive-' . $current_post_type . '-title-font-family' ), astra_get_option( 'ast-dynamic-archive-' . $current_post_type . '-title-font-weight' ), $banner_title_font_size, 'ast-dynamic-archive-' . $current_post_type . '-title-font-extras', $title_color ),
+			$selector . ' .ast-container h1'        => astra_get_font_array_css( astra_get_option( 'ast-dynamic-archive-' . $current_post_type . '-title-font-family' ), astra_get_option( 'ast-dynamic-archive-' . $current_post_type . '-title-font-weight', Astra_Posts_Structure_Loader::get_customizer_default( 'title-font-weight' ) ), $banner_title_font_size, 'ast-dynamic-archive-' . $current_post_type . '-title-font-extras', $title_color ),
 			'.ast-page-builder-template ' . $selector . ' .ast-container' => array(
 				'max-width' => '100%',
 			),
