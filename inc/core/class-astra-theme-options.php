@@ -577,6 +577,16 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 		}
 
 		/**
+		 * Get astra-options DB values.
+		 * @return array Return array of theme options from database.
+		 *
+		 * @since x.x.x
+		 */
+		public static function get_astra_options() {
+			return get_option( ASTRA_THEME_SETTINGS );
+		}
+
+		/**
 		 * Get theme options from static array()
 		 *
 		 * @return array    Return array of theme options.
@@ -593,15 +603,6 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 				self::get_db_options(),
 				self::defaults()
 			);
-		}
-
-		/**
-		 * Get astra-options DB values.
-		 *
-		 * @return array Return array of theme options from database.
-		 */
-		public static function get_astra_options() {
-			return get_option( ASTRA_THEME_SETTINGS );
 		}
 
 		/**
