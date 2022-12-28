@@ -146,69 +146,9 @@ class Astra_Posts_Structure_Loader {
 			'mobile'  => '',
 		);
 
-		add_filter( 'astra_theme_defaults', array( $this, 'update_dynamic_theme_defaults' ) );
 		add_action( 'customize_register', array( $this, 'posts_structures_customize_register' ), 2 );
 		add_action( 'astra_get_fonts', array( $this, 'add_fonts' ), 1 );
 		add_action( 'customize_preview_init', array( $this, 'preview_scripts' ) );
-	}
-
-	/**
-	 * Set Options Default Values
-	 *
-	 * @param array $defaults Astra options default value array.
-	 * @return array
-	 * @since x.x.x
-	 */
-	public function update_dynamic_theme_defaults( $defaults ) {
-		$post_types = self::get_supported_post_types();
-		foreach ( $post_types as $index => $post_type ) {
-			// Single Banner - Font Support.
-			$title_section = 'ast-dynamic-single-' . $post_type;
-			$defaults[$title_section . '-title-font-extras']    = array(
-				'line-height'         => '1.25',
-				'line-height-unit'    => 'em',
-				'letter-spacing'      => '',
-				'letter-spacing-unit' => 'px',
-				'text-transform'      => '',
-				'text-decoration'     => '',
-			);
-			$defaults[$title_section . '-text-font-extras']    = array(
-				'line-height'         => '1.62',
-				'line-height-unit'    => 'em',
-				'letter-spacing'      => '',
-				'letter-spacing-unit' => 'px',
-				'text-transform'      => '',
-				'text-decoration'     => '',
-			);
-			$defaults[$title_section . '-meta-font-extras']    = array(
-				'line-height'         => '1.45',
-				'line-height-unit'    => 'em',
-				'letter-spacing'      => '',
-				'letter-spacing-unit' => 'px',
-				'text-transform'      => '',
-				'text-decoration'     => '',
-			);
-
-			// Archive Banner - Font Support.
-			$title_section = 'ast-dynamic-archive-' . $post_type;
-			$defaults[$title_section . '-title-font-extras']    = array(
-				'line-height'         => '1.25',
-				'line-height-unit'    => 'em',
-				'letter-spacing'      => '',
-				'letter-spacing-unit' => 'px',
-				'text-transform'      => '',
-				'text-decoration'     => '',
-			);
-			$defaults[$title_section . '-text-font-extras']    = array(
-				'line-height'         => '1.62',
-				'line-height-unit'    => 'em',
-				'letter-spacing'      => '',
-				'letter-spacing-unit' => 'px',
-				'text-transform'      => '',
-				'text-decoration'     => '',
-			);
-		}
-		return $defaults;
 	}
 
 	/**
@@ -359,6 +299,40 @@ class Astra_Posts_Structure_Loader {
 	 */
 	public static function get_customizer_default( $key ) {
 		return isset( self::$customizer_defaults[ $key ] ) ? self::$customizer_defaults[ $key ] : array();
+	}
+
+	/**
+	 * Get dynamic font default.
+	 *
+	 * @param string $key Retrieve default for this parameter.
+	 *
+	 * @since x.x.x
+	 */
+	public static function astra_get_dynamic_font_extras_default( $dynamic_font_extras, $line_height, $text_transform, $type ) {
+		$astra_options = Astra_Theme_Options::get_astra_options();
+		switch ( $type ) {
+			case 'title':
+				$dynamic_line_height = '1.25';
+				break;
+			case 'text':
+				$dynamic_line_height = '1.625';
+				break;
+			case 'meta':
+				$dynamic_line_height = '1.45';
+				break;
+			default:
+				$dynamic_line_height = '';
+				break;
+		}
+
+		return array(
+			'line-height'         => ! isset( $astra_options[ $dynamic_font_extras ] ) && isset( $astra_options[ $line_height ] ) ? $astra_options[ $line_height ] : $dynamic_line_height,
+			'line-height-unit'    => 'em',
+			'letter-spacing'      => '',
+			'letter-spacing-unit' => 'px',
+			'text-transform'      => ! isset( $astra_options[ $dynamic_font_extras ] ) && isset( $astra_options[ $text_transform ] ) ? $astra_options[ $text_transform ] : '',
+			'text-decoration'     => '',
+		);
 	}
 }
 
