@@ -4241,6 +4241,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				padding: 1.34em;
 				line-height: 1;
 				z-index: 1;
+				max-height: 3.5em;
 			}
 
 			.astra-cart-drawer .astra-cart-drawer-header .astra-cart-drawer-title {
