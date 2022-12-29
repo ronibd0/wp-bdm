@@ -575,6 +575,7 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 
 		/**
 		 * Get astra-options DB values.
+		 *
 		 * @return array Return array of theme options from database.
 		 *
 		 * @since x.x.x
