@@ -2471,7 +2471,6 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				$css_output .= astra_parse_css( $sticky_add_to_cart );
 			}
 
-			/** @psalm-suppress UndefinedFunction */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			$astra_add_to_cart_quantity_btn_enabled = astra_add_to_cart_quantity_btn_enabled();
 
 			// Add to cart quantity button.
@@ -2784,7 +2783,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 						margin: 0 0.5em 0.5em 0.5em;
 					}
 
-					.ast-single-product-payments ul li svg, 
+					.ast-single-product-payments ul li svg,
 					.ast-single-product-payments ul li img {
 						height: 30px;
 						width: 100%;
@@ -3413,7 +3412,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 										<?php
 										if ( isset( $single['source'] ) && $single['source'] ) {
 											if ( 'image' === $single['source'] ) {
-												if ( isset( $single['image'] ) && $single['image'] ) { 
+												if ( isset( $single['image'] ) && $single['image'] ) {
 													?>
 															<li class="ast-custom-payment">
 																<img src="<?php echo esc_attr( $single['image'] ); ?>" />
