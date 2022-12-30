@@ -808,7 +808,7 @@ function hasWordPressWidgetBlockEditor() {
 			apply_content_bg(dynamicSelector);
 		}
 		else if ( 'narrow-container' == content_layout ) {
-			// Case: Container -> Narrow, Site-Layout -> .
+			// Case: Container -> Narrow, Site-Layout -> Any.
 			dynamicSelector   += ', .ast-narrow-container .site-content';
 			apply_content_bg(dynamicSelector);
 		}
