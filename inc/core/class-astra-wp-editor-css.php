@@ -355,7 +355,7 @@ class Astra_WP_Editor_CSS {
 			if ( '' === astra_get_option( 'button-bg-color' ) && '' === astra_get_option( 'button-color' ) ) {
 				$btn_color = $theme_color;
 			} elseif ( '' === astra_get_option( 'button-color' ) ) {
-					$btn_color = $btn_bg_color;
+				$btn_color = $btn_bg_color;
 			}
 
 			$btn_bg_color = 'transparent';
@@ -540,7 +540,7 @@ class Astra_WP_Editor_CSS {
 				'border-right-width'  => $theme_btn_right_border,
 				'border-left-width'   => $theme_btn_left_border,
 				'border-bottom-width' => $theme_btn_bottom_border,
-				'color'               => empty( $btn_color ) ? esc_attr( $btn_color ) : esc_attr( $btn_color ),
+				'color'               => esc_attr( $btn_color ),
 				'border-color'        => empty( $btn_border_color ) ? esc_attr( $btn_bg_color ) : esc_attr( $btn_border_color ),
 				'background-color'    => esc_attr( $btn_bg_color ),
 				'font-family'         => astra_get_font_family( $theme_btn_font_family ),
