@@ -1673,3 +1673,14 @@ function astra_skip_elementor_onboarding( $network_wide ) {
 }
 
 add_action( 'activate_elementor/elementor.php', 'astra_skip_elementor_onboarding' );
+
+add_filter('astra_entry_header_class', 'astra_entry_header_class_custom', 1, 99);
+function astra_entry_header_class_custom($classes) {
+	$edit_mode = get_post_meta($post_id, '_elementor_edit_mode', true);
+
+	if ($edit_mode && $edit_mode == 'builder') {
+		$classes[] = 'ast-header-without-markup';
+	}
+
+	return $classes;
+}
