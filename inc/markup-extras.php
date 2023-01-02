@@ -1678,9 +1678,9 @@ add_filter( 'astra_entry_header_class', 'astra_entry_header_class_custom', 1, 99
 /**
  * For elementor title hide.
  *
- * @param string $classess use to create a class for the header of an entry.
+ * @param bool to check if elementor is running and use elementor title hide option.
  *
- * @return string
+ * @since 3.9.5
  */
 function astra_entry_header_class_custom( $classes ) {
 	$post_id   = astra_get_post_id();
