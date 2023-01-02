@@ -78,15 +78,15 @@ const SocialComponent = props => {
 	]
 
 	const social_sharing = [
-		{value: 'facebook', label: __('Facebook', 'astra-addon'), color: '#557dbc', background: 'transparent'},
-		{value: 'twitter', label: __('Twitter', 'astra-addon'), color: '#7acdee', background: 'transparent'},
-		{value: 'pinterest', label: __('Pinterest', 'astra-addon'), color: '#E60023', background: 'transparent'},
-		{value: 'linkedin', label: __('Linkedin', 'astra-addon'), color: '#1c86c6', background: 'transparent'},
-		{value: 'tumblr', label: __('Tumblr', 'astra-addon'), color: '#34526f', background: 'transparent'},
-		{value: 'reddit', label: __('Reddit', 'astra-addon'), color: '#FC471E', background: 'transparent'},
-		{value: 'vk', label: __('VK', 'astra-addon'), color: '#5382b6', background: 'transparent'},
-		{value: 'whatsapp', label: __('WhatsApp', 'astra-addon'), color: '#5BBA67', background: 'transparent'},
-		{value: 'sms', label: __('SMS', 'astra-addon'), color: 'inherit', background: 'transparent'},
+		{value: 'facebook', label: __('Facebook', 'astra'), color: '#557dbc', background: 'transparent'},
+		{value: 'twitter', label: __('Twitter', 'astra'), color: '#7acdee', background: 'transparent'},
+		{value: 'pinterest', label: __('Pinterest', 'astra'), color: '#E60023', background: 'transparent'},
+		{value: 'linkedin', label: __('Linkedin', 'astra'), color: '#1c86c6', background: 'transparent'},
+		{value: 'tumblr', label: __('Tumblr', 'astra'), color: '#34526f', background: 'transparent'},
+		{value: 'reddit', label: __('Reddit', 'astra'), color: '#FC471E', background: 'transparent'},
+		{value: 'vk', label: __('VK', 'astra'), color: '#5382b6', background: 'transparent'},
+		{value: 'whatsapp', label: __('WhatsApp', 'astra'), color: '#5BBA67', background: 'transparent'},
+		{value: 'sms', label: __('SMS', 'astra'), color: 'inherit', background: 'transparent'},
 	]
 
 	const social_list = is_sharing_mode ? social_sharing : site_social_icon
