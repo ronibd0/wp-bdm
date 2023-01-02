@@ -1676,7 +1676,7 @@ add_action( 'activate_elementor/elementor.php', 'astra_skip_elementor_onboarding
 
 add_filter( 'astra_entry_header_class', 'astra_entry_header_class_custom', 1, 99 );
 /**
- * For elementor title hide.
+ * Hide elementor title.
  *
  * @param bool to check if elementor is running and use elementor title hide option.
  *
