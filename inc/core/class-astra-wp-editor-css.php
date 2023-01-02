@@ -628,6 +628,9 @@ class Astra_WP_Editor_CSS {
 		$desktop_css['.editor-styles-wrapper .is-root-container .wp-block-image']            = array(
 			'margin-bottom' => '1em',
 		);
+		$desktop_css['.editor-styles-wrapper .is-root-container pre.wp-block.wp-block-code'] = array(
+			'margin-bottom' => '1.7em',
+		);
 
 		$content_links_underline = astra_get_option( 'underline-content-links' );
 
