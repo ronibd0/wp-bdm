@@ -413,6 +413,8 @@ function astra_banner_elements_order( $structure = array() ) {
 		$layout_type = astra_get_option( 'ast-dynamic-' . $prefix . '-' . $post_type . '-layout', 'layout-1' );
 	}
 
+	do_action( 'astra_single_post_before' );
+
 	foreach ( $structure as $metaval ) {
 		$meta_key = $prefix . '-' . astra_get_last_meta_word( $metaval );
 		switch ( $meta_key ) {
@@ -503,4 +505,6 @@ function astra_banner_elements_order( $structure = array() ) {
 				break;
 		}
 	}
+
+	do_action( 'astra_single_post_after' );
 }
