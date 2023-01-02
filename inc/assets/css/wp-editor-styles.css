@@ -452,7 +452,7 @@ pre.wp-block.wp-block-preformatted {
 }
 
 pre.wp-block.wp-block-code {
-  font: 15px Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+  font: 16px Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
 }
 
 .wp-block-freeform.block-library-rich-text__tinymce blockquote {
@@ -680,7 +680,7 @@ pre.wp-block.wp-block-code {
 }
 
 .editor-styles-wrapper .is-root-container .wp-block-code {
-  margin-bottom: 1.7em;
+  margin-bottom: 1.6em;
 }
 
 .editor-styles-wrapper .is-root-container .wp-block-image {
