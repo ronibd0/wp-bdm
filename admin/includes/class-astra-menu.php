@@ -748,7 +748,7 @@ class Astra_Menu {
 						),
 					),
 				);
-			break;
+				break;
 
 			case 'learndash':
 				$useful_plugins = array(
@@ -799,7 +799,7 @@ class Astra_Menu {
 						),
 					),
 				);
-			break;
+				break;
 
 			default:
 				$useful_plugins = array(
@@ -850,7 +850,7 @@ class Astra_Menu {
 						),
 					),
 				);
-			break;
+				break;
 		}
 
 		return apply_filters( 'astra_useful_plugins', $useful_plugins );
