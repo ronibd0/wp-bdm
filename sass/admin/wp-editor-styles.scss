@@ -468,3 +468,22 @@ pre.wp-block {
 		}
 	}
 }
+
+.editor-styles-wrapper {
+	.is-root-container {
+		.wp-block-code {
+			margin-bottom: 1.7em;
+		}
+		.wp-block-image {
+			margin-bottom: 1em;
+		}
+		.wp-block-quote {
+			margin-top: 1.5em;
+			margin-bottom: 1.5em;
+		}
+		ul {
+			margin-bottom: 1.5em;
+			line-height: 1.85714285714286;
+		}
+	}
+}
