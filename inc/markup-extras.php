@@ -1680,7 +1680,7 @@ add_filter( 'astra_entry_header_class', 'astra_entry_header_class_custom', 1, 99
  *
  * @param bool to check if elementor is running and use elementor title hide option.
  *
- * @since 3.9.5
+ * @since x.x.x
  */
 function astra_entry_header_class_custom( $classes ) {
 	$post_id   = astra_get_post_id();
