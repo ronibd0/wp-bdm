@@ -692,7 +692,7 @@ pre.wp-block.wp-block-code {
   margin-bottom: 1.5em;
 }
 
-.editor-styles-wrapper .is-root-container ul {
+.editor-styles-wrapper .is-root-container ul, .editor-styles-wrapper .is-root-container ol {
   margin-bottom: 1.5em;
   line-height: 1.85714285714286;
 }
