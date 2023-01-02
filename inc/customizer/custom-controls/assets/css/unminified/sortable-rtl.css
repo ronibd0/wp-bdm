@@ -65,7 +65,9 @@
 .ast-sortable-item.show:hover {
   opacity: 1;
 }
-
+.ast-sortable-item .dashicons-arrow-down-alt2, .ast-sortable-item .dashicons-admin-page, .ast-sortable-item .dashicons-remove {
+    margin-left: -6px;
+}
 .ast-sortable-item .dashicons-admin-page, .ast-sortable-item .dashicons-arrow-down-alt2, .ast-sortable-item .dashicons-remove {
     cursor: pointer;
 }
@@ -245,5 +247,5 @@
 }
 
 .customize-control-ast-list-icons .ahfb-sorter-item-panel-header .dashicons-admin-page {
-    margin-right: 0;
+    margin-left: 0;
 }

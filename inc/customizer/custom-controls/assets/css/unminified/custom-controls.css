@@ -4123,7 +4123,9 @@ span.customize-control-title.ast-group-section-title {
 .ast-sortable-item.show:hover {
   opacity: 1;
 }
-
+.ast-sortable-item .dashicons-arrow-down-alt2, .ast-sortable-item .dashicons-admin-page, .ast-sortable-item .dashicons-remove {
+    margin-right: -6px;
+}
 .ast-sortable-item .dashicons-admin-page, .ast-sortable-item .dashicons-arrow-down-alt2, .ast-sortable-item .dashicons-remove {
     cursor: pointer;
 }
@@ -4303,7 +4305,7 @@ span.customize-control-title.ast-group-section-title {
 }
 
 .customize-control-ast-list-icons .ahfb-sorter-item-panel-header .dashicons-admin-page {
-    margin-left: 0;
+    margin-right: 0;
 }
 .customize-control-ast-text-input textarea {
     display: block;
