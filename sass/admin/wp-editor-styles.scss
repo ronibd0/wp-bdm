@@ -483,12 +483,13 @@ pre.wp-block {
             margin-bottom: 1.5em;
             line-height: 1.85714285714286;
         }
-		.wp-block-separator {
-			margin-top: 20px;
-			margin-bottom: 20px;
-		}
 		.wp-block-file {
 			margin-bottom: 1.5em;
 		}
     }
+}
+
+body .editor-styles-wrapper > .block-editor-block-list__layout.is-root-container > .wp-block + .wp-block-separator {
+	margin-top: 20px;
+	margin-bottom: 20px;
 }
