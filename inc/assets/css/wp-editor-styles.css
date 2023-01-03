@@ -452,7 +452,7 @@ pre.wp-block.wp-block-preformatted {
 }
 
 pre.wp-block.wp-block-code {
-  font: 15px Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+  font: 16px Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
 }
 
 .wp-block-freeform.block-library-rich-text__tinymce blockquote {
@@ -677,4 +677,22 @@ pre.wp-block.wp-block-code {
 .wp-core-ui .components-angle-picker-control .components-input-control__container .components-input-control__input {
   padding-left: 10px;
   padding-right: 10px;
+}
+
+.editor-styles-wrapper .is-root-container .wp-block-code {
+  margin-bottom: 1.6em;
+}
+
+.editor-styles-wrapper .is-root-container .wp-block-image {
+  margin-bottom: 1em;
+}
+
+.editor-styles-wrapper .is-root-container .wp-block-quote {
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+}
+
+.editor-styles-wrapper .is-root-container ul, .editor-styles-wrapper .is-root-container ol {
+  margin-bottom: 1.5em;
+  line-height: 1.85714285714286;
 }
