@@ -915,7 +915,7 @@ class Astra_Menu {
 					'status'      => self::get_plugin_status( 'cartflows/cartflows.php' ),
 					'slug'        => 'cartflows',
 					'path'        => 'cartflows/cartflows.php',
-					'redirection' => admin_url( 'admin.php?page=cartflows' ),
+					'redirection' => ( false === get_option( 'wcf_setup_complete', false ) && ! get_option( 'wcf_setup_skipped', false ) ) ? admin_url( 'index.php?page=cartflow-setup' ) : admin_url( 'admin.php?page=cartflows' ),
 					'logoPath'    => array(
 						'internal_icon' => true,
 						'icon_path'     => 'cart-flows',
