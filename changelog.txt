@@ -2,6 +2,7 @@ v4.0.1 (Unreleased)
 - New: WooCommerce - Sortable support for default payment options on single product page.
 - Fix: W3 validation - Builder - Menu - Duplicate IDs for responsive devices.
 - Fix: Block editor - Image breaking outside the entry container when left/right aligned.
+- Fix: WooCommerce - Real Time Quantity Updater not working in case of shortcode used.
 
 v4.0.0 (Unreleased)
 - New: Redesigned the entire admin area with better user experience.
@@ -26,7 +27,6 @@ v4.0.0 (Unreleased)
 - Fix: Margin applying for the last child 'li' tag inside widget section.
 - Fix: Block editor - Button background color gets overridden by core styles for the Legacy block editor setup.
 - Fix: Customizer - Content background color reflections not working in customizer preview.
-- Fix: WooCommerce - Real Time Quantity Updater not working when Woocommerce shortcode is added. 
 
 v3.9.4
 - New: WooCommerce Cart - "Cart Page" click action introduced to redirect the user to the cart page.
