@@ -1269,30 +1269,6 @@ function astra_prepare_button_defaults( $defaults, $index ) {
 		'mobile-unit'  => 'px',
 	);
 
-	$defaults[ 'sticky-header-button' . $index . '-border-radius-fields' ] = array(
-		'desktop'      => array(
-			'top'    => ! isset( $astra_options[ 'sticky-header-button' . $index . '-border-radius' ] ) ? '' : $astra_options[ 'sticky-header-button' . $index . '-border-radius' ],
-			'right'  => ! isset( $astra_options[ 'sticky-header-button' . $index . '-border-radius' ] ) ? '' : $astra_options[ 'sticky-header-button' . $index . '-border-radius' ],
-			'bottom' => ! isset( $astra_options[ 'sticky-header-button' . $index . '-border-radius' ] ) ? '' : $astra_options[ 'sticky-header-button' . $index . '-border-radius' ],
-			'left'   => ! isset( $astra_options[ 'sticky-header-button' . $index . '-border-radius' ] ) ? '' : $astra_options[ 'sticky-header-button' . $index . '-border-radius' ],
-		),
-		'tablet'       => array(
-			'top'    => '',
-			'right'  => '',
-			'bottom' => '',
-			'left'   => '',
-		),
-		'mobile'       => array(
-			'top'    => '',
-			'right'  => '',
-			'bottom' => '',
-			'left'   => '',
-		),
-		'desktop-unit' => 'px',
-		'tablet-unit'  => 'px',
-		'mobile-unit'  => 'px',
-	);
-
 	$defaults[ 'header-' . $_prefix . '-border-radius' ] = '';
 
 	$defaults[ 'section-hb-button-' . $index . '-padding' ]   = $apply_new_default_color_typo_values ? Astra_Builder_Helper::$default_button_responsive_spacing : Astra_Builder_Helper::$default_responsive_spacing;
