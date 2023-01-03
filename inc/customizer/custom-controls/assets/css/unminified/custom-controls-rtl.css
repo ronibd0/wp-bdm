@@ -3657,6 +3657,10 @@ div .ast-field-settings-modal .customize-control-ast-font-extras {
 	inline-size: max-content;
 }
 
+.ast-customizer-font-varient-wrap {
+	margin-top: 10px;
+}
+
 .ast-customizer-font-varient-wrap .ast-multi-select__value-container {
     overflow-x: hidden;
     flex-wrap: nowrap;
@@ -6877,6 +6881,10 @@ div .ast-field-settings-modal .customize-control-ast-font-extras {
 	display: flex;
 	white-space: break-spaces;
 	inline-size: max-content;
+}
+
+.ast-customizer-font-varient-wrap {
+	margin-top: 10px;
 }
 
 .ast-customizer-font-varient-wrap .ast-multi-select__value-container {

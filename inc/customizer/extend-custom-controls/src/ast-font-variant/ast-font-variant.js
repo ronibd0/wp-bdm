@@ -37,7 +37,7 @@ const FontVariantComponent = props => {
 
 	getUpatedBodyFontVariantOptions();
 
-	const verticalScroll = () => { 
+	const verticalScroll = () => {
 		const scrollContainer = document.querySelectorAll(".ast-multi-select__value-container");
 
 		scrollContainer.forEach(element => {
@@ -81,7 +81,7 @@ const FontVariantComponent = props => {
 			return;
 		}
 		prepareToSave( newVal );
-		
+
 	};
 
 	if ( ! fontVariants[fontFamily][0] ) {
@@ -111,9 +111,13 @@ const FontVariantComponent = props => {
 	  }
 
 	return <>
-		<label className="customize-control-title">
-			{labelHtml}
-		</label>
+		{
+			labelHtml !== '' && (
+				<label className="customize-control-title">
+					{labelHtml}
+				</label>
+			)
+		}
 		<div className='ast-customizer-font-varient-wrap'>
 			<Select
 				name = { name }
@@ -128,7 +132,7 @@ const FontVariantComponent = props => {
 					DropdownIndicator: () => null,
 					IndicatorSeparator: () => null,
 					ClearIndicator: () => null
-				}} 
+				}}
 			/>
 			{helpHtml}
 		</div>
