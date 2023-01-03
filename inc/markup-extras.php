@@ -1679,7 +1679,7 @@ add_filter( 'astra_entry_header_class', 'astra_entry_header_class_custom', 1, 99
  * Hide elementor title.
  *
  * @param array $classes Array of elementor edit mode check.
- * @param int   $post_id  Post ID.
+ * @return number Post ID. 
  *
  * @since x.x.x
  */
