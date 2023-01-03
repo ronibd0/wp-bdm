@@ -626,7 +626,7 @@ class Astra_WP_Editor_CSS {
 		$content_links_underline = astra_get_option( 'underline-content-links' );
 
 		if ( $content_links_underline ) {
-			$desktop_css['.editor-styles-wrapper .is-root-container a'] = array(
+			$desktop_css['.editor-styles-wrapper .is-root-container a, .editor-styles-wrapper .is-root-container .wp-block-file__button'] = array(
 				'text-decoration' => 'underline',
 			);
 
