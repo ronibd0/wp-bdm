@@ -1,4 +1,9 @@
-v4.0.0-beta.1 (Unreleased)
+v4.0.1 (Unreleased)
+- New: WooCommerce - Sortable support for default payment options on single product page.
+- Fix: W3 validation - Builder - Menu - Duplicate IDs for responsive devices.
+- Fix: Block editor - Image breaking outside the entry container when left/right aligned.
+
+v4.0.0 (Unreleased)
 - New: Redesigned the entire admin area with better user experience.
 - New: Narrow Width Container layout for Single Posts, Blogs/Archives & Pages.
 - New: Introduced Smooth scroll to ID option for smooth scrolling to section ID on one page site navigation.
