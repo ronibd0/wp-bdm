@@ -1684,7 +1684,7 @@ add_filter( 'astra_entry_header_class', 'astra_entry_header_class_custom', 1, 99
  */
 function astra_entry_header_class_custom( $classes ) {
 	$post_id   = astra_get_post_id();
-	$edit_mode = get_post_meta( $post_id, '_elementor_edit_mode', true );
+	$edit_mode = get_post_meta( $post_id, '_elementor_edit_mode', true ); // phpcs:ignore PSR2.Classes.PropertyDeclaration.Underscore
 
 	if ( $edit_mode && $edit_mode == 'builder' ) {
 		$classes[] = 'ast-header-without-markup';
