@@ -1684,6 +1684,7 @@ add_filter( 'astra_entry_header_class', 'astra_entry_header_class_custom', 1, 99
  */
 function astra_entry_header_class_custom( $classes ) {
 	$post_id   = astra_get_post_id(); 
+	/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 	$edit_mode = get_post_meta( $post_id, '_elementor_edit_mode', true ); 
 
 	if ( $edit_mode && $edit_mode == 'builder' ) {
