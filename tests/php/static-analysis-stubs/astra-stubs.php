@@ -3502,6 +3502,16 @@ namespace {
         public static function is_elementor_default_color_font_comp()
         {
         }
+		 /**
+         * Hide elementor title.
+         *
+		 * @param bool to check if elementor is running and use elementor title hide option.
+		 *
+         * @since x.x.x
+         */
+        public static function astra_entry_header_class_custom()
+        {
+        }
         /**
          * For existing users, do not load the wide/full width image CSS by default.
          *
