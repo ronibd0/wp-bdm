@@ -699,3 +699,7 @@ pre.wp-block.wp-block-code {
   margin-top: 20px;
   margin-bottom: 20px;
 }
+
+.editor-styles-wrapper .is-root-container .wp-block-file {
+  margin-bottom: 1.5em;
+}
