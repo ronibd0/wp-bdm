@@ -343,7 +343,24 @@ class Astra_WP_Editor_CSS {
 		$site_title_decoration               = astra_get_font_extras( astra_get_option( 'ast-dynamic-single-' . esc_attr( $post_type ) . '-title-font-extras', $site_title_font_extras ), 'text-decoration' );
 		$is_widget_title_support_font_weight = Astra_Dynamic_CSS::support_font_css_to_widget_and_in_editor();
 		$font_weight_prop                    = ( $is_widget_title_support_font_weight ) ? 'inherit' : 'normal';
+		$btn_preset_style                    = astra_get_option( 'button-preset-style' );
 
+		// Apply button 4-6 preset styles same as frontend.
+		if ( 'button_04' === $btn_preset_style || 'button_05' === $btn_preset_style || 'button_06' === $btn_preset_style ) {
+
+			if ( empty( $btn_border_color ) ) {
+				$btn_border_color = $btn_bg_color;
+			}
+
+			if ( '' === astra_get_option( 'button-bg-color' ) && '' === astra_get_option( 'button-color' ) ) {
+				$btn_color = $theme_color;
+			} elseif ( '' === astra_get_option( 'button-color' ) ) {
+				$btn_color = $btn_bg_color;
+			}
+
+			$btn_bg_color = 'transparent';
+		}
+		
 		// Fallback for Site title (Page Title).
 		if ( 'inherit' == $site_title_font_family ) {
 			$site_title_font_family = $headings_font_family;
@@ -610,23 +627,9 @@ class Astra_WP_Editor_CSS {
 		 * Block editor experience improvements & fixes introduced with v4.0.0.
 		 */
 
-		// List block alignment same as frontend.
-		$default_ul_line_height                                      = 1.85714285714286;
-		$desktop_css['.editor-styles-wrapper .is-root-container ul'] = array(
-			'line-height'   => $default_ul_line_height,
-			'margin-bottom' => '1.5em',
-		);
-
 		// Consistent spacing between blocks.
 		$desktop_css['.edit-post-visual-editor .editor-styles-wrapper > .is-root-container'] = array(
 			'padding-top' => 0,
-		);
-		$desktop_css['.editor-styles-wrapper .is-root-container .wp-block-quote']            = array(
-			'margin-top'    => '1.5em',
-			'margin-bottom' => '1.5em',
-		);
-		$desktop_css['.editor-styles-wrapper .is-root-container .wp-block-image']            = array(
-			'margin-bottom' => '1em',
 		);
 
 		$content_links_underline = astra_get_option( 'underline-content-links' );

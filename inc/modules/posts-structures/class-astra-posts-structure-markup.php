@@ -18,7 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @since x.x.x
  */
-class Astra_Posts_Strctures_Markup {
+class Astra_Posts_Structure_Markup {
 
 	/**
 	 *  Constructor
@@ -200,12 +200,12 @@ class Astra_Posts_Strctures_Markup {
 	public function astra_force_render_banner_layout_1() {
 		$is_singular = is_singular() ? true : false;
 		if ( $is_singular ) {
-			?> <header class="entry-header <?php astra_entry_header_class(); ?>"> 
+			?> <header class="entry-header <?php astra_entry_header_class(); ?>">
 			<?php
 			astra_single_header_top();
 		} else {
 			?>
-			 <section class="ast-archive-description"> 
+			 <section class="ast-archive-description">
 			<?php
 			do_action( 'astra_before_archive_title' );
 		}
@@ -214,16 +214,16 @@ class Astra_Posts_Strctures_Markup {
 
 		if ( $is_singular ) {
 			?>
-			 </header> <!-- .entry-header --> 
+			 </header> <!-- .entry-header -->
 			<?php
 			astra_single_header_bottom();
 		} else {
 			?>
-			 </section> 
+			 </section>
 			<?php
 			do_action( 'astra_after_archive_title' );
 		}
 	}
 }
 
-new Astra_Posts_Strctures_Markup();
+new Astra_Posts_Structure_Markup();

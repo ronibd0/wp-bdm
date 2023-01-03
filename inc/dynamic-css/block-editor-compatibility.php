@@ -504,11 +504,6 @@ function astra_load_modern_block_editor_ui( $dynamic_css ) {
 	// Block editor experience improvements introduced with v4.0.0.
 	if ( $v4_block_editor_compat ) {
 		$dynamic_css .= '
-			@media(max-width: ' . $tablet_breakpoint . 'px) {	
-				.ast-plain-container .site-main .entry-header {
-					margin-top: 1.5em;
-				}
-			}
 			.entry-content ul, .entry-content ol {
 				padding: revert;
 				margin: revert;

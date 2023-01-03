@@ -168,6 +168,11 @@
   text-decoration: none;
 }
 
+.customize-control-ast-responsive-background .more-settings .message,
+.customize-control-ast-background .more-settings .message {
+	margin-right: 5px;
+}
+
 .customize-control-ast-background .more-settings:focus {
   outline: 0;
   box-shadow: none;
@@ -4299,6 +4304,9 @@ span.customize-control-title.ast-group-section-title {
     line-height: 1;
 }
 
+.customize-control-ast-list-icons .ahfb-sorter-item-panel-header .dashicons-admin-page {
+    margin-right: 0;
+}
 .customize-control-ast-text-input textarea {
     display: block;
     width: 100%;
