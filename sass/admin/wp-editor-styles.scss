@@ -235,7 +235,7 @@ pre.wp-block {
 		font-family: "Courier 10 Pitch", Courier, monospace;
 	}
 	&.wp-block-code {
-		font: 15px Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+		font: 16px Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
 	}
 	background: #eee;
 	margin-bottom: 1.6em;
@@ -465,6 +465,25 @@ pre.wp-block {
 				padding-left: 10px;
 				padding-right: 10px;
 			}
+		}
+	}
+}
+
+.editor-styles-wrapper {
+	.is-root-container {
+		.wp-block-code {
+			margin-bottom: 1.6em;
+		}
+		.wp-block-image {
+			margin-bottom: 1em;
+		}
+		.wp-block-quote {
+			margin-top: 1.5em;
+			margin-bottom: 1.5em;
+		}
+		ul, ol {
+			margin-bottom: 1.5em;
+			line-height: 1.85714285714286;
 		}
 	}
 }

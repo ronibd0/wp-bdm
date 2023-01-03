@@ -7,7 +7,6 @@ import FontIconPicker from "@fonticonpicker/react-fonticonpicker"
 import astIcons from "../../../../../assets/svg/ast-social-icons"
 import renderSVG from "../../../../assets/js/ast-render-svg"
 
-
 let svg_icons = Object.keys( astIcons )
 
 const ItemComponent = props => {
