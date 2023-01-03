@@ -681,7 +681,7 @@ pre.wp-block.wp-block-code {
   margin-bottom: 1.6em;
 }
 
-.editor-styles-wrapper .is-root-container .wp-block-image, .editor-styles-wrapper .is-root-container .wp-block-gallery, .editor-styles-wrapper .is-root-container .wp-block-audio, .editor-styles-wrapper .is-root-container .wp-block-video, .editor-styles-wrapper .is-root-container .wp-block-table {
+.editor-styles-wrapper .is-root-container .wp-block-image, .editor-styles-wrapper .is-root-container .wp-block-gallery, .editor-styles-wrapper .is-root-container .wp-block-audio, .editor-styles-wrapper .is-root-container .wp-block-video, .editor-styles-wrapper .is-root-container .wp-block-table, .editor-styles-wrapper .is-root-container .wp-block-pullquote {
   margin-bottom: 1em;
 }
 
