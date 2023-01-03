@@ -482,6 +482,13 @@ pre.wp-block {
 		.wp-block-file {
 			margin-bottom: 1.5em;
 		}
+		ol, ul {
+			line-height: 1.85714285714286;
+		}
+		.wp-block-separator {
+			margin-top: 20px;
+			margin-bottom: 20px;
+		}
     }
 }
 
@@ -492,12 +499,10 @@ body {
 				+ {
 					.wp-block-separator {
 						margin-top: 20px;
-						margin-bottom: 20px;
 					}
 					.wp-block-list {
 						margin-top: 1em;
 						margin-bottom: 1em;
-						line-height: 1.85714285714286;
 					}
 				}
 			}
