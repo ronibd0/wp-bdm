@@ -2508,9 +2508,16 @@ span.customize-control-title.ast-group-section-title {
 	border-radius: 3px 0px 0px 3px;
 }
 
-.customize-control-ast-radio-icon.ast-top-dotted-divider .ast-options{
-    top: calc(50% + 12px);
-    transform: translateY(-50%);
+.customize-control-ast-radio-icon .ast-control-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.customize-control-ast-radio-icon .customize-control-title {
+    flex: 1;
+    padding-right: 0.5em;
 }
 
 .customize-control-ast-radio-icon .customize-control-title {
@@ -2519,10 +2526,6 @@ span.customize-control-title.ast-group-section-title {
 }
 
 .customize-control-ast-radio-icon .ast-options {
-    position: absolute;
-    top: calc(50%);
-    transform: translateY(-50%);
-    right: 0;
     background-color: var(--ast-customizer-color-9);
     margin: 0;
     line-height: 0;
