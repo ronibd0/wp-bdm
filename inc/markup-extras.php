@@ -1678,7 +1678,7 @@ add_filter( 'astra_entry_header_class', 'astra_entry_header_class_custom', 1, 99
 /**
  * Hide elementor title.
  *
- * @param bool to check if elementor is running and use elementor title hide option.
+ * @param array $classes Array of elementor edit mode check.
  *
  * @since x.x.x
  */
