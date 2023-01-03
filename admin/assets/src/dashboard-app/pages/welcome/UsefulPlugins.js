@@ -1,6 +1,7 @@
 import React from "react";
 import Astra_Admin_Icons from "@Common/block-icons";
 import apiFetch from '@wordpress/api-fetch';
+import { __ } from '@wordpress/i18n';
 
 const UsefulPlugins = () => {
 
@@ -9,6 +10,13 @@ const UsefulPlugins = () => {
 		const formData = new window.FormData();
 
 		switch (action) {
+			case 'isApp':
+				window.open(
+					e.target.dataset.redirection,
+					'_blank'
+				);
+				break;
+
 			case 'astra_recommended_plugin_activate':
 				activatePlugin(e);
 				break;
@@ -96,18 +104,32 @@ const UsefulPlugins = () => {
 							</p>
 						</div>
 					</div>
-					<button
-						data-slug={plugin.slug}
-						data-init={plugin.path}
-						data-redirection={plugin.redirection}
-						data-action={getAction(plugin.status)}
-						className={` ${getStatusClass(
-							plugin.status
-						)} p-0 m-0 capitalize text-sm leading-4 font-medium cursor-pointer`}
-						onClick={ handlePluginActionTrigger }
-					>
-						{ 'installed' == plugin.status ? astra_admin.plugin_activate_text : plugin.status }
-					</button>
+					{
+						( undefined !== plugin.is_app && plugin.is_app ) && <button
+							data-redirection={plugin.redirect_to}
+							data-action='isApp'
+							className={` ${getStatusClass(
+								'install'
+							)} p-0 m-0 capitalize text-sm leading-4 font-medium cursor-pointer`}
+							onClick={ handlePluginActionTrigger }
+						>
+							{ __( 'Get Started', 'astra' ) }
+						</button>
+					}
+					{
+						( undefined === plugin.is_app ) && <button
+							data-slug={plugin.slug}
+							data-init={plugin.path}
+							data-redirection={plugin.redirection}
+							data-action={getAction(plugin.status)}
+							className={` ${getStatusClass(
+								plugin.status
+							)} p-0 m-0 capitalize text-sm leading-4 font-medium cursor-pointer`}
+							onClick={ handlePluginActionTrigger }
+						>
+							{ 'installed' == plugin.status ? astra_admin.plugin_activate_text : plugin.status }
+						</button>
+					}
 				</div>
 			))}
 		</div>
