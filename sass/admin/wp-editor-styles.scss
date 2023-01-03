@@ -489,7 +489,17 @@ pre.wp-block {
     }
 }
 
-body .editor-styles-wrapper > .block-editor-block-list__layout.is-root-container > .wp-block + .wp-block-separator {
-	margin-top: 20px;
-	margin-bottom: 20px;
+body {
+	.editor-styles-wrapper {
+		>.block-editor-block-list__layout.is-root-container {
+			>.wp-block {
+				+ {
+					.wp-block-separator {
+						margin-top: 20px;
+						margin-bottom: 20px;
+					}
+				}
+			}
+		}
+	}
 }
