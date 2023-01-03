@@ -1683,8 +1683,8 @@ add_filter( 'astra_entry_header_class', 'astra_entry_header_class_custom', 1, 99
  * @since x.x.x
  */
 function astra_entry_header_class_custom( $classes ) {
-	$id   = astra_get_post_id();
-	$edit_mode = get_post_meta( $id, '_elementor_edit_mode', true ); // phpcs:ignore PSR2.Classes.PropertyDeclaration.Underscore
+	$post_id   = astra_get_post_id(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+	$edit_mode = get_post_meta( $post_id, '_elementor_edit_mode', true ); 
 
 	if ( $edit_mode && $edit_mode == 'builder' ) {
 		$classes[] = 'ast-header-without-markup';
