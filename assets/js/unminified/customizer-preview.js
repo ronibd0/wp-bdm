@@ -748,6 +748,17 @@ function hasWordPressWidgetBlockEditor() {
 		} );
 	} );
 
+	/**
+	 * Apply content bg responsive css with specified selector. 
+	 * @param {string} selector
+	 * @returns {void}
+	 */
+	const apply_content_bg = ( selector ) => {
+		astra_apply_responsive_background_css( 'astra-settings[content-bg-obj-responsive]', selector, 'desktop' );
+		astra_apply_responsive_background_css( 'astra-settings[content-bg-obj-responsive]', selector, 'tablet' );
+		astra_apply_responsive_background_css( 'astra-settings[content-bg-obj-responsive]', selector, 'mobile' );
+	}
+
 	/*
 	 * Layout Body Background
 	 */
@@ -774,28 +785,32 @@ function hasWordPressWidgetBlockEditor() {
 		 * Content background color
 		 */
 		if( 'boxed-container' == content_layout ) {
-
+			// Case: Container -> Boxed, Site-Layout -> Any.
 			dynamicSelector   += ', .ast-separate-container.ast-two-container #secondary .widget';
-			astra_apply_responsive_background_css( 'astra-settings[content-bg-obj-responsive]', dynamicSelector, 'desktop' );
-			astra_apply_responsive_background_css( 'astra-settings[content-bg-obj-responsive]', dynamicSelector, 'tablet' );
-			astra_apply_responsive_background_css( 'astra-settings[content-bg-obj-responsive]', dynamicSelector, 'mobile' );
+			apply_content_bg(dynamicSelector);
 		}
 		else if ( 'content-boxed-container' == content_layout ) {
-
-			astra_apply_responsive_background_css( 'astra-settings[content-bg-obj-responsive]', dynamicSelector, 'desktop' );
-			astra_apply_responsive_background_css( 'astra-settings[content-bg-obj-responsive]', dynamicSelector, 'tablet' );
-			astra_apply_responsive_background_css( 'astra-settings[content-bg-obj-responsive]', dynamicSelector, 'mobile' );
-		} else if ( astraCustomizer.apply_content_bg_fullwidth_layouts && ( 'ast-box-layout' == site_layout || 'ast-padded-layout' == site_layout ) && ( 'plain-container' == content_layout || 'page-builder' == content_layout ) ) {
-			var fullWidthLayoutSelector   = '.ast-plain-container, .ast-page-builder-template';
-			astra_apply_responsive_background_css( 'astra-settings[content-bg-obj-responsive]', fullWidthLayoutSelector, 'desktop' );
-			astra_apply_responsive_background_css( 'astra-settings[content-bg-obj-responsive]', fullWidthLayoutSelector, 'tablet' );
-			astra_apply_responsive_background_css( 'astra-settings[content-bg-obj-responsive]', fullWidthLayoutSelector, 'mobile' );
+			// Case: Container -> Content-Boxed, Site-Layout -> Any.
+			apply_content_bg(dynamicSelector);
+		} else if ( astraCustomizer.apply_content_bg_fullwidth_layouts && ( 'ast-box-layout' === site_layout || 'ast-padded-layout' === site_layout ) && ( 'plain-container' === content_layout ) ) {
+			// Case: Container -> FW Contained, Site-Layout -> Max, Padded.
+			var fullWidthLayoutSelector   = '.ast-box-layout.ast-plain-container .site-content, .ast-padded-layout.ast-plain-container .site-content';
+			apply_content_bg(fullWidthLayoutSelector);
 		}
-		else if ( 'plain-container' == content_layout && ( 'ast-box-layout' == site_layout || 'ast-padded-layout' == site_layout ) ) {
-			dynamicSelector   += ', .ast-box-layout.ast-plain-container .site-content, .ast-padded-layout.ast-plain-container .site-content';
-			astra_apply_responsive_background_css( 'astra-settings[content-bg-obj-responsive]', dynamicSelector, 'desktop' );
-			astra_apply_responsive_background_css( 'astra-settings[content-bg-obj-responsive]', dynamicSelector, 'tablet' );
-			astra_apply_responsive_background_css( 'astra-settings[content-bg-obj-responsive]', dynamicSelector, 'mobile' );
+		else if ( astraCustomizer.apply_content_bg_fullwidth_layouts && ('plain-container' === content_layout ) ) {
+			// Case: Container -> FW Contained, Site-Layout -> Full-Width, Theme default.
+			dynamicSelector   += ', .ast-plain-container .site-content';
+			apply_content_bg(dynamicSelector);
+		}
+		else if ( astraCustomizer.apply_content_bg_fullwidth_layouts && ( 'page-builder' == content_layout ) && ( 'ast-box-layout' !== site_layout && 'ast-padded-layout' !== site_layout ) ) {
+			// Case: Container -> FW Stretched, Site-Layout -> Full-Width, Theme default.
+			dynamicSelector   += ', .ast-page-builder-template .site-content';
+			apply_content_bg(dynamicSelector);
+		}
+		else if ( 'narrow-container' == content_layout ) {
+			// Case: Container -> Narrow, Site-Layout -> Any.
+			dynamicSelector   += ', .ast-narrow-container .site-content';
+			apply_content_bg(dynamicSelector);
 		}
 	}
 
