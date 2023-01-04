@@ -252,6 +252,7 @@ if ( ! class_exists( 'Astra_Customizer_Register_Sections_Panels' ) ) {
 					'type'     => 'section',
 					'priority' => 65,
 					'title'    => __( 'Accessibility', 'astra' ),
+					'panel'    => 'panel-global',
 				),
 
 				/**
