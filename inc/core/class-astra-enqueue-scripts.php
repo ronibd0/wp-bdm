@@ -382,14 +382,17 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 
 			wp_localize_script( 'astra-mobile-cart', 'astra_cart', apply_filters( 'astra_cart_js_localize', $astra_cart_localize_data ) );
 
-			$astra_shop_add_to_cart_localize_data = array(
-				'shop_add_to_cart_action' => astra_get_option( 'shop-add-to-cart-action' ),
-				'cart_url'                => wc_get_cart_url(),
-				'checkout_url'            => wc_get_checkout_url(),
-				'is_astra_pro'            => astra_has_pro_woocommerce_addon(),
-			);
+			if ( class_exists( 'woocommerce' ) ) {
 
-			wp_localize_script( 'astra-shop-add-to-cart', 'astra_shop_add_to_cart', apply_filters( 'astra_shop_add_to_cart_js_localize', $astra_shop_add_to_cart_localize_data ) );
+				$astra_shop_add_to_cart_localize_data = array(
+					'shop_add_to_cart_action' => astra_get_option( 'shop-add-to-cart-action' ),
+					'cart_url'                => wc_get_cart_url(),
+					'checkout_url'            => wc_get_checkout_url(),
+					'is_astra_pro'            => astra_has_pro_woocommerce_addon(),
+				);
+
+				wp_localize_script( 'astra-shop-add-to-cart', 'astra_shop_add_to_cart', apply_filters( 'astra_shop_add_to_cart_js_localize', $astra_shop_add_to_cart_localize_data ) );
+			}
 		}
 
 		/**
