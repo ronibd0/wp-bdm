@@ -23,6 +23,11 @@ const CustomizerLinkComponent = props => {
 
 			case 'control':
 				wp.customize.control(linked).focus();
+
+					//if customizer link focus fails then it try's again.
+					setTimeout(() => {
+						wp.customize.control(linked).focus(); 
+					}, 500);
 				break;
 
 			default:
