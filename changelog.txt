@@ -1,7 +1,7 @@
 v4.0.1 (Unreleased)
-- New: Accessibility options to change color and style of hightlighted element.
+- New: Accessibility options to change color and style of highlighted element.
 
-v4.0.0-beta.1 (Unreleased)
+v4.0.0
 - New: Redesigned the entire admin area with better user experience.
 - New: Narrow Width Container layout for Single Posts, Blogs/Archives & Pages.
 - New: Introduced Smooth scroll to ID option for smooth scrolling to section ID on one page site navigation.
@@ -23,6 +23,7 @@ v4.0.0-beta.1 (Unreleased)
 - Fix: WooCommerce - Sticky add to cart is not working on old header footer.
 - Fix: Margin applying for the last child 'li' tag inside widget section.
 - Fix: Block editor - Button background color gets overridden by core styles for the Legacy block editor setup.
+- Fix: Customizer - Content background color reflections not working in customizer preview.
 
 v3.9.4
 - New: WooCommerce Cart - "Cart Page" click action introduced to redirect the user to the cart page.
