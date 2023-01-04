@@ -46,6 +46,28 @@ function astra_scroll_to_top_dynamic_css( $dynamic_css, $dynamic_css_filtered = 
 
 	$scroll_css = astra_parse_css( $scroll_to_top );
 
+	$scroll_to_top_tablet = array(
+		'#ast-scroll-top' => array(
+			'border-top-left-radius'     => astra_responsive_spacing( $scroll_to_top_icon_radius_fields, 'top', 'tablet' ),
+			'border-top-right-radius'    => astra_responsive_spacing( $scroll_to_top_icon_radius_fields, 'right', 'tablet' ),
+			'border-bottom-right-radius' => astra_responsive_spacing( $scroll_to_top_icon_radius_fields, 'bottom', 'tablet' ),
+			'border-bottom-left-radius'  => astra_responsive_spacing( $scroll_to_top_icon_radius_fields, 'left', 'tablet' ),
+		),
+	);
+	/* Parse CSS from array() -> max-width: (tablet-breakpoint) px CSS */
+	$scroll_css .= astra_parse_css( $scroll_to_top_tablet, '', astra_get_tablet_breakpoint() );
+
+	$scroll_to_top_mobile = array(
+		'#ast-scroll-top' => array(
+			'border-top-left-radius'     => astra_responsive_spacing( $scroll_to_top_icon_radius_fields, 'top', 'mobile' ),
+			'border-top-right-radius'    => astra_responsive_spacing( $scroll_to_top_icon_radius_fields, 'right', 'mobile' ),
+			'border-bottom-right-radius' => astra_responsive_spacing( $scroll_to_top_icon_radius_fields, 'bottom', 'mobile' ),
+			'border-bottom-left-radius'  => astra_responsive_spacing( $scroll_to_top_icon_radius_fields, 'left', 'mobile' ),
+		),
+	);
+	/* Parse CSS from array() -> max-width: (mobile-breakpoint) px CSS */
+	$scroll_css .= astra_parse_css( $scroll_to_top_mobile, '', astra_get_mobile_breakpoint() );
+
 	if ( is_rtl() ) {
 		$scroll_to_top_rtl = array(
 			'#ast-scroll-top .ast-icon.icon-arrow svg' => array(
