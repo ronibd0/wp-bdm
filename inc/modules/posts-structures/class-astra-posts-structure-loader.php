@@ -33,6 +33,13 @@ class Astra_Posts_Structure_Loader {
 	 * @since x.x.x
 	 */
 	public function __construct() {
+		/**
+		 * Update Astra default color and typography values. To not update directly on existing users site, added backwards.
+		 *
+		 * @since x.x.x
+		 */
+		$apply_new_default_color_typo_values = Astra_Dynamic_CSS::astra_check_default_color_typo();
+
 		self::$customizer_defaults['responsive-background'] = array(
 			'desktop' => array(
 				'background-color'      => '',
@@ -65,8 +72,7 @@ class Astra_Posts_Structure_Loader {
 				'background-media'      => '',
 			),
 		);
-
-		self::$customizer_defaults['responsive-spacing'] = array(
+		self::$customizer_defaults['responsive-spacing']    = array(
 			'desktop'      => array(
 				'top'    => '',
 				'right'  => '',
@@ -89,8 +95,7 @@ class Astra_Posts_Structure_Loader {
 			'tablet-unit'  => 'px',
 			'mobile-unit'  => 'px',
 		);
-
-		self::$customizer_defaults['responsive-padding'] = array(
+		self::$customizer_defaults['responsive-padding']    = array(
 			'desktop'      => array(
 				'top'    => 3,
 				'right'  => 3,
@@ -113,8 +118,7 @@ class Astra_Posts_Structure_Loader {
 			'tablet-unit'  => 'em',
 			'mobile-unit'  => 'em',
 		);
-
-		self::$customizer_defaults['font-size'] = array(
+		self::$customizer_defaults['font-size']             = array(
 			'desktop'      => '',
 			'tablet'       => '',
 			'mobile'       => '',
@@ -122,20 +126,34 @@ class Astra_Posts_Structure_Loader {
 			'tablet-unit'  => 'px',
 			'mobile-unit'  => 'px',
 		);
-
-		self::$customizer_defaults['responsive-slider'] = array(
+		self::$customizer_defaults['title-font-size']       = array(
+			'desktop'      => $apply_new_default_color_typo_values ? '32' : '',
+			'tablet'       => '',
+			'mobile'       => '',
+			'desktop-unit' => 'px',
+			'tablet-unit'  => 'px',
+			'mobile-unit'  => 'px',
+		);
+		self::$customizer_defaults['title-font-weight']     = $apply_new_default_color_typo_values ? '600' : 'inherit';
+		self::$customizer_defaults['responsive-slider']     = array(
 			'desktop' => '',
 			'tablet'  => '',
 			'mobile'  => '',
 		);
-
-		self::$customizer_defaults['responsive-color'] = array(
+		self::$customizer_defaults['responsive-color']      = array(
 			'desktop' => '',
 			'tablet'  => '',
 			'mobile'  => '',
 		);
-
-		add_action( 'customize_register', array( $this, 'posts_strctures_customize_register' ), 2 );
+		self::$customizer_defaults['font-extras']           = array(
+			'line-height'         => '',
+			'line-height-unit'    => 'em',
+			'letter-spacing'      => '',
+			'letter-spacing-unit' => 'px',
+			'text-transform'      => '',
+			'text-decoration'     => '',
+		);
+		add_action( 'customize_register', array( $this, 'posts_structures_customize_register' ), 2 );
 		add_action( 'astra_get_fonts', array( $this, 'add_fonts' ), 1 );
 		add_action( 'customize_preview_init', array( $this, 'preview_scripts' ) );
 	}
@@ -184,7 +202,7 @@ class Astra_Posts_Structure_Loader {
 	 *
 	 * @since x.x.x
 	 */
-	public function posts_strctures_customize_register( $wp_customize ) {
+	public function posts_structures_customize_register( $wp_customize ) {
 
 		/**
 		 * Register Config control in Related Posts.

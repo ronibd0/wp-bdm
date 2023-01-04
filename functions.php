@@ -25,7 +25,7 @@ define( 'ASTRA_PRO_UPGRADE_URL', 'https://wpastra.com/pro/?utm_source=wp&utm_med
  * Minimum Version requirement of the Astra Pro addon.
  * This constant will be used to display the notice asking user to update the Astra addon to the version defined below.
  */
-define( 'ASTRA_EXT_MIN_VER', '4.0.0' );
+define( 'ASTRA_EXT_MIN_VER', '4.0.0-beta.2' );
 
 /**
  * Setup helper functions of Astra.

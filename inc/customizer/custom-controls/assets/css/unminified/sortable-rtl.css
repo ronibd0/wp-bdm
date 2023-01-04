@@ -37,6 +37,7 @@
 
 .customize-control-ast-sortable .sortable div.invisible {
   opacity: 0.6;
+  visibility: visible;
 }
 
 .customize-control-ast-sortable .sortable div.invisible .dashicons.visibility:after {
@@ -243,4 +244,8 @@
 }
 .ast-sortable-subfields-wrap .customize-control-ast-description {
     line-height: 1;
+}
+
+.customize-control-ast-list-icons .ahfb-sorter-item-panel-header .dashicons-admin-page {
+    margin-left: 0;
 }

@@ -27,7 +27,7 @@ class Astra_Post_Structures {
 
 		// @codingStandardsIgnoreStart WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 		require_once ASTRA_THEME_POST_STRUCTURE_DIR . 'class-astra-posts-structure-loader.php';
-		require_once ASTRA_THEME_POST_STRUCTURE_DIR . 'class-astra-posts-strctures-markup.php';
+		require_once ASTRA_THEME_POST_STRUCTURE_DIR . 'class-astra-posts-structure-markup.php';
 
 		// Include front end files.
 		if ( ! is_admin() ) {

@@ -3551,6 +3551,15 @@ namespace {
         {
         }
         /**
+         * Block editor experience improvements css introduced with v4.0.0.
+         *
+         * @since x.x.x
+         * @return boolean false if it is an existing user, true if not.
+         */
+        public static function v4_block_editor_compat()
+        {
+        }
+        /**
          * Font CSS support for widget-title heading fonts & fonts which are not working in editor.
          *
          * 1. Adding Font-weight support to widget titles.
@@ -3608,6 +3617,14 @@ namespace {
          * @return string static css for Woocommerce and EDD card.
          */
         public static function load_cart_static_css()
+        {
+        }
+        /**
+         * Check is new structural things are updated.
+         *
+         * @return bool true|false.
+         */
+        public static function astra_check_default_color_typo()
         {
         }
     }
@@ -6898,6 +6915,12 @@ namespace {
          */
         public static $default_responsive_spacing = array('desktop' => array('top' => '', 'right' => '', 'bottom' => '', 'left' => ''), 'tablet' => array('top' => '', 'right' => '', 'bottom' => '', 'left' => ''), 'mobile' => array('top' => '', 'right' => '', 'bottom' => '', 'left' => ''), 'desktop-unit' => 'px', 'tablet-unit' => 'px', 'mobile-unit' => 'px');
         /**
+         * Default button responsive spacing control value.
+         *
+         * @var string[][]
+         */
+        public static $default_button_responsive_spacing = array('desktop' => array('top' => '12', 'right' => '20', 'bottom' => '12', 'left' => '20'), 'tablet' => array('top' => '', 'right' => '', 'bottom' => '', 'left' => ''), 'mobile' => array('top' => '', 'right' => '', 'bottom' => '', 'left' => ''), 'desktop-unit' => 'px', 'tablet-unit' => 'px', 'mobile-unit' => 'px');
+        /**
          * Config Tablet device context.
          *
          * @var string[][]
@@ -7655,6 +7678,14 @@ namespace {
          * Update theme static option array.
          */
         public static function refresh()
+        {
+        }
+        /**
+         * Get astra-options DB values.
+         *
+         * @return array Return array of theme options from database.
+         */
+        public static function get_astra_options()
         {
         }
         /**
@@ -9256,7 +9287,7 @@ namespace {
          *
          * @param string $section_id section id.
          * @param array  $required_condition Required Condition.
-		 * @param array  $divider_setup Required divider setup.
+         * @param array  $divider_setup Required divider setup.
          * @return array
          */
         public static function prepare_typography_options($section_id, $required_condition = array(), $divider_setup = array())
@@ -11651,7 +11682,7 @@ namespace {
      *
      * @since x.x.x
      */
-    class Astra_Posts_Strctures_Markup
+    class Astra_Posts_Structure_Markup
     {
         /**
          *  Constructor
@@ -16001,6 +16032,36 @@ namespace {
      * @since 3.5.0
      */
     function astra_search_static_css()
+    {
+    }
+    /**
+     * Function which will return CSS for font-extras control.
+     * It includes - line-height, letter-spacing, text-decoration, font-style.
+     *
+     * @param array  $config contains extra font settings.
+     * @param string $setting basis on this setting will return.
+     * @param mixed  $unit Unit.
+     *
+     * @since x.x.x
+     */
+    function astra_get_font_extras($config, $setting, $unit = \false)
+    {
+    }
+	/**
+	 * Function which will return CSS array for font specific props for further parsing CSS.
+	 * It includes - font-family, font-weight, font-size, line-height, text-transform, letter-spacing, text-decoration, color (optional).
+	 *
+	 * @param string                                  $font_family Font family.
+	 * @param string                                  $font_weight Font weight.
+	 * @param array                                   $font_size Font size.
+	 * @param string                                  $font_extras contains all font controls.
+	 * @param string                                  $color In most of cases color is also added, so included optional param here.
+	 *
+	 * @param array  array of build CSS font settings.
+	 *
+	 * @since x.x.x
+	 */
+    function astra_get_font_array_css($font_family, $font_weight, $font_size, $font_extras, $color = '')
     {
     }
     /**

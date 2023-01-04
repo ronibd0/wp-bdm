@@ -140,7 +140,7 @@ class Astra_Menu {
 			return;
 		}
 
-		$astra_icon = apply_filters( 'astra_menu_icon', 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTQiIGhlaWdodD0iMTQiIHZpZXdCb3g9IjAgMCAxOCAxOCIgZmlsbD0iI2ZmZiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik05IDE4QzEzLjk3MDcgMTggMTggMTMuOTcwNyAxOCA5QzE4IDQuMDI5MyAxMy45NzA3IDAgOSAwQzQuMDI5MyAwIDAgNC4wMjkzIDAgOUMwIDEzLjk3MDcgNC4wMjkzIDE4IDkgMThaTTQgMTIuOTk4TDguMzk2IDRMOS40NDE0MSA2LjAzMTI1TDUuODgzNzkgMTIuOTk4SDRaTTguNTM0NjcgMTEuMzc1TDEwLjM0OTEgNy43MjA3TDEzIDEzSDEwLjk3NzFMMTAuMjc5MyAxMS40NDM0SDguNTM0NjdIOC41TDguNTM0NjcgMTEuMzc1WiIgZmlsbD0iI2ZmZiIvPgo8L3N2Zz4K' );
+		$astra_icon = apply_filters( 'astra_menu_icon', 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAyMCAyMCIgZmlsbD0iI2E3YWFhZCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0xMCAyMEMxNS41MjI4IDIwIDIwIDE1LjUyMjggMjAgMTBDMjAgNC40NzcxNSAxNS41MjI4IDAgMTAgMEM0LjQ3NzE1IDAgMCA0LjQ3NzE1IDAgMTBDMCAxNS41MjI4IDQuNDc3MTUgMjAgMTAgMjBaTTUuODczMDQgMTEuMTY0MUM3LjIwMjM0IDguNDQyNzggOC41MzE4MSA1LjcyMTEyIDkuODYxMjcgMy4wMDAzOEwxMS4yNTUyIDUuNzA3NTlDMTAuMjA2NCA3Ljc2MjQ0IDkuMTU3NSA5LjgxNjg1IDguMTA4NzggMTEuODcwOEw2LjUxMTkgMTQuOTk4NUg0TDUuODczMDQgMTEuMTY0MVpNMTAuMDQ2NCAxMi44MzM5TDEyLjQ2NTUgNy45NjE2NUMxMi45OTMzIDkuMDEyOTIgMTMuNTIxMyAxMC4wNjQyIDE0LjA0OTQgMTEuMTE1NkMxNC42OTk2IDEyLjQxMDEgMTUuMzQ5OSAxMy43MDQ4IDE2IDE1SDEzLjMwMjVMMTIuODM5MyAxMy45NjY2TDEyLjM3MjIgMTIuOTI0NUgxMC4wNDY0SDkuOTk5NzZMMTAuMDQ2NCAxMi44MzM5WiIgZmlsbD0iI2E3YWFhZCIvPgo8L3N2Zz4K' );
 		$priority   = apply_filters( 'astra_menu_priority', 59 );
 
 		add_menu_page(
@@ -265,9 +265,9 @@ class Astra_Menu {
 			'plugin_installer_nonce' => wp_create_nonce( 'updates' ),
 			'free_vs_pro_link'       => admin_url( 'admin.php?page=' . self::$plugin_slug . '&path=free-vs-pro' ),
 			'show_builder_migration' => Astra_Builder_Helper::is_new_user() ? false : true,
-			'plugin_installing_text' => __( 'Installing', 'astra' ) . '&hellip;',
+			'plugin_installing_text' => __( 'Installing', 'astra' ),
 			'plugin_installed_text'  => __( 'Installed', 'astra' ),
-			'plugin_activating_text' => __( 'Activating', 'astra' ) . '&hellip;',
+			'plugin_activating_text' => __( 'Activating', 'astra' ),
 			'plugin_activated_text'  => __( 'Activated', 'astra' ),
 			'plugin_activate_text'   => __( 'Activate', 'astra' ),
 			'starter_templates_data' => self::get_starter_template_plugin_data(),
@@ -677,59 +677,183 @@ class Astra_Menu {
 
 		$surecart_redirection = empty( get_option( 'sc_api_token', '' ) ) ? 'sc-getting-started' : 'sc-dashboard';
 
-		return apply_filters(
-			'astra_useful_plugins',
-			array(
-				array(
-					'title'       => __( 'Spectra', 'astra' ),
-					'subtitle'    => __( 'Free WordPress Page Builder.', 'astra' ),
-					'status'      => self::get_plugin_status( 'ultimate-addons-for-gutenberg/ultimate-addons-for-gutenberg.php' ),
-					'slug'        => 'ultimate-addons-for-gutenberg',
-					'path'        => 'ultimate-addons-for-gutenberg/ultimate-addons-for-gutenberg.php',
-					'redirection' => admin_url( 'options-general.php?page=spectra' ),
-					'logoPath'    => array(
-						'internal_icon' => true,
-						'icon_path'     => 'spectra',
+		// Making useful plugin section dynamic.
+		if ( class_exists( 'WooCommerce' ) ) {
+			$setup_type = 'woocommerce';
+		} elseif ( class_exists( 'SFWD_LMS' ) ) {
+			$setup_type = 'learndash';
+		} else {
+			$setup_type = 'default';
+		}
+
+		switch ( $setup_type ) {
+			case 'woocommerce':
+				$useful_plugins = array(
+					array(
+						'title'       => __( 'CartFlows', 'astra' ),
+						'subtitle'    => __( '#1 Sales Funnel WordPress Builder.', 'astra' ),
+						'status'      => self::get_plugin_status( 'cartflows/cartflows.php' ),
+						'slug'        => 'cartflows',
+						'path'        => 'cartflows/cartflows.php',
+						'redirection' => ( false === get_option( 'wcf_setup_complete', false ) && ! get_option( 'wcf_setup_skipped', false ) ) ? admin_url( 'index.php?page=cartflow-setup' ) : admin_url( 'admin.php?page=cartflows' ),
+						'logoPath'    => array(
+							'internal_icon' => true,
+							'icon_path'     => 'cart-flows',
+						),
 					),
-				),
-				array(
-					'title'       => $st_plugin_title,
-					'subtitle'    => __( '280+ Ready to Import Templates.', 'astra' ),
-					'status'      => $st_plugin_status,
-					'slug'        => $st_plugin_slug,
-					'path'        => $st_plugin_path,
-					'redirection' => $st_plugin_redirection,
-					'logoPath'    => array(
-						'internal_icon' => true,
-						'icon_path'     => 'starter-logo',
+					array(
+						'title'       => __( 'Stripe Payments For Woo', 'astra' ),
+						'subtitle'    => __( 'Simple, secure way to accept credit card payments.', 'astra' ),
+						'status'      => self::get_plugin_status( 'checkout-plugins-stripe-woo/checkout-plugins-stripe-woo.php' ),
+						'slug'        => 'checkout-plugins-stripe-woo',
+						'path'        => 'checkout-plugins-stripe-woo/checkout-plugins-stripe-woo.php',
+						'redirection' => ( false === get_option( 'cpsw_setup_status', false ) ) ? admin_url( 'index.php?page=cpsw-onboarding' ) : admin_url( 'admin.php?page=wc-settings&tab=cpsw_api_settings' ),
+						'logoPath'    => array(
+							'internal_icon' => true,
+							'icon_path'     => 'stripe-checkout',
+						),
 					),
-				),
-				array(
-					'title'       => __( 'SureCart', 'astra' ),
-					'subtitle'    => __( 'The new way to sell on WordPress.', 'astra' ),
-					'status'      => self::get_plugin_status( 'surecart/surecart.php' ),
-					'slug'        => 'surecart',
-					'path'        => 'surecart/surecart.php',
-					'redirection' => admin_url( 'admin.php?page=' . esc_attr( $surecart_redirection ) ),
-					'logoPath'    => array(
-						'internal_icon' => true,
-						'icon_path'     => 'surecart',
+					array(
+						'title'       => __( 'Cart Abandonment Recovery', 'astra' ),
+						'subtitle'    => __( 'Recover lost revenue automatically.', 'astra' ),
+						'status'      => self::get_plugin_status( 'woo-cart-abandonment-recovery/woo-cart-abandonment-recovery.php' ),
+						'slug'        => 'woo-cart-abandonment-recovery',
+						'path'        => 'woo-cart-abandonment-recovery/woo-cart-abandonment-recovery.php',
+						'redirection' => admin_url( 'admin.php?page=woo-cart-abandonment-recovery' ),
+						'logoPath'    => array(
+							'internal_icon' => true,
+							'icon_path'     => 'cart-abandonment',
+						),
 					),
-				),
-				array(
-					'title'       => __( 'CartFlows', 'astra' ),
-					'subtitle'    => __( '#1 Sales Funnel WordPress Builder.', 'astra' ),
-					'status'      => self::get_plugin_status( 'cartflows/cartflows.php' ),
-					'slug'        => 'cartflows',
-					'path'        => 'cartflows/cartflows.php',
-					'redirection' => admin_url( 'admin.php?page=cartflows' ),
-					'logoPath'    => array(
-						'internal_icon' => true,
-						'icon_path'     => 'cart-flows',
+					array(
+						'title'       => __( 'Variations by CartFlows', 'astra' ),
+						'subtitle'    => __( 'Beautiful store variation swatches.', 'astra' ),
+						'status'      => self::get_plugin_status( 'variation-swatches-woo/variation-swatches-woo.php' ),
+						'slug'        => 'variation-swatches-woo',
+						'path'        => 'variation-swatches-woo/variation-swatches-woo.php',
+						'redirection' => admin_url( 'admin.php?page=cfvsw_settings' ),
+						'logoPath'    => array(
+							'internal_icon' => true,
+							'icon_path'     => 'variation-swatches',
+						),
 					),
-				),
-			)
-		);
+					array(
+						'title'       => __( 'SureTriggers', 'astra' ),
+						'subtitle'    => __( 'Automate your WordPress setup.', 'astra' ),
+						'is_app'      => true,
+						'redirect_to' => 'https://suretriggers.com/',
+						'logoPath'    => array(
+							'internal_icon' => true,
+							'icon_path'     => 'suretriggers',
+						),
+					),
+				);
+				break;
+
+			case 'learndash':
+				$useful_plugins = array(
+					array(
+						'title'       => __( 'SureCart', 'astra' ),
+						'subtitle'    => __( 'The new way to sell on WordPress.', 'astra' ),
+						'status'      => self::get_plugin_status( 'surecart/surecart.php' ),
+						'slug'        => 'surecart',
+						'path'        => 'surecart/surecart.php',
+						'redirection' => admin_url( 'admin.php?page=' . esc_attr( $surecart_redirection ) ),
+						'logoPath'    => array(
+							'internal_icon' => true,
+							'icon_path'     => 'surecart',
+						),
+					),
+					array(
+						'title'       => __( 'Presto Player', 'astra' ),
+						'subtitle'    => __( 'Ultimate Video Player For WordPress.', 'astra' ),
+						'status'      => self::get_plugin_status( 'presto-player/presto-player.php' ),
+						'slug'        => 'presto-player',
+						'path'        => 'presto-player/presto-player.php',
+						'redirection' => admin_url( 'edit.php?post_type=pp_video_block' ),
+						'logoPath'    => array(
+							'internal_icon' => true,
+							'icon_path'     => 'presto-player',
+						),
+					),
+					array(
+						'title'       => __( 'Spectra', 'astra' ),
+						'subtitle'    => __( 'Free WordPress Page Builder.', 'astra' ),
+						'status'      => self::get_plugin_status( 'ultimate-addons-for-gutenberg/ultimate-addons-for-gutenberg.php' ),
+						'slug'        => 'ultimate-addons-for-gutenberg',
+						'path'        => 'ultimate-addons-for-gutenberg/ultimate-addons-for-gutenberg.php',
+						'redirection' => admin_url( 'options-general.php?page=spectra' ),
+						'logoPath'    => array(
+							'internal_icon' => true,
+							'icon_path'     => 'spectra',
+						),
+					),
+					array(
+						'title'       => __( 'SureTriggers', 'astra' ),
+						'subtitle'    => __( 'Automate your WordPress setup.', 'astra' ),
+						'is_app'      => true,
+						'redirect_to' => 'https://suretriggers.com/',
+						'logoPath'    => array(
+							'internal_icon' => true,
+							'icon_path'     => 'suretriggers',
+						),
+					),
+				);
+				break;
+
+			default:
+				$useful_plugins = array(
+					array(
+						'title'       => $st_plugin_title,
+						'subtitle'    => __( '280+ Ready to Import Templates.', 'astra' ),
+						'status'      => $st_plugin_status,
+						'slug'        => $st_plugin_slug,
+						'path'        => $st_plugin_path,
+						'redirection' => $st_plugin_redirection,
+						'logoPath'    => array(
+							'internal_icon' => true,
+							'icon_path'     => 'starter-logo',
+						),
+					),
+					array(
+						'title'       => __( 'Spectra', 'astra' ),
+						'subtitle'    => __( 'Free WordPress Page Builder.', 'astra' ),
+						'status'      => self::get_plugin_status( 'ultimate-addons-for-gutenberg/ultimate-addons-for-gutenberg.php' ),
+						'slug'        => 'ultimate-addons-for-gutenberg',
+						'path'        => 'ultimate-addons-for-gutenberg/ultimate-addons-for-gutenberg.php',
+						'redirection' => admin_url( 'options-general.php?page=spectra' ),
+						'logoPath'    => array(
+							'internal_icon' => true,
+							'icon_path'     => 'spectra',
+						),
+					),
+					array(
+						'title'       => __( 'SureCart', 'astra' ),
+						'subtitle'    => __( 'The new way to sell on WordPress.', 'astra' ),
+						'status'      => self::get_plugin_status( 'surecart/surecart.php' ),
+						'slug'        => 'surecart',
+						'path'        => 'surecart/surecart.php',
+						'redirection' => admin_url( 'admin.php?page=' . esc_attr( $surecart_redirection ) ),
+						'logoPath'    => array(
+							'internal_icon' => true,
+							'icon_path'     => 'surecart',
+						),
+					),
+					array(
+						'title'       => __( 'SureTriggers', 'astra' ),
+						'subtitle'    => __( 'Automate your WordPress setup.', 'astra' ),
+						'is_app'      => true,
+						'redirect_to' => 'https://suretriggers.com/',
+						'logoPath'    => array(
+							'internal_icon' => true,
+							'icon_path'     => 'suretriggers',
+						),
+					),
+				);
+				break;
+		}
+
+		return apply_filters( 'astra_useful_plugins', $useful_plugins );
 	}
 
 	/**
@@ -791,7 +915,7 @@ class Astra_Menu {
 					'status'      => self::get_plugin_status( 'cartflows/cartflows.php' ),
 					'slug'        => 'cartflows',
 					'path'        => 'cartflows/cartflows.php',
-					'redirection' => admin_url( 'admin.php?page=cartflows' ),
+					'redirection' => ( false === get_option( 'wcf_setup_complete', false ) && ! get_option( 'wcf_setup_skipped', false ) ) ? admin_url( 'index.php?page=cartflow-setup' ) : admin_url( 'admin.php?page=cartflows' ),
 					'logoPath'    => array(
 						'internal_icon' => true,
 						'icon_path'     => 'cart-flows',
