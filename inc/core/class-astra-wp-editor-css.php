@@ -623,15 +623,6 @@ class Astra_WP_Editor_CSS {
 			'text-decoration' => esc_attr( $site_text_decoration ),
 		);
 
-		/**
-		 * Block editor experience improvements & fixes introduced with v4.0.0.
-		 */
-
-		// Consistent spacing between blocks.
-		$desktop_css['.edit-post-visual-editor .editor-styles-wrapper > .is-root-container'] = array(
-			'padding-top' => 0,
-		);
-
 		$content_links_underline = astra_get_option( 'underline-content-links' );
 
 		if ( $content_links_underline ) {

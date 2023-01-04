@@ -1,4 +1,4 @@
-v4.0.0-beta.1 (Unreleased)
+v4.0.0
 - New: Redesigned the entire admin area with better user experience.
 - New: Narrow Width Container layout for Single Posts, Blogs/Archives & Pages.
 - New: Introduced Smooth scroll to ID option for smooth scrolling to section ID on one page site navigation.
