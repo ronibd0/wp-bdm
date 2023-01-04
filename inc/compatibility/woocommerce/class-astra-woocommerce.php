@@ -3249,7 +3249,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				?>
 					<div class="ast-mini-cart-empty">
 						<div class="ast-mini-cart-message">
-							<p class="woocommerce-mini-cart__empty-message"><?php esc_html_e( apply_filters( 'astra_mini_cart_empty_msg', __( 'No products in the cart.', 'astra' ) ) ); ?></p>
+							<p class="woocommerce-mini-cart__empty-message"><?php echo esc_html( apply_filters( 'astra_mini_cart_empty_msg', __( 'No products in the cart.', 'astra' ) ) ); ?></p>
 						</div>
 						<?php do_action( 'astra_empty_cart_content' ); ?>
 						<div class="woocommerce-mini-cart__buttons">
