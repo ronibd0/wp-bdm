@@ -617,10 +617,6 @@ class Astra_WP_Editor_CSS {
 			'text-decoration' => esc_attr( $site_title_decoration ),
 		);
 
-		$desktop_css['.editor-styles-wrapper .edit-post-visual-editor__post-title-wrapper'] = array(
-			'text-decoration' => esc_attr( $site_text_decoration ),
-		);
-
 		$content_links_underline = astra_get_option( 'underline-content-links' );
 
 		if ( $content_links_underline ) {
