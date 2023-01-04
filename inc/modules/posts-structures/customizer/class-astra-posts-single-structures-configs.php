@@ -559,31 +559,24 @@ class Astra_Posts_Single_Structures_Configs extends Astra_Customizer_Config_Base
 				 * Date format support for meta field.
 				 */
 				array(
-					'name'     => $title_section . '-date-format',
-					'parent'   => ASTRA_THEME_SETTINGS . '[' . $title_section . '-metadata]',
-					'default'  => astra_get_option( $title_section . '-date-format', get_option( 'date_format' ) ),
-					'linked'   => 'date',
-					'type'     => 'sub-control',
-					'control'  => 'ast-text-input',
-					'settings' => array(),
-					'section'  => $title_section,
-					'priority' => 2,
-					'title'    => __( 'Format', 'astra' ),
-				),
-
-				/**
-				 * Date format description for meta.
-				 */
-				array(
-					'name'     => $title_section . '-date-format-support',
+					'name'      => $title_section . '-date-format',
+					'default'   => astra_get_option( $title_section . '-date-format', '' ),
 					'parent'   => ASTRA_THEME_SETTINGS . '[' . $title_section . '-metadata]',
 					'linked'   => 'date',
-					'type'     => 'sub-control',
-					'control'  => 'ast-description',
-					'section'  => $title_section,
-					'priority' => 3,
-					'label'    => '',
-					'help'     => sprintf( __( 'Follow date format instructions from %1$s here. %2$s', 'astra' ), '<a href="https://wordpress.org/support/article/formatting-date-and-time/#format-string-examples" target="_blank">', '</a>' ),
+					'type'      => 'sub-control',
+					'control'   => 'ast-select',
+					'section'   => $title_section,
+					'priority'  => 2,
+					'responsive' => false,
+					'renderAs'   => 'text',
+					'title'     => __( 'Format', 'astra' ),
+					'choices'   => array(
+						'' => __( 'Inherit', 'astra' ),
+						'F j, Y' => 'November 6, 2010',
+						'Y-m-d' => '2010-11-06',
+						'm/d/Y' => '11/06/2010',
+						'd/m/Y' => '06/11/2010',
+					),
 				),
 
 				/**
