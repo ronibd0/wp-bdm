@@ -45,7 +45,9 @@ if ( ! class_exists( 'Astra_Blog_Layout_Configs' ) ) {
 				'read-time' => __( 'Read Time', 'astra' ),
 			);
 
+			/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			if ( defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'blog-pro' ) ) {
+				/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 				$blog_meta_choices['read-time'] = __( 'Read Time', 'astra' );
 			}
 
