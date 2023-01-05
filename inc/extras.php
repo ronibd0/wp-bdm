@@ -418,8 +418,8 @@ function astra_dropdown_icon_to_menu_link( $title, $item, $args, $depth ) {
 		// Assign icons to only those menu which are registered by Astra.
 		$icon = Astra_Icons::get_icons( 'arrow' );
 	}
-
-	$astra_arrow_icon = $icon ? '<span role="' . esc_attr( $role ) . '" class="dropdown-menu-toggle ast-header-navigation-arrow" tabindex="0" aria-expanded="false" aria-label="' . esc_attr__( 'Menu Toggle', 'astra' ) . '" >' . $icon . '</span> ' : '';
+	$custom_tabindex  = true === Astra_Builder_Helper::$is_header_footer_builder_active ? 'tabindex="0"' : '';
+	$astra_arrow_icon = '<span role="' . esc_attr( $role ) . '" class="dropdown-menu-toggle ast-header-navigation-arrow" ' . $custom_tabindex . ' aria-expanded="false" aria-label="' . esc_attr__( 'Menu Toggle', 'astra' ) . '" >' . $icon . '</span>';
 
 	foreach ( $item->classes as $value ) {
 		if ( 'menu-item-has-children' === $value ) {
@@ -432,9 +432,7 @@ function astra_dropdown_icon_to_menu_link( $title, $item, $args, $depth ) {
 	return $title;
 }
 
-if ( Astra_Icons::is_svg_icons() ) {
-	add_filter( 'nav_menu_item_title', 'astra_dropdown_icon_to_menu_link', 10, 4 );
-}
+add_filter( 'nav_menu_item_title', 'astra_dropdown_icon_to_menu_link', 10, 4 );
 
 /**
  * Is theme existing header footer configs enable.
@@ -995,13 +993,12 @@ function astra_get_font_extras( $config, $setting, $unit = false ) {
  * Function which will return CSS array for font specific props for further parsing CSS.
  * It includes - font-family, font-weight, font-size, line-height, text-transform, letter-spacing, text-decoration, color (optional).
  *
- * @param string                                  $font_family Font family.
- * @param string                                  $font_weight Font weight.
- * @param array                                   $font_size Font size.
- * @param string                                  $font_extras contains all font controls.
- * @param string                                  $color In most of cases color is also added, so included optional param here.
- *
- * @param array  array of build CSS font settings.
+ * @param string $font_family Font family.
+ * @param string $font_weight Font weight.
+ * @param array  $font_size Font size.
+ * @param string $font_extras contains all font controls.
+ * @param string $color In most of cases color is also added, so included optional param here.
+ * @return  array  array of build CSS font settings.
  *
  * @since x.x.x
  */

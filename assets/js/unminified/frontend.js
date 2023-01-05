@@ -230,15 +230,19 @@ astScrollToTopHandler = function ( masthead, astScrollTop ) {
 
 		var triggerType = event.currentTarget.trigger_type;
 		var popupWrap = document.getElementById( 'ast-mobile-popup' );
-		const menuToggleClose = document.getElementById('menu-toggle-close');
+
+		if( ! astra.is_header_footer_builder_active ) {
+			const menuToggleClose = document.getElementById('menu-toggle-close');
+
+			if( menuToggleClose ) {
+				menuToggleClose.focus();
+			}
+		}
 
         if ( ! body.classList.contains( 'ast-popup-nav-open' ) ) {
 			body.classList.add( 'ast-popup-nav-open' );
         }
 
-		if( menuToggleClose ) {
-			menuToggleClose.focus();
-		}
 
 		if ( ! body.classList.contains( 'ast-main-header-nav-open' ) && 'mobile' !== triggerType ) {
 			body.classList.add( 'ast-main-header-nav-open' );
@@ -935,8 +939,32 @@ astScrollToTopHandler = function ( masthead, astScrollTop ) {
 			}
 		};
 
+		if( ! astra.is_header_footer_builder_active ) {
 
-		tabNavigation();
+			// Get all the link elements within the menu.
+			var links    = menu.getElementsByTagName( 'a' );
+			var subMenus = menu.getElementsByTagName( 'ul' );
+
+
+			// Set menu items with submenus to aria-haspopup="true".
+			for ( var i = 0, len = subMenus.length; i < len; i++ ) {
+				subMenus[i].parentNode.setAttribute( 'aria-haspopup', 'true' );
+			}
+
+			// Each time a menu link is focused or blurred, toggle focus.
+			for ( i = 0, len = links.length; i < len; i++ ) {
+				links[i].addEventListener( 'focus', toggleFocus, true );
+				links[i].addEventListener( 'blur', toggleFocus, true );
+				links[i].addEventListener( 'click', toggleClose, true );
+			}
+
+		}
+
+		if( astra.is_header_footer_builder_active ) {
+			tabNavigation();
+		}
+
+		
 	}
 
 	// Tab navigation for accessibility.
@@ -1044,6 +1072,79 @@ astScrollToTopHandler = function ( masthead, astScrollTop ) {
 			dropdownToggleLinks.forEach(element => {
 				element.setAttribute('aria-expanded', 'false');
 			});
+		}
+	}
+
+	/**
+     * Close the Toggle Menu on Click on hash (#) link.
+     *
+     * @since 1.3.2
+     * @return void
+     */
+	function toggleClose( )
+	{
+		var self = this || '',
+			hash = '#';
+
+		if( self && ! self.classList.contains('astra-search-icon') && null === self.closest('.ast-builder-menu') ) {
+			var link = new String( self );
+			if( link.indexOf( hash ) !== -1 ) {
+				var link_parent = self.parentNode;
+				if ( body.classList.contains('ast-header-break-point') ) {
+					if( ! ( document.querySelector('header.site-header').classList.contains('ast-builder-menu-toggle-link') && link_parent.classList.contains('menu-item-has-children') ) ) {
+						/* Close Builder Header Menu */
+						var builder_header_menu_toggle = document.querySelector( '.main-header-menu-toggle' );
+						builder_header_menu_toggle.classList.remove( 'toggled' );
+
+						var main_header_bar_navigation = document.querySelector( '.main-header-bar-navigation' );
+						main_header_bar_navigation.classList.remove( 'toggle-on' );
+
+						main_header_bar_navigation.style.display = 'none';
+
+						astraTriggerEvent( document.querySelector('body'), 'astraMenuHashLinkClicked' );
+					}
+
+				} else {
+					while ( -1 === self.className.indexOf( 'nav-menu' ) ) {
+						// On li elements toggle the class .focus.
+						if ( 'li' === self.tagName.toLowerCase() ) {
+							if ( -1 !== self.className.indexOf( 'focus' ) ) {
+								self.className = self.className.replace( ' focus', '' );
+							}
+						}
+						self = self.parentElement;
+					}
+				}
+			}
+		}
+	}
+
+	/**
+	 * Sets or removes .focus class on an element on focus.
+	 */
+	function toggleFocus() {
+		var self = this;
+		// Move up through the ancestors of the current link until we hit .nav-menu.
+		while ( -1 === self.className.indexOf( 'navigation-accessibility' ) ) {
+			// On li elements toggle the class .focus.
+			if ( 'li' === self.tagName.toLowerCase() ) {
+				self.classList.toggle('focus');
+			}
+			self = self.parentElement;
+		}
+	}
+
+	if( ! astra.is_header_footer_builder_active ) {
+
+		/* Add class if mouse clicked and remove if tab pressed */
+		if ( 'querySelector' in document && 'addEventListener' in window ) {
+			body.addEventListener( 'mousedown', function() {
+				body.classList.add( 'ast-mouse-clicked' );
+			} );
+
+			body.addEventListener( 'keydown', function() {
+				body.classList.remove( 'ast-mouse-clicked' );
+			} );
 		}
 	}
 
