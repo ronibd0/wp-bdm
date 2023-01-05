@@ -143,7 +143,7 @@ function astra_get_dynamic_post_format() {
 	/** @psalm-suppress PossiblyFalseArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 	$published_date = esc_html( get_the_date( $date_format ) );
 	/** @psalm-suppress InvalidScalarArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-	$modified_date  = esc_html( get_the_modified_date( $date_format ) );
+	$modified_date = esc_html( get_the_modified_date( $date_format ) );
 	/** @psalm-suppress PossiblyFalseArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 
 	if ( 'updated' === $date_type ) {

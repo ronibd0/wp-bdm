@@ -559,23 +559,23 @@ class Astra_Posts_Single_Structures_Configs extends Astra_Customizer_Config_Base
 				 * Date format support for meta field.
 				 */
 				array(
-					'name'      => $title_section . '-date-format',
-					'default'   => astra_get_option( $title_section . '-date-format', '' ),
-					'parent'   => ASTRA_THEME_SETTINGS . '[' . $title_section . '-metadata]',
-					'linked'   => 'date',
-					'type'      => 'sub-control',
-					'control'   => 'ast-select',
-					'section'   => $title_section,
-					'priority'  => 2,
+					'name'       => $title_section . '-date-format',
+					'default'    => astra_get_option( $title_section . '-date-format', '' ),
+					'parent'     => ASTRA_THEME_SETTINGS . '[' . $title_section . '-metadata]',
+					'linked'     => 'date',
+					'type'       => 'sub-control',
+					'control'    => 'ast-select',
+					'section'    => $title_section,
+					'priority'   => 2,
 					'responsive' => false,
 					'renderAs'   => 'text',
-					'title'     => __( 'Format', 'astra' ),
-					'choices'   => array(
-						'' => __( 'Inherit', 'astra' ),
+					'title'      => __( 'Format', 'astra' ),
+					'choices'    => array(
+						''       => __( 'Inherit', 'astra' ),
 						'F j, Y' => 'November 6, 2010',
-						'Y-m-d' => '2010-11-06',
-						'm/d/Y' => '11/06/2010',
-						'd/m/Y' => '06/11/2010',
+						'Y-m-d'  => '2010-11-06',
+						'm/d/Y'  => '11/06/2010',
+						'd/m/Y'  => '06/11/2010',
 					),
 				),
 
