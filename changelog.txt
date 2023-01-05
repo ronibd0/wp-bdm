@@ -12,6 +12,7 @@ v4.0.0
 - Improvement: Introduced new filter 'astra_global_color_palette' to extend default color palette settings.
 - Improvement: Block Editor - Editor experience improved in relation with the frontend.
 - Improvement: Responsive toggle selection customizer options replaced with new multi-selector control for better experience.
+- Improvement: Performance related customizer options moved to new admin dashboard under Settings tab.
 - Fix: Customizer's responsive font-size control UI is misaligned.
 - Fix: Off-canvas - Full screen - Mobile Menu gets very long scroll when Elementor plugin is activated.
 - Fix: Full Width/Contained layout Layout is showing extra padding above in the Transparent Header.
