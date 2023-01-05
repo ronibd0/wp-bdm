@@ -236,7 +236,8 @@ if ( ! function_exists( 'astra_logo' ) ) {
  * @since x.x.x
  * @return mixed custom logo html.
  */
-function add_custom_logo_attributes( $html ) {
+function astra_add_custom_logo_attributes( $html ) {
+	$attributes = '';
 	return str_replace( 'rel="home"', 'rel="home"' . apply_filters( 'astra_custom_logo_attributes', $attributes ) . '', $html );
 }
 
