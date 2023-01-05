@@ -231,12 +231,10 @@ astScrollToTopHandler = function ( masthead, astScrollTop ) {
 		var triggerType = event.currentTarget.trigger_type;
 		var popupWrap = document.getElementById( 'ast-mobile-popup' );
 
-		if( ! astra.is_header_footer_builder_active ) {
-			const menuToggleClose = document.getElementById('menu-toggle-close');
+		const menuToggleClose = document.getElementById('menu-toggle-close');
 
-			if( menuToggleClose ) {
-				menuToggleClose.focus();
-			}
+		if( menuToggleClose ) {
+			menuToggleClose.focus();
 		}
 
         if ( ! body.classList.contains( 'ast-popup-nav-open' ) ) {
