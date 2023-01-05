@@ -133,9 +133,57 @@ if ( ! class_exists( 'Astra_Blog_Layout_Configs' ) ) {
 						'title-meta' => __( 'Title & Blog Meta', 'astra' ),
 					),
 				),
+
+				/**
+				 * Option: Date Meta Type.
+				 */
+				array(
+					'name'       => 'blog-meta-date-type',
+					'parent'     => ASTRA_THEME_SETTINGS . '[blog-meta]',
+					'type'       => 'sub-control',
+					'control'    => 'ast-selector',
+					'section'    => 'section-blog',
+					'default'    => astra_get_option( 'blog-meta-date-type' ),
+					'priority'   => 1,
+					'linked'     => 'date',
+					'transport'  => 'postMessage',
+					'title'      => __( 'Type', 'astra' ),
+					'choices'    => array(
+						'published' => __( 'Published', 'astra' ),
+						'updated'   => __( 'Last Updated', 'astra' ),
+					),
+					'divider'    => array( 'ast_class' => 'ast-top-divider ast-bottom-spacing' ),
+					'responsive' => false,
+					'renderAs'   => 'text',
+				),
+
+				/**
+				 * Date format support for meta field.
+				 */
+				array(
+					'name'      => 'blog-meta-date-format',
+					'default'   => astra_get_option( 'blog-meta-date-format' ),
+					'parent'   => ASTRA_THEME_SETTINGS . '[blog-meta]',
+					'linked'   => 'date',
+					'type'      => 'sub-control',
+					'control'   => 'ast-select',
+					'transport'  => 'postMessage',
+					'section'   => 'section-blog',
+					'priority'  => 2,
+					'responsive' => false,
+					'renderAs'   => 'text',
+					'title'     => __( 'Format', 'astra' ),
+					'choices'   => array(
+						'' => __( 'Inherit', 'astra' ),
+						'F j, Y' => 'November 6, 2010',
+						'Y-m-d' => '2010-11-06',
+						'm/d/Y' => '11/06/2010',
+						'd/m/Y' => '06/11/2010',
+					),
+				),
 			);
 
-			if ( ! defined( 'ASTRA_EXT_VER' ) ) {
+			if ( ! defined( 'ASTRA_EXT_VER' ) || ( defined( 'ASTRA_EXT_VER' ) && ! Astra_Ext_Extension::is_active( 'blog-pro' ) ) ) {
 				$_configs[] = array(
 					'name'              => ASTRA_THEME_SETTINGS . '[blog-meta]',
 					'type'              => 'control',
@@ -157,7 +205,13 @@ if ( ! class_exists( 'Astra_Blog_Layout_Configs' ) ) {
 						'comments' => __( 'Comments', 'astra' ),
 						'category' => __( 'Category', 'astra' ),
 						'author'   => __( 'Author', 'astra' ),
-						'date'     => __( 'Publish Date', 'astra' ),
+						'date'   => array(
+							'clone'       => false,
+							'is_parent'   => true,
+							'main_index'  => 'date',
+							'clone_limit' => 1,
+							'title'       => __( 'Date', 'astra' ),
+						),
 						'tag'      => __( 'Tag', 'astra' ),
 					),
 					'divider'           => array( 'ast_class' => 'ast-bottom-spacing ast-bottom-section-divider' ),
@@ -165,7 +219,6 @@ if ( ! class_exists( 'Astra_Blog_Layout_Configs' ) ) {
 			}
 
 			if ( true === Astra_Builder_Helper::$is_header_footer_builder_active ) {
-
 				$_configs[] = array(
 					'name'        => 'section-blog-ast-context-tabs',
 					'section'     => 'section-blog',
@@ -174,18 +227,13 @@ if ( ! class_exists( 'Astra_Blog_Layout_Configs' ) ) {
 					'priority'    => 0,
 					'description' => '',
 				);
-
 			}
-
 
 			$configurations = array_merge( $configurations, $_configs );
 
-
 			return $configurations;
-
 		}
 	}
 }
-
 
 new Astra_Blog_Layout_Configs();

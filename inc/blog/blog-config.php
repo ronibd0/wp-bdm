@@ -134,9 +134,11 @@ if ( ! function_exists( 'astra_get_post_meta' ) ) {
  * @since x.x.x
  */
 function astra_get_dynamic_post_format() {
-	$post_type   = strval( get_post_type() );
-	$date_type   = astra_get_option( 'ast-dynamic-single-' . esc_attr( $post_type ) . '-meta-date-type', 'published' );
-	$date_format = apply_filters( 'astra_post_date_format', ( '' === astra_get_option( 'ast-dynamic-single-' . esc_attr( $post_type ) . '-date-format', '' ) ) ? get_option( 'date_format' ) : astra_get_option( 'ast-dynamic-single-' . esc_attr( $post_type ) . '-date-format', '' ) );
+	$post_type          = strval( get_post_type() );
+	$is_singular        = is_singular() ? true : false;
+	$date_format_option = $is_singular ? astra_get_option( 'ast-dynamic-single-' . esc_attr( $post_type ) . '-date-format', '' ) : astra_get_option( 'blog-meta-date-format', '' );
+	$date_type          = $is_singular ? astra_get_option( 'ast-dynamic-single-' . esc_attr( $post_type ) . '-meta-date-type', 'published' ) : astra_get_option( 'blog-meta-date-type', 'published' );
+	$date_format        = apply_filters( 'astra_post_date_format', ( '' === $date_format_option ) ? get_option( 'date_format' ) : $date_format_option );
 
 	/** @psalm-suppress PossiblyFalseArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 	$published_date = esc_html( get_the_date( $date_format ) );
