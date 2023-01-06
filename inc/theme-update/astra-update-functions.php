@@ -707,12 +707,12 @@ function astra_theme_background_updater_3_9_4() {
 }
 
 /**
- * x.x.x backward handling part.
+ * 4.0.0 backward handling part.
  *
  * 1. Migrate existing setting & do required onboarding for new admin dashboard v4.0.0 app.
  * 2. Migrating Post Structure & Meta options in title area meta parts.
  *
- * @since x.x.x
+ * @since 4.0.0
  * @return void
  */
 function astra_theme_background_updater_4_0_0() {

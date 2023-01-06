@@ -54,24 +54,24 @@ function astra_deprecated_asta_register_admin_menu_hook( $parent_page, $page_tit
 /**
  * Actions which are deprecated in admin redesign phase.
  *
- * @since x.x.x
+ * @since 4.0.0
  */
 function astra_show_deprecated_admin_hooks_warnings() {
 	global $pagenow;
 	$screen = get_current_screen();
 	if ( 'admin.php' === $pagenow && is_object( $screen ) && 'toplevel_page_' . Astra_Menu::get_theme_page_slug() === $screen->id ) {
-		astra_do_action_deprecated( 'astra_welcome_page_content_before', array(), 'x.x.x' );
-		astra_do_action_deprecated( 'astra_welcome_page_content', array(), 'x.x.x' );
-		astra_do_action_deprecated( 'astra_welcome_page_content_after', array(), 'x.x.x' );
-		astra_do_action_deprecated( 'astra_welcome_page_right_sidebar_before', array(), 'x.x.x' );
-		astra_do_action_deprecated( 'astra_welcome_page_right_sidebar_content', array(), 'x.x.x' );
-		astra_do_action_deprecated( 'astra_welcome_page_right_sidebar_after', array(), 'x.x.x' );
-		astra_do_action_deprecated( 'astra_single_post_order_before', array(), 'x.x.x' );
-		astra_do_action_deprecated( 'astra_single_post_title_before', array(), 'x.x.x' );
-		astra_do_action_deprecated( 'astra_single_post_title_after', array(), 'x.x.x' );
-		astra_do_action_deprecated( 'astra_single_post_meta_before', array(), 'x.x.x' );
-		astra_do_action_deprecated( 'astra_single_post_meta_after', array(), 'x.x.x' );
-		astra_do_action_deprecated( 'astra_single_post_order_after', array(), 'x.x.x' );
+		astra_do_action_deprecated( 'astra_welcome_page_content_before', array(), '4.0.0' );
+		astra_do_action_deprecated( 'astra_welcome_page_content', array(), '4.0.0' );
+		astra_do_action_deprecated( 'astra_welcome_page_content_after', array(), '4.0.0' );
+		astra_do_action_deprecated( 'astra_welcome_page_right_sidebar_before', array(), '4.0.0' );
+		astra_do_action_deprecated( 'astra_welcome_page_right_sidebar_content', array(), '4.0.0' );
+		astra_do_action_deprecated( 'astra_welcome_page_right_sidebar_after', array(), '4.0.0' );
+		astra_do_action_deprecated( 'astra_single_post_order_before', array(), '4.0.0' );
+		astra_do_action_deprecated( 'astra_single_post_title_before', array(), '4.0.0' );
+		astra_do_action_deprecated( 'astra_single_post_title_after', array(), '4.0.0' );
+		astra_do_action_deprecated( 'astra_single_post_meta_before', array(), '4.0.0' );
+		astra_do_action_deprecated( 'astra_single_post_meta_after', array(), '4.0.0' );
+		astra_do_action_deprecated( 'astra_single_post_order_after', array(), '4.0.0' );
 	}
 }
 
