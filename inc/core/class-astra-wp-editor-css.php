@@ -332,12 +332,9 @@ class Astra_WP_Editor_CSS {
 		// Site title (Page Title) on Block Editor.
 		$post_type                           = strval( get_post_type() );
 		$site_title_font_family              = astra_get_option( 'ast-dynamic-single-' . esc_attr( $post_type ) . '-title-font-family', astra_get_option( 'ast-dynamic-single-' . esc_attr( $post_type ) . '-text-font-family' ) );
-		$site_title_font_weight              = astra_get_option( 'ast-dynamic-single-' . esc_attr( $post_type ) . '-title-font-weight', astra_get_option( 'ast-dynamic-single-' . esc_attr( $post_type ) . '-text-font-weight' ) );
-		$site_title_font_size                = astra_get_option( 'ast-dynamic-single-' . esc_attr( $post_type ) . '-title-font-size' );
-		$site_title_font_size_fallback       = astra_get_option( 'ast-dynamic-single-' . esc_attr( $post_type ) . '-text-font-size', Astra_Posts_Structure_Loader::get_customizer_default( 'title-font-size' ) );
-		$site_title_color                    = astra_get_option( 'ast-dynamic-single-' . esc_attr( $post_type ) . '-banner-title-color', astra_get_option( 'ast-dynamic-single-' . esc_attr( $post_type ) . '-banner-text-color' ) );
+		$site_title_font_weight              = astra_get_option( 'ast-dynamic-single-' . esc_attr( $post_type ) . '-title-font-weight', Astra_Posts_Structure_Loader::get_customizer_default( 'title-font-weight' ) );
+		$site_title_font_size                = astra_get_option( 'ast-dynamic-single-' . esc_attr( $post_type ) . '-title-font-size', Astra_Posts_Structure_Loader::get_customizer_default( 'title-font-size' ) );
 		$site_title_font_extras              = astra_get_option( 'ast-dynamic-single-' . esc_attr( $post_type ) . '-text-font-extras' );
-		$site_text_decoration                = astra_get_font_extras( $site_title_font_extras, 'text-decoration' );
 		$site_title_text_transform           = astra_get_font_extras( astra_get_option( 'ast-dynamic-single-' . esc_attr( $post_type ) . '-title-font-extras', $site_title_font_extras ), 'text-transform' );
 		$site_title_spacing                  = astra_get_font_extras( astra_get_option( 'ast-dynamic-single-' . esc_attr( $post_type ) . '-title-font-extras', $site_title_font_extras ), 'letter-spacing', 'letter-spacing-unit' );
 		$site_title_decoration               = astra_get_font_extras( astra_get_option( 'ast-dynamic-single-' . esc_attr( $post_type ) . '-title-font-extras', $site_title_font_extras ), 'text-decoration' );
@@ -373,12 +370,6 @@ class Astra_WP_Editor_CSS {
 		}
 		if ( 'inherit' == $site_title_font_weight || '' == $site_title_font_weight ) {
 			$site_title_font_weight = Astra_Posts_Structure_Loader::get_customizer_default( 'title-font-weight' );
-		}
-		if ( '' == $site_title_font_size ) {
-			$site_title_font_size = $site_title_font_size_fallback;
-		}
-		if ( '' === $site_title_font_size['desktop'] ) {
-			$font_size_desktop_fallback = Astra_Posts_Structure_Loader::get_customizer_default( 'title-font-size' );
 		}
 
 		// check the selection color in-case of empty/no theme color.
@@ -610,40 +601,12 @@ class Astra_WP_Editor_CSS {
 		 * Desktop site title.
 		 */
 		$desktop_css['.editor-styles-wrapper .edit-post-visual-editor__post-title-wrapper > h1'] = array(
-			'font-size'       => astra_responsive_font( isset( $font_size_desktop_fallback ) ? $font_size_desktop_fallback : $site_title_font_size, 'desktop' ),
+			'font-size'       => astra_responsive_font( $site_title_font_size, 'desktop' ),
 			'font-weight'     => astra_get_css_value( $site_title_font_weight, 'font' ),
 			'font-family'     => astra_get_css_value( $site_title_font_family, 'font', $body_font_family ),
 			'text-transform'  => esc_attr( $site_title_text_transform ),
-			'color'           => esc_attr( $site_title_color ),
 			'letter-spacing'  => esc_attr( $site_title_spacing ),
 			'text-decoration' => esc_attr( $site_title_decoration ),
-		);
-
-		$desktop_css['.editor-styles-wrapper .edit-post-visual-editor__post-title-wrapper'] = array(
-			'text-decoration' => esc_attr( $site_text_decoration ),
-		);
-
-		/**
-		 * Block editor experience improvements & fixes introduced with v4.0.0.
-		 */
-
-		// List block alignment same as frontend.
-		$default_ul_line_height                                      = 1.85714285714286;
-		$desktop_css['.editor-styles-wrapper .is-root-container ul'] = array(
-			'line-height'   => $default_ul_line_height,
-			'margin-bottom' => '1.5em',
-		);
-
-		// Consistent spacing between blocks.
-		$desktop_css['.edit-post-visual-editor .editor-styles-wrapper > .is-root-container'] = array(
-			'padding-top' => 0,
-		);
-		$desktop_css['.editor-styles-wrapper .is-root-container .wp-block-quote']            = array(
-			'margin-top'    => '1.5em',
-			'margin-bottom' => '1.5em',
-		);
-		$desktop_css['.editor-styles-wrapper .is-root-container .wp-block-image']            = array(
-			'margin-bottom' => '1em',
 		);
 
 		$content_links_underline = astra_get_option( 'underline-content-links' );
