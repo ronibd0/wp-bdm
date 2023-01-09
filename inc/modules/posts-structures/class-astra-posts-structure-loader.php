@@ -290,9 +290,10 @@ class Astra_Posts_Structure_Loader {
 			'astra-post-strctures-customizer-preview',
 			'AstraPostStrcturesData',
 			array(
-				'post_types'         => self::get_supported_post_types(),
-				'tablet_break_point' => astra_get_tablet_breakpoint(),
-				'mobile_break_point' => astra_get_mobile_breakpoint(),
+				'post_types'           => self::get_supported_post_types(),
+				'tablet_break_point'   => astra_get_tablet_breakpoint(),
+				'mobile_break_point'   => astra_get_mobile_breakpoint(),
+				'enabled_related_post' => astra_get_option( 'enable-related-posts' ),
 			)
 		);
 	}

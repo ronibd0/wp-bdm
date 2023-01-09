@@ -64,6 +64,7 @@ function astra_refresh_customizer( control ) {
 		postTypes = AstraPostStrcturesData.post_types || [],
 		tablet_break_point    = AstraPostStrcturesData.tablet_break_point || 768,
 		mobile_break_point    = AstraPostStrcturesData.mobile_break_point || 544;
+		related_post		  = AstraPostStrcturesData.enabled_related_post;
 
 	/**
 	 * For single layouts.
@@ -72,12 +73,18 @@ function astra_refresh_customizer( control ) {
 		var postType = postTypes[ index ],
 			layoutType = ( undefined !== wp.customize( 'astra-settings[ast-dynamic-single-' + postType + '-layout]' ) ) ? wp.customize( 'astra-settings[ast-dynamic-single-' + postType + '-layout]' ).get() : 'both';
 
+		let exclude_attribute = '';
+
+		if( related_post ) {
+			exclude_attribute = ':not(.related-entry-header)';
+		}
+
 		if( 'layout-2' === layoutType ) {
 			var selector = '.ast-single-entry-banner[data-post-type="' + postType + '"]';
 		} else if( 'layout-1' === layoutType ) {
-			var selector =  'header.entry-header';
+			var selector = 'header.entry-header' + exclude_attribute;
 		} else {
-			var selector = '.ast-single-entry-banner[data-post-type="' + postType + '"], header.entry-header';
+			var selector = '.ast-single-entry-banner[data-post-type="' + postType + '"], header.entry-header' + exclude_attribute;
 		}
 
 		astra_refresh_customizer(
