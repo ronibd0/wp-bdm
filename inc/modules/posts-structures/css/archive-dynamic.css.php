@@ -172,6 +172,7 @@ function astra_post_archive_structure_dynamic_css( $dynamic_css, $dynamic_css_fi
 					$css_output_tablet['.archive .ast-archive-description']  = astra_get_responsive_background_obj( $custom_background, 'tablet' );
 					$css_output_mobile['.archive .ast-archive-description']  = astra_get_responsive_background_obj( $custom_background, 'mobile' );
 				} else {
+					// @codingStandardsIgnoreStart
 					/**
 					 * @psalm-suppress RedundantCondition
 					 * @psalm-suppress InvalidGlobal
@@ -181,6 +182,7 @@ function astra_post_archive_structure_dynamic_css( $dynamic_css, $dynamic_css_fi
 					 * @psalm-suppress RedundantCondition
 					 * @psalm-suppress InvalidGlobal
 					 */
+					// @codingStandardsIgnoreEnd
 					$overlay_color = astra_get_option( 'ast-dynamic-archive-' . $current_post_type . '-banner-featured-overlay', '' );
 					$taxonomy      = $wp_query->get_queried_object();
 					if ( is_callable( 'is_shop' ) && is_shop() && '' !== $overlay_color ) {
@@ -331,6 +333,7 @@ function astra_post_archive_structure_dynamic_css( $dynamic_css, $dynamic_css_fi
 					$css_output_tablet[ $selector . '[data-banner-background-type="custom"]' ]  = astra_get_responsive_background_obj( $custom_background, 'tablet' );
 					$css_output_mobile[ $selector . '[data-banner-background-type="custom"]' ]  = astra_get_responsive_background_obj( $custom_background, 'mobile' );
 				} else {
+					// @codingStandardsIgnoreStart
 					/**
 					 * @psalm-suppress RedundantCondition
 					 * @psalm-suppress InvalidGlobal
@@ -340,6 +343,7 @@ function astra_post_archive_structure_dynamic_css( $dynamic_css, $dynamic_css_fi
 					 * @psalm-suppress RedundantCondition
 					 * @psalm-suppress InvalidGlobal
 					 */
+					// @codingStandardsIgnoreEnd
 					$overlay_color = astra_get_option( 'ast-dynamic-archive-' . $current_post_type . '-banner-featured-overlay', '' );
 					$taxonomy      = $wp_query->get_queried_object();
 					if ( is_callable( 'is_shop' ) && is_shop() && '' !== $overlay_color ) {
@@ -386,6 +390,12 @@ function astra_post_archive_structure_dynamic_css( $dynamic_css, $dynamic_css_fi
 			padding: 20px 0;
 			text-align: left;
 		}
+
+		.site-header-focus-item .ast-container div.customize-partial-edit-shortcut,
+		.site-header-focus-item .ast-container button.item-customizer-focus {
+			font-size: inherit;
+		}
+
 	';
 
 	/* Parse CSS from array() */
