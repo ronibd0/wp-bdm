@@ -64,7 +64,6 @@ function astra_refresh_customizer( control ) {
 		postTypes = AstraPostStrcturesData.post_types || [],
 		tablet_break_point    = AstraPostStrcturesData.tablet_break_point || 768,
 		mobile_break_point    = AstraPostStrcturesData.mobile_break_point || 544;
-		related_post		  = AstraPostStrcturesData.enabled_related_post;
 
 	/**
 	 * For single layouts.
