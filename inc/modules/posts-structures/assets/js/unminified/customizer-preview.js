@@ -74,12 +74,13 @@ function astra_refresh_customizer( control ) {
 
 		let exclude_attribute = AstraPostStrcturesData.enabled_related_post ? ':not(.related-entry-header)' : '';
 
+		let selector = '';
 		if( 'layout-2' === layoutType ) {
-			let selector = '.ast-single-entry-banner[data-post-type="' + postType + '"]';
+			selector = '.ast-single-entry-banner[data-post-type="' + postType + '"]';
 		} else if( 'layout-1' === layoutType ) {
-			let selector = 'header.entry-header' + exclude_attribute;
+			selector = 'header.entry-header' + exclude_attribute;
 		} else {
-			let selector = '.ast-single-entry-banner[data-post-type="' + postType + '"], header.entry-header' + exclude_attribute;
+			selector = '.ast-single-entry-banner[data-post-type="' + postType + '"], header.entry-header' + exclude_attribute;
 		}
 
 		astra_refresh_customizer(
