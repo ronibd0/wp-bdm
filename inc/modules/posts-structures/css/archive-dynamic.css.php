@@ -240,10 +240,10 @@ function astra_post_archive_structure_dynamic_css( $dynamic_css, $dynamic_css_fi
 			'.ast-narrow-container ' . $selector . ' .ast-container' => array(
 				'max-width' => $narrow_container_width . 'px',
 			),
-			$selector . ' a, ' . $selector . ' a *' => array(
+			$selector . ' .ast-container a, ' . $selector . ' .ast-container a *' => array(
 				'color' => esc_attr( $link_color ),
 			),
-			$selector . ' a:hover, ' . $selector . ' a:hover *' => array(
+			$selector . ' .ast-container a:hover, ' . $selector . ' .ast-container a:hover *' => array(
 				'color' => esc_attr( $link_hover_color ),
 			),
 			$selector . ' .ast-container > *:not(:last-child)' => array(
