@@ -77,7 +77,7 @@ function astra_refresh_customizer( control ) {
 		if( 'layout-2' === layoutType ) {
 			let selector = '.ast-single-entry-banner[data-post-type="' + postType + '"]';
 		} else if( 'layout-1' === layoutType ) {
-			var selector = 'header.entry-header' + exclude_attribute;
+			let selector = 'header.entry-header' + exclude_attribute;
 		} else {
 			let selector = '.ast-single-entry-banner[data-post-type="' + postType + '"], header.entry-header' + exclude_attribute;
 		}
