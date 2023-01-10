@@ -436,7 +436,7 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	);
 	$defaults['hbb-footer-bg-obj-responsive'] = array(
 		'desktop' => array(
-			'background-color'      => '#eeeeee',
+			'background-color'      => $apply_new_default_color_typo_values ? 'var(--ast-global-color-5)' : '#eeeeee',
 			'background-image'      => '',
 			'background-repeat'     => 'repeat',
 			'background-position'   => 'center center',
@@ -486,6 +486,8 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 			'background-attachment' => 'scroll',
 		),
 	);
+	$defaults['hbb-footer-top-border-color']  = $apply_new_default_color_typo_values ? 'var(--ast-global-color-6)' : '';
+	$defaults['hbb-footer-separator']         = $apply_new_default_color_typo_values ? 1 : '';
 
 	/**
 	 * Header Margin defaults.
