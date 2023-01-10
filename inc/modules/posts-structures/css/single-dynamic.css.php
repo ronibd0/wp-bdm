@@ -41,7 +41,8 @@ function astra_post_single_structure_dynamic_css( $dynamic_css, $dynamic_css_fil
 
 	$layout_type     = astra_get_option( 'ast-dynamic-single-' . $current_post_type . '-layout', 'layout-1' );
 	$layout_2_active = ( 'layout-2' === $layout_type ) ? true : false;
-	$exclude_attr    = astra_get_option( 'enable-related-posts', false ) ? ':not(.related-entry-header)' : '';	
+	$exclude_attr    = astra_get_option( 'enable-related-posts', false ) ? ':not(.related-entry-header)' : '';
+
 	if ( $layout_2_active ) {
 		$selector = '.ast-single-entry-banner[data-post-type="' . $current_post_type . '"]';
 	} else {
