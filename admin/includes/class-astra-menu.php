@@ -740,8 +740,10 @@ class Astra_Menu {
 					array(
 						'title'       => __( 'SureTriggers', 'astra' ),
 						'subtitle'    => __( 'Automate your WordPress setup.', 'astra' ),
-						'is_app'      => true,
-						'redirect_to' => 'https://suretriggers.com/',
+						'status'      => self::get_plugin_status( 'suretriggers/suretriggers.php' ),
+						'slug'        => 'suretriggers',
+						'path'        => 'suretriggers/suretriggers.php',
+						'redirection' => admin_url( 'admin.php?page=suretriggers' ),
 						'logoPath'    => array(
 							'internal_icon' => true,
 							'icon_path'     => 'suretriggers',
@@ -791,8 +793,10 @@ class Astra_Menu {
 					array(
 						'title'       => __( 'SureTriggers', 'astra' ),
 						'subtitle'    => __( 'Automate your WordPress setup.', 'astra' ),
-						'is_app'      => true,
-						'redirect_to' => 'https://suretriggers.com/',
+						'status'      => self::get_plugin_status( 'suretriggers/suretriggers.php' ),
+						'slug'        => 'suretriggers',
+						'path'        => 'suretriggers/suretriggers.php',
+						'redirection' => admin_url( 'admin.php?page=suretriggers' ),
 						'logoPath'    => array(
 							'internal_icon' => true,
 							'icon_path'     => 'suretriggers',
@@ -842,8 +846,10 @@ class Astra_Menu {
 					array(
 						'title'       => __( 'SureTriggers', 'astra' ),
 						'subtitle'    => __( 'Automate your WordPress setup.', 'astra' ),
-						'is_app'      => true,
-						'redirect_to' => 'https://suretriggers.com/',
+						'status'      => self::get_plugin_status( 'suretriggers/suretriggers.php' ),
+						'slug'        => 'suretriggers',
+						'path'        => 'suretriggers/suretriggers.php',
+						'redirection' => admin_url( 'admin.php?page=suretriggers' ),
 						'logoPath'    => array(
 							'internal_icon' => true,
 							'icon_path'     => 'suretriggers',
