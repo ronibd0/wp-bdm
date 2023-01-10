@@ -72,11 +72,7 @@ function astra_refresh_customizer( control ) {
 		var postType = postTypes[ index ],
 			layoutType = ( undefined !== wp.customize( 'astra-settings[ast-dynamic-single-' + postType + '-layout]' ) ) ? wp.customize( 'astra-settings[ast-dynamic-single-' + postType + '-layout]' ).get() : 'both';
 
-		let exclude_attribute = '';
-
-		if( related_post ) {
-			exclude_attribute = ':not(.related-entry-header)';
-		}
+		let exclude_attribute = AstraPostStrcturesData.enabled_related_post ? ':not(.related-entry-header)' : '';
 
 		if( 'layout-2' === layoutType ) {
 			var selector = '.ast-single-entry-banner[data-post-type="' + postType + '"]';
