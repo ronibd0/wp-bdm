@@ -749,7 +749,7 @@ function hasWordPressWidgetBlockEditor() {
 	} );
 
 	/**
-	 * Apply content bg responsive css with specified selector. 
+	 * Apply content bg responsive css with specified selector.
 	 * @param {string} selector
 	 * @returns {void}
 	 */
@@ -1126,6 +1126,10 @@ function hasWordPressWidgetBlockEditor() {
 		astra_generate_font_weight_css( 'astra-settings[headings-font-family]', 'astra-settings[headings-font-weight]', 'font-weight', 'h1, .entry-content h1, h2, .entry-content h2, h3, .entry-content h3, h4, .entry-content h4, h5, .entry-content h5, h6, .entry-content h6, .site-title, .site-title a' );
 		astra_font_extras_css( 'headings-font-extras', '.entry-content h1, h2, .entry-content h2, h3, .entry-content h3, h4, .entry-content h4, h5, .entry-content h5, h6, .entry-content h6, .site-title, .site-title a' );
 	}
+
+	// Global link
+	astra_css( 'astra-settings[link-color]', 'color', '.entry-meta, .entry-meta *');
+	astra_css( 'astra-settings[link-h-color]', 'color', '.read-more a:hover, .entry-meta a:hover, .entry-meta a:hover *');
 
 	// Footer Bar.
 	astra_css( 'astra-settings[footer-color]', 'color', '.ast-small-footer' );
