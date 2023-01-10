@@ -3,7 +3,7 @@
  * Post Structures - Dynamic CSS
  *
  * @package Astra
- * @since x.x.x
+ * @since 4.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -22,7 +22,7 @@ add_filter( 'astra_dynamic_theme_css', 'astra_post_single_structure_dynamic_css'
  * @param  string $dynamic_css_filtered Astra Dynamic CSS Filters.
  * @return String Generated dynamic CSS for Post Structures.
  *
- * @since x.x.x
+ * @since 4.0.0
  */
 function astra_post_single_structure_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 

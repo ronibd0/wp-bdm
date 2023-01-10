@@ -6,7 +6,7 @@
  * @author      Astra
  * @copyright   Copyright (c) 2022, Astra
  * @link        https://wpastra.com/
- * @since       Astra x.x.x
+ * @since       Astra 4.0.0
  */
 
 if ( apply_filters( 'astra_single_layout_one_banner_visibility', true ) ) { ?>

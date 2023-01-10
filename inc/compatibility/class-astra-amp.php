@@ -74,7 +74,7 @@ if ( ! class_exists( 'Astra_AMP' ) ) :
 			/**
 			 * Scroll to top Addon.
 			 *
-			 * @since x.x.x
+			 * @since 4.0.0
 			 */
 			if ( true === astra_get_option( 'scroll-to-top-enable' ) ) {
 				remove_action( 'wp_footer', array( Astra_Scroll_To_Top_Loader::get_instance(), 'html_markup_loader' ) );
