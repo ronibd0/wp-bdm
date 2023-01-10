@@ -312,6 +312,15 @@ function astra_post_single_structure_dynamic_css( $dynamic_css, $dynamic_css_fil
 		}
 	';
 
+	if ( is_customize_preview() ) {
+		$dynamic_css .= '
+			.site-header-focus-item .ast-container div.customize-partial-edit-shortcut,
+			.site-header-focus-item .ast-container button.item-customizer-focus {
+				font-size: inherit;
+			}
+		';
+	}
+
 	/* Parse CSS from array() */
 	$dynamic_css .= astra_parse_css( $css_output_desktop );
 	$dynamic_css .= astra_parse_css( $css_output_min_tablet, astra_get_tablet_breakpoint( '', 1 ) );
