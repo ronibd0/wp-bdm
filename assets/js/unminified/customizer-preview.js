@@ -302,7 +302,7 @@ function astra_css( control, css_property, selector, unit, important = false ) {
 					}
 				}
 
-				const imp_css_property = important ? ' !important' : '';
+				const imp_css_prop = important ? ' !important' : '';
 
 				// Remove old.
 				jQuery( 'style#' + control + '-' + css_property ).remove();
@@ -310,7 +310,7 @@ function astra_css( control, css_property, selector, unit, important = false ) {
 				// Concat and append new <style>.
 				jQuery( 'head' ).append(
 					'<style id="' + control + '-' + css_property + '">'
-					+ selector + '	{ ' + css_property + ': ' + new_value + imp_css_property + ' }'
+					+ selector + '	{ ' + css_property + ': ' + new_value + imp_css_prop + ' }'
 					+ '</style>'
 				);
 
