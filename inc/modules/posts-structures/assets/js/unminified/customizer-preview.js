@@ -79,7 +79,7 @@ function astra_refresh_customizer( control ) {
 		} else if( 'layout-1' === layoutType ) {
 			var selector = 'header.entry-header' + exclude_attribute;
 		} else {
-			var selector = '.ast-single-entry-banner[data-post-type="' + postType + '"], header.entry-header' + exclude_attribute;
+			let selector = '.ast-single-entry-banner[data-post-type="' + postType + '"], header.entry-header' + exclude_attribute;
 		}
 
 		astra_refresh_customizer(
