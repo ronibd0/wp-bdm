@@ -515,7 +515,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				'a:hover, a:focus'                       => array(
 					'color' => esc_attr( $link_hover_color ),
 				),
-				'body, button, input, select, textarea, .ast-button, .ast-custom-button' => array(
+				'body, button, input, select, textarea, .ast-button, .ast-custom-button, .entry-content p' => array(
 					'font-family'     => astra_get_font_family( $body_font_family ),
 					'font-weight'     => esc_attr( $body_font_weight ),
 					'font-size'       => astra_responsive_font( $body_font_size, 'desktop' ),
