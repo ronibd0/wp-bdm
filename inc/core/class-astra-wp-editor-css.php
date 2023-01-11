@@ -357,7 +357,7 @@ class Astra_WP_Editor_CSS {
 
 			$btn_bg_color = 'transparent';
 		}
-		
+
 		// Fallback for Site title (Page Title).
 		if ( 'inherit' == $site_title_font_family ) {
 			$site_title_font_family = $headings_font_family;
