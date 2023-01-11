@@ -4222,7 +4222,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				opacity: .5;
 			}
 
-			.astra-cart-drawer.open-right {
+			.astra-cart-drawer {
 				width: 460px;
 				height: 100%;
 				' . $ltr_left . ': 100%;
