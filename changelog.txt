@@ -1,12 +1,12 @@
 v4.0.0
-- New: Redesigned the entire admin area with better user experience. (Needs blog post)
-- New: Narrow Width Container layout for Single Posts, Blogs/Archives & Pages. (https://wpastra.com/docs/narrow-width-container-layout/)
+- New: Redesigned the entire admin area with better user experience. ( https://wpastra.com/updates/astra-4 )
+- New: Narrow Width Container layout for Single Posts, Blogs/Archives & Pages. ( https://wpastra.com/docs/narrow-width-container-layout/ )
 - New: Introduced Smooth scroll to ID option for smooth scrolling to section ID on one page site navigation.
-- New: Added elegant starter-content theme support for wordpress.org preview & for fresh setup. (https://wpastra.com/docs/replicating-the-screenshot/)
+- New: Added elegant starter-content theme support for wordpress.org preview & for fresh setup. ( https://wpastra.com/docs/replicating-the-screenshot/ )
 - New: Added text decoration and text transform options to each customizer typography settings.
-- New: Dynamic content layout & sidebar layout support added for all custom post types. (https://wpastra.com/docs/how-to-use-dynamic-customizer-from-astra-4-0/)
-- New: Dynamic single & archive banner title area support for all custom post types. (https://wpastra.com/docs/how-to-use-dynamic-customizer-from-astra-4-0/)
-- Improvement: Moved Scroll to Top pro extension from addon to theme. (https://wpastra.com/docs/scroll-to-top-pro/)
+- New: Dynamic content layout & sidebar layout support added for all custom post types. ( https://wpastra.com/docs/how-to-use-dynamic-customizer-from-astra-4-0/ )
+- New: Dynamic single & archive banner title area support for all custom post types. ( https://wpastra.com/docs/how-to-use-dynamic-customizer-from-astra-4-0/ )
+- Improvement: Moved Scroll to Top pro extension from addon to theme. ( https://wpastra.com/docs/scroll-to-top-pro/ )
 - Improvement: Redesigned customizer typography control's UI for better experience.
 - Improvement: Customizer typography & color defaults updated to get better UI experience for fresh setup.
 - Improvement: Introduced new filter 'astra_global_color_palette' to extend default color palette settings.
