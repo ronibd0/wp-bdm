@@ -12,26 +12,6 @@ module.exports = function (grunt) {
 
     var pkgInfo = grunt.file.readJSON('package.json');
 
-    // Astra Addons.
-    for (var i = 0; i < Astra_theme_Addons.length; i++) {
-
-        sass_dist_files.push({
-            expand: true,
-            cwd: "inc/customizer/custom-controls/" + Astra_theme_Addons[i],
-            src: ["*.scss"],
-            dest: "inc/customizer/custom-controls/assets/css/unminified",
-            ext: ".css",
-        });
-    }
-
-    sass_dist_files.push({
-        expand: true,
-        cwd: "inc/customizer/custom-controls/",
-        src: ["*.scss"],
-        dest: "inc/customizer/custom-controls/assets/css/unminified",
-        ext: ".css",
-    });
-
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
 
@@ -47,6 +27,16 @@ module.exports = function (grunt) {
             },
             dist: {
                 files: [
+					{
+                        expand: true,
+                        cwd: 'admin/assets/build',
+                        src: [
+                            '*.css',
+                            '!*-rtl.css',
+                        ],
+                        dest: 'admin/assets/build',
+                        ext: '-rtl.css'
+                    },
                     {
                         expand: true,
                         cwd: 'assets/css/unminified/',
@@ -58,7 +48,6 @@ module.exports = function (grunt) {
                         ],
                         dest: 'assets/css/unminified',
                         ext: '-rtl.css'
-
                     },
                     {
                         expand: true,
@@ -114,6 +103,10 @@ module.exports = function (grunt) {
                         dest: 'inc/metabox/extend-metabox/css/unminified',
                         ext: '-rtl.css'
                     },
+					{
+                        src: 'inc/customizer/custom-controls/assets/css/unminified/custom-controls.css',
+                        dest: 'inc/customizer/custom-controls/assets/css/unminified/custom-controls-rtl.css',
+                    },
                 ]
             }
         },
@@ -127,11 +120,6 @@ module.exports = function (grunt) {
             },
             dist: {
                 files: [
-
-                    /*{
-                    'style.css': 'sass/style.scss'
-                    },*/
-
                     /* Link Pointer Style */
                     {
                         'assets/css/unminified/menu-animation.css': 'sass/site/navigation/menu-animation.scss',
@@ -290,6 +278,12 @@ module.exports = function (grunt) {
                         ],
                         dest: 'inc/builder/type/footer/above-footer/assets/js/minified/customizer-preview.min.js',
                     },
+					{
+                        src: [
+                            'inc/modules/posts-structures/assets/js/unminified/customizer-preview.js',
+                        ],
+                        dest: 'inc/modules/posts-structures/assets/js/minified/customizer-preview.min.js',
+                    },
                     {
                         src: [
                             'inc/builder/type/footer/below-footer/assets/js/unminified/customizer-preview.js',
@@ -434,6 +428,12 @@ module.exports = function (grunt) {
                         ],
                         dest: 'inc/builder/type/header/woo-cart/assets/js/minified/customizer-preview.min.js',
                     },
+					{
+						src: [
+							'inc/addons/scroll-to-top/assets/js/unminified/customizer-preview.js',
+						],
+						dest: 'inc/addons/scroll-to-top/assets/js/minified/customizer-preview.min.js',
+					},
                 ]
             }
         },
@@ -485,18 +485,13 @@ module.exports = function (grunt) {
                         dest: 'assets/css/minified/customizer-controls.min-rtl.css',
                     },
                     {
-                        src:[
-                            'inc/customizer/custom-controls/assets/css/unminified/*.css',
-                            '!inc/customizer/custom-controls/assets/css/unminified/*-rtl.css',
-                        ],
+                        src: 'inc/customizer/custom-controls/assets/css/unminified/custom-controls.css',
                         dest: 'inc/customizer/custom-controls/assets/css/minified/custom-controls.min.css',
                     },
-
                     {
-                        src: 'inc/customizer/custom-controls/assets/css/unminified/*-rtl.css',
+                        src: 'inc/customizer/custom-controls/assets/css/unminified/custom-controls-rtl.css',
                         dest: 'inc/customizer/custom-controls/assets/css/minified/custom-controls.min-rtl.css',
                     },
-
                     // Generating RTL files from '/unminified/compatibility/' into '/minified/compatibility/'
                     // NOTE: Not possible to generate bulk .min-rtl.css files from '.min.css'
                     {
@@ -631,6 +626,12 @@ module.exports = function (grunt) {
                     '!inc/metabox/extend-metabox/package.json',
                     '!inc/metabox/extend-metabox/package-lock.json',
                     '!inc/metabox/extend-metabox/build/index.asset.php',
+					'!admin/assets/src/**',
+					'!admin/package.json',
+					'!admin/package-lock.json',
+					'!admin/postcss.config.js',
+					'!admin/tailwind.config.js',
+					'!admin/webpack.config.js',
                 ],
                 dest: 'astra/'
             }
@@ -727,12 +728,6 @@ module.exports = function (grunt) {
                             'inc/customizer/extend-custom-controls/build/index.js'
                         ],
                         dest: 'inc/customizer/custom-controls/assets/js/unminified/custom-controls.js',
-                    },
-                    {
-                        src: [
-                            'inc/customizer/custom-controls/assets/css/unminified/*-rtl.css',
-                        ],
-                        dest: 'inc/customizer/custom-controls/assets/css/unminified/custom-controls-rtl.css',
                     },
                 ]
             }

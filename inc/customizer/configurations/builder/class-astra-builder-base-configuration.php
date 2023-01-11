@@ -123,9 +123,10 @@ final class Astra_Builder_Base_Configuration {
 	 *
 	 * @param string $section_id section id.
 	 * @param array  $required_condition Required Condition.
+	 * @param array  $divider_setup Required divider setup.
 	 * @return array
 	 */
-	public static function prepare_typography_options( $section_id, $required_condition = array() ) {
+	public static function prepare_typography_options( $section_id, $required_condition = array(), $divider_setup = array() ) {
 
 		$parent = ASTRA_THEME_SETTINGS . '[' . $section_id . '-typography]';
 
@@ -140,6 +141,7 @@ final class Astra_Builder_Base_Configuration {
 					'control'   => 'ast-settings-group',
 					'title'     => __( 'Text Font', 'astra' ),
 					'section'   => $section_id,
+					'divider'   => $divider_setup,
 					'transport' => 'postMessage',
 					'priority'  => 16,
 					'context'   => empty( $required_condition ) ? Astra_Builder_Helper::$design_tab : $required_condition,
@@ -157,8 +159,8 @@ final class Astra_Builder_Base_Configuration {
 					'control'           => 'ast-responsive-slider',
 					'default'           => astra_get_option( 'font-size-' . $section_id ),
 					'transport'         => 'postMessage',
-					'priority'          => 14,
-					'title'             => __( 'Size', 'astra' ),
+					'priority'          => 15,
+					'title'             => __( 'Font Size', 'astra' ),
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
 					'suffix'            => array( 'px', 'em' ),
 					'input_attrs'       => array(
@@ -216,6 +218,15 @@ final class Astra_Builder_Base_Configuration {
 	}
 
 	/**
+	 * Get astra-options DB values.
+	 *
+	 * @since 4.0.0
+	 */
+	public static function get_astra_options() {
+		return get_option( ASTRA_THEME_SETTINGS );
+	}
+
+	/**
 	 * Prepare Visibility options.
 	 *
 	 * @param string $_section section id.
@@ -223,54 +234,35 @@ final class Astra_Builder_Base_Configuration {
 	 * @return array
 	 */
 	public static function prepare_visibility_tab( $_section, $builder_type = 'header' ) {
-
-		$configs = array(
-
-			/**
-			 * Option: Hide on tablet
-			 */
-			array(
-				'name'      => ASTRA_THEME_SETTINGS . '[' . $_section . '-hide-tablet]',
-				'type'      => 'control',
-				'control'   => 'ast-toggle-control',
-				'default'   => astra_get_option( $_section . '-hide-tablet' ),
-				'section'   => $_section,
-				'priority'  => 320,
-				'title'     => __( 'Hide on Tablet', 'astra' ),
-				'transport' => 'postMessage',
-				'context'   => Astra_Builder_Helper::$tablet_general_tab,
-			),
-
-			/**
-			 * Option: Hide on mobile
-			 */
-			array(
-				'name'      => ASTRA_THEME_SETTINGS . '[' . $_section . '-hide-mobile]',
-				'type'      => 'control',
-				'control'   => 'ast-toggle-control',
-				'default'   => astra_get_option( $_section . '-hide-mobile' ),
-				'section'   => $_section,
-				'priority'  => 330,
-				'title'     => __( 'Hide on Mobile', 'astra' ),
-				'transport' => 'postMessage',
-				'context'   => Astra_Builder_Helper::$mobile_general_tab,
-			),
-		);
+		$configs = array();
 
 		if ( 'footer' === $builder_type ) {
+			$astra_options = Astra_Theme_Options::get_astra_options();
 			/**
-			 * Option: Hide on desktop
+			 * Option: Visibility
 			 */
 			$configs[] = array(
-				'name'      => ASTRA_THEME_SETTINGS . '[' . $_section . '-hide-desktop]',
+				'name'      => ASTRA_THEME_SETTINGS . '[' . $_section . '-visibility-responsive]',
+				'default'   => astra_get_option(
+					'' . $_section . '-visibility-responsive',
+					array(
+						'desktop' => ! isset( $astra_options[ '' . $_section . '-visibility-responsive' ] ) && isset( $astra_options[ '' . $_section . '-hide-desktop' ] ) ? ( 0 === $astra_options[ '' . $_section . '-hide-desktop' ] ? 1 : 0 ) : 1,
+						'tablet'  => ! isset( $astra_options[ '' . $_section . '-visibility-responsive' ] ) && isset( $astra_options[ '' . $_section . '-hide-tablet' ] ) ? ( 0 === $astra_options[ '' . $_section . '-hide-tablet' ] ? 1 : 0 ) : 1,
+						'mobile'  => ! isset( $astra_options[ '' . $_section . '-visibility-responsive' ] ) && isset( $astra_options[ '' . $_section . '-hide-mobile' ] ) ? ( 0 === $astra_options[ '' . $_section . '-hide-mobile' ] ? 1 : 0 ) : 1,
+					)
+				),
 				'type'      => 'control',
-				'control'   => 'ast-toggle-control',
-				'default'   => astra_get_option( $_section . '-hide-desktop' ),
+				'control'   => 'ast-multi-selector',
 				'section'   => $_section,
 				'priority'  => 320,
-				'title'     => __( 'Hide on Desktop', 'astra' ),
+				'title'     => __( 'Visibility', 'astra' ),
+				'context'   => Astra_Builder_Helper::$general_tab,
 				'transport' => 'postMessage',
-				'context'   => Astra_Builder_Helper::$desktop_general_tab,
+				'choices'   => array(
+					'desktop' => 'customizer-desktop',
+					'tablet'  => 'customizer-tablet',
+					'mobile'  => 'customizer-mobile',
+				),
 				'divider'   => array( 'ast_class' => 'ast-top-section-divider' ),
 			);
 		}
@@ -469,18 +461,24 @@ final class Astra_Builder_Base_Configuration {
 							'default'     => astra_get_option( $type . '-widget-' . $index . '-font-size' ),
 							'parent'      => ASTRA_THEME_SETTINGS . '[' . $type . '-widget-' . $index . '-text-typography]',
 							'transport'   => 'postMessage',
-							'title'       => __( 'Size', 'astra' ),
+							'title'       => __( 'Font Size', 'astra' ),
 							'type'        => 'sub-control',
 							'section'     => $_section,
-							'control'     => 'ast-responsive',
+							'control'     => 'ast-responsive-slider',
+							'suffix'      => array( 'px', 'em' ),
 							'input_attrs' => array(
-								'min' => 0,
+								'px' => array(
+									'min'  => 0,
+									'step' => 1,
+									'max'  => 100,
+								),
+								'em' => array(
+									'min'  => 0,
+									'step' => 0.01,
+									'max'  => 20,
+								),
 							),
 							'priority'    => 2,
-							'units'       => array(
-								'px' => 'px',
-								'em' => 'em',
-							),
 						),
 
 						/**
@@ -505,18 +503,24 @@ final class Astra_Builder_Base_Configuration {
 							'default'     => astra_get_option( $type . '-widget-' . $index . '-content-font-size' ),
 							'parent'      => ASTRA_THEME_SETTINGS . '[' . $type . '-widget-' . $index . '-content-typography]',
 							'transport'   => 'postMessage',
-							'title'       => __( 'Size', 'astra' ),
+							'title'       => __( 'Font Size', 'astra' ),
 							'type'        => 'sub-control',
 							'section'     => $_section,
-							'control'     => 'ast-responsive',
+							'control'     => 'ast-responsive-slider',
+							'suffix'      => array( 'px', 'em' ),
 							'input_attrs' => array(
-								'min' => 0,
+								'px' => array(
+									'min'  => 0,
+									'step' => 1,
+									'max'  => 100,
+								),
+								'em' => array(
+									'min'  => 0,
+									'step' => 0.01,
+									'max'  => 20,
+								),
 							),
 							'priority'    => 2,
-							'units'       => array(
-								'px' => 'px',
-								'em' => 'em',
-							),
 						),
 					);
 				} else {
@@ -532,15 +536,21 @@ final class Astra_Builder_Base_Configuration {
 							'title'       => __( 'Title Font Size', 'astra' ),
 							'type'        => 'control',
 							'section'     => $_section,
-							'control'     => 'ast-responsive',
+							'control'     => 'ast-responsive-slider',
+							'suffix'      => array( 'px', 'em' ),
 							'input_attrs' => array(
-								'min' => 0,
+								'px' => array(
+									'min'  => 0,
+									'step' => 1,
+									'max'  => 100,
+								),
+								'em' => array(
+									'min'  => 0,
+									'step' => 0.01,
+									'max'  => 20,
+								),
 							),
 							'priority'    => 90,
-							'units'       => array(
-								'px' => 'px',
-								'em' => 'em',
-							),
 						),
 
 						/**
@@ -553,15 +563,21 @@ final class Astra_Builder_Base_Configuration {
 							'title'       => __( 'Content Font Size', 'astra' ),
 							'type'        => 'control',
 							'section'     => $_section,
-							'control'     => 'ast-responsive',
+							'control'     => 'ast-responsive-slider',
+							'suffix'      => array( 'px', 'em' ),
 							'input_attrs' => array(
-								'min' => 0,
+								'px' => array(
+									'min'  => 0,
+									'step' => 1,
+									'max'  => 100,
+								),
+								'em' => array(
+									'min'  => 0,
+									'step' => 0.01,
+									'max'  => 20,
+								),
 							),
 							'priority'    => 91,
-							'units'       => array(
-								'px' => 'px',
-								'em' => 'em',
-							),
 						),
 					);
 				}
