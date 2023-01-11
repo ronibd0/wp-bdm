@@ -2,7 +2,7 @@ import { Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 
 const VideoPopup = ({ allowAutoPlay, videoPopup, toggleVideoPopup }) => {
-	const videoID = 'BAN-puzLheM';
+	const videoID = 'uBNUpyCM8G8';
 
 	return (
 		<Transition.Root show={videoPopup} as={Fragment}>

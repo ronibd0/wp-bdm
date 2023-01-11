@@ -236,7 +236,7 @@ pre.wp-block {
 	&.wp-block-code {
 		font: 16px Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
 	}
-	background: #eee;
+	background: var(--ast-code-block-background);
 	overflow: auto;
 	max-width: 100%;
 	padding: 1.6em;
