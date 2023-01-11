@@ -237,6 +237,7 @@ pre.wp-block {
 		font: 16px Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
 	}
 	background: #eee;
+	box-sizing: border-box;
 	overflow: auto;
 	max-width: 100%;
 	padding: 1.6em;
@@ -516,7 +517,6 @@ body {
 	}
 	figcaption {
 		font-size: 1rem;
-		text-align: left;
 	}
 }
 
