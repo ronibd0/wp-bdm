@@ -1,6 +1,5 @@
 import SortableComponent from './sortable.js';
 import BorderComponent from '../border/border-component';
-import ResponsiveComponent from '../responsive/responsive-component';
 import ResponsiveSliderComponent from '../responsive-slider/responsive-slider-component';
 import ResponsiveSpacingComponent from '../responsive-spacing/responsive-spacing-component';
 import SliderComponent from '../slider/slider-component';
@@ -15,13 +14,13 @@ import SelectorComponent from '../selector/selector-component';
 import ToggleControl from '../toggle-control/toggle-control-component';
 import TextInputControl from '../text-input/text-input-component';
 import ListIconsControl from '../list-icons/list-icons-component';
+import DescriptionComponent from '../description/description-component';
 
 import {
 	astraGetBackground,
 	astraGetColor,
 	astraGetResponsiveBgJs,
 	astraGetResponsiveColorJs,
-	astraGetResponsiveJs,
 	astraGetResponsiveSliderJs,
 	astraGetResponsiveSpacingJs,
 	astraGetAlignmentJS,
@@ -276,9 +275,6 @@ export const sortableControl = wp.customize.astraControl.extend( {
 				case "ast-responsive-color":
 					astraGetResponsiveColorJs( control, "#customize-control-" + control_type.name )
 					break;
-				case "ast-responsive":
-					astraGetResponsiveJs( control )
-					break;
 				case "ast-responsive-slider":
 					astraGetResponsiveSliderJs( control )
 					break;
@@ -412,11 +408,6 @@ export const sortableControl = wp.customize.astraControl.extend( {
 					name: attr.name
 				});
 
-				if ('ast-responsive' == control) {
-					let is_responsive = 'undefined' == typeof attr.responsive ? true : attr.responsive;
-					attr.responsive = is_responsive;
-				}
-
 				let control_full_name = attr.name.replace('[', '-');
 				control_full_name = control_full_name.replace(']', '');
 
@@ -446,7 +437,6 @@ export const sortableControl = wp.customize.astraControl.extend( {
 			'ast-responsive-color' : ResponsiveColorComponent,
 			'ast-color' : ColorComponent,
 			'ast-border' : BorderComponent,
-			'ast-responsive' : ResponsiveComponent,
 			'ast-responsive-slider' : ResponsiveSliderComponent,
 			'ast-slider' : SliderComponent,
 			'ast-responsive-spacing' : ResponsiveSpacingComponent,
@@ -455,7 +445,8 @@ export const sortableControl = wp.customize.astraControl.extend( {
 			'ast-selector' : SelectorComponent,
 			'ast-toggle': ToggleControl,
 			'ast-text-input': TextInputControl,
-			'ast-list-icons': ListIconsControl
+			'ast-list-icons': ListIconsControl,
+			'ast-description': DescriptionComponent
 		};
 
 		if( astra.customizer.is_pro ) {
@@ -482,7 +473,7 @@ export const sortableControl = wp.customize.astraControl.extend( {
 
 	getFinalControlObject: function ( attr, controlObject ) {
 
-		
+
 		if ( undefined !== attr.choices && undefined === controlObject.params['choices'] ) {
 			controlObject.params['choices'] = attr.choices;
 		}
