@@ -976,7 +976,7 @@ function astra_showcase_upgrade_notices() {
  * @param string $setting basis on this setting will return.
  * @param mixed  $unit Unit.
  *
- * @since x.x.x
+ * @since 4.0.0
  */
 function astra_get_font_extras( $config, $setting, $unit = false ) {
 	$css = isset( $config[ $setting ] ) ? $config[ $setting ] : '';
@@ -1000,7 +1000,7 @@ function astra_get_font_extras( $config, $setting, $unit = false ) {
  *
  * @param array  array of build CSS font settings.
  *
- * @since x.x.x
+ * @since 4.0.0
  */
 function astra_get_font_array_css( $font_family, $font_weight, $font_size, $font_extras, $color = '' ) {
 	$font_extras_ast_option = astra_get_option(

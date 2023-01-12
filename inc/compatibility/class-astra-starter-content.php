@@ -2,7 +2,7 @@
 /**
  * Starter Content Compatibility.
  *
- * @since x.x.x
+ * @since 4.0.0
  * @package Astra
  */
 
@@ -63,7 +63,7 @@ class Astra_Starter_Content {
 	/**
 	 * Register listener to insert post.
 	 *
-	 * @since x.x.x
+	 * @since 4.0.0
 	 * @param int      $post_ID Post Id.
 	 * @param \WP_Post $post Post object.
 	 * @param bool     $update Is update.
@@ -93,7 +93,7 @@ class Astra_Starter_Content {
 	/**
 	 *  Get customizer json
 	 *
-	 * @since x.x.x
+	 * @since 4.0.0
 	 *  @return mixed value.
 	 */
 	public function get_customizer_json() {
@@ -122,7 +122,7 @@ class Astra_Starter_Content {
 	/**
 	 *  Save Astra customizer settings into database.
 	 *
-	 * @since x.x.x
+	 * @since 4.0.0
 	 */
 	public function save_astra_settings() {
 		
@@ -141,7 +141,7 @@ class Astra_Starter_Content {
 	/**
 	 * Load default astra settings.
 	 *
-	 * @since x.x.x
+	 * @since 4.0.0
 	 * @param mixed $defaults defaults.
 	 * @return mixed value.
 	 */
@@ -159,7 +159,7 @@ class Astra_Starter_Content {
 	/**
 	 * Load default color palettes.
 	 *
-	 * @since x.x.x
+	 * @since 4.0.0
 	 * @param mixed $defaults defaults.
 	 * @return mixed value.
 	 */
@@ -179,7 +179,7 @@ class Astra_Starter_Content {
 	 * Return starter content definition.
 	 *
 	 * @return mixed|void 
-	 * @since x.x.x
+	 * @since 4.0.0
 	 */
 	public function get() {
 

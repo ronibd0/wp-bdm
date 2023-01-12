@@ -308,6 +308,22 @@
         }
     },
     {
+        "Alexandria": {
+            "variants": [
+                "100",
+                "200",
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800",
+                "900"
+            ],
+            "category": "sans-serif"
+        }
+    },
+    {
         "Alfa Slab One": {
             "variants": [
                 "regular"
@@ -1045,14 +1061,24 @@
     {
         "Asap": {
             "variants": [
+                "100",
+                "200",
+                "300",
                 "regular",
                 "500",
                 "600",
                 "700",
+                "800",
+                "900",
+                "100italic",
+                "200italic",
+                "300italic",
                 "italic",
                 "500italic",
                 "600italic",
-                "700italic"
+                "700italic",
+                "800italic",
+                "900italic"
             ],
             "category": "sans-serif"
         }
@@ -1060,6 +1086,10 @@
     {
         "Asap Condensed": {
             "variants": [
+                "200",
+                "200italic",
+                "300",
+                "300italic",
                 "regular",
                 "italic",
                 "500",
@@ -1067,7 +1097,11 @@
                 "600",
                 "600italic",
                 "700",
-                "700italic"
+                "700italic",
+                "800",
+                "800italic",
+                "900",
+                "900italic"
             ],
             "category": "sans-serif"
         }
@@ -2801,16 +2835,51 @@
     {
         "Chivo": {
             "variants": [
+                "100",
+                "200",
                 "300",
-                "300italic",
                 "regular",
-                "italic",
+                "500",
+                "600",
                 "700",
-                "700italic",
+                "800",
                 "900",
+                "100italic",
+                "200italic",
+                "300italic",
+                "italic",
+                "500italic",
+                "600italic",
+                "700italic",
+                "800italic",
                 "900italic"
             ],
             "category": "sans-serif"
+        }
+    },
+    {
+        "Chivo Mono": {
+            "variants": [
+                "100",
+                "200",
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800",
+                "900",
+                "100italic",
+                "200italic",
+                "300italic",
+                "italic",
+                "500italic",
+                "600italic",
+                "700italic",
+                "800italic",
+                "900italic"
+            ],
+            "category": "monospace"
         }
     },
     {
@@ -4221,7 +4290,14 @@
                 "600",
                 "700",
                 "800",
-                "900"
+                "900",
+                "300italic",
+                "italic",
+                "500italic",
+                "600italic",
+                "700italic",
+                "800italic",
+                "900italic"
             ],
             "category": "sans-serif"
         }
@@ -4459,7 +4535,9 @@
                 "300",
                 "regular",
                 "500",
+                "600",
                 "700",
+                "800",
                 "900"
             ],
             "category": "serif"
@@ -5293,6 +5371,31 @@
                 "regular"
             ],
             "category": "handwriting"
+        }
+    },
+    {
+        "Hanken Grotesk": {
+            "variants": [
+                "100",
+                "200",
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800",
+                "900",
+                "100italic",
+                "200italic",
+                "300italic",
+                "italic",
+                "500italic",
+                "600italic",
+                "700italic",
+                "800italic",
+                "900italic"
+            ],
+            "category": "sans-serif"
         }
     },
     {
@@ -7853,6 +7956,21 @@
                 "900"
             ],
             "category": "sans-serif"
+        }
+    },
+    {
+        "Martian Mono": {
+            "variants": [
+                "100",
+                "200",
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800"
+            ],
+            "category": "monospace"
         }
     },
     {
@@ -10713,6 +10831,17 @@
         }
     },
     {
+        "Noto Serif Khojki": {
+            "variants": [
+                "regular",
+                "500",
+                "600",
+                "700"
+            ],
+            "category": "serif"
+        }
+    },
+    {
         "Noto Serif Lao": {
             "variants": [
                 "100",
@@ -10756,6 +10885,17 @@
                 "700",
                 "800",
                 "900"
+            ],
+            "category": "serif"
+        }
+    },
+    {
+        "Noto Serif NP Hmong": {
+            "variants": [
+                "regular",
+                "500",
+                "600",
+                "700"
             ],
             "category": "serif"
         }
@@ -12767,6 +12907,14 @@
         }
     },
     {
+        "Rubik 80s Fade": {
+            "variants": [
+                "regular"
+            ],
+            "category": "display"
+        }
+    },
+    {
         "Rubik Beastly": {
             "variants": [
                 "regular"
@@ -12800,6 +12948,14 @@
     },
     {
         "Rubik Distressed": {
+            "variants": [
+                "regular"
+            ],
+            "category": "display"
+        }
+    },
+    {
+        "Rubik Gemstones": {
             "variants": [
                 "regular"
             ],
@@ -12864,6 +13020,30 @@
     },
     {
         "Rubik Puddles": {
+            "variants": [
+                "regular"
+            ],
+            "category": "display"
+        }
+    },
+    {
+        "Rubik Spray Paint": {
+            "variants": [
+                "regular"
+            ],
+            "category": "display"
+        }
+    },
+    {
+        "Rubik Storm": {
+            "variants": [
+                "regular"
+            ],
+            "category": "display"
+        }
+    },
+    {
+        "Rubik Vinyl": {
             "variants": [
                 "regular"
             ],
@@ -14785,6 +14965,21 @@
                 "regular"
             ],
             "category": "serif"
+        }
+    },
+    {
+        "Unbounded": {
+            "variants": [
+                "200",
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800",
+                "900"
+            ],
+            "category": "display"
         }
     },
     {
