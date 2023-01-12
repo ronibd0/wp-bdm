@@ -166,7 +166,7 @@ if ( ! function_exists( 'astra_post_date' ) ) {
  * Function to get Author name.
  *
  * @return null|string $author_name Author name.
- * @since x.x.x
+ * @since 4.0.0
  */
 function astra_post_author_name() {
 	$author_name = '';

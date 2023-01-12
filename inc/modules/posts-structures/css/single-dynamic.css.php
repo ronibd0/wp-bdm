@@ -3,7 +3,7 @@
  * Post Structures - Dynamic CSS
  *
  * @package Astra
- * @since x.x.x
+ * @since 4.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -22,7 +22,7 @@ add_filter( 'astra_dynamic_theme_css', 'astra_post_single_structure_dynamic_css'
  * @param  string $dynamic_css_filtered Astra Dynamic CSS Filters.
  * @return String Generated dynamic CSS for Post Structures.
  *
- * @since x.x.x
+ * @since 4.0.0
  */
 function astra_post_single_structure_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 
@@ -41,11 +41,12 @@ function astra_post_single_structure_dynamic_css( $dynamic_css, $dynamic_css_fil
 
 	$layout_type     = astra_get_option( 'ast-dynamic-single-' . $current_post_type . '-layout', 'layout-1' );
 	$layout_2_active = ( 'layout-2' === $layout_type ) ? true : false;
+	$exclude_attr    = astra_get_option( 'enable-related-posts', false ) ? ':not(.related-entry-header)' : '';
 
 	if ( $layout_2_active ) {
 		$selector = '.ast-single-entry-banner[data-post-type="' . $current_post_type . '"]';
 	} else {
-		$selector = 'header.entry-header';
+		$selector = 'header.entry-header' . $exclude_attr;
 	}
 
 	$horz_alignment   = astra_get_option( 'ast-dynamic-single-' . $current_post_type . '-horizontal-alignment' );
@@ -310,6 +311,15 @@ function astra_post_single_structure_dynamic_css( $dynamic_css, $dynamic_css_fil
 			margin-bottom: 0;
 		}
 	';
+
+	if ( is_customize_preview() ) {
+		$dynamic_css .= '
+			.site-header-focus-item .ast-container div.customize-partial-edit-shortcut,
+			.site-header-focus-item .ast-container button.item-customizer-focus {
+				font-size: inherit;
+			}
+		';
+	}
 
 	/* Parse CSS from array() */
 	$dynamic_css .= astra_parse_css( $css_output_desktop );

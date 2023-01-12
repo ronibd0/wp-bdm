@@ -5,7 +5,7 @@
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
  * @package Astra
- * @since x.x.x
+ * @since 4.0.0
  */
 
 $post_type      = strval( get_post_type() );

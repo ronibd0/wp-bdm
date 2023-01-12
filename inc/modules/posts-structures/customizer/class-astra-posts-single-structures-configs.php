@@ -6,7 +6,7 @@
  * @author      Brainstorm Force
  * @copyright   Copyright (c) 2022, Brainstorm Force
  * @link        https://www.brainstormforce.com
- * @since       Astra x.x.x
+ * @since       Astra 4.0.0
  */
 
 // Block direct access to the file.
@@ -22,7 +22,7 @@ if ( ! class_exists( 'Astra_Customizer_Config_Base' ) ) {
 /**
  * Register Posts Strctures Customizer Configurations.
  *
- * @since x.x.x
+ * @since 4.0.0
  */
 class Astra_Posts_Single_Structures_Configs extends Astra_Customizer_Config_Base {
 
@@ -31,7 +31,7 @@ class Astra_Posts_Single_Structures_Configs extends Astra_Customizer_Config_Base
 	 * Compatibility case: Narrow width + dynamic customizer controls.
 	 *
 	 * @param string $post_type On basis of this will decide to hide sidebar control or not.
-	 * @since x.x.x
+	 * @since 4.0.0
 	 */
 	public function get_sidebar_context( $post_type ) {
 		if ( ! in_array( $post_type, Astra_Posts_Structures_Configs::get_narrow_width_exculde_cpts() ) ) {
@@ -67,7 +67,7 @@ class Astra_Posts_Single_Structures_Configs extends Astra_Customizer_Config_Base
 	 * Compatibility case: Narrow width + dynamic customizer controls.
 	 *
 	 * @param string $post_type On basis of this will decide to show narrow-width layout or not.
-	 * @since x.x.x
+	 * @since 4.0.0
 	 */
 	public function get_content_layout_choices( $post_type ) {
 		if ( ! in_array( $post_type, Astra_Posts_Structures_Configs::get_narrow_width_exculde_cpts() ) ) {
@@ -128,7 +128,7 @@ class Astra_Posts_Single_Structures_Configs extends Astra_Customizer_Config_Base
 	 *
 	 * @param string $parent_section Section of dynamic customizer.
 	 * @param string $post_type Post Type.
-	 * @since x.x.x
+	 * @since 4.0.0
 	 *
 	 * @return array Customizer Configurations.
 	 */
@@ -184,7 +184,7 @@ class Astra_Posts_Single_Structures_Configs extends Astra_Customizer_Config_Base
 	 *
 	 * @param Array                $configurations Astra Customizer Configurations.
 	 * @param WP_Customize_Manager $wp_customize instance of WP_Customize_Manager.
-	 * @since x.x.x
+	 * @since 4.0.0
 	 * @return Array Astra Customizer Configurations with updated configurations.
 	 */
 	public function register_configuration( $configurations, $wp_customize ) {

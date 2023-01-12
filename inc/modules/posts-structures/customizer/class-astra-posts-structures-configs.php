@@ -6,7 +6,7 @@
  * @author      Brainstorm Force
  * @copyright   Copyright (c) 2022, Brainstorm Force
  * @link        https://www.brainstormforce.com
- * @since       Astra x.x.x
+ * @since       Astra 4.0.0
  */
 
 // Block direct access to the file.
@@ -22,7 +22,7 @@ if ( ! class_exists( 'Astra_Customizer_Config_Base' ) ) {
 /**
  * Register Posts Structures Customizer Configurations.
  *
- * @since x.x.x
+ * @since 4.0.0
  */
 class Astra_Posts_Structures_Configs extends Astra_Customizer_Config_Base {
 
@@ -30,7 +30,7 @@ class Astra_Posts_Structures_Configs extends Astra_Customizer_Config_Base {
 	 * Excluding some post types with avoiding narrow-width container layout.
 	 *
 	 * @return array
-	 * @since x.x.x
+	 * @since 4.0.0
 	 */
 	public static function get_narrow_width_exculde_cpts() {
 		return apply_filters( 'astra_exculde_narrow_width_support_posttypes', array( 'product', 'download', 'course', 'lesson', 'tutor_quiz', 'tutor_assignments', 'sfwd-assignment', 'sfwd-essays', 'sfwd-transactions', 'sfwd-certificates', 'sfwd-quiz' ) );
@@ -41,7 +41,7 @@ class Astra_Posts_Structures_Configs extends Astra_Customizer_Config_Base {
 	 *
 	 * @param Array                $configurations Astra Customizer Configurations.
 	 * @param WP_Customize_Manager $wp_customize instance of WP_Customize_Manager.
-	 * @since x.x.x
+	 * @since 4.0.0
 	 * @return Array Astra Customizer Configurations with updated configurations.
 	 */
 	public function register_configuration( $configurations, $wp_customize ) {

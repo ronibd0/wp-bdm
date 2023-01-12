@@ -3,7 +3,7 @@
  * Astra Admin Loader
  *
  * @package Astra
- * @since x.x.x
+ * @since 4.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Astra_Admin_Loader
  *
- * @since x.x.x
+ * @since 4.0.0
  */
 class Astra_Admin_Loader {
 
@@ -22,14 +22,14 @@ class Astra_Admin_Loader {
 	 *
 	 * @access private
 	 * @var null $instance
-	 * @since x.x.x
+	 * @since 4.0.0
 	 */
 	private static $instance;
 
 	/**
 	 * Initiator
 	 *
-	 * @since x.x.x
+	 * @since 4.0.0
 	 * @return object initialized object of class.
 	 */
 	public static function get_instance() {
@@ -44,7 +44,7 @@ class Astra_Admin_Loader {
 	/**
 	 * Constructor
 	 *
-	 * @since x.x.x
+	 * @since 4.0.0
 	 */
 	public function __construct() {
 		define( 'ASTRA_THEME_ADMIN_DIR', ASTRA_THEME_DIR . 'admin/' );
@@ -56,7 +56,7 @@ class Astra_Admin_Loader {
 	/**
 	 * Include required classes.
 	 *
-	 * @since x.x.x
+	 * @since 4.0.0
 	 */
 	public function includes() {
 		/* Ajax init */
