@@ -255,7 +255,7 @@ final class Astra_Builder_Base_Configuration {
 				'priority'  => 320,
 				'title'     => __( 'Visibility', 'astra' ),
 				'context'   => Astra_Builder_Helper::$general_tab,
-				'transport' => 'postMessage',
+				'transport' => 'refresh',
 				'choices'   => array(
 					'desktop' => 'customizer-desktop',
 					'tablet'  => 'customizer-tablet',
