@@ -223,13 +223,16 @@ class Astra_Posts_Structure_Loader {
 	public static function get_supported_post_types() {
 
 		$queried_post_types = array_keys(
-			get_post_types( apply_filters( 'astra_dynamic_get_post_types_query_args',
-				array(
-					'public'              => true,
-					'_builtin'            => false,
-					'exclude_from_search' => false,
-				)
-			) )
+			get_post_types(
+				apply_filters(
+					'astra_dynamic_get_post_types_query_args',
+					array(
+						'public'              => true,
+						'_builtin'            => false,
+						'exclude_from_search' => false,
+					)
+				) 
+			)
 		);
 
 		$queried_post_types = array_diff(
