@@ -1,5 +1,5 @@
 v4.0.1
-- Fix : Scroll to id issue with anchor links.
+- Fix : Scroll to Id - Navigation hash link which redirect to other page's section is not clickable.
 
 v4.0.0
 - New: Redesigned the entire admin area with better user experience. ( https://wpastra.com/updates/astra-4 )
