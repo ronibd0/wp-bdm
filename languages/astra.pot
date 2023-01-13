@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2023-01-06T08:44:32+00:00\n"
+"POT-Creation-Date: 2023-01-11T10:46:36+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.4.0\n"
 "X-Domain: astra\n"
@@ -94,9 +94,9 @@ msgstr ""
 
 #: admin/includes/class-astra-menu.php:186
 #: admin/includes/class-astra-menu.php:187
-#: admin/includes/class-astra-menu.php:780
-#: admin/includes/class-astra-menu.php:819
-#: admin/includes/class-astra-menu.php:886
+#: admin/includes/class-astra-menu.php:782
+#: admin/includes/class-astra-menu.php:823
+#: admin/includes/class-astra-menu.php:892
 msgid "Spectra"
 msgstr ""
 
@@ -168,8 +168,8 @@ msgstr ""
 #. translators: %s Index
 #: admin/includes/class-astra-menu.php:312
 #: inc/compatibility/edd/customizer/sections/layout/class-astra-edd-archive-layout-configs.php:154
-#: inc/core/builder/class-astra-builder-options.php:1146
-#: inc/core/builder/class-astra-builder-options.php:1233
+#: inc/core/builder/class-astra-builder-options.php:1148
+#: inc/core/builder/class-astra-builder-options.php:1235
 #: inc/core/class-astra-theme-options.php:249
 #: inc/customizer/configurations/builder/base/class-astra-button-component-configs.php:67
 #: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:151
@@ -328,7 +328,7 @@ msgid "White Label"
 msgstr ""
 
 #: admin/includes/class-astra-menu.php:693
-#: admin/includes/class-astra-menu.php:912
+#: admin/includes/class-astra-menu.php:918
 msgid "CartFlows"
 msgstr ""
 
@@ -361,54 +361,54 @@ msgid "Beautiful store variation swatches."
 msgstr ""
 
 #: admin/includes/class-astra-menu.php:741
-#: admin/includes/class-astra-menu.php:792
-#: admin/includes/class-astra-menu.php:843
+#: admin/includes/class-astra-menu.php:794
+#: admin/includes/class-astra-menu.php:847
 msgid "SureTriggers"
 msgstr ""
 
 #: admin/includes/class-astra-menu.php:742
-#: admin/includes/class-astra-menu.php:793
-#: admin/includes/class-astra-menu.php:844
+#: admin/includes/class-astra-menu.php:795
+#: admin/includes/class-astra-menu.php:848
 msgid "Automate your WordPress setup."
 msgstr ""
 
-#: admin/includes/class-astra-menu.php:756
-#: admin/includes/class-astra-menu.php:831
-#: admin/includes/class-astra-menu.php:899
+#: admin/includes/class-astra-menu.php:758
+#: admin/includes/class-astra-menu.php:835
+#: admin/includes/class-astra-menu.php:905
 msgid "SureCart"
 msgstr ""
 
-#: admin/includes/class-astra-menu.php:757
-#: admin/includes/class-astra-menu.php:832
+#: admin/includes/class-astra-menu.php:759
+#: admin/includes/class-astra-menu.php:836
 msgid "The new way to sell on WordPress."
 msgstr ""
 
-#: admin/includes/class-astra-menu.php:768
+#: admin/includes/class-astra-menu.php:770
 msgid "Presto Player"
 msgstr ""
 
-#: admin/includes/class-astra-menu.php:769
+#: admin/includes/class-astra-menu.php:771
 msgid "Ultimate Video Player For WordPress."
 msgstr ""
 
-#: admin/includes/class-astra-menu.php:781
-#: admin/includes/class-astra-menu.php:820
+#: admin/includes/class-astra-menu.php:783
+#: admin/includes/class-astra-menu.php:824
 msgid "Free WordPress Page Builder."
 msgstr ""
 
-#: admin/includes/class-astra-menu.php:808
+#: admin/includes/class-astra-menu.php:812
 msgid "280+ Ready to Import Templates."
 msgstr ""
 
-#: admin/includes/class-astra-menu.php:887
+#: admin/includes/class-astra-menu.php:893
 msgid "Free WordPress Page Builder Plugin."
 msgstr ""
 
-#: admin/includes/class-astra-menu.php:900
+#: admin/includes/class-astra-menu.php:906
 msgid "Simplifying selling online with WordPress."
 msgstr ""
 
-#: admin/includes/class-astra-menu.php:913
+#: admin/includes/class-astra-menu.php:919
 msgid "#1 Sales Funnel Builder for WordPress."
 msgstr ""
 
@@ -2865,16 +2865,16 @@ msgstr ""
 msgid "Toggle Button"
 msgstr ""
 
-#: inc/core/builder/class-astra-builder-options.php:1068
+#: inc/core/builder/class-astra-builder-options.php:1070
 msgid "Log In"
 msgstr ""
 
-#: inc/core/builder/class-astra-builder-options.php:1069
+#: inc/core/builder/class-astra-builder-options.php:1071
 msgid "My Account"
 msgstr ""
 
-#: inc/core/builder/class-astra-builder-options.php:1330
-#: inc/core/builder/class-astra-builder-options.php:1369
+#: inc/core/builder/class-astra-builder-options.php:1332
+#: inc/core/builder/class-astra-builder-options.php:1371
 msgid "Insert HTML text here."
 msgstr ""
 
@@ -2904,7 +2904,6 @@ msgstr ""
 
 #: inc/core/class-astra-admin-settings.php:159
 #: inc/core/class-astra-admin-settings.php:162
-#: admin/assets/src/dashboard-app/pages/welcome/UsefulPlugins.js:116
 msgid "Get Started"
 msgstr ""
 

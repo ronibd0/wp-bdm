@@ -1,5 +1,6 @@
-v4.0.1
-- Fix : Scroll to Id - Navigation hash link which redirect to other page's section is not clickable.
+v4.0.1 (Unreleased)
+- Fix: Smooth scroll to ID - Navigation hash link which redirect to other page's section is not clickable.
+- Fix: Archive type title gets added as prefix on archive pages.
 
 v4.0.0
 - New: Redesigned the entire admin area with better user experience. ( https://wpastra.com/updates/astra-4 )
