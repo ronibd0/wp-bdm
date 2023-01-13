@@ -1,4 +1,5 @@
 v4.0.1 (Unreleased)
+- Fix: Smooth scroll to ID - Navigation hash link which redirect to other page's section is not clickable.
 - Fix: Archive type title gets added as prefix on archive pages.
 
 v4.0.0
