@@ -1,3 +1,11 @@
+v4.0.1
+- Improvement: Introducing filter 'astra_dynamic_get_post_types_query_args' for getting post types list to load further dynamic sections in customizer.
+- Fix: Header Builder - Visibility control options missing from header sections & respective element sections.
+- Fix: Header Builder - Header or the elements on the frontend gets hide directly if previously back in past it got disabled temporary.
+- Fix: Header Builder - Account - PHP error E_PARSE gives syntax error for customizer configurations.
+- Fix: Smooth scroll to ID - Navigation hash link which redirect to other page's section is not clickable.
+- Fix: Archive type title gets added as prefix on archive pages.
+
 v4.0.0
 - New: Redesigned the entire admin area with better user experience. ( https://wpastra.com/updates/astra-4 )
 - New: Narrow Width Container layout for Single Posts, Blogs/Archives & Pages. ( https://wpastra.com/docs/narrow-width-container-layout/ )
