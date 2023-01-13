@@ -1,3 +1,6 @@
+v4.0.1 (Unreleased)
+- Fix: Archive type title gets added as prefix on archive pages.
+
 v4.0.0
 - New: Redesigned the entire admin area with better user experience. ( https://wpastra.com/updates/astra-4 )
 - New: Narrow Width Container layout for Single Posts, Blogs/Archives & Pages. ( https://wpastra.com/docs/narrow-width-container-layout/ )
