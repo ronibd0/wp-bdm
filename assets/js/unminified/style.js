@@ -669,7 +669,9 @@ astScrollToTopHandler = function ( masthead, astScrollTop ) {
 		}
 
 		function scrollToIDHandler(e) {
-			! isUrl ?  e.preventDefault() : '';
+			if( ! isUrl ) {
+				e.preventDefault();
+			}
 
 			let offset = 0;
 			const siteHeader = document.querySelector('.site-header');
