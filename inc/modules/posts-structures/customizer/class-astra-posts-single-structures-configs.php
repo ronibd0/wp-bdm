@@ -227,7 +227,7 @@ class Astra_Posts_Single_Structures_Configs extends Astra_Customizer_Config_Base
 				$parent_section = $section;
 			}
 
-			$taxonomy_meta = array();
+			$meta_config_options = array();
 			$clone_limit   = 0;
 			/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			if ( count( $taxonomies ) > 1 ) {
@@ -237,7 +237,7 @@ class Astra_Posts_Single_Structures_Configs extends Astra_Customizer_Config_Base
 				if ( absint( astra_get_option( $title_section . '-taxonomy-clone-tracker', 1 ) ) === $clone_limit ) {
 					$to_clone = false;
 				}
-				$taxonomy_meta[ $title_section . '-taxonomy' ]   = array(
+				$meta_config_options[ $title_section . '-taxonomy' ]   = array(
 					'clone'         => $to_clone,
 					'is_parent'     => true,
 					'main_index'    => $title_section . '-taxonomy',
@@ -245,7 +245,7 @@ class Astra_Posts_Single_Structures_Configs extends Astra_Customizer_Config_Base
 					'clone_tracker' => ASTRA_THEME_SETTINGS . '[' . $title_section . '-taxonomy-clone-tracker]',
 					'title'         => __( 'Taxonomy', 'astra' ),
 				);
-				$taxonomy_meta[ $title_section . '-taxonomy-1' ] = array(
+				$meta_config_options[ $title_section . '-taxonomy-1' ] = array(
 					'clone'         => $to_clone,
 					'is_parent'     => true,
 					'main_index'    => $title_section . '-taxonomy',
@@ -253,7 +253,7 @@ class Astra_Posts_Single_Structures_Configs extends Astra_Customizer_Config_Base
 					'clone_tracker' => ASTRA_THEME_SETTINGS . '[' . $title_section . '-taxonomy-clone-tracker]',
 					'title'         => __( 'Taxonomy', 'astra' ),
 				);
-				$taxonomy_meta[ $title_section . '-taxonomy-2' ] = array(
+				$meta_config_options[ $title_section . '-taxonomy-2' ] = array(
 					'clone'         => $to_clone,
 					'is_parent'     => true,
 					'main_index'    => $title_section . '-taxonomy',
@@ -262,6 +262,12 @@ class Astra_Posts_Single_Structures_Configs extends Astra_Customizer_Config_Base
 					'title'         => __( 'Taxonomy', 'astra' ),
 				);
 			}
+
+			$meta_data_defaults = array( 'comments', 'author', 'date' );
+            if ( defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'blog-pro' ) ) {
+				$meta_config_options['read-time'] = __( 'Read Time', 'astra-addon' );
+				$meta_data_defaults = array( 'comments', 'author', 'date', 'read-time' );
+            }
 
 			$structure_sub_controls = array();
 			// Add featured as background sub-control.
@@ -502,7 +508,7 @@ class Astra_Posts_Single_Structures_Configs extends Astra_Customizer_Config_Base
 					'type'              => 'control',
 					'control'           => 'ast-sortable',
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_multi_choices' ),
-					'default'           => astra_get_option( $title_section . '-metadata', array( 'comments', 'author', 'date' ) ),
+					'default'           => astra_get_option( $title_section . '-metadata', $meta_data_defaults ),
 					'context'           => array(
 						Astra_Builder_Helper::$general_tab_config,
 						'relation' => 'AND',
@@ -522,7 +528,7 @@ class Astra_Posts_Single_Structures_Configs extends Astra_Customizer_Config_Base
 							'author'   => __( 'Author', 'astra' ),
 							'date'     => __( 'Publish Date', 'astra' ),
 						),
-						$taxonomy_meta
+						$meta_config_options
 					),
 				),
 
