@@ -838,6 +838,9 @@ function astra_theme_background_updater_4_0_0() {
 								$tax_slug    = 'ast-dynamic-single-' . esc_attr( $post_type ) . '-taxonomy-' . $tax_counter;
 							}
 							break;
+						case 'read-time':
+							$migrated_post_metadata[] = 'read-time';
+							break;
 						default:
 							break;
 					}

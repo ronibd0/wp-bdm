@@ -263,10 +263,8 @@ class Astra_Posts_Single_Structures_Configs extends Astra_Customizer_Config_Base
 				);
 			}
 
-			$meta_data_defaults = array( 'comments', 'author', 'date' );
             if ( defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'blog-pro' ) ) {
 				$meta_config_options['read-time'] = __( 'Read Time', 'astra-addon' );
-				$meta_data_defaults = array( 'comments', 'author', 'date', 'read-time' );
             }
 
 			$structure_sub_controls = array();
@@ -508,7 +506,7 @@ class Astra_Posts_Single_Structures_Configs extends Astra_Customizer_Config_Base
 					'type'              => 'control',
 					'control'           => 'ast-sortable',
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_multi_choices' ),
-					'default'           => astra_get_option( $title_section . '-metadata', $meta_data_defaults ),
+					'default'           => astra_get_option( $title_section . '-metadata', array( 'comments', 'author', 'date' ) ),
 					'context'           => array(
 						Astra_Builder_Helper::$general_tab_config,
 						'relation' => 'AND',
