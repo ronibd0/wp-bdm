@@ -227,11 +227,10 @@ class Astra_Posts_Structure_Loader {
 				apply_filters(
 					'astra_dynamic_get_post_types_query_args',
 					array(
-						'public'              => true,
-						'_builtin'            => false,
-						'exclude_from_search' => false,
+						'public'   => true,
+						'_builtin' => false,
 					)
-				) 
+				)
 			)
 		);
 

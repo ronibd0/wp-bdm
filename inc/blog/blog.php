@@ -480,11 +480,13 @@ function astra_banner_elements_order( $structure = array() ) {
 
 			case 'archive-title':
 				do_action( 'astra_blog_archive_title_before' );
+				add_filter( 'get_the_archive_title_prefix', '__return_empty_string' );
 				if ( 'layout-1' === $layout_type ) {
 					astra_the_post_title( '<h1 class="page-title ast-archive-title">', '</h1>', 0, true );
 				} else {
 					astra_the_post_title( '<h1>', '</h1>', 0, true );
 				}
+				remove_filter( 'get_the_archive_title_prefix', '__return_empty_string' );
 				do_action( 'astra_blog_archive_title_after' );
 				break;
 
