@@ -947,7 +947,9 @@ function astra_get_taxonomy_banner_legacy_layout() {
 				switch ( $meta_key ) {
 					case 'archive-title':
 						do_action( 'astra_before_archive_title' );
+						add_filter( 'get_the_archive_title_prefix', '__return_empty_string' );
 						the_archive_title( '<h1 class="page-title ast-archive-title">', '</h1>' );
+						remove_filter( 'get_the_archive_title_prefix', '__return_empty_string' );
 						do_action( 'astra_after_archive_title' );
 						break;
 					case 'archive-breadcrumb':

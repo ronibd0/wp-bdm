@@ -1030,7 +1030,6 @@ astScrollToTopHandler = function ( masthead, astScrollTop ) {
 		}
 
 		function scrollToIDHandler(e) {
-			e.preventDefault();
 
 			let offset = 0;
 			const siteHeader = document.querySelector('.site-header');
@@ -1046,11 +1045,14 @@ astScrollToTopHandler = function ( masthead, astScrollTop ) {
 					});
 				}
 
-				const href = this.getAttribute("href");
+				const href = this.hash;
 				if (href) {
-					const scrollOffsetTop = document.querySelector(href).offsetTop - offset;
-					if (scrollOffsetTop) {
-						astraSmoothScroll( e, scrollOffsetTop );
+					const scrollId = document.querySelector(href);
+					if (scrollId) {
+						const scrollOffsetTop = scrollId.offsetTop - offset;
+						if( scrollOffsetTop ) {
+							astraSmoothScroll( e, scrollOffsetTop );
+						}
 					}
 				}
 			}
