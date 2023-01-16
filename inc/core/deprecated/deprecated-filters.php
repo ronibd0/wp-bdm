@@ -186,8 +186,8 @@ add_filter( 'astra_single_post_meta', 'astra_deprecated_astra_single_banner_post
  * Single meta markup filter.
  *
  * @since x.x.x
- * @param string $meta_markup custom class assigned to primary submenu.
- * @return string  $meta_markup updated class selector.
+ * @param string $meta_markup Markup of meta.
+ * @return string  $meta_markup Markup of meta.
  */
 function astra_deprecated_astra_single_banner_post_meta_filter( $meta_markup ) {
 	$meta_markup = astra_apply_filters_deprecated( 'astra_single_banner_post_meta', array( $meta_markup ), 'x.x.x', 'astra_single_post_meta', '' );
