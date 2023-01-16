@@ -461,7 +461,7 @@ function astra_banner_elements_order( $structure = array() ) {
 				if ( ! empty( $post_meta ) ) {
 					$output_str = astra_get_post_meta( $post_meta );
 					if ( ! empty( $output_str ) ) {
-						$output = apply_filters( 'astra_single_banner_post_meta', '<div class="entry-meta">' . $output_str . '</div>' ); // WPCS: XSS OK.
+						$output = apply_filters( 'astra_single_post_meta', '<div class="entry-meta">' . $output_str . '</div>' ); // WPCS: XSS OK.
 					}
 				}
 				echo $output; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
