@@ -1026,5 +1026,6 @@ function astra_theme_background_updater_4_0_2() {
 				$theme_options[ 'ast-dynamic-single-' . esc_attr( $post_type ) . '-metadata' ] = $migrated_post_metadata;
 			}
 		}
+		update_option( 'astra-settings', $theme_options );
 	}
 }
