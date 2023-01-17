@@ -266,7 +266,7 @@ class Astra_Posts_Single_Structures_Configs extends Astra_Customizer_Config_Base
 			// Display Read Time option in Meta options only when Astra Addon is activated.
 			/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			if ( defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'blog-pro' ) ) {
-				$meta_config_options['read-time'] = __( 'Read Time', 'astra-addon' );
+				$meta_config_options['read-time'] = __( 'Read Time', 'astra' );
 			}
 
 			$structure_sub_controls = array();
