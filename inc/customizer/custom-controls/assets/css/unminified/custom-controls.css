@@ -290,6 +290,7 @@
   border-radius: 3px;
   box-shadow: none;
   transition: all 0.3s;
+  -moz-appearance: textfield;
 }
 
 .customize-control-ast-border .input-wrapper .ast-border-wrapper li .ast-border-connected {
@@ -3240,6 +3241,10 @@ span.customize-control-title.ast-group-section-title {
 .customize-control-ast-responsive-spacing .ast-spacing-input-item {
   margin: 0 2px;
   -moz-appearance: textfield;
+}
+
+.customize-control-ast-responsive-spacing .ast-spacing-input-item input[type=number] {
+	-moz-appearance: textfield;
 }
 
 .customize-control-ast-responsive-spacing .ast-spacing-input-item input::-webkit-inner-spin-button,
