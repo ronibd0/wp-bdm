@@ -1001,29 +1001,12 @@ function astra_theme_background_updater_4_0_0() {
  * @return void
  */
 function astra_theme_background_updater_4_0_2() {
-
-	$theme_options = get_option( 'astra-settings', array() );
-
-	if( isset( $theme_options['blog-single-meta'] ) ) {
-
-		$post_types = Astra_Posts_Structure_Loader::get_supported_post_types();
-		foreach ( $post_types as $index => $post_type ) {
-			// Single post meta.
-			/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-			$single_post_meta = isset( $theme_options['blog-single-meta'] ) ? $theme_options['blog-single-meta'] : array( 'comments', 'category', 'author' );
-			/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-			if ( ! empty( $single_post_meta ) ) {
-				/** @psalm-suppress PossiblyInvalidIterator */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-				foreach ( $single_post_meta as $key ) {
-					/** @psalm-suppress PossiblyInvalidIterator */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-					if( 'read-time' === $key ) {
-						array_push( $theme_options[ 'ast-dynamic-single-' . esc_attr( $post_type ) . '-metadata' ], 'read-time' );
-						break;
-					}
-				}
-			}
-		}
-		update_option( 'astra-settings', $theme_options );
-
-	}
+    $theme_options = get_option( 'astra-settings', array() );
+    if( isset( $theme_options['blog-single-meta'] ) && in_array( 'read-time', $theme_options['blog-single-meta'] ) ) {
+        $post_types = Astra_Posts_Structure_Loader::get_supported_post_types();
+        foreach ( $post_types as $post_type ) {
+            $theme_options[ 'ast-dynamic-single-' . esc_attr( $post_type ) . '-metadata' ][] = 'read-time';
+        }
+        update_option( 'astra-settings', $theme_options );
+    }
 }
