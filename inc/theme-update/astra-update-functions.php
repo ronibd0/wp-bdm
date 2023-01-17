@@ -838,9 +838,6 @@ function astra_theme_background_updater_4_0_0() {
 								$tax_slug    = 'ast-dynamic-single-' . esc_attr( $post_type ) . '-taxonomy-' . $tax_counter;
 							}
 							break;
-						case 'read-time':
-							$migrated_post_metadata[] = 'read-time';
-							break;
 						default:
 							break;
 					}
@@ -991,6 +988,24 @@ function astra_theme_background_updater_4_0_0() {
 	// Block editor experience improvements compatibility flag.
 	if ( ! isset( $theme_options['v4-block-editor-compat'] ) ) {
 		$theme_options['v4-block-editor-compat'] = false;
+		update_option( 'astra-settings', $theme_options );
+	}
+}
+
+/**
+ * 4.0.2 backward handling part.
+ *
+ * 1. Read Time option backwards handling for old users.
+ *
+ * @since x.x.x
+ * @return void
+ */
+function astra_theme_background_updater_4_0_2() {
+	$theme_options = get_option( 'astra-settings', array() );
+	$migrated_post_metadata = array();
+	if ( isset( $theme_options['blog-single-meta'] ) && isset( $theme_options['blog-single-meta']['read-time'] ) ) {
+		$migrated_post_metadata[] = 'read-time';
+		$theme_options[ 'ast-dynamic-single-' . esc_attr( $post_type ) . '-metadata' ] = $migrated_post_metadata;
 		update_option( 'astra-settings', $theme_options );
 	}
 }
