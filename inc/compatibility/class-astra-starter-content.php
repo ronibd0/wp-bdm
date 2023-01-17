@@ -240,7 +240,6 @@ class Astra_Starter_Content {
 			'options'     => array(
 				'page_on_front' => '{{' . self::HOME_SLUG . '}}',
 				'show_on_front' => 'page',
-				'blogname'      => 'Astra',
 			),
 			'posts'       => array(
 				self::HOME_SLUG => require ASTRA_THEME_DIR . 'inc/compatibility/starter-content/home.php', // PHPCS:ignore WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
