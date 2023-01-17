@@ -1001,9 +1001,9 @@ function astra_theme_background_updater_4_0_0() {
  * @return void
  */
 function astra_theme_background_updater_4_0_2() {
-    $theme_options = get_option( 'astra-settings', array() );
-    if( isset( $theme_options['blog-single-meta'] ) && in_array( 'read-time', $theme_options['blog-single-meta'] ) && ( ! in_array( 'read-time', $theme_options[ 'ast-dynamic-single-post-metadata' ] ) ) ) {
-        $theme_options[ 'ast-dynamic-single-post-metadata' ][] = 'read-time';
-        update_option( 'astra-settings', $theme_options );
-    }
+	$theme_options = get_option( 'astra-settings', array() );
+	if( isset( $theme_options['blog-single-meta'] ) && in_array( 'read-time', $theme_options['blog-single-meta'] ) && ( ! in_array( 'read-time', $theme_options[ 'ast-dynamic-single-post-metadata' ] ) ) ) {
+		$theme_options[ 'ast-dynamic-single-post-metadata' ][] = 'read-time';
+		update_option( 'astra-settings', $theme_options );
+	}
 }
