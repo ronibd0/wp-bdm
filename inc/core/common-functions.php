@@ -1646,5 +1646,5 @@ function astra_narrow_container_width( $location, $narrow_container_max_width ) 
  * @return string formatted label.
  */
 function astra_get_dynamic_section_title( $post_type_obj, $label ) {
-	return isset( $post_type_obj->labels->name ) ? $post_type_obj->labels->name : ucfirst( $label );
+	return isset( $post_type_obj ) && isset( $post_type_obj->labels->name ) ? $post_type_obj->labels->name : ucfirst( $label );
 }
