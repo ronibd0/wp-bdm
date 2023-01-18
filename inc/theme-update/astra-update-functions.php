@@ -991,3 +991,22 @@ function astra_theme_background_updater_4_0_0() {
 		update_option( 'astra-settings', $theme_options );
 	}
 }
+
+/**
+ * 4.0.2 backward handling part.
+ *
+ * 1. Read Time option backwards handling for old users.
+ *
+ * @since x.x.x
+ * @return void
+ */
+function astra_theme_background_updater_4_0_2() {
+	$theme_options = get_option( 'astra-settings', array() );
+	if ( ! isset( $theme_options['v4-0-2-update-migration'] ) && isset( $theme_options['blog-single-meta'] ) && in_array( 'read-time', $theme_options['blog-single-meta'] ) ) {
+		if( isset( $theme_options['ast-dynamic-single-post-metadata'] ) && ! in_array( 'read-time', $theme_options['ast-dynamic-single-post-metadata'] ) ) {
+			$theme_options['ast-dynamic-single-post-metadata'][] = 'read-time';
+			$theme_options['v4-0-2-update-migration'] = true;
+			update_option( 'astra-settings', $theme_options );
+		}
+	}
+}
