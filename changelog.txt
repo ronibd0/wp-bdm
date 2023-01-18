@@ -9,6 +9,7 @@ v4.0.2 (Unreleased)
 - Fix: UI glitch typography input box control on Firefox browser.
 - Fix: Theme preview showing title area on the banner section for the homepage.
 - Fix: Importing wp-starter-content template on fresh setup overriding the existing site title.
+- Fix: Re-fetching of custom post types list for dynamic customizer improved with single call.
 
 v4.0.1
 - Improvement: Introducing filter 'astra_dynamic_get_post_types_query_args' for getting post types list to load further dynamic sections in customizer.

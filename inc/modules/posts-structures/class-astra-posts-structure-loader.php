@@ -30,9 +30,9 @@ class Astra_Posts_Structure_Loader {
 	/**
 	 * Supported post types to process dynamic customizer.
 	 *
-	 * @var array $supported_post_types
+	 * @var null $supported_post_types
 	 */
-	private static $supported_post_types = array();
+	private static $supported_post_types = null;
 
 	/**
 	 *  Constructor
@@ -228,56 +228,53 @@ class Astra_Posts_Structure_Loader {
 	 * @return array $post_types
 	 */
 	public static function get_supported_post_types() {
-
-		if ( ! empty( self::$supported_post_types ) ) {
-			return apply_filters( 'astra_dynamic_post_structure_posttypes', self::$supported_post_types );
-		}
-
-		$queried_post_types = array_keys(
-			get_post_types(
-				apply_filters(
-					'astra_dynamic_get_post_types_query_args',
-					array(
-						'public'   => true,
-						'_builtin' => false,
+		if ( is_null( self::$supported_post_types ) || is_customize_preview() ) {
+			$queried_post_types = array_keys(
+				get_post_types(
+					apply_filters(
+						'astra_dynamic_get_post_types_query_args',
+						array(
+							'public'   => true,
+							'_builtin' => false,
+						)
 					)
 				)
-			)
-		);
+			);
 
-		$queried_post_types = array_diff(
-			$queried_post_types,
-			array(
-				'astra-advanced-hook',
-				'astra_adv_header',
-				'elementor_library',
-				'brizy_template',
+			$queried_post_types = array_diff(
+				$queried_post_types,
+				array(
+					'astra-advanced-hook',
+					'astra_adv_header',
+					'elementor_library',
+					'brizy_template',
 
-				'course',
-				'lesson',
-				'llms_membership',
+					'course',
+					'lesson',
+					'llms_membership',
 
-				'tutor_quiz',
-				'tutor_assignments',
+					'tutor_quiz',
+					'tutor_assignments',
 
-				'testimonial',
-				'frm_display',
-				'mec_esb',
-				'mec-events',
+					'testimonial',
+					'frm_display',
+					'mec_esb',
+					'mec-events',
 
-				'sfwd-assignment',
-				'sfwd-essays',
-				'sfwd-transactions',
-				'sfwd-certificates',
-				'sfwd-quiz',
-				'e-landing-page',
-			)
-		);
+					'sfwd-assignment',
+					'sfwd-essays',
+					'sfwd-transactions',
+					'sfwd-certificates',
+					'sfwd-quiz',
+					'e-landing-page',
+				)
+			);
+			$queried_post_types[] = 'post';
+			$queried_post_types[] = 'page';
 
-		$queried_post_types[] = 'post';
-		$queried_post_types[] = 'page';
+			self::$supported_post_types = $queried_post_types;
+		}
 
-		self::$supported_post_types = array_reverse( array_unique( $queried_post_types ) );
 		return apply_filters( 'astra_dynamic_post_structure_posttypes', self::$supported_post_types );
 	}
 
