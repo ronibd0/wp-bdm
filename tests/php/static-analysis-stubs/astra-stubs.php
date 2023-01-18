@@ -14706,6 +14706,17 @@ namespace {
     {
     }
     /**
+     * Function to get formatted dynamic cpt section title.
+     *
+     * @since x.x.x
+     * @param object $post_type_obj WP_Post_Type object.
+     * @param string $label fallback label.
+     * @return string formatted label.
+     */
+    function astra_get_dynamic_section_title( $post_type_obj, $label )
+    {
+    }
+    /**
      * Astra Color Palettes
      *
      * @since 1.0.23
