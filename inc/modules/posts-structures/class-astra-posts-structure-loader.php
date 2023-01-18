@@ -28,6 +28,13 @@ class Astra_Posts_Structure_Loader {
 	private static $customizer_defaults = array();
 
 	/**
+	 * Supported post types to process dynamic customizer.
+	 *
+	 * @var array $supported_post_types
+	 */
+	private static $supported_post_types = array();
+
+	/**
 	 *  Constructor
 	 *
 	 * @since 4.0.0
@@ -222,6 +229,10 @@ class Astra_Posts_Structure_Loader {
 	 */
 	public static function get_supported_post_types() {
 
+		if ( ! empty( self::$supported_post_types ) ) {
+			return apply_filters( 'astra_dynamic_post_structure_posttypes', self::$supported_post_types );
+		}
+
 		$queried_post_types = array_keys(
 			get_post_types(
 				apply_filters(
@@ -266,9 +277,8 @@ class Astra_Posts_Structure_Loader {
 		$queried_post_types[] = 'post';
 		$queried_post_types[] = 'page';
 
-		$supported_post_types = array_reverse( array_unique( $queried_post_types ) );
-
-		return apply_filters( 'astra_dynamic_post_structure_posttypes', $supported_post_types );
+		self::$supported_post_types = array_reverse( array_unique( $queried_post_types ) );
+		return apply_filters( 'astra_dynamic_post_structure_posttypes', self::$supported_post_types );
 	}
 
 	/**
