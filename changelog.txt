@@ -3,6 +3,7 @@ v4.0.2 (Unreleased)
 - Fix: exclude_from_search query parameter removed from get_post_types list to get CPTs under Customizer > Custom Post Types  section, case of CartFlows Step custom post type.
 - Fix: Archive - Title area 2 - Archive type title gets added as prefix on archive pages.
 - Fix: Text transformed to 'capitalize' for single post titles & archive titles after 4.0.0.
+- Fix: UI glitch typography input box control on Firefox browser.
 - Fix: Theme preview showing title area on the banner section for the homepage.
 - Fix: Importing wp-starter-content template on fresh setup overriding the existing site title.
 
