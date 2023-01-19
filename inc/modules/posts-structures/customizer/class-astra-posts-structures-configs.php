@@ -45,7 +45,7 @@ class Astra_Posts_Structures_Configs extends Astra_Customizer_Config_Base {
 	 * @return string formatted label.
 	 */
 	public static function astra_get_dynamic_section_title( $post_type_obj, $label ) {
-		return isset( $post_type_obj ) && isset( $post_type_obj->labels->name ) ? $post_type_obj->labels->name : ucfirst( $label );
+		return is_object( $post_type_obj ) && isset( $post_type_obj->labels->name ) ? $post_type_obj->labels->name : ucfirst( $label );
 	}
 
 	/**
