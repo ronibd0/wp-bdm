@@ -65,7 +65,7 @@ class Astra_Starter_Content {
 	/**
 	 * Load default starter meta.
 	 *
-	 * @since x.x.x
+	 * @since 4.0.2
 	 * @param mixed  $value Value.
 	 * @param int    $post_id Post id.
 	 * @param string $meta_key Meta key.

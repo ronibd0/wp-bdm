@@ -1771,11 +1771,11 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				$default_mobile_layout_css = array(
 					'.ast-comment-formwrap.ast-row' => array(
 						'column-gap' => '10px',
-						'display' => 'inline-block'
+						'display'    => 'inline-block',
 					),
 					'#ast-commentform .ast-grid-common-col' => array(
 						'position' => 'relative',
-						'width' => '100%'
+						'width'    => '100%',
 					),
 				);
 

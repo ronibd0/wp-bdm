@@ -67,7 +67,7 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 		/**
 		 * A static theme astra-options variable.
 		 *
-		 * @since x.x.x
+		 * @since 4.0.2
 		 * @access public
 		 * @var mixed $astra_options
 		 */

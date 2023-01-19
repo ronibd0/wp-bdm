@@ -241,7 +241,7 @@ class Astra_Posts_Structure_Loader {
 				)
 			);
 
-			$queried_post_types = array_diff(
+			$queried_post_types   = array_diff(
 				$queried_post_types,
 				array(
 					'astra-advanced-hook',
