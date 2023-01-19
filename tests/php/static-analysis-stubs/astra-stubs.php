@@ -11905,6 +11905,16 @@ namespace {
         public static function get_narrow_width_exculde_cpts()
         {
         }
+		/**
+		 * Function to get formatted dynamic cpt section title.
+		 *
+		 * @since x.x.x
+		 * @param object|null $post_type_obj WP_Post_Type object.
+		 * @param string $label fallback label.
+		 * @return string formatted label.
+		 */
+		public static function astra_get_dynamic_section_title($post_type_obj, $label) {
+		}
         /**
          * Register Posts Structures Customizer Configurations.
          *
@@ -14703,17 +14713,6 @@ namespace {
      * @return string Parsed CSS based on $location and $narrow_container_max_width.
      */
     function astra_narrow_container_width($location, $narrow_container_max_width)
-    {
-    }
-    /**
-     * Function to get formatted dynamic cpt section title.
-     *
-     * @since x.x.x
-     * @param object|null $post_type_obj WP_Post_Type object.
-     * @param string $label fallback label.
-     * @return string formatted label.
-     */
-    function astra_get_dynamic_section_title( $post_type_obj, $label )
     {
     }
     /**

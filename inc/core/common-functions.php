@@ -1636,15 +1636,3 @@ function astra_narrow_container_width( $location, $narrow_container_max_width ) 
 		return '';
 	}
 }
-
-/**
- * Function to get formatted dynamic cpt section title.
- *
- * @since x.x.x
- * @param object|null $post_type_obj WP_Post_Type object.
- * @param string $label fallback label.
- * @return string formatted label.
- */
-function astra_get_dynamic_section_title( $post_type_obj, $label ) {
-	return isset( $post_type_obj ) && isset( $post_type_obj->labels->name ) ? $post_type_obj->labels->name : ucfirst( $label );
-}

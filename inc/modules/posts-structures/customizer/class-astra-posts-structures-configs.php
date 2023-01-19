@@ -37,6 +37,18 @@ class Astra_Posts_Structures_Configs extends Astra_Customizer_Config_Base {
 	}
 
 	/**
+	 * Function to get formatted dynamic cpt section title.
+	 *
+	 * @since x.x.x
+	 * @param object|null $post_type_obj WP_Post_Type object.
+	 * @param string $label fallback label.
+	 * @return string formatted label.
+	 */
+	public static function astra_get_dynamic_section_title( $post_type_obj, $label ) {
+		return isset( $post_type_obj ) && isset( $post_type_obj->labels->name ) ? $post_type_obj->labels->name : ucfirst( $label );
+	}
+
+	/**
 	 * Register Posts Structures Customizer Configurations.
 	 *
 	 * @param Array                $configurations Astra Customizer Configurations.
@@ -81,7 +93,7 @@ class Astra_Posts_Structures_Configs extends Astra_Customizer_Config_Base {
 					$parent_section = 'section-learndash';
 				}
 
-				$section_title = astra_get_dynamic_section_title( $post_type_object, $label );
+				$section_title = self::astra_get_dynamic_section_title( $post_type_object, $label );
 
 				$_configs[] = array(
 					'name'     => 'section-posttype-' . $label,
