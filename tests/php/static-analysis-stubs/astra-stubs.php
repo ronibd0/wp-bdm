@@ -11731,6 +11731,12 @@ namespace {
          * @var array $customizer_defaults
          */
         private static $customizer_defaults = array();
+		/**
+		 * Supported post types to process dynamic customizer.
+		 *
+		 * @var array $supported_post_types
+		 */
+		private static $supported_post_types = array();
         /**
          *  Constructor
          *
