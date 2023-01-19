@@ -39,9 +39,9 @@ class Astra_Posts_Structures_Configs extends Astra_Customizer_Config_Base {
 	/**
 	 * Function to get formatted dynamic cpt section title.
 	 *
-	 * @since x.x.x
+	 * @since 4.0.2
 	 * @param object|null $post_type_obj WP_Post_Type object.
-	 * @param string $label fallback label.
+	 * @param string      $label fallback label.
 	 * @return string formatted label.
 	 */
 	public static function astra_get_dynamic_section_title( $post_type_obj, $label ) {

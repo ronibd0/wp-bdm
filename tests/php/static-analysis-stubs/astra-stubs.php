@@ -11914,7 +11914,7 @@ namespace {
 		/**
 		 * Function to get formatted dynamic cpt section title.
 		 *
-		 * @since x.x.x
+		 * @since 4.0.2
 		 * @param object|null $post_type_obj WP_Post_Type object.
 		 * @param string $label fallback label.
 		 * @return string formatted label.
@@ -17325,7 +17325,7 @@ namespace {
      *
      * 1. Read Time option backwards handling for old users.
      *
-     * @since x.x.x
+     * @since 4.0.2
      * @return void
      */
     function astra_theme_background_updater_4_0_2()
