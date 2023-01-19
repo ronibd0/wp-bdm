@@ -73,7 +73,7 @@ class Astra_Related_Posts_Loader {
 		/**
 		 * Update Astra default color and typography values. To not update directly on existing users site, added backwards.
 		 *
-		 * @since x.x.x
+		 * @since 4.0.0
 		 */
 		$apply_new_default_color_typo_values = Astra_Dynamic_CSS::astra_check_default_color_typo();
 

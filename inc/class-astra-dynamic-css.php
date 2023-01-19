@@ -503,6 +503,8 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'--ast-container-default-sm-padding'  => ( true === $update_customizer_strctural_defaults ) ? '3em' : '6.67em',
 					'--ast-container-default-xs-padding'  => ( true === $update_customizer_strctural_defaults ) ? '2.4em' : '2.4em',
 					'--ast-container-default-xxs-padding' => ( true === $update_customizer_strctural_defaults ) ? '1.8em' : '1.4em',
+					'--ast-code-block-background'         => ( true === self::astra_check_default_color_typo() ) ? '#ECEFF3' : '#EEEEEE',
+					'--ast-comment-inputs-background'     => ( true === self::astra_check_default_color_typo() ) ? '#F9FAFB' : '#FAFAFA',
 				),
 
 				// HTML.
@@ -748,7 +750,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 				$reset_underline_from_anchors = self::unset_builder_elements_underline();
 
-				$excluding_anchor_selectors = $reset_underline_from_anchors ? '.ast-single-post .wp-block-button .wp-block-button__link, .ast-single-post .elementor-button-wrapper .elementor-button, .ast-single-post .entry-content .uagb-tab a, .ast-single-post .entry-content .uagb-ifb-cta a, .ast-single-post .entry-content .wp-block-uagb-buttons a, .ast-single-post .entry-content .uabb-module-content a, .ast-single-post .entry-content .uagb-post-grid a, .ast-single-post .entry-content .uagb-timeline a, .ast-single-post .entry-content .uagb-toc__wrap a, .ast-single-post .entry-content .uagb-taxomony-box a, .ast-single-post .entry-content .woocommerce a, .entry-content .wp-block-latest-posts > li > a' : '.ast-single-post .wp-block-button .wp-block-button__link, .ast-single-post .elementor-button-wrapper .elementor-button';
+				$excluding_anchor_selectors = $reset_underline_from_anchors ? '.ast-single-post .wp-block-button .wp-block-button__link, .ast-single-post .elementor-button-wrapper .elementor-button, .ast-single-post .entry-content .uagb-tab a, .ast-single-post .entry-content .uagb-ifb-cta a, .ast-single-post .entry-content .wp-block-uagb-buttons a, .ast-single-post .entry-content .uabb-module-content a, .ast-single-post .entry-content .uagb-post-grid a, .ast-single-post .entry-content .uagb-timeline a, .ast-single-post .entry-content .uagb-toc__wrap a, .ast-single-post .entry-content .uagb-taxomony-box a, .ast-single-post .entry-content .woocommerce a, .entry-content .wp-block-latest-posts > li > a, .ast-single-post .entry-content .wp-block-file__button' : '.ast-single-post .wp-block-button .wp-block-button__link, .ast-single-post .elementor-button-wrapper .elementor-button';
 
 				$excluding_anchor_selectors = apply_filters( 'astra_remove_underline_anchor_links', $excluding_anchor_selectors );
 
@@ -1769,6 +1771,11 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				$default_mobile_layout_css = array(
 					'.ast-comment-formwrap.ast-row' => array(
 						'column-gap' => '10px',
+						'display'    => 'inline-block',
+					),
+					'#ast-commentform .ast-grid-common-col' => array(
+						'position' => 'relative',
+						'width'    => '100%',
 					),
 				);
 
@@ -4021,7 +4028,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		/**
 		 * Block editor experience improvements css introduced with v4.0.0.
 		 *
-		 * @since x.x.x
+		 * @since 4.0.0
 		 * @return boolean false if it is an existing user , true if not.
 		 */
 		public static function v4_block_editor_compat() {
@@ -4658,7 +4665,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		 * Check is new structural things are updated.
 		 *
 		 * @return bool true|false.
-		 * @since x.x.x
+		 * @since 4.0.0
 		 */
 		public static function astra_check_default_color_typo() {
 			$astra_settings = get_option( ASTRA_THEME_SETTINGS );

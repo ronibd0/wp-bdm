@@ -2,7 +2,7 @@
 /**
  * Home starter content.
  * 
- * @since x.x.x
+ * @since 4.0.0
  * @package Astra\Compatibility\Starter_Content
  */
 
