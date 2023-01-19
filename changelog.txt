@@ -1,4 +1,4 @@
-v4.0.2 (Unreleased)
+v4.0.2
 - Deprecated: Filter 'astra_single_banner_post_meta' for single post meta markup has been deprecated instead use 'astra_single_post_meta'.
 - Fix: get_option database call increase page loads for fetching theme options.
 - Fix: exclude_from_search query parameter removed from get_post_types list to get CPTs under Customizer > Custom Post Types  section, case of CartFlows Step custom post type.
