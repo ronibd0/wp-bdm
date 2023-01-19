@@ -1,3 +1,6 @@
+v4.1.0 (Unreleased)
+- Fix: Builder - Off-canvas menu - Dropdown menu arrow icon is misplaced in case of toggle for desktop.
+
 v4.0.2
 - Deprecated: Filter 'astra_single_banner_post_meta' for single post meta markup has been deprecated instead use 'astra_single_post_meta'.
 - Fix: get_option database call increase page loads for fetching theme options.
@@ -50,7 +53,6 @@ v4.0.0
 - Fix: Margin applying for the last child 'li' tag inside widget section.
 - Fix: Block editor - Button background color gets overridden by core styles for the Legacy block editor setup.
 - Fix: Customizer - Content background color reflections not working in customizer preview.
-- Fix: The off-canvas dropdown menu arrow is misplaced.
 
 v3.9.4
 - New: WooCommerce Cart - "Cart Page" click action introduced to redirect the user to the cart page.
