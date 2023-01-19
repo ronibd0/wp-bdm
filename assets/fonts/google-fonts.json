@@ -1355,7 +1355,8 @@
     {
         "BIZ UDMincho": {
             "variants": [
-                "regular"
+                "regular",
+                "700"
             ],
             "category": "serif"
         }
@@ -1372,7 +1373,8 @@
     {
         "BIZ UDPMincho": {
             "variants": [
-                "regular"
+                "regular",
+                "700"
             ],
             "category": "serif"
         }
@@ -13975,6 +13977,14 @@
                 "900italic"
             ],
             "category": "sans-serif"
+        }
+    },
+    {
+        "Solitreo": {
+            "variants": [
+                "regular"
+            ],
+            "category": "handwriting"
         }
     },
     {
