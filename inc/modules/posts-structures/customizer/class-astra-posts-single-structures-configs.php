@@ -201,11 +201,14 @@ class Astra_Posts_Single_Structures_Configs extends Astra_Customizer_Config_Base
 			// Filter out taxonomies in index-value format.
 			$taxonomies = array();
 			foreach ( $raw_taxonomies as $index => $value ) {
+				// @codingStandardsIgnoreStart
 				$tax_object = get_taxonomy( $value );
+				$tax_val    = isset( $tax_object->label ) ? $tax_object->label : $value;
+				// @codingStandardsIgnoreEnd
 				if ( '' === $index ) {
-					$taxonomies[''] = isset( $tax_object->label ) ? $tax_object->label : $value;
+					$taxonomies[''] = $tax_val;
 				} else {
-					$taxonomies[ $value ] = isset( $tax_object->label ) ? $tax_object->label : $value;
+					$taxonomies[ $value ] = $tax_val;
 				}
 			}
 			/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
