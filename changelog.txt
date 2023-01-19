@@ -26,6 +26,7 @@ v4.0.0
 - Fix: Margin applying for the last child 'li' tag inside widget section.
 - Fix: Block editor - Button background color gets overridden by core styles for the Legacy block editor setup.
 - Fix: Customizer - Content background color reflections not working in customizer preview.
+- Fix: Inside container spacing for single posts affecting the related posts section.
 
 v3.9.4
 - New: WooCommerce Cart - "Cart Page" click action introduced to redirect the user to the cart page.
