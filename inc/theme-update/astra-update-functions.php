@@ -1001,7 +1001,6 @@ function astra_theme_background_updater_4_0_0() {
  * @return void
  */
 function astra_theme_background_updater_4_0_2() {
-	error_log( 'Running 4.0.2 batch caller...' );
 	$theme_options = get_option( 'astra-settings', array() );
 	if ( ! isset( $theme_options['v4-0-2-update-migration'] ) && isset( $theme_options['blog-single-meta'] ) && in_array( 'read-time', $theme_options['blog-single-meta'] ) ) {
 		if ( isset( $theme_options['ast-dynamic-single-post-metadata'] ) && ! in_array( 'read-time', $theme_options['ast-dynamic-single-post-metadata'] ) ) {
