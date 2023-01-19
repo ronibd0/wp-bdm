@@ -201,10 +201,14 @@ class Astra_Posts_Single_Structures_Configs extends Astra_Customizer_Config_Base
 			// Filter out taxonomies in index-value format.
 			$taxonomies = array();
 			foreach ( $raw_taxonomies as $index => $value ) {
-				// @codingStandardsIgnoreStart
+				/** @psalm-suppress PossiblyInvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 				$tax_object = get_taxonomy( $value );
+				/** @psalm-suppress PossiblyInvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+
+				// @codingStandardsIgnoreStart
 				$tax_val    = isset( $tax_object->label ) ? $tax_object->label : $value;
 				// @codingStandardsIgnoreEnd
+
 				if ( '' === $index ) {
 					$taxonomies[''] = $tax_val;
 				} else {
