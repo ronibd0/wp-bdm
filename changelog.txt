@@ -1,6 +1,6 @@
 v4.0.2 (Unreleased)
 - Deprecated: Filter 'astra_single_banner_post_meta' for single post meta markup has been deprecated instead use 'astra_single_post_meta'.
-- Fix: get_option database call increase page loads for getting Astra theme options.
+- Fix: get_option database call increase page loads for fetching theme options.
 - Fix: exclude_from_search query parameter removed from get_post_types list to get CPTs under Customizer > Custom Post Types  section, case of CartFlows Step custom post type.
 - Fix: Archive - Title area 2 - Archive type title gets added as prefix on archive pages.
 - Fix: Text transformed to 'capitalize' for single post titles & archive titles after 4.0.0.
@@ -8,6 +8,7 @@ v4.0.2 (Unreleased)
 - Fix: Comment form fields should be stack on responsive devices.
 - Fix: iframe breaks out of parent container on responsive devices.
 - Fix: UI glitch typography input box control on Firefox browser.
+- Fix: Multiple times fetching custom post types list callback executes for dynamic customizer.
 - Fix: Theme preview showing title area on the banner section for the homepage.
 - Fix: Importing wp-starter-content template on fresh setup overriding the existing site title.
 
