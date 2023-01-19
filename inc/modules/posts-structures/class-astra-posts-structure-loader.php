@@ -30,9 +30,9 @@ class Astra_Posts_Structure_Loader {
 	/**
 	 * Supported post types to process dynamic customizer.
 	 *
-	 * @var null $supported_post_types
+	 * @var array $supported_post_types
 	 */
-	private static $supported_post_types = null;
+	private static $supported_post_types = array();
 
 	/**
 	 *  Constructor
@@ -228,7 +228,7 @@ class Astra_Posts_Structure_Loader {
 	 * @return array $post_types
 	 */
 	public static function get_supported_post_types() {
-		if ( is_null( self::$supported_post_types ) || is_customize_preview() ) {
+		if ( empty( self::$supported_post_types ) || is_customize_preview() ) {
 			$queried_post_types = array_keys(
 				get_post_types(
 					apply_filters(
