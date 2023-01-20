@@ -6,6 +6,7 @@ import { scrollToElement } from '../../../../utils/scroll-to-element';
 describe( 'Scroll to top option under the customizer', () => {
 	it( 'border radius options should apply correctly', async () => {
 		const scrollToTopRadius = {
+			'scroll-to-top-enable': true,
 			'scroll-to-top-icon-radius': 70,
 		};
 		await setCustomize( scrollToTopRadius );
