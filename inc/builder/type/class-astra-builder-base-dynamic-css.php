@@ -429,9 +429,9 @@ if ( ! class_exists( 'Astra_Builder_Base_Dynamic_CSS' ) ) {
 			$parent_visibility = astra_get_option(
 				$section_id . '-visibility-responsive',
 				array(
-					'desktop' => ! isset( $astra_options[ $section_id . '-visibility-responsive' ] ) && isset( $astra_options[ $section_id . '-hide-desktop' ] ) ? ( 0 === $astra_options[ $section_id . '-hide-desktop' ] ? 1 : 0 ) : 1,
-					'tablet'  => ! isset( $astra_options[ $section_id . '-visibility-responsive' ] ) && isset( $astra_options[ $section_id . '-hide-tablet' ] ) ? ( 0 === $astra_options[ $section_id . '-hide-tablet' ] ? 1 : 0 ) : 1,
-					'mobile'  => ! isset( $astra_options[ $section_id . '-visibility-responsive' ] ) && isset( $astra_options[ $section_id . '-hide-mobile' ] ) ? ( 0 === $astra_options[ $section_id . '-hide-mobile' ] ? 1 : 0 ) : 1,
+					'desktop' => ! isset( $astra_options[ $section_id . '-visibility-responsive' ] ) && isset( $astra_options[ $section_id . '-hide-desktop' ] ) ? ( $astra_options[ $section_id . '-hide-desktop' ] ? 0 : 1 ) : 1,
+					'tablet'  => ! isset( $astra_options[ $section_id . '-visibility-responsive' ] ) && isset( $astra_options[ $section_id . '-hide-tablet' ] ) ? ( $astra_options[ $section_id . '-hide-tablet' ] ? 0 : 1 ) : 1,
+					'mobile'  => ! isset( $astra_options[ $section_id . '-visibility-responsive' ] ) && isset( $astra_options[ $section_id . '-hide-mobile' ] ) ? ( $astra_options[ $section_id . '-hide-mobile' ] ? 0 : 1 ) : 1,
 				)
 			);
 

@@ -238,7 +238,7 @@ class Astra_Menu {
 			'current_user'           => ! empty( wp_get_current_user()->user_firstname ) ? ucfirst( wp_get_current_user()->user_firstname ) : ucfirst( wp_get_current_user()->display_name ),
 			'admin_base_url'         => admin_url(),
 			'plugin_dir'             => ASTRA_THEME_URI,
-			'plugin_ver'             => ASTRA_THEME_VERSION,
+			'plugin_ver'             => defined( 'ASTRA_EXT_VER' ) ? ASTRA_EXT_VER : '',
 			'version'                => ASTRA_THEME_VERSION,
 			'pro_available'          => defined( 'ASTRA_EXT_VER' ) ? true : false,
 			'pro_installed_status'   => 'installed' === self::get_plugin_status( 'astra-addon/astra-addon.php' ) ? true : false,
@@ -290,7 +290,7 @@ class Astra_Menu {
 			array(
 				'logo-favicon' => array(
 					'title'     => __( 'Site Identity', 'astra' ),
-					'quick_url' => admin_url( 'customize.php?autofocus[control]=custom_logo' ),
+					'quick_url' => admin_url( 'customize.php?autofocus[control]=site_icon' ),
 				),
 				'header'       => array(
 					'title'     => __( 'Header Settings', 'astra' ),

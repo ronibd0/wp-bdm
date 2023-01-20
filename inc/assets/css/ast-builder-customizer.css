@@ -760,6 +760,9 @@
 .ahfb-builder-areas:hover .components-button.ahfb-row-actions {
 	background: white;
 }
+.ahfb-builder-areas.active-builder-row:hover .components-button.ahfb-row-actions {
+    color: var(--ast-customizer-color-6);
+}
 
 .ahfb-builder-areas .components-button.ahfb-row-actions:hover ~ .ahfb-builder-group-horizontal {
 	border: 1px solid var(--ast-customizer-color-1);
