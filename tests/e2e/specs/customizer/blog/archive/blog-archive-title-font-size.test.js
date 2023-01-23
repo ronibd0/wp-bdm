@@ -27,18 +27,18 @@ describe( 'Blog Archive option under the customizer', () => {
 		await expect( {
 			selector: '.ast-archive-description .ast-archive-title',
 			property: 'font-size',
-		} ).cssValueToBe( `${ ( blogArchiveTitleFontSize[ 'font-size-archive-summary-title' ].desktop ) }${ blogArchiveTitleFontSize[ 'font-size-archive-summary-title' ][ 'desktop-unit' ] }` );
+		} ).cssValueToBe( `${ ( blogArchiveTitleFontSize[ 'ast-dynamic-archive-post-title-font-size' ].desktop ) }${ blogArchiveTitleFontSize[ 'ast-dynamic-archive-post-title-font-size' ][ 'desktop-unit' ] }` );
 
 		await setBrowserViewport( 'medium' );
 		await expect( {
 			selector: '.ast-archive-description .ast-archive-title',
 			property: 'font-size',
-		} ).cssValueToBe( `${ ( blogArchiveTitleFontSize[ 'font-size-archive-summary-title' ].tablet ) }${ blogArchiveTitleFontSize[ 'font-size-archive-summary-title' ][ 'tablet-unit' ] }` );
+		} ).cssValueToBe( `${ ( blogArchiveTitleFontSize[ 'ast-dynamic-archive-post-title-font-size' ].tablet ) }${ blogArchiveTitleFontSize[ 'ast-dynamic-archive-post-title-font-size' ][ 'tablet-unit' ] }` );
 
 		await setBrowserViewport( 'small' );
 		await expect( {
 			selector: '.ast-archive-description .ast-archive-title',
 			property: 'font-size',
-		} ).cssValueToBe( `${ ( blogArchiveTitleFontSize[ 'font-size-archive-summary-title' ].mobile ) }${ blogArchiveTitleFontSize[ 'font-size-archive-summary-title' ][ 'mobile-unit' ] }` );
+		} ).cssValueToBe( `${ ( blogArchiveTitleFontSize[ 'ast-dynamic-archive-post-title-font-size' ].mobile ) }${ blogArchiveTitleFontSize[ 'ast-dynamic-archive-post-title-font-size' ][ 'mobile-unit' ] }` );
 	} );
 } );

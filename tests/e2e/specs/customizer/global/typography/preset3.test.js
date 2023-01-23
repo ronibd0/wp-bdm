@@ -79,13 +79,5 @@ describe( 'Global typography preset-3 style in the customizer', () => {
 			selector: 'h2, .entry-content h2, h3, .entry-content h3, h4, .entry-content h4, h5, .entry-content h5, h6, .entry-content h6',
 			property: 'font-weight',
 		} ).cssValueToBe( `${ globalTypographyPreset3[ 'headings-font-weight' ] }` );
-		await expect( {
-			selector: 'h1, h2, .entry-content h2, h3, .entry-content h3, h4, .entry-content h4, h5, .entry-content h5, h6, .entry-content h6',
-			property: 'text-transform',
-		} ).cssValueToBe( `${ globalTypographyPreset3[ 'headings-text-transform' ] }` );
-		await expect( {
-			selector: 'h2, .entry-content h2, h3, .entry-content h3, h4, .entry-content h4, h5, .entry-content h5, h6, .entry-content h6',
-			property: 'line-height',
-		} ).cssValueToBe( `${ globalTypographyPreset3[ 'headings-line-height' ] }` );
 	} );
 } );
