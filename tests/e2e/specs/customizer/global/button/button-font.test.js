@@ -37,10 +37,6 @@ describe( 'Global button font setting under the Customizer', () => {
 			selector: '.wp-block-button .wp-block-button__link, #submit',
 			property: 'font-family',
 		} ).cssValueToBe( `${ buttonFont[ 'font-family-button' ] }` );
-		// await page.waitForSelector( 'button, form[CLASS*="wp-block-search__"].wp-block-search .wp-block-search__inside-wrapper .wp-block-search__button' );
-		// await expect( {
-		// 	selector: 'button, form[CLASS*="wp-block-search__"].wp-block-search .wp-block-search__inside-wrapper .wp-block-search__button',
-		// } ).cssValueToBe( `${ buttonFont[ 'font-family-button' ] }` );
 	} );
 
 	it( 'button font size should apply correctly', async () => {
@@ -63,28 +59,6 @@ describe( 'Global button font setting under the Customizer', () => {
 			selector: '.ast-custom-button, .wp-block-button .wp-block-button__link',
 			property: 'font-size',
 		} ).cssValueToBe( `${ buttonFontSize[ 'font-size-button' ].desktop }${ buttonFontSize[ 'font-size-button' ][ 'desktop-unit' ] }` );
-
-		//Commenting search button code and post comment button selector due to issue
-		// await page.waitForSelector('form[CLASS*="wp-block-search__"].wp-block-search .wp-block-search__inside-wrapper .wp-block-search__button');
-		// await expect( {
-		// 	selector: 'form[CLASS*="wp-block-search__"].wp-block-search .wp-block-search__inside-wrapper .wp-block-search__button',
-		// 	property: 'font-size',
-		// } ).cssValueToBe( `${ buttonFontSize[ 'font-size-button' ].desktop }${ buttonFontSize[ 'font-size-button' ][ 'desktop-unit' ] }` );
-
-		//responsive mode test case is commented due to GitHub issue
-		// await setBrowserViewport( 'medium' );
-		// await expect( {
-		// 	selector: '.wp-block-button',
-		// 	property: 'font-size',
-		// } ).cssValueToBe(
-		// 	`${ buttonFontSize[ 'font-size-button' ].tablet }${ buttonFontSize[ 'font-size-button' ][ 'tablet-unit' ] }` );
-
-		// await setBrowserViewport( 'small' );
-		// await expect( {
-		// 	selector: '.wp-block-button',
-		// 	property: 'font-size',
-		// } ).cssValueToBe(
-		// 	`${ buttonFontSize[ 'font-size-button' ].mobile }${ buttonFontSize[ 'font-size-button' ][ 'mobile-unit' ] }` );
 	} );
 	it( 'button font weight should apply correctly', async () => {
 		const fontWeight = {
@@ -151,13 +125,6 @@ describe( 'Global button font setting under the Customizer', () => {
 			selector: '.wp-block-button .wp-block-button__link',
 			property: 'letter-spacing',
 		} ).cssValueToBe( `${ letterSpacing[ 'theme-btn-letter-spacing' ] }${ letterSpacing[ 'ast-range-unit' ] }` );
-
-		//Commenting search button code and post comment button selector due to issue
-		// await page.waitForSelector( 'input#submit, input[type="submit"]' );
-		// await expect( {
-		// 	selector: 'input#submit, input[type="submit"]',
-		// 	property: 'letter-spacing',
-		// } ).cssValueToBe( `${ letterSpacing[ 'theme-btn-letter-spacing' ] }${ letterSpacing[ 'ast-range-unit' ] }` );
 
 		await page.waitForSelector( 'button, form[CLASS*="wp-block-search__"].wp-block-search .wp-block-search__inside-wrapper .wp-block-search__button' );
 		await expect( {

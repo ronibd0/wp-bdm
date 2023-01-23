@@ -1,8 +1,8 @@
 import { createURL, createNewPost } from '@wordpress/e2e-test-utils';
 import { publishPost } from '../../../../utils/publish-post';
 import { setCustomize } from '../../../../utils/customize';
-// import { setBrowserViewport } from '../../../../utils/set-browser-viewport';
-// import { responsiveFontSize } from '../../../../utils/responsive-utils';
+import { setBrowserViewport } from '../../../../utils/set-browser-viewport';
+import { responsiveFontSize } from '../../../../utils/responsive-utils';
 describe( 'Meta font option under the customizer', () => {
 	it( 'meta font option should apply correctly', async () => {
 		const metaFont = {
@@ -18,7 +18,14 @@ describe( 'Meta font option under the customizer', () => {
 				'tablet-unit': 'px',
 				'mobile-unit': 'px',
 			},
-			'related-posts-meta-line-height': 1.3,
+			'related-posts-meta-font-extras': {
+				'letter-spacing': "2",
+				'letter-spacing-unit': "px",
+				'line-height': "2",
+				'line-height-unit': "",
+				'text-decoration': "line-through",
+				'text-transform': "uppercase",
+			},
 		};
 		await setCustomize( metaFont );
 		let ppStatus = false;
@@ -50,34 +57,43 @@ describe( 'Meta font option under the customizer', () => {
 			property: 'font-size',
 		} ).cssValueToBe( `${ metaFont[ 'related-posts-meta-font-size' ].desktop }${ metaFont[ 'related-posts-meta-font-size' ][ 'desktop-unit' ] }` );
 
-		//commented code due to GitHub failing check for responsive font issue
-		// await setBrowserViewport( 'medium' );
-		// await expect( {
-		// 	selector: '.ast-related-post-content .entry-meta *',
-		// 	property: 'font-size',
-		// } ).cssValueToBe(
-		// 	`${ await responsiveFontSize(
-		// 		metaFont[ 'related-posts-meta-font-size' ].tablet,
-		// 	) }${
-		// 		metaFont[ 'related-posts-meta-font-size' ][ 'tablet-unit' ]
-		// 	}`,
-		// );
+		await setBrowserViewport( 'medium' );
+		await expect( {
+			selector: '.ast-related-post-content .entry-meta *',
+			property: 'font-size',
+		} ).cssValueToBe(
+			`${ await responsiveFontSize(
+				metaFont[ 'related-posts-meta-font-size' ].tablet,
+			) }${
+				metaFont[ 'related-posts-meta-font-size' ][ 'tablet-unit' ]
+			}`,
+		);
 
-		// await setBrowserViewport( 'small' );
-		// await expect( {
-		// 	selector: '.ast-related-post-content .entry-meta *',
-		// 	property: 'font-size',
-		// } ).cssValueToBe(
-		// 	`${ await responsiveFontSize(
-		// 		metaFont[ 'related-posts-meta-font-size' ].mobile,
-		// 	) }${
-		// 		metaFont[ 'related-posts-meta-font-size' ][ 'mobile-unit' ]
-		// 	}`,
-		// );
+		await setBrowserViewport( 'small' );
+		await expect( {
+			selector: '.ast-related-post-content .entry-meta *',
+			property: 'font-size',
+		} ).cssValueToBe(
+			`${ await responsiveFontSize(
+				metaFont[ 'related-posts-meta-font-size' ].mobile,
+			) }${
+				metaFont[ 'related-posts-meta-font-size' ][ 'mobile-unit' ]
+			}`,
+		);
 
 		await expect( {
 			selector: '.ast-related-post-content .entry-meta *',
-			property: 'line-height',
-		} ).cssValueToBe( `${ metaFont[ 'related-posts-meta-line-height' ] * metaFont[ 'related-posts-meta-font-size' ].desktop }` + 'px' );
+			property: 'letter-spacing',
+		} ).cssValueToBe( `${ metaFont[ 'related-posts-meta-font-extras' ]['letter-spacing'] }` + `${ metaFont[ 'related-posts-meta-font-extras' ]['letter-spacing-unit'] }` );
+
+		await expect( {
+			selector: '.ast-related-post-content .entry-meta *',
+			property: 'text-decoration-line',
+		} ).cssValueToBe( `${ metaFont[ 'related-posts-meta-font-extras' ]['text-decoration'] }` );
+
+		await expect( {
+			selector: '.ast-related-post-content .entry-meta *',
+			property: 'text-transform',
+		} ).cssValueToBe( `${ metaFont[ 'related-posts-meta-font-extras' ]['text-transform'] }` );
 	} );
 } );

@@ -20,7 +20,6 @@ describe( 'to test content box container width in the customizer', () => {
 			await page.waitForTimeout( 10000 );
 			ppStatus = await publishPost();
 		}
-		// await publishPost();
 		await page.goto( createURL( '/container-post/' ), {
 			waitUntil: 'networkidle0',
 		} );
@@ -51,7 +50,6 @@ describe( 'to test content box container width in the customizer', () => {
 			await page.waitForTimeout( 10000 );
 			ppStatus = await publishPost();
 		}
-		// await publishPost();
 		await page.goto( createURL( '/container-page/' ), {
 			waitUntil: 'networkidle0',
 		} );
