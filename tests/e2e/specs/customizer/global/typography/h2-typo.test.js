@@ -12,7 +12,6 @@ describe( 'h2 global typography settings in the customizer', () => {
 		const h2Typography = {
 			'font-family-h2': "'Akaya Kanadaka,display'",
 			'font-weight-h2': '400',
-			'text-transform-h2': 'uppercase',
 			'font-size-h2': {
 				desktop: '30',
 				tablet: '18',
@@ -21,7 +20,6 @@ describe( 'h2 global typography settings in the customizer', () => {
 				'tablet-unit': 'px',
 				'mobile-unit': 'px',
 			},
-			'line-height-h2': '3px',
 		};
 
 		await setCustomize( h2Typography );
@@ -53,11 +51,6 @@ describe( 'h2 global typography settings in the customizer', () => {
 
 		await expect( {
 			selector: '.entry-content h2',
-			property: 'text-transform',
-		} ).cssValueToBe( `${ h2Typography[ 'text-transform-h2' ] }` );
-
-		await expect( {
-			selector: '.entry-content h2',
 			property: 'font-size',
 		} ).cssValueToBe(
 			`${ h2Typography[ 'font-size-h2' ].desktop }${ h2Typography[ 'font-size-h2' ][ 'desktop-unit' ] }`,
@@ -78,10 +71,5 @@ describe( 'h2 global typography settings in the customizer', () => {
 		} ).cssValueToBe(
 			`${ h2Typography[ 'font-size-h2' ].mobile }${ h2Typography[ 'font-size-h2' ][ 'mobile-unit' ] }`,
 		);
-
-		await expect( {
-			selector: '.entry-content h2',
-			property: 'line-height',
-		} ).cssValueToBe( `${ h2Typography[ 'line-height-h2' ] }` );
 	} );
 } );

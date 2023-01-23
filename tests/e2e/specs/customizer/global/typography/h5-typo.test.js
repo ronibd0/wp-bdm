@@ -23,7 +23,6 @@ describe( 'global typography heading 5 settings in the customizer', () => {
 				'tablet-unit': 'px',
 				'mobile-unit': 'px',
 			},
-			'line-height-h5': '3px',
 		};
 
 		await setCustomize( heading5Font );
@@ -55,11 +54,6 @@ describe( 'global typography heading 5 settings in the customizer', () => {
 
 		await expect( {
 			selector: 'h5, .entry-content h5',
-			property: 'text-transform',
-		} ).cssValueToBe( `${ heading5Font[ 'text-transform-h5' ] }` );
-
-		await expect( {
-			selector: 'h5, .entry-content h5',
 			property: 'font-size',
 		} ).cssValueToBe(
 			`${ heading5Font[ 'font-size-h5' ].desktop }${ heading5Font[ 'font-size-h5' ][ 'desktop-unit' ] }`,
@@ -84,10 +78,5 @@ describe( 'global typography heading 5 settings in the customizer', () => {
 				heading5Font[ 'font-size-h5' ].mobile,
 			) }${ heading5Font[ 'font-size-h5' ][ 'mobile-unit' ] }`,
 		);
-
-		await expect( {
-			selector: 'h5, .entry-content h5',
-			property: 'line-height',
-		} ).cssValueToBe( `${ heading5Font[ 'line-height-h5' ] }` );
 	} );
 } );

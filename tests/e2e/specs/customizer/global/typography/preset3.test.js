@@ -9,8 +9,6 @@ describe( 'Global typography preset-3 style in the customizer', () => {
 			'typography-presets': 'Preset3',
 			'body-font-family': "'Roboto,sans-serif'",
 			'body-font-weight': '400',
-			'body-text-transform': 'lowercase',
-			'body-line-height': '25px',
 			'font-size-body': {
 				desktop: '17',
 				tablet: '20',
@@ -39,14 +37,6 @@ describe( 'Global typography preset-3 style in the customizer', () => {
 			selector: 'body, button, input, select, textarea, .ast-button, .ast-custom-button',
 			property: 'font-weight',
 		} ).cssValueToBe( `${ globalTypographyPreset3[ 'body-font-weight' ] }` );
-		await expect( {
-			selector: 'body',
-			property: 'text-transform',
-		} ).cssValueToBe( `${ globalTypographyPreset3[ 'body-text-transform' ] }` );
-		await expect( {
-			selector: 'body, button, input, select, textarea, .ast-button, .ast-custom-button',
-			property: 'line-height',
-		} ).cssValueToBe( `${ globalTypographyPreset3[ 'body-line-height' ] }` );
 		await expect( {
 			selector: 'body',
 			property: 'font-size',

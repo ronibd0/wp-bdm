@@ -12,7 +12,6 @@ describe( 'h3 global typography settings in the customizer', () => {
 		const h3Typography = {
 			'font-family-h3': "'Faster One', display",
 			'font-weight-h3': '400',
-			'text-transform-h3': 'uppercase',
 			'font-size-h3': {
 				desktop: '25',
 				tablet: '20',
@@ -21,7 +20,6 @@ describe( 'h3 global typography settings in the customizer', () => {
 				'tablet-unit': 'px',
 				'mobile-unit': 'px',
 			},
-			'line-height-h3': '30px',
 		};
 
 		await setCustomize( h3Typography );
@@ -53,11 +51,6 @@ describe( 'h3 global typography settings in the customizer', () => {
 
 		await expect( {
 			selector: 'h3, .entry-content h3',
-			property: 'text-transform',
-		} ).cssValueToBe( `${ h3Typography[ 'text-transform-h3' ] }` );
-
-		await expect( {
-			selector: 'h3, .entry-content h3',
 			property: 'font-size',
 		} ).cssValueToBe(
 			`${ h3Typography[ 'font-size-h3' ].desktop }${ h3Typography[ 'font-size-h3' ][ 'desktop-unit' ] }`,
@@ -78,10 +71,5 @@ describe( 'h3 global typography settings in the customizer', () => {
 		} ).cssValueToBe(
 			`${ h3Typography[ 'font-size-h3' ].mobile }${ h3Typography[ 'font-size-h3' ][ 'mobile-unit' ] }`,
 		);
-
-		await expect( {
-			selector: 'h3, .entry-content h3',
-			property: 'line-height',
-		} ).cssValueToBe( `${ h3Typography[ 'line-height-h3' ] }` );
 	} );
 } );

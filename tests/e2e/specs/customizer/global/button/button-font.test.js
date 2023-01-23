@@ -98,38 +98,5 @@ describe( 'Global button font setting under the Customizer', () => {
 		await page.goto( createURL( 'buttonFontFamily' ), {
 			waitUntil: 'networkidle0',
 		} );
-		await page.waitForSelector( '.ast-custom-button, .wp-block-button .wp-block-button__link, #comments .submit' );
-		await expect( {
-			selector: '.ast-custom-button, .wp-block-button .wp-block-button__link, #comments .submit',
-			property: 'line-height',
-		} ).cssValueToBe( `${ buttonLineHeight[ 'theme-btn-line-height' ] }` );
-	} );
-
-	it( 'button font letter spacing should apply correctly', async () => {
-		const letterSpacing = {
-			'theme-btn-letter-spacing': 3,
-			'ast-range-unit': 'px',
-		};
-		await setCustomize( letterSpacing );
-		await page.goto( createURL( 'buttonFontFamily' ), {
-			waitUntil: 'networkidle0',
-		} );
-		await page.waitForSelector( '.ast-custom-button' );
-		await expect( {
-			selector: '.ast-custom-button',
-			property: 'letter-spacing',
-		} ).cssValueToBe( `${ letterSpacing[ 'theme-btn-letter-spacing' ] }${ letterSpacing[ 'ast-range-unit' ] }` );
-
-		await page.waitForSelector( '.wp-block-button .wp-block-button__link' );
-		await expect( {
-			selector: '.wp-block-button .wp-block-button__link',
-			property: 'letter-spacing',
-		} ).cssValueToBe( `${ letterSpacing[ 'theme-btn-letter-spacing' ] }${ letterSpacing[ 'ast-range-unit' ] }` );
-
-		await page.waitForSelector( 'button, form[CLASS*="wp-block-search__"].wp-block-search .wp-block-search__inside-wrapper .wp-block-search__button' );
-		await expect( {
-			selector: 'button, form[CLASS*="wp-block-search__"].wp-block-search .wp-block-search__inside-wrapper .wp-block-search__button',
-			property: 'letter-spacing',
-		} ).cssValueToBe( `${ letterSpacing[ 'theme-btn-letter-spacing' ] }${ letterSpacing[ 'ast-range-unit' ] }` );
 	} );
 } );

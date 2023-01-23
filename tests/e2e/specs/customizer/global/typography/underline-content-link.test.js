@@ -23,7 +23,6 @@ describe( 'underline content links option under the customizer', () => {
 			await page.waitForTimeout( 10000 );
 			ppStatus = await publishPost();
 		}
-		// await publishPost();
 
 		await page.goto( createURL( '/sample-post' ), {
 			waitUntil: 'networkidle0',

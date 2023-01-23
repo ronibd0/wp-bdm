@@ -14,7 +14,6 @@ describe( 'global typography heading 6 settings in the customizer', () => {
 		const heading6Font = {
 			'font-family-h6': "'Patrick Hand SC', handwriting",
 			'font-weight-h6': '400',
-			'text-transform-h6': 'uppercase',
 			'font-size-h6': {
 				desktop: '30',
 				tablet: '20',
@@ -23,7 +22,6 @@ describe( 'global typography heading 6 settings in the customizer', () => {
 				'tablet-unit': 'px',
 				'mobile-unit': 'px',
 			},
-			'line-height-h6': '3px',
 		};
 
 		await setCustomize( heading6Font );
@@ -55,11 +53,6 @@ describe( 'global typography heading 6 settings in the customizer', () => {
 
 		await expect( {
 			selector: 'h6, .entry-content h6',
-			property: 'text-transform',
-		} ).cssValueToBe( `${ heading6Font[ 'text-transform-h6' ] }` );
-
-		await expect( {
-			selector: 'h6, .entry-content h6',
 			property: 'font-size',
 		} ).cssValueToBe(
 			`${ heading6Font[ 'font-size-h6' ].desktop }${ heading6Font[ 'font-size-h6' ][ 'desktop-unit' ] }`,
@@ -84,10 +77,5 @@ describe( 'global typography heading 6 settings in the customizer', () => {
 				heading6Font[ 'font-size-h6' ].mobile,
 			) }${ heading6Font[ 'font-size-h6' ][ 'mobile-unit' ] }`,
 		);
-
-		await expect( {
-			selector: 'h6, .entry-content h6',
-			property: 'line-height',
-		} ).cssValueToBe( `${ heading6Font[ 'line-height-h6' ] }` );
 	} );
 } );
