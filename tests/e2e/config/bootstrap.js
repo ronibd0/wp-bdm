@@ -180,7 +180,6 @@ async function runAxeTests() {
 		exclude: [
 			[
 				[ '#wpadminbar' ],
-				[ '.comments-link > a' ],
 				[ '.url' ],
 				[ '.logged-in-as > a' ],
 				[ 'a[rel="category tag"]' ],
