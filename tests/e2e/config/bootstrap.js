@@ -179,10 +179,10 @@ async function runAxeTests() {
 		},
 		exclude: [
 			[
-				[ '#wpadminbar' ],
 				[ '.url' ],
 				[ '.logged-in-as > a' ],
 				[ 'a[rel="category tag"]' ],
+				[ '#wpadminbar' ],
 				[ 'a[href$="wpastra.com/"]' ],
 				[ '.ast-terms-link > a' ],
 				[ '.skip-link' ], // Ignoring "region" requirement for the skip link, This is added to the markup already.

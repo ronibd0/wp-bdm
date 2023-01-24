@@ -11,9 +11,9 @@ describe( 'Meta font option under the customizer', () => {
 			'related-posts-meta-text-transform': 'uppercase',
 			'related-posts-meta-font-weight': '400',
 			'related-posts-meta-font-size': {
-				desktop: 60,
-				tablet: 40,
-				mobile: 20,
+				desktop: 30,
+				tablet: 20,
+				mobile: 10,
 				'desktop-unit': 'px',
 				'tablet-unit': 'px',
 				'mobile-unit': 'px',
