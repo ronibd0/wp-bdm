@@ -19,12 +19,12 @@ describe( 'Meta font option under the customizer', () => {
 				'mobile-unit': 'px',
 			},
 			'related-posts-meta-font-extras': {
-				'letter-spacing': "2",
-				'letter-spacing-unit': "px",
-				'line-height': "2",
-				'line-height-unit': "",
-				'text-decoration': "line-through",
-				'text-transform': "uppercase",
+				'letter-spacing': '2',
+				'letter-spacing-unit': 'px',
+				'line-height': '2',
+				'line-height-unit': '',
+				'text-decoration': 'line-through',
+				'text-transform': 'uppercase',
 			},
 		};
 		await setCustomize( metaFont );
@@ -84,16 +84,16 @@ describe( 'Meta font option under the customizer', () => {
 		await expect( {
 			selector: '.ast-related-post-content .entry-meta *',
 			property: 'letter-spacing',
-		} ).cssValueToBe( `${ metaFont[ 'related-posts-meta-font-extras' ]['letter-spacing'] }` + `${ metaFont[ 'related-posts-meta-font-extras' ]['letter-spacing-unit'] }` );
+		} ).cssValueToBe( `${ metaFont[ 'related-posts-meta-font-extras' ][ 'letter-spacing' ] }` + `${ metaFont[ 'related-posts-meta-font-extras' ][ 'letter-spacing-unit' ] }` );
 
 		await expect( {
 			selector: '.ast-related-post-content .entry-meta *',
 			property: 'text-decoration-line',
-		} ).cssValueToBe( `${ metaFont[ 'related-posts-meta-font-extras' ]['text-decoration'] }` );
+		} ).cssValueToBe( `${ metaFont[ 'related-posts-meta-font-extras' ][ 'text-decoration' ] }` );
 
 		await expect( {
 			selector: '.ast-related-post-content .entry-meta *',
 			property: 'text-transform',
-		} ).cssValueToBe( `${ metaFont[ 'related-posts-meta-font-extras' ]['text-transform'] }` );
+		} ).cssValueToBe( `${ metaFont[ 'related-posts-meta-font-extras' ][ 'text-transform' ] }` );
 	} );
 } );

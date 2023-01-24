@@ -19,12 +19,12 @@ describe( 'Section title font option under the customizer', () => {
 				'mobile-unit': 'px',
 			},
 			'related-posts-section-title-font-extras': {
-				'letter-spacing': "2",
-				'letter-spacing-unit': "px",
-				'line-height': "2",
-				'line-height-unit': "",
-				'text-decoration': "line-through",
-				'text-transform': "uppercase",
+				'letter-spacing': '2',
+				'letter-spacing-unit': 'px',
+				'line-height': '2',
+				'line-height-unit': '',
+				'text-decoration': 'line-through',
+				'text-transform': 'uppercase',
 			},
 		};
 		await setCustomize( sectionTitleFont );
@@ -89,16 +89,16 @@ describe( 'Section title font option under the customizer', () => {
 		await expect( {
 			selector: '.ast-related-posts-title',
 			property: 'letter-spacing',
-		} ).cssValueToBe( `${ sectionTitleFont[ 'related-posts-section-title-font-extras' ]['letter-spacing'] }` + `${ sectionTitleFont[ 'related-posts-section-title-font-extras' ]['letter-spacing-unit'] }` );
+		} ).cssValueToBe( `${ sectionTitleFont[ 'related-posts-section-title-font-extras' ][ 'letter-spacing' ] }` + `${ sectionTitleFont[ 'related-posts-section-title-font-extras' ][ 'letter-spacing-unit' ] }` );
 
 		await expect( {
 			selector: '.ast-related-posts-title',
 			property: 'text-decoration-line',
-		} ).cssValueToBe( `${ sectionTitleFont[ 'related-posts-section-title-font-extras' ]['text-decoration'] }` );
+		} ).cssValueToBe( `${ sectionTitleFont[ 'related-posts-section-title-font-extras' ][ 'text-decoration' ] }` );
 
 		await expect( {
 			selector: '.ast-related-posts-title',
 			property: 'text-transform',
-		} ).cssValueToBe( `${ sectionTitleFont[ 'related-posts-section-title-font-extras' ]['text-transform'] }` );
+		} ).cssValueToBe( `${ sectionTitleFont[ 'related-posts-section-title-font-extras' ][ 'text-transform' ] }` );
 	} );
 } );

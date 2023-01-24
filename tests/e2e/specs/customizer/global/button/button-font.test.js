@@ -89,14 +89,4 @@ describe( 'Global button font setting under the Customizer', () => {
 			property: 'text-transform',
 		} ).cssValueToBe( `${ textTransform[ 'text-transform-button' ] }` );
 	} );
-
-	it( 'button font line height should apply correctly', async () => {
-		const buttonLineHeight = {
-			'theme-btn-line-height': '50px',
-		};
-		await setCustomize( buttonLineHeight );
-		await page.goto( createURL( 'buttonFontFamily' ), {
-			waitUntil: 'networkidle0',
-		} );
-	} );
 } );

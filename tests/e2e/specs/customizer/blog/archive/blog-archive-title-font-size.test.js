@@ -1,7 +1,6 @@
 import { createURL, createNewPost } from '@wordpress/e2e-test-utils';
 import { publishPost } from '../../../../utils/publish-post';
 import { setCustomize } from '../../../../utils/customize';
-import { setBrowserViewport } from '../../../../utils/set-browser-viewport';
 describe( 'Blog Archive option under the customizer', () => {
 	it( 'blog Archive title font size options should apply correctly', async () => {
 		const blogArchiveTitleFontSize = {
