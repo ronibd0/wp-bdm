@@ -17,7 +17,6 @@ describe( 'to test content box container width in the customizer', () => {
 			} );
 			await insertBlock( 'Buttons' );
 			await page.keyboard.type( 'Login' );
-			await page.waitForTimeout( 10000 );
 			ppStatus = await publishPost();
 		}
 		await page.goto( createURL( '/container-post/' ), {
@@ -47,7 +46,6 @@ describe( 'to test content box container width in the customizer', () => {
 			} );
 			await insertBlock( 'Buttons' );
 			await page.keyboard.type( 'Login' );
-			await page.waitForTimeout( 10000 );
 			ppStatus = await publishPost();
 		}
 		await page.goto( createURL( '/container-page/' ), {

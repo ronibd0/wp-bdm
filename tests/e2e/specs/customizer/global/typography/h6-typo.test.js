@@ -33,10 +33,8 @@ describe( 'global typography heading 6 settings in the customizer', () => {
 				title: 'heading-6-typography-test',
 			} );
 			await setPostContent( TPOGRAPHY_TEST_POST_CONTENT );
-			await page.waitForTimeout( 10000 );
 			ppStatus = await publishPost();
 		}
-		// await publishPost();
 		await page.goto( createURL( 'heading-6-typography-test' ), {
 			waitUntil: 'networkidle0',
 		} );

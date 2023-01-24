@@ -22,7 +22,6 @@ describe( 'Scroll to top option under the customizer', () => {
 		} );
 		await setBrowserViewport( 'large' );
 		await scrollToElement( '#colophon' );
-		await page.waitForTimeout( '1000' );
 		await page.waitForSelector( '#ast-scroll-top' );
 		await expect( {
 			selector: '#ast-scroll-top',
