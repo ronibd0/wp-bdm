@@ -3,7 +3,7 @@ import { publishPost } from '../../../../../../utils/publish-post';
 import { setCustomize } from '../../../../../../utils/customize';
 import { setBrowserViewport } from '../../../../../../utils/set-browser-viewport';
 describe( 'off canvas menu design settings in the customizer', () => {
-	it( 'off canvas menu design settings should apply corectly in the customizer', async () => {
+	it( 'off canvas menu design settings should apply correctly in the customizer', async () => {
 		const offCanvasMenuDesign = {
 			'header-mobile-menu-submenu-item-border': true,
 			'header-mobile-menu-submenu-item-b-size': 7,
