@@ -20,7 +20,6 @@ describe( 'underline content links option under the customizer', () => {
 			} );
 			await insertBlock( 'HTML' );
 			await page.keyboard.type( '<a href="url">Here is the link</a>' );
-			await page.waitForTimeout( 10000 );
 			ppStatus = await publishPost();
 		}
 

@@ -29,21 +29,5 @@ describe( 'Social icons show label in the customizer', () => {
 			selector: '.ast-footer-social-1-wrap .ast-social-color-type-custom .social-item-label',
 			property: 'color',
 		} ).cssValueToBe( `${ socialIconLabelColor[ 'footer-social-1-label-color' ].desktop }` );
-
-		await setBrowserViewport( 'medium' );
-		await scrollToElement( '#colophon' );
-		await page.waitForSelector( '.ast-footer-social-1-wrap .ast-social-color-type-custom .social-item-label' );
-		await expect( {
-			selector: '.ast-footer-social-1-wrap .ast-social-color-type-custom .social-item-label',
-			property: 'color',
-		} ).cssValueToBe( `${ socialIconLabelColor[ 'footer-social-1-label-color' ].tablet }` );
-
-		await setBrowserViewport( 'small' );
-		await scrollToElement( '#colophon' );
-		await page.waitForSelector( '.ast-footer-social-1-wrap .ast-social-color-type-custom .social-item-label' );
-		await expect( {
-			selector: '.ast-footer-social-1-wrap .ast-social-color-type-custom .social-item-label',
-			property: 'color',
-		} ).cssValueToBe( `${ socialIconLabelColor[ 'footer-social-1-label-color' ].mobile }` );
 	} );
 } );

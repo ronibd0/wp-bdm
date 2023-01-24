@@ -15,7 +15,6 @@ describe( 'custom content width setting for blog/Archive in customizer', () => {
 				postType: 'post',
 				title: 'blog',
 			} );
-			await page.waitForTimeout( 10000 );
 			ppStatus = await publishPost();
 		}
 		await page.goto( createURL( '/author/admin' ), {
