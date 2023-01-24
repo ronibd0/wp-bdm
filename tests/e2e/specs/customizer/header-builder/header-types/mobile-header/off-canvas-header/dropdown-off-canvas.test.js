@@ -104,7 +104,6 @@ describe( 'off canvas menu design settings in the customizer', () => {
 			} );
 			ppStatus = await publishPost();
 		}
-		// await publishPost();
 
 		ppStatus = false;
 		while ( false === ppStatus ) {
@@ -114,7 +113,6 @@ describe( 'off canvas menu design settings in the customizer', () => {
 			} );
 			ppStatus = await publishPost();
 		}
-		// await publishPost();
 		await page.goto( createURL( '/off-canvas-menu' ), {
 			waitUntil: 'networkidle0',
 		} );

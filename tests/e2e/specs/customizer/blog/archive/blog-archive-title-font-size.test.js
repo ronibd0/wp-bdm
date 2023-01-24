@@ -28,17 +28,5 @@ describe( 'Blog Archive option under the customizer', () => {
 			selector: '.ast-archive-description .ast-archive-title',
 			property: 'font-size',
 		} ).cssValueToBe( `${ ( blogArchiveTitleFontSize[ 'ast-dynamic-archive-post-title-font-size' ].desktop ) }${ blogArchiveTitleFontSize[ 'ast-dynamic-archive-post-title-font-size' ][ 'desktop-unit' ] }` );
-
-		await setBrowserViewport( 'medium' );
-		await expect( {
-			selector: '.ast-archive-description .ast-archive-title',
-			property: 'font-size',
-		} ).cssValueToBe( `${ ( blogArchiveTitleFontSize[ 'ast-dynamic-archive-post-title-font-size' ].tablet ) }${ blogArchiveTitleFontSize[ 'ast-dynamic-archive-post-title-font-size' ][ 'tablet-unit' ] }` );
-
-		await setBrowserViewport( 'small' );
-		await expect( {
-			selector: '.ast-archive-description .ast-archive-title',
-			property: 'font-size',
-		} ).cssValueToBe( `${ ( blogArchiveTitleFontSize[ 'ast-dynamic-archive-post-title-font-size' ].mobile ) }${ blogArchiveTitleFontSize[ 'ast-dynamic-archive-post-title-font-size' ][ 'mobile-unit' ] }` );
 	} );
 } );

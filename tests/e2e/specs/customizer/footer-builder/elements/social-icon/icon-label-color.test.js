@@ -23,7 +23,6 @@ describe( 'Social icons show label in the customizer', () => {
 		await page.goto( createURL( '/' ), {
 			waitUntil: 'networkidle0',
 		} );
-		await setBrowserViewport( 'large' );
 		await scrollToElement( '#colophon' );
 		await page.waitForSelector( '.ast-footer-social-1-wrap .ast-social-color-type-custom .social-item-label' );
 		await expect( {
