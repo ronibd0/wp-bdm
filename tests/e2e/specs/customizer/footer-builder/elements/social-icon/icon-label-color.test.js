@@ -1,6 +1,5 @@
 import { createURL } from '@wordpress/e2e-test-utils';
 import { setCustomize } from '../../../../../utils/customize';
-import { setBrowserViewport } from '../../../../../utils/set-browser-viewport';
 import { scrollToElement } from '../../../../../utils/scroll-to-element';
 describe( 'Social icons show label in the customizer', () => {
 	it( 'icon label color for desktop should apply correctly', async () => {
