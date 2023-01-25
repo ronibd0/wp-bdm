@@ -47,20 +47,5 @@ describe( 'Global button setting under the Customizer', () => {
 			selector: 'input#submit, input[type="submit"]',
 			property: 'color',
 		} ).cssValueToBe( `${ buttonColor[ 'button-color' ] }` );
-
-		//Commenting this code due to selector is correct still test case is failing
-		// await page.goto( createURL( '/' ), {
-		// 	waitUntil: 'networkidle0',
-		// } );
-		// await page.waitForSelector( 'button, form[CLASS*="wp-block-search__"].wp-block-search .wp-block-search__inside-wrapper .wp-block-search__button' );
-		// await expect( {
-		// 	selector: 'button, form[CLASS*="wp-block-search__"].wp-block-search .wp-block-search__inside-wrapper .wp-block-search__button',
-		// 	property: 'color',
-		// } ).cssValueToBe( `${ buttonColor[ 'button-color' ] }` );
-
-		// await expect( {
-		// 	selector: 'button, form[CLASS*="wp-block-search__"].wp-block-search .wp-block-search__inside-wrapper .wp-block-search__button',
-		// 	property: 'background-color',
-		// } ).cssValueToBe( `${ buttonColor[ 'button-bg-color' ] }` );
 	} );
 } );
