@@ -6,6 +6,7 @@ import { scrollToElement } from '../../../../utils/scroll-to-element';
 describe( 'Scroll to top option under the customizer', () => {
 	it( 'background color options should apply correctly', async () => {
 		const scrollToTopBackgroundColor = {
+			'scroll-to-top-enable': true,
 			'scroll-to-top-icon-bg-color': 'rgb(236, 229, 139)',
 		};
 		await setCustomize( scrollToTopBackgroundColor );

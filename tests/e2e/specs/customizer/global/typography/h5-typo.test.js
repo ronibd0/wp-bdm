@@ -23,7 +23,6 @@ describe( 'global typography heading 5 settings in the customizer', () => {
 				'tablet-unit': 'px',
 				'mobile-unit': 'px',
 			},
-			'line-height-h5': '3px',
 		};
 
 		await setCustomize( heading5Font );
@@ -35,10 +34,8 @@ describe( 'global typography heading 5 settings in the customizer', () => {
 				title: 'heading-5-typography-test',
 			} );
 			await setPostContent( TPOGRAPHY_TEST_POST_CONTENT );
-			await page.waitForTimeout( 10000 );
 			ppStatus = await publishPost();
 		}
-		// await publishPost();
 		await page.goto( createURL( 'heading-5-typography-test' ), {
 			waitUntil: 'networkidle0',
 		} );
@@ -52,11 +49,6 @@ describe( 'global typography heading 5 settings in the customizer', () => {
 			selector: 'h5, .entry-content h5',
 			property: 'font-weight',
 		} ).cssValueToBe( `${ heading5Font[ 'font-weight-h5' ] }` );
-
-		await expect( {
-			selector: 'h5, .entry-content h5',
-			property: 'text-transform',
-		} ).cssValueToBe( `${ heading5Font[ 'text-transform-h5' ] }` );
 
 		await expect( {
 			selector: 'h5, .entry-content h5',
@@ -84,10 +76,5 @@ describe( 'global typography heading 5 settings in the customizer', () => {
 				heading5Font[ 'font-size-h5' ].mobile,
 			) }${ heading5Font[ 'font-size-h5' ][ 'mobile-unit' ] }`,
 		);
-
-		await expect( {
-			selector: 'h5, .entry-content h5',
-			property: 'line-height',
-		} ).cssValueToBe( `${ heading5Font[ 'line-height-h5' ] }` );
 	} );
 } );

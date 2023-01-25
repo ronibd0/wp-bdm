@@ -1,6 +1,8 @@
-import { createURL, createNewPost } from '@wordpress/e2e-test-utils';
+import { createURL, createNewPost, setPostContent } from '@wordpress/e2e-test-utils';
 import { publishPost } from '../../../../utils/publish-post';
 import { setCustomize } from '../../../../utils/customize';
+import { TPOGRAPHY_TEST_POST_CONTENT } from '../../../../utils/post';
+
 describe( 'Blog archive in the customizer', () => {
 	it( 'post structure should apply correctly', async () => {
 		const blogPostStructure = {
@@ -11,15 +13,13 @@ describe( 'Blog archive in the customizer', () => {
 		await setCustomize( blogPostStructure );
 		let ppStatus = false;
 		while ( false === ppStatus ) {
-			await createNewPost( { postType: 'post', title: 'test' } );
+			await createNewPost( { postType: 'post', title: 'Test' } );
+			await setPostContent( TPOGRAPHY_TEST_POST_CONTENT );
 			ppStatus = await publishPost();
 		}
-		await page.goto( createURL( '/' ), {
+		await page.goto( createURL( '/author/admin' ), {
 			waitUntil: 'networkidle0',
 		} );
-		await page.click( '#wp-block-search__input-1' );
-		await page.keyboard.type( 'test' );
-		await page.keyboard.press( 'Enter' );
 		await page.waitForSelector( '.ast-separate-container .site-main > .ast-row' );
 		const postStructure = await page.$eval( '.ast-separate-container .site-main > .ast-row', ( element ) => element.getAttribute( '.entry-header' ) );
 		await expect( postStructure ).toBeNull( );

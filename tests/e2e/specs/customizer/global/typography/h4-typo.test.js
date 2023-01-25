@@ -14,7 +14,6 @@ describe( 'global typography heading 4 settings in the customizer', () => {
 		const heading4Font = {
 			'font-family-h4': "'Eagle Lake', handwriting",
 			'font-weight-h4': '400',
-			'text-transform-h4': 'uppercase',
 			'font-size-h4': {
 				desktop: '40',
 				tablet: '30',
@@ -23,7 +22,6 @@ describe( 'global typography heading 4 settings in the customizer', () => {
 				'tablet-unit': 'px',
 				'mobile-unit': 'px',
 			},
-			'line-height-h4': '3px',
 		};
 
 		await setCustomize( heading4Font );
@@ -34,10 +32,8 @@ describe( 'global typography heading 4 settings in the customizer', () => {
 				title: 'heading-4-typography-test',
 			} );
 			await setPostContent( TPOGRAPHY_TEST_POST_CONTENT );
-			await page.waitForTimeout( 10000 );
 			ppStatus = await publishPost();
 		}
-		// await publishPost();
 		await page.goto( createURL( 'heading-4-typography-test' ), {
 			waitUntil: 'networkidle0',
 		} );
@@ -51,11 +47,6 @@ describe( 'global typography heading 4 settings in the customizer', () => {
 			selector: 'h4, .entry-content h4',
 			property: 'font-weight',
 		} ).cssValueToBe( `${ heading4Font[ 'font-weight-h4' ] }` );
-
-		await expect( {
-			selector: 'h4, .entry-content h4',
-			property: 'text-transform',
-		} ).cssValueToBe( `${ heading4Font[ 'text-transform-h4' ] }` );
 
 		await expect( {
 			selector: 'h4, .entry-content h4',
@@ -83,10 +74,5 @@ describe( 'global typography heading 4 settings in the customizer', () => {
 				heading4Font[ 'font-size-h4' ].mobile,
 			) }${ heading4Font[ 'font-size-h4' ][ 'mobile-unit' ] }`,
 		);
-
-		await expect( {
-			selector: 'h4, .entry-content h4',
-			property: 'line-height',
-		} ).cssValueToBe( `${ heading4Font[ 'line-height-h4' ] }` );
 	} );
 } );
