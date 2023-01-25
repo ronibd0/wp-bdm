@@ -7,6 +7,7 @@ import { scrollToElement } from '../../../../utils/scroll-to-element';
 describe( 'Scroll to top option under the customizer', () => {
 	it( 'left position options should apply correctly', async () => {
 		const scrollToTopPosition = {
+			'scroll-to-top-enable': true,
 			'scroll-to-top-icon-position': 'left',
 		};
 		await setCustomize( scrollToTopPosition );

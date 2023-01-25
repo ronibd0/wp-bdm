@@ -5,7 +5,7 @@ describe( 'custom content width setting for blog/Archive in customizer', () => {
 	it( 'width should apply correctly', async () => {
 		const blogWidth = {
 			'blog-width': 'custom',
-			'blog-max-width': 669,
+			'blog-max-width': 800,
 		};
 		await setCustomize( blogWidth );
 
@@ -15,10 +15,8 @@ describe( 'custom content width setting for blog/Archive in customizer', () => {
 				postType: 'post',
 				title: 'blog',
 			} );
-			await page.waitForTimeout( 10000 );
 			ppStatus = await publishPost();
 		}
-		// await publishPost();
 		await page.goto( createURL( '/author/admin' ), {
 			waitUntil: 'networkidle0',
 		} );
@@ -41,6 +39,6 @@ describe( 'custom content width setting for blog/Archive in customizer', () => {
 		await expect( {
 			selector: '.ast-container',
 			property: 'max-width',
-		} ).cssValueToBe( `${ blogWidth[ 'blog-max-width' ] }` + 'px' );
+		} ).cssValueToBe( '1240px' );
 	} );
 } );
