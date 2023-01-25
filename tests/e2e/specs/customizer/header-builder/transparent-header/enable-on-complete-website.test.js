@@ -48,12 +48,9 @@ describe( 'Transparent header in the customizer', () => {
 			'transparent-header-disable-archive': 0,
 		};
 		await setCustomize( disableOnSearch );
-		await page.goto( createURL( '/' ), {
+		await page.goto( createURL( '/author/admin' ), {
 			waitUntil: 'networkidle0',
 		} );
-		await page.click( '#wp-block-search__input-1' );
-		await page.keyboard.type( 'test' );
-		await page.keyboard.press( 'Enter' );
 		await page.waitForSelector( '.ast-theme-transparent-header #masthead' );
 		await expect( {
 			selector: '.ast-theme-transparent-header #masthead',
