@@ -475,7 +475,6 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				/* Max width 762px because below to this point admin-bar height converts to 46px. */
 				$dynamic_css .= astra_parse_css( $admin_bar_responsive_css, '', '782' );
 			}
-
 			return $dynamic_css;
 		}
 
@@ -1609,6 +1608,17 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				);
 
 				$css_desktop_output = array_merge( $css_desktop_output, $compat_css_desktop );
+			}
+			
+			$v4_block_editor_compat = Astra_Dynamic_CSS::v4_block_editor_compat();
+
+			if ( $v4_block_editor_compat ) {
+				$css_desktop_output['.entry-content .woocommerce-message, .entry-content .woocommerce-error, .entry-content .woocommerce-info'] = array(
+					'padding-top'           => '1em',
+					'padding-bottom'        => '1em',
+					'padding-' . $ltr_left  => '3.5em',
+					'padding-' . $ltr_right => '2em',
+				);
 			}
 
 			if ( Astra_Builder_Helper::apply_flex_based_css() ) {
