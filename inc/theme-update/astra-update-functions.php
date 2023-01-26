@@ -1097,4 +1097,9 @@ function astra_theme_background_updater_4_0_1() {
 		update_option( 'astra-settings', $theme_options );
 	}
 
+	if ( ! isset( $theme_options['woo-global-h2-flag'] ) ) {
+		$theme_options['woo-global-h2-flag'] = true;
+		update_option( 'astra-settings', $theme_options );
+	}
+
 }
