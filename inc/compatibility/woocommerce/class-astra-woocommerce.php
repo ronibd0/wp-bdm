@@ -1624,7 +1624,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			}
 
 			// Backward compatibility for old users for h2 tag global fonts.
-			if ( apply_filters( 'astra_theme_woocommerce_h2_font', astra_get_option( 'woo-global-h2-flag', false ) ) ) {
+			if ( apply_filters( 'astra_theme_woocommerce_global_h2_font', astra_get_option( 'woo-global-h2-flag', false ) ) ) {
 				
 				$css_desktop_output['.woocommerce .up-sells h2, .woocommerce .related.products h2, .woocommerce .woocommerce-tabs h2'] = array(
 					'font-size' => '1.5rem',
