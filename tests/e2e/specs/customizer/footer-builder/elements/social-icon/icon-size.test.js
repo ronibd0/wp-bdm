@@ -13,7 +13,6 @@ describe( 'Social Icons in the customizer', () => {
 				primary: {
 					primary_2: {
 						0: 'social-icons-1',
-
 					},
 				},
 			},

@@ -4,7 +4,7 @@ import { setCustomize } from '../../../../utils/customize';
 describe( 'post title size in the customizer', () => {
 	it( 'page title size should apply corectly', async () => {
 		const postTitle = {
-			'font-size-entry-title': {
+			'ast-dynamic-single-post-title-font-size': {
 				desktop: 22,
 				tablet: 20,
 				mobile: 18,
@@ -20,7 +20,7 @@ describe( 'post title size in the customizer', () => {
 			await createNewPost( { postType: 'post', title: 'hello world' } );
 			ppStatus = await publishPost();
 		}
-		// await publishPost();
+
 		await page.goto( createURL( '/hello-world/' ), {
 			waitUntil: 'networkidle0',
 		} );
@@ -30,7 +30,7 @@ describe( 'post title size in the customizer', () => {
 			selector: '.ast-single-post .entry-title',
 			property: 'font-size',
 		} ).cssValueToBe(
-			`${ postTitle[ 'font-size-entry-title' ].desktop }${ postTitle[ 'font-size-entry-title' ][ 'desktop-unit' ] }`,
+			`${ postTitle[ 'ast-dynamic-single-post-title-font-size' ].desktop }${ postTitle[ 'ast-dynamic-single-post-title-font-size' ][ 'desktop-unit' ] }`,
 		);
 	} );
 } );
