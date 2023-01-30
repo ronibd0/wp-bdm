@@ -50,21 +50,6 @@ describe( 'Related post option under the customizer', () => {
 			property: 'font-size',
 		} ).cssValueToBe( `${ postTitleFont[ 'related-posts-title-font-size' ].desktop }${ postTitleFont[ 'related-posts-title-font-size' ][ 'desktop-unit' ] }` );
 
-		// eslint-disable-next-line eslint-comments/disable-enable-pair
-		/* eslint-disable jest/no-commented-out-tests */
-		// GitHub action E2E fail case
-		// await setBrowserViewport( 'medium' );
-		// await expect( {
-		// 	selector: '.ast-related-post-content .entry-header .ast-related-post-title a',
-		// 	property: 'font-size',
-		// } ).cssValueToBe( `${ postTitleFont[ 'related-posts-title-font-size' ].tablet }${ postTitleFont[ 'related-posts-title-font-size' ][ 'tablet-unit' ] }` );
-
-		// await setBrowserViewport( 'small' );
-		// await expect( {
-		// 	selector: '.ast-related-post-content .entry-header .ast-related-post-title a',
-		// 	property: 'font-size',
-		// } ).cssValueToBe( `${ postTitleFont[ 'related-posts-title-font-size' ].mobile }${ postTitleFont[ 'related-posts-title-font-size' ][ 'mobile-unit' ] }` );
-
 		await expect( {
 			selector: '.ast-related-post-content .entry-header .ast-related-post-title a',
 			property: 'line-height',

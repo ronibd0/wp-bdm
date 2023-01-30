@@ -503,6 +503,8 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'--ast-container-default-sm-padding'  => ( true === $update_customizer_strctural_defaults ) ? '3em' : '6.67em',
 					'--ast-container-default-xs-padding'  => ( true === $update_customizer_strctural_defaults ) ? '2.4em' : '2.4em',
 					'--ast-container-default-xxs-padding' => ( true === $update_customizer_strctural_defaults ) ? '1.8em' : '1.4em',
+					'--ast-code-block-background'         => ( true === self::astra_check_default_color_typo() ) ? '#ECEFF3' : '#EEEEEE',
+					'--ast-comment-inputs-background'     => ( true === self::astra_check_default_color_typo() ) ? '#F9FAFB' : '#FAFAFA',
 				),
 
 				// HTML.
@@ -1769,6 +1771,11 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				$default_mobile_layout_css = array(
 					'.ast-comment-formwrap.ast-row' => array(
 						'column-gap' => '10px',
+						'display'    => 'inline-block',
+					),
+					'#ast-commentform .ast-grid-common-col' => array(
+						'position' => 'relative',
+						'width'    => '100%',
 					),
 				);
 
@@ -4021,7 +4028,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		/**
 		 * Block editor experience improvements css introduced with v4.0.0.
 		 *
-		 * @since x.x.x
+		 * @since 4.0.0
 		 * @return boolean false if it is an existing user , true if not.
 		 */
 		public static function v4_block_editor_compat() {
@@ -4658,7 +4665,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		 * Check is new structural things are updated.
 		 *
 		 * @return bool true|false.
-		 * @since x.x.x
+		 * @since 4.0.0
 		 */
 		public static function astra_check_default_color_typo() {
 			$astra_settings = get_option( ASTRA_THEME_SETTINGS );

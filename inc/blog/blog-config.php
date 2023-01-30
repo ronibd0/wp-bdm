@@ -40,12 +40,12 @@ function astra_get_dynamic_taxonomy( $control_tax, $loop_count, $separator ) {
 			/** @psalm-suppress PossibleRawObjectIteration */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 
 			/** @psalm-suppress PossiblyInvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-			$term_links[] = '<a href="' . esc_url( get_term_link( $term->slug, $tax_type ) ) . '">' . __( $term->name ) . '</a>';
+			$term_links[] = '<a href="' . esc_url( get_term_link( $term->slug, $tax_type ) ) . '">' . esc_attr( $term->name ) . '</a>';
 			/** @psalm-suppress PossiblyInvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 		}
 
 		$all_terms  = join( ', ', $term_links );
-		$output_str = '<span class="ast-terms-link">' . __( $all_terms ) . '</span>';
+		$output_str = '<span class="ast-terms-link">' . $all_terms . '</span>';
 
 		return ( 1 != $loop_count ) ? ' ' . $separator . ' ' . $output_str : $output_str;
 	}
@@ -166,7 +166,7 @@ if ( ! function_exists( 'astra_post_date' ) ) {
  * Function to get Author name.
  *
  * @return null|string $author_name Author name.
- * @since x.x.x
+ * @since 4.0.0
  */
 function astra_post_author_name() {
 	$author_name = '';

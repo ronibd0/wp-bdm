@@ -3,13 +3,13 @@
  * Scroll to Top - Customizer.
  *
  * @package Astra
- * @since x.x.x
+ * @since 4.0.0
  */
 
 /**
  * Customizer Initialization
  *
- * @since x.x.x
+ * @since 4.0.0
  */
 class Astra_Scroll_To_Top_Loader {
 
@@ -35,7 +35,7 @@ class Astra_Scroll_To_Top_Loader {
 	/**
 	 *  Constructor
 	 *
-	 * @since x.x.x
+	 * @since 4.0.0
 	 */
 	public function __construct() {
 		add_filter( 'astra_theme_defaults', array( $this, 'theme_defaults' ) );
@@ -49,7 +49,7 @@ class Astra_Scroll_To_Top_Loader {
 	 *
 	 * @param  array $defaults  Astra options default value array.
 	 * @return array
-	 * @since x.x.x
+	 * @since 4.0.0
 	 */
 	public function theme_defaults( $defaults ) {
 
@@ -70,7 +70,7 @@ class Astra_Scroll_To_Top_Loader {
 	 * Add customizer configs for scroll to top in the Theme Customizer.
 	 *
 	 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
-	 * @since x.x.x
+	 * @since 4.0.0
 	 */
 	public function new_customize_register( $wp_customize ) {
 		require_once ASTRA_SCROLL_TO_TOP_DIR . 'classes/customizer/class-astra-scroll-to-top-configs.php';
@@ -79,7 +79,7 @@ class Astra_Scroll_To_Top_Loader {
 	/**
 	 * Customizer Preview
 	 *
-	 * @since x.x.x
+	 * @since 4.0.0
 	 */
 	public function preview_scripts() {
 		/** @psalm-suppress RedundantCondition */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
@@ -96,7 +96,7 @@ class Astra_Scroll_To_Top_Loader {
 	 *
 	 * Loads appropriate template file based on the style option selected in options panel.
 	 *
-	 * @since x.x.x
+	 * @since 4.0.0
 	 */
 	public function html_markup_loader() {
 		if ( true === astra_get_option( 'scroll-to-top-enable', true ) ) {
