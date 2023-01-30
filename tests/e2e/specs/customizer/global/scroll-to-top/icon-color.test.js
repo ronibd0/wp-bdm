@@ -6,6 +6,7 @@ import { scrollToElement } from '../../../../utils/scroll-to-element';
 describe( 'Scroll to top option under the customizer', () => {
 	it( 'icon color options should apply correctly', async () => {
 		const scrollToTopIconColor = {
+			'scroll-to-top-enable': true,
 			'scroll-to-top-icon-color': 'rgb(212, 90, 90)',
 		};
 		await setCustomize( scrollToTopIconColor );
@@ -21,7 +22,6 @@ describe( 'Scroll to top option under the customizer', () => {
 		} );
 		await setBrowserViewport( 'large' );
 		await scrollToElement( '#colophon' );
-		await page.waitForTimeout( '1000' );
 		await page.waitForSelector( '#ast-scroll-top' );
 		await expect( {
 			selector: '#ast-scroll-top',

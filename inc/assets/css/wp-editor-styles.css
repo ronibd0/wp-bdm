@@ -437,7 +437,7 @@ body .editor-styles-wrapper .edit-post-visual-editor__post-title-wrapper > * + *
 }
 
 pre.wp-block {
-  background: #eee;
+  background: #ECEFF3;
   overflow: auto;
   max-width: 100%;
   padding: 1.6em;
@@ -449,8 +449,9 @@ pre.wp-block.wp-block-preformatted {
   font-family: "Courier 10 Pitch", Courier, monospace;
 }
 
-pre.wp-block.wp-block-code {
-  font: 16px Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+pre.wp-block code {
+  font-size: 15px;
+  font-family: "Courier 10 Pitch", Courier, monospace;
 }
 
 .wp-block-freeform.block-library-rich-text__tinymce blockquote {
@@ -710,4 +711,12 @@ body .editor-styles-wrapper > .block-editor-block-list__layout.is-root-container
 body .editor-styles-wrapper > .block-editor-block-list__layout.is-root-container > .wp-block + .wp-block-list {
   margin-top: 1em;
   margin-bottom: 1em;
+}
+
+.wp-block-table table {
+  margin-bottom: 1.5em;
+}
+
+.wp-block-table figcaption {
+  font-size: 1rem;
 }

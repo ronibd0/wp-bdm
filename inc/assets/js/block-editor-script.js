@@ -70,7 +70,7 @@ function astra_onload_function() {
 					} else if( bodyClass.classList.contains( 'ast-default-layout-plain-container' ) ) {
 						bodyClass.classList.add('ast-plain-container');
 						bodyClass.classList.remove('ast-two-container' , 'ast-page-builder-template' , 'ast-separate-container', 'ast-narrow-container');
-					} else {
+					} else if( bodyClass.classList.contains( 'ast-default-layout-narrow-container' ) ) {
 						bodyClass.classList.add('ast-narrow-container');
 						bodyClass.classList.remove('ast-two-container' , 'ast-page-builder-template' , 'ast-separate-container', 'ast-plain-container');
 					}
