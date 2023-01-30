@@ -1623,6 +1623,18 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				);
 			}
 
+			// Backward compatibility for old users for h2 tag global fonts.
+			if ( apply_filters( 'astra_theme_woocommerce_global_h2_font', astra_get_option( 'woo-global-h2-flag', false ) ) ) {
+				
+				$css_desktop_output['.woocommerce .up-sells h2, .woocommerce .related.products h2, .woocommerce .woocommerce-tabs h2'] = array(
+					'font-size' => '1.5rem',
+				);
+
+				$css_desktop_output['.woocommerce h2, .woocommerce-account h2'] = array(
+					'font-size' => '1.625rem',
+				);
+			}
+
 			if ( false === Astra_Icons::is_svg_icons() ) {
 				$css_desktop_output['.woocommerce ul.product-categories > li ul li:before'] = array(
 					'content'     => '"\e900"',

@@ -993,12 +993,12 @@ function astra_theme_background_updater_4_0_0() {
 }
 
 /**
- * Handle backward compatibility on version 4.0.1
+ * Handle backward compatibility on version 4.0.3
  *
  * @since x.x.x
  * @return void
  */
-function astra_theme_background_updater_4_0_1() {
+function astra_theme_background_updater_4_0_3() {
 
 	$theme_options = get_option( 'astra-settings', array() );
 
@@ -1094,6 +1094,11 @@ function astra_theme_background_updater_4_0_1() {
 				),
 		);
 
+		update_option( 'astra-settings', $theme_options );
+	}
+
+	if ( ! isset( $theme_options['woo-global-h2-flag'] ) ) {
+		$theme_options['woo-global-h2-flag'] = true;
 		update_option( 'astra-settings', $theme_options );
 	}
 
