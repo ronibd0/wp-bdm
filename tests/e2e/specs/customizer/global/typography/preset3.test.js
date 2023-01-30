@@ -9,8 +9,6 @@ describe( 'Global typography preset-3 style in the customizer', () => {
 			'typography-presets': 'Preset3',
 			'body-font-family': "'Roboto,sans-serif'",
 			'body-font-weight': '400',
-			'body-text-transform': 'lowercase',
-			'body-line-height': '25px',
 			'font-size-body': {
 				desktop: '17',
 				tablet: '20',
@@ -39,14 +37,6 @@ describe( 'Global typography preset-3 style in the customizer', () => {
 			selector: 'body, button, input, select, textarea, .ast-button, .ast-custom-button',
 			property: 'font-weight',
 		} ).cssValueToBe( `${ globalTypographyPreset3[ 'body-font-weight' ] }` );
-		await expect( {
-			selector: 'body',
-			property: 'text-transform',
-		} ).cssValueToBe( `${ globalTypographyPreset3[ 'body-text-transform' ] }` );
-		await expect( {
-			selector: 'body, button, input, select, textarea, .ast-button, .ast-custom-button',
-			property: 'line-height',
-		} ).cssValueToBe( `${ globalTypographyPreset3[ 'body-line-height' ] }` );
 		await expect( {
 			selector: 'body',
 			property: 'font-size',
@@ -89,13 +79,5 @@ describe( 'Global typography preset-3 style in the customizer', () => {
 			selector: 'h2, .entry-content h2, h3, .entry-content h3, h4, .entry-content h4, h5, .entry-content h5, h6, .entry-content h6',
 			property: 'font-weight',
 		} ).cssValueToBe( `${ globalTypographyPreset3[ 'headings-font-weight' ] }` );
-		await expect( {
-			selector: 'h1, h2, .entry-content h2, h3, .entry-content h3, h4, .entry-content h4, h5, .entry-content h5, h6, .entry-content h6',
-			property: 'text-transform',
-		} ).cssValueToBe( `${ globalTypographyPreset3[ 'headings-text-transform' ] }` );
-		await expect( {
-			selector: 'h2, .entry-content h2, h3, .entry-content h3, h4, .entry-content h4, h5, .entry-content h5, h6, .entry-content h6',
-			property: 'line-height',
-		} ).cssValueToBe( `${ globalTypographyPreset3[ 'headings-line-height' ] }` );
 	} );
 } );

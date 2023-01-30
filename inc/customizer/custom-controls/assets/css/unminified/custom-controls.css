@@ -168,6 +168,11 @@
   text-decoration: none;
 }
 
+.customize-control-ast-responsive-background .more-settings .message,
+.customize-control-ast-background .more-settings .message {
+	margin-right: 5px;
+}
+
 .customize-control-ast-background .more-settings:focus {
   outline: 0;
   box-shadow: none;
@@ -285,6 +290,7 @@
   border-radius: 3px;
   box-shadow: none;
   transition: all 0.3s;
+  -moz-appearance: textfield;
 }
 
 .customize-control-ast-border .input-wrapper .ast-border-wrapper li .ast-border-connected {
@@ -1268,8 +1274,8 @@
 	width: 20px;
 }
 .ast-color-palette .components-circular-option-picker__option.is-pressed + svg {
-	left: 3px;
-	top: -1px;
+	left: 0;
+	top: 0;
 	mix-blend-mode: difference;
 }
 .astra-popover-color .components-circular-option-picker .components-circular-option-picker__swatches {
@@ -1293,7 +1299,8 @@
         padding: 6px 10px;
     }
     .ast-color-palette .components-circular-option-picker__option.is-pressed + svg {
-        width: 16px;
+        width: 20px;
+        top: -2px;
     }
     .ast-color-palette .components-circular-option-picker__option-wrapper .components-circular-option-picker__option:focus::after {
         width: 24px;
@@ -1853,8 +1860,6 @@ li[ID*="accordion-section-ast-dynamic-archive-"].control-section-ast_section {
 .customize-control.ast-top-dotted-divider,
 #customize-control-astra-settings-edd-archive-variable-button-text,
 #customize-control-astra-settings-header-account-logged-out-text,
-#customize-control-blogname,
-#customize-control-blogdescription,
 #customize-control-astra-settings-shop-load-more-text,
 #customize-control-astra-settings-single-product-shipping-text,
 #customize-control-astra-settings-checkout-back-to-cart-button-text,
@@ -1867,6 +1872,10 @@ li[ID*="accordion-section-ast-dynamic-archive-"].control-section-ast_section {
     margin-top: 24px;
     padding-top: 24px;
     border-top: 1px dashed var(--ast-customizer-color-7);
+}
+
+#customize-control-blogname, #customize-control-blogdescription, {
+	margin-top: 16px;
 }
 
 #customize-control-astra-settings-product-sale-percent-value .ast-control-tooltip {
@@ -2094,6 +2103,9 @@ li[ID*="accordion-section-ast-dynamic-archive-"].control-section-ast_section {
 	text-align: center;
 	padding: 0 5px;
 }
+.ast-font-extras-wrapper .ast-font-extras-input input[type=number], .ast-font-spacing-wrapper .ast-font-spacing-input input[type=number] {
+	-moz-appearance: textfield;
+}
 .ast-font-extras-input:hover, .ast-font-spacing-input:hover {
 	border-color: var(--ast-customizer-color-2);
 }
@@ -2249,6 +2261,10 @@ div .ast-field-settings-modal .customize-control-ast-font-extras {
 	display: flex;
 	white-space: break-spaces;
 	inline-size: max-content;
+}
+
+.ast-customizer-font-varient-wrap {
+	margin-top: 12px;
 }
 
 .ast-customizer-font-varient-wrap .ast-multi-select__value-container {
@@ -2464,6 +2480,41 @@ span.customize-control-title.ast-group-section-title {
 }
 .ast-menu-location-btn {
 	cursor: pointer;
+}
+
+.customize-control-ast-multi-selector .input-wrapper {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+}
+.customize-control-ast-multi-selector .ast-multiselector-inner-wrap {
+	display: flex;
+	justify-content: center;
+	flex: 1 1 0;
+	background: var(--ast-customizer-color-9);
+	border: 1px solid var(--ast-customizer-color-7);
+	padding: .6em 0;
+	cursor: pointer;
+	--ast-customizer-multiselect-icon-color: var(--ast-customizer-color-6);
+	margin-left: -1px;
+}
+
+.customize-control-ast-multi-selector .ast-multiselector-inner-wrap.active {
+	--ast-customizer-multiselect-icon-color: var(--ast-customizer-color-1);
+	border-color: var(--ast-customizer-color-3);
+	z-index: 1;
+}
+.customize-control-ast-multi-selector .ast-multiselector-inner-wrap svg {
+	fill: var(--ast-customizer-color-10);
+}
+.ast-multiselector-inner-wrap .ahfb-icon-set {
+	line-height: 1;
+}
+.customize-control-ast-multi-selector .ast-multiselector-inner-wrap:last-child {
+	border-radius: 0px 3px 3px 0px;
+}
+.customize-control-ast-multi-selector .ast-multiselector-inner-wrap:first-child {
+	border-radius: 3px 0px 0px 3px;
 }
 
 .customize-control-ast-row-layout .ast-responsive-btns {
@@ -3196,6 +3247,10 @@ span.customize-control-title.ast-group-section-title {
   -moz-appearance: textfield;
 }
 
+.customize-control-ast-responsive-spacing .ast-spacing-input-item input[type=number] {
+	-moz-appearance: textfield;
+}
+
 .customize-control-ast-responsive-spacing .ast-spacing-input-item input::-webkit-inner-spin-button,
 .customize-control-ast-responsive-spacing .ast-spacing-input-item input::-webkit-outer-spin-button {
   -webkit-appearance: none;
@@ -3441,50 +3496,6 @@ span.customize-control-title.ast-group-section-title {
   font-size: 15px;
 }
 
-.ast-field-settings-modal .customize-control-ast-responsive .ast-responsive-btns {
-  margin-top: 6px;
-  position: absolute;
-  right: 15px;
-  top: 0px;
-}
-
-.customize-control-ast-responsive .input-wrapper {
-  overflow: hidden;
-}
-
-.customize-control-ast-responsive .ast-responsive-btns {
-    position: absolute;
-    top: 2px;
-    right: 0;
-}
-
-.customize-control-ast-responsive .input-wrapper input {
-  display: none;
-  width: 82%;
-  float: none;
-}
-
-.customize-control-ast-responsive .input-wrapper input.active {
-  display: block;
-}
-
-
-.customize-control-ast-responsive .input-wrapper .ast-non-reponsive.ast-responsive-input {
-  display: inline-block;
-}
-
-.customize-control-ast-responsive .input-wrapper .ast-non-reponsive.ast-responsive-input.active {
-  display: inline-block;
-}
-
-#customize-control-astra-settings-font-size-body.customize-control-ast-responsive .input-wrapper {
-  display: inline-block;
-}
-
-#customize-control-astra-settings-font-size-body.customize-control-ast-responsive .input-wrapper .ast-responsive-input {
-  width: 100%;
-}
-
 .input-wrapper.ast-responsive-wrapper {
   display: inline-flex;
   justify-content: space-between;
@@ -3492,11 +3503,6 @@ span.customize-control-title.ast-group-section-title {
   align-items: flex-start;
   flex: 0 1;
   width: 100%;
-}
-.customize-control-ast-responsive .ast-responsive-btns {
-  position: absolute;
-  right: 0px;
-  top: 1px;
 }
 
 .ast-variant-select > div {
@@ -4053,6 +4059,7 @@ span.customize-control-title.ast-group-section-title {
 
 .customize-control-ast-sortable .sortable div.invisible {
   opacity: 0.6;
+  visibility: visible;
 }
 
 .customize-control-ast-sortable .sortable div.invisible .dashicons.visibility:after {
@@ -4261,6 +4268,9 @@ span.customize-control-title.ast-group-section-title {
     line-height: 1;
 }
 
+.customize-control-ast-list-icons .ahfb-sorter-item-panel-header .dashicons-admin-page {
+    margin-right: 0;
+}
 .customize-control-ast-text-input textarea {
     display: block;
     width: 100%;

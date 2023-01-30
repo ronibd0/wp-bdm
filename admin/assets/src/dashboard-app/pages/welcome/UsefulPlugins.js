@@ -1,6 +1,7 @@
 import React from "react";
 import Astra_Admin_Icons from "@Common/block-icons";
 import apiFetch from '@wordpress/api-fetch';
+import { __ } from '@wordpress/i18n';
 
 const UsefulPlugins = () => {
 

@@ -6,7 +6,7 @@
  * @author      Brainstorm Force
  * @copyright   Copyright (c) 2022, Brainstorm Force
  * @link        https://www.brainstormforce.com
- * @since       Astra x.x.x
+ * @since       Astra 4.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -16,9 +16,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Breadcrumbs Markup Initial Setup
  *
- * @since x.x.x
+ * @since 4.0.0
  */
-class Astra_Posts_Strctures_Markup {
+class Astra_Posts_Structure_Markup {
 
 	/**
 	 *  Constructor
@@ -31,7 +31,7 @@ class Astra_Posts_Strctures_Markup {
 	/**
 	 * Check eligibility to override default entry header.
 	 *
-	 * @since x.x.x
+	 * @since 4.0.0
 	 * @return void
 	 */
 	public function astra_add_hero_section_markup() {
@@ -44,7 +44,7 @@ class Astra_Posts_Strctures_Markup {
 	 * Support custom title & description support for archive.
 	 *
 	 * @param string $title Default archive title.
-	 * @since x.x.x
+	 * @since 4.0.0
 	 * @return string
 	 */
 	public function astra_archive_custom_title( $title ) {
@@ -56,7 +56,7 @@ class Astra_Posts_Strctures_Markup {
 	/**
 	 * Override default entry header.
 	 *
-	 * @since x.x.x
+	 * @since 4.0.0
 	 * @return void
 	 */
 	public function override_entry_header() {
@@ -164,7 +164,7 @@ class Astra_Posts_Strctures_Markup {
 	 * Layout 1 will also needed for WooCommerce product.
 	 * Case: WooCommerce by default adds "Shop" title, breadcrumb on shop/product-archive frontend, but this should also get linked to banner layout 1.
 	 *
-	 * @since x.x.x
+	 * @since 4.0.0
 	 * @return void
 	 */
 	public function astra_woocommerce_banner_layout_1_compatibility() {
@@ -194,18 +194,18 @@ class Astra_Posts_Strctures_Markup {
 	/**
 	 * Enable layout 1 for some cases. Ex. WC Product.
 	 *
-	 * @since x.x.x
+	 * @since 4.0.0
 	 * @return void
 	 */
 	public function astra_force_render_banner_layout_1() {
 		$is_singular = is_singular() ? true : false;
 		if ( $is_singular ) {
-			?> <header class="entry-header <?php astra_entry_header_class(); ?>"> 
+			?> <header class="entry-header <?php astra_entry_header_class(); ?>">
 			<?php
 			astra_single_header_top();
 		} else {
 			?>
-			 <section class="ast-archive-description"> 
+			 <section class="ast-archive-description">
 			<?php
 			do_action( 'astra_before_archive_title' );
 		}
@@ -214,16 +214,16 @@ class Astra_Posts_Strctures_Markup {
 
 		if ( $is_singular ) {
 			?>
-			 </header> <!-- .entry-header --> 
+			 </header> <!-- .entry-header -->
 			<?php
 			astra_single_header_bottom();
 		} else {
 			?>
-			 </section> 
+			 </section>
 			<?php
 			do_action( 'astra_after_archive_title' );
 		}
 	}
 }
 
-new Astra_Posts_Strctures_Markup();
+new Astra_Posts_Structure_Markup();

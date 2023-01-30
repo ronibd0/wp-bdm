@@ -922,7 +922,7 @@ if ( ! function_exists( 'astra_get_the_title' ) ) {
 /**
  * Don't apply direct new layouts to legacy users.
  *
- * @since x.x.x
+ * @since 4.0.0
  * @return boolean false if it is an existing user , true if not.
  */
 function astra_use_dynamic_blog_layouts() {
@@ -934,7 +934,7 @@ function astra_use_dynamic_blog_layouts() {
 /**
  * Get taxonomy archive banner for layout 1.
  *
- * @since x.x.x
+ * @since 4.0.0
  */
 function astra_get_taxonomy_banner_legacy_layout() {
 	?>
@@ -947,7 +947,9 @@ function astra_get_taxonomy_banner_legacy_layout() {
 				switch ( $meta_key ) {
 					case 'archive-title':
 						do_action( 'astra_before_archive_title' );
+						add_filter( 'get_the_archive_title_prefix', '__return_empty_string' );
 						the_archive_title( '<h1 class="page-title ast-archive-title">', '</h1>' );
+						remove_filter( 'get_the_archive_title_prefix', '__return_empty_string' );
 						do_action( 'astra_after_archive_title' );
 						break;
 					case 'archive-breadcrumb':
@@ -1413,42 +1415,6 @@ function astra_get_fonts_display_property() {
 }
 
 /**
- * Return Theme options from database.
- *
- * @param  string $option       Option key.
- * @param  string $default      Option default value.
- * @param  string $deprecated   Option default value.
- * @return Mixed               Return option value.
- */
-function astra_get_db_option( $option, $default = '', $deprecated = '' ) {
-
-	if ( '' != $deprecated ) {
-		$default = $deprecated;
-	}
-
-	$theme_options = Astra_Theme_Options::get_db_options();
-
-	/**
-	 * Filter the options array for Astra Settings.
-	 *
-	 * @since  1.0.20
-	 * @var Array
-	 */
-	$theme_options = apply_filters( 'astra_get_db_option_array', $theme_options, $option, $default );
-
-	$value = ( isset( $theme_options[ $option ] ) && '' !== $theme_options[ $option ] ) ? $theme_options[ $option ] : $default;
-
-	/**
-	 * Dynamic filter astra_get_option_$option.
-	 * $option is the name of the Astra Setting, Refer Astra_Theme_Options::defaults() for option names from the theme.
-	 *
-	 * @since  1.0.20
-	 * @var Mixed.
-	 */
-	return apply_filters( "astra_get_db_option_{$option}", $value, $option, $default );
-}
-
-/**
  * Generate Responsive Background Color CSS.
  *
  * @param array  $bg_obj_res array of background object.
@@ -1639,7 +1605,7 @@ function astra_load_woocommerce_login_form_password_icon() {
 /**
  * Function to add narrow width properties in the frontend.
  *
- * @since x.x.x
+ * @since 4.0.0
  * @param string $location container layout for single-post, archives, pages, page meta.
  * @param string $narrow_container_max_width  dynamic container width in px.
  * @return string Parsed CSS based on $location and $narrow_container_max_width.

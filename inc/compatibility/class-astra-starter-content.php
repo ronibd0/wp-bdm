@@ -2,7 +2,7 @@
 /**
  * Starter Content Compatibility.
  *
- * @since x.x.x
+ * @since 4.0.0
  * @package Astra
  */
 
@@ -54,6 +54,8 @@ class Astra_Starter_Content {
 		}
 
 		// preview customizer values.
+		add_filter( 'default_post_metadata', array( $this, 'starter_meta' ), 99, 3 );
+
 		add_filter( 'astra_theme_defaults', array( $this, 'theme_defaults' ) );
 
 		add_filter( 'astra_global_color_palette', array( $this, 'theme_color_palettes_defaults' ) );
@@ -61,9 +63,38 @@ class Astra_Starter_Content {
 	}
 
 	/**
+	 * Load default starter meta.
+	 *
+	 * @since 4.0.2
+	 * @param mixed  $value Value.
+	 * @param int    $post_id Post id.
+	 * @param string $meta_key Meta key.
+	 *
+	 * @return string Meta value.
+	 */
+	public function starter_meta( $value, $post_id, $meta_key ) {
+		if ( get_post_type( $post_id ) !== 'page' ) {
+			return $value;
+		}
+		if ( 'site-content-layout' === $meta_key ) {
+			return 'plain-container';
+		}
+		if ( 'theme-transparent-header-meta' === $meta_key ) {
+			return 'enabled';
+		}
+		if ( 'site-sidebar-layout' === $meta_key ) {
+			return 'no-sidebar';
+		}
+		if ( 'site-post-title' === $meta_key ) {
+			return 'disabled';
+		}
+		return $value;
+	}
+
+	/**
 	 * Register listener to insert post.
 	 *
-	 * @since x.x.x
+	 * @since 4.0.0
 	 * @param int      $post_ID Post Id.
 	 * @param \WP_Post $post Post object.
 	 * @param bool     $update Is update.
@@ -93,7 +124,7 @@ class Astra_Starter_Content {
 	/**
 	 *  Get customizer json
 	 *
-	 * @since x.x.x
+	 * @since 4.0.0
 	 *  @return mixed value.
 	 */
 	public function get_customizer_json() {
@@ -122,7 +153,7 @@ class Astra_Starter_Content {
 	/**
 	 *  Save Astra customizer settings into database.
 	 *
-	 * @since x.x.x
+	 * @since 4.0.0
 	 */
 	public function save_astra_settings() {
 		
@@ -141,7 +172,7 @@ class Astra_Starter_Content {
 	/**
 	 * Load default astra settings.
 	 *
-	 * @since x.x.x
+	 * @since 4.0.0
 	 * @param mixed $defaults defaults.
 	 * @return mixed value.
 	 */
@@ -159,7 +190,7 @@ class Astra_Starter_Content {
 	/**
 	 * Load default color palettes.
 	 *
-	 * @since x.x.x
+	 * @since 4.0.0
 	 * @param mixed $defaults defaults.
 	 * @return mixed value.
 	 */
@@ -179,7 +210,7 @@ class Astra_Starter_Content {
 	 * Return starter content definition.
 	 *
 	 * @return mixed|void 
-	 * @since x.x.x
+	 * @since 4.0.0
 	 */
 	public function get() {
 
@@ -240,7 +271,6 @@ class Astra_Starter_Content {
 			'options'     => array(
 				'page_on_front' => '{{' . self::HOME_SLUG . '}}',
 				'show_on_front' => 'page',
-				'blogname'      => 'Astra',
 			),
 			'posts'       => array(
 				self::HOME_SLUG => require ASTRA_THEME_DIR . 'inc/compatibility/starter-content/home.php', // PHPCS:ignore WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound

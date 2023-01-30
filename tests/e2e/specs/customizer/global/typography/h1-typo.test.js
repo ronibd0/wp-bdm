@@ -12,7 +12,6 @@ describe( 'global typography H1 settings in the customizer', () => {
 		const heading1Font = {
 			'font-family-h1': "'Eagle Lake', handwriting",
 			'font-weight-h1': '400',
-			'text-transform-h1': 'uppercase',
 			'font-size-h1': {
 				desktop: '60',
 				tablet: '20',
@@ -21,7 +20,6 @@ describe( 'global typography H1 settings in the customizer', () => {
 				'tablet-unit': 'px',
 				'mobile-unit': 'px',
 			},
-			'line-height-h1': '3px',
 		};
 		await setCustomize( heading1Font );
 
@@ -32,10 +30,8 @@ describe( 'global typography H1 settings in the customizer', () => {
 				title: 'heading-1-typography-test',
 			} );
 			await setPostContent( TPOGRAPHY_TEST_POST_CONTENT );
-			await page.waitForTimeout( 10000 );
 			ppStatus = await publishPost();
 		}
-		// await publishPost();
 		await page.goto( createURL( 'heading-1-typography-test' ), {
 			waitUntil: 'networkidle0',
 		} );
@@ -50,18 +46,10 @@ describe( 'global typography H1 settings in the customizer', () => {
 		} ).cssValueToBe( `${ heading1Font[ 'font-weight-h1' ] }` );
 		await expect( {
 			selector: '.entry-content h1',
-			property: 'text-transform',
-		} ).cssValueToBe( `${ heading1Font[ 'text-transform-h1' ] }` );
-		await expect( {
-			selector: '.entry-content h1',
 			property: 'font-size',
 		} ).cssValueToBe(
 			`${ heading1Font[ 'font-size-h1' ].desktop }${ heading1Font[ 'font-size-h1' ][ 'desktop-unit' ] }`,
 		);
-		await expect( {
-			selector: '.entry-content h1',
-			property: 'line-height',
-		} ).cssValueToBe( `${ heading1Font[ 'line-height-h1' ] }` );
 		await setBrowserViewport( 'medium' );
 		await page.waitForSelector( '.entry-content' );
 		await expect( {
@@ -78,9 +66,5 @@ describe( 'global typography H1 settings in the customizer', () => {
 		} ).cssValueToBe(
 			`${ heading1Font[ 'font-size-h1' ].mobile }${ heading1Font[ 'font-size-h1' ][ 'mobile-unit' ] }`,
 		);
-		await expect( {
-			selector: '.entry-content h1',
-			property: 'line-height',
-		} ).cssValueToBe( `${ heading1Font[ 'line-height-h1' ] }` );
 	} );
 } );

@@ -4,13 +4,13 @@ import { publishPost } from '../../../../utils/publish-post';
 describe( 'Single post in the customizer', () => {
 	it( 'structure should apply corectly', async () => {
 		const singlePostMeta = {
-			'blog-single-meta': {
+			'ast-dynamic-single-post-metadata': {
 				0: 'comments',
-				1: 'category',
-				2: 'author',
-				3: 'date',
-				4: 'tag',
+				1: 'author',
+				2: 'date',
+				3: 'ast-dynamic-single-post-taxonomy',
 			},
+			'ast-dynamic-single-post-taxonomy': 'category',
 		};
 		await setCustomize( singlePostMeta );
 		let ppStatus = false;
@@ -26,11 +26,7 @@ describe( 'Single post in the customizer', () => {
 		await expect( Comment ).toBeNull();
 
 		await page.waitForSelector( '.entry-meta' );
-		const Category = await page.$eval( '.entry-meta', ( element ) => element.getAttribute( '.cat-links' ) );
-		await expect( Category ).toBeNull();
-
-		await page.waitForSelector( '.entry-meta' );
-		const Author = await page.$eval( '.entry-meta', ( element ) => element.getAttribute( '.author-name' ) );
+		const Author = await page.$eval( '.entry-meta', ( element ) => element.getAttribute( '.posted-by' ) );
 		await expect( Author ).toBeNull();
 
 		await page.waitForSelector( '.entry-meta' );
@@ -38,7 +34,7 @@ describe( 'Single post in the customizer', () => {
 		await expect( Date ).toBeNull();
 
 		await page.waitForSelector( '.entry-meta' );
-		const Tags = await page.$eval( '.entry-meta', ( element ) => element.getAttribute( '.tags-links' ) );
+		const Tags = await page.$eval( '.entry-meta', ( element ) => element.getAttribute( '.ast-terms-link' ) );
 		await expect( Tags ).toBeNull();
 	} );
 } );
