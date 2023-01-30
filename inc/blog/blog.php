@@ -445,13 +445,13 @@ function astra_banner_elements_order( $structure = array() ) {
 						'</h1>'
 					);
 				}
-				do_action( 'astra_single_post_banner_title_before' );
+				do_action( 'astra_single_post_banner_title_after' );
 				break;
 
 			case 'single-excerpt':
 				do_action( 'astra_single_post_banner_excerpt_before' );
 				echo '<span>' . get_the_excerpt( $post->ID ) . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-				do_action( 'astra_single_post_banner_excerpt_before' );
+				do_action( 'astra_single_post_banner_excerpt_after' );
 				break;
 
 			case 'single-meta':
@@ -465,7 +465,7 @@ function astra_banner_elements_order( $structure = array() ) {
 					}
 				}
 				echo $output; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-				do_action( 'astra_single_post_banner_meta_before' );
+				do_action( 'astra_single_post_banner_meta_after' );
 				break;
 
 			case 'single-image':
