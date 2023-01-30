@@ -3,7 +3,7 @@
  * Scroll To Top Template
  *
  * @package Astra
- * @since x.x.x
+ * @since 4.0.0
  */
 
 $astra_addon_scroll_top_alignment = astra_get_option( 'scroll-to-top-icon-position' );

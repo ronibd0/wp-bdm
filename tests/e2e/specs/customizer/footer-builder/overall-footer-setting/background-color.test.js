@@ -2,7 +2,7 @@ import { createURL } from '@wordpress/e2e-test-utils';
 import { setCustomize } from '../../../../utils/customize';
 import { setBrowserViewport } from '../../../../utils/set-browser-viewport';
 import { scrollToElement } from '../../../../utils/scroll-to-element';
-describe( 'Footer builder backgeround color setting in customizer', () => {
+describe( 'Footer builder background color setting in customizer', () => {
 	it( 'background color for desktop should apply correctly', async () => {
 		const footerBuilder = {
 			'section-footer-builder-layout-padding': 60,

@@ -24,7 +24,9 @@
 				api.previewer.container.css('bottom', $footer.outerHeight() + 'px');
 			} else if ($body.hasClass('ahfb-header-builder-is-active') && 0 < $section.length && !$section.hasClass('ahfb-builder-hide')) {
 				sidebar_widgets.css('bottom', '289px');
-				api.previewer.container.css({"bottom": $section.outerHeight() + 'px'});
+				$(document).ready(function() {
+					api.previewer.container.css({"bottom": $section.outerHeight() + 'px'});
+				  });
 			} else {
 				sidebar_widgets.css('bottom', '46px');
 				api.previewer.container.css('bottom', '');

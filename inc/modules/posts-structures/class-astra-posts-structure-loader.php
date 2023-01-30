@@ -6,7 +6,7 @@
  * @author      Brainstorm Force
  * @copyright   Copyright (c) 2022, Brainstorm Force
  * @link        https://www.brainstormforce.com
- * @since       Astra x.x.x
+ * @since       Astra 4.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -16,7 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Customizer Initialization
  *
- * @since x.x.x
+ * @since 4.0.0
  */
 class Astra_Posts_Structure_Loader {
 
@@ -28,15 +28,22 @@ class Astra_Posts_Structure_Loader {
 	private static $customizer_defaults = array();
 
 	/**
+	 * Supported post types to process dynamic customizer.
+	 *
+	 * @var array $supported_post_types
+	 */
+	private static $supported_post_types = array();
+
+	/**
 	 *  Constructor
 	 *
-	 * @since x.x.x
+	 * @since 4.0.0
 	 */
 	public function __construct() {
 		/**
 		 * Update Astra default color and typography values. To not update directly on existing users site, added backwards.
 		 *
-		 * @since x.x.x
+		 * @since 4.0.0
 		 */
 		$apply_new_default_color_typo_values = Astra_Dynamic_CSS::astra_check_default_color_typo();
 
@@ -162,7 +169,7 @@ class Astra_Posts_Structure_Loader {
 	 * Enqueue google fonts.
 	 *
 	 * @return void
-	 * @since x.x.x
+	 * @since 4.0.0
 	 */
 	public function add_fonts() {
 		$post_types = self::get_supported_post_types();
@@ -200,7 +207,7 @@ class Astra_Posts_Structure_Loader {
 	 *
 	 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
 	 *
-	 * @since x.x.x
+	 * @since 4.0.0
 	 */
 	public function posts_structures_customize_register( $wp_customize ) {
 
@@ -217,62 +224,64 @@ class Astra_Posts_Structure_Loader {
 	/**
 	 * Get all supported pots types & filter the public ones for further query.
 	 *
-	 * @since x.x.x
+	 * @since 4.0.0
 	 * @return array $post_types
 	 */
 	public static function get_supported_post_types() {
-
-		$queried_post_types = array_keys(
-			get_post_types(
-				array(
-					'public'              => true,
-					'_builtin'            => false,
-					'exclude_from_search' => false,
+		if ( empty( self::$supported_post_types ) || is_customize_preview() ) {
+			$queried_post_types = array_keys(
+				get_post_types(
+					apply_filters(
+						'astra_dynamic_get_post_types_query_args',
+						array(
+							'public'   => true,
+							'_builtin' => false,
+						)
+					)
 				)
-			)
-		);
+			);
 
-		$queried_post_types = array_diff(
-			$queried_post_types,
-			array(
-				'astra-advanced-hook',
-				'astra_adv_header',
-				'elementor_library',
-				'brizy_template',
+			$queried_post_types   = array_diff(
+				$queried_post_types,
+				array(
+					'astra-advanced-hook',
+					'astra_adv_header',
+					'elementor_library',
+					'brizy_template',
 
-				'course',
-				'lesson',
-				'llms_membership',
+					'course',
+					'lesson',
+					'llms_membership',
 
-				'tutor_quiz',
-				'tutor_assignments',
+					'tutor_quiz',
+					'tutor_assignments',
 
-				'testimonial',
-				'frm_display',
-				'mec_esb',
-				'mec-events',
+					'testimonial',
+					'frm_display',
+					'mec_esb',
+					'mec-events',
 
-				'sfwd-assignment',
-				'sfwd-essays',
-				'sfwd-transactions',
-				'sfwd-certificates',
-				'sfwd-quiz',
-				'e-landing-page',
-			)
-		);
+					'sfwd-assignment',
+					'sfwd-essays',
+					'sfwd-transactions',
+					'sfwd-certificates',
+					'sfwd-quiz',
+					'e-landing-page',
+				)
+			);
+			$queried_post_types[] = 'post';
+			$queried_post_types[] = 'page';
 
-		$queried_post_types[] = 'post';
-		$queried_post_types[] = 'page';
+			self::$supported_post_types = $queried_post_types;
+		}
 
-		$supported_post_types = array_reverse( array_unique( $queried_post_types ) );
-
-		return apply_filters( 'astra_dynamic_post_structure_posttypes', $supported_post_types );
+		return apply_filters( 'astra_dynamic_post_structure_posttypes', self::$supported_post_types );
 	}
 
 	/**
 	 * Customizer preview support.
 	 *
-	 * @since x.x.x
+	 * @since 4.0.0
 	 */
 	public function preview_scripts() {
 		/** @psalm-suppress RedundantCondition */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
@@ -290,9 +299,10 @@ class Astra_Posts_Structure_Loader {
 			'astra-post-strctures-customizer-preview',
 			'AstraPostStrcturesData',
 			array(
-				'post_types'         => self::get_supported_post_types(),
-				'tablet_break_point' => astra_get_tablet_breakpoint(),
-				'mobile_break_point' => astra_get_mobile_breakpoint(),
+				'post_types'           => self::get_supported_post_types(),
+				'tablet_break_point'   => astra_get_tablet_breakpoint(),
+				'mobile_break_point'   => astra_get_mobile_breakpoint(),
+				'enabled_related_post' => astra_get_option( 'enable-related-posts', false ),
 			)
 		);
 	}
@@ -302,7 +312,7 @@ class Astra_Posts_Structure_Loader {
 	 *
 	 * @param string $key Retrieve default for this parameter.
 	 *
-	 * @since x.x.x
+	 * @since 4.0.0
 	 */
 	public static function get_customizer_default( $key ) {
 		return isset( self::$customizer_defaults[ $key ] ) ? self::$customizer_defaults[ $key ] : array();
