@@ -3,7 +3,7 @@
  * Astra Admin Ajax Base.
  *
  * @package Astra
- * @since x.x.x
+ * @since 4.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Class Astra_Admin_Ajax.
  *
- * @since x.x.x
+ * @since 4.0.0
  */
 class Astra_Admin_Ajax {
 
@@ -21,7 +21,7 @@ class Astra_Admin_Ajax {
 	 * Ajax action prefix.
 	 *
 	 * @var string
-	 * @since x.x.x
+	 * @since 4.0.0
 	 */
 	private $prefix = 'astra';
 
@@ -30,14 +30,14 @@ class Astra_Admin_Ajax {
 	 *
 	 * @access private
 	 * @var null $instance
-	 * @since x.x.x
+	 * @since 4.0.0
 	 */
 	private static $instance;
 
 	/**
 	 * Initiator
 	 *
-	 * @since x.x.x
+	 * @since 4.0.0
 	 * @return object initialized object of class.
 	 */
 	public static function get_instance() {
@@ -53,14 +53,14 @@ class Astra_Admin_Ajax {
 	 * Errors class instance.
 	 *
 	 * @var array
-	 * @since x.x.x
+	 * @since 4.0.0
 	 */
 	private $errors = array();
 
 	/**
 	 * Constructor
 	 *
-	 * @since x.x.x
+	 * @since 4.0.0
 	 */
 	public function __construct() {
 		$this->errors = array(
@@ -82,7 +82,7 @@ class Astra_Admin_Ajax {
 	 * Return boolean settings for admin dashboard app.
 	 *
 	 * @return array
-	 * @since x.x.x
+	 * @since 4.0.0
 	 */
 	public function astra_admin_settings_typewise() {
 		return apply_filters(
@@ -98,7 +98,7 @@ class Astra_Admin_Ajax {
 	/**
 	 * Disable pro upgrade notice from all over in Astra.
 	 *
-	 * @since x.x.x
+	 * @since 4.0.0
 	 */
 	public function disable_astra_pro_notices() {
 
@@ -138,7 +138,7 @@ class Astra_Admin_Ajax {
 	/**
 	 * Migrate to New Header Builder
 	 *
-	 * @since x.x.x
+	 * @since 4.0.0
 	 */
 	public function migrate_to_builder() {
 
@@ -181,7 +181,7 @@ class Astra_Admin_Ajax {
 	 * Save settings.
 	 *
 	 * @return void
-	 * @since x.x.x
+	 * @since 4.0.0
 	 */
 	public function astra_update_admin_setting() {
 
@@ -240,7 +240,7 @@ class Astra_Admin_Ajax {
 	 *
 	 * @param string $type Message type.
 	 * @return string
-	 * @since x.x.x
+	 * @since 4.0.0
 	 */
 	public function get_error_msg( $type ) {
 

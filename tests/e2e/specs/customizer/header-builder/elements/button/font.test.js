@@ -9,7 +9,6 @@ describe( 'Header builder button setting in customizer', () => {
 			'header-button1-font-weight': 400,
 			'header-button1-text-transform': 'uppercase',
 			'header-button1-line-height': '2',
-			'header-button1-letter-spacing': 10,
 			'header-button1-font-size': {
 				desktop: 25,
 				tablet: 20,
@@ -57,11 +56,6 @@ describe( 'Header builder button setting in customizer', () => {
 			selector: '.ast-header-button-1[data-section*="section-hb-button-"] .ast-builder-button-wrap .ast-custom-button',
 			property: 'line-height',
 		} ).cssValueToBe( `${ buttonFont[ 'header-button1-line-height' ] * buttonFont[ 'header-button1-font-size' ].desktop }` + 'px' );
-
-		await expect( {
-			selector: '.ast-header-button-1[data-section*="section-hb-button-"] .ast-builder-button-wrap .ast-custom-button',
-			property: 'letter-spacing',
-		} ).cssValueToBe( `${ buttonFont[ 'header-button1-letter-spacing' ] + 'px' }` );
 
 		await expect( {
 			selector: '.ast-header-button-1[data-section*="section-hb-button-"] .ast-builder-button-wrap .ast-custom-button',

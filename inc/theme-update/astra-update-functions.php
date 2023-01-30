@@ -707,12 +707,12 @@ function astra_theme_background_updater_3_9_4() {
 }
 
 /**
- * x.x.x backward handling part.
+ * 4.0.0 backward handling part.
  *
  * 1. Migrate existing setting & do required onboarding for new admin dashboard v4.0.0 app.
  * 2. Migrating Post Structure & Meta options in title area meta parts.
  *
- * @since x.x.x
+ * @since 4.0.0
  * @return void
  */
 function astra_theme_background_updater_4_0_0() {
@@ -876,7 +876,7 @@ function astra_theme_background_updater_4_0_0() {
 			/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 
 			/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-			$archive_dynamic_text_transform = ! empty( $theme_options['text-transform-archive-summary-title'] ) ? $theme_options['text-transform-archive-summary-title'] : 'capitalize';
+			$archive_dynamic_text_transform = ! empty( $theme_options['text-transform-archive-summary-title'] ) ? $theme_options['text-transform-archive-summary-title'] : '';
 			/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 
 			$theme_options[ 'ast-dynamic-archive-' . esc_attr( $post_type ) . '-title-font-extras' ] = array(
@@ -920,7 +920,7 @@ function astra_theme_background_updater_4_0_0() {
 			/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 
 			/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-			$single_dynamic_text_transform = ! empty( $theme_options['text-transform-entry-title'] ) ? $theme_options['text-transform-entry-title'] : 'capitalize';
+			$single_dynamic_text_transform = ! empty( $theme_options['text-transform-entry-title'] ) ? $theme_options['text-transform-entry-title'] : '';
 			/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 
 			$theme_options[ 'ast-dynamic-single-' . esc_attr( $post_type ) . '-title-font-extras' ] = array(
@@ -993,12 +993,31 @@ function astra_theme_background_updater_4_0_0() {
 }
 
 /**
- * Handle backward compatibility on version 4.0.1
+ * 4.0.2 backward handling part.
+ *
+ * 1. Read Time option backwards handling for old users.
+ *
+ * @since 4.0.2
+ * @return void
+ */
+function astra_theme_background_updater_4_0_2() {
+	$theme_options = get_option( 'astra-settings', array() );
+	if ( ! isset( $theme_options['v4-0-2-update-migration'] ) && isset( $theme_options['blog-single-meta'] ) && in_array( 'read-time', $theme_options['blog-single-meta'] ) ) {
+		if ( isset( $theme_options['ast-dynamic-single-post-metadata'] ) && ! in_array( 'read-time', $theme_options['ast-dynamic-single-post-metadata'] ) ) {
+			$theme_options['ast-dynamic-single-post-metadata'][] = 'read-time';
+			$theme_options['v4-0-2-update-migration']            = true;
+			update_option( 'astra-settings', $theme_options );
+		}
+	}
+}
+
+/**
+ * Handle backward compatibility on version 4.0.3
  *
  * @since x.x.x
  * @return void
  */
-function astra_theme_background_updater_4_0_1() {
+function astra_theme_background_updater_4_0_3() {
 
 	$theme_options = get_option( 'astra-settings', array() );
 
@@ -1033,7 +1052,7 @@ function astra_theme_background_updater_4_0_1() {
 			'icon'    => 'cc-mastercard',
 			'image'   => '',
 			'label'   => __( 'Mastercard', 'astra' ),
-		) 
+		)
 	) : '';
 
 	false !== $mastercard_payment ? array_push(
@@ -1097,4 +1116,8 @@ function astra_theme_background_updater_4_0_1() {
 		update_option( 'astra-settings', $theme_options );
 	}
 
+	if ( ! isset( $theme_options['woo-global-h2-flag'] ) ) {
+		$theme_options['woo-global-h2-flag'] = true;
+		update_option( 'astra-settings', $theme_options );
+	}
 }

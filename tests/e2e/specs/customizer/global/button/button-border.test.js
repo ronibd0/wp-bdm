@@ -114,7 +114,5 @@ describe( 'Global button setting under the Customizer', () => {
 			selector: '.ast-custom-button, .wp-block-button .wp-block-button__link, form[CLASS*="wp-block-search__"].wp-block-search .wp-block-search__inside-wrapper .wp-block-search__button, button',
 			property: 'border-radius',
 		} ).cssValueToBe( `${ borderRadius[ 'button-radius' ] + 'px' }` );
-		// await page.waitForSelector( 'button, form[CLASS*="wp-block-search__"].wp-block-search .wp-block-search__inside-wrapper .wp-block-search__button' );
-		//commented this selector for search button due to expected and receive value error
 	} );
 } );

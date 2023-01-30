@@ -25,7 +25,7 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	/**
 	 * Update Astra default color and typography values. To not update directly on existing users site, added backwards.
 	 *
-	 * @since x.x.x
+	 * @since 4.0.0
 	 */
 	$apply_new_default_color_typo_values = Astra_Dynamic_CSS::astra_check_default_color_typo();
 
@@ -436,7 +436,7 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	);
 	$defaults['hbb-footer-bg-obj-responsive'] = array(
 		'desktop' => array(
-			'background-color'      => '#eeeeee',
+			'background-color'      => $apply_new_default_color_typo_values ? 'var(--ast-global-color-5)' : '#eeeeee',
 			'background-image'      => '',
 			'background-repeat'     => 'repeat',
 			'background-position'   => 'center center',
@@ -486,6 +486,8 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 			'background-attachment' => 'scroll',
 		),
 	);
+	$defaults['hbb-footer-top-border-color']  = $apply_new_default_color_typo_values ? 'var(--ast-global-color-6)' : '';
+	$defaults['hbb-footer-separator']         = $apply_new_default_color_typo_values ? 1 : '';
 
 	/**
 	 * Header Margin defaults.
@@ -1135,7 +1137,7 @@ function astra_prepare_button_defaults( $defaults, $index ) {
 	/**
 	 * Update Astra default color and typography values. To not update directly on existing users site, added backwards.
 	 *
-	 * @since x.x.x
+	 * @since 4.0.0
 	 */
 	$apply_new_default_color_typo_values = Astra_Dynamic_CSS::astra_check_default_color_typo();
 
@@ -1723,7 +1725,7 @@ function astra_prepare_menu_defaults( $defaults, $index ) {
 	/**
 	 * Update Astra default color and typography values. To not update directly on existing users site, added backwards.
 	 *
-	 * @since x.x.x
+	 * @since 4.0.0
 	 */
 	$apply_new_default_color_typo_values = Astra_Dynamic_CSS::astra_check_default_color_typo();
 	$astra_options                       = Astra_Theme_Options::get_astra_options();
