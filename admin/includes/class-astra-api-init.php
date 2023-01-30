@@ -3,7 +3,7 @@
  * Class Astra_API_Init.
  *
  * @package Astra
- * @since x.x.x
+ * @since 4.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -22,14 +22,14 @@ class Astra_API_Init extends WP_REST_Controller {
 	 *
 	 * @access private
 	 * @var null $instance
-	 * @since x.x.x
+	 * @since 4.0.0
 	 */
 	private static $instance;
 
 	/**
 	 * Initiator
 	 *
-	 * @since x.x.x
+	 * @since 4.0.0
 	 * @return object initialized object of class.
 	 */
 	public static function get_instance() {
@@ -58,7 +58,7 @@ class Astra_API_Init extends WP_REST_Controller {
 	 *
 	 * @access private
 	 * @var string $option_name DB option name.
-	 * @since x.x.x
+	 * @since 4.0.0
 	 */
 	private static $option_name = 'astra_admin_settings';
 
@@ -67,14 +67,14 @@ class Astra_API_Init extends WP_REST_Controller {
 	 *
 	 * @access private
 	 * @var array $astra_admin_settings Settings array.
-	 * @since x.x.x
+	 * @since 4.0.0
 	 */
 	private static $astra_admin_settings = array();
 
 	/**
 	 * Constructor
 	 *
-	 * @since x.x.x
+	 * @since 4.0.0
 	 */
 	public function __construct() {
 		self::$astra_admin_settings = get_option( self::$option_name, array() );
@@ -89,7 +89,7 @@ class Astra_API_Init extends WP_REST_Controller {
 	/**
 	 * Astra's REST knowledge base data.
 	 *
-	 * @since x.x.x
+	 * @since 4.0.0
 	 * @return mixed
 	 */
 	public static function astra_get_knowledge_base_data() {
@@ -99,7 +99,7 @@ class Astra_API_Init extends WP_REST_Controller {
 	/**
 	 * Perform scheduler for Astra knowledge base data retriever for processing further in admin dashboard.
 	 *
-	 * @since x.x.x
+	 * @since 4.0.0
 	 * @return void
 	 */
 	public function astra_kb_data_scheduler() {
@@ -109,7 +109,7 @@ class Astra_API_Init extends WP_REST_Controller {
 	/**
 	 * Run scheduled job for Astra knowledge base data.
 	 *
-	 * @since x.x.x
+	 * @since 4.0.0
 	 * @return void
 	 */
 	public function astra_run_scheduled_docs_job() {
@@ -121,7 +121,7 @@ class Astra_API_Init extends WP_REST_Controller {
 	/**
 	 * Register API routes.
 	 *
-	 * @since x.x.x
+	 * @since 4.0.0
 	 */
 	public function register_routes() {
 		register_rest_route(
@@ -145,7 +145,7 @@ class Astra_API_Init extends WP_REST_Controller {
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return array $updated_option defaults + set DB option data.
 	 *
-	 * @since x.x.x
+	 * @since 4.0.0
 	 */
 	public function get_admin_settings( $request ) {
 		$db_option = get_option( 'astra_admin_settings', array() );
@@ -169,7 +169,7 @@ class Astra_API_Init extends WP_REST_Controller {
 	 *
 	 * @param  WP_REST_Request $request Full details about the request.
 	 * @return WP_Error|boolean
-	 * @since x.x.x
+	 * @since 4.0.0
 	 */
 	public function get_permissions_check( $request ) {
 
@@ -187,7 +187,7 @@ class Astra_API_Init extends WP_REST_Controller {
 	 * @param  string $key     The sub-option key.
 	 * @param  mixed  $default Option default value if option is not available.
 	 * @return mixed            Return the option value based on provided key
-	 * @since x.x.x
+	 * @since 4.0.0
 	 */
 	public static function get_admin_settings_option( $key, $default = false ) {
 		$value = isset( self::$astra_admin_settings[ $key ] ) ? self::$astra_admin_settings[ $key ] : $default;
@@ -201,7 +201,7 @@ class Astra_API_Init extends WP_REST_Controller {
 	 * @param string $key       The option key.
 	 * @param mixed  $value     The value to update.
 	 * @return mixed            Return the option value based on provided key
-	 * @since x.x.x
+	 * @since 4.0.0
 	 */
 	public static function update_admin_settings_option( $key, $value ) {
 		$astra_admin_updated_settings         = get_option( self::$option_name, array() );

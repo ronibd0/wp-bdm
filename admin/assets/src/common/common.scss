@@ -162,7 +162,7 @@
 }
 
 /** Reverting tailwind build CSS for admin bar. */
-#wpadminbar img, #adminmenumain img {
+.ab-top-menu img, #adminmenumain img {
     display: initial;
     vertical-align: initial;
 }

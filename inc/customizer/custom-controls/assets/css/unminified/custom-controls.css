@@ -290,6 +290,7 @@
   border-radius: 3px;
   box-shadow: none;
   transition: all 0.3s;
+  -moz-appearance: textfield;
 }
 
 .customize-control-ast-border .input-wrapper .ast-border-wrapper li .ast-border-connected {
@@ -1273,8 +1274,8 @@
 	width: 20px;
 }
 .ast-color-palette .components-circular-option-picker__option.is-pressed + svg {
-	left: 3px;
-	top: -1px;
+	left: 0;
+	top: 0;
 	mix-blend-mode: difference;
 }
 .astra-popover-color .components-circular-option-picker .components-circular-option-picker__swatches {
@@ -1298,7 +1299,8 @@
         padding: 6px 10px;
     }
     .ast-color-palette .components-circular-option-picker__option.is-pressed + svg {
-        width: 16px;
+        width: 20px;
+        top: -2px;
     }
     .ast-color-palette .components-circular-option-picker__option-wrapper .components-circular-option-picker__option:focus::after {
         width: 24px;
@@ -2101,6 +2103,9 @@ li[ID*="accordion-section-ast-dynamic-archive-"].control-section-ast_section {
 	text-align: center;
 	padding: 0 5px;
 }
+.ast-font-extras-wrapper .ast-font-extras-input input[type=number], .ast-font-spacing-wrapper .ast-font-spacing-input input[type=number] {
+	-moz-appearance: textfield;
+}
 .ast-font-extras-input:hover, .ast-font-spacing-input:hover {
 	border-color: var(--ast-customizer-color-2);
 }
@@ -2256,6 +2261,10 @@ div .ast-field-settings-modal .customize-control-ast-font-extras {
 	display: flex;
 	white-space: break-spaces;
 	inline-size: max-content;
+}
+
+.ast-customizer-font-varient-wrap {
+	margin-top: 12px;
 }
 
 .ast-customizer-font-varient-wrap .ast-multi-select__value-container {
@@ -3238,6 +3247,10 @@ span.customize-control-title.ast-group-section-title {
   -moz-appearance: textfield;
 }
 
+.customize-control-ast-responsive-spacing .ast-spacing-input-item input[type=number] {
+	-moz-appearance: textfield;
+}
+
 .customize-control-ast-responsive-spacing .ast-spacing-input-item input::-webkit-inner-spin-button,
 .customize-control-ast-responsive-spacing .ast-spacing-input-item input::-webkit-outer-spin-button {
   -webkit-appearance: none;
@@ -3483,50 +3496,6 @@ span.customize-control-title.ast-group-section-title {
   font-size: 15px;
 }
 
-.ast-field-settings-modal .customize-control-ast-responsive .ast-responsive-btns {
-  margin-top: 6px;
-  position: absolute;
-  right: 15px;
-  top: 0px;
-}
-
-.customize-control-ast-responsive .input-wrapper {
-  overflow: hidden;
-}
-
-.customize-control-ast-responsive .ast-responsive-btns {
-    position: absolute;
-    top: 2px;
-    right: 0;
-}
-
-.customize-control-ast-responsive .input-wrapper input {
-  display: none;
-  width: 82%;
-  float: none;
-}
-
-.customize-control-ast-responsive .input-wrapper input.active {
-  display: block;
-}
-
-
-.customize-control-ast-responsive .input-wrapper .ast-non-reponsive.ast-responsive-input {
-  display: inline-block;
-}
-
-.customize-control-ast-responsive .input-wrapper .ast-non-reponsive.ast-responsive-input.active {
-  display: inline-block;
-}
-
-#customize-control-astra-settings-font-size-body.customize-control-ast-responsive .input-wrapper {
-  display: inline-block;
-}
-
-#customize-control-astra-settings-font-size-body.customize-control-ast-responsive .input-wrapper .ast-responsive-input {
-  width: 100%;
-}
-
 .input-wrapper.ast-responsive-wrapper {
   display: inline-flex;
   justify-content: space-between;
@@ -3534,11 +3503,6 @@ span.customize-control-title.ast-group-section-title {
   align-items: flex-start;
   flex: 0 1;
   width: 100%;
-}
-.customize-control-ast-responsive .ast-responsive-btns {
-  position: absolute;
-  right: 0px;
-  top: 1px;
 }
 
 .ast-variant-select > div {

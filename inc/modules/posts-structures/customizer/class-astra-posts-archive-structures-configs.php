@@ -6,7 +6,7 @@
  * @author      Brainstorm Force
  * @copyright   Copyright (c) 2022, Brainstorm Force
  * @link        https://www.brainstormforce.com
- * @since       Astra x.x.x
+ * @since       Astra 4.0.0
  */
 
 // Block direct access to the file.
@@ -22,7 +22,7 @@ if ( ! class_exists( 'Astra_Customizer_Config_Base' ) ) {
 /**
  * Register Posts Structures Customizer Configurations.
  *
- * @since x.x.x
+ * @since 4.0.0
  */
 class Astra_Posts_Archive_Structures_Configs extends Astra_Customizer_Config_Base {
 
@@ -32,7 +32,7 @@ class Astra_Posts_Archive_Structures_Configs extends Astra_Customizer_Config_Bas
 	 *
 	 * @param string $post_type On basis of this will decide to hide sidebar control or not.
 	 * @return mixed
-	 * @since x.x.x
+	 * @since 4.0.0
 	 */
 	public function get_sidebar_context( $post_type ) {
 		if ( ! in_array( $post_type, Astra_Posts_Structures_Configs::get_narrow_width_exculde_cpts() ) ) {
@@ -68,7 +68,7 @@ class Astra_Posts_Archive_Structures_Configs extends Astra_Customizer_Config_Bas
 	 * Compatibility case: Narrow width + dynamic customizer controls.
 	 *
 	 * @param string $post_type On basis of this will decide to show narrow-width layout or not.
-	 * @since x.x.x
+	 * @since 4.0.0
 	 */
 	public function get_content_layout_choices( $post_type ) {
 		if ( ! in_array( $post_type, Astra_Posts_Structures_Configs::get_narrow_width_exculde_cpts() ) ) {
@@ -129,7 +129,7 @@ class Astra_Posts_Archive_Structures_Configs extends Astra_Customizer_Config_Bas
 	 *
 	 * @param string $parent_section Section of dynamic customizer.
 	 * @param string $post_type Post Type.
-	 * @since x.x.x
+	 * @since 4.0.0
 	 *
 	 * @return array Customizer Configurations.
 	 */
@@ -188,7 +188,7 @@ class Astra_Posts_Archive_Structures_Configs extends Astra_Customizer_Config_Bas
 	 *
 	 * @param Array                $configurations Astra Customizer Configurations.
 	 * @param WP_Customize_Manager $wp_customize instance of WP_Customize_Manager.
-	 * @since x.x.x
+	 * @since 4.0.0
 	 * @return Array Astra Customizer Configurations with updated configurations.
 	 */
 	public function register_configuration( $configurations, $wp_customize ) {
@@ -282,7 +282,7 @@ class Astra_Posts_Archive_Structures_Configs extends Astra_Customizer_Config_Bas
 					'section'  => $parent_section,
 					'priority' => 2,
 					'linked'   => $title_section,
-					'linkText' => ( 'post' === $post_type ) ? __( 'Blog Title', 'astra' ) : ucfirst( $post_type ) . __( ' Title', 'astra' ),
+					'linkText' => ( 'post' === $post_type ) ? __( 'Blog Title', 'astra' ) : Astra_Posts_Structures_Configs::astra_get_dynamic_section_title( get_post_type_object( $post_type ), $post_type ) . __( ' Title', 'astra' ),
 				),
 
 				/**
@@ -424,7 +424,7 @@ class Astra_Posts_Archive_Structures_Configs extends Astra_Customizer_Config_Bas
 					'section'  => $title_section,
 					'priority' => 2,
 					'label'    => '',
-					'help'     => esc_html( sprintf( __( 'Note: This title appear on %1$s archive for banner Layout 2.', 'astra' ), $post_type ) ),
+					'help'     => esc_html( sprintf( /* translators: 1: post type */ __( 'Note: This title appear on %1$s archive for banner Layout 2.', 'astra' ), $post_type ) ),
 				),
 
 				/**
@@ -457,7 +457,7 @@ class Astra_Posts_Archive_Structures_Configs extends Astra_Customizer_Config_Bas
 					'section'  => $title_section,
 					'priority' => 2,
 					'label'    => '',
-					'help'     => esc_html( sprintf( __( 'Note: This description appear on %1$s archive for banner Layout 2.', 'astra' ), $post_type ) ),
+					'help'     => esc_html( sprintf( /* translators: 1: post type */ __( 'Note: This description appear on %1$s archive for banner Layout 2.', 'astra' ), $post_type ) ),
 				),
 
 				/**
