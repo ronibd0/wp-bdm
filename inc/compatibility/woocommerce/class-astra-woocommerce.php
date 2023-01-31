@@ -1610,9 +1610,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				$css_desktop_output = array_merge( $css_desktop_output, $compat_css_desktop );
 			}
 			
-			$v4_block_editor_compat = Astra_Dynamic_CSS::v4_block_editor_compat();
-
-			if ( $v4_block_editor_compat ) {
+			if ( Astra_Dynamic_CSS::v4_block_editor_compat() ) {
 				$css_desktop_output['.entry-content .woocommerce-message, .entry-content .woocommerce-error, .entry-content .woocommerce-info'] = array(
 					'padding-top'           => '1em',
 					'padding-bottom'        => '1em',
