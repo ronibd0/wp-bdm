@@ -8,6 +8,7 @@ v4.1.0 (Unreleased)
 - Fix: Customizer - Global buttons text and background hover color not working in customizer preview.
 - Fix: WordPress 6.1 conflicting with customizer's global outline button styling.
 - Fix: Footer builder - Widgets dynamic CSS gets added multiple times on the frontend.
+- Fix: WooCommerce - Error, info content messages UI breaking on the frontend.
 - Fix: Builder - Off-canvas menu - Dropdown menu arrow icon is misplaced in case of toggle for desktop.
 - Fix: Content background color does not apply to Author Box in customizer preview.
 - Fix: Cost Calculator Builder - compatibility range slider.
