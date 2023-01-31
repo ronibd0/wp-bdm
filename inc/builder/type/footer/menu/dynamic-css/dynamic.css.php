@@ -170,6 +170,7 @@ function astra_hb_footer_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered =
 		),
 		'.footer-widget-area[data-section="section-footer-menu"] .astra-footer-tablet-vertical-menu' => array(
 			'display' => 'grid',
+			'justify-content'  => $tablet_alignment
 		),
 		'.footer-widget-area[data-section="section-footer-menu"] .astra-footer-tablet-vertical-menu .menu-item' => array(
 			'align-items' => $tablet_alignment,
@@ -210,6 +211,7 @@ function astra_hb_footer_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered =
 		),
 		'.footer-widget-area[data-section="section-footer-menu"] .astra-footer-mobile-vertical-menu' => array(
 			'display' => 'grid',
+			'justify-content'  => $mobile_alignment
 		),
 		'.footer-widget-area[data-section="section-footer-menu"] .astra-footer-mobile-vertical-menu .menu-item' => array(
 			'align-items' => $mobile_alignment,
