@@ -3,7 +3,7 @@
  * Post Strctures Extension
  *
  * @package Astra
- * @since x.x.x
+ * @since 4.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -16,7 +16,7 @@ define( 'ASTRA_THEME_POST_STRUCTURE_URI', ASTRA_THEME_URI . 'inc/modules/posts-s
 /**
  * Post Strctures Initial Setup
  *
- * @since x.x.x
+ * @since 4.0.0
  */
 class Astra_Post_Structures {
 

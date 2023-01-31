@@ -370,7 +370,7 @@ if ( ! function_exists( 'astra_header_custom_item_outside_menu' ) ) {
  *
  * /template-parts/single/content-header.php
  *
- * @since x.x.x
+ * @since 4.0.0
  */
 function astra_entry_content_single_page_template() {
 	get_template_part( 'template-parts/single/content-header' );
