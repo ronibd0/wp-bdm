@@ -6,27 +6,27 @@ describe( 'social icons in the customizer', () => {
 	it( 'icon radius should apply correctly', async () => {
 		const socialIconRadius = {
 			'footer-social-1-radius-fields': {
-				'desktop': {
-					bottom: "20",
-					left: "19",
-					right: "18",
-					top: "17"
+				desktop: {
+					bottom: '20',
+					left: '19',
+					right: '18',
+					top: '17'
 				},
-				'tablet': {
-					bottom: "15",
-					left: "14",
-					right: "13",
-					top: "12"
+				tablet: {
+					bottom: '15',
+					left: '14',
+					right: '13',
+					top: '12'
 				},
-				'mobile': {
-					bottom: "10",
-					left: "9",
-					right: "8",
-					top: "7"
+				mobile: {
+					bottom: '10',
+					left: '9',
+					right: '8',
+					top: '7'
 				},
-				'desktop-unit': "px",
-				'tablet-unit': "px",
-				'mobile-unit': "px",
+				'desktop-unit': 'px',
+				'tablet-unit': 'px',
+				'mobile-unit': 'px',
 			},
 			'footer-desktop-items': {
 				primary: {
@@ -47,19 +47,19 @@ describe( 'social icons in the customizer', () => {
 		await expect( {
 			selector: '.ast-footer-social-1-wrap .ast-builder-social-element',
 			property: 'border-top-left-radius',
-		} ).cssValueToBe( `${ socialIconRadius[ 'footer-social-1-radius-fields' ].desktop.top}${ socialIconRadius[ 'footer-social-1-radius-fields' ][ 'desktop-unit' ]}` );
+		} ).cssValueToBe( `${ socialIconRadius[ 'footer-social-1-radius-fields' ].desktop.top }${ socialIconRadius[ 'footer-social-1-radius-fields' ][ 'desktop-unit' ] }` );
 		await expect( {
 			selector: '.ast-footer-social-1-wrap .ast-builder-social-element',
 			property: 'border-top-right-radius',
-		} ).cssValueToBe( `${ socialIconRadius[ 'footer-social-1-radius-fields' ].desktop.right}${ socialIconRadius[ 'footer-social-1-radius-fields' ][ 'desktop-unit' ]}` );
+		} ).cssValueToBe( `${ socialIconRadius[ 'footer-social-1-radius-fields' ].desktop.right }${ socialIconRadius[ 'footer-social-1-radius-fields' ][ 'desktop-unit' ] }` );
 		await expect( {
 			selector: '.ast-footer-social-1-wrap .ast-builder-social-element',
 			property: 'border-bottom-right-radius',
-		} ).cssValueToBe( `${ socialIconRadius[ 'footer-social-1-radius-fields' ].desktop.bottom}${ socialIconRadius[ 'footer-social-1-radius-fields' ][ 'desktop-unit' ]}` );
+		} ).cssValueToBe( `${ socialIconRadius[ 'footer-social-1-radius-fields' ].desktop.bottom }${ socialIconRadius[ 'footer-social-1-radius-fields' ][ 'desktop-unit' ] }` );
 		await expect( {
 			selector: '.ast-footer-social-1-wrap .ast-builder-social-element',
 			property: 'border-bottom-left-radius',
-		} ).cssValueToBe( `${ socialIconRadius[ 'footer-social-1-radius-fields' ].desktop.left}${ socialIconRadius[ 'footer-social-1-radius-fields' ][ 'desktop-unit' ]}` );
+		} ).cssValueToBe( `${ socialIconRadius[ 'footer-social-1-radius-fields' ].desktop.left }${ socialIconRadius[ 'footer-social-1-radius-fields' ][ 'desktop-unit' ] }` );
 
 		await setBrowserViewport( 'medium' );
 		await scrollToElement( '#colophon' );
@@ -67,19 +67,19 @@ describe( 'social icons in the customizer', () => {
 		await expect( {
 			selector: '.ast-footer-social-1-wrap .ast-builder-social-element',
 			property: 'border-top-left-radius',
-		} ).cssValueToBe( `${ socialIconRadius[ 'footer-social-1-radius-fields' ].tablet.top}${ socialIconRadius[ 'footer-social-1-radius-fields' ][ 'tablet-unit' ]}` );
+		} ).cssValueToBe( `${ socialIconRadius[ 'footer-social-1-radius-fields' ].tablet.top }${ socialIconRadius[ 'footer-social-1-radius-fields' ][ 'tablet-unit' ] }` );
 		await expect( {
 			selector: '.ast-footer-social-1-wrap .ast-builder-social-element',
 			property: 'border-top-right-radius',
-		} ).cssValueToBe( `${ socialIconRadius[ 'footer-social-1-radius-fields' ].tablet.right}${ socialIconRadius[ 'footer-social-1-radius-fields' ][ 'tablet-unit' ]}` );
+		} ).cssValueToBe( `${ socialIconRadius[ 'footer-social-1-radius-fields' ].tablet.right }${ socialIconRadius[ 'footer-social-1-radius-fields' ][ 'tablet-unit' ] }` );
 		await expect( {
 			selector: '.ast-footer-social-1-wrap .ast-builder-social-element',
 			property: 'border-bottom-right-radius',
-		} ).cssValueToBe( `${ socialIconRadius[ 'footer-social-1-radius-fields' ].tablet.bottom}${ socialIconRadius[ 'footer-social-1-radius-fields' ][ 'tablet-unit' ]}` );
+		} ).cssValueToBe( `${ socialIconRadius[ 'footer-social-1-radius-fields' ].tablet.bottom }${ socialIconRadius[ 'footer-social-1-radius-fields' ][ 'tablet-unit' ] }` );
 		await expect( {
 			selector: '.ast-footer-social-1-wrap .ast-builder-social-element',
 			property: 'border-bottom-left-radius',
-		} ).cssValueToBe( `${ socialIconRadius[ 'footer-social-1-radius-fields' ].tablet.left}${ socialIconRadius[ 'footer-social-1-radius-fields' ][ 'tablet-unit' ]}` );
+		} ).cssValueToBe( `${ socialIconRadius[ 'footer-social-1-radius-fields' ].tablet.left }${ socialIconRadius[ 'footer-social-1-radius-fields' ][ 'tablet-unit' ] }` );
 
 		await setBrowserViewport( 'small' );
 		await scrollToElement( '#colophon' );
@@ -87,18 +87,18 @@ describe( 'social icons in the customizer', () => {
 		await expect( {
 			selector: '.ast-footer-social-1-wrap .ast-builder-social-element',
 			property: 'border-top-left-radius',
-		} ).cssValueToBe( `${ socialIconRadius[ 'footer-social-1-radius-fields' ].mobile.top}${ socialIconRadius[ 'footer-social-1-radius-fields' ][ 'mobile-unit' ]}` );
+		} ).cssValueToBe( `${ socialIconRadius[ 'footer-social-1-radius-fields' ].mobile.top }${ socialIconRadius[ 'footer-social-1-radius-fields' ][ 'mobile-unit' ] }` );
 		await expect( {
 			selector: '.ast-footer-social-1-wrap .ast-builder-social-element',
 			property: 'border-top-right-radius',
-		} ).cssValueToBe( `${ socialIconRadius[ 'footer-social-1-radius-fields' ].mobile.right}${ socialIconRadius[ 'footer-social-1-radius-fields' ][ 'mobile-unit' ]}` );
+		} ).cssValueToBe( `${ socialIconRadius[ 'footer-social-1-radius-fields' ].mobile.right }${ socialIconRadius[ 'footer-social-1-radius-fields' ][ 'mobile-unit' ] }` );
 		await expect( {
 			selector: '.ast-footer-social-1-wrap .ast-builder-social-element',
 			property: 'border-bottom-right-radius',
-		} ).cssValueToBe( `${ socialIconRadius[ 'footer-social-1-radius-fields' ].mobile.bottom}${ socialIconRadius[ 'footer-social-1-radius-fields' ][ 'mobile-unit' ]}` );
+		} ).cssValueToBe( `${ socialIconRadius[ 'footer-social-1-radius-fields' ].mobile.bottom }${ socialIconRadius[ 'footer-social-1-radius-fields' ][ 'mobile-unit' ] }` );
 		await expect( {
 			selector: '.ast-footer-social-1-wrap .ast-builder-social-element',
 			property: 'border-bottom-left-radius',
-		} ).cssValueToBe( `${ socialIconRadius[ 'footer-social-1-radius-fields' ].mobile.left}${ socialIconRadius[ 'footer-social-1-radius-fields' ][ 'mobile-unit' ]}` );
+		} ).cssValueToBe( `${ socialIconRadius[ 'footer-social-1-radius-fields' ].mobile.left }${ socialIconRadius[ 'footer-social-1-radius-fields' ][ 'mobile-unit' ] }` );
 	} );
 } );
