@@ -10,19 +10,19 @@ describe( 'Social Icons in the customizer', () => {
 					bottom: '20',
 					left: '19',
 					right: '18',
-					top: '17'
+					top: '17',
 				},
 				tablet: {
 					bottom: '15',
 					left: '14',
 					right: '13',
-					top: '12'
+					top: '12',
 				},
 				mobile: {
 					bottom: '10',
 					left: '9',
 					right: '8',
-					top: '7'
+					top: '7',
 				},
 				'desktop-unit': 'px',
 				'tablet-unit': 'px',
