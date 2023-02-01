@@ -1003,8 +1003,8 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	/**
 	 * Woo-Cart.
 	 */
-	$defaults['woo-header-cart-click-action']               = 'default';
-	$defaults['woo-slide-in-cart-width']                    = array(
+	$defaults['woo-header-cart-click-action']              = 'default';
+	$defaults['woo-slide-in-cart-width']                   = array(
 		'desktop'      => 35,
 		'tablet'       => '',
 		'mobile'       => '',
@@ -1012,25 +1012,25 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 		'tablet-unit'  => '%',
 		'mobile-unit'  => '%',
 	);
-	$defaults['woo-header-cart-icon-total-label-position']  = array(
+	$defaults['woo-header-cart-icon-total-label-position'] = array(
 		'desktop' => '',
 		'tablet'  => '',
 		'mobile'  => '',
 	);
-	$defaults['header-woo-cart-icon-size']                  = array(
+	$defaults['header-woo-cart-icon-size']                 = array(
 		'desktop' => '',
 		'tablet'  => '',
 		'mobile'  => '',
 	);
-	$defaults['woo-header-cart-icon']                       = 'default';
-	$defaults['woo-header-cart-icon-style']                 = 'outline';
-	$defaults['woo-desktop-cart-flyout-direction']          = 'right';
-	$defaults['header-woo-cart-icon-color']                 = '';
-	$defaults['transparent-header-woo-cart-icon-color']     = '';
-	$defaults['header-woo-cart-icon-hover-color']           = '';
-	$defaults['woo-header-cart-border-width']               = 2;
-	$woo_header_cart_border_radius                          = ! isset( $astra_options['woo-header-cart-icon-radius-fields'] ) && isset( $astra_options['woo-header-cart-icon-radius'] ) ? $astra_options['woo-header-cart-icon-radius'] : '';
-	$defaults['woo-header-cart-icon-radius-fields'] = array(
+	$defaults['woo-header-cart-icon']                      = 'default';
+	$defaults['woo-header-cart-icon-style']                = 'outline';
+	$defaults['woo-desktop-cart-flyout-direction']         = 'right';
+	$defaults['header-woo-cart-icon-color']                = '';
+	$defaults['transparent-header-woo-cart-icon-color']    = '';
+	$defaults['header-woo-cart-icon-hover-color']          = '';
+	$defaults['woo-header-cart-border-width']              = 2;
+	$woo_header_cart_border_radius                         = ! isset( $astra_options['woo-header-cart-icon-radius-fields'] ) && isset( $astra_options['woo-header-cart-icon-radius'] ) ? $astra_options['woo-header-cart-icon-radius'] : '';
+	$defaults['woo-header-cart-icon-radius-fields']        = array(
 		'desktop'      => array(
 			'top'    => $woo_header_cart_border_radius,
 			'right'  => $woo_header_cart_border_radius,
@@ -1053,7 +1053,7 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 		'tablet-unit'  => 'px',
 		'mobile-unit'  => 'px',
 	);
-	$defaults['woo-header-cart-badge-display']      = true;
+	$defaults['woo-header-cart-badge-display']             = true;
 	// Woo Cart - Dynamic label default value.
 	$defaults['woo-header-cart-label-display'] = '';
 
