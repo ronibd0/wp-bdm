@@ -1673,23 +1673,3 @@ function astra_skip_elementor_onboarding( $network_wide ) {
 }
 
 add_action( 'activate_elementor/elementor.php', 'astra_skip_elementor_onboarding' );
-
-add_filter( 'astra_entry_header_class', 'astra_entry_header_class_custom', 1, 99 );
-/**
- * Hide elementor title.
- *
- * @param array $classes Array of elementor edit mode check.
- *
- * @since x.x.x
- */
-function astra_entry_header_class_custom( $classes ) {
-	$post_id   = astra_get_post_id(); 
-	/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-	$edit_mode = get_post_meta( $post_id, '_elementor_edit_mode', true ); 
-
-	if ( $edit_mode && $edit_mode == 'builder' ) {
-		$classes[] = 'ast-header-without-markup';
-	}
-
-	return $classes;
-}
