@@ -215,9 +215,15 @@ class Astra_Menu {
 			$page_action = str_replace( '_', '-', $page_action );
 		}
 
-		/** @psalm-suppress MissingFile */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-		include_once ASTRA_THEME_ADMIN_DIR . 'views/admin-base.php'; 
-		/** @psalm-suppress MissingFile */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+		?>
+		<div class="ast-menu-page-wrapper">
+			<div id="ast-menu-page">
+				<div class="ast-menu-page-content">
+					<div id="astra-dashboard-app" class="astra-dashboard-app"> </div>
+				</div>
+			</div>
+		</div>
+		<?php
 	}
 
 	/**

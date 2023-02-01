@@ -180,7 +180,7 @@ if ( ! function_exists( 'astra_check_is_ie' ) ) :
 		$is_ie = false;
 
 		if ( ! empty( $_SERVER['HTTP_USER_AGENT'] ) ) {
-			$ua = htmlentities( sanitize_text_field( wp_unslash( $_SERVER['HTTP_USER_AGENT'] ) ), ENT_QUOTES, 'UTF-8' );
+			$ua = htmlentities( sanitize_text_field( wp_unslash( $_SERVER['HTTP_USER_AGENT'] ) ), ENT_QUOTES, 'UTF-8' );  // phpcs:ignore WordPressVIPMinimum.Variables.RestrictedVariables.cache_constraints___SERVER__HTTP_USER_AGENT__ -- Need to check if its ie.
 			if ( strpos( $ua, 'Trident/7.0' ) !== false ) {
 				$is_ie = true;
 			}
