@@ -355,9 +355,9 @@ function astra_get_archive_description( $post_type ) {
 	$description = '';
 	if ( ! is_search() ) {
 		
-		$get_the_archive_description 			 = get_the_archive_description();
-		$is_author                   		     = is_author();
-		$get_the_author_meta_description         = trim( get_the_author_meta( 'description' ) );
+		$get_the_archive_description     = get_the_archive_description();
+		$is_author                       = is_author();
+		$get_the_author_meta_description = trim( get_the_author_meta( 'description' ) );
 
 		if ( ! empty( $get_the_archive_description ) ) {
 			$description = get_the_archive_description();
