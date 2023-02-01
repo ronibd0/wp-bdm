@@ -15,7 +15,6 @@
 		'#ast-scroll-top',
 		'px'
 	);
-	astra_css( 'astra-settings[scroll-to-top-icon-radius]', 'border-radius', '#ast-scroll-top', 'px' );
 	astra_css( 'astra-settings[scroll-to-top-icon-color]', 'color', '#ast-scroll-top' );
 	astra_css( 'astra-settings[scroll-to-top-icon-bg-color]', 'background-color', '#ast-scroll-top' );
 	astra_css( 'astra-settings[scroll-to-top-icon-h-color]', 'color', '#ast-scroll-top:hover' );

@@ -1030,134 +1030,134 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	$defaults['header-woo-cart-icon-hover-color']           = '';
 	$defaults['woo-header-cart-border-width']               = 2;
 	$woo_header_cart_border_radius                          = ! isset( $astra_options['woo-header-cart-icon-radius-fields'] ) && isset( $astra_options['woo-header-cart-icon-radius'] ) ? $astra_options['woo-header-cart-icon-radius'] : '';
-			$defaults['woo-header-cart-icon-radius-fields'] = array(
-				'desktop'      => array(
-					'top'    => $woo_header_cart_border_radius,
-					'right'  => $woo_header_cart_border_radius,
-					'bottom' => $woo_header_cart_border_radius,
-					'left'   => $woo_header_cart_border_radius,
-				),
-				'tablet'       => array(
-					'top'    => '',
-					'right'  => '',
-					'bottom' => '',
-					'left'   => '',
-				),
-				'mobile'       => array(
-					'top'    => '',
-					'right'  => '',
-					'bottom' => '',
-					'left'   => '',
-				),
-				'desktop-unit' => 'px',
-				'tablet-unit'  => 'px',
-				'mobile-unit'  => 'px',
-			);
-			$defaults['woo-header-cart-badge-display']      = true;
-			// Woo Cart - Dynamic label default value.
-			$defaults['woo-header-cart-label-display'] = '';
+	$defaults['woo-header-cart-icon-radius-fields'] = array(
+		'desktop'      => array(
+			'top'    => $woo_header_cart_border_radius,
+			'right'  => $woo_header_cart_border_radius,
+			'bottom' => $woo_header_cart_border_radius,
+			'left'   => $woo_header_cart_border_radius,
+		),
+		'tablet'       => array(
+			'top'    => '',
+			'right'  => '',
+			'bottom' => '',
+			'left'   => '',
+		),
+		'mobile'       => array(
+			'top'    => '',
+			'right'  => '',
+			'bottom' => '',
+			'left'   => '',
+		),
+		'desktop-unit' => 'px',
+		'tablet-unit'  => 'px',
+		'mobile-unit'  => 'px',
+	);
+	$defaults['woo-header-cart-badge-display']      = true;
+	// Woo Cart - Dynamic label default value.
+	$defaults['woo-header-cart-label-display'] = '';
 
-			// Cart tray > General Color styles.
-			$defaults['header-woo-cart-text-color']             = '';
-			$defaults['header-woo-cart-link-color']             = '';
-			$defaults['header-woo-cart-background-color']       = array(
-				'desktop' => '',
-				'tablet'  => '',
-				'mobile'  => '',
-			);
-			$defaults['header-woo-cart-background-hover-color'] = array(
-				'desktop' => '',
-				'tablet'  => '',
-				'mobile'  => '',
-			);
-			$defaults['header-woo-cart-separator-color']        = '';
-			$defaults['header-woo-cart-link-hover-color']       = '';
+	// Cart tray > General Color styles.
+	$defaults['header-woo-cart-text-color']             = '';
+	$defaults['header-woo-cart-link-color']             = '';
+	$defaults['header-woo-cart-background-color']       = array(
+		'desktop' => '',
+		'tablet'  => '',
+		'mobile'  => '',
+	);
+	$defaults['header-woo-cart-background-hover-color'] = array(
+		'desktop' => '',
+		'tablet'  => '',
+		'mobile'  => '',
+	);
+	$defaults['header-woo-cart-separator-color']        = '';
+	$defaults['header-woo-cart-link-hover-color']       = '';
 
-			// Cart tray > Cart Button styles.
-			$defaults['header-woo-cart-btn-text-color']       = '';
-			$defaults['header-woo-cart-btn-background-color'] = '';
-			$defaults['header-woo-cart-btn-text-hover-color'] = '';
-			$defaults['header-woo-cart-btn-bg-hover-color']   = '';
+	// Cart tray > Cart Button styles.
+	$defaults['header-woo-cart-btn-text-color']       = '';
+	$defaults['header-woo-cart-btn-background-color'] = '';
+	$defaults['header-woo-cart-btn-text-hover-color'] = '';
+	$defaults['header-woo-cart-btn-bg-hover-color']   = '';
 
-			// Cart tray > Checkout Button styles.
-			$defaults['header-woo-checkout-btn-text-color']       = '';
-			$defaults['header-woo-checkout-btn-background-color'] = '';
-			$defaults['header-woo-checkout-btn-text-hover-color'] = '';
-			$defaults['header-woo-checkout-btn-bg-hover-color']   = '';
+	// Cart tray > Checkout Button styles.
+	$defaults['header-woo-checkout-btn-text-color']       = '';
+	$defaults['header-woo-checkout-btn-background-color'] = '';
+	$defaults['header-woo-checkout-btn-text-hover-color'] = '';
+	$defaults['header-woo-checkout-btn-bg-hover-color']   = '';
 
-			/**
-			 * EDD-Cart.
-			*/
-			$defaults['edd-header-cart-icon-style']             = 'outline';
-			$defaults['edd-header-cart-icon-color']             = '';
-			$defaults['edd-header-cart-icon-radius']            = 3;
-			$defaults['transparent-header-edd-cart-icon-color'] = '';
-			$defaults['edd-header-cart-total-display']          = true;
-			$defaults['edd-header-cart-title-display']          = true;
+	/**
+	 * EDD-Cart.
+	*/
+	$defaults['edd-header-cart-icon-style']             = 'outline';
+	$defaults['edd-header-cart-icon-color']             = '';
+	$defaults['edd-header-cart-icon-radius']            = 3;
+	$defaults['transparent-header-edd-cart-icon-color'] = '';
+	$defaults['edd-header-cart-total-display']          = true;
+	$defaults['edd-header-cart-title-display']          = true;
 
-			// Cart tray > General Color styles.
-			$defaults['header-edd-cart-text-color']       = '';
-			$defaults['header-edd-cart-link-color']       = '';
-			$defaults['header-edd-cart-background-color'] = '';
-			$defaults['header-edd-cart-separator-color']  = '';
+	// Cart tray > General Color styles.
+	$defaults['header-edd-cart-text-color']       = '';
+	$defaults['header-edd-cart-link-color']       = '';
+	$defaults['header-edd-cart-background-color'] = '';
+	$defaults['header-edd-cart-separator-color']  = '';
 
-			// Cart tray > Checkout Button styles.
-			$defaults['header-edd-checkout-btn-text-color']       = '';
-			$defaults['header-edd-checkout-btn-background-color'] = '';
-			$defaults['header-edd-checkout-btn-text-hover-color'] = '';
-			$defaults['header-edd-checkout-btn-bg-hover-color']   = '';
+	// Cart tray > Checkout Button styles.
+	$defaults['header-edd-checkout-btn-text-color']       = '';
+	$defaults['header-edd-checkout-btn-background-color'] = '';
+	$defaults['header-edd-checkout-btn-text-hover-color'] = '';
+	$defaults['header-edd-checkout-btn-bg-hover-color']   = '';
 
-			/**
-			 * Account element.
-			*/
-			$defaults['header-account-type']            = 'default';
-			$defaults['header-account-login-style']     = 'icon';
-			$defaults['header-account-action-type']     = 'link';
-			$defaults['header-account-link-type']       = 'default';
-			$defaults['header-account-logout-style']    = 'icon';
-			$defaults['header-account-logged-out-text'] = __( 'Log In', 'astra' );
-			$defaults['header-account-logged-in-text']  = __( 'My Account', 'astra' );
-			$defaults['header-account-logout-action']   = 'link';
-			$defaults['header-account-image-width']     = array(
-				'desktop' => '40',
-				'tablet'  => '',
-				'mobile'  => '',
-			);
-			$defaults['header-account-icon-size']       = array(
-				'desktop' => 18,
-				'tablet'  => 18,
-				'mobile'  => 18,
-			);
+	/**
+	 * Account element.
+	*/
+	$defaults['header-account-type']            = 'default';
+	$defaults['header-account-login-style']     = 'icon';
+	$defaults['header-account-action-type']     = 'link';
+	$defaults['header-account-link-type']       = 'default';
+	$defaults['header-account-logout-style']    = 'icon';
+	$defaults['header-account-logged-out-text'] = __( 'Log In', 'astra' );
+	$defaults['header-account-logged-in-text']  = __( 'My Account', 'astra' );
+	$defaults['header-account-logout-action']   = 'link';
+	$defaults['header-account-image-width']     = array(
+		'desktop' => '40',
+		'tablet'  => '',
+		'mobile'  => '',
+	);
+	$defaults['header-account-icon-size']       = array(
+		'desktop' => 18,
+		'tablet'  => 18,
+		'mobile'  => 18,
+	);
 
-			$defaults['header-account-icon-color'] = '';
+	$defaults['header-account-icon-color'] = '';
 
-			$defaults['header-account-login-link'] = array(
-				'url'      => '',
-				'new_tab'  => false,
-				'link_rel' => '',
-			);
+	$defaults['header-account-login-link'] = array(
+		'url'      => '',
+		'new_tab'  => false,
+		'link_rel' => '',
+	);
 
-			$defaults['header-account-logout-link'] = array(
-				'url'      => esc_url( wp_login_url() ),
-				'new_tab'  => false,
-				'link_rel' => '',
-			);
+	$defaults['header-account-logout-link'] = array(
+		'url'      => esc_url( wp_login_url() ),
+		'new_tab'  => false,
+		'link_rel' => '',
+	);
 
-			$defaults['font-size-section-header-account'] = array(
-				'desktop'      => '',
-				'tablet'       => '',
-				'mobile'       => '',
-				'desktop-unit' => 'px',
-				'tablet-unit'  => 'px',
-				'mobile-unit'  => 'px',
-			);
+	$defaults['font-size-section-header-account'] = array(
+		'desktop'      => '',
+		'tablet'       => '',
+		'mobile'       => '',
+		'desktop-unit' => 'px',
+		'tablet-unit'  => 'px',
+		'mobile-unit'  => 'px',
+	);
 
-			$defaults['header-account-type-text-color'] = '';
-			$defaults['header-account-woo-menu']        = false;
+	$defaults['header-account-type-text-color'] = '';
+	$defaults['header-account-woo-menu']        = false;
 
-			$defaults['cloned-component-track'] = Astra_Builder_Helper::$component_count_array;
+	$defaults['cloned-component-track'] = Astra_Builder_Helper::$component_count_array;
 
-			return $defaults;
+	return $defaults;
 }
 
 /**
