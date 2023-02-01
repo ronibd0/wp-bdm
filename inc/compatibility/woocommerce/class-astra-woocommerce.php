@@ -331,7 +331,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			/** @psalm-suppress UndefinedFunction  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			if ( ( ! is_singular( 'product' ) && astra_is_shop_page_modern_style() ) ) {
 				/** @psalm-suppress UndefinedFunction  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-				return;
+				return $markup;
 			}
 
 			return $this->get_sale_flash_markup( 'default', $product );
@@ -409,7 +409,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			if ( astra_get_option( 'single-product-enable-shipping' ) ) {
 				$shipping_text = astra_get_option( 'single-product-shipping-text', false );
 				if ( false !== $shipping_text ) {
-					echo ' <span class="ast-shipping-text">' . esc_attr( $shipping_text ) . '</span>';
+					echo ' <span class="ast-shipping-text">' . esc_html( $shipping_text ) . '</span>';
 				}
 			}
 		}
@@ -3447,7 +3447,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 												if ( isset( $single['image'] ) && $single['image'] ) {
 													?>
 															<li class="ast-custom-payment">
-																<img src="<?php echo esc_attr( $single['image'] ); ?>" />
+																<img src="<?php echo esc_url( $single['image'] ); ?>" />
 												</li>
 														<?php
 												}

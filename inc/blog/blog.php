@@ -354,11 +354,16 @@ function astra_get_last_meta_word( $string ) {
 function astra_get_archive_description( $post_type ) {
 	$description = '';
 	if ( ! is_search() ) {
-		if ( ! empty( get_the_archive_description() ) ) {
+		
+		$get_the_archive_description 			 = get_the_archive_description();
+		$is_author                   		     = is_author();
+		$get_the_author_meta_description         = trim( get_the_author_meta( 'description' ) );
+
+		if ( ! empty( $get_the_archive_description ) ) {
 			$description = get_the_archive_description();
 		}
-		if ( is_author() ) {
-			if ( ! empty( trim( get_the_author_meta( 'description' ) ) ) ) {
+		if ( $is_author ) {
+			if ( ! empty( $get_the_author_meta_description ) ) {
 				$description = get_the_author_meta( 'description' );
 			}
 		}

@@ -40,7 +40,9 @@ function astra_get_dynamic_taxonomy( $control_tax, $loop_count, $separator ) {
 			/** @psalm-suppress PossibleRawObjectIteration */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 
 			/** @psalm-suppress PossiblyInvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-			$term_links[] = '<a href="' . esc_url( get_term_link( $term->slug, $tax_type ) ) . '">' . esc_attr( $term->name ) . '</a>';
+			$get_term_link     = get_term_link( $term->slug, $tax_type );
+			$current_term_link = $get_term_link ? $get_term_link : '';
+			$term_links[]      = '<a href="' . esc_url( $current_term_link ) . '">' . esc_html( $term->name ) . '</a>';
 			/** @psalm-suppress PossiblyInvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 		}
 
@@ -169,8 +171,9 @@ if ( ! function_exists( 'astra_post_date' ) ) {
  * @since 4.0.0
  */
 function astra_post_author_name() {
-	$author_name = '';
-	if ( empty( get_the_author() ) ) {
+	$author_name    = '';
+	$get_the_author = get_the_author();
+	if ( empty( $get_the_author ) ) {
 		/** @psalm-suppress InvalidGlobal */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 		global $post;
 		/** @psalm-suppress InvalidGlobal */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
@@ -240,7 +243,7 @@ if ( ! function_exists( 'astra_post_author' ) ) {
 						)
 					);
 				?>
-				><?php echo astra_post_author_name(); ?></span>
+				><?php echo wp_kses_post( astra_post_author_name() ); ?></span>
 			</a>
 		</span>
 

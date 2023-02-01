@@ -992,13 +992,13 @@ function astra_get_font_extras( $config, $setting, $unit = false ) {
  * Function which will return CSS array for font specific props for further parsing CSS.
  * It includes - font-family, font-weight, font-size, line-height, text-transform, letter-spacing, text-decoration, color (optional).
  *
- * @param string                                  $font_family Font family.
- * @param string                                  $font_weight Font weight.
- * @param array                                   $font_size Font size.
- * @param string                                  $font_extras contains all font controls.
- * @param string                                  $color In most of cases color is also added, so included optional param here.
+ * @param string $font_family Font family.
+ * @param string $font_weight Font weight.
+ * @param array  $font_size Font size.
+ * @param string $font_extras contains all font controls.
+ * @param string $color In most of cases color is also added, so included optional param here.
  *
- * @param array  array of build CSS font settings.
+ * @return array  array of build CSS font settings.
  *
  * @since 4.0.0
  */
