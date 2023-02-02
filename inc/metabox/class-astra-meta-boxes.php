@@ -400,7 +400,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 			foreach ( $post_meta as $key => $data ) {
 
 				// Sanitize values.
-				$sanitize_filter = ( isset( $data['sanitize'] ) ) ? $data['sanitize'] : 'FILTER_DEFAULT';
+				$sanitize_filter = ( isset( $data['sanitize'] ) ) ? $data['sanitize'] : 'FILTER_SANITIZE_STRING';
 
 				switch ( $sanitize_filter ) {
 
@@ -417,7 +417,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 						break;
 
 					default:
-							$meta_value = filter_input( INPUT_POST, $key, FILTER_DEFAULT ); // phpcs:ignore WordPressVIPMinimum.Security.PHPFilterFunctions.RestrictedFilter -- Default filter after all other cases.
+							$meta_value = filter_input( INPUT_POST, $key, FILTER_SANITIZE_STRING );
 						break;
 				}
 
@@ -937,42 +937,42 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 				'astra_meta_box_options',
 				array(
 					'ast-global-header-display'     => array(
-						'sanitize' => 'FILTER_DEFAULT',
+						'sanitize' => 'FILTER_SANITIZE_STRING',
 					),
 					'ast-hfb-above-header-display'  => array(
-						'sanitize' => 'FILTER_DEFAULT',
+						'sanitize' => 'FILTER_SANITIZE_STRING',
 					),
 					'ast-main-header-display'       => array(
-						'sanitize' => 'FILTER_DEFAULT',
+						'sanitize' => 'FILTER_SANITIZE_STRING',
 					),
 					'ast-hfb-below-header-display'  => array(
-						'sanitize' => 'FILTER_DEFAULT',
+						'sanitize' => 'FILTER_SANITIZE_STRING',
 					),
 					'ast-hfb-mobile-header-display' => array(
-						'sanitize' => 'FILTER_DEFAULT',
+						'sanitize' => 'FILTER_SANITIZE_STRING',
 					),
 					'footer-sml-layout'             => array(
-						'sanitize' => 'FILTER_DEFAULT',
+						'sanitize' => 'FILTER_SANITIZE_STRING',
 					),
 					'footer-adv-display'            => array(
-						'sanitize' => 'FILTER_DEFAULT',
+						'sanitize' => 'FILTER_SANITIZE_STRING',
 					),
 					'site-post-title'               => array(
-						'sanitize' => 'FILTER_DEFAULT',
+						'sanitize' => 'FILTER_SANITIZE_STRING',
 					),
 					'site-sidebar-layout'           => array(
 						'default'  => 'default',
-						'sanitize' => 'FILTER_DEFAULT',
+						'sanitize' => 'FILTER_SANITIZE_STRING',
 					),
 					'site-content-layout'           => array(
 						'default'  => 'default',
-						'sanitize' => 'FILTER_DEFAULT',
+						'sanitize' => 'FILTER_SANITIZE_STRING',
 					),
 					'ast-featured-img'              => array(
-						'sanitize' => 'FILTER_DEFAULT',
+						'sanitize' => 'FILTER_SANITIZE_STRING',
 					),
 					'ast-breadcrumbs-content'       => array(
-						'sanitize' => 'FILTER_DEFAULT',
+						'sanitize' => 'FILTER_SANITIZE_STRING',
 					),
 				)
 			);
