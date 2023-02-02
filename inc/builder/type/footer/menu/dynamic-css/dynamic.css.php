@@ -211,7 +211,6 @@ function astra_hb_footer_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered =
 			'justify-content' => $mobile_alignment,
 			'display' => 'flex'
 		),
-
 		'.footer-widget-area[data-section="section-footer-menu"] .astra-footer-mobile-vertical-menu' => array(
 			'display' => 'grid',
 			'justify-content'  => $mobile_alignment
