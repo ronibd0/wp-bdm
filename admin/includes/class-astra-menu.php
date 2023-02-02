@@ -1031,7 +1031,7 @@ class Astra_Menu {
 	 * @since 4.0.0
 	 */
 	public function astra_admin_footer_link() {
-		echo '<span id="footer-thankyou"> Thank you for using <span class="focus:text-astra-hover active:text-astra-hover hover:text-astra-hover"> ' . esc_html( astra_get_theme_name() ) . '.</span></span>';
+		return '<span id="footer-thankyou"> Thank you for using <span class="focus:text-astra-hover active:text-astra-hover hover:text-astra-hover"> ' . esc_html( astra_get_theme_name() ) . '.</span></span>';
 	}
 }
 

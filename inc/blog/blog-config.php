@@ -41,10 +41,8 @@ function astra_get_dynamic_taxonomy( $control_tax, $loop_count, $separator ) {
 
 			
 			$get_term_link     = get_term_link( $term->slug, $tax_type );
-			$current_term_link = $get_term_link ? $get_term_link : '';
-			/** @psalm-suppress PossiblyInvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-			$term_links[] = '<a href="' . esc_url( $current_term_link ) . '">' . esc_html( $term->name ) . '</a>';
-			/** @psalm-suppress PossiblyInvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+			$current_term_link = $get_term_link && is_string( $get_term_link ) ? $get_term_link : '';
+			$term_links[]      = '<a href="' . esc_url( $current_term_link ) . '">' . esc_html( $term->name ) . '</a>';
 		}
 
 		$all_terms  = join( ', ', $term_links );

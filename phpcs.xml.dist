@@ -28,10 +28,6 @@
 		<exclude name="WordPressVIPMinimum.Functions.RestrictedFunctions.get_adjacent_post_get_next_post" /> 
 		<!-- Ignoring WordpressVIP specific functions for now. -->
 		<exclude name="WordPressVIPMinimum.Functions.RestrictedFunctions.get_adjacent_post_get_previous_post" /> 
-		<!-- Creates issue with starter content. -->
-		<exclude name="WordPressVIPMinimum.Security.Mustache.OutputNotation" /> 
-		<!-- Creates issue with scheduled cron. -->
-		<exclude name="WordPressVIPMinimum.Hooks.AlwaysReturnInFilter.MissingReturnStatement" /> 
 	</rule>
 
 	<rule ref="WordPress.Security.EscapeOutput">
