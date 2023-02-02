@@ -2,6 +2,7 @@ v4.1.0 (Unreleased)
 - Fix: Builder - Off-canvas menu - Dropdown menu arrow icon is misplaced in case of toggle for desktop.
 - Fix: Spectra Compatibility - Spectra spacing options for applying custom margin and padding not working.
 - Fix: Content background color does not apply to Author Box in customizer preview.
+- Fix: Cost Calculator Builder - compatibility range slider.
 
 v4.0.2
 - Deprecated: Filter 'astra_single_banner_post_meta' for single post meta markup has been deprecated instead use 'astra_single_post_meta'.
