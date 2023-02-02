@@ -116,8 +116,8 @@ class Astra_API_Init extends WP_REST_Controller {
 	 * @since 4.0.0
 	 * @return void
 	 */
-	public function astra_run_scheduled_docs_job() { 
-		if ( ! wp_next_scheduled( 'astra_get_knowledge_base_data' ) && ! wp_installing() ) { 
+	public function astra_run_scheduled_docs_job() {
+		if ( ! wp_next_scheduled( 'astra_get_knowledge_base_data' ) && ! wp_installing() ) {
 			wp_schedule_event( time(), 'daily', 'astra_get_knowledge_base_data' ); // phpcs:ignore WPThemeReview.PluginTerritory.ForbiddenFunctions.cron_functionality_wp_schedule_event -- Needed for optimizing performance by avoiding data fetch for every reload.
 		}
 	}
