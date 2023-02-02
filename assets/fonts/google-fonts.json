@@ -93,7 +93,18 @@
                 "regular",
                 "500",
                 "600",
-                "700"
+                "700",
+                "800",
+                "900",
+                "100italic",
+                "200italic",
+                "300italic",
+                "italic",
+                "500italic",
+                "600italic",
+                "700italic",
+                "800italic",
+                "900italic"
             ],
             "category": "sans-serif"
         }
@@ -305,6 +316,22 @@
                 "regular"
             ],
             "category": "handwriting"
+        }
+    },
+    {
+        "Alexandria": {
+            "variants": [
+                "100",
+                "200",
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800",
+                "900"
+            ],
+            "category": "sans-serif"
         }
     },
     {
@@ -1045,14 +1072,24 @@
     {
         "Asap": {
             "variants": [
+                "100",
+                "200",
+                "300",
                 "regular",
                 "500",
                 "600",
                 "700",
+                "800",
+                "900",
+                "100italic",
+                "200italic",
+                "300italic",
                 "italic",
                 "500italic",
                 "600italic",
-                "700italic"
+                "700italic",
+                "800italic",
+                "900italic"
             ],
             "category": "sans-serif"
         }
@@ -1060,6 +1097,10 @@
     {
         "Asap Condensed": {
             "variants": [
+                "200",
+                "200italic",
+                "300",
+                "300italic",
                 "regular",
                 "italic",
                 "500",
@@ -1067,7 +1108,11 @@
                 "600",
                 "600italic",
                 "700",
-                "700italic"
+                "700italic",
+                "800",
+                "800italic",
+                "900",
+                "900italic"
             ],
             "category": "sans-serif"
         }
@@ -1310,7 +1355,8 @@
     {
         "BIZ UDMincho": {
             "variants": [
-                "regular"
+                "regular",
+                "700"
             ],
             "category": "serif"
         }
@@ -1327,7 +1373,8 @@
     {
         "BIZ UDPMincho": {
             "variants": [
-                "regular"
+                "regular",
+                "700"
             ],
             "category": "serif"
         }
@@ -2801,16 +2848,51 @@
     {
         "Chivo": {
             "variants": [
+                "100",
+                "200",
                 "300",
-                "300italic",
                 "regular",
-                "italic",
+                "500",
+                "600",
                 "700",
-                "700italic",
+                "800",
                 "900",
+                "100italic",
+                "200italic",
+                "300italic",
+                "italic",
+                "500italic",
+                "600italic",
+                "700italic",
+                "800italic",
                 "900italic"
             ],
             "category": "sans-serif"
+        }
+    },
+    {
+        "Chivo Mono": {
+            "variants": [
+                "100",
+                "200",
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800",
+                "900",
+                "100italic",
+                "200italic",
+                "300italic",
+                "italic",
+                "500italic",
+                "600italic",
+                "700italic",
+                "800italic",
+                "900italic"
+            ],
+            "category": "monospace"
         }
     },
     {
@@ -4221,7 +4303,14 @@
                 "600",
                 "700",
                 "800",
-                "900"
+                "900",
+                "300italic",
+                "italic",
+                "500italic",
+                "600italic",
+                "700italic",
+                "800italic",
+                "900italic"
             ],
             "category": "sans-serif"
         }
@@ -4459,7 +4548,9 @@
                 "300",
                 "regular",
                 "500",
+                "600",
                 "700",
+                "800",
                 "900"
             ],
             "category": "serif"
@@ -5293,6 +5384,31 @@
                 "regular"
             ],
             "category": "handwriting"
+        }
+    },
+    {
+        "Hanken Grotesk": {
+            "variants": [
+                "100",
+                "200",
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800",
+                "900",
+                "100italic",
+                "200italic",
+                "300italic",
+                "italic",
+                "500italic",
+                "600italic",
+                "700italic",
+                "800italic",
+                "900italic"
+            ],
+            "category": "sans-serif"
         }
     },
     {
@@ -7856,6 +7972,21 @@
         }
     },
     {
+        "Martian Mono": {
+            "variants": [
+                "100",
+                "200",
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800"
+            ],
+            "category": "monospace"
+        }
+    },
+    {
         "Marvel": {
             "variants": [
                 "regular",
@@ -10130,6 +10261,14 @@
         }
     },
     {
+        "Noto Sans SignWriting": {
+            "variants": [
+                "regular"
+            ],
+            "category": "sans-serif"
+        }
+    },
+    {
         "Noto Sans Sinhala": {
             "variants": [
                 "100",
@@ -10309,6 +10448,17 @@
         "Noto Sans Tamil Supplement": {
             "variants": [
                 "regular"
+            ],
+            "category": "sans-serif"
+        }
+    },
+    {
+        "Noto Sans Tangsa": {
+            "variants": [
+                "regular",
+                "500",
+                "600",
+                "700"
             ],
             "category": "sans-serif"
         }
@@ -10713,6 +10863,17 @@
         }
     },
     {
+        "Noto Serif Khojki": {
+            "variants": [
+                "regular",
+                "500",
+                "600",
+                "700"
+            ],
+            "category": "serif"
+        }
+    },
+    {
         "Noto Serif Lao": {
             "variants": [
                 "100",
@@ -10756,6 +10917,17 @@
                 "700",
                 "800",
                 "900"
+            ],
+            "category": "serif"
+        }
+    },
+    {
+        "Noto Serif NP Hmong": {
+            "variants": [
+                "regular",
+                "500",
+                "600",
+                "700"
             ],
             "category": "serif"
         }
@@ -10903,6 +11075,17 @@
                 "700",
                 "800",
                 "900"
+            ],
+            "category": "serif"
+        }
+    },
+    {
+        "Noto Serif Toto": {
+            "variants": [
+                "regular",
+                "500",
+                "600",
+                "700"
             ],
             "category": "serif"
         }
@@ -11414,6 +11597,14 @@
                 "700"
             ],
             "category": "sans-serif"
+        }
+    },
+    {
+        "Padyakke Expanded One": {
+            "variants": [
+                "regular"
+            ],
+            "category": "display"
         }
     },
     {
@@ -12767,6 +12958,14 @@
         }
     },
     {
+        "Rubik 80s Fade": {
+            "variants": [
+                "regular"
+            ],
+            "category": "display"
+        }
+    },
+    {
         "Rubik Beastly": {
             "variants": [
                 "regular"
@@ -12800,6 +12999,14 @@
     },
     {
         "Rubik Distressed": {
+            "variants": [
+                "regular"
+            ],
+            "category": "display"
+        }
+    },
+    {
+        "Rubik Gemstones": {
             "variants": [
                 "regular"
             ],
@@ -12864,6 +13071,30 @@
     },
     {
         "Rubik Puddles": {
+            "variants": [
+                "regular"
+            ],
+            "category": "display"
+        }
+    },
+    {
+        "Rubik Spray Paint": {
+            "variants": [
+                "regular"
+            ],
+            "category": "display"
+        }
+    },
+    {
+        "Rubik Storm": {
+            "variants": [
+                "regular"
+            ],
+            "category": "display"
+        }
+    },
+    {
+        "Rubik Vinyl": {
             "variants": [
                 "regular"
             ],
@@ -13642,6 +13873,114 @@
     },
     {
         "Sofia": {
+            "variants": [
+                "regular"
+            ],
+            "category": "handwriting"
+        }
+    },
+    {
+        "Sofia Sans": {
+            "variants": [
+                "100",
+                "200",
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800",
+                "900",
+                "100italic",
+                "200italic",
+                "300italic",
+                "italic",
+                "500italic",
+                "600italic",
+                "700italic",
+                "800italic",
+                "900italic"
+            ],
+            "category": "sans-serif"
+        }
+    },
+    {
+        "Sofia Sans Condensed": {
+            "variants": [
+                "100",
+                "200",
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800",
+                "900",
+                "100italic",
+                "200italic",
+                "300italic",
+                "italic",
+                "500italic",
+                "600italic",
+                "700italic",
+                "800italic",
+                "900italic"
+            ],
+            "category": "sans-serif"
+        }
+    },
+    {
+        "Sofia Sans Extra Condensed": {
+            "variants": [
+                "100",
+                "200",
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800",
+                "900",
+                "100italic",
+                "200italic",
+                "300italic",
+                "italic",
+                "500italic",
+                "600italic",
+                "700italic",
+                "800italic",
+                "900italic"
+            ],
+            "category": "sans-serif"
+        }
+    },
+    {
+        "Sofia Sans Semi Condensed": {
+            "variants": [
+                "100",
+                "200",
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800",
+                "900",
+                "100italic",
+                "200italic",
+                "300italic",
+                "italic",
+                "500italic",
+                "600italic",
+                "700italic",
+                "800italic",
+                "900italic"
+            ],
+            "category": "sans-serif"
+        }
+    },
+    {
+        "Solitreo": {
             "variants": [
                 "regular"
             ],
@@ -14785,6 +15124,21 @@
                 "regular"
             ],
             "category": "serif"
+        }
+    },
+    {
+        "Unbounded": {
+            "variants": [
+                "200",
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800",
+                "900"
+            ],
+            "category": "display"
         }
     },
     {

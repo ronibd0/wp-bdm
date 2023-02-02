@@ -2,7 +2,7 @@
 /**
  * Customizer Settings.
  * Display the customizer settings in the customizer footer.
- * 
+ *
  * @package astra
  */
 
@@ -20,6 +20,17 @@ function bootstrap() {
 			if ( is_customize_preview() ) {
 				add_action( 'wp_footer', __NAMESPACE__ . '\\dump_customizer_settings' );
 			}
+		}
+	);
+
+	add_action(
+		'wp_head',
+		function () {
+			echo '<style id="astra-e2e-custom-css">
+				body a {
+					text-decoration: underline;
+				}
+			</style>';
 		}
 	);
 }

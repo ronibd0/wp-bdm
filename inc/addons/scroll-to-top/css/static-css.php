@@ -4,7 +4,7 @@
  *
  * @package Astra
  *
- * @since x.x.x
+ * @since 4.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -19,7 +19,7 @@ add_filter( 'astra_dynamic_theme_css', 'astra_scroll_to_top_static_css', 11 );
  * @param  string $dynamic_css          Astra Dynamic CSS.
  * @return String Generated dynamic CSS for Scroll to Top.
  *
- * @since x.x.x
+ * @since 4.0.0
  */
 function astra_scroll_to_top_static_css( $dynamic_css ) {
 

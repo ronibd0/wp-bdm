@@ -2,7 +2,7 @@
 /**
  * Scroll To Top Addon
  *
- * @since x.x.x
+ * @since 4.0.0
  * @package Astra
  */
 
@@ -12,7 +12,7 @@ define( 'ASTRA_SCROLL_TO_TOP_URL', ASTRA_THEME_URI . 'inc/addons/scroll-to-top/'
 /**
  * Scroll To Top Initial Setup
  *
- * @since x.x.x
+ * @since 4.0.0
  */
 class Astra_Scroll_To_Top {
 

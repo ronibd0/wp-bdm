@@ -478,7 +478,6 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				/* Max width 762px because below to this point admin-bar height converts to 46px. */
 				$dynamic_css .= astra_parse_css( $admin_bar_responsive_css, '', '782' );
 			}
-
 			return $dynamic_css;
 		}
 
@@ -1614,6 +1613,15 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 				$css_desktop_output = array_merge( $css_desktop_output, $compat_css_desktop );
 			}
+			
+			if ( Astra_Dynamic_CSS::v4_block_editor_compat() ) {
+				$css_desktop_output['.entry-content .woocommerce-message, .entry-content .woocommerce-error, .entry-content .woocommerce-info'] = array(
+					'padding-top'           => '1em',
+					'padding-bottom'        => '1em',
+					'padding-' . $ltr_left  => '3.5em',
+					'padding-' . $ltr_right => '2em',
+				);
+			}
 
 			if ( Astra_Builder_Helper::apply_flex_based_css() ) {
 				$css_desktop_output['.woocommerce[class*="rel-up-columns-"] .site-main div.product .related.products ul.products li.product, .woocommerce-page .site-main ul.products li.product'] = array(
@@ -1624,6 +1632,18 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			if ( is_cart() && false === Astra_Builder_Helper::apply_flex_based_css() && true === astra_get_option( 'cart-modern-layout' ) && true === astra_get_option( 'enable-cart-upsells' ) ) {
 				$css_desktop_output['.woocommerce[class*="rel-up-columns-"] .site-main div.product .related.products ul.products li.product, .woocommerce-page .site-main ul.products li.product'] = array(
 					'width' => '100%',
+				);
+			}
+
+			// Backward compatibility for old users for h2 tag global fonts.
+			if ( apply_filters( 'astra_theme_woocommerce_global_h2_font', astra_get_option( 'woo-global-h2-flag', false ) ) ) {
+				
+				$css_desktop_output['.woocommerce .up-sells h2, .woocommerce .related.products h2, .woocommerce .woocommerce-tabs h2'] = array(
+					'font-size' => '1.5rem',
+				);
+
+				$css_desktop_output['.woocommerce h2, .woocommerce-account h2'] = array(
+					'font-size' => '1.625rem',
 				);
 			}
 
