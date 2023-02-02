@@ -87,7 +87,7 @@ class Astra_API_Init extends WP_REST_Controller {
 		add_action( 'rest_api_init', array( $this, 'register_routes' ) );
 
 		add_action( 'astra_get_knowledge_base_data', array( $this, 'astra_kb_data_scheduler' ) );
-		add_filter( 'init', array( $this, 'astra_run_scheduled_docs_job' ) ); 
+		add_filter( 'init', array( $this, 'astra_run_scheduled_docs_job' ) );
 	}
 
 	/**
