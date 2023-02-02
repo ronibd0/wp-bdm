@@ -138,7 +138,8 @@ class Astra_Menu {
 	 * @since 4.0.0
 	 */
 	public function setup_menu() {
-		global $astra_submenu;
+		global $submenu;
+
 		$capability = 'manage_options';
 
 		if ( ! current_user_can( $capability ) ) {
@@ -196,7 +197,7 @@ class Astra_Menu {
 		}
 
 		// Rename to Home menu.
-		$astra_submenu[ self::$plugin_slug ][0][0] = __( 'Dashboard', 'astra' );
+		$submenu[ self::$plugin_slug ][0][0] = __( 'Dashboard', 'astra' ); // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited -- Required to rename the home menu.
 	}
 
 	/**
