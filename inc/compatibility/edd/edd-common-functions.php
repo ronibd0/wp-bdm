@@ -211,15 +211,14 @@ if ( ! function_exists( 'astra_edd_terms_list' ) ) {
 			<?php 
 				$get_term_link = get_term_link( $term, $taxonomy_name );
 				$term_link     = $get_term_link ? $get_term_link : '';
-
+			?>
+			<?php
 			// @codingStandardsIgnoreStart
-			/**
-			 * @psalm-suppress PossiblyInvalidArgument
-			 */
+			/** @psalm-suppress PossiblyInvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			?>
 			<a href="<?php echo esc_url( $term_link ); ?>" title="<?php echo esc_attr( $term->name ); ?>"> <?php echo esc_html( $term->name ); ?> </a>
-		<?php
-		// @codingStandardsIgnoreEnd
+			<?php // @codingStandardsIgnoreEnd ?>
+			<?php
 		endforeach; 
 		?>
 	</div>
