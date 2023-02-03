@@ -4198,7 +4198,7 @@ span.customize-control-title.ast-group-section-title {
     top: 0;
 }
 .customize-control-ast-sortable .ast-sortable-subfields-wrap .customize-control-title {
-    margin-bottom: 20px;
+    margin-bottom: 16px;
     font-size: 13px;
     margin-top: 3px;
 }
@@ -4271,6 +4271,7 @@ span.customize-control-title.ast-group-section-title {
 .customize-control-ast-list-icons .ahfb-sorter-item-panel-header .dashicons-admin-page {
     margin-right: 0;
 }
+
 .customize-control-ast-text-input textarea {
     display: block;
     width: 100%;
