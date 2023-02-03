@@ -65,6 +65,15 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 		private static $db_options_no_defaults;
 
 		/**
+		 * A static theme astra-options variable.
+		 *
+		 * @since 4.0.2
+		 * @access public
+		 * @var mixed $astra_options
+		 */
+		public static $astra_options = null;
+
+		/**
 		 * Initiator
 		 */
 		public static function get_instance() {
@@ -107,7 +116,7 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 			/**
 			 * Update Astra default color and typography values. To not update directly on existing users site, added backwards.
 			 *
-			 * @since x.x.x
+			 * @since 4.0.0
 			 */
 			$apply_new_default_color_typo_values = Astra_Dynamic_CSS::astra_check_default_color_typo();
 
@@ -580,10 +589,13 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 		 *
 		 * @return array Return array of theme options from database.
 		 *
-		 * @since x.x.x
+		 * @since 4.0.0
 		 */
 		public static function get_astra_options() {
-			return get_option( ASTRA_THEME_SETTINGS );
+			if ( is_null( self::$astra_options ) || is_customize_preview() ) {
+				self::$astra_options = get_option( ASTRA_THEME_SETTINGS );
+			}
+			return self::$astra_options;
 		}
 
 		/**

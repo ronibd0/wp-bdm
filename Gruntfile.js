@@ -12,26 +12,6 @@ module.exports = function (grunt) {
 
     var pkgInfo = grunt.file.readJSON('package.json');
 
-    // Astra Addons.
-    for (var i = 0; i < Astra_theme_Addons.length; i++) {
-
-        sass_dist_files.push({
-            expand: true,
-            cwd: "inc/customizer/custom-controls/" + Astra_theme_Addons[i],
-            src: ["*.scss"],
-            dest: "inc/customizer/custom-controls/assets/css/unminified",
-            ext: ".css",
-        });
-    }
-
-    sass_dist_files.push({
-        expand: true,
-        cwd: "inc/customizer/custom-controls/",
-        src: ["*.scss"],
-        dest: "inc/customizer/custom-controls/assets/css/unminified",
-        ext: ".css",
-    });
-
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
 
@@ -123,6 +103,10 @@ module.exports = function (grunt) {
                         dest: 'inc/metabox/extend-metabox/css/unminified',
                         ext: '-rtl.css'
                     },
+					{
+                        src: 'inc/customizer/custom-controls/assets/css/unminified/custom-controls.css',
+                        dest: 'inc/customizer/custom-controls/assets/css/unminified/custom-controls-rtl.css',
+                    },
                 ]
             }
         },
@@ -136,11 +120,6 @@ module.exports = function (grunt) {
             },
             dist: {
                 files: [
-
-                    /*{
-                    'style.css': 'sass/style.scss'
-                    },*/
-
                     /* Link Pointer Style */
                     {
                         'assets/css/unminified/menu-animation.css': 'sass/site/navigation/menu-animation.scss',
@@ -506,18 +485,13 @@ module.exports = function (grunt) {
                         dest: 'assets/css/minified/customizer-controls.min-rtl.css',
                     },
                     {
-                        src:[
-                            'inc/customizer/custom-controls/assets/css/unminified/*.css',
-                            '!inc/customizer/custom-controls/assets/css/unminified/*-rtl.css',
-                        ],
+                        src: 'inc/customizer/custom-controls/assets/css/unminified/custom-controls.css',
                         dest: 'inc/customizer/custom-controls/assets/css/minified/custom-controls.min.css',
                     },
-
                     {
-                        src: 'inc/customizer/custom-controls/assets/css/unminified/*-rtl.css',
+                        src: 'inc/customizer/custom-controls/assets/css/unminified/custom-controls-rtl.css',
                         dest: 'inc/customizer/custom-controls/assets/css/minified/custom-controls.min-rtl.css',
                     },
-
                     // Generating RTL files from '/unminified/compatibility/' into '/minified/compatibility/'
                     // NOTE: Not possible to generate bulk .min-rtl.css files from '.min.css'
                     {
@@ -754,12 +728,6 @@ module.exports = function (grunt) {
                             'inc/customizer/extend-custom-controls/build/index.js'
                         ],
                         dest: 'inc/customizer/custom-controls/assets/js/unminified/custom-controls.js',
-                    },
-                    {
-                        src: [
-                            'inc/customizer/custom-controls/assets/css/unminified/*-rtl.css',
-                        ],
-                        dest: 'inc/customizer/custom-controls/assets/css/unminified/custom-controls-rtl.css',
                     },
                 ]
             }

@@ -922,7 +922,7 @@ if ( ! function_exists( 'astra_get_the_title' ) ) {
 /**
  * Don't apply direct new layouts to legacy users.
  *
- * @since x.x.x
+ * @since 4.0.0
  * @return boolean false if it is an existing user , true if not.
  */
 function astra_use_dynamic_blog_layouts() {
@@ -934,7 +934,7 @@ function astra_use_dynamic_blog_layouts() {
 /**
  * Get taxonomy archive banner for layout 1.
  *
- * @since x.x.x
+ * @since 4.0.0
  */
 function astra_get_taxonomy_banner_legacy_layout() {
 	?>
@@ -947,7 +947,9 @@ function astra_get_taxonomy_banner_legacy_layout() {
 				switch ( $meta_key ) {
 					case 'archive-title':
 						do_action( 'astra_before_archive_title' );
+						add_filter( 'get_the_archive_title_prefix', '__return_empty_string' );
 						the_archive_title( '<h1 class="page-title ast-archive-title">', '</h1>' );
+						remove_filter( 'get_the_archive_title_prefix', '__return_empty_string' );
 						do_action( 'astra_after_archive_title' );
 						break;
 					case 'archive-breadcrumb':
@@ -1603,7 +1605,7 @@ function astra_load_woocommerce_login_form_password_icon() {
 /**
  * Function to add narrow width properties in the frontend.
  *
- * @since x.x.x
+ * @since 4.0.0
  * @param string $location container layout for single-post, archives, pages, page meta.
  * @param string $narrow_container_max_width  dynamic container width in px.
  * @return string Parsed CSS based on $location and $narrow_container_max_width.

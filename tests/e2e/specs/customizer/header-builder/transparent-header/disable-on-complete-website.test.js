@@ -30,12 +30,9 @@ describe( 'Transparent header in the customizer', () => {
 		await setCustomize( disableOnArchive );
 		await createNewPost( { postType: 'post', title: 'test' } );
 		ppStatus = await publishPost();
-		await page.goto( createURL( '/' ), {
+		await page.goto( createURL( '/author/admin' ), {
 			waitUntil: 'networkidle0',
 		} );
-		await page.click( '#wp-block-search__input-1' );
-		await page.keyboard.type( 'test' );
-		await page.keyboard.press( 'Enter' );
 		await page.waitForSelector( '.ast-primary-header-bar' );
 		const disableSearch = await page.$eval( '.ast-primary-header-bar', ( element ) => element.getAttribute( '.ast-theme-transparent-header #masthead' ) );
 		await expect( disableSearch ).toBeNull( );

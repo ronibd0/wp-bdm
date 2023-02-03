@@ -7,6 +7,7 @@ import { scrollToElement } from '../../../../utils/scroll-to-element';
 describe( 'Scroll to top option under the customizer', () => {
 	it( 'icon size options should apply correctly', async () => {
 		const scrollToTopSize = {
+			'scroll-to-top-enable': true,
 			'scroll-to-top-icon-size': 100,
 		};
 		await setCustomize( scrollToTopSize );
