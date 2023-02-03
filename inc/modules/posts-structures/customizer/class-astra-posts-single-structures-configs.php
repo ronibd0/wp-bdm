@@ -270,7 +270,7 @@ class Astra_Posts_Single_Structures_Configs extends Astra_Customizer_Config_Base
 					'title'         => __( 'Taxonomy', 'astra' ),
 				);
 			}
-			$taxonomy_meta['date'] = array(
+			$meta_config_options['date'] = array(
 				'clone'       => false,
 				'is_parent'   => true,
 				'main_index'  => 'date',
