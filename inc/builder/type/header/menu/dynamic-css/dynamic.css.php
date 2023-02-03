@@ -204,6 +204,13 @@ function astra_hb_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 				'padding-left'   => astra_responsive_spacing( $menu_spacing, 'left', 'tablet' ),
 				'padding-right'  => astra_responsive_spacing( $menu_spacing, 'right', 'tablet' ),
 			),
+			// Sub Menu.
+			$selector . ' .sub-menu, ' . $selector . ' .inline-on-mobile .sub-menu' => array(
+				'border-top-left-radius'     => astra_responsive_spacing( $sub_menu_border_radius_fields, 'top', 'tablet' ),
+				'border-top-right-radius'    => astra_responsive_spacing( $sub_menu_border_radius_fields, 'right', 'tablet' ),
+				'border-bottom-right-radius' => astra_responsive_spacing( $sub_menu_border_radius_fields, 'bottom', 'tablet' ),
+				'border-bottom-left-radius'  => astra_responsive_spacing( $sub_menu_border_radius_fields, 'left', 'tablet' ),
+			),
 			$selector . ' .main-header-menu .menu-item > .menu-link' => array(
 				'color' => $menu_resp_color_tablet,
 			),
@@ -255,6 +262,13 @@ function astra_hb_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 				'padding-bottom' => astra_responsive_spacing( $menu_spacing, 'bottom', 'mobile' ),
 				'padding-left'   => astra_responsive_spacing( $menu_spacing, 'left', 'mobile' ),
 				'padding-right'  => astra_responsive_spacing( $menu_spacing, 'right', 'mobile' ),
+			),
+			// Sub Menu.
+			$selector . ' .sub-menu, ' . $selector . ' .inline-on-mobile .sub-menu' => array(
+				'border-top-left-radius'     => astra_responsive_spacing( $sub_menu_border_radius_fields, 'top', 'mobile' ),
+				'border-top-right-radius'    => astra_responsive_spacing( $sub_menu_border_radius_fields, 'right', 'mobile' ),
+				'border-bottom-right-radius' => astra_responsive_spacing( $sub_menu_border_radius_fields, 'bottom', 'mobile' ),
+				'border-bottom-left-radius'  => astra_responsive_spacing( $sub_menu_border_radius_fields, 'left', 'mobile' ),
 			),
 			$selector . ' .main-header-menu .menu-item > .menu-link' => array(
 				'color' => $menu_resp_color_mobile,
