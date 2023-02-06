@@ -1,4 +1,6 @@
 v4.1.0 (Unreleased)
+- New: Published, last-updated date support for post meta date field.
+- New: Date format option for post meta date field.
 - New: WooCommerce - Sortable support for default payment options on single product page.
 - New: Introduced new filter 'astra_custom_logo_attributes' to add attributes into custom logo.
 - Fix: W3 validation - Builder - Menu - Duplicate IDs for responsive devices.
