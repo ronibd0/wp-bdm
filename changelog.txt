@@ -3,6 +3,7 @@ v4.1.0 (Unreleased)
 - Fix: Builder - Off-canvas menu - Dropdown menu arrow icon is misplaced in case of toggle for desktop.
 - Fix: Content background color does not apply to Author Box in customizer preview.
 - Fix: Cost Calculator Builder - compatibility range slider.
+- Fix: Disable the title from elementor setting is not working as expected.
 - Fix: Footer Menu Alignment issue for responsive devices.
 
 v4.0.2
