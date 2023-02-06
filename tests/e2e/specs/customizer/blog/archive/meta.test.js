@@ -14,15 +14,12 @@ describe( 'Blog archive in the customizer', () => {
 		await setCustomize( blogPostStructure );
 		let ppStatus = false;
 		while ( false === ppStatus ) {
-			await createNewPost( { postType: 'post', title: 'test' } );
+			await createNewPost( { postType: 'post', title: 'Test' } );
 			ppStatus = await publishPost();
 		}
-		await page.goto( createURL( '/' ), {
+		await page.goto( createURL( '/author/admin' ), {
 			waitUntil: 'networkidle0',
 		} );
-		await page.click( '#wp-block-search__input-1' );
-		await page.keyboard.type( 'test' );
-		await page.keyboard.press( 'Enter' );
 
 		await page.waitForSelector( '.entry-meta' );
 		const comments = await page.$eval( '.entry-meta', ( element ) => element.getAttribute( '.comments-link' ) );
