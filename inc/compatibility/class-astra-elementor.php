@@ -87,7 +87,7 @@ if ( ! class_exists( 'Astra_Elementor' ) ) :
 			/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			$edit_mode = get_post_meta( $post_id, '_elementor_edit_mode', true ); 
 
-			if ( $edit_mode && $edit_mode == 'builder' ) { 
+			if ( $edit_mode && $edit_mode === 'builder' ) { 
 				$classes[] = 'ast-header-without-markup';
 			}
 
