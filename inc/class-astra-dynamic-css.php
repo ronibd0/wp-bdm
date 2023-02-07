@@ -4257,7 +4257,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				opacity: .5;
 			}
 
-			.astra-cart-drawer.open-right {
+			.astra-cart-drawer {
 				width: 460px;
 				height: 100%;
 				' . $ltr_left . ': 100%;
@@ -4276,6 +4276,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				padding: 1.34em;
 				line-height: 1;
 				z-index: 1;
+				max-height: 3.5em;
 			}
 
 			.astra-cart-drawer .astra-cart-drawer-header .astra-cart-drawer-title {
