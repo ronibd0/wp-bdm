@@ -555,7 +555,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 						),
 					),
 				),
-				array( 'ast_class' => 'ast-section-spacing' ),
+				array( 'ast_class' => 'ast-section-spacing' )
 			)
 		);
 

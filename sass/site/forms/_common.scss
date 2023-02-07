@@ -15,7 +15,7 @@ textarea {
     border-style: solid;
     border-color: $color-border-input;
     border-radius: 2px;
-    background: #fafafa;
+    background: var(--ast-comment-inputs-background);
     box-shadow: none;
     box-sizing: border-box;
     @include ast-transition();
@@ -54,4 +54,3 @@ textarea {
 input[type="search"]:focus {
 	outline: thin dotted;
 }
-

@@ -334,7 +334,7 @@ if ( ! function_exists( 'astra_get_video_from_post' ) ) {
 /**
  * Get last word of string to get meta-key of custom post structure.
  *
- * @since x.x.x
+ * @since 4.0.0
  * @param string $string from this get last word.
  * @return string $last_word result.
  */
@@ -347,7 +347,7 @@ function astra_get_last_meta_word( $string ) {
 /**
  * Get the current archive description.
  *
- * @since x.x.x
+ * @since 4.0.0
  * @param string $post_type post type.
  * @return string $description Description for archive.
  */
@@ -378,7 +378,7 @@ function astra_get_archive_description( $post_type ) {
 /**
  * Custom single post Title & Meta order display.
  *
- * @since x.x.x
+ * @since 4.0.0
  * @param array $structure archive or single post structure.
  * @return mixed
  */
@@ -445,13 +445,13 @@ function astra_banner_elements_order( $structure = array() ) {
 						'</h1>'
 					);
 				}
-				do_action( 'astra_single_post_banner_title_before' );
+				do_action( 'astra_single_post_banner_title_after' );
 				break;
 
 			case 'single-excerpt':
 				do_action( 'astra_single_post_banner_excerpt_before' );
 				echo '<span>' . get_the_excerpt( $post->ID ) . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-				do_action( 'astra_single_post_banner_excerpt_before' );
+				do_action( 'astra_single_post_banner_excerpt_after' );
 				break;
 
 			case 'single-meta':
@@ -461,11 +461,11 @@ function astra_banner_elements_order( $structure = array() ) {
 				if ( ! empty( $post_meta ) ) {
 					$output_str = astra_get_post_meta( $post_meta );
 					if ( ! empty( $output_str ) ) {
-						$output = apply_filters( 'astra_single_banner_post_meta', '<div class="entry-meta">' . $output_str . '</div>' ); // WPCS: XSS OK.
+						$output = apply_filters( 'astra_single_post_meta', '<div class="entry-meta">' . $output_str . '</div>' ); // WPCS: XSS OK.
 					}
 				}
 				echo $output; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-				do_action( 'astra_single_post_banner_meta_before' );
+				do_action( 'astra_single_post_banner_meta_after' );
 				break;
 
 			case 'single-image':
@@ -480,11 +480,13 @@ function astra_banner_elements_order( $structure = array() ) {
 
 			case 'archive-title':
 				do_action( 'astra_blog_archive_title_before' );
+				add_filter( 'get_the_archive_title_prefix', '__return_empty_string' );
 				if ( 'layout-1' === $layout_type ) {
 					astra_the_post_title( '<h1 class="page-title ast-archive-title">', '</h1>', 0, true );
 				} else {
 					astra_the_post_title( '<h1>', '</h1>', 0, true );
 				}
+				remove_filter( 'get_the_archive_title_prefix', '__return_empty_string' );
 				do_action( 'astra_blog_archive_title_after' );
 				break;
 

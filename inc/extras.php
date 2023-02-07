@@ -371,7 +371,7 @@ add_filter( 'astra_customizer_configurations', 'astra_remove_controls', 99 );
  * @return string The menu item.
  */
 function astra_dropdown_icon_to_menu_link( $title, $item, $args, $depth ) {
-	$role = 'presentation';
+	$role = 'application';
 	$icon = '';
 
 	/**
@@ -418,9 +418,12 @@ function astra_dropdown_icon_to_menu_link( $title, $item, $args, $depth ) {
 		// Assign icons to only those menu which are registered by Astra.
 		$icon = Astra_Icons::get_icons( 'arrow' );
 	}
+	$custom_tabindex  = true === Astra_Builder_Helper::$is_header_footer_builder_active ? 'tabindex="0"' : '';
+	$astra_arrow_icon = ( ! defined( 'ASTRA_EXT_VER' ) && ( true === Astra_Builder_Helper::$is_header_footer_builder_active || Astra_Icons::is_svg_icons() ) ) ? '<span role="' . esc_attr( $role ) . '" class="dropdown-menu-toggle ast-header-navigation-arrow" ' . $custom_tabindex . ' aria-expanded="false" aria-label="' . esc_attr__( 'Menu Toggle', 'astra' ) . '" >' . $icon . '</span>' : '';
+
 	foreach ( $item->classes as $value ) {
 		if ( 'menu-item-has-children' === $value ) {
-			$title = $title . '<span role="' . esc_attr( $role ) . '" class="dropdown-menu-toggle" >' . $icon . '</span>';
+			$title = $title . $astra_arrow_icon;
 		}
 	}
 	if ( 0 < $depth ) {
@@ -429,9 +432,7 @@ function astra_dropdown_icon_to_menu_link( $title, $item, $args, $depth ) {
 	return $title;
 }
 
-if ( Astra_Icons::is_svg_icons() ) {
-	add_filter( 'nav_menu_item_title', 'astra_dropdown_icon_to_menu_link', 10, 4 );
-}
+add_filter( 'nav_menu_item_title', 'astra_dropdown_icon_to_menu_link', 10, 4 );
 
 /**
  * Is theme existing header footer configs enable.
@@ -976,7 +977,7 @@ function astra_showcase_upgrade_notices() {
  * @param string $setting basis on this setting will return.
  * @param mixed  $unit Unit.
  *
- * @since x.x.x
+ * @since 4.0.0
  */
 function astra_get_font_extras( $config, $setting, $unit = false ) {
 	$css = isset( $config[ $setting ] ) ? $config[ $setting ] : '';
@@ -992,15 +993,14 @@ function astra_get_font_extras( $config, $setting, $unit = false ) {
  * Function which will return CSS array for font specific props for further parsing CSS.
  * It includes - font-family, font-weight, font-size, line-height, text-transform, letter-spacing, text-decoration, color (optional).
  *
- * @param string                                  $font_family Font family.
- * @param string                                  $font_weight Font weight.
- * @param array                                   $font_size Font size.
- * @param string                                  $font_extras contains all font controls.
- * @param string                                  $color In most of cases color is also added, so included optional param here.
+ * @param string $font_family Font family.
+ * @param string $font_weight Font weight.
+ * @param array  $font_size Font size.
+ * @param string $font_extras contains all font controls.
+ * @param string $color In most of cases color is also added, so included optional param here.
+ * @return  array  array of build CSS font settings.
  *
- * @param array  array of build CSS font settings.
- *
- * @since x.x.x
+ * @since 4.0.0
  */
 function astra_get_font_array_css( $font_family, $font_weight, $font_size, $font_extras, $color = '' ) {
 	$font_extras_ast_option = astra_get_option(

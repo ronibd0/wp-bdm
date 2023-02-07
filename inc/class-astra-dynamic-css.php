@@ -503,6 +503,8 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'--ast-container-default-sm-padding'  => ( true === $update_customizer_strctural_defaults ) ? '3em' : '6.67em',
 					'--ast-container-default-xs-padding'  => ( true === $update_customizer_strctural_defaults ) ? '2.4em' : '2.4em',
 					'--ast-container-default-xxs-padding' => ( true === $update_customizer_strctural_defaults ) ? '1.8em' : '1.4em',
+					'--ast-code-block-background'         => ( true === self::astra_check_default_color_typo() ) ? '#ECEFF3' : '#EEEEEE',
+					'--ast-comment-inputs-background'     => ( true === self::astra_check_default_color_typo() ) ? '#F9FAFB' : '#FAFAFA',
 				),
 
 				// HTML.
@@ -706,6 +708,29 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				),
 
 			);
+
+			/* Compatibility with cost calculator plugin range slider*/
+			if ( defined( 'CALC_VERSION' ) ) {
+				$css_output['.calc-range-slider input::-webkit-slider-runnable-track'] = array(
+					'height'        => 'auto',
+					'box-shadow'    => 'none',
+					'background'    => 'transparent',
+					'border-radius' => 'none',
+					'border'        => 'none',
+				);
+
+				$css_output['.calc-range-slider input::-moz-range-track'] = array(
+					'height'        => 'auto',
+					'box-shadow'    => 'none',
+					'background'    => 'transparent',
+					'border-radius' => 'none',
+					'border'        => 'none',
+				);
+
+				$css_output['.calc-range-slider input::-webkit-slider-thumb'] = array(
+					'margin-top' => 'auto',
+				);
+			}
 
 			if ( astra_has_global_color_format_support() ) {
 				$css_output['.ast-archive-title'] = array(
@@ -1597,11 +1622,11 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'border-bottom-width' => esc_attr( $theme_btn_bottom_border ),
 						'border-left-width'   => esc_attr( $theme_btn_left_border ),
 					),
-					'.wp-block-button.is-style-outline > .wp-block-button__link:not(.has-text-color), .wp-block-button.wp-block-button__link.is-style-outline:not(.has-text-color)' => array(
+					'div.wp-block-button.is-style-outline > .wp-block-button__link:not(.has-text-color), div.wp-block-button.wp-block-button__link.is-style-outline:not(.has-text-color)' => array(
 						'color' => empty( $btn_border_color ) ? esc_attr( $btn_bg_color ) : esc_attr( $btn_border_color ),
 					),
-					'.wp-block-button.is-style-outline .wp-block-button__link:hover, .wp-block-button.is-style-outline .wp-block-button__link:focus' => array(
-						'color'            => esc_attr( $btn_text_hover_color ) . ' !important',
+					'div.wp-block-button.is-style-outline .wp-block-button__link:hover, div.wp-block-button.is-style-outline .wp-block-button__link:focus, div.wp-block-button.is-style-outline > .wp-block-button__link:not(.has-text-color):hover, div.wp-block-button.wp-block-button__link.is-style-outline:not(.has-text-color):hover' => array(
+						'color'            => esc_attr( $btn_text_hover_color ),
 						'background-color' => esc_attr( $btn_bg_hover_color ),
 						'border-color'     => empty( $btn_border_h_color ) ? esc_attr( $btn_bg_hover_color ) : esc_attr( $btn_border_h_color ),
 					),
@@ -1813,6 +1838,11 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				$default_mobile_layout_css = array(
 					'.ast-comment-formwrap.ast-row' => array(
 						'column-gap' => '10px',
+						'display'    => 'inline-block',
+					),
+					'#ast-commentform .ast-grid-common-col' => array(
+						'position' => 'relative',
+						'width'    => '100%',
 					),
 				);
 
@@ -3711,7 +3741,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'-moz-osx-font-smoothing' => 'grayscale',
 						'z-index'                 => '3',
 					),
-					'.main-header-bar .main-header-bar-navigation .page_item_has_children > a:after, .main-header-bar .main-header-bar-navigation .menu-item-has-children > a:after, .site-header-focus-item .main-header-bar-navigation .menu-item-has-children > .menu-link:after' => array(
+					'.main-header-bar .main-header-bar-navigation .page_item_has_children > a:after, .main-header-bar .main-header-bar-navigation .menu-item-has-children > a:after, .menu-item-has-children .ast-header-navigation-arrow:after' => array(
 						'content'                 => '"\e900"',
 						'display'                 => 'inline-block',
 						'font-family'             => 'Astra',
@@ -3724,6 +3754,11 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'margin-' . $default_left_rtl_right => '10px',
 						'line-height'             => 'normal',
 					),
+
+					'.menu-item-has-children .sub-menu .ast-header-navigation-arrow:after' => array(
+						'margin-left' => '0',
+					),
+
 					'.ast-mobile-popup-drawer .main-header-bar-navigation .ast-submenu-expanded>.ast-menu-toggle::before' => array(
 						'transform' => 'rotateX(180deg)',
 					),
@@ -4065,7 +4100,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		/**
 		 * Block editor experience improvements css introduced with v4.0.0.
 		 *
-		 * @since x.x.x
+		 * @since 4.0.0
 		 * @return boolean false if it is an existing user , true if not.
 		 */
 		public static function v4_block_editor_compat() {
@@ -4266,7 +4301,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				opacity: .5;
 			}
 
-			.astra-cart-drawer.open-right {
+			.astra-cart-drawer {
 				width: 460px;
 				height: 100%;
 				' . $ltr_left . ': 100%;
@@ -4285,6 +4320,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				padding: 1.34em;
 				line-height: 1;
 				z-index: 1;
+				max-height: 3.5em;
 			}
 
 			.astra-cart-drawer .astra-cart-drawer-header .astra-cart-drawer-title {
@@ -4702,7 +4738,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		 * Check is new structural things are updated.
 		 *
 		 * @return bool true|false.
-		 * @since x.x.x
+		 * @since 4.0.0
 		 */
 		public static function astra_check_default_color_typo() {
 			$astra_settings = get_option( ASTRA_THEME_SETTINGS );

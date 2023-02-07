@@ -40,12 +40,12 @@ function astra_get_dynamic_taxonomy( $control_tax, $loop_count, $separator ) {
 			/** @psalm-suppress PossibleRawObjectIteration */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 
 			/** @psalm-suppress PossiblyInvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-			$term_links[] = '<a href="' . esc_url( get_term_link( $term->slug, $tax_type ) ) . '">' . __( $term->name ) . '</a>';
+			$term_links[] = '<a href="' . esc_url( get_term_link( $term->slug, $tax_type ) ) . '">' . esc_attr( $term->name ) . '</a>';
 			/** @psalm-suppress PossiblyInvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 		}
 
 		$all_terms  = join( ', ', $term_links );
-		$output_str = '<span class="ast-terms-link">' . __( $all_terms ) . '</span>';
+		$output_str = '<span class="ast-terms-link">' . $all_terms . '</span>';
 
 		return ( 1 != $loop_count ) ? ' ' . $separator . ' ' . $output_str : $output_str;
 	}
@@ -128,6 +128,44 @@ if ( ! function_exists( 'astra_get_post_meta' ) ) {
 }
 
 /**
+ * Get post format as per new configurations set in customizer.
+ *
+ * @return string HTML markup for date span.
+ * @since x.x.x
+ */
+function astra_get_dynamic_post_format() {
+	$post_type          = strval( get_post_type() );
+	$is_singular        = is_singular() ? true : false;
+	$date_format_option = $is_singular ? astra_get_option( 'ast-dynamic-single-' . esc_attr( $post_type ) . '-date-format', '' ) : astra_get_option( 'blog-meta-date-format', '' );
+	$date_type          = $is_singular ? astra_get_option( 'ast-dynamic-single-' . esc_attr( $post_type ) . '-meta-date-type', 'published' ) : astra_get_option( 'blog-meta-date-type', 'published' );
+	$date_format        = apply_filters( 'astra_post_date_format', ( '' === $date_format_option ) ? get_option( 'date_format' ) : $date_format_option );
+
+	/** @psalm-suppress PossiblyFalseArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+	$published_date = esc_html( get_the_date( $date_format ) );
+	/** @psalm-suppress InvalidScalarArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+	$modified_date = esc_html( get_the_modified_date( $date_format ) );
+	/** @psalm-suppress PossiblyFalseArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+
+	if ( 'updated' === $date_type ) {
+		$class    = 'updated';
+		$itemprop = 'dateModified';
+		$date     = sprintf(
+			esc_html( '%s' ),
+			$modified_date
+		);
+	} else {
+		$class    = 'published';
+		$itemprop = 'datePublished';
+		$date     = sprintf(
+			esc_html( '%s' ),
+			$published_date
+		);
+	}
+
+	return sprintf( '<span class="%1$s" itemprop="%2$s"> %3$s </span>', $class, $itemprop, $date );
+}
+
+/**
  * Function to get Date of Post
  *
  * @since 1.0.0
@@ -141,23 +179,10 @@ if ( ! function_exists( 'astra_post_date' ) ) {
 	 * @return html                Markup.
 	 */
 	function astra_post_date() {
-
-		$output        = '';
-		$format        = apply_filters( 'astra_post_date_format', '' );
-		$time_string   = esc_html( get_the_date( $format ) );
-		$modified_date = esc_html( get_the_modified_date( $format ) );
-		$posted_on     = sprintf(
-			esc_html( '%s' ),
-			$time_string
-		);
-		$modified_on   = sprintf(
-			esc_html( '%s' ),
-			$modified_date
-		);
-		$output       .= '<span class="posted-on">';
-		$output       .= '<span class="published" itemprop="datePublished"> ' . $posted_on . '</span>';
-		$output       .= '<span class="updated" itemprop="dateModified"> ' . $modified_on . '</span>';
-		$output       .= '</span>';
+		$output  = '';
+		$output .= '<span class="posted-on">';
+		$output .= astra_get_dynamic_post_format();
+		$output .= '</span>';
 		return apply_filters( 'astra_post_date', $output );
 	}
 }
@@ -166,7 +191,7 @@ if ( ! function_exists( 'astra_post_date' ) ) {
  * Function to get Author name.
  *
  * @return null|string $author_name Author name.
- * @since x.x.x
+ * @since 4.0.0
  */
 function astra_post_author_name() {
 	$author_name = '';

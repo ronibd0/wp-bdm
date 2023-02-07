@@ -6,7 +6,7 @@
  * @author      Brainstorm Force
  * @copyright   Copyright (c) 2022, Brainstorm Force
  * @link        https://www.brainstormforce.com
- * @since       Astra x.x.x
+ * @since       Astra 4.0.0
  */
 
 // Block direct access to the file.
@@ -22,7 +22,7 @@ if ( ! class_exists( 'Astra_Customizer_Config_Base' ) ) {
 /**
  * Register Posts Strctures Customizer Configurations.
  *
- * @since x.x.x
+ * @since 4.0.0
  */
 class Astra_Posts_Single_Structures_Configs extends Astra_Customizer_Config_Base {
 
@@ -31,7 +31,7 @@ class Astra_Posts_Single_Structures_Configs extends Astra_Customizer_Config_Base
 	 * Compatibility case: Narrow width + dynamic customizer controls.
 	 *
 	 * @param string $post_type On basis of this will decide to hide sidebar control or not.
-	 * @since x.x.x
+	 * @since 4.0.0
 	 */
 	public function get_sidebar_context( $post_type ) {
 		if ( ! in_array( $post_type, Astra_Posts_Structures_Configs::get_narrow_width_exculde_cpts() ) ) {
@@ -67,7 +67,7 @@ class Astra_Posts_Single_Structures_Configs extends Astra_Customizer_Config_Base
 	 * Compatibility case: Narrow width + dynamic customizer controls.
 	 *
 	 * @param string $post_type On basis of this will decide to show narrow-width layout or not.
-	 * @since x.x.x
+	 * @since 4.0.0
 	 */
 	public function get_content_layout_choices( $post_type ) {
 		if ( ! in_array( $post_type, Astra_Posts_Structures_Configs::get_narrow_width_exculde_cpts() ) ) {
@@ -128,7 +128,7 @@ class Astra_Posts_Single_Structures_Configs extends Astra_Customizer_Config_Base
 	 *
 	 * @param string $parent_section Section of dynamic customizer.
 	 * @param string $post_type Post Type.
-	 * @since x.x.x
+	 * @since 4.0.0
 	 *
 	 * @return array Customizer Configurations.
 	 */
@@ -184,7 +184,7 @@ class Astra_Posts_Single_Structures_Configs extends Astra_Customizer_Config_Base
 	 *
 	 * @param Array                $configurations Astra Customizer Configurations.
 	 * @param WP_Customize_Manager $wp_customize instance of WP_Customize_Manager.
-	 * @since x.x.x
+	 * @since 4.0.0
 	 * @return Array Astra Customizer Configurations with updated configurations.
 	 */
 	public function register_configuration( $configurations, $wp_customize ) {
@@ -201,10 +201,18 @@ class Astra_Posts_Single_Structures_Configs extends Astra_Customizer_Config_Base
 			// Filter out taxonomies in index-value format.
 			$taxonomies = array();
 			foreach ( $raw_taxonomies as $index => $value ) {
+				/** @psalm-suppress PossiblyInvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+				$tax_object = get_taxonomy( $value );
+				/** @psalm-suppress PossiblyInvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+
+				// @codingStandardsIgnoreStart
+				$tax_val    = ( is_object( $tax_object ) && ! empty( $tax_object->label ) ) ? $tax_object->label : $value;
+				// @codingStandardsIgnoreEnd
+
 				if ( '' === $index ) {
-					$taxonomies[''] = $value;
+					$taxonomies[''] = $tax_val;
 				} else {
-					$taxonomies[ $value ] = $value;
+					$taxonomies[ $value ] = $tax_val;
 				}
 			}
 			/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
@@ -227,8 +235,8 @@ class Astra_Posts_Single_Structures_Configs extends Astra_Customizer_Config_Base
 				$parent_section = $section;
 			}
 
-			$taxonomy_meta = array();
-			$clone_limit   = 0;
+			$meta_config_options = array();
+			$clone_limit         = 0;
 			/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			if ( count( $taxonomies ) > 1 ) {
 				/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
@@ -237,7 +245,7 @@ class Astra_Posts_Single_Structures_Configs extends Astra_Customizer_Config_Base
 				if ( absint( astra_get_option( $title_section . '-taxonomy-clone-tracker', 1 ) ) === $clone_limit ) {
 					$to_clone = false;
 				}
-				$taxonomy_meta[ $title_section . '-taxonomy' ]   = array(
+				$meta_config_options[ $title_section . '-taxonomy' ]   = array(
 					'clone'         => $to_clone,
 					'is_parent'     => true,
 					'main_index'    => $title_section . '-taxonomy',
@@ -245,7 +253,7 @@ class Astra_Posts_Single_Structures_Configs extends Astra_Customizer_Config_Base
 					'clone_tracker' => ASTRA_THEME_SETTINGS . '[' . $title_section . '-taxonomy-clone-tracker]',
 					'title'         => __( 'Taxonomy', 'astra' ),
 				);
-				$taxonomy_meta[ $title_section . '-taxonomy-1' ] = array(
+				$meta_config_options[ $title_section . '-taxonomy-1' ] = array(
 					'clone'         => $to_clone,
 					'is_parent'     => true,
 					'main_index'    => $title_section . '-taxonomy',
@@ -253,7 +261,7 @@ class Astra_Posts_Single_Structures_Configs extends Astra_Customizer_Config_Base
 					'clone_tracker' => ASTRA_THEME_SETTINGS . '[' . $title_section . '-taxonomy-clone-tracker]',
 					'title'         => __( 'Taxonomy', 'astra' ),
 				);
-				$taxonomy_meta[ $title_section . '-taxonomy-2' ] = array(
+				$meta_config_options[ $title_section . '-taxonomy-2' ] = array(
 					'clone'         => $to_clone,
 					'is_parent'     => true,
 					'main_index'    => $title_section . '-taxonomy',
@@ -261,6 +269,19 @@ class Astra_Posts_Single_Structures_Configs extends Astra_Customizer_Config_Base
 					'clone_tracker' => ASTRA_THEME_SETTINGS . '[' . $title_section . '-taxonomy-clone-tracker]',
 					'title'         => __( 'Taxonomy', 'astra' ),
 				);
+			}
+			$meta_config_options['date'] = array(
+				'clone'       => false,
+				'is_parent'   => true,
+				'main_index'  => 'date',
+				'clone_limit' => 1,
+				'title'       => __( 'Date', 'astra' ),
+			);
+
+			// Display Read Time option in Meta options only when Astra Addon is activated.
+			/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+			if ( defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'blog-pro' ) ) {
+				$meta_config_options['read-time'] = __( 'Read Time', 'astra' );
 			}
 
 			$structure_sub_controls = array();
@@ -520,9 +541,55 @@ class Astra_Posts_Single_Structures_Configs extends Astra_Customizer_Config_Base
 						array(
 							'comments' => __( 'Comments', 'astra' ),
 							'author'   => __( 'Author', 'astra' ),
-							'date'     => __( 'Publish Date', 'astra' ),
 						),
-						$taxonomy_meta
+						$meta_config_options
+					),
+				),
+
+				/**
+				 * Option: Date Meta Type.
+				 */
+				array(
+					'name'       => $title_section . '-meta-date-type',
+					'parent'     => ASTRA_THEME_SETTINGS . '[' . $title_section . '-metadata]',
+					'type'       => 'sub-control',
+					'control'    => 'ast-selector',
+					'section'    => $title_section,
+					'default'    => astra_get_option( $title_section . '-meta-date-type', 'published' ),
+					'priority'   => 1,
+					'linked'     => 'date',
+					'transport'  => 'refresh',
+					'title'      => __( 'Type', 'astra' ),
+					'choices'    => array(
+						'published' => __( 'Published', 'astra' ),
+						'updated'   => __( 'Last Updated', 'astra' ),
+					),
+					'divider'    => array( 'ast_class' => 'ast-top-divider ast-bottom-spacing' ),
+					'responsive' => false,
+					'renderAs'   => 'text',
+				),
+
+				/**
+				 * Date format support for meta field.
+				 */
+				array(
+					'name'       => $title_section . '-date-format',
+					'default'    => astra_get_option( $title_section . '-date-format', '' ),
+					'parent'     => ASTRA_THEME_SETTINGS . '[' . $title_section . '-metadata]',
+					'linked'     => 'date',
+					'type'       => 'sub-control',
+					'control'    => 'ast-select',
+					'section'    => $title_section,
+					'priority'   => 2,
+					'responsive' => false,
+					'renderAs'   => 'text',
+					'title'      => __( 'Format', 'astra' ),
+					'choices'    => array(
+						''       => __( 'Inherit', 'astra' ),
+						'F j, Y' => 'November 6, 2010',
+						'Y-m-d'  => '2010-11-06',
+						'm/d/Y'  => '11/06/2010',
+						'd/m/Y'  => '06/11/2010',
 					),
 				),
 

@@ -233,10 +233,11 @@ pre.wp-block {
 	&.wp-block-preformatted {
 		font-family: "Courier 10 Pitch", Courier, monospace;
 	}
-	&.wp-block-code {
-		font: 16px Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+	code {
+		font-size: 15px;
+		font-family: "Courier 10 Pitch", Courier, monospace;
 	}
-	background: #eee;
+	background: #ECEFF3;
 	overflow: auto;
 	max-width: 100%;
 	padding: 1.6em;
@@ -507,6 +508,15 @@ body {
 				}
 			}
 		}
+	}
+}
+
+.wp-block-table {
+	table {
+		margin-bottom: 1.5em;
+	}
+	figcaption {
+		font-size: 1rem;
 	}
 }
 
