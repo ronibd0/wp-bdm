@@ -40,9 +40,14 @@ function astra_get_dynamic_taxonomy( $control_tax, $loop_count, $separator ) {
 			/** @psalm-suppress PossibleRawObjectIteration */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 
 			
-			$get_term_link     = get_term_link( $term->slug, $tax_type );
-			$current_term_link = $get_term_link && is_string( $get_term_link ) ? $get_term_link : '';
-			$term_links[]      = '<a href="' . esc_url( $current_term_link ) . '">' . esc_html( $term->name ) . '</a>';
+			$term_link = get_term_link( $term->slug, $tax_type );
+
+			// If there was an error, continue to the next term.
+			if ( is_wp_error( $term_link ) ) {
+				continue;
+			}
+
+			$term_links[] = '<a href="' . esc_url( $term_link ) . '">' . esc_html( $term->name ) . '</a>';
 		}
 
 		$all_terms  = join( ', ', $term_links );
