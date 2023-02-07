@@ -1613,7 +1613,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 				$css_desktop_output = array_merge( $css_desktop_output, $compat_css_desktop );
 			}
-			
+
 			if ( Astra_Dynamic_CSS::v4_block_editor_compat() ) {
 				$css_desktop_output['.entry-content .woocommerce-message, .entry-content .woocommerce-error, .entry-content .woocommerce-info'] = array(
 					'padding-top'           => '1em',
@@ -1637,7 +1637,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 			// Backward compatibility for old users for h2 tag global fonts.
 			if ( apply_filters( 'astra_theme_woocommerce_global_h2_font', astra_get_option( 'woo-global-h2-flag', false ) ) ) {
-				
+
 				$css_desktop_output['.woocommerce .up-sells h2, .woocommerce .related.products h2, .woocommerce .woocommerce-tabs h2'] = array(
 					'font-size' => '1.5rem',
 				);
@@ -3268,17 +3268,20 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		 * @since 3.9.0
 		 */
 		public function astra_update_flyout_cart_layout() {
-			if ( WC()->cart->is_empty() ) {
+			if ( WC()->cart->is_empty() && 'flyout' === astra_get_option( 'woo-header-cart-click-action' ) ) {
+				do_action( 'astra_empty_cart_before' );
 				?>
 					<div class="ast-mini-cart-empty">
 						<div class="ast-mini-cart-message">
-							<p class="woocommerce-mini-cart__empty-message"><?php esc_html_e( 'No products in the cart.', 'astra' ); ?></p>
+							<p class="woocommerce-mini-cart__empty-message"><?php echo esc_html( apply_filters( 'astra_mini_cart_empty_msg', __( 'No products in the cart.', 'astra' ) ) ); ?></p>
 						</div>
+						<?php do_action( 'astra_empty_cart_content' ); ?>
 						<div class="woocommerce-mini-cart__buttons">
 							<a href="<?php /** @psalm-suppress PossiblyFalseArgument */  echo esc_url( get_permalink( wc_get_page_id( 'shop' ) ) ); ?>" class="button wc-forward"><?php esc_html_e( 'Continue Shopping', 'astra' ); ?></a> <?php // phpcs:ignore Generic.Commenting.DocComment.MissingShort ?>
 						</div>
 					</div>
 				<?php
+				do_action( 'astra_empty_cart_after' );
 			}
 		}
 
@@ -3655,7 +3658,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		 * @return string yes | no enable / disable cart redirect after add.
 		 * @since x.x.x
 		 */
-		public function option_woocommerce_cart_redirect_after_add( $value ) { 
+		public function option_woocommerce_cart_redirect_after_add( $value ) {
 			$astra_shop_add_to_cart = astra_get_option( 'shop-add-to-cart-action' );
 
 			if ( $astra_shop_add_to_cart && 'default' !== $astra_shop_add_to_cart ) {
