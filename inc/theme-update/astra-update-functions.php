@@ -1012,12 +1012,12 @@ function astra_theme_background_updater_4_0_2() {
 }
 
 /**
- * Handle backward compatibility on version 4.0.3
+ * Handle backward compatibility on version 4.1.0
  *
  * @since x.x.x
  * @return void
  */
-function astra_theme_background_updater_4_0_3() {
+function astra_theme_background_updater_4_1_0() {
 
 	$theme_options = get_option( 'astra-settings', array() );
 
