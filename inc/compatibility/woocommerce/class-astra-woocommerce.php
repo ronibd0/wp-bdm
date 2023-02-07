@@ -154,6 +154,9 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			}
 
 			add_filter( 'render_block_woocommerce/active-filters', array( $this, 'add_active_filter_widget_class' ), 10, 2 );
+
+			add_filter( 'option_woocommerce_enable_ajax_add_to_cart', array( $this, 'option_woocommerce_enable_ajax_add_to_cart' ) );
+			add_filter( 'option_woocommerce_cart_redirect_after_add', array( $this, 'option_woocommerce_cart_redirect_after_add' ) );
 		}
 
 		/**
@@ -846,8 +849,9 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			$defaults['store-notice-background-color'] = '';
 			$defaults['store-notice-position']         = 'top';
 
-			$defaults['shop-archive-width']     = 'default';
-			$defaults['shop-archive-max-width'] = 1200;
+			$defaults['shop-archive-width']      = 'default';
+			$defaults['shop-archive-max-width']  = 1200;
+			$defaults['shop-add-to-cart-action'] = 'default';
 
 			/* Free shipping */
 			$defaults['single-product-tabs-display']          = false;
@@ -1609,7 +1613,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 				$css_desktop_output = array_merge( $css_desktop_output, $compat_css_desktop );
 			}
-			
+
 			if ( Astra_Dynamic_CSS::v4_block_editor_compat() ) {
 				$css_desktop_output['.entry-content .woocommerce-message, .entry-content .woocommerce-error, .entry-content .woocommerce-info'] = array(
 					'padding-top'           => '1em',
@@ -1633,7 +1637,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 			// Backward compatibility for old users for h2 tag global fonts.
 			if ( apply_filters( 'astra_theme_woocommerce_global_h2_font', astra_get_option( 'woo-global-h2-flag', false ) ) ) {
-				
+
 				$css_desktop_output['.woocommerce .up-sells h2, .woocommerce .related.products h2, .woocommerce .woocommerce-tabs h2'] = array(
 					'font-size' => '1.5rem',
 				);
@@ -3630,6 +3634,38 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 					echo '</div>';
 				}
 			}
+		}
+
+		/**
+		 * Enable ajax add to cart for shop page.
+		 *
+		 * @param string $value ajax add to cart value.
+		 * @return string yes | no  enable / disable ajax add to cart.
+		 * @since x.x.x
+		 */
+		public function option_woocommerce_enable_ajax_add_to_cart( $value ) {
+			$astra_shop_add_to_cart = astra_get_option( 'shop-add-to-cart-action' );
+			if ( $astra_shop_add_to_cart && 'default' !== $astra_shop_add_to_cart ) {
+				return 'yes';
+			}
+			return $value;
+		}
+
+		/**
+		 * Enable ajax add to cart redirect.
+		 *
+		 * @param string $value cart redirect after add value.
+		 * @return string yes | no enable / disable cart redirect after add.
+		 * @since x.x.x
+		 */
+		public function option_woocommerce_cart_redirect_after_add( $value ) {
+			$astra_shop_add_to_cart = astra_get_option( 'shop-add-to-cart-action' );
+
+			if ( $astra_shop_add_to_cart && 'default' !== $astra_shop_add_to_cart ) {
+				return 'no';
+			}
+
+			return $value;
 		}
 	}
 
