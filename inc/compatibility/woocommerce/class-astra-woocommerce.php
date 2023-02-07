@@ -3265,16 +3265,19 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		 */
 		public function astra_update_flyout_cart_layout() {
 			if ( WC()->cart->is_empty() && 'flyout' === astra_get_option( 'woo-header-cart-click-action' ) ) {
+				do_action( 'astra_empty_cart_before' );
 				?>
 					<div class="ast-mini-cart-empty">
 						<div class="ast-mini-cart-message">
-							<p class="woocommerce-mini-cart__empty-message"><?php esc_html_e( 'No products in the cart.', 'astra' ); ?></p>
+							<p class="woocommerce-mini-cart__empty-message"><?php echo esc_html( apply_filters( 'astra_mini_cart_empty_msg', __( 'No products in the cart.', 'astra' ) ) ); ?></p>
 						</div>
+						<?php do_action( 'astra_empty_cart_content' ); ?>
 						<div class="woocommerce-mini-cart__buttons">
 							<a href="<?php /** @psalm-suppress PossiblyFalseArgument */  echo esc_url( get_permalink( wc_get_page_id( 'shop' ) ) ); ?>" class="button wc-forward"><?php esc_html_e( 'Continue Shopping', 'astra' ); ?></a> <?php // phpcs:ignore Generic.Commenting.DocComment.MissingShort ?>
 						</div>
 					</div>
 				<?php
+				do_action( 'astra_empty_cart_after' );
 			}
 		}
 
