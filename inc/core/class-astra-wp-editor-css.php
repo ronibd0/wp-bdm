@@ -610,10 +610,6 @@ class Astra_WP_Editor_CSS {
 			'text-decoration' => esc_attr( $site_title_decoration ),
 		);
 
-		$desktop_css['.editor-styles-wrapper .edit-post-visual-editor__post-title-wrapper'] = array(
-			'text-decoration' => esc_attr( $site_text_decoration ),
-		);
-
 		$desktop_css['.editor-styles-wrapper .wp-block-search__input'] = array(
 			'padding'      => '0 10px',
 			'border-color' => esc_attr( $border_color ),

@@ -3510,8 +3510,7 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
   margin: 0 0 1.5em;
 }
 
-.byline,
-.updated:not(.published) {
+.byline {
   display: none;
 }
 

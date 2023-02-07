@@ -66,7 +66,7 @@
 .customize-control-ast-selector .ast-alignment-inner-wrap .components-button {
     border-radius: unset;
     font-size: 12px;
-    padding: 9px 0;
+    padding: 9px 0 10px;
 }
 .customize-control-ast-selector .ast-selector-responsive-wrap.active {
     display: flex;
@@ -1104,7 +1104,7 @@
 }
 .astra-color-picker-wrap {
     position: absolute;
-    z-index: 1;
+    z-index: 2;
 	top: 30px;
     left: 0;
     right: 0;
@@ -1537,6 +1537,7 @@ input[type="text"], input[type="password"], input[type="color"], input[type="dat
   top: 50%;
   right: 40px;
   transform: translateY(-50%);
+  z-index: 1;
 }
 
 .customize-control.customize-control-ast-toggle-control.ast-top-dotted-divider .ast-control-tooltip {
@@ -4198,7 +4199,7 @@ span.customize-control-title.ast-group-section-title {
     top: 0;
 }
 .customize-control-ast-sortable .ast-sortable-subfields-wrap .customize-control-title {
-    margin-bottom: 20px;
+    margin-bottom: 16px;
     font-size: 13px;
     margin-top: 3px;
 }
@@ -4271,6 +4272,7 @@ span.customize-control-title.ast-group-section-title {
 .customize-control-ast-list-icons .ahfb-sorter-item-panel-header .dashicons-admin-page {
     margin-right: 0;
 }
+
 .customize-control-ast-text-input textarea {
     display: block;
     width: 100%;
