@@ -1,4 +1,6 @@
 v4.1.0 (Unreleased)
+- New: Published, last-updated date support for post meta date field.
+- New: Date format option for post meta date field.
 - New: WooCommerce - Sortable support for default payment options on single product page.
 - New: Introduced new filter 'astra_custom_logo_attributes' to add attributes into custom logo.
 - Fix: W3 validation - Builder - Menu - Duplicate IDs for responsive devices.
@@ -8,9 +10,11 @@ v4.1.0 (Unreleased)
 - Fix: Customizer - Global buttons text and background hover color not working in customizer preview.
 - Fix: WordPress 6.1 conflicting with customizer's global outline button styling.
 - Fix: Footer builder - Widgets dynamic CSS gets added multiple times on the frontend.
+- Fix: WooCommerce - Error, info content messages UI breaking on the frontend.
 - Fix: Builder - Off-canvas menu - Dropdown menu arrow icon is misplaced in case of toggle for desktop.
 - Fix: Content background color does not apply to Author Box in customizer preview.
 - Fix: Cost Calculator Builder - compatibility range slider.
+- Fix: Footer Menu Alignment issue for responsive devices.
 
 v4.0.2
 - Deprecated: Filter 'astra_single_banner_post_meta' for single post meta markup has been deprecated instead use 'astra_single_post_meta'.

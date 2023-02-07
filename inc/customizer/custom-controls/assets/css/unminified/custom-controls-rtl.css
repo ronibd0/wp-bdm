@@ -66,7 +66,7 @@
 .customize-control-ast-selector .ast-alignment-inner-wrap .components-button {
     border-radius: unset;
     font-size: 12px;
-    padding: 9px 0;
+    padding: 9px 0 10px;
 }
 .customize-control-ast-selector .ast-selector-responsive-wrap.active {
     display: flex;
@@ -4199,7 +4199,7 @@ span.customize-control-title.ast-group-section-title {
     top: 0;
 }
 .customize-control-ast-sortable .ast-sortable-subfields-wrap .customize-control-title {
-    margin-bottom: 20px;
+    margin-bottom: 16px;
     font-size: 13px;
     margin-top: 3px;
 }
@@ -4272,6 +4272,7 @@ span.customize-control-title.ast-group-section-title {
 .customize-control-ast-list-icons .ahfb-sorter-item-panel-header .dashicons-admin-page {
     margin-left: 0;
 }
+
 .customize-control-ast-text-input textarea {
     display: block;
     width: 100%;
