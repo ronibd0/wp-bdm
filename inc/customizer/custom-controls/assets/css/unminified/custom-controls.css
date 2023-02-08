@@ -4353,7 +4353,7 @@ span.customize-control-title.ast-group-section-title {
 }
 
 .dashicons-editor-help[data-title]{
-	z-index: 10;
+	z-index: 1;
 }
 
 .ast-dashicons-custom-tooltip {
