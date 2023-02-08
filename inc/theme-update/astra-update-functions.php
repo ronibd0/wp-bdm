@@ -1127,6 +1127,7 @@ function astra_theme_background_updater_4_1_0() {
 			foreach ( $post_types as $index => $post_type ) {
 				$theme_options[ 'ast-dynamic-single-' . esc_attr( $post_type ) . '-title-font-extras' ]['text-transform'] = '';
 			}
+			update_option( 'astra-settings', $theme_options );
 		}
 	}
 }
