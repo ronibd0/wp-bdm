@@ -17,15 +17,13 @@ describe( 'Blog Archive option under the customizer', () => {
 		await setCustomize( blogPostTitleFontSize );
 		let ppStatus = false;
 		while ( false === ppStatus ) {
-			await createNewPost( { postType: 'post', title: 'test' } );
+			await createNewPost( { postType: 'post', title: 'Test' } );
 			ppStatus = await publishPost();
 		}
-		await page.goto( createURL( '/' ), {
+		await page.goto( createURL( '/author/admin' ), {
 			waitUntil: 'networkidle0',
 		} );
-		await page.click( '#wp-block-search__input-1' );
-		await page.keyboard.type( 'test' );
-		await page.keyboard.press( 'Enter' );
+
 		await page.waitForSelector( '.entry-title' );
 		await expect( {
 			selector: '.entry-title',
