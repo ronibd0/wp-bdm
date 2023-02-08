@@ -1023,8 +1023,8 @@ function astra_theme_background_updater_4_1_0() {
 
 	if ( ! isset( $theme_options['v4-1-0-update-migration'] ) ) {
 		$theme_options['v4-1-0-update-migration'] = true;
-		$current_payment_list = array();
-		$old_payment_list     = isset( $theme_options['single-product-payment-list']['items'] ) ? $theme_options['single-product-payment-list']['items'] : array();
+		$current_payment_list                     = array();
+		$old_payment_list                         = isset( $theme_options['single-product-payment-list']['items'] ) ? $theme_options['single-product-payment-list']['items'] : array();
 
 		$visa_payment       = isset( $theme_options['single-product-payment-visa'] ) ? $theme_options['single-product-payment-visa'] : '';
 		$mastercard_payment = isset( $theme_options['single-product-payment-mastercard'] ) ? $theme_options['single-product-payment-mastercard'] : '';
@@ -1125,7 +1125,7 @@ function astra_theme_background_updater_4_1_0() {
 		if ( isset( $theme_options['theme-dynamic-customizer-support'] ) ) {
 			$post_types = Astra_Posts_Structure_Loader::get_supported_post_types();
 			foreach ( $post_types as $index => $post_type ) {
-				$theme_options[ 'ast-dynamic-single-' . esc_attr( $post_type ) . '-title-font-extras' ][ 'text-transform' ] = '';
+				$theme_options[ 'ast-dynamic-single-' . esc_attr( $post_type ) . '-title-font-extras' ]['text-transform'] = '';
 			}
 		}
 	}
