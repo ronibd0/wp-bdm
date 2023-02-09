@@ -83,7 +83,7 @@ function astrawpWooQuantityButtons( $quantitySelector ) {
 
             if (objbody.classList.contains('single-product') && !cart.classList.contains('grouped_form')) {
                 let quantityInput = document.querySelector('.woocommerce input[type=number].qty');
-
+                // Check for single product page.
                 if (quantityInput) {
                     quantityInput.addEventListener('keyup', function () {
                         let qtyVal = quantityInput.value;
