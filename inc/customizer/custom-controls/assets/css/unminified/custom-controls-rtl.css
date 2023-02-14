@@ -663,6 +663,10 @@
 	clear: both;
 }
 
+.customize-section-title.is-sticky {
+    z-index: 99;
+}
+
 #customize-control-astra-color-palettes .ast-palette-selection-wrapper {
 	overflow: hidden;
 	padding: 2px;
