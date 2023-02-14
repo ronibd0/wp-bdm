@@ -566,6 +566,7 @@ class Astra_WP_Editor_CSS {
 			'.wp-block-button.is-style-outline > .wp-block-button__link:not(.has-text-color)' => array(
 				'color' => empty( $btn_border_color ) ? esc_attr( $btn_bg_color ) : esc_attr( $btn_border_color ),
 			),
+
 			// Margin bottom same as applied on frontend.
 			'.editor-styles-wrapper .is-root-container.block-editor-block-list__layout > .wp-block-heading' => array(
 				'margin-bottom' => '20px',
