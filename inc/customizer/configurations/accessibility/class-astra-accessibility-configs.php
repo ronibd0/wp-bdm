@@ -41,6 +41,7 @@ class Astra_Accessibility_Configs extends Astra_Customizer_Config_Base {
 				'title'    => __( 'Site Accessibility', 'astra' ),
 				'section'  => 'section-accessibility',
 				'priority' => 1,
+				'divider'  => array( 'ast_class' => 'ast-section-spacing' ),
 			),
 
 			/**
