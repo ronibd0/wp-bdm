@@ -663,7 +663,7 @@
 	clear: both;
 }
 
-.customize-section-title.is-sticky {
+#customize-controls .customize-section-title.is-in-view.is-sticky {
     z-index: 99;
 }
 
@@ -4281,6 +4281,8 @@ span.customize-control-title.ast-group-section-title {
 }
 .customize-control-content {
     width: 100%;
+	display: flex;
+	flex-direction: column;
 }
 
 .ast-sortable-subfields-wrap .ast-fields-wrap {
