@@ -69,7 +69,7 @@ if ( ! class_exists( 'Astra_Single_Typo_Configs' ) ) {
 							'six'   => array(
 								'title' => __( 'Extended spacing options', 'astra' ),
 							),
-							'seven' => array(
+							'eight' => array(
 								'title' => __( 'Social sharing options', 'astra' ),
 							),
 						),
