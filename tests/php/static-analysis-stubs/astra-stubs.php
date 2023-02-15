@@ -2950,9 +2950,10 @@ namespace {
         /**
          * Secondary navigation markup
          *
-         * @param int $index index.
+         * @param int    $index index.
+         * @param string $device device.
          */
-        public static function menu_markup($index)
+        public static function menu_markup($index, $device = 'desktop')
         {
         }
     }
@@ -6697,6 +6698,26 @@ namespace {
         public function single_product_sticky_add_to_cart()
         {
         }
+        /**
+         * Enable ajax add to cart for shop page.
+         *
+         * @param string $value ajax add to cart value.
+         * @return string yes | no  enable / disable ajax add to cart.
+         * @since x.x.x
+         */
+        public function option_woocommerce_enable_ajax_add_to_cart($value)
+        {
+        }
+        /**
+         * Enable ajax add to cart redirect.
+         *
+         * @param string $value cart redirect after add value.
+         * @return string yes | no enable / disable cart redirect after add.
+         * @since x.x.x
+         */
+        public function option_woocommerce_cart_redirect_after_add($value)
+        {
+        }
     }
     /**
      * Customizer Sanitizes Initial setup
@@ -9211,6 +9232,23 @@ namespace {
          * @return string
          */
         public static function google_fonts_url($fonts, $subsets = array())
+        {
+        }
+    }
+    /**
+     * Register Astra Accessibility Configurations.
+     */
+    class Astra_Accessibility_Configs extends \Astra_Customizer_Config_Base
+    {
+        /**
+         * Register Astra Accessibility Configurations.
+         *
+         * @param Array                $configurations Astra Customizer Configurations.
+         * @param WP_Customize_Manager $wp_customize instance of WP_Customize_Manager.
+         * @since x.x.x
+         * @return Array Astra Customizer Configurations with updated configurations.
+         */
+        public function register_configuration($configurations, $wp_customize)
         {
         }
     }
@@ -12897,6 +12935,7 @@ namespace {
      * Define Constants
      */
     \define('ASTRA_THEME_VERSION', '4.0.2');
+    \define('ASTRA_THEME_VERSION', '4.1.0');
     \define('ASTRA_THEME_SETTINGS', 'astra-settings');
     \define('ASTRA_THEME_DIR', \trailingslashit(\get_template_directory()));
     \define('ASTRA_THEME_URI', \trailingslashit(\esc_url(\get_template_directory_uri())));
@@ -12905,7 +12944,7 @@ namespace {
      * Minimum Version requirement of the Astra Pro addon.
      * This constant will be used to display the notice asking user to update the Astra addon to the version defined below.
      */
-    \define('ASTRA_EXT_MIN_VER', '4.0.0');
+    \define('ASTRA_EXT_MIN_VER', '4.1.0');
     /**
      * Astra Get Breadcrumb
      *
@@ -13072,6 +13111,15 @@ namespace {
      * @return string            post meta markup.
      */
     function astra_get_post_meta($post_meta, $separator = '/')
+    {
+    }
+    /**
+     * Get post format as per new configurations set in customizer.
+     *
+     * @return string HTML markup for date span.
+     * @since x.x.x
+     */
+    function astra_get_dynamic_post_format()
     {
     }
     /**
@@ -16089,6 +16137,16 @@ namespace {
     {
     }
     /**
+     * Add custom attribute to custom site logo.
+     *
+     * @param mixed $html custom logo html.
+     * @since x.x.x
+     * @return mixed custom logo html.
+     */
+    function astra_add_custom_logo_attributes($html)
+    {
+    }
+    /**
      * Return or echo site logo markup.
      *
      * @since 2.2.0
@@ -17125,6 +17183,15 @@ namespace {
      * @return void
      */
     function astra_theme_background_updater_4_0_2()
+    {
+    }
+    /**
+     * Handle backward compatibility on version 4.1.0
+     *
+     * @since x.x.x
+     * @return void
+     */
+    function astra_theme_background_updater_4_1_0()
     {
     }
     /**
