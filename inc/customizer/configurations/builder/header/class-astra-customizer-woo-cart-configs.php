@@ -188,7 +188,7 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 				'title'    => __( 'Cart Click', 'astra' ),
 				'priority' => 60,
 				'settings' => array(),
-				'context'  => Astra_Builder_Helper::$general_tab,
+				'context'  => Astra_Builder_Helper::$desktop_general_tab,
 				'divider'  => array( 'ast_class' => 'ast-section-spacing ast-bottom-spacing' ),
 			),
 
