@@ -114,6 +114,10 @@
 	clear: both;
 }
 
+#customize-controls .customize-section-title.is-in-view.is-sticky {
+    z-index: 99;
+}
+
 #customize-control-astra-color-palettes .ast-palette-selection-wrapper {
 	overflow: hidden;
 	padding: 2px;
