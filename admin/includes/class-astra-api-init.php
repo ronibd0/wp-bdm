@@ -87,7 +87,7 @@ class Astra_API_Init extends WP_REST_Controller {
 		add_action( 'rest_api_init', array( $this, 'register_routes' ) );
 
 		add_action( 'astra_get_knowledge_base_data', array( $this, 'astra_kb_data_scheduler' ) );
-		add_filter( 'init', array( $this, 'astra_run_scheduled_docs_job' ) );
+		add_action( 'init', array( $this, 'astra_run_scheduled_docs_job' ) );
 	}
 
 	/**
@@ -116,7 +116,7 @@ class Astra_API_Init extends WP_REST_Controller {
 	 * @since 4.0.0
 	 * @return void
 	 */
-	public function astra_run_scheduled_docs_job() { // phpcs:ignore WordPressVIPMinimum.Hooks.AlwaysReturnInFilter.MissingReturnStatement -- Required to run schedule on init.
+	public function astra_run_scheduled_docs_job() {
 		if ( ! wp_next_scheduled( 'astra_get_knowledge_base_data' ) && ! wp_installing() ) {
 			wp_schedule_event( time(), 'daily', 'astra_get_knowledge_base_data' ); // phpcs:ignore WPThemeReview.PluginTerritory.ForbiddenFunctions.cron_functionality_wp_schedule_event -- Needed for optimizing performance by avoiding data fetch for every reload.
 		}
