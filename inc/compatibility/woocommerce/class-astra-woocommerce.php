@@ -2338,7 +2338,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 			$single_product_cart_button_width_mobile = ( ! empty( $single_product_cart_button_width['mobile'] ) ) ? $single_product_cart_button_width['mobile'] : '';
 
-			$single_cart_button = '.single_add_to_cart_button';
+			$single_cart_button = '.woocommerce div.product form.cart .button.single_add_to_cart_button';
 
 			$css_output_cart_button_width_desktop = array(
 
