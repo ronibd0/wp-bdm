@@ -360,7 +360,7 @@ function astra_get_archive_description( $post_type ) {
 		$get_author_meta         = trim( get_the_author_meta( 'description' ) );
 
 		if ( ! empty( $get_archive_description ) ) {
-			$description = $get_archive_description;
+			$description = get_the_archive_description();
 		}
 		if ( is_author() ) {
 			if ( ! empty( $get_author_meta ) ) {

@@ -417,7 +417,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 						break;
 
 					default:
-							$meta_value = filter_input( INPUT_POST, $key, FILTER_DEFAULT );
+							$meta_value = filter_input( INPUT_POST, $key, FILTER_DEFAULT ); // phpcs:ignore WordPressVIPMinimum.Security.PHPFilterFunctions.RestrictedFilter -- Default filter after all other cases.
 						break;
 				}
 
