@@ -404,8 +404,9 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 
 				switch ( $sanitize_filter ) {
 
+					default:
 					case 'FILTER_SANITIZE_STRING':
-							$meta_value = filter_input( INPUT_POST, $key, FILTER_SANITIZE_STRING );
+							$meta_value = sanitize_text_field( wp_unslash( $key ) );
 						break;
 
 					case 'FILTER_SANITIZE_URL':
@@ -416,8 +417,8 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 							$meta_value = filter_input( INPUT_POST, $key, FILTER_SANITIZE_NUMBER_INT );
 						break;
 
-					default:
-							$meta_value = filter_input( INPUT_POST, $key, FILTER_SANITIZE_STRING );
+					case 'FILTER_DEFAULT':
+							$meta_value = filter_input( INPUT_POST, $key, FILTER_DEFAULT ); // phpcs:ignore WordPressVIPMinimum.Security.PHPFilterFunctions.RestrictedFilter -- Default filter after all other cases, keeping this filter for backward compatibility of PRO options.
 						break;
 				}
 
