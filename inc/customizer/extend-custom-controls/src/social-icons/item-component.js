@@ -12,7 +12,6 @@ let svg_icons = Object.keys( astIcons )
 const ItemComponent = props => {
 
 	const Icons = window.svgIcons;
-	
 	const [state, setState] = useState({
 		open: false,
 	});
