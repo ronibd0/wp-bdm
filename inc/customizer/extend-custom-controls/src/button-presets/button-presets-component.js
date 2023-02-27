@@ -13,6 +13,7 @@ const ButtonPresetsComponent = (props) => {
 
 	const onChangePreset = ( presetKey ) => {
 
+		debugger;
 		const borderRadius = options[ presetKey ][ 'border-radius' ];
 		const btnBackgroundColor = options[ presetKey ][ 'button-bg-color' ];
 		const borderWidth = options[ presetKey ][ 'border-size' ];
@@ -31,6 +32,10 @@ const ButtonPresetsComponent = (props) => {
 		props.customizer
 			.control( 'astra-settings[button-radius-fields]' )
 			.setting.set( borderRadius );
+
+		props.customizer
+			.control( 'astra-settings[button-radius-fields]' )
+			.renderContent();
 
 		// Border size.
 		props.customizer
@@ -83,7 +88,6 @@ const ButtonPresetsComponent = (props) => {
 					dangerouslySetInnerHTML={{
 						__html: window.svgIcons[presetData.src],
 					}}
-					key={key}
 					onClick={() => onChangePreset(key)}
 				></div>
 			);
