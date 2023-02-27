@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import { __ } from "@wordpress/i18n";
-import { useState, useEffect } from "react";
-import {Dashicon} from '@wordpress/components';
+import { useState } from "react";
+import { Dashicon } from '@wordpress/components';
 
 const ButtonPresetsComponent = (props) => {
 	const { title, options } = props.control.params;
@@ -12,7 +12,8 @@ const ButtonPresetsComponent = (props) => {
 	const [state, setState] = value ? useState(value) : useState( defaultValue );
 
 	const onChangePreset = ( presetKey ) => {
-		const borderRadius = options[ presetKey ][ 'border-radius-fields' ];
+
+		const borderRadius = options[ presetKey ][ 'border-radius' ];
 		const btnBackgroundColor = options[ presetKey ][ 'button-bg-color' ];
 		const borderWidth = options[ presetKey ][ 'border-size' ];
 		const padding = options[ presetKey ][ 'button-padding' ];
