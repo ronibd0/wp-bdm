@@ -1323,7 +1323,7 @@
 	/** Modal Popup */
 	.ast-fields-wrap .components-circular-option-picker__option-wrapper .components-circular-option-picker__option:focus::after {
         width: auto;
-        width: auto;
+        height: auto;
 	}
 	.ast-fields-wrap .ast-color-palette .components-circular-option-picker__option-wrapper,
 	.ast-fields-wrap .ast-color-palette .components-circular-option-picker__option-wrapper {
