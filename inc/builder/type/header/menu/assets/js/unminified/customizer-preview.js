@@ -373,7 +373,6 @@ wp.customize( 'astra-settings[header-menu'+ index +'-submenu-border-radius-field
     } );
 } );
 
-console.log("here");
 				// Sub Menu - Top Offset.
 				wp.customize( 'astra-settings[header-menu'+ index +'-submenu-top-offset]', function( value ) {
 					value.bind( function( offset ) {
