@@ -1108,7 +1108,6 @@ p.demo_store[data-position="bottom"],
 
 .woocommerce div.product .woocommerce-tabs ul.tabs li.active a {
   text-shadow: inherit;
-  outline: none;
 }
 
 .woocommerce div.product .woocommerce-tabs ul.tabs li.active::before {
