@@ -53,7 +53,7 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 								'bottom' => 0,
 								'left'   => 0,
 							),
-							'border-radius'    => array(
+							'button-radius-fields'    => array(
 								'desktop'      => array(
 									'top'    => 0,
 									'right'  => 0,
@@ -111,7 +111,7 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 								'bottom' => 0,
 								'left'   => 0,
 							),
-							'border-radius'    => array(
+							'button-radius-fields'    => array(
 								'desktop'      => array(
 									'top'    => 3,
 									'right'  => 3,
@@ -169,7 +169,7 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 								'bottom' => 0,
 								'left'   => 0,
 							),
-							'border-radius'    => array(
+							'button-radius-fields'    => array(
 								'desktop'      => array(
 									'top'    => 30,
 									'right'  => 30,
@@ -227,7 +227,7 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 								'bottom' => 1,
 								'left'   => 1,
 							),
-							'border-radius'    => array(
+							'button-radius-fields'    => array(
 								'desktop'      => array(
 									'top'    => 0,
 									'right'  => 0,
@@ -285,7 +285,7 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 								'bottom' => 1,
 								'left'   => 1,
 							),
-							'border-radius'    => array(
+							'button-radius-fields'    => array(
 								'desktop'      => array(
 									'top'    => 3,
 									'right'  => 3,
@@ -310,7 +310,7 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 							),
 							'button-padding'    => array(
 								'desktop'      => array(
-									'top'    => 20,
+									'top'    => 10,
 									'right'  => 20,
 									'bottom' => 10,
 									'left'   => 20,
@@ -343,7 +343,7 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 								'bottom' => 1,
 								'left'   => 1,
 							),
-							'border-radius'    => array(
+							'button-radius-fields'    => array(
 								'desktop'      => array(
 									'top'    => 3,
 									'right'  => 3,
@@ -820,8 +820,8 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 					 * Option: Button Border Radius
 					 */
 					array(
-						'name'        => 'header-main-rt-trans-section-button-border-radius',
-						'default'     => astra_get_option( 'header-main-rt-trans-section-button-border-radius' ),
+						'name'        => 'header-main-rt-trans-section-button-button-radius-fields',
+						'default'     => astra_get_option( 'header-main-rt-trans-section-button-button-radius-fields' ),
 						'type'        => 'sub-control',
 						'parent'      => ASTRA_THEME_SETTINGS . '[transparent-header-button-border-group]',
 						'section'     => 'section-transparent-header',
