@@ -345,10 +345,10 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 							),
 							'button-radius-fields'    => array(
 								'desktop'      => array(
-									'top'    => 3,
-									'right'  => 3,
-									'bottom' => 3,
-									'left'   => 3,
+									'top'    => 30,
+									'right'  => 30,
+									'bottom' => 30,
+									'left'   => 30,
 								),
 								'tablet'       => array(
 									'top'    => '',

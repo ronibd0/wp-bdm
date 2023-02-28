@@ -27,7 +27,7 @@ const ButtonPresetsComponent = (props) => {
 			.control( 'astra-settings[theme-button-padding]' )
 			.renderContent();
 
-		// Border Radius.
+		// Button Radius.
 		props.customizer
 			.control( 'astra-settings[button-radius-fields]' )
 			.setting.set( buttonRadiusFields );
