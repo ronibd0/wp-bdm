@@ -820,8 +820,8 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 					 * Option: Button Border Radius
 					 */
 					array(
-						'name'        => 'header-main-rt-trans-section-button-button-radius-fields',
-						'default'     => astra_get_option( 'header-main-rt-trans-section-button-button-radius-fields' ),
+						'name'        => 'header-main-rt-trans-section-button-border-radius',
+						'default'     => astra_get_option( 'header-main-rt-trans-section-button-border-radius' ),
 						'type'        => 'sub-control',
 						'parent'      => ASTRA_THEME_SETTINGS . '[transparent-header-button-border-group]',
 						'section'     => 'section-transparent-header',

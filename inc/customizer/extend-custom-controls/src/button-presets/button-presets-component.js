@@ -12,7 +12,7 @@ const ButtonPresetsComponent = (props) => {
 	const [state, setState] = value ? useState(value) : useState( defaultValue );
 
 	const onChangePreset = ( presetKey ) => {
-		debugger;
+
 		const borderRadius = options[ presetKey ][ 'button-radius-fields' ];
 		const btnBackgroundColor = options[ presetKey ][ 'button-bg-color' ];
 		const borderWidth = options[ presetKey ][ 'border-size' ];
