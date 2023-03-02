@@ -53,7 +53,29 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 								'bottom' => 0,
 								'left'   => 0,
 							),
-							'border-radius'     => 0,
+							'button-radius-fields'    => array(
+								'desktop'      => array(
+									'top'    => 0,
+									'right'  => 0,
+									'bottom' => 0,
+									'left'   => 0,
+								),
+								'tablet'       => array(
+									'top'    => '',
+									'right'  => '',
+									'bottom' => '',
+									'left'   => '',
+								),
+								'mobile'       => array(
+									'top'    => '',
+									'right'  => '',
+									'bottom' => '',
+									'left'   => '',
+								),
+								'desktop-unit' => 'px',
+								'tablet-unit'  => 'px',
+								'mobile-unit'  => 'px',
+							),
 							'button-padding'    => array(
 								'desktop'      => array(
 									'top'    => 10,
@@ -89,7 +111,29 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 								'bottom' => 0,
 								'left'   => 0,
 							),
-							'border-radius'     => 3,
+							'button-radius-fields'    => array(
+								'desktop'      => array(
+									'top'    => 3,
+									'right'  => 3,
+									'bottom' => 3,
+									'left'   => 3,
+								),
+								'tablet'       => array(
+									'top'    => '',
+									'right'  => '',
+									'bottom' => '',
+									'left'   => '',
+								),
+								'mobile'       => array(
+									'top'    => '',
+									'right'  => '',
+									'bottom' => '',
+									'left'   => '',
+								),
+								'desktop-unit' => 'px',
+								'tablet-unit'  => 'px',
+								'mobile-unit'  => 'px',
+							),
 							'button-padding'    => array(
 								'desktop'      => array(
 									'top'    => 10,
@@ -125,7 +169,29 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 								'bottom' => 0,
 								'left'   => 0,
 							),
-							'border-radius'     => 30,
+							'button-radius-fields'    => array(
+								'desktop'      => array(
+									'top'    => 30,
+									'right'  => 30,
+									'bottom' => 30,
+									'left'   => 30,
+								),
+								'tablet'       => array(
+									'top'    => '',
+									'right'  => '',
+									'bottom' => '',
+									'left'   => '',
+								),
+								'mobile'       => array(
+									'top'    => '',
+									'right'  => '',
+									'bottom' => '',
+									'left'   => '',
+								),
+								'desktop-unit' => 'px',
+								'tablet-unit'  => 'px',
+								'mobile-unit'  => 'px',
+							),
 							'button-padding'    => array(
 								'desktop'      => array(
 									'top'    => 10,
@@ -161,7 +227,29 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 								'bottom' => 1,
 								'left'   => 1,
 							),
-							'border-radius'     => 0,
+							'button-radius-fields'    => array(
+								'desktop'      => array(
+									'top'    => 0,
+									'right'  => 0,
+									'bottom' => 0,
+									'left'   => 0,
+								),
+								'tablet'       => array(
+									'top'    => '',
+									'right'  => '',
+									'bottom' => '',
+									'left'   => '',
+								),
+								'mobile'       => array(
+									'top'    => '',
+									'right'  => '',
+									'bottom' => '',
+									'left'   => '',
+								),
+								'desktop-unit' => 'px',
+								'tablet-unit'  => 'px',
+								'mobile-unit'  => 'px',
+							),
 							'button-padding'    => array(
 								'desktop'      => array(
 									'top'    => 10,
@@ -197,7 +285,29 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 								'bottom' => 1,
 								'left'   => 1,
 							),
-							'border-radius'     => 3,
+							'button-radius-fields'    => array(
+								'desktop'      => array(
+									'top'    => 3,
+									'right'  => 3,
+									'bottom' => 3,
+									'left'   => 3,
+								),
+								'tablet'       => array(
+									'top'    => '',
+									'right'  => '',
+									'bottom' => '',
+									'left'   => '',
+								),
+								'mobile'       => array(
+									'top'    => '',
+									'right'  => '',
+									'bottom' => '',
+									'left'   => '',
+								),
+								'desktop-unit' => 'px',
+								'tablet-unit'  => 'px',
+								'mobile-unit'  => 'px',
+							),
 							'button-padding'    => array(
 								'desktop'      => array(
 									'top'    => 10,
@@ -233,7 +343,29 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 								'bottom' => 1,
 								'left'   => 1,
 							),
-							'border-radius'     => 30,
+							'button-radius-fields'    => array(
+								'desktop'      => array(
+									'top'    => 30,
+									'right'  => 30,
+									'bottom' => 30,
+									'left'   => 30,
+								),
+								'tablet'       => array(
+									'top'    => '',
+									'right'  => '',
+									'bottom' => '',
+									'left'   => '',
+								),
+								'mobile'       => array(
+									'top'    => '',
+									'right'  => '',
+									'bottom' => '',
+									'left'   => '',
+								),
+								'desktop-unit' => 'px',
+								'tablet-unit'  => 'px',
+								'mobile-unit'  => 'px',
+							),
 							'button-padding'    => array(
 								'desktop'      => array(
 									'top'    => 10,
