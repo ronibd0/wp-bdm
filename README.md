@@ -1,4 +1,4 @@
-# Astra #
+# Bdmeter #
 **Contributors:** [brainstormforce](https://profiles.wordpress.org/brainstormforce/)  
 **License:** GPLv2 or later  
 **License URI:** https://www.gnu.org/licenses/gpl-2.0.html  
@@ -7,35 +7,35 @@
 **Requires PHP:** 5.3  
 **Stable tag:** 4.1.0  
 
-Astra is fast, fully customizable & beautiful WordPress theme suitable for blog, personal portfolio, business website and WooCommerce storefront.
+Bdmeter is fast, fully customizable & beautiful WordPress theme suitable for blog, personal portfolio, business website and WooCommerce storefront.
 
 ## Description ##
 
-Astra is fast, fully customizable & beautiful WordPress theme suitable for blog, personal portfolio, business website and WooCommerce storefront. It is very lightweight (less than 50KB on frontend) and offers unparalleled speed. Built with SEO in mind, Astra comes with Schema.org code integrated and is Native AMP ready so search engines will love your site.
+Bdmeter is fast, fully customizable & beautiful WordPress theme suitable for blog, personal portfolio, business website and WooCommerce storefront. It is very lightweight (less than 50KB on frontend) and offers unparalleled speed. Built with SEO in mind, Bdmeter comes with Schema.org code integrated and is Native AMP ready so search engines will love your site.
 
 It offers special features and templates so it works perfectly with all page builders like Elementor, Beaver Builder, Visual Composer, SiteOrigin, Divi, etc. Some of the other features: # WooCommerce Ready # Responsive # RTL & Translation Ready # Extendible with premium addons # Regularly updated # Designed, Developed, Maintained & Supported by Brainstorm Force.
 
-Looking for a perfect base theme? Look no further. Astra is fast, fully customizable and WooCommerce ready theme that you can use for building any kind of website!
+Looking for a perfect base theme? Look no further. Bdmeter is fast, fully customizable and WooCommerce ready theme that you can use for building any kind of website!
 
 ## Installation ##
 
 ### From within WordPress ###
 1. Visit "Appearance > Themes > Add New"
-2. Search for "Astra"
+2. Search for "Bdmeter"
 3. Install and activate
 
 ## License ##
 
-Astra WordPress Theme, Copyright 2020 WPAstra.
-Astra is distributed under the terms of the GNU GPL.
+Bdmeter WordPress Theme, Copyright 2020 WPBdmeter.
+Bdmeter is distributed under the terms of the GNU GPL.
 
-Astra is based on Underscores https://underscores.me/, (C) 2012-2020 Automattic, Inc.
+Bdmeter is based on Underscores https://underscores.me/, (C) 2012-2020 Automattic, Inc.
 Underscores is distributed under the terms of the GNU GPL v2 or later.
 
 ## Features ##
 
 ### Appearance > Widgets ###
-Astra has up to 4 widget area. 1 in your header, 1 for each sidebar and up to 2 in your footer.
+Bdmeter has up to 4 widget area. 1 in your header, 1 for each sidebar and up to 2 in your footer.
 
 ### Appearance > Customize ###
 	- Site Identity: Hide your site title or tagline, and upload your own header.
@@ -46,17 +46,17 @@ Astra has up to 4 widget area. 1 in your header, 1 for each sidebar and up to 2 
 	- Colors & background: Choose your default background color, body color, theme color and link color.
 	- Typography: Choose your default body font & set default font size to H1 to H6 tags, Site title, tagline & blog post title on archive page and single page.
 
-### ASTRA Child Theme ###
+### Bdmeter Child Theme ###
 
-There are multiple ways you can use a child theme with the Astra Theme, Use any one method mentoned below to create a child theme or use a child theme we have created.
+There are multiple ways you can use a child theme with the Bdmeter Theme, Use any one method mentoned below to create a child theme or use a child theme we have created.
 
-1. Download the child theme from Github - https://github.com/brainstormforce/astra-child/releases/latest/
+1. Download the child theme from Github - https://github.com/ronibd0/bdmeter-child/releases/latest/
 2. More information on creating child theme. - https://developer.wordpress.org/themes/advanced-topics/child-themes/
 
 
 ### Screenshot & WP-Preview Starter Content Licenses ###
 
-Screenshot image is a collage of actual sites created using the Astra WordPress Theme.
+Screenshot image is a collage of actual sites created using the Bdmeter WordPress Theme.
 
 Icons used are all licensed under Massachusetts Institute of Technology ( MIT ) License ( https://heroicons.com )
 
@@ -88,13 +88,13 @@ Licensed under MIT ( https://github.com/jonathantneal/flexibility/blob/master/LI
 
 ### IcoMoon-Free ###
 
-Astra icon font is based on IcoMoon-Free vector icon by Keyamoon.
+Bdmeter icon font is based on IcoMoon-Free vector icon by Keyamoon.
 IcoMoon-Free vector icon destributed under trems of CC BY 4.0 or GPL. (https://creativecommons.org/licenses/by/4.0/ or https://www.gnu.org/licenses/gpl.html)
 Source: http://keyamoon.com/
 
 ### Breadcrumb Trail ###
 
-Astra default breadcrumb is based on Breadcrumb Trail by Justin Tadlock. (https://github.com/justintadlock/breadcrumb-trail)
+Bdmeter default breadcrumb is based on Breadcrumb Trail by Justin Tadlock. (https://github.com/justintadlock/breadcrumb-trail)
 Breadcrumb Trail is distributed under the terms of the GNU GPL v2 or later.
 
 Underscores
@@ -102,5 +102,5 @@ https://underscores.me/, (C) 2012-2020 Automattic, Inc., [GPLv2 or later](https:
 
 ### Webfonts Loader ###
 
-Astra local fonts feature is based on Webfonts Loader by WordPress Themes Team (WPTT). (https://github.com/WPTT/webfont-loader)
+Bdmeter local fonts feature is based on Webfonts Loader by WordPress Themes Team (WPTT). (https://github.com/WPTT/webfont-loader)
 Licensed under MIT ( https://github.com/WPTT/webfont-loader/blob/master/LICENSE )
